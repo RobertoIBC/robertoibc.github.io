@@ -6,7 +6,7 @@
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
-  <title>Ubicaciones — OficinasYA! · +31 centros en toda España</title>
+  <title>Ubicaciones · OficinasYA! · +31 centros en toda España</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
@@ -104,10 +104,15 @@
     .map-tooltip {
       position: absolute; z-index: 20; pointer-events: none;
       background: var(--white); color: var(--dark); border-radius: 12px;
-      padding: 10px 16px; font-size: .8rem; font-weight: 600;
+      padding: 10px 16px 12px; font-size: .8rem; font-weight: 600;
       box-shadow: 0 12px 32px rgba(0,0,0,.25);
       opacity: 0; transform: translate(-50%, -12px); transition: opacity .18s, transform .18s;
-      white-space: nowrap;
+      white-space: nowrap; cursor: pointer;
+    }
+    .map-tooltip.on { pointer-events: auto; }
+    .map-tooltip::after {
+      content: ''; position: absolute; left: 50%; bottom: -14px; width: 20px; height: 14px;
+      transform: translateX(-50%);
     }
     .map-tooltip.on { opacity: 1; transform: translate(-50%, -20px); }
     .map-tooltip .mt-city { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: .92rem; color: var(--dark); }
@@ -128,14 +133,7 @@
 
     /* ── MADRID ── */
     #madrid { background: var(--gray-50); }
-    .madrid-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 56px; }
-    .madrid-intro-text { }
-    .madrid-intro-aside { display: flex; flex-direction: column; gap: 12px; padding: 28px 32px; background: var(--white); border-radius: 18px; border: 1.5px solid var(--gray-200); }
-    .madrid-aside-row { display: flex; align-items: center; justify-content: space-between; }
-    .madrid-aside-label { font-size: .82rem; color: var(--gray-600); font-weight: 500; }
-    .madrid-aside-value { font-family: 'Barlow', sans-serif; font-size: .95rem; font-weight: 800; color: var(--dark); }
-    .madrid-aside-value.orange { color: var(--orange); }
-    .madrid-aside-sep { height: 1px; background: var(--gray-100); }
+    .madrid-intro { margin-bottom: 56px; }
 
     .madrid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; align-items: start; }
 
@@ -167,8 +165,8 @@
     .madrid-card-link:hover { gap: 9px; }
 
     /* Wider card for Salamanca group */
-    .madrid-card.wide { grid-column: span 2; }
-    .madrid-card.wide .madrid-card-img { height: 220px; }
+    .madrid-card.wide { grid-column: span 3; }
+    .madrid-card.wide .madrid-card-img { height: 240px; }
     .madrid-card.wide .madrid-card-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; align-content: start; }
     .madrid-card.wide .madrid-card-name { grid-column: span 2; font-size: 1.3rem; }
     .madrid-card.wide .madrid-card-zone { grid-column: span 2; }
@@ -277,7 +275,6 @@
     @media (max-width: 900px) {
       .row-2-1, .row-1-2 { grid-template-columns: 1fr; }
       .row-3 { grid-template-columns: 1fr 1fr; }
-      .madrid-intro { grid-template-columns: 1fr; gap: 32px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
@@ -495,29 +492,8 @@
     <div class="madrid-intro">
       <div class="rvl">
         <span class="eyebrow">Hub principal</span>
-        <h2 class="stitle">Madrid —<br><span class="hl">7 centros en los mejores barrios</span></h2>
+        <h2 class="stitle">Madrid<br><span class="hl">7 centros en los mejores barrios</span></h2>
         <p class="ssub">Desde el exclusivo Barrio de Salamanca hasta Las Tablas. Siempre a pie de metro, siempre con la mejor imagen para tu empresa.</p>
-      </div>
-      <div class="madrid-intro-aside rv">
-        <div class="madrid-aside-row">
-          <span class="madrid-aside-label">Centros disponibles</span>
-          <span class="madrid-aside-value orange">7 centros</span>
-        </div>
-        <div class="madrid-aside-sep"></div>
-        <div class="madrid-aside-row">
-          <span class="madrid-aside-label">Despachos privados</span>
-          <span class="madrid-aside-value">Sí, todos los centros</span>
-        </div>
-        <div class="madrid-aside-sep"></div>
-        <div class="madrid-aside-row">
-          <span class="madrid-aside-label">Acceso</span>
-          <span class="madrid-aside-value">24/7 con llave propia</span>
-        </div>
-        <div class="madrid-aside-sep"></div>
-        <div class="madrid-aside-row">
-          <span class="madrid-aside-label">Desde</span>
-          <span class="madrid-aside-value orange">15€/hora · 490€/mes</span>
-        </div>
       </div>
     </div>
 
@@ -536,9 +512,9 @@
           <div class="madrid-card-name">Barrio de Salamanca</div>
           <div class="madrid-card-zone">Madrid · Distrito más exclusivo</div>
           <ul class="madrid-card-sublist">
-            <li><strong>Serrano</strong> — La calle más icónica de Madrid</li>
-            <li><strong>Velázquez</strong> — Entre Retiro y Goya</li>
-            <li><strong>Ortega y Gasset</strong> — Zona financiera y de lujo</li>
+            <li><strong>Serrano</strong> · La calle más icónica de Madrid</li>
+            <li><strong>Velázquez</strong> · Entre Retiro y Goya</li>
+            <li><strong>Ortega y Gasset</strong> · Zona financiera y de lujo</li>
           </ul>
           <div class="madrid-card-tags">
             <div class="madrid-tag">Despachos privados</div>
@@ -552,7 +528,7 @@
             <div class="metro-dot m9"></div>
             <div class="metro-dot m6"></div>
             <div class="metro-dot m5"></div>
-            <span style="margin-left:4px">L4 · L5 · L6 · L9 — acceso a pie</span>
+            <span style="margin-left:4px">L4 · L5 · L6 · L9 · acceso a pie</span>
           </div>
           <a href="index.html#contact" class="madrid-card-link">Ver disponibilidad →</a>
         </div>
@@ -577,7 +553,7 @@
           </div>
           <div class="madrid-metro">
             <div class="metro-dot m9"></div>
-            <span>L9 — Cuzco / Bernabéu</span>
+            <span>L9 · Cuzco / Bernabéu</span>
           </div>
           <a href="index.html#contact" class="madrid-card-link">Consultar →</a>
         </div>
@@ -602,7 +578,7 @@
           </div>
           <div class="madrid-metro">
             <div class="metro-dot m10"></div>
-            <span>L10 — Las Tablas</span>
+            <span>L10 · Las Tablas</span>
           </div>
           <a href="index.html#contact" class="madrid-card-link">Consultar →</a>
         </div>
@@ -683,7 +659,7 @@
           <div class="city-photo-card-content">
             <div class="city-photo-region">País Vasco</div>
             <div class="city-photo-name">Bilbao</div>
-            <div class="city-photo-center">Albia · Máximo Aguirre — 2 centros</div>
+            <div class="city-photo-center">Albia · Máximo Aguirre (2 centros)</div>
             <div class="city-photo-tags">
               <div class="city-photo-tag">Despachos</div>
               <div class="city-photo-tag">Salas reuniones</div>
@@ -732,7 +708,7 @@
           <div class="city-photo-card-content">
             <div class="city-photo-region">Cataluña</div>
             <div class="city-photo-name">Barcelona</div>
-            <div class="city-photo-center">Mitre · Pl. Urquinaona · Sant Gervasi — 3 centros</div>
+            <div class="city-photo-center">Mitre · Pl. Urquinaona · Sant Gervasi (3 centros)</div>
             <div class="city-photo-tags">
               <div class="city-photo-tag">Despachos</div>
               <div class="city-photo-tag">Salas reuniones</div>
@@ -770,7 +746,7 @@
 
     <!-- Segovia: 2 centros -->
     <div class="city-photo-section rv">
-      <div class="region-label">Castilla y León — Segovia</div>
+      <div class="region-label">Castilla y León · Segovia</div>
       <div class="city-photo-grid row-2">
         <div id="card-segovia" class="city-photo-card short">
           <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1643454744768-5caab8a62f76?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#373B44,#4286f4)"></div>
@@ -913,7 +889,7 @@
           <div class="city-photo-card-content">
             <div class="city-photo-region">Andalucía</div>
             <div class="city-photo-name">Sevilla</div>
-            <div class="city-photo-center">Sede central · Galia — 2 centros</div>
+            <div class="city-photo-center">Sede central · Galia (2 centros)</div>
             <div class="city-photo-tags">
               <div class="city-photo-tag">Despachos</div>
               <div class="city-photo-tag">Salas reuniones</div>
@@ -944,7 +920,7 @@
 
     <!-- CANARIAS -->
     <div id="card-tenerife" class="city-photo-section rv">
-      <div class="region-label">Islas Canarias — Tenerife</div>
+      <div class="region-label">Islas Canarias · Tenerife</div>
       <div class="city-photo-grid row-2">
         <div class="city-photo-card">
           <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1613333046289-4cd8e6a6270e?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#f12711,#f5af19)"></div>
@@ -1056,9 +1032,14 @@
   const tooltip = document.getElementById('mapTooltip');
   const mapContainer = document.querySelector('.map-container');
 
+  let tooltipHideTimer = null;
+  let tooltipTarget = null;
+
   function showTooltip(el) {
     const city = el.dataset.city, count = el.dataset.count;
     if (!city) return;
+    clearTimeout(tooltipHideTimer);
+    tooltipTarget = el;
     tooltip.querySelector('.mt-city').textContent = city;
     tooltip.querySelector('.mt-count').textContent = '· ' + count;
     const elRect = el.getBoundingClientRect();
@@ -1067,14 +1048,21 @@
     tooltip.style.top = (elRect.top - wrapRect.top) + 'px';
     tooltip.classList.add('on');
   }
-  function hideTooltip() { tooltip.classList.remove('on'); }
+  function scheduleHideTooltip() {
+    clearTimeout(tooltipHideTimer);
+    tooltipHideTimer = setTimeout(() => { tooltip.classList.remove('on'); tooltipTarget = null; }, 150);
+  }
+  function hideTooltip() { clearTimeout(tooltipHideTimer); tooltip.classList.remove('on'); tooltipTarget = null; }
 
   document.querySelectorAll('.city-dot, .tenerife-inset').forEach(el => {
     el.addEventListener('mouseenter', () => showTooltip(el));
-    el.addEventListener('mouseleave', hideTooltip);
+    el.addEventListener('mouseleave', scheduleHideTooltip);
     el.addEventListener('focus', () => showTooltip(el));
-    el.addEventListener('blur', hideTooltip);
+    el.addEventListener('blur', scheduleHideTooltip);
   });
+  tooltip.addEventListener('mouseenter', () => clearTimeout(tooltipHideTimer));
+  tooltip.addEventListener('mouseleave', scheduleHideTooltip);
+  tooltip.addEventListener('click', () => { if (tooltipTarget) tooltipTarget.dispatchEvent(new Event('click')); });
 
   function goToCity(el, targetId) {
     hideTooltip();
