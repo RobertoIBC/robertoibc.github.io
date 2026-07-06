@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ubicaciones — OficinasYA! · +28 centros en toda España</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange:      #F5921A;
+      --orange-dark: #E07810;
+      --orange-pale: #FFF3E0;
+      --dark:        #1C1C1C;
+      --dark-mid:    #2D2D2D;
+      --gray-50:     #FAFAFA;
+      --gray-100:    #F5F5F5;
+      --gray-200:    #E8E8E8;
+      --gray-400:    #A3A3A3;
+      --gray-600:    #525252;
+      --white:       #FFFFFF;
+      --radius:      20px;
+      --ease:        cubic-bezier(.16,1,.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 6%; display: flex; align-items: center; justify-content: space-between; background: rgba(28,28,28,.95); backdrop-filter: blur(12px); transition: all .4s var(--ease); }
+    nav.scrolled { background: var(--white); box-shadow: 0 2px 24px rgba(0,0,0,.09); padding: 14px 6%; }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+    .logo-wordmark { display: flex; align-items: baseline; }
+    .logo-word { font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 1.75rem; letter-spacing: -1px; color: var(--white); transition: color .4s; }
+    nav.scrolled .logo-word { color: var(--dark); }
+    .logo-ya { font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 1.75rem; letter-spacing: -1px; color: var(--orange); }
+    .logo-sub { font-size: .62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.45); transition: color .4s; padding-left: 1px; }
+    nav.scrolled .logo-sub { color: var(--gray-400); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .88rem; font-weight: 600; transition: color .3s; }
+    nav.scrolled .nav-links a { color: var(--gray-600); }
+    .nav-links a:hover { color: var(--orange) !important; }
+    .nav-links a.active { color: var(--orange) !important; }
+    .nav-cta { background: var(--orange); color: var(--white); padding: 11px 26px; border-radius: 50px; font-weight: 700; font-size: .88rem; text-decoration: none; transition: background .3s, transform .3s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+    /* ── HERO ── */
+    .page-hero { background: var(--dark); padding: 150px 6% 90px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.12) 0%, transparent 65%); pointer-events: none; }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; opacity: 0; animation: up .6s .1s var(--ease) forwards; }
+    .breadcrumb a { color: rgba(255,255,255,.35); font-size: .8rem; font-weight: 600; text-decoration: none; transition: color .3s; }
+    .breadcrumb a:hover { color: var(--orange); }
+    .breadcrumb-sep { color: rgba(255,255,255,.2); font-size: .8rem; }
+    .breadcrumb-current { color: var(--orange); font-size: .8rem; font-weight: 700; }
+    .page-hero-title { font-family: 'Barlow', sans-serif; font-size: clamp(3rem, 7vw, 5.8rem); font-weight: 900; line-height: .92; color: var(--white); letter-spacing: -2px; margin-bottom: 24px; opacity: 0; animation: up .8s .25s var(--ease) forwards; }
+    .page-hero-title .hl { color: var(--orange); }
+    .page-hero-sub { color: rgba(255,255,255,.6); font-size: 1.1rem; line-height: 1.7; max-width: 560px; margin-bottom: 52px; opacity: 0; animation: up .8s .4s var(--ease) forwards; }
+    .hero-stats-row { display: flex; gap: 40px; flex-wrap: wrap; opacity: 0; animation: up .8s .55s var(--ease) forwards; }
+    .hero-stat { }
+    .hero-stat-num { font-family: 'Barlow', sans-serif; font-size: 2.2rem; font-weight: 900; color: var(--orange); line-height: 1; display: block; }
+    .hero-stat-lbl { color: rgba(255,255,255,.4); font-size: .78rem; margin-top: 4px; font-weight: 600; letter-spacing: .5px; }
+    @keyframes up { to { opacity: 1; transform: translateY(0); } }
+
+    /* ── SHARED ── */
+    .rv  { opacity: 0; transform: translateY(40px);  transition: opacity .65s var(--ease), transform .65s var(--ease); }
+    .rvl { opacity: 0; transform: translateX(-40px); transition: opacity .65s var(--ease), transform .65s var(--ease); }
+    .rvr { opacity: 0; transform: translateX(40px);  transition: opacity .65s var(--ease), transform .65s var(--ease); }
+    .rv.on, .rvl.on, .rvr.on { opacity: 1; transform: none; }
+    .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+    section { padding: 96px 6%; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: .75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--orange); }
+    .stitle { font-family: 'Barlow', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--dark); }
+    .stitle .hl { color: var(--orange); }
+    .ssub { color: var(--gray-600); font-size: 1.02rem; line-height: 1.75; max-width: 560px; margin-top: 14px; }
+    .max-wrap { max-width: 1200px; margin: 0 auto; }
+
+    /* ── MAP SECTION ── */
+    #mapa { background: #0e0e0e; padding: 96px 6%; }
+    .map-hd { text-align: center; margin-bottom: 56px; }
+    .map-hd .stitle { color: var(--white); margin: 0 auto; }
+    .map-hd .ssub { color: rgba(255,255,255,.4); margin: 14px auto 0; }
+    .map-container { max-width: 820px; margin: 0 auto; position: relative; }
+    .map-svg-wrap { position: relative; width: 100%; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06); border-radius: 20px; overflow: hidden; padding: 16px; }
+    .spain-svg { width: 100%; height: auto; display: block; }
+    .spain-shape { fill: rgba(255,255,255,.06); stroke: rgba(245,146,26,.25); stroke-width: 1.2; }
+    .city-dot { cursor: pointer; }
+    .city-dot circle.dot { fill: var(--orange); filter: drop-shadow(0 0 5px rgba(245,146,26,.5)); transition: r .3s var(--ease), filter .3s; }
+    .city-dot.main circle.dot { animation: pulse-dot 2.5s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{filter:drop-shadow(0 0 5px rgba(245,146,26,.6))} 50%{filter:drop-shadow(0 0 14px rgba(245,146,26,1))} }
+    .city-dot:hover circle.dot { r: 7; filter: drop-shadow(0 0 10px rgba(245,146,26,.9)); }
+    .city-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; fill: rgba(255,255,255,.6); pointer-events: none; }
+    .city-label.main-label { fill: var(--orange); font-weight: 700; font-size: 10px; }
+    .tenerife-inset { position: absolute; bottom: 24px; left: 24px; background: rgba(245,146,26,.1); border: 1px solid rgba(245,146,26,.25); border-radius: 10px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; }
+    .ti-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
+    .ti-text { font-size: .78rem; color: rgba(255,255,255,.65); font-weight: 500; }
+    .ti-count { font-size: .72rem; color: var(--orange); font-weight: 700; }
+    .map-legend { display: flex; gap: 24px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: .78rem; color: rgba(255,255,255,.4); }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); }
+    .net-stats { display: flex; justify-content: center; gap: 56px; margin-top: 48px; flex-wrap: wrap; }
+    .net-stat { text-align: center; }
+    .net-stat-num { font-family: 'Barlow', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--orange); display: block; line-height: 1; }
+    .net-stat-lbl { color: rgba(255,255,255,.35); font-size: .78rem; margin-top: 6px; }
+
+    /* ── MADRID ── */
+    #madrid { background: var(--gray-50); }
+    .madrid-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 56px; }
+    .madrid-intro-text { }
+    .madrid-intro-aside { display: flex; flex-direction: column; gap: 12px; padding: 28px 32px; background: var(--white); border-radius: 18px; border: 1.5px solid var(--gray-200); }
+    .madrid-aside-row { display: flex; align-items: center; justify-content: space-between; }
+    .madrid-aside-label { font-size: .82rem; color: var(--gray-600); font-weight: 500; }
+    .madrid-aside-value { font-family: 'Barlow', sans-serif; font-size: .95rem; font-weight: 800; color: var(--dark); }
+    .madrid-aside-value.orange { color: var(--orange); }
+    .madrid-aside-sep { height: 1px; background: var(--gray-100); }
+
+    .madrid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; }
+
+    .madrid-card {
+      border-radius: 18px; overflow: hidden;
+      border: 1.5px solid var(--gray-200); background: var(--white);
+      transition: border-color .35s, transform .35s var(--ease), box-shadow .35s;
+      display: flex; flex-direction: column; cursor: default;
+    }
+    .madrid-card:hover { border-color: var(--orange); transform: translateY(-6px); box-shadow: 0 20px 52px rgba(245,146,26,.13); }
+    .madrid-card-img {
+      height: 180px; position: relative; overflow: hidden;
+      background: var(--gray-100); display: flex; align-items: center; justify-content: center;
+    }
+    .madrid-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+    .madrid-card:hover .madrid-card-img img { transform: scale(1.06); }
+    .madrid-card-img-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.45) 0%, transparent 50%); pointer-events: none; }
+    .madrid-card-badge { position: absolute; bottom: 12px; left: 14px; background: var(--orange); color: var(--white); font-size: .65rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 50px; }
+    .madrid-card-featured-badge { background: var(--dark); }
+    .madrid-card-body { padding: 22px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+    .madrid-card-name { font-family: 'Barlow', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--dark); margin-bottom: 3px; }
+    .madrid-card-zone { font-size: .75rem; color: var(--gray-400); font-weight: 600; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 14px; }
+    .madrid-card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; flex: 1; }
+    .madrid-tag { font-size: .7rem; font-weight: 600; padding: 4px 10px; border-radius: 50px; background: var(--orange-pale); color: var(--orange); }
+    .madrid-metro { display: flex; align-items: center; gap: 8px; font-size: .75rem; color: var(--gray-600); padding-top: 12px; border-top: 1px solid var(--gray-100); }
+    .metro-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .m1{background:#15A0E8}.m2{background:#FF0000}.m3{background:#FFBA00}.m4{background:#00A049}.m5{background:#13B87C}.m6{background:#8B5CF6}.m9{background:#9D57A2}.m10{background:#002059}.mC{background:#0070C9}
+    .madrid-card-link { font-size: .8rem; font-weight: 700; color: var(--orange); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; transition: gap .3s; }
+    .madrid-card-link:hover { gap: 9px; }
+
+    /* Wider card for Salamanca group */
+    .madrid-card.wide { grid-column: span 2; }
+    .madrid-card.wide .madrid-card-img { height: 220px; }
+    .madrid-card.wide .madrid-card-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; align-content: start; }
+    .madrid-card.wide .madrid-card-name { grid-column: span 2; font-size: 1.3rem; }
+    .madrid-card.wide .madrid-card-zone { grid-column: span 2; }
+    .madrid-card.wide .madrid-card-sublist { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .madrid-card.wide .madrid-card-sublist li { font-size: .85rem; color: var(--gray-600); display: flex; align-items: center; gap: 8px; }
+    .madrid-card.wide .madrid-card-sublist li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+    .madrid-card.wide .madrid-card-tags { grid-column: span 1; align-content: start; }
+    .madrid-card.wide .madrid-metro { grid-column: span 2; }
+    .madrid-card.wide .madrid-card-link { grid-column: span 2; }
+
+    /* ── RESTO DE ESPAÑA ── */
+    #espana { background: var(--white); }
+    .espana-hd { margin-bottom: 52px; }
+
+    /* PHOTO CARDS GRID */
+    .city-photo-grid { display: grid; gap: 16px; }
+
+    /* Row layouts */
+    .row-2-1 { grid-template-columns: 2fr 1fr; }
+    .row-1-2 { grid-template-columns: 1fr 2fr; }
+    .row-3   { grid-template-columns: repeat(3, 1fr); }
+    .row-4   { grid-template-columns: repeat(4, 1fr); }
+    .row-2   { grid-template-columns: 1fr 1fr; }
+
+    .city-photo-section { margin-bottom: 48px; }
+    .city-photo-section:last-child { margin-bottom: 0; }
+    .region-label {
+      font-family: 'Barlow', sans-serif; font-weight: 800; font-size: .72rem;
+      text-transform: uppercase; letter-spacing: 3px; color: var(--gray-400);
+      margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .region-label::after { content: ''; flex: 1; height: 1px; background: var(--gray-100); }
+
+    /* Individual photo card */
+    .city-photo-card {
+      position: relative; border-radius: 16px; overflow: hidden;
+      cursor: default; height: 260px;
+    }
+    .city-photo-card.tall { height: 340px; }
+    .city-photo-card.short { height: 200px; }
+
+    .city-photo-card-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform .55s var(--ease);
+    }
+    .city-photo-card:hover .city-photo-card-bg { transform: scale(1.06); }
+    .city-photo-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.3) 45%, rgba(0,0,0,.05) 100%);
+      transition: background .35s;
+    }
+    .city-photo-card:hover .city-photo-card-overlay { background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.12) 100%); }
+
+    .city-photo-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 22px; z-index: 1; }
+    .city-photo-region { font-size: .65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 4px; }
+    .city-photo-name { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -.3px; margin-bottom: 4px; }
+    .city-photo-center { font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.6); margin-bottom: 10px; }
+    .city-photo-tags { display: flex; gap: 6px; flex-wrap: wrap; max-height: 0; overflow: hidden; transition: max-height .4s var(--ease), opacity .3s; opacity: 0; }
+    .city-photo-card:hover .city-photo-tags { max-height: 60px; opacity: 1; }
+    .city-photo-tag { background: rgba(245,146,26,.25); border: 1px solid rgba(245,146,26,.4); color: var(--orange); font-size: .68rem; font-weight: 700; padding: 3px 9px; border-radius: 50px; }
+    .city-photo-corner { position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,.5); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.12); border-radius: 50px; padding: 4px 12px; }
+    .city-photo-corner-text { font-size: .68rem; font-weight: 700; color: var(--orange); }
+
+    /* ── CTA ── */
+    #ubi-cta { background: var(--orange); padding: 80px 6%; text-align: center; position: relative; overflow: hidden; }
+    #ubi-cta::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.07); pointer-events: none; }
+    .ubi-cta-title { font-family: 'Barlow', sans-serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -1px; margin-bottom: 14px; position: relative; z-index: 1; }
+    .ubi-cta-sub { color: rgba(255,255,255,.82); font-size: 1.05rem; max-width: 460px; margin: 0 auto 36px; line-height: 1.65; position: relative; z-index: 1; }
+    .ubi-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+    .btn-white { background: var(--white); color: var(--orange); padding: 15px 36px; border-radius: 50px; font-weight: 800; font-size: .95rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,.18); }
+    .btn-dark-solid { background: var(--dark); color: var(--white); padding: 15px 36px; border-radius: 50px; font-weight: 700; font-size: .95rem; text-decoration: none; transition: transform .3s, background .3s; }
+    .btn-dark-solid:hover { transform: translateY(-3px); background: var(--dark-mid); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 64px 6% 36px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo .logo-word { color: rgba(255,255,255,.85); font-size: 1.5rem; }
+    .footer-logo .logo-ya { font-size: 1.5rem; }
+    .footer-logo .logo-sub { color: rgba(255,255,255,.3); }
+    .footer-logo { margin-bottom: 18px; }
+    .footer-brand p { font-size: .88rem; line-height: 1.7; max-width: 260px; margin-top: 4px; }
+    .footer-col h5 { color: var(--white); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul a { color: rgba(255,255,255,.4); text-decoration: none; font-size: .88rem; transition: color .3s; }
+    .footer-col ul a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 28px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .82rem; }
+    .socials { display: flex; gap: 9px; margin-top: 20px; }
+    .soc { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.45); text-decoration: none; font-size: .78rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .wa { position: fixed; bottom: 28px; right: 28px; z-index: 99; width: 54px; height: 54px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; text-decoration: none; box-shadow: 0 6px 24px rgba(37,211,102,.4); transition: transform .3s; }
+    .wa:hover { transform: scale(1.1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) { .madrid-grid { grid-template-columns: repeat(2, 1fr); } .madrid-card.wide { grid-column: span 2; } }
+    @media (max-width: 900px) {
+      .row-2-1, .row-1-2 { grid-template-columns: 1fr; }
+      .row-3 { grid-template-columns: 1fr 1fr; }
+      .madrid-intro { grid-template-columns: 1fr; gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 64px 5%; }
+      .madrid-grid { grid-template-columns: 1fr; }
+      .madrid-card.wide { grid-column: span 1; }
+      .madrid-card.wide .madrid-card-body { grid-template-columns: 1fr; }
+      .madrid-card.wide .madrid-card-name, .madrid-card.wide .madrid-card-zone, .madrid-card.wide .madrid-metro, .madrid-card.wide .madrid-card-link { grid-column: span 1; }
+      .row-3, .row-4 { grid-template-columns: 1fr 1fr; }
+      .row-2 { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
+      .hero-stats-row { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-wordmark"><span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span></div>
+    <span class="logo-sub">Coworking &amp; Workplaces</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Servicios</a></li>
+    <li><a href="ubicaciones.html" class="active">Ubicaciones</a></li>
+    <li><a href="index.html#pricing">Precios</a></li>
+    <li><a href="comunidad.html">Comunidad</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contacto</a></li>
+  </ul>
+  <a href="tel:918298500" class="nav-cta">☎ 918 298 500</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Ubicaciones</span>
+    </div>
+    <h1 class="page-hero-title">Tu oficina en<br>toda <span class="hl">España</span></h1>
+    <p class="page-hero-sub">+28 centros en 20 ciudades. Una sola red, un solo contrato. Trabaja desde Madrid, Barcelona, Sevilla o Tenerife sin cambiar nada.</p>
+    <div class="hero-stats-row">
+      <div class="hero-stat"><span class="hero-stat-num">+28</span><div class="hero-stat-lbl">Centros activos</div></div>
+      <div class="hero-stat"><span class="hero-stat-num">20</span><div class="hero-stat-lbl">Ciudades</div></div>
+      <div class="hero-stat"><span class="hero-stat-num">24/7</span><div class="hero-stat-lbl">Acceso garantizado</div></div>
+      <div class="hero-stat"><span class="hero-stat-num">0€</span><div class="hero-stat-lbl">Sin fianza ni obras</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAPA -->
+<section id="mapa">
+  <div class="max-wrap">
+    <div class="map-hd rv">
+      <span class="eyebrow">Mapa de la red</span>
+      <h2 class="stitle" style="color:var(--white);margin:0 auto">Presencia nacional</h2>
+      <p class="ssub" style="margin:14px auto 0">Haz clic en cada ciudad para ver los centros disponibles.</p>
+    </div>
+    <div class="map-container rv">
+      <div class="map-svg-wrap">
+        <svg class="spain-svg" viewBox="0 0 760 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#F5921A" stop-opacity=".18"/><stop offset="100%" stop-color="#F5921A" stop-opacity="0"/></radialGradient>
+          </defs>
+          <path class="spain-shape" d="M 90,45 C 106,28 122,20 130,20 C 158,19 192,24 222,30 C 258,36 296,37 330,38 C 348,39 368,45 389,52 C 408,52 428,50 441,51 L 452,45 C 462,57 476,70 494,79 C 518,83 544,85 569,87 C 598,90 628,94 659,97 C 679,100 709,103 730,107 C 719,118 702,130 668,143 C 643,153 628,156 617,158 C 598,175 580,212 560,240 C 548,256 537,268 528,276 C 540,294 554,308 562,319 C 557,330 542,340 523,342 C 515,360 513,372 511,384 C 483,410 452,432 416,451 C 380,463 320,470 258,471 L 242,480 C 228,472 215,460 205,449 C 188,432 178,418 170,406 L 145,409 C 152,378 160,348 163,310 C 166,284 170,238 172,185 C 148,168 112,148 77,124 C 75,120 73,116 73,112 C 55,95 47,82 43,74 C 62,60 76,52 90,45 Z" />
+          <circle cx="347" cy="220" r="52" fill="url(#centerGlow)"/>
+          <!-- Madrid hub -->
+          <g class="city-dot main" onclick="document.getElementById('madrid').scrollIntoView({behavior:'smooth'})">
+            <circle cx="347" cy="220" r="18" fill="rgba(245,146,26,.1)" stroke="rgba(245,146,26,.2)" stroke-width="1"/>
+            <circle cx="347" cy="220" r="11" fill="rgba(245,146,26,.15)" stroke="rgba(245,146,26,.3)" stroke-width="1"/>
+            <circle class="dot" cx="347" cy="220" r="7" fill="var(--orange)" filter="url(#glow)"/>
+            <text class="city-label main-label" x="347" y="244" text-anchor="middle" font-size="11" font-weight="700">MADRID ×8</text>
+          </g>
+          <!-- A Coruña -->
+          <g class="city-dot" onclick="document.getElementById('card-coruna').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="92" cy="48" r="5" filter="url(#glow)"/>
+            <text class="city-label" x="100" y="46">A Coruña</text>
+          </g>
+          <!-- Vigo -->
+          <g class="city-dot" onclick="document.getElementById('card-vigo').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="75" cy="116" r="5" filter="url(#glow)"/>
+            <text class="city-label" x="83" y="114">Vigo</text>
+          </g>
+          <!-- Bilbao -->
+          <g class="city-dot" onclick="document.getElementById('card-bilbao').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="389" cy="54" r="5.5" filter="url(#glow)"/>
+            <text class="city-label" x="397" y="52">Bilbao ×2</text>
+          </g>
+          <!-- Zaragoza -->
+          <g class="city-dot" onclick="document.getElementById('card-zaragoza').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="500" cy="150" r="4.5" filter="url(#glow)"/>
+            <text class="city-label" x="508" y="148">Zaragoza</text>
+          </g>
+          <!-- Barcelona -->
+          <g class="city-dot" onclick="document.getElementById('card-barcelona').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="665" cy="148" r="5.5" filter="url(#glow)"/>
+            <text class="city-label" x="665" y="164" text-anchor="middle">Barcelona</text>
+          </g>
+          <!-- Salamanca -->
+          <g class="city-dot" onclick="document.getElementById('card-salamanca').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="238" cy="190" r="4.5" filter="url(#glow)"/>
+            <text class="city-label" x="232" y="205" text-anchor="middle">Salamanca</text>
+          </g>
+          <!-- Segovia -->
+          <g class="city-dot" onclick="document.getElementById('card-segovia').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="322" cy="191" r="4.5" filter="url(#glow)"/>
+            <text class="city-label" x="322" y="206" text-anchor="middle">Segovia ×2</text>
+          </g>
+          <!-- Mérida -->
+          <g class="city-dot" onclick="document.getElementById('card-merida').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="202" cy="310" r="4.5" filter="url(#glow)"/>
+            <text class="city-label" x="196" y="325" text-anchor="middle">Mérida</text>
+          </g>
+          <!-- Albacete -->
+          <g class="city-dot" onclick="document.getElementById('card-albacete').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="444" cy="308" r="4.5" filter="url(#glow)"/>
+            <text class="city-label" x="444" y="323" text-anchor="middle">Albacete</text>
+          </g>
+          <!-- Castellón -->
+          <g class="city-dot" onclick="document.getElementById('card-castellon').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="543" cy="250" r="4.5" filter="url(#glow)"/>
+            <text class="city-label" x="551" y="248">Castellón</text>
+          </g>
+          <!-- Valencia -->
+          <g class="city-dot" onclick="document.getElementById('card-valencia').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="525" cy="278" r="5.5" filter="url(#glow)"/>
+            <text class="city-label" x="533" y="276">Valencia</text>
+          </g>
+          <!-- Alicante -->
+          <g class="city-dot" onclick="document.getElementById('card-alicante').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="518" cy="344" r="4.5" filter="url(#glow)"/>
+            <text class="city-label" x="526" y="342">Alicante</text>
+          </g>
+          <!-- Murcia -->
+          <g class="city-dot" onclick="document.getElementById('card-murcia').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="483" cy="365" r="5" filter="url(#glow)"/>
+            <text class="city-label" x="491" y="363">Murcia ×2</text>
+          </g>
+          <!-- Sevilla -->
+          <g class="city-dot" onclick="document.getElementById('card-sevilla').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="222" cy="400" r="5.5" filter="url(#glow)"/>
+            <text class="city-label" x="230" y="398">Sevilla ×2</text>
+          </g>
+          <!-- Málaga -->
+          <g class="city-dot" onclick="document.getElementById('card-malaga').scrollIntoView({behavior:'smooth',block:'center'})">
+            <circle class="dot" cx="306" cy="451" r="4.5" filter="url(#glow)"/>
+            <text class="city-label" x="306" y="443" text-anchor="middle">Málaga</text>
+          </g>
+          <!-- Balearic islands decorative -->
+          <circle cx="628" cy="228" r="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <circle cx="645" cy="234" r="3.5" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+        </svg>
+        <div class="tenerife-inset">
+          <div class="ti-dot"></div>
+          <div><div class="ti-text">Tenerife</div><div class="ti-count">×2 centros</div></div>
+        </div>
+      </div>
+      <div class="map-legend">
+        <div class="legend-item"><div class="legend-dot"></div> Centro OficinasYA!</div>
+        <div class="legend-item"><span style="width:9px;height:9px;border-radius:50%;border:1.5px solid var(--orange);display:inline-block"></span> Ciudad con +1 centro</div>
+        <div class="legend-item" style="color:rgba(255,255,255,.3)">Haz clic en un punto para ir al centro</div>
+      </div>
+    </div>
+    <div class="net-stats rv">
+      <div class="net-stat"><span class="net-stat-num">+28</span><div class="net-stat-lbl">Centros en España</div></div>
+      <div class="net-stat"><span class="net-stat-num">20</span><div class="net-stat-lbl">Ciudades</div></div>
+      <div class="net-stat"><span class="net-stat-num">15+</span><div class="net-stat-lbl">Años de experiencia</div></div>
+      <div class="net-stat"><span class="net-stat-num">1</span><div class="net-stat-lbl">Contrato para toda la red</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MADRID -->
+<section id="madrid">
+  <div class="max-wrap">
+    <div class="madrid-intro">
+      <div class="rvl">
+        <span class="eyebrow">Hub principal</span>
+        <h2 class="stitle">Madrid —<br><span class="hl">8 centros en los mejores barrios</span></h2>
+        <p class="ssub">Desde el exclusivo Barrio de Salamanca hasta Las Tablas. Siempre a pie de metro, siempre con la mejor imagen para tu empresa.</p>
+      </div>
+      <div class="madrid-intro-aside rv">
+        <div class="madrid-aside-row">
+          <span class="madrid-aside-label">Centros disponibles</span>
+          <span class="madrid-aside-value orange">8 centros</span>
+        </div>
+        <div class="madrid-aside-sep"></div>
+        <div class="madrid-aside-row">
+          <span class="madrid-aside-label">Despachos privados</span>
+          <span class="madrid-aside-value">Sí, todos los centros</span>
+        </div>
+        <div class="madrid-aside-sep"></div>
+        <div class="madrid-aside-row">
+          <span class="madrid-aside-label">Acceso</span>
+          <span class="madrid-aside-value">24/7 con llave propia</span>
+        </div>
+        <div class="madrid-aside-sep"></div>
+        <div class="madrid-aside-row">
+          <span class="madrid-aside-label">Desde</span>
+          <span class="madrid-aside-value orange">15€/hora · 490€/mes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="madrid-grid">
+
+      <!-- Barrio Salamanca — wide, featured -->
+      <div class="madrid-card wide rv d1">
+        <div class="madrid-card-img">
+          <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=85"
+               alt="Barrio de Salamanca Madrid"
+               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#1C1C1C,#2D2D2D)'" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge madrid-card-featured-badge">Zona premium · 3 centros</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Barrio de Salamanca</div>
+          <div class="madrid-card-zone">Madrid · Distrito más exclusivo</div>
+          <ul class="madrid-card-sublist">
+            <li><strong>Serrano</strong> — La calle más icónica de Madrid</li>
+            <li><strong>Velázquez</strong> — Entre Retiro y Goya</li>
+            <li><strong>Ortega y Gasset</strong> — Zona financiera y de lujo</li>
+          </ul>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos privados</div>
+            <div class="madrid-tag">Salas de reuniones</div>
+            <div class="madrid-tag">Oficina virtual</div>
+            <div class="madrid-tag">Domiciliación</div>
+            <div class="madrid-tag">24/7</div>
+          </div>
+          <div class="madrid-metro">
+            <div class="metro-dot m4"></div>
+            <div class="metro-dot m9"></div>
+            <div class="metro-dot m6"></div>
+            <div class="metro-dot m5"></div>
+            <span style="margin-left:4px">L4 · L5 · L6 · L9 — acceso a pie</span>
+          </div>
+          <a href="index.html#contact" class="madrid-card-link">Ver disponibilidad →</a>
+        </div>
+      </div>
+
+      <!-- Capitán Haya -->
+      <div class="madrid-card rv d2">
+        <div class="madrid-card-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85"
+               alt="Capitán Haya Madrid"
+               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Castellana · Azca</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Capitán Haya</div>
+          <div class="madrid-card-zone">Castellana · Tetuán</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos</div>
+            <div class="madrid-tag">Salas</div>
+            <div class="madrid-tag">Virtual</div>
+          </div>
+          <div class="madrid-metro">
+            <div class="metro-dot m9"></div>
+            <span>L9 — Cuzco / Bernabéu</span>
+          </div>
+          <a href="index.html#contact" class="madrid-card-link">Consultar →</a>
+        </div>
+      </div>
+
+      <!-- Callao -->
+      <div class="madrid-card rv d3">
+        <div class="madrid-card-img">
+          <img src="https://images.unsplash.com/photo-1548504769-900b70ed122e?auto=format&fit=crop&w=800&q=85"
+               alt="Centro Madrid Gran Vía"
+               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#2d1b69,#11998e)'" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Corazón de Madrid</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Callao</div>
+          <div class="madrid-card-zone">Centro · Gran Vía</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos</div>
+            <div class="madrid-tag">Salas</div>
+            <div class="madrid-tag">Coworking</div>
+          </div>
+          <div class="madrid-metro">
+            <div class="metro-dot m3"></div>
+            <div class="metro-dot m5"></div>
+            <span>L3 · L5 — Callao</span>
+          </div>
+          <a href="index.html#contact" class="madrid-card-link">Consultar →</a>
+        </div>
+      </div>
+
+      <!-- Las Tablas -->
+      <div class="madrid-card rv d1">
+        <div class="madrid-card-img">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=85"
+               alt="Las Tablas Norte de Madrid"
+               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#134E5E,#71B280)'" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Norte · Empresarial</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Las Tablas</div>
+          <div class="madrid-card-zone">Norte de Madrid · Zona Tech</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos</div>
+            <div class="madrid-tag">Salas</div>
+            <div class="madrid-tag">Parking incluido</div>
+          </div>
+          <div class="madrid-metro">
+            <div class="metro-dot m10"></div>
+            <span>L10 — Las Tablas</span>
+          </div>
+          <a href="index.html#contact" class="madrid-card-link">Consultar →</a>
+        </div>
+      </div>
+
+      <!-- Pozuelo / Las Rozas -->
+      <div class="madrid-card rv d2">
+        <div class="madrid-card-img">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=85"
+               alt="Las Rozas Pozuelo Madrid Noroeste"
+               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#0F2027,#203A43,#2C5364)'" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Noroeste · La Florida</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Pozuelo / Las Rozas</div>
+          <div class="madrid-card-zone">Noroeste · A-6 / M-40</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos</div>
+            <div class="madrid-tag">Salas</div>
+            <div class="madrid-tag">Parking fácil</div>
+          </div>
+          <div class="madrid-metro">
+            <div class="metro-dot mC"></div>
+            <span>Cercanías C-1 / C-7</span>
+          </div>
+          <a href="index.html#contact" class="madrid-card-link">Consultar →</a>
+        </div>
+      </div>
+
+      <!-- SSdelosReyes -->
+      <div class="madrid-card rv d3">
+        <div class="madrid-card-img">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=85"
+               alt="San Sebastián de los Reyes Norte Madrid"
+               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#1a1a1a,#3d3d3d)'" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Norte · A1</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">S.S. de los Reyes</div>
+          <div class="madrid-card-zone">Norte · Autopista A-1</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos</div>
+            <div class="madrid-tag">Salas</div>
+            <div class="madrid-tag">Virtual</div>
+          </div>
+          <div class="madrid-metro">
+            <div class="metro-dot mC"></div>
+            <span>Cercanías + Bus interurbano</span>
+          </div>
+          <a href="index.html#contact" class="madrid-card-link">Consultar →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESTO DE ESPAÑA — PREMIUM PHOTO GRID -->
+<section id="espana">
+  <div class="max-wrap">
+    <div class="espana-hd rv">
+      <span class="eyebrow">Cobertura nacional</span>
+      <h2 class="stitle">Más de 20 ciudades en <span class="hl">toda España</span></h2>
+      <p class="ssub">Mismas condiciones, mismo contrato. Desde Galicia hasta las Islas Canarias, siempre con la misma calidad OficinasYA!</p>
+    </div>
+
+    <!-- NORTE: País Vasco + Galicia -->
+    <div class="city-photo-section rv">
+      <div class="region-label">Norte de España</div>
+      <div class="city-photo-grid row-2-1">
+
+        <!-- Bilbao — LARGE -->
+        <div id="card-bilbao" class="city-photo-card tall">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1559628233-100c798642d5?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#1a2a6c,#b21f1f)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">País Vasco</div>
+            <div class="city-photo-name">Bilbao</div>
+            <div class="city-photo-center">Albia · Máximo Aguirre — 2 centros</div>
+            <div class="city-photo-tags">
+              <div class="city-photo-tag">Despachos</div>
+              <div class="city-photo-tag">Salas reuniones</div>
+              <div class="city-photo-tag">Oficina virtual</div>
+              <div class="city-photo-tag">24/7</div>
+            </div>
+          </div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">×2 centros</span></div>
+        </div>
+
+        <!-- Galicia: A Coruña + Vigo -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div id="card-coruna" class="city-photo-card" style="flex:1">
+            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1590004987791-4bcd4fe5e10a?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#005c97,#363795)"></div>
+            <div class="city-photo-card-overlay"></div>
+            <div class="city-photo-card-content">
+              <div class="city-photo-region">Galicia</div>
+              <div class="city-photo-name">A Coruña</div>
+              <div class="city-photo-center">Centro ciudad · Puerto</div>
+              <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div></div>
+            </div>
+          </div>
+          <div id="card-vigo" class="city-photo-card" style="flex:1">
+            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1a1a2e,#16213e)"></div>
+            <div class="city-photo-card-overlay"></div>
+            <div class="city-photo-card-content">
+              <div class="city-photo-region">Galicia</div>
+              <div class="city-photo-name">Vigo</div>
+              <div class="city-photo-center">Centro ciudad · Ría de Vigo</div>
+              <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NORESTE + CENTRO: Barcelona + Zaragoza + Castilla y León -->
+    <div class="city-photo-section rv">
+      <div class="region-label">Noreste, Aragón y Castilla y León</div>
+      <div class="city-photo-grid row-2-1">
+
+        <!-- Barcelona — LARGE -->
+        <div id="card-barcelona" class="city-photo-card tall">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#8e2de2,#4a00e0)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Cataluña</div>
+            <div class="city-photo-name">Barcelona</div>
+            <div class="city-photo-center">Mitre — Sarrià · Sant Gervasi</div>
+            <div class="city-photo-tags">
+              <div class="city-photo-tag">Despachos</div>
+              <div class="city-photo-tag">Salas reuniones</div>
+              <div class="city-photo-tag">Networking</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zaragoza + Salamanca stacked -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div id="card-zaragoza" class="city-photo-card" style="flex:1">
+            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#DA4453,#89216B)"></div>
+            <div class="city-photo-card-overlay"></div>
+            <div class="city-photo-card-content">
+              <div class="city-photo-region">Aragón</div>
+              <div class="city-photo-name">Zaragoza</div>
+              <div class="city-photo-center">Centro · Basílica del Pilar</div>
+              <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div></div>
+            </div>
+          </div>
+          <div id="card-salamanca" class="city-photo-card" style="flex:1">
+            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#C79003,#8B6914)"></div>
+            <div class="city-photo-card-overlay"></div>
+            <div class="city-photo-card-content">
+              <div class="city-photo-region">Castilla y León</div>
+              <div class="city-photo-name">Salamanca</div>
+              <div class="city-photo-center">Centro universitario histórico</div>
+              <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Virtual</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segovia: 2 centros -->
+    <div class="city-photo-section rv">
+      <div class="region-label">Castilla y León — Segovia</div>
+      <div class="city-photo-grid row-2">
+        <div id="card-segovia" class="city-photo-card short">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1599413989742-6dcfe7d36bf3?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#373B44,#4286f4)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Castilla y León</div>
+            <div class="city-photo-name">Segovia I</div>
+            <div class="city-photo-center">Centro ciudad · Acueducto</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
+          </div>
+        </div>
+        <div class="city-photo-card short">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1599413989742-6dcfe7d36bf3?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1e3c72,#2a5298)"></div>
+          <div class="city-photo-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.08) 100%)"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Castilla y León</div>
+            <div class="city-photo-name">Segovia II</div>
+            <div class="city-photo-center">Zona nueva · Acceso directo A-6</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Parking</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEDITERRÁNEO: Valencia + Castellón + Alicante -->
+    <div class="city-photo-section rv">
+      <div class="region-label">Costa Mediterránea</div>
+      <div class="city-photo-grid row-3">
+
+        <div id="card-valencia" class="city-photo-card">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#005C97,#363795)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Comunitat Valenciana</div>
+            <div class="city-photo-name">Valencia</div>
+            <div class="city-photo-center">Centro · Ciudad de las Artes</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
+          </div>
+        </div>
+
+        <div id="card-castellon" class="city-photo-card">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1FA2FF,#12D8FA,#A6FFCB)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Comunitat Valenciana</div>
+            <div class="city-photo-name">Castellón</div>
+            <div class="city-photo-center">Plaza Mayor · Centro histórico</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div></div>
+          </div>
+        </div>
+
+        <div id="card-alicante" class="city-photo-card">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#F7971E,#FFD200)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Comunitat Valenciana</div>
+            <div class="city-photo-name">Alicante</div>
+            <div class="city-photo-center">Centro · Castillo Santa Bárbara</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- INTERIOR: Mérida + Albacete -->
+    <div class="city-photo-section rv">
+      <div class="region-label">Extremadura y Castilla-La Mancha</div>
+      <div class="city-photo-grid row-2">
+        <div id="card-merida" class="city-photo-card short">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1581891145071-64e7a8b30e78?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#8B6914,#5C4827)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Extremadura</div>
+            <div class="city-photo-name">Mérida</div>
+            <div class="city-photo-center">Centro ciudad · Teatro Romano</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
+          </div>
+        </div>
+        <div id="card-albacete" class="city-photo-card short">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#4b6cb7,#182848)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Castilla-La Mancha</div>
+            <div class="city-photo-name">Albacete</div>
+            <div class="city-photo-center">Zona empresarial · Centro</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MURCIA: 2 centros -->
+    <div class="city-photo-section rv">
+      <div class="region-label">Región de Murcia</div>
+      <div class="city-photo-grid row-2">
+        <div id="card-murcia" class="city-photo-card">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#C84B31,#ECDBBA)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Región de Murcia</div>
+            <div class="city-photo-name">Murcia</div>
+            <div class="city-photo-center">Centro ciudad · Catedral</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
+          </div>
+        </div>
+        <div class="city-photo-card">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#2b5876,#4e4376)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Región de Murcia</div>
+            <div class="city-photo-name">Murcia Coliving</div>
+            <div class="city-photo-center">Espacio de coliving + coworking</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Coliving</div><div class="city-photo-tag">Coworking</div><div class="city-photo-tag">Networking</div></div>
+          </div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">Coliving</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANDALUCÍA -->
+    <div class="city-photo-section rv">
+      <div class="region-label">Andalucía</div>
+      <div class="city-photo-grid row-2-1">
+
+        <!-- Sevilla — LARGE con 2 centros -->
+        <div id="card-sevilla" class="city-photo-card tall">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#c94b4b,#4b134f)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Andalucía</div>
+            <div class="city-photo-name">Sevilla</div>
+            <div class="city-photo-center">Sede central · Galia — 2 centros</div>
+            <div class="city-photo-tags">
+              <div class="city-photo-tag">Despachos</div>
+              <div class="city-photo-tag">Salas reuniones</div>
+              <div class="city-photo-tag">Oficina virtual</div>
+              <div class="city-photo-tag">Eventos</div>
+            </div>
+          </div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">×2 centros</span></div>
+        </div>
+
+        <!-- Málaga -->
+        <div id="card-malaga" class="city-photo-card tall">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1523365280197-f1783db9fe62?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#F7971E,#FFD200)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Andalucía</div>
+            <div class="city-photo-name">Málaga</div>
+            <div class="city-photo-center">Centro · Alcazaba · Puerto</div>
+            <div class="city-photo-tags">
+              <div class="city-photo-tag">Despachos</div>
+              <div class="city-photo-tag">Salas</div>
+              <div class="city-photo-tag">Virtual</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CANARIAS -->
+    <div class="city-photo-section rv">
+      <div class="region-label">Islas Canarias — Tenerife</div>
+      <div class="city-photo-grid row-2">
+        <div class="city-photo-card">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1548199748-16c1e95e0e50?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#f12711,#f5af19)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Islas Canarias</div>
+            <div class="city-photo-name">Tenerife I</div>
+            <div class="city-photo-center">Santa Cruz de Tenerife · Centro</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
+          </div>
+        </div>
+        <div class="city-photo-card">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1a1a2e,#e94560)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Islas Canarias</div>
+            <div class="city-photo-name">Tenerife II</div>
+            <div class="city-photo-center">Santa Cruz · Zona Sur</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Coworking</div><div class="city-photo-tag">Virtual</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ¿Tu ciudad no está? -->
+    <div class="rv" style="background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:18px;padding:36px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-top:8px">
+      <div>
+        <h3 style="font-family:'Barlow',sans-serif;font-size:1.35rem;font-weight:800;color:var(--dark)">¿Tu ciudad no aparece?</h3>
+        <p style="color:var(--gray-600);font-size:.92rem;margin-top:5px">La red OficinasYA! crece cada mes. Consúltanos y encontramos la mejor opción para ti.</p>
+      </div>
+      <a href="index.html#contact" style="background:var(--orange);color:var(--white);padding:14px 30px;border-radius:50px;font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .3s,transform .3s" onmouseover="this.style.background='var(--orange-dark)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--orange)';this.style.transform=''">Consultar disponibilidad →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="ubi-cta">
+  <h2 class="ubi-cta-title rv">Tu espacio, listo hoy</h2>
+  <p class="ubi-cta-sub rv">Sin fianza, sin obras, sin inversión inicial. Llámanos y ten tu oficina operativa hoy mismo.</p>
+  <div class="ubi-cta-btns rv">
+    <a href="tel:918298500" class="btn-white">📞 918 298 500</a>
+    <a href="https://wa.me/34624119705" class="btn-dark-solid">💬 WhatsApp ahora</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo nav-logo">
+        <div class="logo-wordmark"><span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span></div>
+        <span class="logo-sub">Coworking &amp; Workplaces</span>
+      </div>
+      <p>Despachos privados, coworking y centros de negocios en toda España. Happy Workplaces desde 2009.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/oficinasya" class="soc">f</a>
+        <a href="https://www.linkedin.com/company/oficinasya" class="soc">in</a>
+        <a href="https://twitter.com/oficinasya" class="soc">𝕏</a>
+        <a href="https://www.instagram.com/oficinasya" class="soc">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Servicios</h5>
+      <ul>
+        <li><a href="index.html#services">Despachos privados</a></li>
+        <li><a href="index.html#services">Salas de reuniones</a></li>
+        <li><a href="index.html#services">Oficina virtual</a></li>
+        <li><a href="index.html#services">Coworking</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Empresa</h5>
+      <ul>
+        <li><a href="index.html#why">Por qué nosotros</a></li>
+        <li><a href="index.html#testimonials">Clientes</a></li>
+        <li><a href="index.html#pricing">Precios</a></li>
+        <li><a href="comunidad.html">Comunidad</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="tel:918298500">918 298 500</a></li>
+        <li><a href="https://wa.me/34624119705">WhatsApp 624 119 705</a></li>
+        <li><a href="mailto:hola@oficinasya.es">hola@oficinasya.es</a></li>
+        <li><a href="index.html#contact">Formulario de contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 OficinasYA! · Todos los derechos reservados</span>
+    <span>Aviso legal · Privacidad · Cookies</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/34624119705" class="wa" title="WhatsApp">💬</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 80));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
