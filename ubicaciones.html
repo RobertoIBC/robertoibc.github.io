@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ubicaciones — OficinasYA! · +28 centros en toda España</title>
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
+  <title>Ubicaciones — OficinasYA! · +31 centros en toda España</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
@@ -42,11 +45,11 @@
     nav.scrolled .nav-links a { color: var(--gray-600); }
     .nav-links a:hover { color: var(--orange) !important; }
     .nav-links a.active { color: var(--orange) !important; }
-    .nav-cta { background: var(--orange); color: var(--white); padding: 11px 26px; border-radius: 50px; font-weight: 700; font-size: .88rem; text-decoration: none; transition: background .3s, transform .3s; white-space: nowrap; }
+    .nav-cta { background: var(--orange); color: var(--white); padding: 11px 26px; border-radius: 50px; font-weight: 700; font-size: .88rem; text-decoration: none; transition: background .3s, transform .3s; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
     .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); }
 
     /* ── HERO ── */
-    .page-hero { background: var(--dark); padding: 150px 6% 90px; position: relative; overflow: hidden; }
+    .page-hero { background: linear-gradient(110deg, rgba(20,20,20,.93) 0%, rgba(20,20,20,.8) 45%, rgba(20,20,20,.5) 100%), url('https://images.unsplash.com/photo-1612694882907-80f21c0e2bb7?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: 150px 6% 90px; position: relative; overflow: hidden; }
     .page-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.12) 0%, transparent 65%); pointer-events: none; }
     .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; opacity: 0; animation: up .6s .1s var(--ease) forwards; }
@@ -87,13 +90,31 @@
     .spain-svg { width: 100%; height: auto; display: block; }
     .spain-shape { fill: rgba(255,255,255,.06); stroke: rgba(245,146,26,.25); stroke-width: 1.2; }
     .city-dot { cursor: pointer; }
-    .city-dot circle.dot { fill: var(--orange); filter: drop-shadow(0 0 5px rgba(245,146,26,.5)); transition: r .3s var(--ease), filter .3s; }
+    .city-dot .hit-area { fill: transparent; pointer-events: all; }
+    .city-dot circle.dot { fill: var(--orange); filter: drop-shadow(0 0 5px rgba(245,146,26,.5)); transition: r .25s var(--ease), filter .25s; }
     .city-dot.main circle.dot { animation: pulse-dot 2.5s ease-in-out infinite; }
     @keyframes pulse-dot { 0%,100%{filter:drop-shadow(0 0 5px rgba(245,146,26,.6))} 50%{filter:drop-shadow(0 0 14px rgba(245,146,26,1))} }
-    .city-dot:hover circle.dot { r: 7; filter: drop-shadow(0 0 10px rgba(245,146,26,.9)); }
-    .city-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; fill: rgba(255,255,255,.6); pointer-events: none; }
+    .city-dot .pulse-ring { fill: none; stroke: var(--orange); stroke-width: 1.4; opacity: 0; transform-origin: center; transform-box: fill-box; animation: pulse-ring 2.8s ease-out infinite; }
+    @keyframes pulse-ring { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(2.6); opacity: 0; } }
+    .city-dot:hover circle.dot { r: 7.5; filter: drop-shadow(0 0 12px rgba(245,146,26,1)); }
+    .city-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; fill: rgba(255,255,255,.6); pointer-events: none; transition: fill .25s, font-size .25s; }
     .city-label.main-label { fill: var(--orange); font-weight: 700; font-size: 10px; }
-    .tenerife-inset { position: absolute; bottom: 24px; left: 24px; background: rgba(245,146,26,.1); border: 1px solid rgba(245,146,26,.25); border-radius: 10px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; }
+    .city-dot:hover .city-label { fill: var(--white); font-weight: 800; }
+    .city-dot:hover .city-label.main-label { fill: var(--orange); }
+    .map-tooltip {
+      position: absolute; z-index: 20; pointer-events: none;
+      background: var(--white); color: var(--dark); border-radius: 12px;
+      padding: 10px 16px; font-size: .8rem; font-weight: 600;
+      box-shadow: 0 12px 32px rgba(0,0,0,.25);
+      opacity: 0; transform: translate(-50%, -12px); transition: opacity .18s, transform .18s;
+      white-space: nowrap;
+    }
+    .map-tooltip.on { opacity: 1; transform: translate(-50%, -20px); }
+    .map-tooltip .mt-city { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: .92rem; color: var(--dark); }
+    .map-tooltip .mt-count { color: var(--orange); font-weight: 700; }
+    .map-tooltip .mt-cta { color: var(--gray-400); font-weight: 600; font-size: .72rem; margin-top: 2px; display: block; }
+    .tenerife-inset { position: absolute; bottom: 24px; left: 24px; background: rgba(245,146,26,.1); border: 1px solid rgba(245,146,26,.25); border-radius: 10px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; transition: background .25s, border-color .25s, transform .25s; }
+    .tenerife-inset:hover { background: rgba(245,146,26,.2); border-color: rgba(245,146,26,.5); transform: translateY(-2px); }
     .ti-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
     .ti-text { font-size: .78rem; color: rgba(255,255,255,.65); font-weight: 500; }
     .ti-count { font-size: .72rem; color: var(--orange); font-weight: 700; }
@@ -116,7 +137,7 @@
     .madrid-aside-value.orange { color: var(--orange); }
     .madrid-aside-sep { height: 1px; background: var(--gray-100); }
 
-    .madrid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; }
+    .madrid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; align-items: start; }
 
     .madrid-card {
       border-radius: 18px; overflow: hidden;
@@ -186,6 +207,12 @@
       position: relative; border-radius: 16px; overflow: hidden;
       cursor: default; height: 260px;
     }
+    .map-target-flash { animation: target-flash 1.4s var(--ease); border-radius: 16px; }
+    @keyframes target-flash {
+      0% { box-shadow: 0 0 0 0 rgba(245,146,26,.7); }
+      35% { box-shadow: 0 0 0 10px rgba(245,146,26,0); }
+      100% { box-shadow: 0 0 0 0 rgba(245,146,26,0); }
+    }
     .city-photo-card.tall { height: 340px; }
     .city-photo-card.short { height: 200px; }
 
@@ -236,6 +263,9 @@
     .footer-col ul a { color: rgba(255,255,255,.4); text-decoration: none; font-size: .88rem; transition: color .3s; }
     .footer-col ul a:hover { color: var(--orange); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 28px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .82rem; }
+    .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
     .socials { display: flex; gap: 9px; margin-top: 20px; }
     .soc { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.45); text-decoration: none; font-size: .78rem; transition: background .3s, color .3s, border-color .3s; }
     .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
@@ -281,7 +311,7 @@
     <li><a href="blog.html">Blog</a></li>
     <li><a href="index.html#contact">Contacto</a></li>
   </ul>
-  <a href="tel:918298500" class="nav-cta">☎ 918 298 500</a>
+  <a href="tel:918298500" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
 </nav>
 
 <!-- HERO -->
@@ -293,12 +323,12 @@
       <span class="breadcrumb-current">Ubicaciones</span>
     </div>
     <h1 class="page-hero-title">Tu oficina en<br>toda <span class="hl">España</span></h1>
-    <p class="page-hero-sub">+28 centros en 20 ciudades. Una sola red, un solo contrato. Trabaja desde Madrid, Barcelona, Sevilla o Tenerife sin cambiar nada.</p>
+    <p class="page-hero-sub">+31 centros en 20 ciudades. Una sola red, un solo contrato. Trabaja desde Madrid, Barcelona, Sevilla o Tenerife sin cambiar nada.</p>
     <div class="hero-stats-row">
-      <div class="hero-stat"><span class="hero-stat-num">+28</span><div class="hero-stat-lbl">Centros activos</div></div>
+      <div class="hero-stat"><span class="hero-stat-num">+31</span><div class="hero-stat-lbl">Centros activos</div></div>
       <div class="hero-stat"><span class="hero-stat-num">20</span><div class="hero-stat-lbl">Ciudades</div></div>
       <div class="hero-stat"><span class="hero-stat-num">24/7</span><div class="hero-stat-lbl">Acceso garantizado</div></div>
-      <div class="hero-stat"><span class="hero-stat-num">0€</span><div class="hero-stat-lbl">Sin fianza ni obras</div></div>
+      <div class="hero-stat"><span class="hero-stat-num">100%</span><div class="hero-stat-lbl">Flexibilidad total</div></div>
     </div>
   </div>
 </div>
@@ -321,84 +351,116 @@
           <path class="spain-shape" d="M 90,45 C 106,28 122,20 130,20 C 158,19 192,24 222,30 C 258,36 296,37 330,38 C 348,39 368,45 389,52 C 408,52 428,50 441,51 L 452,45 C 462,57 476,70 494,79 C 518,83 544,85 569,87 C 598,90 628,94 659,97 C 679,100 709,103 730,107 C 719,118 702,130 668,143 C 643,153 628,156 617,158 C 598,175 580,212 560,240 C 548,256 537,268 528,276 C 540,294 554,308 562,319 C 557,330 542,340 523,342 C 515,360 513,372 511,384 C 483,410 452,432 416,451 C 380,463 320,470 258,471 L 242,480 C 228,472 215,460 205,449 C 188,432 178,418 170,406 L 145,409 C 152,378 160,348 163,310 C 166,284 170,238 172,185 C 148,168 112,148 77,124 C 75,120 73,116 73,112 C 55,95 47,82 43,74 C 62,60 76,52 90,45 Z" />
           <circle cx="347" cy="220" r="52" fill="url(#centerGlow)"/>
           <!-- Madrid hub -->
-          <g class="city-dot main" onclick="document.getElementById('madrid').scrollIntoView({behavior:'smooth'})">
+          <g class="city-dot main" data-city="Madrid" data-count="7 centros" onclick="goToCity(this,'madrid')">
+            <circle class="hit-area" cx="347" cy="220" r="22"/>
             <circle cx="347" cy="220" r="18" fill="rgba(245,146,26,.1)" stroke="rgba(245,146,26,.2)" stroke-width="1"/>
             <circle cx="347" cy="220" r="11" fill="rgba(245,146,26,.15)" stroke="rgba(245,146,26,.3)" stroke-width="1"/>
+            <circle class="pulse-ring" cx="347" cy="220" r="7"/>
             <circle class="dot" cx="347" cy="220" r="7" fill="var(--orange)" filter="url(#glow)"/>
-            <text class="city-label main-label" x="347" y="244" text-anchor="middle" font-size="11" font-weight="700">MADRID ×8</text>
+            <text class="city-label main-label" x="347" y="244" text-anchor="middle" font-size="11" font-weight="700">MADRID ×7</text>
           </g>
           <!-- A Coruña -->
-          <g class="city-dot" onclick="document.getElementById('card-coruna').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="A Coruña" data-count="1 centro" onclick="goToCity(this,'card-coruna')">
+            <circle class="hit-area" cx="92" cy="48" r="13"/>
+            <circle class="pulse-ring" cx="92" cy="48" r="5"/>
             <circle class="dot" cx="92" cy="48" r="5" filter="url(#glow)"/>
             <text class="city-label" x="100" y="46">A Coruña</text>
           </g>
           <!-- Vigo -->
-          <g class="city-dot" onclick="document.getElementById('card-vigo').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Vigo" data-count="1 centro" onclick="goToCity(this,'card-vigo')">
+            <circle class="hit-area" cx="75" cy="116" r="13"/>
+            <circle class="pulse-ring" cx="75" cy="116" r="5"/>
             <circle class="dot" cx="75" cy="116" r="5" filter="url(#glow)"/>
             <text class="city-label" x="83" y="114">Vigo</text>
           </g>
           <!-- Bilbao -->
-          <g class="city-dot" onclick="document.getElementById('card-bilbao').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Bilbao" data-count="2 centros" onclick="goToCity(this,'card-bilbao')">
+            <circle class="hit-area" cx="389" cy="54" r="13"/>
+            <circle class="pulse-ring" cx="389" cy="54" r="5.5"/>
             <circle class="dot" cx="389" cy="54" r="5.5" filter="url(#glow)"/>
             <text class="city-label" x="397" y="52">Bilbao ×2</text>
           </g>
           <!-- Zaragoza -->
-          <g class="city-dot" onclick="document.getElementById('card-zaragoza').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Zaragoza" data-count="1 centro" onclick="goToCity(this,'card-zaragoza')">
+            <circle class="hit-area" cx="500" cy="150" r="13"/>
+            <circle class="pulse-ring" cx="500" cy="150" r="4.5"/>
             <circle class="dot" cx="500" cy="150" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="508" y="148">Zaragoza</text>
           </g>
           <!-- Barcelona -->
-          <g class="city-dot" onclick="document.getElementById('card-barcelona').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Barcelona" data-count="3 centros" onclick="goToCity(this,'card-barcelona')">
+            <circle class="hit-area" cx="665" cy="148" r="13"/>
+            <circle class="pulse-ring" cx="665" cy="148" r="5.5"/>
             <circle class="dot" cx="665" cy="148" r="5.5" filter="url(#glow)"/>
-            <text class="city-label" x="665" y="164" text-anchor="middle">Barcelona</text>
+            <text class="city-label" x="665" y="164" text-anchor="middle">Barcelona ×3</text>
           </g>
           <!-- Salamanca -->
-          <g class="city-dot" onclick="document.getElementById('card-salamanca').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Salamanca" data-count="1 centro" onclick="goToCity(this,'card-salamanca')">
+            <circle class="hit-area" cx="238" cy="190" r="13"/>
+            <circle class="pulse-ring" cx="238" cy="190" r="4.5"/>
             <circle class="dot" cx="238" cy="190" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="232" y="205" text-anchor="middle">Salamanca</text>
           </g>
           <!-- Segovia -->
-          <g class="city-dot" onclick="document.getElementById('card-segovia').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Segovia" data-count="2 centros" onclick="goToCity(this,'card-segovia')">
+            <circle class="hit-area" cx="322" cy="191" r="13"/>
+            <circle class="pulse-ring" cx="322" cy="191" r="4.5"/>
             <circle class="dot" cx="322" cy="191" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="322" y="206" text-anchor="middle">Segovia ×2</text>
           </g>
           <!-- Mérida -->
-          <g class="city-dot" onclick="document.getElementById('card-merida').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Mérida" data-count="1 centro" onclick="goToCity(this,'card-merida')">
+            <circle class="hit-area" cx="202" cy="310" r="13"/>
+            <circle class="pulse-ring" cx="202" cy="310" r="4.5"/>
             <circle class="dot" cx="202" cy="310" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="196" y="325" text-anchor="middle">Mérida</text>
           </g>
           <!-- Albacete -->
-          <g class="city-dot" onclick="document.getElementById('card-albacete').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Albacete" data-count="1 centro" onclick="goToCity(this,'card-albacete')">
+            <circle class="hit-area" cx="444" cy="308" r="13"/>
+            <circle class="pulse-ring" cx="444" cy="308" r="4.5"/>
             <circle class="dot" cx="444" cy="308" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="444" y="323" text-anchor="middle">Albacete</text>
           </g>
           <!-- Castellón -->
-          <g class="city-dot" onclick="document.getElementById('card-castellon').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Castellón" data-count="1 centro" onclick="goToCity(this,'card-castellon')">
+            <circle class="hit-area" cx="543" cy="250" r="13"/>
+            <circle class="pulse-ring" cx="543" cy="250" r="4.5"/>
             <circle class="dot" cx="543" cy="250" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="551" y="248">Castellón</text>
           </g>
           <!-- Valencia -->
-          <g class="city-dot" onclick="document.getElementById('card-valencia').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Valencia" data-count="1 centro" onclick="goToCity(this,'card-valencia')">
+            <circle class="hit-area" cx="525" cy="278" r="13"/>
+            <circle class="pulse-ring" cx="525" cy="278" r="5.5"/>
             <circle class="dot" cx="525" cy="278" r="5.5" filter="url(#glow)"/>
             <text class="city-label" x="533" y="276">Valencia</text>
           </g>
           <!-- Alicante -->
-          <g class="city-dot" onclick="document.getElementById('card-alicante').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Alicante" data-count="1 centro" onclick="goToCity(this,'card-alicante')">
+            <circle class="hit-area" cx="518" cy="344" r="13"/>
+            <circle class="pulse-ring" cx="518" cy="344" r="4.5"/>
             <circle class="dot" cx="518" cy="344" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="526" y="342">Alicante</text>
           </g>
           <!-- Murcia -->
-          <g class="city-dot" onclick="document.getElementById('card-murcia').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Murcia" data-count="3 centros" onclick="goToCity(this,'card-murcia')">
+            <circle class="hit-area" cx="483" cy="365" r="13"/>
+            <circle class="pulse-ring" cx="483" cy="365" r="5"/>
             <circle class="dot" cx="483" cy="365" r="5" filter="url(#glow)"/>
-            <text class="city-label" x="491" y="363">Murcia ×2</text>
+            <text class="city-label" x="491" y="363">Murcia ×3</text>
           </g>
           <!-- Sevilla -->
-          <g class="city-dot" onclick="document.getElementById('card-sevilla').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Sevilla" data-count="2 centros" onclick="goToCity(this,'card-sevilla')">
+            <circle class="hit-area" cx="222" cy="400" r="13"/>
+            <circle class="pulse-ring" cx="222" cy="400" r="5.5"/>
             <circle class="dot" cx="222" cy="400" r="5.5" filter="url(#glow)"/>
             <text class="city-label" x="230" y="398">Sevilla ×2</text>
           </g>
           <!-- Málaga -->
-          <g class="city-dot" onclick="document.getElementById('card-malaga').scrollIntoView({behavior:'smooth',block:'center'})">
+          <g class="city-dot" data-city="Málaga" data-count="1 centro" onclick="goToCity(this,'card-malaga')">
+            <circle class="hit-area" cx="306" cy="451" r="13"/>
+            <circle class="pulse-ring" cx="306" cy="451" r="4.5"/>
             <circle class="dot" cx="306" cy="451" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="306" y="443" text-anchor="middle">Málaga</text>
           </g>
@@ -406,19 +468,20 @@
           <circle cx="628" cy="228" r="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
           <circle cx="645" cy="234" r="3.5" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
         </svg>
-        <div class="tenerife-inset">
+        <div class="tenerife-inset" onclick="goToCity(this,'card-tenerife')" data-city="Tenerife" data-count="2 centros" style="cursor:pointer">
           <div class="ti-dot"></div>
           <div><div class="ti-text">Tenerife</div><div class="ti-count">×2 centros</div></div>
         </div>
+        <div class="map-tooltip" id="mapTooltip"><span class="mt-city"></span> <span class="mt-count"></span><span class="mt-cta">Ver centros →</span></div>
       </div>
       <div class="map-legend">
         <div class="legend-item"><div class="legend-dot"></div> Centro OficinasYA!</div>
         <div class="legend-item"><span style="width:9px;height:9px;border-radius:50%;border:1.5px solid var(--orange);display:inline-block"></span> Ciudad con +1 centro</div>
-        <div class="legend-item" style="color:rgba(255,255,255,.3)">Haz clic en un punto para ir al centro</div>
+        <div class="legend-item" style="color:rgba(255,255,255,.45)">👆 Pasa el cursor o toca un punto para ver el centro</div>
       </div>
     </div>
     <div class="net-stats rv">
-      <div class="net-stat"><span class="net-stat-num">+28</span><div class="net-stat-lbl">Centros en España</div></div>
+      <div class="net-stat"><span class="net-stat-num">+31</span><div class="net-stat-lbl">Centros en España</div></div>
       <div class="net-stat"><span class="net-stat-num">20</span><div class="net-stat-lbl">Ciudades</div></div>
       <div class="net-stat"><span class="net-stat-num">15+</span><div class="net-stat-lbl">Años de experiencia</div></div>
       <div class="net-stat"><span class="net-stat-num">1</span><div class="net-stat-lbl">Contrato para toda la red</div></div>
@@ -432,13 +495,13 @@
     <div class="madrid-intro">
       <div class="rvl">
         <span class="eyebrow">Hub principal</span>
-        <h2 class="stitle">Madrid —<br><span class="hl">8 centros en los mejores barrios</span></h2>
+        <h2 class="stitle">Madrid —<br><span class="hl">7 centros en los mejores barrios</span></h2>
         <p class="ssub">Desde el exclusivo Barrio de Salamanca hasta Las Tablas. Siempre a pie de metro, siempre con la mejor imagen para tu empresa.</p>
       </div>
       <div class="madrid-intro-aside rv">
         <div class="madrid-aside-row">
           <span class="madrid-aside-label">Centros disponibles</span>
-          <span class="madrid-aside-value orange">8 centros</span>
+          <span class="madrid-aside-value orange">7 centros</span>
         </div>
         <div class="madrid-aside-sep"></div>
         <div class="madrid-aside-row">
@@ -465,7 +528,7 @@
         <div class="madrid-card-img">
           <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=85"
                alt="Barrio de Salamanca Madrid"
-               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#1C1C1C,#2D2D2D)'" />
+               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1C1C1C,#2D2D2D)'" />
           <div class="madrid-card-img-gradient"></div>
           <div class="madrid-card-badge madrid-card-featured-badge">Zona premium · 3 centros</div>
         </div>
@@ -498,9 +561,9 @@
       <!-- Capitán Haya -->
       <div class="madrid-card rv d2">
         <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85"
-               alt="Capitán Haya Madrid"
-               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'" />
+          <img src="https://images.unsplash.com/photo-1634248893766-2540ac03ba1d?auto=format&fit=crop&w=800&q=85"
+               alt="Torre Europa, Madrid"
+               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'" />
           <div class="madrid-card-img-gradient"></div>
           <div class="madrid-card-badge">Castellana · Azca</div>
         </div>
@@ -520,38 +583,12 @@
         </div>
       </div>
 
-      <!-- Callao -->
-      <div class="madrid-card rv d3">
-        <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1548504769-900b70ed122e?auto=format&fit=crop&w=800&q=85"
-               alt="Centro Madrid Gran Vía"
-               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#2d1b69,#11998e)'" />
-          <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge">Corazón de Madrid</div>
-        </div>
-        <div class="madrid-card-body">
-          <div class="madrid-card-name">Callao</div>
-          <div class="madrid-card-zone">Centro · Gran Vía</div>
-          <div class="madrid-card-tags">
-            <div class="madrid-tag">Despachos</div>
-            <div class="madrid-tag">Salas</div>
-            <div class="madrid-tag">Coworking</div>
-          </div>
-          <div class="madrid-metro">
-            <div class="metro-dot m3"></div>
-            <div class="metro-dot m5"></div>
-            <span>L3 · L5 — Callao</span>
-          </div>
-          <a href="index.html#contact" class="madrid-card-link">Consultar →</a>
-        </div>
-      </div>
-
       <!-- Las Tablas -->
       <div class="madrid-card rv d1">
         <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=85"
-               alt="Las Tablas Norte de Madrid"
-               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#134E5E,#71B280)'" />
+          <img src="https://images.unsplash.com/photo-1690944851207-3f288c8fcd0b?auto=format&fit=crop&w=800&q=85"
+               alt="Edificio de oficinas, Las Tablas Madrid"
+               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#134E5E,#71B280)'" />
           <div class="madrid-card-img-gradient"></div>
           <div class="madrid-card-badge">Norte · Empresarial</div>
         </div>
@@ -574,9 +611,9 @@
       <!-- Pozuelo / Las Rozas -->
       <div class="madrid-card rv d2">
         <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=85"
-               alt="Las Rozas Pozuelo Madrid Noroeste"
-               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#0F2027,#203A43,#2C5364)'" />
+          <img src="https://images.unsplash.com/photo-1624213012413-fda54df1810f?auto=format&fit=crop&w=800&q=85"
+               alt="Parque empresarial, Pozuelo Las Rozas"
+               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0F2027,#203A43,#2C5364)'" />
           <div class="madrid-card-img-gradient"></div>
           <div class="madrid-card-badge">Noroeste · La Florida</div>
         </div>
@@ -599,9 +636,9 @@
       <!-- SSdelosReyes -->
       <div class="madrid-card rv d3">
         <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=85"
-               alt="San Sebastián de los Reyes Norte Madrid"
-               onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#1a1a1a,#3d3d3d)'" />
+          <img src="https://images.unsplash.com/photo-1692797960717-1738a7a872c8?auto=format&fit=crop&w=800&q=85"
+               alt="Edificio de oficinas, San Sebastián de los Reyes"
+               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a1a,#3d3d3d)'" />
           <div class="madrid-card-img-gradient"></div>
           <div class="madrid-card-badge">Norte · A1</div>
         </div>
@@ -641,7 +678,7 @@
 
         <!-- Bilbao — LARGE -->
         <div id="card-bilbao" class="city-photo-card tall">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1559628233-100c798642d5?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#1a2a6c,#b21f1f)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1594229416093-5d595163e641?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#1a2a6c,#b21f1f)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">País Vasco</div>
@@ -660,7 +697,7 @@
         <!-- Galicia: A Coruña + Vigo -->
         <div style="display:flex;flex-direction:column;gap:16px">
           <div id="card-coruna" class="city-photo-card" style="flex:1">
-            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1590004987791-4bcd4fe5e10a?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#005c97,#363795)"></div>
+            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1679429786209-545ebd41e7c4?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#005c97,#363795)"></div>
             <div class="city-photo-card-overlay"></div>
             <div class="city-photo-card-content">
               <div class="city-photo-region">Galicia</div>
@@ -670,7 +707,7 @@
             </div>
           </div>
           <div id="card-vigo" class="city-photo-card" style="flex:1">
-            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1a1a2e,#16213e)"></div>
+            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1615922732011-9273b83897f0?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1a1a2e,#16213e)"></div>
             <div class="city-photo-card-overlay"></div>
             <div class="city-photo-card-content">
               <div class="city-photo-region">Galicia</div>
@@ -690,24 +727,25 @@
 
         <!-- Barcelona — LARGE -->
         <div id="card-barcelona" class="city-photo-card tall">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#8e2de2,#4a00e0)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1722863380905-539ae092fc5f?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#8e2de2,#4a00e0)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Cataluña</div>
             <div class="city-photo-name">Barcelona</div>
-            <div class="city-photo-center">Mitre — Sarrià · Sant Gervasi</div>
+            <div class="city-photo-center">Mitre · Pl. Urquinaona · Sant Gervasi — 3 centros</div>
             <div class="city-photo-tags">
               <div class="city-photo-tag">Despachos</div>
               <div class="city-photo-tag">Salas reuniones</div>
               <div class="city-photo-tag">Networking</div>
             </div>
           </div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">×3 centros</span></div>
         </div>
 
         <!-- Zaragoza + Salamanca stacked -->
         <div style="display:flex;flex-direction:column;gap:16px">
           <div id="card-zaragoza" class="city-photo-card" style="flex:1">
-            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#DA4453,#89216B)"></div>
+            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1678702638510-1d3d90bba9e1?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#DA4453,#89216B)"></div>
             <div class="city-photo-card-overlay"></div>
             <div class="city-photo-card-content">
               <div class="city-photo-region">Aragón</div>
@@ -717,7 +755,7 @@
             </div>
           </div>
           <div id="card-salamanca" class="city-photo-card" style="flex:1">
-            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#C79003,#8B6914)"></div>
+            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1704149527126-f14ab5000534?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#C79003,#8B6914)"></div>
             <div class="city-photo-card-overlay"></div>
             <div class="city-photo-card-content">
               <div class="city-photo-region">Castilla y León</div>
@@ -735,7 +773,7 @@
       <div class="region-label">Castilla y León — Segovia</div>
       <div class="city-photo-grid row-2">
         <div id="card-segovia" class="city-photo-card short">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1599413989742-6dcfe7d36bf3?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#373B44,#4286f4)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1643454744768-5caab8a62f76?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#373B44,#4286f4)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Castilla y León</div>
@@ -745,7 +783,7 @@
           </div>
         </div>
         <div class="city-photo-card short">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1599413989742-6dcfe7d36bf3?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1e3c72,#2a5298)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1708765036801-4d4d207fc29c?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1e3c72,#2a5298)"></div>
           <div class="city-photo-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.08) 100%)"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Castilla y León</div>
@@ -763,7 +801,7 @@
       <div class="city-photo-grid row-3">
 
         <div id="card-valencia" class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#005C97,#363795)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1763569113488-93b9ffbb14f6?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#005C97,#363795)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Comunitat Valenciana</div>
@@ -774,18 +812,18 @@
         </div>
 
         <div id="card-castellon" class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1FA2FF,#12D8FA,#A6FFCB)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1730741779383-dc45709f8e3b?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1FA2FF,#12D8FA,#A6FFCB)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Comunitat Valenciana</div>
             <div class="city-photo-name">Castellón</div>
-            <div class="city-photo-center">Plaza Mayor · Centro histórico</div>
+            <div class="city-photo-center">Centro · Costa de Castellón</div>
             <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div></div>
           </div>
         </div>
 
         <div id="card-alicante" class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#F7971E,#FFD200)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1502919963290-40096b6983ab?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#F7971E,#FFD200)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Comunitat Valenciana</div>
@@ -803,7 +841,7 @@
       <div class="region-label">Extremadura y Castilla-La Mancha</div>
       <div class="city-photo-grid row-2">
         <div id="card-merida" class="city-photo-card short">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1581891145071-64e7a8b30e78?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#8B6914,#5C4827)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1650103134649-5d7621808a1f?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#8B6914,#5C4827)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Extremadura</div>
@@ -813,7 +851,7 @@
           </div>
         </div>
         <div id="card-albacete" class="city-photo-card short">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#4b6cb7,#182848)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1707823942892-3316eeb091a0?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#4b6cb7,#182848)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Castilla-La Mancha</div>
@@ -825,18 +863,28 @@
       </div>
     </div>
 
-    <!-- MURCIA: 2 centros -->
+    <!-- MURCIA: 3 centros -->
     <div class="city-photo-section rv">
       <div class="region-label">Región de Murcia</div>
-      <div class="city-photo-grid row-2">
+      <div class="city-photo-grid row-3">
         <div id="card-murcia" class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#C84B31,#ECDBBA)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1747493828896-ad0e7fc88dcb?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#C84B31,#ECDBBA)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Región de Murcia</div>
             <div class="city-photo-name">Murcia</div>
             <div class="city-photo-center">Centro ciudad · Catedral</div>
             <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
+          </div>
+        </div>
+        <div class="city-photo-card">
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1758304481667-71d545c91241?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#4b6cb7,#182848)"></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Región de Murcia</div>
+            <div class="city-photo-name">Polígono Industrial Oeste</div>
+            <div class="city-photo-center">Zona empresarial · Acceso autovía</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Parking</div></div>
           </div>
         </div>
         <div class="city-photo-card">
@@ -860,7 +908,7 @@
 
         <!-- Sevilla — LARGE con 2 centros -->
         <div id="card-sevilla" class="city-photo-card tall">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#c94b4b,#4b134f)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1650322647921-90f1fb114b33?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#c94b4b,#4b134f)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Andalucía</div>
@@ -878,7 +926,7 @@
 
         <!-- Málaga -->
         <div id="card-malaga" class="city-photo-card tall">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1523365280197-f1783db9fe62?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#F7971E,#FFD200)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1693561219903-f59422795e5e?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#F7971E,#FFD200)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Andalucía</div>
@@ -895,11 +943,11 @@
     </div>
 
     <!-- CANARIAS -->
-    <div class="city-photo-section rv">
+    <div id="card-tenerife" class="city-photo-section rv">
       <div class="region-label">Islas Canarias — Tenerife</div>
       <div class="city-photo-grid row-2">
         <div class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1548199748-16c1e95e0e50?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#f12711,#f5af19)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1613333046289-4cd8e6a6270e?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#f12711,#f5af19)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Islas Canarias</div>
@@ -909,7 +957,7 @@
           </div>
         </div>
         <div class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1a1a2e,#e94560)"></div>
+          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1720509747946-b3791a9ddd01?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1a1a2e,#e94560)"></div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Islas Canarias</div>
@@ -936,10 +984,10 @@
 <!-- CTA -->
 <section id="ubi-cta">
   <h2 class="ubi-cta-title rv">Tu espacio, listo hoy</h2>
-  <p class="ubi-cta-sub rv">Sin fianza, sin obras, sin inversión inicial. Llámanos y ten tu oficina operativa hoy mismo.</p>
+  <p class="ubi-cta-sub rv">Encuentra tu centro más cercano y ten tu oficina operativa hoy mismo.</p>
   <div class="ubi-cta-btns rv">
-    <a href="tel:918298500" class="btn-white">📞 918 298 500</a>
-    <a href="https://wa.me/34624119705" class="btn-dark-solid">💬 WhatsApp ahora</a>
+    <a href="tel:918298500" class="btn-white"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
+    <a href="https://wa.me/34624119705" class="btn-dark-solid"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor" style="vertical-align:-2px;margin-right:4px"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>WhatsApp ahora</a>
   </div>
 </section>
 
@@ -990,11 +1038,11 @@
   </div>
   <div class="footer-bottom">
     <span>© 2024 OficinasYA! · Todos los derechos reservados</span>
-    <span>Aviso legal · Privacidad · Cookies</span>
+    <div class="footer-bottom-links"><a href="aviso-legal.html">Aviso legal</a>·<a href="privacidad.html">Privacidad</a>·<a href="cookies.html">Cookies</a></div>
   </div>
 </footer>
 
-<a href="https://wa.me/34624119705" class="wa" title="WhatsApp">💬</a>
+<a href="https://wa.me/34624119705" class="wa" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="24" height="24" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
 <script>
   const nav = document.getElementById('nav');
@@ -1003,6 +1051,41 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => io.observe(el));
+
+  // Interactive map: hover tooltip + click-to-scroll with highlight
+  const tooltip = document.getElementById('mapTooltip');
+  const mapContainer = document.querySelector('.map-container');
+
+  function showTooltip(el) {
+    const city = el.dataset.city, count = el.dataset.count;
+    if (!city) return;
+    tooltip.querySelector('.mt-city').textContent = city;
+    tooltip.querySelector('.mt-count').textContent = '· ' + count;
+    const elRect = el.getBoundingClientRect();
+    const wrapRect = mapContainer.getBoundingClientRect();
+    tooltip.style.left = (elRect.left + elRect.width / 2 - wrapRect.left) + 'px';
+    tooltip.style.top = (elRect.top - wrapRect.top) + 'px';
+    tooltip.classList.add('on');
+  }
+  function hideTooltip() { tooltip.classList.remove('on'); }
+
+  document.querySelectorAll('.city-dot, .tenerife-inset').forEach(el => {
+    el.addEventListener('mouseenter', () => showTooltip(el));
+    el.addEventListener('mouseleave', hideTooltip);
+    el.addEventListener('focus', () => showTooltip(el));
+    el.addEventListener('blur', hideTooltip);
+  });
+
+  function goToCity(el, targetId) {
+    hideTooltip();
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    target.classList.remove('map-target-flash');
+    void target.offsetWidth; // restart animation
+    target.classList.add('map-target-flash');
+    setTimeout(() => target.classList.remove('map-target-flash'), 1500);
+  }
 </script>
 </body>
 </html>

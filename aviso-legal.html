@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
+  <title>Aviso Legal — OficinasYA!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange:      #F5921A;
+      --orange-dark: #E07810;
+      --orange-pale: #FFF3E0;
+      --dark:        #1C1C1C;
+      --dark-mid:    #2D2D2D;
+      --gray-50:     #FAFAFA;
+      --gray-100:    #F5F5F5;
+      --gray-200:    #E8E8E8;
+      --gray-400:    #A3A3A3;
+      --gray-600:    #525252;
+      --white:       #FFFFFF;
+      --radius:      20px;
+      --ease:        cubic-bezier(.16,1,.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 6%; display: flex; align-items: center; justify-content: space-between; background: var(--white); box-shadow: 0 2px 24px rgba(0,0,0,.09); transition: all .4s var(--ease); }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+    .logo-wordmark { display: flex; align-items: baseline; }
+    .logo-word { font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 1.75rem; letter-spacing: -1px; color: var(--dark); }
+    .logo-ya { font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 1.75rem; letter-spacing: -1px; color: var(--orange); }
+    .logo-sub { font-size: .62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); padding-left: 1px; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { color: var(--dark-mid); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; }
+    .nav-links a:hover { color: var(--orange) !important; }
+    .nav-cta { background: var(--orange); color: var(--white); padding: 11px 26px; border-radius: 50px; font-weight: 700; font-size: .9rem; text-decoration: none; transition: background .3s, transform .3s; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+    .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); }
+    .icon-phone { flex-shrink: 0; }
+
+    .page-hero { background: var(--dark); padding: 150px 6% 60px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.12) 0%, transparent 65%); pointer-events: none; }
+    .page-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+    .breadcrumb a { color: rgba(255,255,255,.35); font-size: .8rem; font-weight: 600; text-decoration: none; transition: color .3s; }
+    .breadcrumb a:hover { color: var(--orange); }
+    .breadcrumb-sep { color: rgba(255,255,255,.2); font-size: .8rem; }
+    .breadcrumb-current { color: var(--orange); font-size: .8rem; font-weight: 700; }
+    .page-hero-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 900; line-height: 1; color: var(--white); letter-spacing: -1px; margin-bottom: 14px; }
+    .page-hero-sub { color: rgba(255,255,255,.5); font-size: 1rem; }
+
+    .legal-wrap { max-width: 900px; margin: 0 auto; padding: 72px 6% 100px; }
+    .legal-wrap h2 { font-family: 'Barlow', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); margin: 44px 0 16px; }
+    .legal-wrap h2:first-child { margin-top: 0; }
+    .legal-wrap p { color: var(--gray-600); font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
+    .legal-wrap strong { color: var(--dark); }
+    .legal-note { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: 16px; padding: 24px 28px; margin-top: 40px; }
+    .legal-note p { margin-bottom: 8px; font-size: .92rem; }
+    .legal-note p:last-child { margin-bottom: 0; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 64px 6% 36px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo .logo-word { color: rgba(255,255,255,.85); font-size: 1.5rem; }
+    .footer-logo .logo-ya { font-size: 1.5rem; }
+    .footer-logo .logo-sub { color: rgba(255,255,255,.3); }
+    .footer-logo { margin-bottom: 18px; }
+    .footer-brand p { font-size: .88rem; line-height: 1.7; max-width: 260px; margin-top: 4px; }
+    .footer-col h5 { color: var(--white); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul a { color: rgba(255,255,255,.4); text-decoration: none; font-size: .88rem; transition: color .3s; }
+    .footer-col ul a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 28px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .82rem; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
+    .socials { display: flex; gap: 9px; margin-top: 20px; }
+    .soc { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.45); text-decoration: none; font-size: .78rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .wa { position: fixed; bottom: 28px; right: 28px; z-index: 99; width: 54px; height: 54px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 6px 24px rgba(37,211,102,.4); transition: transform .3s; }
+    .wa:hover { transform: scale(1.1); }
+
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .legal-wrap { padding: 56px 5% 72px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-wordmark"><span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span></div>
+    <span class="logo-sub">Coworking &amp; Workplaces</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Servicios</a></li>
+    <li><a href="ubicaciones.html">Ubicaciones</a></li>
+    <li><a href="index.html#pricing">Precios</a></li>
+    <li><a href="comunidad.html">Comunidad</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contacto</a></li>
+  </ul>
+  <a href="tel:918298500" class="nav-cta"><svg class="icon-phone" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Aviso Legal</span>
+    </div>
+    <h1 class="page-hero-title">Aviso Legal</h1>
+    <p class="page-hero-sub">Información sobre el titular del sitio web y condiciones de uso.</p>
+  </div>
+</div>
+
+<div class="legal-wrap">
+  <h2>1. Datos identificativos del titular</h2>
+  <p>En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, se informa que el sitio web <strong>www.oficinasya.es</strong> es titularidad de <strong>IBCNET ESPAÑA SL</strong>, con domicilio social en C/ Isabel Colbrand, 6, 5º planta, 28050, Madrid, y dirección de contacto <strong>hola@oficinasya.es</strong> / <strong>918 298 500</strong>.</p>
+
+  <h2>2. Objeto y ámbito de aplicación</h2>
+  <p>El presente Aviso Legal regula el uso del sitio web, cuya finalidad es informar sobre los servicios de despachos privados, coworking, salas de reuniones y oficina virtual ofrecidos por IBCNET ESPAÑA SL, así como facilitar el contacto y la solicitud de información por parte de los usuarios. El acceso al sitio web es gratuito y su uso atribuye la condición de usuario, aceptando, desde dicho acceso, las condiciones aquí recogidas.</p>
+
+  <h2>3. Condiciones de uso</h2>
+  <p>El usuario se compromete a hacer un uso adecuado y lícito del sitio web, de conformidad con la legislación aplicable, el presente Aviso Legal, la moral y el orden público. Queda prohibido el uso del sitio web con fines ilícitos o lesivos, o que de cualquier forma puedan causar perjuicio o impedir el normal funcionamiento del sitio web.</p>
+
+  <h2>4. Propiedad intelectual e industrial</h2>
+  <p>Todos los contenidos del sitio web (textos, imágenes, diseño gráfico, logotipos, marcas y demás signos distintivos) son propiedad de IBCNET ESPAÑA SL o de terceros que han autorizado su uso, y están protegidos por la normativa de propiedad intelectual e industrial. Queda prohibida su reproducción, distribución o comunicación pública total o parcial sin autorización expresa del titular.</p>
+
+  <h2>5. Enlaces</h2>
+  <p>El sitio web puede contener enlaces a otros sitios gestionados por terceros. IBCNET ESPAÑA SL no asume responsabilidad alguna por el contenido, políticas de privacidad o prácticas de dichos sitios web.</p>
+
+  <h2>6. Legislación aplicable</h2>
+  <p>Las presentes condiciones se rigen por la legislación española. Para cualquier controversia derivada del acceso o uso del sitio web, las partes se someten a los juzgados y tribunales del domicilio del titular, salvo que la normativa de consumidores y usuarios establezca otro fuero.</p>
+
+  <div class="legal-note">
+    <p><strong>IBCNET ESPAÑA SL</strong></p>
+    <p>C/ Isabel Colbrand, 6, 5º planta · 28050 Madrid</p>
+    <p>918 298 500 · hola@oficinasya.es</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo nav-logo">
+        <div class="logo-wordmark"><span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span></div>
+        <span class="logo-sub">Coworking &amp; Workplaces</span>
+      </div>
+      <p>Despachos privados, coworking y centros de negocios en toda España. Happy Workplaces desde 2009.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/oficinasya" class="soc">f</a>
+        <a href="https://www.linkedin.com/company/oficinasya" class="soc">in</a>
+        <a href="https://twitter.com/oficinasya" class="soc">𝕏</a>
+        <a href="https://www.instagram.com/oficinasya" class="soc">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Servicios</h5>
+      <ul>
+        <li><a href="index.html#services">Despachos privados</a></li>
+        <li><a href="index.html#services">Salas de reuniones</a></li>
+        <li><a href="index.html#services">Oficina virtual</a></li>
+        <li><a href="index.html#services">Coworking</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Empresa</h5>
+      <ul>
+        <li><a href="index.html#why">Por qué nosotros</a></li>
+        <li><a href="ubicaciones.html">Ubicaciones</a></li>
+        <li><a href="comunidad.html">Comunidad</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="tel:918298500">918 298 500</a></li>
+        <li><a href="https://wa.me/34624119705">WhatsApp 624 119 705</a></li>
+        <li><a href="mailto:hola@oficinasya.es">hola@oficinasya.es</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 OficinasYA! · Todos los derechos reservados</span>
+    <div class="footer-bottom-links">
+      <a href="aviso-legal.html">Aviso legal</a>·<a href="privacidad.html">Privacidad</a>·<a href="cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/34624119705" class="wa" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="24" height="24" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+
+<script>
+  window.addEventListener('scroll', () => {});
+</script>
+</body>
+</html>

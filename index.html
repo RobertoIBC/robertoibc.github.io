@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
   <title>OficinasYA! — Coworking & Workplaces en Madrid</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -69,6 +72,7 @@
       background: var(--orange); color: var(--white);
       padding: 11px 26px; border-radius: 50px;
       font-weight: 700; font-size: .9rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
       transition: background .3s, transform .3s, box-shadow .3s;
       white-space: nowrap;
     }
@@ -158,6 +162,25 @@
       max-width: 1200px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(4,1fr);
     }
+    .mini-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; max-width: 900px; margin: 0 auto 52px; }
+    .city-chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 960px; margin: 0 auto 52px; }
+    .city-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); border: 1.5px solid var(--gray-200); color: var(--gray-600);
+      padding: 10px 18px 10px 16px; border-radius: 50px;
+      font-size: .88rem; font-weight: 600; cursor: default;
+      transition: transform .3s var(--ease), box-shadow .3s, border-color .3s, color .3s, background .3s;
+    }
+    .city-chip svg { width: 14px; height: 14px; flex-shrink: 0; opacity: .5; transition: opacity .3s; }
+    .city-chip:hover { border-color: var(--orange); color: var(--dark); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(245,146,26,.16); }
+    .city-chip:hover svg { opacity: 1; color: var(--orange); }
+    .city-chip .chip-count { background: var(--orange-pale); color: var(--orange-dark); font-size: .74rem; font-weight: 800; padding: 2px 9px; border-radius: 50px; }
+    .city-chip--main { background: var(--orange); border-color: var(--orange); color: var(--white); font-weight: 700; }
+    .city-chip--main svg { opacity: 1; }
+    .city-chip--main .chip-count { background: rgba(255,255,255,.25); color: var(--white); }
+    .city-chip--main:hover { background: var(--orange-dark); border-color: var(--orange-dark); color: var(--white); box-shadow: 0 14px 32px rgba(245,146,26,.4); }
+    .city-chip--more { background: transparent; border-style: dashed; color: var(--gray-400); }
+    .city-chip--more:hover { color: var(--orange-dark); }
     .stat {
       padding: 52px 28px; text-align: center;
       border-right: 1px solid rgba(255,255,255,.07);
@@ -256,13 +279,25 @@
     .why-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.65; }
 
     /* ── ORANGE BAND ── */
-    #orange-band {
-      background: var(--orange); padding: 80px 6%;
-      display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap;
+    #orange-band { background: var(--orange); padding: 96px 6%; position: relative; overflow: hidden; }
+    #orange-band::before { content: ''; position: absolute; top: -160px; left: -160px; width: 440px; height: 440px; border-radius: 50%; background: rgba(255,255,255,.06); pointer-events: none; }
+    .ob-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 68px; position: relative; z-index: 1; }
+    .ob-visual { position: relative; flex-shrink: 0; width: 320px; }
+    .ob-photo { width: 100%; aspect-ratio: 4/3.3; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,.28); }
+    .ob-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .ob-badge {
+      position: absolute; bottom: -20px; left: -20px;
+      background: var(--white); border-radius: 16px; padding: 13px 22px;
+      box-shadow: 0 14px 32px rgba(0,0,0,.2);
+      font-family: 'Caveat', cursive; font-size: 1.7rem; font-weight: 700; color: var(--orange);
+      transform: rotate(-3deg);
     }
-    .ob-img { display: flex; align-items: center; }
-    .ob-text { color: rgba(255,255,255,.88); font-size: 1.15rem; max-width: 440px; line-height: 1.65; }
-    .ob-text strong { color: var(--white); font-family: 'Barlow', sans-serif; font-size: 1.4rem; font-weight: 800; display: block; margin-bottom: 8px; }
+    .ob-content { flex: 1; min-width: 300px; }
+    .ob-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.18); color: var(--white); padding: 7px 16px; border-radius: 50px; font-size: .76rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
+    .ob-title { font-family: 'Barlow', sans-serif; font-size: clamp(1.8rem, 3.4vw, 2.4rem); font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 14px; letter-spacing: -.5px; }
+    .ob-desc { color: rgba(255,255,255,.92); font-size: 1.05rem; line-height: 1.7; max-width: 480px; margin-bottom: 28px; }
+    .ob-features { display: flex; flex-wrap: wrap; gap: 12px; }
+    .ob-feature { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); padding: 9px 16px; border-radius: 50px; color: var(--white); font-size: .85rem; font-weight: 600; }
 
     /* ── PRICING ── */
     #pricing { background: var(--dark); position: relative; overflow: hidden; }
@@ -339,15 +374,26 @@
     .btn-dark-solid:hover { transform: translateY(-3px); background: var(--dark-mid); }
 
     /* ── CONTACT ── */
-    #contact { background: var(--white); }
-    .contact-wrap { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    #contact { background: var(--gray-50); position: relative; overflow: hidden; }
+    #contact::after {
+      content: ''; position: absolute; bottom: -240px; left: -160px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,146,26,.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-wrap { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; z-index: 1; }
     .contact-items { display: flex; flex-direction: column; gap: 28px; margin-top: 44px; }
     .ci { display: flex; gap: 20px; align-items: flex-start; }
-    .ci-icon { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; transition: background .3s; }
-    .ci:hover .ci-icon { background: var(--orange); }
+    .ci-icon { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; background: var(--orange-pale); color: var(--orange); display: flex; align-items: center; justify-content: center; transition: background .3s, color .3s; }
+    .ci-icon svg { width: 22px; height: 22px; }
+    .ci:hover .ci-icon { background: var(--orange); color: var(--white); }
     .ci-lbl { font-size: .78rem; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
     .ci-val { font-size: 1.05rem; font-weight: 600; color: var(--dark); }
-    .cf { background: var(--gray-50); border-radius: 24px; padding: 52px 44px; }
+    .cf {
+      background: var(--white); border-radius: 24px; padding: 52px 44px;
+      border: 1.5px solid var(--orange-pale); position: relative;
+      box-shadow: 0 10px 40px rgba(245,146,26,.1), 0 40px 90px -30px rgba(245,146,26,.28);
+    }
     .cf-title { font-family: 'Barlow', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--dark); margin-bottom: 6px; }
     .cf-sub { color: var(--gray-600); font-size: .95rem; margin-bottom: 36px; }
     .fg { margin-bottom: 20px; }
@@ -383,6 +429,9 @@
     .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; }
     .footer-col ul a:hover { color: var(--orange); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
+    .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
     .socials { display: flex; gap: 10px; }
     .soc { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
     .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
@@ -557,7 +606,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .srv-grid, .testi-grid, .price-grid, .blog-grid { grid-template-columns: 1fr 1fr; }
-      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stats-grid, .mini-stats-grid { grid-template-columns: repeat(2,1fr); }
       .why-wrap, .contact-wrap, .com-inner { grid-template-columns: 1fr; gap: 48px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .why-visual { padding-bottom: 60px; padding-right: 60px; }
@@ -566,13 +615,15 @@
     }
     @media (max-width: 600px) {
       section { padding: 80px 5%; }
-      .srv-grid, .testi-grid, .price-grid, .stats-grid, .blog-grid { grid-template-columns: 1fr; }
+      .srv-grid, .testi-grid, .price-grid, .stats-grid, .blog-grid, .mini-stats-grid { grid-template-columns: 1fr; }
       .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
       .nav-links { display: none; }
       .fg-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-      #orange-band { flex-direction: column; text-align: center; }
+      .ob-inner { flex-direction: column; text-align: center; gap: 40px; }
+      .ob-visual { width: 260px; }
+      .ob-features { justify-content: center; }
       .why-visual { padding-bottom: 56px; padding-right: 0; }
       .ubi-madrid-grid { grid-template-columns: 1fr 1fr; }
       .com-stats { grid-template-columns: 1fr 1fr; }
@@ -597,7 +648,7 @@
     <li><a href="blog.html">Blog</a></li>
     <li><a href="#contact">Contacto</a></li>
   </ul>
-  <a href="tel:918298500" class="nav-cta">☎ 918 298 500</a>
+  <a href="tel:918298500" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
 </nav>
 
 <!-- HERO -->
@@ -608,10 +659,10 @@
     <div class="hero-happy">
       <span class="hero-happy-text">Happy Workplaces!</span>
     </div>
-    <p class="hero-sub">Despachos privados, coworking y salas de reuniones. Sin fianza, sin obras, sin esperas. Listo para trabajar hoy mismo.</p>
+    <p class="hero-sub">Despachos privados, coworking y salas de reuniones. Sin obras, sin esperas. Listo para trabajar hoy mismo.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-orange">Reserva tu espacio →</a>
-      <a href="https://wa.me/34624119705" class="btn-ghost">💬 WhatsApp</a>
+      <a href="https://wa.me/34624119705" class="btn-ghost"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor" style="vertical-align:-2px;margin-right:4px"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>WhatsApp</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -636,8 +687,8 @@
       <div class="stat-lbl">Años de experiencia</div>
     </div>
     <div class="stat rv d4">
-      <span class="stat-num" style="font-size:2rem">0€</span>
-      <div class="stat-lbl" style="color:var(--orange);font-weight:600">Sin fianza ni inversión inicial</div>
+      <span class="stat-num">100%</span>
+      <div class="stat-lbl">Flexibilidad total</div>
     </div>
   </div>
 </section>
@@ -684,7 +735,10 @@
     </div>
     <div class="srv-card rv d3">
       <div class="srv-card-top"></div>
-      <div class="srv-icon-box">📋</div>
+      <div class="srv-icon-box">
+        <img src="https://images.unsplash.com/photo-1745970347652-8f22f5d7d3ba?auto=format&fit=crop&w=200&h=200&q=80" alt="Oficina Virtual"
+          onerror="this.style.display='none';this.parentElement.textContent='📋'" />
+      </div>
       <h3 class="srv-name">Oficina Virtual</h3>
       <p class="srv-desc">Domicilia tu empresa en Madrid con todos los servicios de una oficina real, sin estar físicamente.</p>
       <ul class="srv-list">
@@ -713,7 +767,7 @@
     <div class="rvr">
       <span class="eyebrow">Por qué OficinasYA!</span>
       <h2 class="stitle">Crece sin límites,<br><span class="hl">paga solo lo que usas</span></h2>
-      <p class="ssub">Sin aval, sin obras, sin inversión inicial. Tu oficina lista en minutos, no en meses.</p>
+      <p class="ssub">Sin obras, sin instalaciones que montar. Tu oficina lista en minutos, no en meses.</p>
       <div class="why-list">
         <div class="why-item">
           <div class="why-dot"></div>
@@ -753,14 +807,14 @@
   <div style="max-width:1200px;margin:0 auto">
     <div class="rv" style="text-align:center;margin-bottom:60px">
       <span class="eyebrow">Red nacional</span>
-      <h2 class="stitle" style="margin:0 auto">+28 centros en <span class="hl">toda España</span></h2>
+      <h2 class="stitle" style="margin:0 auto">+31 centros en <span class="hl">toda España</span></h2>
       <p class="ssub" style="margin:16px auto 0;text-align:center">Una red, un contrato. Trabaja donde lo necesites sin cambiar de proveedor.</p>
     </div>
 
     <!-- Mini stats -->
-    <div class="rv" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:900px;margin:0 auto 52px">
+    <div class="rv mini-stats-grid">
       <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:16px;padding:28px 20px;text-align:center;transition:border-color .3s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--gray-200)'">
-        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">8</div>
+        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">7</div>
         <div style="font-size:.82rem;color:var(--gray-600);margin-top:6px">Centros en Madrid</div>
       </div>
       <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:16px;padding:28px 20px;text-align:center;transition:border-color .3s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--gray-200)'">
@@ -768,7 +822,7 @@
         <div style="font-size:.82rem;color:var(--gray-600);margin-top:6px">Ciudades en España</div>
       </div>
       <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:16px;padding:28px 20px;text-align:center;transition:border-color .3s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--gray-200)'">
-        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">28+</div>
+        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">31+</div>
         <div style="font-size:.82rem;color:var(--gray-600);margin-top:6px">Centros en total</div>
       </div>
       <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:16px;padding:28px 20px;text-align:center;transition:border-color .3s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--gray-200)'">
@@ -778,16 +832,16 @@
     </div>
 
     <!-- City pills -->
-    <div class="rv" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:900px;margin:0 auto 52px">
-      <span style="background:var(--orange);color:var(--white);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:700">📍 Madrid ×8</span>
-      <span style="background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-600);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600">Barcelona</span>
-      <span style="background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-600);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600">Bilbao ×2</span>
-      <span style="background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-600);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600">Sevilla ×2</span>
-      <span style="background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-600);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600">Valencia</span>
-      <span style="background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-600);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600">Murcia ×2</span>
-      <span style="background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-600);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600">Tenerife ×2</span>
-      <span style="background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-600);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600">Málaga</span>
-      <span style="background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-400);padding:8px 18px;border-radius:50px;font-size:.85rem;font-weight:600">+13 ciudades más…</span>
+    <div class="rv city-chips">
+      <span class="city-chip city-chip--main"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Madrid<span class="chip-count">×7</span></span>
+      <span class="city-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Barcelona<span class="chip-count">×3</span></span>
+      <span class="city-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bilbao<span class="chip-count">×2</span></span>
+      <span class="city-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Sevilla<span class="chip-count">×2</span></span>
+      <span class="city-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Valencia</span>
+      <span class="city-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Murcia<span class="chip-count">×3</span></span>
+      <span class="city-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Tenerife<span class="chip-count">×2</span></span>
+      <span class="city-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Málaga</span>
+      <span class="city-chip city-chip--more">+13 ciudades más…</span>
     </div>
 
     <div class="rv" style="text-align:center">
@@ -798,12 +852,24 @@
 
 <!-- ORANGE BAND -->
 <div id="orange-band" class="rv">
-  <div class="ob-img">
-    <span style="font-family:'Caveat',cursive;font-size:3.2rem;font-weight:700;color:white;line-height:1;filter:drop-shadow(0 2px 8px rgba(0,0,0,.15))">Happy Workplaces!</span>
-  </div>
-  <div class="ob-text">
-    <strong>Espacios que te inspiran a dar lo mejor</strong>
-    Entornos diseñados para que tú y tu equipo disfrutéis trabajando cada día. El bienestar en el trabajo no es un extra — es lo mínimo.
+  <div class="ob-inner">
+    <div class="ob-visual">
+      <div class="ob-photo">
+        <img src="https://images.unsplash.com/photo-1758691736975-9f7f643d178e?auto=format&fit=crop&w=700&q=80" alt="Equipo feliz trabajando en OficinasYA!"
+          onerror="this.style.display='none'" />
+      </div>
+      <div class="ob-badge">Happy Workplaces!</div>
+    </div>
+    <div class="ob-content">
+      <span class="ob-eyebrow">🍊 Happy Workplaces!</span>
+      <h2 class="ob-title">Espacios que te inspiran a dar lo mejor</h2>
+      <p class="ob-desc">Entornos diseñados para que tú y tu equipo disfrutéis trabajando cada día. El bienestar en el trabajo no es un extra — es lo mínimo.</p>
+      <div class="ob-features">
+        <span class="ob-feature">☀️ Luz natural</span>
+        <span class="ob-feature">🌿 Zonas comunes</span>
+        <span class="ob-feature">🎨 Diseño cuidado</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -928,7 +994,7 @@
 <!-- COMUNIDAD TEASER -->
 <section id="comunidad" style="background:var(--dark);position:relative;overflow:hidden">
   <div style="position:absolute;top:-160px;right:-160px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,146,26,.15) 0%,transparent 65%);pointer-events:none"></div>
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+  <div class="why-wrap" style="max-width:1200px;margin:0 auto">
     <div class="rvl">
       <div class="com-badge">🍊 Comunidad Naranja</div>
       <h2 class="com-title">Tu próximo cliente<br>ya está en tu <span class="hl">mismo edificio</span></h2>
@@ -965,7 +1031,7 @@
             <div class="l">Sectores representados</div>
           </div>
           <div class="com-stat-box">
-            <span class="n">28</span>
+            <span class="n">20</span>
             <div class="l">Ciudades en la red</div>
           </div>
           <div class="com-stat-box">
@@ -983,8 +1049,8 @@
   <h2 class="cta-title rv">¿Listo para trabajar<br>en tu oficina ideal?</h2>
   <p class="cta-sub rv">Contáctanos ahora y ten tu espacio listo hoy mismo. Sin burocracia, sin obras, sin excusas.</p>
   <div class="cta-btns rv">
-    <a href="tel:918298500" class="btn-white">📞 918 298 500</a>
-    <a href="https://wa.me/34624119705" class="btn-dark-solid">💬 WhatsApp</a>
+    <a href="tel:918298500" class="btn-white"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
+    <a href="https://wa.me/34624119705" class="btn-dark-solid"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor" style="vertical-align:-2px;margin-right:4px"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>WhatsApp</a>
   </div>
 </section>
 
@@ -1057,19 +1123,19 @@
       <p class="ssub">Te respondemos en menos de 2 horas en horario de atención.</p>
       <div class="contact-items">
         <div class="ci">
-          <div class="ci-icon">📞</div>
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div><div class="ci-lbl">Teléfono</div><div class="ci-val">918 298 500</div></div>
         </div>
         <div class="ci">
-          <div class="ci-icon">💬</div>
+          <div class="ci-icon"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></div>
           <div><div class="ci-lbl">WhatsApp</div><div class="ci-val">624 119 705</div></div>
         </div>
         <div class="ci">
-          <div class="ci-icon">✉️</div>
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg></div>
           <div><div class="ci-lbl">Email</div><div class="ci-val">hola@oficinasya.es</div></div>
         </div>
         <div class="ci">
-          <div class="ci-icon">🕐</div>
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
           <div><div class="ci-lbl">Atención</div><div class="ci-val">Lun–Vie 9:00–19:00 · Acceso 24/7</div></div>
         </div>
       </div>
@@ -1153,11 +1219,11 @@
   </div>
   <div class="footer-bottom">
     <span>© 2024 OficinasYA! · Todos los derechos reservados</span>
-    <span>Aviso legal · Privacidad · Cookies</span>
+    <div class="footer-bottom-links"><a href="aviso-legal.html">Aviso legal</a>·<a href="privacidad.html">Privacidad</a>·<a href="cookies.html">Cookies</a></div>
   </div>
 </footer>
 
-<a href="https://wa.me/34624119705" class="wa" title="WhatsApp">💬</a>
+<a href="https://wa.me/34624119705" class="wa" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="27" height="27" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
 <script>
   // Nav scroll

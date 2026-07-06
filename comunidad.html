@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
   <title>Comunidad Naranja — OficinasYA! · Networking real para profesionales</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,7 +44,7 @@
     .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; }
     nav.scrolled .nav-links a { color: var(--dark-mid); }
     .nav-links a:hover, .nav-links a.active { color: var(--orange) !important; }
-    .nav-cta { background: var(--orange); color: var(--white); padding: 11px 26px; border-radius: 50px; font-weight: 700; font-size: .9rem; text-decoration: none; transition: background .3s, transform .3s; white-space: nowrap; }
+    .nav-cta { background: var(--orange); color: var(--white); padding: 11px 26px; border-radius: 50px; font-weight: 700; font-size: .9rem; text-decoration: none; transition: background .3s, transform .3s; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
     .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); }
 
     /* ── SHARED ── */
@@ -60,7 +63,7 @@
     @keyframes up { to { opacity: 1; transform: translateY(0); } }
 
     /* ── HERO ── */
-    .page-hero { background: var(--dark); padding: 160px 6% 120px; position: relative; overflow: hidden; }
+    .page-hero { background: linear-gradient(110deg, rgba(20,20,20,.94) 0%, rgba(20,20,20,.85) 45%, rgba(20,20,20,.6) 100%), url('https://images.unsplash.com/photo-1758873269320-372f7ad170f0?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: 160px 6% 120px; position: relative; overflow: hidden; }
     .ph-bg-rings { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 900px; height: 900px; pointer-events: none; }
     .ph-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; border: 1px solid rgba(245,146,26,.08); transform: translate(-50%, -50%); }
     .ph-ring:nth-child(1) { width: 300px; height: 300px; }
@@ -92,13 +95,14 @@
     .nc-title { font-family: 'Barlow', sans-serif; font-size: .78rem; font-weight: 800; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 20px; }
     .nc-members { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
     .nc-member { display: flex; align-items: center; gap: 14px; }
-    .nc-avatar { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .nc-avatar { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; overflow: hidden; }
+    .nc-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .nc-member-info { flex: 1; }
     .nc-member-name { font-size: .9rem; font-weight: 600; color: var(--white); }
     .nc-member-role { font-size: .75rem; color: rgba(255,255,255,.4); margin-top: 2px; }
     .nc-tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
     .nc-tag { background: rgba(245,146,26,.12); border: 1px solid rgba(245,146,26,.2); color: var(--orange); font-size: .75rem; font-weight: 600; padding: 5px 12px; border-radius: 50px; }
-    .nc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+    .nc-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 20px; }
     .nc-stat { background: rgba(255,255,255,.03); border-radius: 12px; padding: 16px; text-align: center; border: 1px solid rgba(255,255,255,.06); }
     .nc-stat-num { font-family: 'Barlow', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--orange); display: block; line-height: 1; }
     .nc-stat-lbl { font-size: .72rem; color: rgba(255,255,255,.35); margin-top: 4px; }
@@ -177,7 +181,8 @@
       display: flex; flex-direction: column;
     }
     .member-card:hover { border-color: var(--orange); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(245,146,26,.12); }
-    .member-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
+    .member-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; overflow: hidden; }
+    .member-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .member-name { font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
     .member-role { font-size: .78rem; color: var(--gray-400); font-weight: 600; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 14px; }
     .member-tags { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; }
@@ -220,6 +225,9 @@
     .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; }
     .footer-col ul a:hover { color: var(--orange); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
+    .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
     .socials { display: flex; gap: 10px; }
     .soc { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
     .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
@@ -266,7 +274,7 @@
     <li><a href="blog.html">Blog</a></li>
     <li><a href="index.html#contact">Contacto</a></li>
   </ul>
-  <a href="tel:918298500" class="nav-cta">☎ 918 298 500</a>
+  <a href="tel:918298500" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
 </nav>
 
 <!-- HERO -->
@@ -297,38 +305,33 @@
         <div class="nc-title">Miembros activos ahora</div>
         <div class="nc-members">
           <div class="nc-member">
-            <div class="nc-avatar" style="background:#FFF3E0">⚖️</div>
+            <div class="nc-avatar"><img src="https://images.unsplash.com/photo-1705645930353-0e335311ef20?auto=format&fit=crop&w=100&h=100&q=80" alt="Manuel Larrotcha" onerror="this.parentElement.style.background='#FFF3E0';this.remove()" /></div>
             <div class="nc-member-info">
               <div class="nc-member-name">Manuel Larrotcha</div>
               <div class="nc-member-role">Derecho Civil y Laboral · Madrid</div>
             </div>
           </div>
           <div class="nc-member">
-            <div class="nc-avatar" style="background:#E8F5E9">📊</div>
+            <div class="nc-avatar"><img src="https://images.unsplash.com/photo-1758518729314-b02874db8c37?auto=format&fit=crop&w=100&h=100&q=80" alt="Javier Perez" onerror="this.parentElement.style.background='#E8F5E9';this.remove()" /></div>
             <div class="nc-member-info">
               <div class="nc-member-name">Javier Perez</div>
               <div class="nc-member-role">Consultoría Financiera · Madrid</div>
             </div>
           </div>
           <div class="nc-member">
-            <div class="nc-avatar" style="background:#E3F2FD">🎯</div>
+            <div class="nc-avatar"><img src="https://images.unsplash.com/photo-1580411415491-a672219c801b?auto=format&fit=crop&w=100&h=100&q=80" alt="Chema Sánchez" onerror="this.parentElement.style.background='#E3F2FD';this.remove()" /></div>
             <div class="nc-member-info">
               <div class="nc-member-name">Chema Sánchez</div>
               <div class="nc-member-role">Marketing Digital · Madrid</div>
             </div>
           </div>
           <div class="nc-member">
-            <div class="nc-avatar" style="background:#F3E5F5">🧠</div>
+            <div class="nc-avatar"><img src="https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?auto=format&fit=crop&w=100&h=100&q=80" alt="Silvia Martínez" onerror="this.parentElement.style.background='#F3E5F5';this.remove()" /></div>
             <div class="nc-member-info">
               <div class="nc-member-name">Silvia Martínez</div>
               <div class="nc-member-role">Psicología y Coaching · Madrid</div>
             </div>
           </div>
-        </div>
-        <div class="nc-tag-row">
-          <div class="nc-tag">+52 profesionales</div>
-          <div class="nc-tag">25+ sectores</div>
-          <div class="nc-tag">0€ publicar</div>
         </div>
         <div class="nc-stats">
           <div class="nc-stat">
@@ -338,6 +341,10 @@
           <div class="nc-stat">
             <span class="nc-stat-num">25+</span>
             <div class="nc-stat-lbl">Sectores distintos</div>
+          </div>
+          <div class="nc-stat">
+            <span class="nc-stat-num">0€</span>
+            <div class="nc-stat-lbl">Publicar tu perfil</div>
           </div>
         </div>
       </div>
@@ -357,7 +364,7 @@
       <div class="com-stat-lbl">Sectores representados</div>
     </div>
     <div class="com-stat rv d3">
-      <span class="com-stat-num">28</span>
+      <span class="com-stat-num">20</span>
       <div class="com-stat-lbl">Ciudades en la red</div>
     </div>
     <div class="com-stat rv d4">
@@ -500,7 +507,7 @@
     <div class="members-grid">
 
       <div class="member-card rv d1">
-        <div class="member-avatar">⚖️</div>
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1705645930353-0e335311ef20?auto=format&fit=crop&w=120&h=120&q=80" alt="Manuel Larrotcha" onerror="this.parentElement.textContent='⚖️'" /></div>
         <div class="member-name">Manuel Larrotcha</div>
         <div class="member-role">Abogado</div>
         <div class="member-tags">
@@ -513,7 +520,7 @@
       </div>
 
       <div class="member-card rv d2">
-        <div class="member-avatar">📊</div>
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1758518729314-b02874db8c37?auto=format&fit=crop&w=120&h=120&q=80" alt="Javier Perez" onerror="this.parentElement.textContent='📊'" /></div>
         <div class="member-name">Javier Perez</div>
         <div class="member-role">Consultor Financiero</div>
         <div class="member-tags">
@@ -526,7 +533,7 @@
       </div>
 
       <div class="member-card rv d3">
-        <div class="member-avatar">🎯</div>
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1580411415491-a672219c801b?auto=format&fit=crop&w=120&h=120&q=80" alt="Chema Sánchez" onerror="this.parentElement.textContent='🎯'" /></div>
         <div class="member-name">Chema Sánchez</div>
         <div class="member-role">Marketing Digital</div>
         <div class="member-tags">
@@ -538,7 +545,7 @@
       </div>
 
       <div class="member-card rv d4">
-        <div class="member-avatar">🧠</div>
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?auto=format&fit=crop&w=120&h=120&q=80" alt="Silvia Martínez" onerror="this.parentElement.textContent='🧠'" /></div>
         <div class="member-name">Silvia Martínez</div>
         <div class="member-role">Psicóloga</div>
         <div class="member-tags">
@@ -550,7 +557,7 @@
       </div>
 
       <div class="member-card rv d1">
-        <div class="member-avatar">🏠</div>
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1690166444476-8cc4c0f24032?auto=format&fit=crop&w=120&h=120&q=80" alt="Samar Salman" onerror="this.parentElement.textContent='🏠'" /></div>
         <div class="member-name">Samar Salman</div>
         <div class="member-role">Asesora Inmobiliaria</div>
         <div class="member-tags">
@@ -562,7 +569,7 @@
       </div>
 
       <div class="member-card rv d2">
-        <div class="member-avatar">👥</div>
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1600878459138-e1123b37cb30?auto=format&fit=crop&w=120&h=120&q=80" alt="Andrés Campomanes" onerror="this.parentElement.textContent='👥'" /></div>
         <div class="member-name">Andrés Campomanes</div>
         <div class="member-role">Headhunter</div>
         <div class="member-tags">
@@ -574,7 +581,7 @@
       </div>
 
       <div class="member-card rv d3">
-        <div class="member-avatar">🔤</div>
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1713947507130-227586ab3024?auto=format&fit=crop&w=120&h=120&q=80" alt="Khaled Ahmed Azzouz" onerror="this.parentElement.textContent='🔤'" /></div>
         <div class="member-name">Khaled Ahmed Azzouz</div>
         <div class="member-role">Traductor Jurado</div>
         <div class="member-tags">
@@ -586,7 +593,7 @@
       </div>
 
       <div class="member-card rv d4">
-        <div class="member-avatar">🔒</div>
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1609436132311-e4b0c9370469?auto=format&fit=crop&w=120&h=120&q=80" alt="Cristina Lopez Vendrell" onerror="this.parentElement.textContent='🔒'" /></div>
         <div class="member-name">Cristina Lopez Vendrell</div>
         <div class="member-role">Protección de Datos</div>
         <div class="member-tags">
@@ -633,10 +640,10 @@
       </div>
       <p>Despachos privados, coworking y centros de negocios en Madrid y toda España. Happy Workplaces desde 2009.</p>
       <div class="socials" style="margin-top:24px">
-        <a href="#" class="soc">f</a>
-        <a href="#" class="soc">in</a>
-        <a href="#" class="soc">X</a>
-        <a href="#" class="soc">ig</a>
+        <a href="https://www.facebook.com/oficinasya" class="soc">f</a>
+        <a href="https://www.linkedin.com/company/oficinasya" class="soc">in</a>
+        <a href="https://twitter.com/oficinasya" class="soc">𝕏</a>
+        <a href="https://www.instagram.com/oficinasya" class="soc">ig</a>
       </div>
     </div>
     <div class="footer-col">
@@ -668,11 +675,11 @@
   </div>
   <div class="footer-bottom">
     <span>© 2024 OficinasYA! · Todos los derechos reservados</span>
-    <span>Aviso legal · Privacidad · Cookies</span>
+    <div class="footer-bottom-links"><a href="aviso-legal.html">Aviso legal</a>·<a href="privacidad.html">Privacidad</a>·<a href="cookies.html">Cookies</a></div>
   </div>
 </footer>
 
-<a href="https://wa.me/34624119705" class="wa" title="WhatsApp">💬</a>
+<a href="https://wa.me/34624119705" class="wa" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="27" height="27" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
 <script>
   const nav = document.getElementById('nav');
