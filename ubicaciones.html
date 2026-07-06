@@ -45,6 +45,26 @@
     nav.scrolled .nav-links a { color: var(--gray-600); }
     .nav-links a:hover { color: var(--orange) !important; }
     .nav-links a.active { color: var(--orange) !important; }
+
+    .menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 0; z-index: 201; flex-shrink: 0; }
+    .menu-toggle span { display: block; width: 100%; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s, background .3s; }
+    nav.scrolled .menu-toggle span { background: var(--dark); }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .menu-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 199; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .menu-backdrop.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(300px, 80vw); z-index: 200;
+      background: var(--dark); padding: 110px 32px 40px; overflow-y: auto;
+      display: flex; flex-direction: column;
+      transform: translateX(100%); transition: transform .35s var(--ease);
+      box-shadow: -24px 0 60px rgba(0,0,0,.35);
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu a { color: rgba(255,255,255,.85); text-decoration: none; font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 700; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .mobile-menu a.active, .mobile-menu a:hover { color: var(--orange); }
+    .mobile-menu-cta { margin-top: 24px; background: var(--orange); color: var(--white) !important; text-align: center; border-radius: 50px; border-bottom: none !important; padding: 15px !important; display: flex; align-items: center; justify-content: center; gap: 8px; }
     .nav-cta { background: var(--orange); color: var(--white); padding: 11px 26px; border-radius: 50px; font-weight: 700; font-size: .88rem; text-decoration: none; transition: background .3s, transform .3s; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
     .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); }
 
@@ -286,6 +306,7 @@
       .row-3, .row-4 { grid-template-columns: 1fr 1fr; }
       .row-2 { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .menu-toggle { display: flex; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
       .hero-stats-row { gap: 28px; }
@@ -309,7 +330,20 @@
     <li><a href="index.html#contact">Contacto</a></li>
   </ul>
   <a href="tel:918298500" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#services">Servicios</a>
+  <a href="ubicaciones.html" class="active">Ubicaciones</a>
+  <a href="index.html#pricing">Precios</a>
+  <a href="comunidad.html">Comunidad</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#contact">Contacto</a>
+  <a href="tel:918298500" class="mobile-menu-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
+</div>
 
 <!-- HERO -->
 <div class="page-hero">
@@ -472,8 +506,7 @@
         <div class="map-tooltip" id="mapTooltip"><span class="mt-city"></span> <span class="mt-count"></span><span class="mt-cta">Ver centros →</span></div>
       </div>
       <div class="map-legend">
-        <div class="legend-item"><div class="legend-dot"></div> Centro OficinasYA!</div>
-        <div class="legend-item"><span style="width:9px;height:9px;border-radius:50%;border:1.5px solid var(--orange);display:inline-block"></span> Ciudad con +1 centro</div>
+        <div class="legend-item"><div class="legend-dot"></div> Centro OficinasYA! · el número junto al nombre indica cuántos hay</div>
         <div class="legend-item" style="color:rgba(255,255,255,.45)">👆 Pasa el cursor o toca un punto para ver el centro</div>
       </div>
     </div>
@@ -541,7 +574,7 @@
                alt="Torre Europa, Madrid"
                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'" />
           <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge">Castellana · Azca</div>
+          <div class="madrid-card-badge">Torres Azca</div>
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Capitán Haya</div>
@@ -566,7 +599,7 @@
                alt="Edificio de oficinas, Las Tablas Madrid"
                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#134E5E,#71B280)'" />
           <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge">Norte · Empresarial</div>
+          <div class="madrid-card-badge">Zona empresarial</div>
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Las Tablas</div>
@@ -591,7 +624,7 @@
                alt="Parque empresarial, Pozuelo Las Rozas"
                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0F2027,#203A43,#2C5364)'" />
           <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge">Noroeste · La Florida</div>
+          <div class="madrid-card-badge">La Florida</div>
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Pozuelo / Las Rozas</div>
@@ -616,7 +649,7 @@
                alt="Edificio de oficinas, San Sebastián de los Reyes"
                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a1a,#3d3d3d)'" />
           <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge">Norte · A1</div>
+          <div class="madrid-card-badge">A 20 min de Madrid</div>
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">S.S. de los Reyes</div>
@@ -1023,6 +1056,22 @@
 <script>
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 80));
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuBackdrop = document.getElementById('menuBackdrop');
+  function closeMenu() {
+    menuToggle.classList.remove('open'); mobileMenu.classList.remove('open'); menuBackdrop.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+  }
+  function openMenu() {
+    menuToggle.classList.add('open'); mobileMenu.classList.add('open'); menuBackdrop.classList.add('open');
+    menuToggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden';
+  }
+  menuToggle.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+  menuBackdrop.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
   }, { threshold: 0.1 });
