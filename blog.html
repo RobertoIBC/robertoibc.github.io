@@ -27,8 +27,8 @@
       --ease:        cubic-bezier(.16,1,.3,1);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; max-width: 100%; }
 
     /* ── NAV ── */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 6%; display: flex; align-items: center; justify-content: space-between; background: var(--dark); transition: all .4s var(--ease); }
@@ -45,8 +45,16 @@
     nav.scrolled .nav-links a { color: var(--dark-mid); }
     .nav-links a:hover, .nav-links a.active { color: var(--orange) !important; }
 
-    .menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 0; z-index: 201; flex-shrink: 0; }
-    .menu-toggle span { display: block; width: 100%; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s, background .3s; }
+    .menu-toggle {
+      display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 44px; height: 44px; margin-left: 10px;
+      background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.2); border-radius: 12px;
+      cursor: pointer; padding: 0; z-index: 201; flex-shrink: 0;
+      transition: background .3s, border-color .3s, transform .15s;
+    }
+    .menu-toggle span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s, background .3s; }
+    .menu-toggle:active { transform: scale(.94); }
+    nav.scrolled .menu-toggle { background: var(--gray-100); border-color: var(--gray-200); }
     nav.scrolled .menu-toggle span { background: var(--dark); }
     .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .menu-toggle.open span:nth-child(2) { opacity: 0; }
@@ -128,7 +136,7 @@
       transition: color .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
       white-space: nowrap;
     }
-    .filter-tab .tab-emoji { font-size: .95rem; line-height: 1; }
+    .filter-tab svg { width: 15px; height: 15px; flex-shrink: 0; opacity: .8; }
     .filter-tab:hover { color: var(--orange-dark); }
     .filter-tab.active { color: var(--white); background: var(--orange); box-shadow: 0 8px 20px rgba(245,146,26,.35); }
 
@@ -203,21 +211,6 @@
     .nl-form button:hover { background: var(--orange-dark); }
     .nl-note { font-size: .78rem; color: var(--gray-400); margin-top: 14px; }
 
-    /* ── TOPICS ── */
-    #topics { background: var(--dark); padding: 80px 6%; }
-    .topics-inner { max-width: 1200px; margin: 0 auto; }
-    .topics-title { font-family: 'Barlow', sans-serif; font-size: 1.6rem; font-weight: 900; color: var(--white); margin-bottom: 32px; text-align: center; }
-    .topics-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-    .topic-card {
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-      border-radius: 16px; padding: 24px 20px; text-align: center;
-      transition: background .3s, border-color .3s, transform .3s;
-      cursor: pointer; text-decoration: none;
-    }
-    .topic-card:hover { background: rgba(245,146,26,.1); border-color: rgba(245,146,26,.3); transform: translateY(-4px); }
-    .topic-emoji { font-size: 2rem; display: block; margin-bottom: 10px; }
-    .topic-name { font-family: 'Barlow', sans-serif; font-size: .95rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-    .topic-count { font-size: .75rem; color: rgba(255,255,255,.35); }
 
     /* ── FOOTER ── */
     footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 72px 6% 40px; }
@@ -248,7 +241,6 @@
       .blog-card-featured { grid-column: span 1; grid-template-columns: 1fr; }
       .blog-card-feat-img { min-height: 200px; }
       .blog-grid { grid-template-columns: 1fr 1fr; }
-      .topics-grid { grid-template-columns: repeat(3, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
@@ -258,7 +250,6 @@
       .menu-toggle { display: flex; }
       .filter-tabs { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; scrollbar-width: none; }
       .filter-tabs::-webkit-scrollbar { display: none; }
-      .topics-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
       .nl-form { flex-direction: column; }
@@ -339,12 +330,12 @@
 <div id="filters">
   <div class="filter-wrap">
     <div class="filter-tabs">
-      <button class="filter-tab active" data-cat="all"><span class="tab-emoji">🗂️</span>Todos</button>
-      <button class="filter-tab" data-cat="prod"><span class="tab-emoji">⚡</span>Productividad</button>
-      <button class="filter-tab" data-cat="neg"><span class="tab-emoji">💼</span>Negocio</button>
-      <button class="filter-tab" data-cat="bien"><span class="tab-emoji">🧘</span>Bienestar</button>
-      <button class="filter-tab" data-cat="tech"><span class="tab-emoji">💻</span>Tech</button>
-      <button class="filter-tab" data-cat="vida"><span class="tab-emoji">🌍</span>Estilo de vida</button>
+      <button class="filter-tab active" data-cat="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Todos</button>
+      <button class="filter-tab" data-cat="prod"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Productividad</button>
+      <button class="filter-tab" data-cat="neg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Negocio</button>
+      <button class="filter-tab" data-cat="bien"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Bienestar</button>
+      <button class="filter-tab" data-cat="tech"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Tech</button>
+      <button class="filter-tab" data-cat="vida"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Estilo de vida</button>
     </div>
   </div>
 </div>
@@ -517,39 +508,6 @@
   </div>
 </section>
 
-<!-- TEMAS POPULARES -->
-<section id="topics" class="rv">
-  <div class="topics-inner">
-    <div class="topics-title">Explora por temática</div>
-    <div class="topics-grid">
-      <a class="topic-card" href="#filters" data-cat="prod">
-        <span class="topic-emoji">⚡</span>
-        <div class="topic-name">Productividad</div>
-        <div class="topic-count">12 artículos</div>
-      </a>
-      <a class="topic-card" href="#filters" data-cat="neg">
-        <span class="topic-emoji">💼</span>
-        <div class="topic-name">Negocio & PYME</div>
-        <div class="topic-count">18 artículos</div>
-      </a>
-      <a class="topic-card" href="#filters" data-cat="bien">
-        <span class="topic-emoji">🧘</span>
-        <div class="topic-name">Bienestar</div>
-        <div class="topic-count">9 artículos</div>
-      </a>
-      <a class="topic-card" href="#filters" data-cat="tech">
-        <span class="topic-emoji">💻</span>
-        <div class="topic-name">Tecnología</div>
-        <div class="topic-count">11 artículos</div>
-      </a>
-      <a class="topic-card" href="#filters" data-cat="vida">
-        <span class="topic-emoji">🌍</span>
-        <div class="topic-name">Estilo de vida</div>
-        <div class="topic-count">7 artículos</div>
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- NEWSLETTER -->
 <section id="newsletter">
@@ -655,16 +613,6 @@
           card.style.display = 'none';
         }
       });
-    });
-  });
-
-  // Topic cards -> jump to the matching category filter
-  document.querySelectorAll('.topic-card[data-cat]').forEach(card => {
-    card.addEventListener('click', function(e) {
-      e.preventDefault();
-      const tab = document.querySelector(`.filter-tab[data-cat="${this.dataset.cat}"]`);
-      if (tab) tab.click();
-      document.getElementById('filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
