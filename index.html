@@ -1027,7 +1027,7 @@
         <img loading="lazy" decoding="async" src="https://www.oficinasya.es/wp-content/uploads/2018/02/alquiler-despacho-madrid-low.jpg" alt="Despacho OficinasYA en Madrid" />
       </div>
       <div class="why-badge">
-        <span class="why-badge-num">+1.500</span>
+        <span class="why-badge-num">+1500</span>
         <div class="why-badge-lbl">empresas confían<br>en nosotros</div>
       </div>
     </div>
@@ -1206,7 +1206,7 @@
     <div class="rv">
       <span class="eyebrow">Opiniones reales</span>
       <h2 class="stitle">Lo que dicen nuestros <span class="hl">clientes</span></h2>
-      <p class="ssub">Más de 1.500 empresas ya trabajan con nosotros. Sus palabras, no las nuestras.</p>
+      <p class="ssub">Más de 1500 empresas ya trabajan con nosotros. Sus palabras, no las nuestras.</p>
     </div>
   </div>
   <div class="testi-grid">
@@ -1586,7 +1586,7 @@
     const step = target / (1600 / 16);
     const id = setInterval(() => {
       cur = Math.min(cur + step, target);
-      el.textContent = Math.floor(cur).toLocaleString('es-ES') + suffix;
+      el.textContent = Math.floor(cur) + suffix;
       if (cur >= target) clearInterval(id);
     }, 16);
   }
