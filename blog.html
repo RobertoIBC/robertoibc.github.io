@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== PROTOTIPO: NO INDEXAR =====
+       Este prototipo vive en un dominio publico e indexable. El noindex evita que
+       compita con www.oficinasya.es y que se filtren precios sin aprobar.
+       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
+       Google no podria leer este noindex.
+       TODO migracion: eliminar esta meta robots al pasar a www.oficinasya.es. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <link rel="canonical" href="https://robertoibc.github.io/blog.html" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
-  <title>Blog · OficinasYA! · Productividad, Negocio y Vida en la Oficina</title>
+  <title>Blog de productividad y negocio para pymes | OficinasYA!</title>
+  <meta name="description" content="Artículos sobre productividad, gestión de pymes, bienestar laboral y tecnología para autónomos y empresas, escritos por el equipo de OficinasYA!." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OficinasYA!" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Blog de productividad y negocio para pymes | OficinasYA!" />
+  <meta property="og:description" content="Artículos sobre productividad, gestión de pymes, bienestar laboral y tecnología para autónomos y empresas, escritos por el equipo de OficinasYA!." />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <meta property="og:url" content="https://robertoibc.github.io/blog.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Despacho privado de OficinasYA!" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog de productividad y negocio para pymes | OficinasYA!" />
+  <meta name="twitter:description" content="Artículos sobre productividad, gestión de pymes, bienestar laboral y tecnología para autónomos y empresas, escritos por el equipo de OficinasYA!." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.oficinasya.es" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -260,6 +288,172 @@
       .nl-form input { border-right: 2px solid var(--gray-200); margin-bottom: 8px; }
     }
   </style>
+  <!-- TODO migracion: las URLs de este JSON-LD apuntan al prototipo -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://robertoibc.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://robertoibc.github.io/blog.html"
+        }
+      ]
+    },
+    {
+      "@type": "Blog",
+      "name": "Blog de OficinasYA!",
+      "url": "https://robertoibc.github.io/blog.html",
+      "inLanguage": "es-ES",
+      "publisher": {
+        "@id": "https://robertoibc.github.io/#organization"
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "22 trucos de productividad para dominar el día a día",
+          "datePublished": "2024-08-29",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Cita previa ya tiene app: adiós a pelearse con las webs de la administración",
+          "datePublished": "2024-09-12",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Trucos de productividad para triunfar en el día a día (II)",
+          "datePublished": "2024-09-03",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Rechazar el trabajo presencial nos trae soledad y depresión, según expertos",
+          "datePublished": "2024-08-26",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Volver a la rutina sin estresarte es posible",
+          "datePublished": "2024-08-20",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Dispara tus ventas a través del email marketing con estas claves",
+          "datePublished": "2024-08-09",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Google Wallet permitirá escanear cualquier tipo de documento",
+          "datePublished": "2024-08-07",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "¿Cometes alguno de estos 8 errores en tu PYME?",
+          "datePublished": "2024-08-01",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Cómo viajar casi gratis si tienes menos de 30 años",
+          "datePublished": "2024-07-31",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Networking efectivo: cómo convertir contactos en clientes reales",
+          "datePublished": "2024-07-22",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "es-ES",
+          "url": "https://robertoibc.github.io/blog.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -350,7 +544,7 @@
     <!-- FEATURED -->
     <div class="blog-card-featured rv d1" data-cat="prod">
       <div class="blog-card-feat-img" style="background:none;overflow:hidden">
-        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85"
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85"
              style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"
              alt="22 trucos de productividad"
              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1C1C1C,#2D2D2D)'"
@@ -371,7 +565,7 @@
     <!-- Card 1 -->
     <div class="blog-card rv d1" data-cat="prod">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=85" alt="App cita previa" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=85" alt="App cita previa" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
         <span class="blog-cat prod">Productividad</span>
         <span class="read-time">4 min</span>
       </div>
@@ -386,7 +580,7 @@
     <!-- Card 2 -->
     <div class="blog-card rv d2" data-cat="prod">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=600&q=85" alt="Trucos productividad" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=600&q=85" alt="Trucos productividad" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
         <span class="blog-cat prod">Productividad</span>
         <span class="read-time">5 min</span>
       </div>
@@ -401,7 +595,7 @@
     <!-- Card 3 -->
     <div class="blog-card rv d3" data-cat="bien">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=85" alt="Trabajo presencial bienestar" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0284C7,#0EA5E9)'" />
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=85" alt="Trabajo presencial bienestar" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0284C7,#0EA5E9)'" />
         <span class="blog-cat bien">Bienestar</span>
         <span class="read-time">6 min</span>
       </div>
@@ -416,7 +610,7 @@
     <!-- Card 4 -->
     <div class="blog-card rv d1" data-cat="bien">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=85" alt="Vuelta a la rutina" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#B45309)'" />
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=85" alt="Vuelta a la rutina" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#B45309)'" />
         <span class="blog-cat bien">Bienestar</span>
         <span class="read-time">4 min</span>
       </div>
@@ -431,7 +625,7 @@
     <!-- Card 5 -->
     <div class="blog-card rv d2" data-cat="neg">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85" alt="Email marketing" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85" alt="Email marketing" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
         <span class="blog-cat neg">Negocio</span>
         <span class="read-time">7 min</span>
       </div>
@@ -446,7 +640,7 @@
     <!-- Card 6 -->
     <div class="blog-card rv d3" data-cat="tech">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?auto=format&fit=crop&w=600&q=85" alt="Google Wallet tecnología" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#7C3AED,#5B21B6)'" />
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?auto=format&fit=crop&w=600&q=85" alt="Google Wallet tecnología" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#7C3AED,#5B21B6)'" />
         <span class="blog-cat tech">Tech</span>
         <span class="read-time">3 min</span>
       </div>
@@ -461,7 +655,7 @@
     <!-- Card 7 -->
     <div class="blog-card rv d1" data-cat="neg">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Errores en tu PYME" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#DC2626,#B91C1C)'" />
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Errores en tu PYME" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#DC2626,#B91C1C)'" />
         <span class="blog-cat neg">Negocio</span>
         <span class="read-time">8 min</span>
       </div>
@@ -476,7 +670,7 @@
     <!-- Card 8 -->
     <div class="blog-card rv d2" data-cat="vida">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=85" alt="Viajar joven España" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#F59E0B)'" />
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=85" alt="Viajar joven España" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#F59E0B)'" />
         <span class="blog-cat vida">Estilo de vida</span>
         <span class="read-time">4 min</span>
       </div>
@@ -491,7 +685,7 @@
     <!-- Card 9 -->
     <div class="blog-card rv d3" data-cat="neg">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=85" alt="Networking profesional" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=85" alt="Networking profesional" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
         <span class="blog-cat neg">Negocio</span>
         <span class="read-time">5 min</span>
       </div>

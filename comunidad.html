@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== PROTOTIPO: NO INDEXAR =====
+       Este prototipo vive en un dominio publico e indexable. El noindex evita que
+       compita con www.oficinasya.es y que se filtren precios sin aprobar.
+       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
+       Google no podria leer este noindex.
+       TODO migracion: eliminar esta meta robots al pasar a www.oficinasya.es. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <link rel="canonical" href="https://robertoibc.github.io/comunidad.html" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
-  <title>Comunidad Naranja · OficinasYA! · Networking real para profesionales</title>
+  <title>Comunidad Naranja: networking entre empresas | OficinasYA!</title>
+  <meta name="description" content="Comunidad Naranja conecta a las más de 1.500 empresas de la red OficinasYA!. Publica tu perfil gratis y encuentra clientes, proveedores y colaboradores." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OficinasYA!" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Comunidad Naranja: networking entre empresas | OficinasYA!" />
+  <meta property="og:description" content="Comunidad Naranja conecta a las más de 1.500 empresas de la red OficinasYA!. Publica tu perfil gratis y encuentra clientes, proveedores y colaboradores." />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <meta property="og:url" content="https://robertoibc.github.io/comunidad.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Despacho privado de OficinasYA!" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Comunidad Naranja: networking entre empresas | OficinasYA!" />
+  <meta name="twitter:description" content="Comunidad Naranja conecta a las más de 1.500 empresas de la red OficinasYA!. Publica tu perfil gratis y encuentra clientes, proveedores y colaboradores." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.oficinasya.es" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -291,6 +319,44 @@
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
     }
   </style>
+  <!-- TODO migracion: las URLs de este JSON-LD apuntan al prototipo -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://robertoibc.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Comunidad",
+          "item": "https://robertoibc.github.io/comunidad.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Comunidad Naranja",
+      "url": "https://robertoibc.github.io/comunidad.html",
+      "inLanguage": "es-ES",
+      "isPartOf": {
+        "@id": "https://robertoibc.github.io/#website"
+      },
+      "description": "Directorio de networking entre las empresas de la red OficinasYA!.",
+      "about": {
+        "@id": "https://robertoibc.github.io/#organization"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -361,21 +427,21 @@
             </div>
           </div>
           <div class="nc-member">
-            <div class="nc-avatar"><img src="https://images.unsplash.com/photo-1758518729314-b02874db8c37?auto=format&fit=crop&w=100&h=100&q=80" alt="Javier Perez" onerror="this.parentElement.style.background='#E8F5E9';this.remove()" /></div>
+            <div class="nc-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1758518729314-b02874db8c37?auto=format&fit=crop&w=100&h=100&q=80" alt="Javier Perez" onerror="this.parentElement.style.background='#E8F5E9';this.remove()" /></div>
             <div class="nc-member-info">
               <div class="nc-member-name">Javier Perez</div>
               <div class="nc-member-role">Consultoría Financiera · Madrid</div>
             </div>
           </div>
           <div class="nc-member">
-            <div class="nc-avatar"><img src="https://images.unsplash.com/photo-1580411415491-a672219c801b?auto=format&fit=crop&w=100&h=100&q=80" alt="Chema Sánchez" onerror="this.parentElement.style.background='#E3F2FD';this.remove()" /></div>
+            <div class="nc-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580411415491-a672219c801b?auto=format&fit=crop&w=100&h=100&q=80" alt="Chema Sánchez" onerror="this.parentElement.style.background='#E3F2FD';this.remove()" /></div>
             <div class="nc-member-info">
               <div class="nc-member-name">Chema Sánchez</div>
               <div class="nc-member-role">Marketing Digital · Madrid</div>
             </div>
           </div>
           <div class="nc-member">
-            <div class="nc-avatar"><img src="https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?auto=format&fit=crop&w=100&h=100&q=80" alt="Silvia Martínez" onerror="this.parentElement.style.background='#F3E5F5';this.remove()" /></div>
+            <div class="nc-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?auto=format&fit=crop&w=100&h=100&q=80" alt="Silvia Martínez" onerror="this.parentElement.style.background='#F3E5F5';this.remove()" /></div>
             <div class="nc-member-info">
               <div class="nc-member-name">Silvia Martínez</div>
               <div class="nc-member-role">Psicología y Coaching · Madrid</div>
@@ -562,7 +628,7 @@
     <div class="members-grid">
 
       <div class="member-card rv d1">
-        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1705645930353-0e335311ef20?auto=format&fit=crop&w=120&h=120&q=80" alt="Manuel Larrotcha" onerror="this.parentElement.textContent='⚖️'" /></div>
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1705645930353-0e335311ef20?auto=format&fit=crop&w=120&h=120&q=80" alt="Manuel Larrotcha" onerror="this.parentElement.textContent='⚖️'" /></div>
         <div class="member-name">Manuel Larrotcha</div>
         <div class="member-role">Abogado</div>
         <div class="member-tags">
@@ -575,7 +641,7 @@
       </div>
 
       <div class="member-card rv d2">
-        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1758518729314-b02874db8c37?auto=format&fit=crop&w=120&h=120&q=80" alt="Javier Perez" onerror="this.parentElement.textContent='📊'" /></div>
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1758518729314-b02874db8c37?auto=format&fit=crop&w=120&h=120&q=80" alt="Javier Perez" onerror="this.parentElement.textContent='📊'" /></div>
         <div class="member-name">Javier Perez</div>
         <div class="member-role">Consultor Financiero</div>
         <div class="member-tags">
@@ -588,7 +654,7 @@
       </div>
 
       <div class="member-card rv d3">
-        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1580411415491-a672219c801b?auto=format&fit=crop&w=120&h=120&q=80" alt="Chema Sánchez" onerror="this.parentElement.textContent='🎯'" /></div>
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580411415491-a672219c801b?auto=format&fit=crop&w=120&h=120&q=80" alt="Chema Sánchez" onerror="this.parentElement.textContent='🎯'" /></div>
         <div class="member-name">Chema Sánchez</div>
         <div class="member-role">Marketing Digital</div>
         <div class="member-tags">
@@ -600,7 +666,7 @@
       </div>
 
       <div class="member-card rv d4">
-        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?auto=format&fit=crop&w=120&h=120&q=80" alt="Silvia Martínez" onerror="this.parentElement.textContent='🧠'" /></div>
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?auto=format&fit=crop&w=120&h=120&q=80" alt="Silvia Martínez" onerror="this.parentElement.textContent='🧠'" /></div>
         <div class="member-name">Silvia Martínez</div>
         <div class="member-role">Psicóloga</div>
         <div class="member-tags">
@@ -612,7 +678,7 @@
       </div>
 
       <div class="member-card rv d1">
-        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1690166444476-8cc4c0f24032?auto=format&fit=crop&w=120&h=120&q=80" alt="Samar Salman" onerror="this.parentElement.textContent='🏠'" /></div>
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1690166444476-8cc4c0f24032?auto=format&fit=crop&w=120&h=120&q=80" alt="Samar Salman" onerror="this.parentElement.textContent='🏠'" /></div>
         <div class="member-name">Samar Salman</div>
         <div class="member-role">Asesora Inmobiliaria</div>
         <div class="member-tags">
@@ -624,7 +690,7 @@
       </div>
 
       <div class="member-card rv d2">
-        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1600878459138-e1123b37cb30?auto=format&fit=crop&w=120&h=120&q=80" alt="Andrés Campomanes" onerror="this.parentElement.textContent='👥'" /></div>
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600878459138-e1123b37cb30?auto=format&fit=crop&w=120&h=120&q=80" alt="Andrés Campomanes" onerror="this.parentElement.textContent='👥'" /></div>
         <div class="member-name">Andrés Campomanes</div>
         <div class="member-role">Headhunter</div>
         <div class="member-tags">
@@ -636,7 +702,7 @@
       </div>
 
       <div class="member-card rv d3">
-        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1713947507130-227586ab3024?auto=format&fit=crop&w=120&h=120&q=80" alt="Khaled Ahmed Azzouz" onerror="this.parentElement.textContent='🔤'" /></div>
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1713947507130-227586ab3024?auto=format&fit=crop&w=120&h=120&q=80" alt="Khaled Ahmed Azzouz" onerror="this.parentElement.textContent='🔤'" /></div>
         <div class="member-name">Khaled Ahmed Azzouz</div>
         <div class="member-role">Traductor Jurado</div>
         <div class="member-tags">
@@ -648,7 +714,7 @@
       </div>
 
       <div class="member-card rv d4">
-        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1609436132311-e4b0c9370469?auto=format&fit=crop&w=120&h=120&q=80" alt="Cristina Lopez Vendrell" onerror="this.parentElement.textContent='🔒'" /></div>
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1609436132311-e4b0c9370469?auto=format&fit=crop&w=120&h=120&q=80" alt="Cristina Lopez Vendrell" onerror="this.parentElement.textContent='🔒'" /></div>
         <div class="member-name">Cristina Lopez Vendrell</div>
         <div class="member-role">Protección de Datos</div>
         <div class="member-tags">

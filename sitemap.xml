@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap preparado para la migracion a www.oficinasya.es.
+  NO se referencia desde robots.txt mientras el sitio viva en el prototipo:
+  el prototipo va noindex y no queremos invitar a su indexacion.
+  TODO migracion: sustituir el dominio y declararlo en robots.txt.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://robertoibc.github.io/</loc><priority>1.0</priority></url>
+  <url><loc>https://robertoibc.github.io/ubicaciones.html</loc><priority>0.9</priority></url>
+  <url><loc>https://robertoibc.github.io/comunidad.html</loc><priority>0.7</priority></url>
+  <url><loc>https://robertoibc.github.io/blog.html</loc><priority>0.6</priority></url>
+  <url><loc>https://robertoibc.github.io/aviso-legal.html</loc><priority>0.2</priority></url>
+  <url><loc>https://robertoibc.github.io/privacidad.html</loc><priority>0.2</priority></url>
+  <url><loc>https://robertoibc.github.io/cookies.html</loc><priority>0.2</priority></url>
+</urlset>

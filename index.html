@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== PROTOTIPO: NO INDEXAR =====
+       Este prototipo vive en un dominio publico e indexable. El noindex evita que
+       compita con www.oficinasya.es y que se filtren precios sin aprobar.
+       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
+       Google no podria leer este noindex.
+       TODO migracion: eliminar esta meta robots al pasar a www.oficinasya.es. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <link rel="canonical" href="https://robertoibc.github.io/" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
-  <title>OficinasYA! · Coworking & Workplaces en Madrid</title>
+  <title>Despachos y oficinas flexibles en España | OficinasYA!</title>
+  <meta name="description" content="Despachos privados, salas de reuniones, coworking y oficina virtual en 17 ciudades de España. 31 centros, acceso 24/7 y sin obras. Desde 8,5 €/hora." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OficinasYA!" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Despachos y oficinas flexibles en España | OficinasYA!" />
+  <meta property="og:description" content="Despachos privados, salas de reuniones, coworking y oficina virtual en 17 ciudades de España. 31 centros, acceso 24/7 y sin obras. Desde 8,5 €/hora." />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <meta property="og:url" content="https://robertoibc.github.io/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Despacho privado de OficinasYA!" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Despachos y oficinas flexibles en España | OficinasYA!" />
+  <meta name="twitter:description" content="Despachos privados, salas de reuniones, coworking y oficina virtual en 17 ciudades de España. 31 centros, acceso 24/7 y sin obras. Desde 8,5 €/hora." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.oficinasya.es" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -662,11 +690,189 @@
       .ob-inner { flex-direction: column; text-align: center; gap: 40px; }
       .ob-visual { width: 260px; }
       .ob-features { justify-content: center; }
+      #faq-grid { grid-template-columns: 1fr !important; }
       .why-visual { padding-bottom: 56px; padding-right: 0; }
       .ubi-madrid-grid { grid-template-columns: 1fr 1fr; }
       .com-stats { grid-template-columns: 1fr 1fr; }
     }
   </style>
+  <!-- TODO migracion: las URLs de este JSON-LD apuntan al prototipo -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://robertoibc.github.io/#organization",
+      "name": "OficinasYA!",
+      "legalName": "IBCNET ESPAÑA SL",
+      "url": "https://robertoibc.github.io/",
+      "logo": "https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png",
+      "image": "https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png",
+      "description": "Red de 31 centros de negocio en 17 ciudades de España con despachos privados, salas de reuniones, coworking y oficina virtual.",
+      "telephone": "+34918298500",
+      "email": "hola@oficinasya.es",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "C/ Isabel Colbrand, 6, 5ª planta",
+        "postalCode": "28050",
+        "addressLocality": "Madrid",
+        "addressRegion": "Madrid",
+        "addressCountry": "ES"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "España"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/oficinasya",
+        "https://www.instagram.com/oficinasya",
+        "https://www.facebook.com/oficinasya",
+        "https://twitter.com/oficinasya"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://robertoibc.github.io/#website",
+      "url": "https://robertoibc.github.io/",
+      "name": "OficinasYA!",
+      "inLanguage": "es-ES",
+      "publisher": {
+        "@id": "https://robertoibc.github.io/#organization"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Despacho privado por horas",
+      "serviceType": "Alquiler de despacho privado por horas",
+      "description": "Despacho privado equipado con WiFi de alta velocidad y recepción de visitas, sin permanencia mínima.",
+      "provider": {
+        "@id": "https://robertoibc.github.io/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "España"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "8.50",
+          "priceCurrency": "EUR",
+          "unitCode": "HUR",
+          "description": "Desde 8,5 € por hora"
+        }
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Despacho privado mensual",
+      "serviceType": "Alquiler de despacho privado en régimen mensual",
+      "description": "Despacho privado exclusivo con acceso 24/7 y llave propia, domiciliación, limpieza y mantenimiento y 5 horas de sala de reuniones al mes.",
+      "provider": {
+        "@id": "https://robertoibc.github.io/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "España"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "270.00",
+          "priceCurrency": "EUR",
+          "unitCode": "MON",
+          "description": "Desde 270 € al mes"
+        }
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Oficina virtual",
+      "serviceType": "Domiciliación de empresas y oficina virtual",
+      "description": "Dirección fiscal y comercial, gestión de correspondencia y posibilidad de atención telefónica.",
+      "provider": {
+        "@id": "https://robertoibc.github.io/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "España"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "20.00",
+          "priceCurrency": "EUR",
+          "unitCode": "MON",
+          "description": "Desde 20 € al mes"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "es-ES",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta alquilar un despacho por horas en OficinasYA!?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El alquiler de un despacho privado por horas en OficinasYA! cuesta desde 8,5 € la hora. El precio incluye el despacho equipado, WiFi de alta velocidad y recepción de visitas, y no exige permanencia mínima. Es la opción habitual para reuniones puntuales o para trabajar de forma esporádica en cualquiera de los 31 centros de la red."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué incluye la oficina virtual y cuánto cuesta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La oficina virtual de OficinasYA! cuesta desde 20 € al mes e incluye dirección fiscal y comercial, gestión de la correspondencia y posibilidad de atención telefónica. Permite domiciliar una empresa y dar imagen profesional sin ocupar un espacio físico, por lo que la usan sobre todo autónomos y empresas que trabajan en remoto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿En qué ciudades de España tiene centros OficinasYA!?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OficinasYA! tiene 31 centros repartidos por 17 ciudades españolas: Madrid, Barcelona, Bilbao, Sevilla, Valencia, Murcia, Tenerife, Málaga, A Coruña, Vigo, Zaragoza, Salamanca, Segovia, Castellón, Alicante, Albacete y Mérida. Madrid concentra 7 centros, Barcelona 3 y Murcia otros 3. Todos pertenecen a la misma red, así que se contratan con un único proveedor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se puede acceder a los despachos 24 horas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Los clientes con despacho privado en modalidad mensual disponen de acceso 24 horas al día, los 7 días de la semana, con llave propia. La cuota mensual, desde 270 €, incluye además la domiciliación de la empresa, la limpieza y el mantenimiento del espacio y 5 horas al mes de sala de reuniones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto se tarda en tener el despacho operativo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El espacio se entrega equipado y listo para usar, sin obras ni instalaciones previas, así que se puede empezar a trabajar el mismo día de la contratación. Esa es la diferencia principal frente a alquilar un local convencional, donde el acondicionamiento se mide en meses. Para confirmar disponibilidad basta llamar al 918 298 500."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre despacho por horas y mensual fijo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El despacho por horas se paga solo por el tiempo que se usa, desde 8,5 € la hora, y no genera permanencia. El mensual fijo, desde 270 € al mes, asigna un despacho privado exclusivo con llave propia y acceso 24/7, e incluye domiciliación, limpieza y 5 horas de sala de reuniones al mes."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -755,7 +961,7 @@
     <div class="srv-card rv d1">
       <div class="srv-card-top"></div>
       <div class="srv-icon-box">
-        <img src="https://www.oficinasya.es/wp-content/uploads/2018/05/circulo-despachos.png" alt="Despachos"
+        <img loading="lazy" decoding="async" src="https://www.oficinasya.es/wp-content/uploads/2018/05/circulo-despachos.png" alt="Despachos"
           onerror="this.style.display='none';this.parentElement.textContent='🏢'" />
       </div>
       <h3 class="srv-name">Despachos Privados</h3>
@@ -774,7 +980,7 @@
     <div class="srv-card rv d2">
       <div class="srv-card-top"></div>
       <div class="srv-icon-box">
-        <img src="https://www.oficinasya.es/wp-content/uploads/2018/05/circulo-salas.png" alt="Salas"
+        <img loading="lazy" decoding="async" src="https://www.oficinasya.es/wp-content/uploads/2018/05/circulo-salas.png" alt="Salas"
           onerror="this.style.display='none';this.parentElement.textContent='🤝'" />
       </div>
       <h3 class="srv-name">Salas de Reuniones</h3>
@@ -793,7 +999,7 @@
     <div class="srv-card rv d3">
       <div class="srv-card-top"></div>
       <div class="srv-icon-box">
-        <img src="https://images.unsplash.com/photo-1745970347652-8f22f5d7d3ba?auto=format&fit=crop&w=200&h=200&q=80" alt="Oficina Virtual"
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1745970347652-8f22f5d7d3ba?auto=format&fit=crop&w=200&h=200&q=80" alt="Oficina Virtual"
           style="border-radius:50%;object-fit:cover;padding:8px"
           onerror="this.style.display='none';this.parentElement.textContent='📋'" />
       </div>
@@ -818,7 +1024,7 @@
   <div class="why-wrap">
     <div class="why-visual rvl">
       <div class="why-img">
-        <img src="https://www.oficinasya.es/wp-content/uploads/2018/02/alquiler-despacho-madrid-low.jpg" alt="Despacho OficinasYA en Madrid" />
+        <img loading="lazy" decoding="async" src="https://www.oficinasya.es/wp-content/uploads/2018/02/alquiler-despacho-madrid-low.jpg" alt="Despacho OficinasYA en Madrid" />
       </div>
       <div class="why-badge">
         <span class="why-badge-num">+1.500</span>
@@ -916,7 +1122,7 @@
   <div class="ob-inner">
     <div class="ob-visual">
       <div class="ob-photo">
-        <img src="https://images.unsplash.com/photo-1758520144574-ab8e1270f3d0?auto=format&fit=crop&w=700&q=80" alt="Equipo celebrando en su oficina OficinasYA!"
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1758520144574-ab8e1270f3d0?auto=format&fit=crop&w=700&q=80" alt="Equipo celebrando en su oficina OficinasYA!"
           onerror="this.style.display='none'" />
       </div>
       <div class="ob-badge">Happy Workplaces!</div>
@@ -1010,7 +1216,7 @@
       <p class="testi-text">La privacidad que nos ofrecen es fundamental para nuestro negocio. Hemos podido mantener la confidencialidad con nuestros clientes desde el primer día.</p>
       <div class="testi-author">
         <div class="testi-photo">
-          <img src="https://www.oficinasya.es/wp-content/uploads/2019/06/silbana.jpg" alt="Silbana" />
+          <img loading="lazy" decoding="async" src="https://www.oficinasya.es/wp-content/uploads/2019/06/silbana.jpg" alt="Silbana" />
         </div>
         <div>
           <div class="testi-name">Silbana</div>
@@ -1024,7 +1230,7 @@
       <p class="testi-text">Las oportunidades de networking han sido increíbles. Hemos cerrado tres acuerdos con empresas del mismo edificio. OficinasYA! no es solo un espacio, es una comunidad.</p>
       <div class="testi-author">
         <div class="testi-photo">
-          <img src="https://www.oficinasya.es/wp-content/uploads/2019/04/digital-logic-system.jpg" alt="Digital Logic" />
+          <img loading="lazy" decoding="async" src="https://www.oficinasya.es/wp-content/uploads/2019/04/digital-logic-system.jpg" alt="Digital Logic" />
         </div>
         <div>
           <div class="testi-name">Digital Logic System</div>
@@ -1038,7 +1244,7 @@
       <p class="testi-text">Desde que nos instalamos aquí nos hemos podido concentrar en lo importante: hacer crecer nuestro negocio. Todo lo demás lo gestiona OficinasYA!</p>
       <div class="testi-author">
         <div class="testi-photo">
-          <img src="https://www.oficinasya.es/wp-content/uploads/2019/09/FGP-Asesoria-energetica-1-1024x768.jpg" alt="FGR" />
+          <img loading="lazy" decoding="async" src="https://www.oficinasya.es/wp-content/uploads/2019/09/FGP-Asesoria-energetica-1-1024x768.jpg" alt="FGR" />
         </div>
         <div>
           <div class="testi-name">FGR</div>
@@ -1102,6 +1308,62 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" style="background:var(--gray-50)">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="rv" style="text-align:center;margin-bottom:56px">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2 class="stitle" style="margin:0 auto">Lo que nos <span class="hl">preguntan siempre</span></h2>
+      <p class="ssub" style="margin:16px auto 0;text-align:center">OficinasYA! es una red de 31 centros de negocio en 17 ciudades de España, con despachos privados, salas de reuniones, coworking y oficina virtual.</p>
+    </div>
+
+    <div class="rv" id="faq-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:36px 48px">
+      <div class="why-item">
+        <div class="why-dot"></div>
+        <div>
+          <h4>¿Cuánto cuesta alquilar un despacho por horas en OficinasYA!?</h4>
+          <p>El alquiler de un despacho privado por horas en OficinasYA! cuesta desde 8,5 € la hora. El precio incluye el despacho equipado, WiFi de alta velocidad y recepción de visitas, y no exige permanencia mínima. Es la opción habitual para reuniones puntuales o para trabajar de forma esporádica en cualquiera de los 31 centros de la red.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot"></div>
+        <div>
+          <h4>¿Qué incluye la oficina virtual y cuánto cuesta?</h4>
+          <p>La oficina virtual de OficinasYA! cuesta desde 20 € al mes e incluye dirección fiscal y comercial, gestión de la correspondencia y posibilidad de atención telefónica. Permite domiciliar una empresa y dar imagen profesional sin ocupar un espacio físico, por lo que la usan sobre todo autónomos y empresas que trabajan en remoto.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot"></div>
+        <div>
+          <h4>¿En qué ciudades de España tiene centros OficinasYA!?</h4>
+          <p>OficinasYA! tiene 31 centros repartidos por 17 ciudades españolas: Madrid, Barcelona, Bilbao, Sevilla, Valencia, Murcia, Tenerife, Málaga, A Coruña, Vigo, Zaragoza, Salamanca, Segovia, Castellón, Alicante, Albacete y Mérida. Madrid concentra 7 centros, Barcelona 3 y Murcia otros 3. Todos pertenecen a la misma red, así que se contratan con un único proveedor.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot"></div>
+        <div>
+          <h4>¿Se puede acceder a los despachos 24 horas?</h4>
+          <p>Sí. Los clientes con despacho privado en modalidad mensual disponen de acceso 24 horas al día, los 7 días de la semana, con llave propia. La cuota mensual, desde 270 €, incluye además la domiciliación de la empresa, la limpieza y el mantenimiento del espacio y 5 horas al mes de sala de reuniones.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot"></div>
+        <div>
+          <h4>¿Cuánto se tarda en tener el despacho operativo?</h4>
+          <p>El espacio se entrega equipado y listo para usar, sin obras ni instalaciones previas, así que se puede empezar a trabajar el mismo día de la contratación. Esa es la diferencia principal frente a alquilar un local convencional, donde el acondicionamiento se mide en meses. Para confirmar disponibilidad basta llamar al 918 298 500.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot"></div>
+        <div>
+          <h4>¿Qué diferencia hay entre despacho por horas y mensual fijo?</h4>
+          <p>El despacho por horas se paga solo por el tiempo que se usa, desde 8,5 € la hora, y no genera permanencia. El mensual fijo, desde 270 € al mes, asigna un despacho privado exclusivo con llave propia y acceso 24/7, e incluye domiciliación, limpieza y 5 horas de sala de reuniones al mes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta">
   <h2 class="cta-title rv">¿Listo para trabajar<br>en tu oficina ideal?</h2>
@@ -1123,7 +1385,7 @@
 
     <div class="blog-card rv d1">
       <div class="blog-card-img" style="overflow:hidden">
-        <img class="blog-card-img-inner" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=85"
+        <img loading="lazy" decoding="async" class="blog-card-img-inner" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=85"
              alt="Productividad en la oficina"
              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
         <div class="blog-cat">Productividad</div>
@@ -1138,7 +1400,7 @@
 
     <div class="blog-card rv d2">
       <div class="blog-card-img" style="overflow:hidden">
-        <img class="blog-card-img-inner" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=85"
+        <img loading="lazy" decoding="async" class="blog-card-img-inner" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=85"
              alt="Trabajo presencial y bienestar"
              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0284C7,#0EA5E9)'" />
         <div class="blog-cat">Trabajo &amp; Bienestar</div>
@@ -1153,7 +1415,7 @@
 
     <div class="blog-card rv d3">
       <div class="blog-card-img" style="overflow:hidden">
-        <img class="blog-card-img-inner" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85"
+        <img loading="lazy" decoding="async" class="blog-card-img-inner" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85"
              alt="Email marketing para pymes"
              onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
         <div class="blog-cat">Negocio &amp; Ventas</div>

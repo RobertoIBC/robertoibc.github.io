@@ -1,0 +1,24 @@
+# robots.txt — PROTOTIPO robertoibc.github.io
+#
+# El rastreo se deja ABIERTO a proposito.
+#
+# Este prototipo NO debe indexarse: cada pagina lleva <meta name="robots"
+# content="noindex, nofollow">. Para que Google respete ese noindex tiene que
+# poder descargar la pagina y leerlo. Si aqui pusieramos "Disallow: /",
+# Google dejaria de rastrear, nunca veria el noindex, y cualquier URL que ya
+# estuviera indexada se quedaria en el indice de forma indefinida.
+#
+# Bloquear el rastreo y pedir la desindexacion son cosas incompatibles:
+# primero se desindexa (noindex + rastreo abierto), y solo despues, si hiciera
+# falta, se bloquea.
+#
+# No se declara sitemap a proposito: el sitemap.xml existe preparado para la
+# migracion, pero anunciarlo aqui seria invitar a rastrear e indexar.
+#
+# TODO migracion a www.oficinasya.es: retirar los noindex de los HTML y
+# descomentar la linea Sitemap.
+
+User-agent: *
+Allow: /
+
+# Sitemap: https://www.oficinasya.es/sitemap.xml

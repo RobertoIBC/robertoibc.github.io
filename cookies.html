@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== PROTOTIPO: NO INDEXAR =====
+       Este prototipo vive en un dominio publico e indexable. El noindex evita que
+       compita con www.oficinasya.es y que se filtren precios sin aprobar.
+       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
+       Google no podria leer este noindex.
+       TODO migracion: eliminar esta meta robots al pasar a www.oficinasya.es. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <link rel="canonical" href="https://robertoibc.github.io/cookies.html" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
-  <title>Política de Cookies · OficinasYA!</title>
+  <title>Política de cookies y cómo gestionarlas | OficinasYA!</title>
+  <meta name="description" content="Política de cookies de OficinasYA!: qué cookies utiliza este sitio web, para qué sirven, cuánto tiempo duran y cómo configurarlas o desactivarlas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OficinasYA!" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Política de cookies y cómo gestionarlas | OficinasYA!" />
+  <meta property="og:description" content="Política de cookies de OficinasYA!: qué cookies utiliza este sitio web, para qué sirven, cuánto tiempo duran y cómo configurarlas o desactivarlas." />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <meta property="og:url" content="https://robertoibc.github.io/cookies.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Despacho privado de OficinasYA!" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Política de cookies y cómo gestionarlas | OficinasYA!" />
+  <meta name="twitter:description" content="Política de cookies de OficinasYA!: qué cookies utiliza este sitio web, para qué sirven, cuánto tiempo duran y cómo configurarlas o desactivarlas." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.oficinasya.es" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -128,6 +156,43 @@
       .legal-wrap { padding: 56px 5% 72px; }
     }
   </style>
+  <!-- TODO migracion: las URLs de este JSON-LD apuntan al prototipo -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://robertoibc.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Política de cookies",
+          "item": "https://robertoibc.github.io/cookies.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Política de cookies",
+      "url": "https://robertoibc.github.io/cookies.html",
+      "inLanguage": "es-ES",
+      "isPartOf": {
+        "@id": "https://robertoibc.github.io/#website"
+      },
+      "about": {
+        "@id": "https://robertoibc.github.io/#organization"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 

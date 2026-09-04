@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== PROTOTIPO: NO INDEXAR =====
+       Este prototipo vive en un dominio publico e indexable. El noindex evita que
+       compita con www.oficinasya.es y que se filtren precios sin aprobar.
+       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
+       Google no podria leer este noindex.
+       TODO migracion: eliminar esta meta robots al pasar a www.oficinasya.es. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <link rel="canonical" href="https://robertoibc.github.io/ubicaciones.html" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
-  <title>Ubicaciones · OficinasYA! · +31 centros en toda España</title>
+  <title>Centros de negocio en 17 ciudades de España | OficinasYA!</title>
+  <meta name="description" content="Encuentra tu centro: 31 centros de negocio en 17 ciudades de España, de Madrid y Barcelona a Sevilla, Valencia o Tenerife. Consulta la disponibilidad." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OficinasYA!" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Centros de negocio en 17 ciudades de España | OficinasYA!" />
+  <meta property="og:description" content="Encuentra tu centro: 31 centros de negocio en 17 ciudades de España, de Madrid y Barcelona a Sevilla, Valencia o Tenerife. Consulta la disponibilidad." />
+  <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
+  <meta property="og:url" content="https://robertoibc.github.io/ubicaciones.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Despacho privado de OficinasYA!" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Centros de negocio en 17 ciudades de España | OficinasYA!" />
+  <meta name="twitter:description" content="Encuentra tu centro: 31 centros de negocio en 17 ciudades de España, de Madrid y Barcelona a Sevilla, Valencia o Tenerife. Consulta la disponibilidad." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=85" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.oficinasya.es" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -324,6 +352,361 @@
       .net-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 16px; justify-items: center; }
     }
   </style>
+  <!-- TODO migracion: las URLs de este JSON-LD apuntan al prototipo -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://robertoibc.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ubicaciones",
+          "item": "https://robertoibc.github.io/ubicaciones.html"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Centros de negocio de OficinasYA! en España",
+      "numberOfItems": 17,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Madrid",
+            "description": "7 centros de negocio de OficinasYA! en Madrid.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Madrid",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Barcelona",
+            "description": "3 centros de negocio de OficinasYA! en Barcelona.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Murcia",
+            "description": "3 centros de negocio de OficinasYA! en Murcia.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Murcia",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Bilbao",
+            "description": "2 centros de negocio de OficinasYA! en Bilbao.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Bilbao",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Sevilla",
+            "description": "2 centros de negocio de OficinasYA! en Sevilla.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Segovia",
+            "description": "2 centros de negocio de OficinasYA! en Segovia.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Segovia",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Tenerife",
+            "description": "2 centros de negocio de OficinasYA! en Tenerife.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Tenerife",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! A Coruña",
+            "description": "1 centro de negocio de OficinasYA! en A Coruña.",
+            "areaServed": {
+              "@type": "City",
+              "name": "A Coruña",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Vigo",
+            "description": "1 centro de negocio de OficinasYA! en Vigo.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Vigo",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Zaragoza",
+            "description": "1 centro de negocio de OficinasYA! en Zaragoza.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Zaragoza",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Salamanca",
+            "description": "1 centro de negocio de OficinasYA! en Salamanca.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Salamanca",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Valencia",
+            "description": "1 centro de negocio de OficinasYA! en Valencia.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Valencia",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Castellón",
+            "description": "1 centro de negocio de OficinasYA! en Castellón.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Castellón",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Alicante",
+            "description": "1 centro de negocio de OficinasYA! en Alicante.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Alicante",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Albacete",
+            "description": "1 centro de negocio de OficinasYA! en Albacete.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Albacete",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Mérida",
+            "description": "1 centro de negocio de OficinasYA! en Mérida.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Mérida",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "OficinasYA! Málaga",
+            "description": "1 centro de negocio de OficinasYA! en Málaga.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34918298500",
+            "url": "https://robertoibc.github.io/ubicaciones.html",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -547,7 +930,7 @@
       <!-- Barrio Salamanca — wide, featured -->
       <div class="madrid-card wide rv d1">
         <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=85"
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=85"
                alt="Barrio de Salamanca Madrid"
                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1C1C1C,#2D2D2D)'" />
           <div class="madrid-card-img-gradient"></div>
@@ -582,7 +965,7 @@
       <!-- Capitán Haya -->
       <div class="madrid-card rv d2">
         <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1634248893766-2540ac03ba1d?auto=format&fit=crop&w=800&q=85"
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1634248893766-2540ac03ba1d?auto=format&fit=crop&w=800&q=85"
                alt="Torre Europa, Madrid"
                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'" />
           <div class="madrid-card-img-gradient"></div>
@@ -607,7 +990,7 @@
       <!-- Las Tablas -->
       <div class="madrid-card rv d1">
         <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1690944851207-3f288c8fcd0b?auto=format&fit=crop&w=800&q=85"
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1690944851207-3f288c8fcd0b?auto=format&fit=crop&w=800&q=85"
                alt="Edificio de oficinas, Las Tablas Madrid"
                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#134E5E,#71B280)'" />
           <div class="madrid-card-img-gradient"></div>
@@ -632,7 +1015,7 @@
       <!-- Pozuelo / Las Rozas -->
       <div class="madrid-card rv d2">
         <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1624213012413-fda54df1810f?auto=format&fit=crop&w=800&q=85"
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1624213012413-fda54df1810f?auto=format&fit=crop&w=800&q=85"
                alt="Parque empresarial, Pozuelo Las Rozas"
                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0F2027,#203A43,#2C5364)'" />
           <div class="madrid-card-img-gradient"></div>
@@ -657,7 +1040,7 @@
       <!-- SSdelosReyes -->
       <div class="madrid-card rv d3">
         <div class="madrid-card-img">
-          <img src="https://images.unsplash.com/photo-1692797960717-1738a7a872c8?auto=format&fit=crop&w=800&q=85"
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1692797960717-1738a7a872c8?auto=format&fit=crop&w=800&q=85"
                alt="Edificio de oficinas, San Sebastián de los Reyes"
                onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a1a,#3d3d3d)'" />
           <div class="madrid-card-img-gradient"></div>
