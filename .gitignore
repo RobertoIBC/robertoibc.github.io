@@ -1,0 +1,12 @@
+# Este repositorio se sirve entero por GitHub Pages: cualquier fichero que se
+# commitee queda publicado en https://robertoibc.github.io/. Por eso las
+# fuentes de datos internas se quedan fuera.
+
+# Hoja maestra de la red del cliente. Lleva rangos de precios por centro,
+# garantias e importes de fianza. Es la fuente local de verdad para generar
+# el marcado, pero NO se publica.
+datos-centros.csv
+
+# Ficheros de trabajo
+__*.py
+__tmp_*
