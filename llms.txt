@@ -1,7 +1,7 @@
 # OficinasYA!
 
 > Red española de centros de negocio: despachos privados, salas de reuniones,
-> coworking y oficina virtual. 31 centros en 17 ciudades de España.
+> coworking y oficina virtual. 33 centros en 17 ciudades de España.
 
 Titular del sitio: IBCNET ESPAÑA SL.
 Domicilio social: C/ Isabel Colbrand, 6, 5ª planta, 28050 Madrid, España.
@@ -9,7 +9,7 @@ Sitio oficial: https://www.oficinasya.es/
 
 ## Qué es
 
-OficinasYA! es una red de 31 centros de negocio en 17 ciudades de España, con
+OficinasYA! es una red de 33 centros de negocio en 17 ciudades de España, con
 despachos privados, salas de reuniones, coworking y oficina virtual. Los
 espacios se entregan equipados y listos para trabajar, sin obras ni
 instalaciones previas, y se contratan por horas, por meses o como domicilio
@@ -37,14 +37,15 @@ profesional.
 Precios de partida, sin IVA salvo indicación contraria. Confirmar condiciones
 por teléfono o formulario.
 
-## Ciudades (17) y centros (31)
+## Ciudades (17) y centros (33)
 
 - Madrid (7 centros): Barrio de Salamanca, Capitán Haya, Las Tablas,
   Pozuelo / Las Rozas, S.S. de los Reyes.
-- Barcelona (3 centros)
+- Barcelona (4 centros): Numancia, General Mitre, Sant Gervasi (Raset) y
+  Plaza Urquinaona.
 - Murcia (3 centros): incluye Polígono Industrial Oeste y Murcia Coliving.
+- Sevilla (3 centros): Sede central (Laraña), Nervión y Galia.
 - Bilbao (2 centros)
-- Sevilla (2 centros)
 - Segovia (2 centros): Segovia I y Segovia II.
 - Tenerife (2 centros): Tenerife I y Tenerife II.
 - A Coruña (1 centro)
@@ -60,7 +61,7 @@ por teléfono o formulario.
 
 ## Datos de la red
 
-- 31 centros en total.
+- 33 centros en total.
 - 17 ciudades en España.
 - Más de 1500 empresas clientes.
 - Acceso 24 horas al día, 7 días a la semana.
