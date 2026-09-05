@@ -43,23 +43,23 @@ Confirmar condiciones por teléfono o formulario.
 
 ## Ciudades (17) y espacios (35)
 
-- Madrid (8 centros): IBC Velázquez, IBC Ortega y Gasset, IBC Serrano, IBC Capitán Haya, IBC Las Tablas, IBC Sanse, IBC La Florida, IBC Sanchinarro.
-- Barcelona (3 centros): Mitre 126, Raset 29, 080 Cowork.
-- Murcia (3 espacios): Marla Center, Magalia, IBC Murcia - Condado de Alhama.
-- Sevilla (3 centros): Sevilla Center, Galia Puerto, Galia Nervión.
-- Tenerife (3 espacios): Santa Rosalía 49, Costa y Grijalba 10, La Luna Coliving.
-- A Coruña (2 centros): iWorks Level, iWorks Business Center.
-- Bilbao (2 centros): Spankor Máximo Aguirre, Spankor Albia.
-- Segovia (2 centros): Exitus Segovia I, Exitus Segovia II.
-- Albacete (1 centro): Centro de Negocios Mayor 22.
-- Alicante (1 centro): CEMON.
-- Castellón (1 centro): Castellón Business Center.
-- Málaga (1 centro): Larios 1 Business.
-- Mérida (1 centro): Delgado Casamayor.
-- Salamanca (1 centro): Openhouse.
-- Valencia (1 centro): Simple Work.
-- Vigo (1 centro): Centro de Negocios Vigo.
-- Zaragoza (1 centro): Independencia CN.
+- Madrid (8 centros): Velázquez, Gasset, Serrano, Capitán Haya, Las Tablas, Sanse (San Sebastián de los Reyes), La Florida (Pozuelo), Manoteras (Sanchinarro).
+- Barcelona (3 centros): Mitre 126, Raset 29, Plaza Urquinaona.
+- Murcia (3 espacios): Marla Center, Edificio Magalia (Alcantarilla), Coliving Condado de Alhama.
+- Sevilla (3 centros): Laraña, Edificio Galia Puerto, Edificio Nervión.
+- Tenerife (3 espacios): Santa Rosalía, Costa y Grijalba, La Luna Coliving.
+- A Coruña (2 centros): Andres Martinez Salazar, Juan de la Cierva.
+- Bilbao (2 centros): Máximo Aguirre, Edificio Albia.
+- Segovia (2 centros): Padre Claret, Ezequiel González.
+- Albacete (1 centro): Calle Mayor.
+- Alicante (1 centro): Plaza de la Muntanyeta.
+- Castellón (1 centro): Dean Marti.
+- Málaga (1 centro): Calle Larios.
+- Mérida (1 centro): Edificio Delgado Casamayor.
+- Salamanca (1 centro): Edificio Openhouse.
+- Valencia (1 centro): Guillem de Castro.
+- Vigo (1 centro): Plaza Compostela.
+- Zaragoza (1 centro): Independencia.
 
 ## Datos de la red
 
