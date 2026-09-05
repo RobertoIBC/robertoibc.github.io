@@ -13,6 +13,9 @@
   <meta name="googlebot" content="noindex, nofollow" />
   <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
   <link rel="canonical" href="https://robertoibc.github.io/privacidad.html" />
+  <link rel="alternate" hreflang="es" href="https://robertoibc.github.io/privacidad.html" />
+  <link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/privacy-policy.html" />
+  <link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/privacidad.html" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
@@ -21,6 +24,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OficinasYA!" />
   <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_GB" />
   <meta property="og:title" content="Política de privacidad y protección de datos | OficinasYA!" />
   <meta property="og:description" content="Política de privacidad de OficinasYA!: qué datos personales tratamos, con qué finalidad y base legal, cuánto los conservamos y cómo ejercer tus derechos." />
   <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
@@ -142,6 +146,9 @@
 
     @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 600px) {
+      .nav-actions { gap: 8px; }
+      .logo-sub { display: none; }   /* el selector de idioma necesita el ancho */
+      .lang-switch a { padding: 5px 9px; font-size: .68rem; letter-spacing: .2px; }
       .nav-links { display: none; }
       .menu-toggle { display: flex; }
       .nav-cta { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; gap: 0; }
@@ -150,7 +157,27 @@
       .footer-bottom { flex-direction: column; text-align: center; }
       .legal-wrap { padding: 56px 5% 72px; }
     }
-  </style>
+  
+    /* ── SELECTOR DE IDIOMA ── */
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .lang-switch {
+      display: inline-flex; align-items: center; line-height: 1;
+      border: 1.5px solid rgba(255,255,255,.3); border-radius: 50px;
+      background: rgba(255,255,255,.07); overflow: hidden;
+      transition: border-color .4s var(--ease), background .4s var(--ease);
+    }
+    .lang-switch a {
+      padding: 7px 13px; font-size: .74rem; font-weight: 800; letter-spacing: .6px;
+      color: rgba(255,255,255,.72); text-decoration: none;
+      transition: background .3s, color .3s;
+    }
+    .lang-switch a[aria-current] { background: var(--white); color: var(--dark); }
+    .lang-switch a:not([aria-current]):hover { color: var(--white); background: rgba(255,255,255,.18); }
+    nav.scrolled .lang-switch { border-color: var(--gray-200); background: var(--gray-100); }
+    nav.scrolled .lang-switch a { color: var(--gray-600); }
+    nav.scrolled .lang-switch a[aria-current] { background: var(--dark); color: var(--white); }
+    nav.scrolled .lang-switch a:not([aria-current]):hover { color: var(--dark); background: var(--gray-200); }
+</style>
   <!-- TODO migracion: las URLs de este JSON-LD apuntan al prototipo -->
   <script type="application/ld+json">
 {
@@ -204,7 +231,12 @@
     <li><a href="blog.html">Blog</a></li>
     <li><a href="index.html#contact">Contacto</a></li>
   </ul>
-  <a href="tel:918298500" class="nav-cta"><svg class="icon-phone" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nav-cta-text">918 298 500</span></a>
+  <div class="nav-actions">
+    <div class="lang-switch" role="group" aria-label="Idioma">
+      <a href="index.html" hreflang="es" lang="es" aria-current="true">ES</a>
+      <a href="en/privacy-policy.html" hreflang="en" lang="en" title="Read this page in English">EN</a>
+    </div>
+  <a href="tel:918298500" class="nav-cta"><svg class="icon-phone" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nav-cta-text">918 298 500</span></a>  </div>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>

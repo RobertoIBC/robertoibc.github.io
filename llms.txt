@@ -88,6 +88,17 @@ profesionales por sector, ciudad o especialidad.
 - Facebook: https://www.facebook.com/oficinasya
 - Twitter/X: https://twitter.com/oficinasya
 
+## Idiomas
+
+La web está disponible en español (raíz del sitio) y en inglés (/en/).
+Equivalencias: / = /en/index.html · /ubicaciones.html = /en/locations.html ·
+/comunidad.html = /en/community.html · /blog.html = /en/blog.html ·
+/aviso-legal.html = /en/legal-notice.html · /privacidad.html = /en/privacy-policy.html ·
+/cookies.html = /en/cookie-policy.html
+
+Los textos legales en inglés son una traducción informativa; la versión en
+español es la que tiene validez legal.
+
 ## Nota
 
 Este fichero describe el contenido de un PROTOTIPO de rediseño alojado en
