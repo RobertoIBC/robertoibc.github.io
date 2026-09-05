@@ -10,3 +10,13 @@ datos-centros.csv
 # Ficheros de trabajo
 __*.py
 __tmp_*
+
+# Documentos de trabajo internos. Llevan precios por centro sacados de la hoja
+# del cliente, notas sobre errores de su web y nuestra metodologia. GitHub Pages
+# sirve tambien los .md, y un .md no admite meta robots, asi que publicarlos
+# seria exponerlos e indexarlos. Se entregan al cliente por email, no por la web.
+# Copia local en ../OFICINASYAWEB-docs/
+AUDITORIA-CENTROS.md
+ENCARGO-CAMBIOS.md
+FOTOS-PENDIENTES.md
+PREGUNTAS-CLIENTE.md
