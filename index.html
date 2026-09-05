@@ -17,12 +17,12 @@
   <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
   <title>Alquiler de despachos en Madrid y toda España | OficinasYA!</title>
-  <meta name="description" content="Alquiler de despachos privados, salas de reuniones, coworking y oficina virtual en Madrid y toda España: 35 espacios en 17 ciudades. Desde 8,5 €/hora." />
+  <meta name="description" content="Alquiler de despachos privados, salas de reuniones, coworking y oficina virtual en Madrid y toda España: 35 espacios en 17 ciudades. Desde 8,5 €/hora + IVA." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OficinasYA!" />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:title" content="Alquiler de despachos en Madrid y toda España | OficinasYA!" />
-  <meta property="og:description" content="Alquiler de despachos privados, salas de reuniones, coworking y oficina virtual en Madrid y toda España: 35 espacios en 17 ciudades. Desde 8,5 €/hora." />
+  <meta property="og:description" content="Alquiler de despachos privados, salas de reuniones, coworking y oficina virtual en Madrid y toda España: 35 espacios en 17 ciudades. Desde 8,5 €/hora + IVA." />
   <!-- TODO migracion: cambiar a https://www.oficinasya.es/... -->
   <meta property="og:url" content="https://robertoibc.github.io/" />
   <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
@@ -31,7 +31,7 @@
   <meta property="og:image:alt" content="Sala de reuniones del centro de OficinasYA! en Zaragoza" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Alquiler de despachos en Madrid y toda España | OficinasYA!" />
-  <meta name="twitter:description" content="Alquiler de despachos privados, salas de reuniones, coworking y oficina virtual en Madrid y toda España: 35 espacios en 17 ciudades. Desde 8,5 €/hora." />
+  <meta name="twitter:description" content="Alquiler de despachos privados, salas de reuniones, coworking y oficina virtual en Madrid y toda España: 35 espacios en 17 ciudades. Desde 8,5 €/hora + IVA." />
   <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -389,8 +389,10 @@
     .price-from { color: rgba(255,255,255,.35); font-size: .85rem; }
     .price-num { font-family: 'Barlow', sans-serif; font-size: 3.2rem; font-weight: 900; color: var(--white); line-height: 1; }
     .price-period { color: rgba(255,255,255,.35); font-size: .85rem; }
+    .price-tax { color: rgba(255,255,255,.3); font-size: .72rem; letter-spacing: .2px; white-space: nowrap; }
     .price-card.hot .price-from,
     .price-card.hot .price-period { color: rgba(255,255,255,.72); }
+    .price-card.hot .price-tax { color: rgba(255,255,255,.6); }
     .price-feats { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
     .price-feats li { display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,.6); font-size: .9rem; }
     .price-card.hot .price-feats li { color: rgba(255,255,255,.92); }
@@ -762,8 +764,9 @@
           "price": "8.50",
           "priceCurrency": "EUR",
           "unitCode": "HUR",
-          "description": "Desde 8,5 € por hora"
-        }
+          "description": "Desde 8,5 € por hora, IVA no incluido"
+        },
+        "valueAddedTaxIncluded": false
       }
     },
     {
@@ -787,8 +790,9 @@
           "price": "270.00",
           "priceCurrency": "EUR",
           "unitCode": "MON",
-          "description": "Desde 270 € al mes"
-        }
+          "description": "Desde 270 € al mes, IVA no incluido"
+        },
+        "valueAddedTaxIncluded": false
       }
     },
     {
@@ -812,8 +816,9 @@
           "price": "20.00",
           "priceCurrency": "EUR",
           "unitCode": "MON",
-          "description": "Desde 20 € al mes"
-        }
+          "description": "Desde 20 € al mes, IVA no incluido"
+        },
+        "valueAddedTaxIncluded": false
       }
     },
     {
@@ -825,7 +830,7 @@
           "name": "¿Cuánto cuesta alquilar un despacho por horas en OficinasYA!?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "El alquiler de un despacho privado por horas en OficinasYA! cuesta desde 8,5 € la hora. El precio incluye el despacho equipado, WiFi de alta velocidad y recepción de visitas, y no exige permanencia mínima. Es la opción habitual para reuniones puntuales o para trabajar de forma esporádica en cualquiera de los 35 espacios de la red."
+            "text": "El alquiler de un despacho privado por horas en OficinasYA! cuesta desde 8,5 € la hora más IVA: todos los precios de la web se muestran sin impuestos. Incluye el despacho equipado, WiFi de alta velocidad y recepción de visitas, y no exige permanencia mínima. Es la opción habitual para reuniones puntuales o para trabajar de forma esporádica en cualquiera de los 35 espacios de la red."
           }
         },
         {
@@ -833,7 +838,7 @@
           "name": "¿Qué incluye la oficina virtual y cuánto cuesta?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La oficina virtual de OficinasYA! cuesta desde 20 € al mes e incluye dirección fiscal y comercial, gestión de la correspondencia y posibilidad de atención telefónica. Permite domiciliar una empresa y dar imagen profesional sin ocupar un espacio físico, por lo que la usan sobre todo autónomos y empresas que trabajan en remoto."
+            "text": "La oficina virtual de OficinasYA! cuesta desde 20 € al mes más IVA e incluye dirección fiscal y comercial, gestión de la correspondencia y posibilidad de atención telefónica. Permite domiciliar una empresa y dar imagen profesional sin ocupar un espacio físico, por lo que la usan sobre todo autónomos y empresas que trabajan en remoto."
           }
         },
         {
@@ -865,7 +870,7 @@
           "name": "¿Qué diferencia hay entre despacho por horas y mensual fijo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "El despacho por horas se paga solo por el tiempo que se usa, desde 8,5 € la hora, y no genera permanencia. El mensual fijo, desde 270 € al mes, asigna un despacho privado exclusivo con llave propia, con acceso 24/7 en Madrid y centros seleccionados, e incluye domiciliación, limpieza y 5 horas de sala de reuniones al mes."
+            "text": "El despacho por horas se paga solo por el tiempo que se usa, desde 8,5 € la hora más IVA, y no genera permanencia. El mensual fijo, desde 270 € al mes más IVA, asigna un despacho privado exclusivo con llave propia, con acceso 24/7 en Madrid y centros seleccionados, e incluye domiciliación, limpieza y 5 horas de sala de reuniones al mes."
           }
         }
       ]
@@ -1155,6 +1160,7 @@
         <span class="price-from">desde</span>
         <span class="price-num">8,5</span>
         <span class="price-period">€/hora</span>
+        <span class="price-tax">+ IVA</span>
       </div>
       <ul class="price-feats">
         <li>Despacho privado equipado</li>
@@ -1172,6 +1178,7 @@
         <span class="price-from">desde</span>
         <span class="price-num">270</span>
         <span class="price-period">€/mes</span>
+        <span class="price-tax">+ IVA</span>
       </div>
       <ul class="price-feats">
         <li>Despacho privado exclusivo</li>
@@ -1189,6 +1196,7 @@
         <span class="price-from">desde</span>
         <span class="price-num">20</span>
         <span class="price-period">€/mes</span>
+        <span class="price-tax">+ IVA</span>
       </div>
       <ul class="price-feats">
         <li>Dirección fiscal y comercial</li>
@@ -1322,14 +1330,14 @@
         <div class="why-dot"></div>
         <div>
           <h4>¿Cuánto cuesta alquilar un despacho por horas en OficinasYA!?</h4>
-          <p>El alquiler de un despacho privado por horas en OficinasYA! cuesta desde 8,5 € la hora. El precio incluye el despacho equipado, WiFi de alta velocidad y recepción de visitas, y no exige permanencia mínima. Es la opción habitual para reuniones puntuales o para trabajar de forma esporádica en cualquiera de los 35 espacios de la red.</p>
+          <p>El alquiler de un despacho privado por horas en OficinasYA! cuesta desde 8,5 € la hora más IVA: todos los precios de la web se muestran sin impuestos. Incluye el despacho equipado, WiFi de alta velocidad y recepción de visitas, y no exige permanencia mínima. Es la opción habitual para reuniones puntuales o para trabajar de forma esporádica en cualquiera de los 35 espacios de la red.</p>
         </div>
       </div>
       <div class="why-item">
         <div class="why-dot"></div>
         <div>
           <h4>¿Qué incluye la oficina virtual y cuánto cuesta?</h4>
-          <p>La oficina virtual de OficinasYA! cuesta desde 20 € al mes e incluye dirección fiscal y comercial, gestión de la correspondencia y posibilidad de atención telefónica. Permite domiciliar una empresa y dar imagen profesional sin ocupar un espacio físico, por lo que la usan sobre todo autónomos y empresas que trabajan en remoto.</p>
+          <p>La oficina virtual de OficinasYA! cuesta desde 20 € al mes más IVA e incluye dirección fiscal y comercial, gestión de la correspondencia y posibilidad de atención telefónica. Permite domiciliar una empresa y dar imagen profesional sin ocupar un espacio físico, por lo que la usan sobre todo autónomos y empresas que trabajan en remoto.</p>
         </div>
       </div>
       <div class="why-item">
@@ -1357,7 +1365,7 @@
         <div class="why-dot"></div>
         <div>
           <h4>¿Qué diferencia hay entre despacho por horas y mensual fijo?</h4>
-          <p>El despacho por horas se paga solo por el tiempo que se usa, desde 8,5 € la hora, y no genera permanencia. El mensual fijo, desde 270 € al mes, asigna un despacho privado exclusivo con llave propia, con acceso 24/7 en Madrid y centros seleccionados, e incluye domiciliación, limpieza y 5 horas de sala de reuniones al mes.</p>
+          <p>El despacho por horas se paga solo por el tiempo que se usa, desde 8,5 € la hora más IVA, y no genera permanencia. El mensual fijo, desde 270 € al mes más IVA, asigna un despacho privado exclusivo con llave propia, con acceso 24/7 en Madrid y centros seleccionados, e incluye domiciliación, limpieza y 5 horas de sala de reuniones al mes.</p>
         </div>
       </div>
     </div>
