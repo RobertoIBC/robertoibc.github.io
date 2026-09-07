@@ -457,6 +457,8 @@
     .ci:hover .ci-icon { background: var(--orange); color: var(--white); }
     .ci-lbl { font-size: .78rem; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
     .ci-val { font-size: 1.05rem; font-weight: 600; color: var(--dark); }
+    .ci-note { display: block; font-size: .86rem; font-weight: 500; color: var(--gray-600); margin-top: 3px; }
+    .ci-val .nw { white-space: nowrap; }   /* que un tramo horario no se parta a la mitad */
     .cf {
       background: var(--white); border-radius: 24px; padding: 52px 44px;
       border: 1.5px solid var(--orange-pale); position: relative;
@@ -1493,7 +1495,7 @@
         </div>
         <div class="ci">
           <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-          <div><div class="ci-lbl">Opening hours</div><div class="ci-val">Mon–Fri 9:00–18:00 · 24/7 access in Madrid and selected centres</div></div>
+          <div><div class="ci-lbl">Opening hours</div><div class="ci-val"><span class="nw">Mon–Thu 9:00–18:00</span> · <span class="nw">Fri 9:00–15:00</span><span class="ci-note">24/7 access in Madrid and selected centres</span></div></div>
         </div>
       </div>
     </div>
