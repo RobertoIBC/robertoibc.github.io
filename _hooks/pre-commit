@@ -1,0 +1,30 @@
+#!/bin/sh
+# Hook de pre-commit: avisa si el HTML generado no coincide con _data/,
+# _content/ y _templates/. NO regenera y NO bloquea el commit: solo avisa.
+#
+# Instalar una vez:   git config core.hooksPath _hooks
+# Saltarlo un commit: git commit --no-verify
+#
+# Existe porque el HTML de la raiz se genera con _build.py. Si alguien edita
+# una plantilla y commitea sin regenerar, la web publicada y las fuentes
+# divergen sin que nadie se entere. Este aviso es la unica alarma.
+
+PY=""
+for c in python python3 py; do
+  if command -v "$c" >/dev/null 2>&1; then PY="$c"; break; fi
+done
+
+if [ -z "$PY" ]; then
+  echo "pre-commit: no se encuentra Python; no puedo comprobar si el HTML generado esta al dia." >&2
+  echo "pre-commit: si has tocado _data/, _content/ o _templates/, regenera con 'python _build.py' en cuanto puedas." >&2
+  exit 0
+fi
+
+if ! "$PY" _build.py --check >/tmp/oficinasya-check.txt 2>&1; then
+  echo "" >&2
+  echo "pre-commit AVISO: el HTML generado NO coincide con las fuentes (_data/, _content/, _templates/)." >&2
+  echo "Ejecuta 'python _build.py' y vuelve a anadir los ficheros, o commitea igualmente si es a proposito." >&2
+  sed 's/^/    /' /tmp/oficinasya-check.txt >&2
+  echo "" >&2
+fi
+exit 0

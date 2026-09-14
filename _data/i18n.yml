@@ -1,0 +1,66 @@
+# Cadenas de la interfaz comun (cabecera, pie, selector de idioma).
+# Los textos largos de cada pagina viven en _content/, no aqui.
+es:
+  lang_group: Idioma
+  lang_other_title: Read this page in English
+  open_menu: Abrir menú
+  nav:
+    services: Servicios
+    locations: Ubicaciones
+    pricing: Precios
+    community: Comunidad
+    blog: Blog
+    contact: Contacto
+  footer:
+    tagline: Despachos privados, coworking y centros de negocios en Madrid y toda España. Happy Workplaces desde el siglo XX.
+    services: Servicios
+    private_offices: Despachos privados
+    meeting_rooms: Salas de reuniones
+    virtual_office: Oficina virtual
+    coworking: Coworking
+    events: Eventos
+    company: Empresa
+    why: Por qué nosotros
+    clients: Clientes
+    contact_form: Formulario de contacto
+    contact: Contacto
+    rights: Todos los derechos reservados
+    legal: Aviso legal
+    privacy: Privacidad
+    cookies: Cookies
+  form_sent: "✓ Enviado, te contactamos pronto!"
+  form_send: "Enviar solicitud →"
+  nl_done: "✓ Suscrito!"
+  nl_btn: Suscribirme
+en:
+  lang_group: Language
+  lang_other_title: Leer esta página en español
+  open_menu: Open menu
+  nav:
+    services: Services
+    locations: Locations
+    pricing: Pricing
+    community: Community
+    blog: Blog
+    contact: Contact
+  footer:
+    tagline: Private offices, coworking and business centres in Madrid and across Spain. Happy Workplaces since the 20th century.
+    services: Services
+    private_offices: Private offices
+    meeting_rooms: Meeting rooms
+    virtual_office: Virtual office
+    coworking: Coworking
+    events: Events
+    company: Company
+    why: Why us
+    clients: Clients
+    contact_form: Contact form
+    contact: Contact
+    rights: All rights reserved
+    legal: Legal notice
+    privacy: Privacy
+    cookies: Cookies
+  form_sent: "✓ Sent, we will be in touch soon!"
+  form_send: "Send request →"
+  nl_done: "✓ Subscribed!"
+  nl_btn: Subscribe

@@ -1,0 +1,76 @@
+# Redirecciones. Una sola fuente para dos usos:
+#
+# prototipo: rutas antiguas del prototipo (los .html de la raiz) -> rutas nuevas.
+#   El generador escribe en cada ruta antigua un HTML minimo con meta refresh 0
+#   + canonical al destino, que es lo mas parecido a un 301 que permite GitHub
+#   Pages. Estan fuera del sitemap y no llevan hreflang.
+#   TODO migracion: convertirlas en 301 reales (python _build.py --htaccess).
+#
+# migracion: rutas de la web viva (www.oficinasya.es, WordPress) -> rutas nuevas.
+#   No genera nada hoy. El dia de la migracion, `python _build.py --htaccess`
+#   imprime el bloque de 301 para .htaccess o para el plugin Redirection,
+#   con las dos listas juntas.
+
+prototipo:
+  - { from: /ubicaciones.html,         to: /ubicaciones/ }
+  - { from: /comunidad.html,           to: /comunidad/ }
+  - { from: /blog.html,                to: /blog/ }
+  - { from: /aviso-legal.html,         to: /aviso-legal/ }
+  - { from: /privacidad.html,          to: /politica-de-privacidad/ }
+  - { from: /cookies.html,             to: /politica-de-cookies/ }
+  - { from: /en/locations.html,        to: /en/locations/ }
+  - { from: /en/community.html,        to: /en/community/ }
+  - { from: /en/blog.html,             to: /en/blog/ }
+  - { from: /en/legal-notice.html,     to: /en/legal-notice/ }
+  - { from: /en/privacy-policy.html,   to: /en/privacy-policy/ }
+  - { from: /en/cookie-policy.html,    to: /en/cookie-policy/ }
+
+migracion:
+  # Paginas de servicio de la web viva
+  - { from: /despachos/,               to: /alquiler-de-despachos/ }
+  - { from: /salas/,                   to: /salas-de-reuniones/ }
+  - { from: /oficinas-virtuales/,      to: /oficina-virtual/ }
+  # Hub de ubicaciones
+  - { from: /centros-de-negocio/,      to: /ubicaciones/ }
+  - { from: /mapa-general/,            to: /ubicaciones/ }
+  # /comunidad/, /blog/, /politica-de-privacidad/ y /politica-de-cookies/
+  # ya coinciden con la web viva: no necesitan redireccion.
+  #
+  # Paginas de centro de la web viva -> pagina de su ciudad (se crean en la
+  # fase 4). Son las URLs con mas antiguedad del dominio.
+  - { from: /madrid-salamanca-velazquez-alquiler-despachos-oficinas-velazquez/,        to: /oficinas-en-madrid/ }
+  - { from: /madrid-salamanca-gasset-alquiler-despachos-oficinas-gasset/,              to: /oficinas-en-madrid/ }
+  - { from: /madrid-salamanca-serrano-alquiler-despachos-oficinas-serrano/,            to: /oficinas-en-madrid/ }
+  - { from: /madrid-castellana-capitan-haya-alquiler-despachos-oficinas-plaza-castilla/, to: /oficinas-en-madrid/ }
+  - { from: /madrid-norte-las-tablas-alquiler-despachos-oficinas-las-tablas/,          to: /oficinas-en-madrid/ }
+  - { from: /madrid-san-sebastian-los-reyes-alquiler-despachos-oficinas-san-sebastian-los-reyes/, to: /oficinas-en-madrid/ }
+  - { from: /madrid-pozuelo-la-florida-alquiler-despachos-oficinas-la-florida/,        to: /oficinas-en-madrid/ }
+  - { from: /albacete-alquiler-de-despachos-y-oficinas-en-albacete/,                   to: /oficinas-en-albacete/ }
+  - { from: /alicante-alquiler-despachos-oficinas-alicante/,                           to: /oficinas-en-alicante/ }
+  - { from: /barcelona-alquiler-de-despachos-y-oficinas-en-barcelona-ii/,              to: /oficinas-en-barcelona/ }
+  - { from: /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona/,                 to: /oficinas-en-barcelona/ }
+  - { from: /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-sant-gervasi/,    to: /oficinas-en-barcelona/ }
+  - { from: /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-plaza-urquinaona/, to: /oficinas-en-barcelona/ }
+  - { from: /bilbao-maximo-aguirre-alquiler-de-despachos-y-oficinas-en-bilbao/,        to: /oficinas-en-bilbao/ }
+  - { from: /bilbao-albia-alquiler-de-despachos-y-oficinas-en-bilbao/,                 to: /oficinas-en-bilbao/ }
+  - { from: /castellon-alquiler-despachos-oficinas-castellon/,                         to: /oficinas-en-castellon/ }
+  - { from: /a-coruna-alquiler-de-despachos-y-oficinas-en-a-coruna/,                   to: /oficinas-en-a-coruna/ }
+  - { from: /malaga-alquiler-de-oficinas-y-despachos-en-malaga/,                       to: /oficinas-en-malaga/ }
+  - { from: /merida-alquiler-de-oficinas-y-despachos-en-merida/,                       to: /oficinas-en-merida/ }
+  - { from: /murcia-alquiler-de-despachos-y-oficinas-en-murcia/,                       to: /oficinas-en-murcia/ }
+  - { from: /murcia-alquiler-de-despachos-y-oficinas-en-murcia-poligono-industrial-oeste/, to: /oficinas-en-murcia/ }
+  - { from: /coliving-murcia-vive-y-trabaja-en-un-lugar-diferente/,                    to: /oficinas-en-murcia/ }
+  - { from: /coworking-salamanca-alquiler-de-despachos-y-oficinas-en-salamanca/,       to: /oficinas-en-salamanca/ }
+  - { from: /segovia-alquiler-de-despachos-y-oficinas-en-avenida-padre-claret/,        to: /oficinas-en-segovia/ }
+  - { from: /segovia-alquiler-de-despachos-y-oficinas-en-paseo-ezequiel-gonzalez/,     to: /oficinas-en-segovia/ }
+  - { from: /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/,                     to: /oficinas-en-sevilla/ }
+  - { from: /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla-galia/,               to: /oficinas-en-sevilla/ }
+  - { from: /sevilla-nervion-alquiler-de-oficinas-y-despachos-en-sevilla/,             to: /oficinas-en-sevilla/ }
+  - { from: /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife/,                   to: /oficinas-en-tenerife/ }
+  - { from: /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife-2/,                 to: /oficinas-en-tenerife/ }
+  - { from: /valencia-alquiler-de-despachos-y-oficinas-en-valencia/,                   to: /oficinas-en-valencia/ }
+  - { from: /vigo-alquiler-de-oficinas-y-despachos-en-galicia/,                        to: /oficinas-en-vigo/ }
+  - { from: /zaragoza-alquiler-de-despachos-y-oficinas-en-zaragoza/,                   to: /oficinas-en-zaragoza/ }
+  # Pendientes de decision del cliente (no se redirigen solas):
+  #   /quienes-somos/  /contacto/  /gracias/  /concertar-visita/  /7-dias-gratis/
+  #   y las paginas de ofertas y black friday.

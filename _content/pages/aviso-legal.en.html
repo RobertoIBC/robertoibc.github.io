@@ -1,0 +1,87 @@
+---
+id: aviso-legal
+lang: en
+url: /en/legal-notice/
+layout: legal
+title: "Legal notice and website owner details | OficinasYA!"
+description: "OficinasYA! legal notice: this website is owned by IBCNET ESPAÑA SL. Company details, terms of use, intellectual property, links and governing law."
+---
+{% block jsonld %}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ site.url }}/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Legal notice",
+          "item": "{{ site.url }}/en/legal-notice.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Legal notice",
+      "url": "{{ site.url }}/en/legal-notice.html",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@id": "{{ site.url }}/#website"
+      },
+      "about": {
+        "@id": "{{ site.url }}/#organization"
+      }
+    }
+  ]
+}
+{% endblock %}
+
+{% block content %}
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Legal Notice</span>
+    </div>
+    <h1 class="page-hero-title">Legal Notice</h1>
+    <p class="page-hero-sub">Information about the website owner and terms of use.</p>
+  </div>
+</div>
+
+<div class="legal-wrap">
+  <div class="legal-note" style="margin-top:0;margin-bottom:40px">
+    <p><strong>Translation for information only.</strong> This is an English translation provided for convenience. The legally binding version of this text is the Spanish one, available at <a href="/aviso-legal/" style="color:var(--orange)">Aviso Legal</a>. In the event of any discrepancy, the Spanish version prevails.</p>
+  </div>
+  <h2>1. Details of the website owner</h2>
+  <p>In compliance with the duty to provide information set out in article 10 of Spanish Law 34/2002 of 11 July on Information Society Services and Electronic Commerce, we hereby state that the website <strong>www.oficinasya.es</strong> is owned by <strong>IBCNET ESPAÑA SL</strong>, with its registered office at C/ Isabel Colbrand, 6, 5th floor, 28050 Madrid, Spain, and contact details <strong>{{ g.email }}</strong> / <strong>{{ g.telefono }}</strong>.</p>
+
+  <h2>2. Purpose and scope</h2>
+  <p>This Legal Notice governs the use of the website, whose purpose is to provide information about the private office, coworking, meeting room and virtual office services offered by IBCNET ESPAÑA SL, and to make it easier for users to get in touch and request information. Access to the website is free of charge, and using it confers the status of user, which means accepting the terms set out here from the moment of access.</p>
+
+  <h2>3. Terms of use</h2>
+  <p>The user undertakes to make appropriate and lawful use of the website, in accordance with applicable law, this Legal Notice, public morals and public order. Using the website for unlawful or harmful purposes, or in any way that may cause damage or prevent the website from working normally, is prohibited.</p>
+
+  <h2>4. Intellectual and industrial property</h2>
+  <p>All website content (text, images, graphic design, logos, trade marks and other distinctive signs) is the property of IBCNET ESPAÑA SL or of third parties who have authorised its use, and is protected by intellectual and industrial property law. Reproducing, distributing or publicly communicating it in whole or in part without the owner's express authorisation is prohibited.</p>
+
+  <h2>5. Links</h2>
+  <p>The website may contain links to other sites operated by third parties. IBCNET ESPAÑA SL accepts no responsibility for the content, privacy policies or practices of those websites.</p>
+
+  <h2>6. Governing law</h2>
+  <p>These terms are governed by Spanish law. For any dispute arising from access to or use of the website, the parties submit to the courts of the owner's domicile, unless consumer protection legislation establishes a different jurisdiction.</p>
+
+  <div class="legal-note">
+    <p><strong>IBCNET ESPAÑA SL</strong></p>
+    <p>C/ Isabel Colbrand, 6, 5th floor · 28050 Madrid, Spain</p>
+    <p>{{ g.telefono }} · {{ g.email }}</p>
+  </div>
+</div>
+{% endblock %}

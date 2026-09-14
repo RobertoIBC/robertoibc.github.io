@@ -91,10 +91,14 @@ profesionales por sector, ciudad o especialidad.
 ## Idiomas
 
 La web está disponible en español (raíz del sitio) y en inglés (/en/).
-Equivalencias: / = /en/index.html · /ubicaciones.html = /en/locations.html ·
-/comunidad.html = /en/community.html · /blog.html = /en/blog.html ·
-/aviso-legal.html = /en/legal-notice.html · /privacidad.html = /en/privacy-policy.html ·
-/cookies.html = /en/cookie-policy.html
+Equivalencias:
+- / = /en/
+- /ubicaciones/ = /en/locations/
+- /comunidad/ = /en/community/
+- /blog/ = /en/blog/
+- /aviso-legal/ = /en/legal-notice/
+- /politica-de-cookies/ = /en/cookie-policy/
+- /politica-de-privacidad/ = /en/privacy-policy/
 
 Los textos legales en inglés son una traducción informativa; la versión en
 español es la que tiene validez legal.

@@ -1,0 +1,407 @@
+---
+id: comunidad
+lang: en
+url: /en/community/
+layout: comunidad
+title: "Orange Community: networking between companies | OficinasYA!"
+description: "The Orange Community connects the 1500+ companies in the OficinasYA! network. Publish your profile free and find clients, suppliers and partners."
+nav_active: comunidad
+---
+{% block jsonld %}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ site.url }}/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Community",
+          "item": "{{ site.url }}/en/community.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Orange Community",
+      "url": "{{ site.url }}/en/community.html",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@id": "{{ site.url }}/#website"
+      },
+      "description": "Networking directory for the companies in the OficinasYA! network.",
+      "about": {
+        "@id": "{{ site.url }}/#organization"
+      }
+    }
+  ]
+}
+{% endblock %}
+
+{% block content %}
+<!-- HERO -->
+<div class="page-hero">
+  <div class="ph-bg-rings">
+    <div class="ph-ring"></div>
+    <div class="ph-ring"></div>
+    <div class="ph-ring"></div>
+    <div class="ph-ring"></div>
+  </div>
+  <div class="page-hero-inner">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;opacity:0;animation:up .6s .1s var(--ease) forwards">
+        <a href="/en/" style="color:rgba(255,255,255,.35);font-size:.8rem;font-weight:600;text-decoration:none;transition:color .3s" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Home</a>
+        <span style="color:rgba(255,255,255,.2);font-size:.8rem">/</span>
+        <span style="color:var(--orange);font-size:.8rem;font-weight:700">Orange Community</span>
+      </div>
+      <div class="page-hero-badge">🍊 Orange Community</div>
+      <h1 class="page-hero-title">Your next client<br>works in your <span class="hl">same building</span></h1>
+      <p class="page-hero-sub">More than 50 professionals and companies from the OficinasYA! network publishing their profile, looking for synergies and closing deals. At no extra cost to members.</p>
+      <div class="hero-cta-row">
+        <a href="https://www.oficinasya.es/comunidad/" class="btn-orange" target="_blank">Publish my profile →</a>
+        <a href="#como" class="btn-ghost">How does it work?</a>
+      </div>
+    </div>
+    <div class="hero-network">
+      <div class="network-card">
+        <div class="nc-title">Members active now</div>
+        <div class="nc-members">
+          <div class="nc-member">
+            <div class="nc-avatar"><img src="https://images.unsplash.com/photo-1705645930353-0e335311ef20?auto=format&fit=crop&w=100&h=100&q=80" alt="Manuel Larrotcha" onerror="this.parentElement.style.background='#FFF3E0';this.remove()" /></div>
+            <div class="nc-member-info">
+              <div class="nc-member-name">Manuel Larrotcha</div>
+              <div class="nc-member-role">Civil and Employment Law · Madrid</div>
+            </div>
+          </div>
+          <div class="nc-member">
+            <div class="nc-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1758518729314-b02874db8c37?auto=format&fit=crop&w=100&h=100&q=80" alt="Javier Perez" onerror="this.parentElement.style.background='#E8F5E9';this.remove()" /></div>
+            <div class="nc-member-info">
+              <div class="nc-member-name">Javier Perez</div>
+              <div class="nc-member-role">Financial Consultancy · Madrid</div>
+            </div>
+          </div>
+          <div class="nc-member">
+            <div class="nc-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580411415491-a672219c801b?auto=format&fit=crop&w=100&h=100&q=80" alt="Chema Sánchez" onerror="this.parentElement.style.background='#E3F2FD';this.remove()" /></div>
+            <div class="nc-member-info">
+              <div class="nc-member-name">Chema Sánchez</div>
+              <div class="nc-member-role">Digital Marketing · Madrid</div>
+            </div>
+          </div>
+          <div class="nc-member">
+            <div class="nc-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?auto=format&fit=crop&w=100&h=100&q=80" alt="Silvia Martínez" onerror="this.parentElement.style.background='#F3E5F5';this.remove()" /></div>
+            <div class="nc-member-info">
+              <div class="nc-member-name">Silvia Martínez</div>
+              <div class="nc-member-role">Psychology and Coaching · Madrid</div>
+            </div>
+          </div>
+        </div>
+        <div class="nc-stats">
+          <div class="nc-stat">
+            <span class="nc-stat-num">52</span>
+            <div class="nc-stat-lbl">Active members</div>
+          </div>
+          <div class="nc-stat">
+            <span class="nc-stat-num">25+</span>
+            <div class="nc-stat-lbl">Different sectors</div>
+          </div>
+          <div class="nc-stat">
+            <span class="nc-stat-num">0€</span>
+            <div class="nc-stat-lbl">To publish your profile</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div id="com-stats">
+  <div class="com-stats-grid">
+    <div class="com-stat rv d1">
+      <span class="com-stat-num" data-target="52">0</span>
+      <div class="com-stat-lbl">Professionals in the network</div>
+    </div>
+    <div class="com-stat rv d2">
+      <span class="com-stat-num">25+</span>
+      <div class="com-stat-lbl">Sectors represented</div>
+    </div>
+    <div class="com-stat rv d3">
+      <span class="com-stat-num">{{ g.ciudades }}</span>
+      <div class="com-stat-lbl">Cities in the network</div>
+    </div>
+    <div class="com-stat rv d4">
+      <span class="com-stat-num">0€</span>
+      <div class="com-stat-lbl">Cost of publishing your profile</div>
+    </div>
+  </div>
+</div>
+
+<!-- CÓMO FUNCIONA -->
+<section id="como" style="background:var(--gray-50)">
+  <div class="max-wrap">
+    <div class="como-hd rv">
+      <span class="eyebrow">As simple as this</span>
+      <h2 class="stitle">Three steps to start<br><span class="hl">creating synergies</span></h2>
+      <p class="ssub">You do not need any social media profile. Just be an OficinasYA! member.</p>
+    </div>
+    <div class="como-steps-grid">
+      <div class="como-step-card rv d1">
+        <div class="step-top">
+          <div class="step-num-circle">1</div>
+          <div class="step-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        </div>
+        <div class="step-title">Publish your professional profile</div>
+        <div class="step-desc">Fill in your listing with your services, experience and specialisms. Visible to every member of the network in Spain.</div>
+        <div class="step-examples">
+          <div class="step-example">Name, company and description</div>
+          <div class="step-example">Services you offer</div>
+          <div class="step-example">Professional photograph</div>
+          <div class="step-example">Contact details</div>
+        </div>
+      </div>
+      <div class="como-step-card rv d2">
+        <div class="step-top">
+          <div class="step-num-circle">2</div>
+          <div class="step-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        </div>
+        <div class="step-title">Discover other members</div>
+        <div class="step-desc">Search professionals by sector, city or specialism. Find clients, suppliers and partners inside your own network.</div>
+        <div class="step-examples">
+          <div class="step-example">Filters by sector and city</div>
+          <div class="step-example">Verified profiles</div>
+          <div class="step-example">Direct contact</div>
+          <div class="step-example">Private, members-only network</div>
+        </div>
+      </div>
+      <div class="como-step-card rv d3">
+        <div class="step-top">
+          <div class="step-num-circle">3</div>
+          <div class="step-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        </div>
+        <div class="step-title">Connect and close deals</div>
+        <div class="step-desc">Talk to other professionals, share referrals and close deals with people you already know. The most genuine networking there is.</div>
+        <div class="step-examples">
+          <div class="step-example">Networking at OficinasYA! events</div>
+          <div class="step-example">Recommendations between members</div>
+          <div class="step-example">Cross-sector collaborations</div>
+          <div class="step-example">Direct, high-quality referrals</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS + SECTORS -->
+<section id="benefits">
+  <div class="benefits-inner max-wrap">
+    <div class="rvl">
+      <span class="eyebrow">Why it works</span>
+      <h2 class="benefits-title">Networking that<br><span class="hl">delivers real results</span></h2>
+      <p class="benefits-sub">We are not talking about "contacts". We are talking about people you pass in the corridor, who know your work and trust you.</p>
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <div class="benefit-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div>
+            <div class="benefit-title">Trust that already exists</div>
+            <div class="benefit-desc">When someone from the same building recommends you, the trust is already there. Deals close faster.</div>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div>
+            <div class="benefit-title">Qualified clients</div>
+            <div class="benefit-desc">Other members are real companies and freelancers with real needs. Not empty LinkedIn profiles.</div>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div>
+            <div class="benefit-title">A network in {{ g.ciudades }} cities</div>
+            <div class="benefit-desc">Your profile is visible across Spain. Potential clients in Madrid, Barcelona, Seville and 14 more cities.</div>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div>
+            <div class="benefit-title">No extra cost</div>
+            <div class="benefit-desc">Publishing your profile in the Orange Community is free for every OficinasYA! client.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rvr">
+      <div class="sectors-panel">
+        <div class="sp-title">25+ active sectors in the network</div>
+        <div class="sectors-cloud">
+          <div class="sector-pill">⚖️ Legal</div>
+          <div class="sector-pill">💼 Consultancy</div>
+          <div class="sector-pill">📊 Finance</div>
+          <div class="sector-pill">🎯 Digital Marketing</div>
+          <div class="sector-pill">🏠 Real Estate</div>
+          <div class="sector-pill">🧠 Psychology</div>
+          <div class="sector-pill">👥 HR and Recruitment</div>
+          <div class="sector-pill">🌐 Web Design</div>
+          <div class="sector-pill">🔤 Translation</div>
+          <div class="sector-pill">🛡️ Insurance</div>
+          <div class="sector-pill">🏗️ Architecture</div>
+          <div class="sector-pill">✈️ Travel</div>
+          <div class="sector-pill">💻 Technology</div>
+          <div class="sector-pill">🏥 Health</div>
+          <div class="sector-pill">📱 Communications</div>
+          <div class="sector-pill">🔑 Franchising</div>
+          <div class="sector-pill">♻️ Sustainability</div>
+          <div class="sector-pill">📦 Logistics</div>
+          <div class="sector-pill">🔒 Cybersecurity</div>
+          <div class="sector-pill">📐 Engineering</div>
+          <div class="sector-pill">🏦 Banking</div>
+          <div class="sector-pill">🎬 Audiovisual</div>
+          <div class="sector-pill">🌱 Energy</div>
+          <div class="sector-pill">🍽️ Hospitality</div>
+          <div class="sector-pill">🎓 Training</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIEMBROS DESTACADOS -->
+<section id="miembros">
+  <div class="max-wrap">
+    <div class="miembros-hd rv">
+      <span class="eyebrow">Meet the network</span>
+      <h2 class="stitle">Professionals already<br>in the <span class="hl">Orange Community</span></h2>
+      <p class="ssub" style="margin:16px auto 0;text-align:center">More than 52 active members. Here is a sample of who is part of our network.</p>
+    </div>
+    <div class="members-grid">
+
+      <div class="member-card rv d1">
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1705645930353-0e335311ef20?auto=format&fit=crop&w=120&h=120&q=80" alt="Manuel Larrotcha" onerror="this.parentElement.textContent='⚖️'" /></div>
+        <div class="member-name">Manuel Larrotcha</div>
+        <div class="member-role">Lawyer</div>
+        <div class="member-tags">
+          <div class="member-tag">Civil Law</div>
+          <div class="member-tag">Employment</div>
+          <div class="member-tag">Administrative</div>
+          <div class="member-tag">Tax</div>
+        </div>
+        <div class="member-city">Madrid</div>
+      </div>
+
+      <div class="member-card rv d2">
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1758518729314-b02874db8c37?auto=format&fit=crop&w=120&h=120&q=80" alt="Javier Perez" onerror="this.parentElement.textContent='📊'" /></div>
+        <div class="member-name">Javier Perez</div>
+        <div class="member-role">Financial Consultant</div>
+        <div class="member-tags">
+          <div class="member-tag">Finance</div>
+          <div class="member-tag">Mortgages</div>
+          <div class="member-tag">Investment</div>
+          <div class="member-tag">Credit</div>
+        </div>
+        <div class="member-city">Madrid</div>
+      </div>
+
+      <div class="member-card rv d3">
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580411415491-a672219c801b?auto=format&fit=crop&w=120&h=120&q=80" alt="Chema Sánchez" onerror="this.parentElement.textContent='🎯'" /></div>
+        <div class="member-name">Chema Sánchez</div>
+        <div class="member-role">Digital Marketing</div>
+        <div class="member-tags">
+          <div class="member-tag">Marketing</div>
+          <div class="member-tag">Web Development</div>
+          <div class="member-tag">Design</div>
+        </div>
+        <div class="member-city">Madrid</div>
+      </div>
+
+      <div class="member-card rv d4">
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?auto=format&fit=crop&w=120&h=120&q=80" alt="Silvia Martínez" onerror="this.parentElement.textContent='🧠'" /></div>
+        <div class="member-name">Silvia Martínez</div>
+        <div class="member-role">Psychologist</div>
+        <div class="member-tags">
+          <div class="member-tag">Psychology</div>
+          <div class="member-tag">Couples</div>
+          <div class="member-tag">Family</div>
+        </div>
+        <div class="member-city">Madrid</div>
+      </div>
+
+      <div class="member-card rv d1">
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1690166444476-8cc4c0f24032?auto=format&fit=crop&w=120&h=120&q=80" alt="Samar Salman" onerror="this.parentElement.textContent='🏠'" /></div>
+        <div class="member-name">Samar Salman</div>
+        <div class="member-role">Real Estate Adviser</div>
+        <div class="member-tags">
+          <div class="member-tag">Real Estate</div>
+          <div class="member-tag">Relocation</div>
+          <div class="member-tag">Insurance</div>
+        </div>
+        <div class="member-city">Alicante</div>
+      </div>
+
+      <div class="member-card rv d2">
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600878459138-e1123b37cb30?auto=format&fit=crop&w=120&h=120&q=80" alt="Andrés Campomanes" onerror="this.parentElement.textContent='👥'" /></div>
+        <div class="member-name">Andrés Campomanes</div>
+        <div class="member-role">Headhunter</div>
+        <div class="member-tags">
+          <div class="member-tag">Recruitment</div>
+          <div class="member-tag">Headhunting</div>
+          <div class="member-tag">Talent</div>
+        </div>
+        <div class="member-city">Madrid</div>
+      </div>
+
+      <div class="member-card rv d3">
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1713947507130-227586ab3024?auto=format&fit=crop&w=120&h=120&q=80" alt="Khaled Ahmed Azzouz" onerror="this.parentElement.textContent='🔤'" /></div>
+        <div class="member-name">Khaled Ahmed Azzouz</div>
+        <div class="member-role">Sworn Translator</div>
+        <div class="member-tags">
+          <div class="member-tag">Translation</div>
+          <div class="member-tag">Interpreting</div>
+          <div class="member-tag">Certified documents</div>
+        </div>
+        <div class="member-city">Madrid</div>
+      </div>
+
+      <div class="member-card rv d4">
+        <div class="member-avatar"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1609436132311-e4b0c9370469?auto=format&fit=crop&w=120&h=120&q=80" alt="Cristina Lopez Vendrell" onerror="this.parentElement.textContent='🔒'" /></div>
+        <div class="member-name">Cristina Lopez Vendrell</div>
+        <div class="member-role">Data Protection</div>
+        <div class="member-tags">
+          <div class="member-tag">GDPR</div>
+          <div class="member-tag">DPO</div>
+          <div class="member-tag">Security</div>
+        </div>
+        <div class="member-city">Madrid</div>
+      </div>
+
+    </div>
+
+    <div class="members-cta rv" style="text-align:center;margin-top:52px">
+      <a href="https://www.oficinasya.es/comunidad/" class="btn-outline" target="_blank">See all members →</a>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN CTA -->
+<section id="join-cta">
+  <h2 class="join-title rv">Are you an OficinasYA! member?<br>Publish your profile free</h2>
+  <p class="join-sub rv">Get seen by more than {{ g.empresas }} companies and professionals across Spain. All you need is your client login.</p>
+  <div class="join-btns rv">
+    <a href="https://www.oficinasya.es/comunidad/" class="btn-white" target="_blank">🍊 Join the Community</a>
+    <a href="/en/#contact" class="btn-dark-solid">Become a client →</a>
+  </div>
+  <div class="join-reqs rv">
+    <div class="join-req">Free for clients</div>
+    <div class="join-req">Profile visible across Spain</div>
+    <div class="join-req">No commitment</div>
+    <div class="join-req">Support included</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+{% endblock %}

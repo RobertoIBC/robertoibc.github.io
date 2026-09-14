@@ -1,0 +1,46 @@
+{#- Cabecera comun. Los enlaces salen de _data/i18n.yml y de las URLs de las
+    paginas; el estado activo, de nav_active en el front matter de cada pagina. -#}
+{%- set h = '' if page.is_home else urls.home -%}
+{%- set items = [
+  ('services',  h ~ '#services', t.nav.services,  false),
+  ('locations', urls.ubicaciones, t.nav.locations, page.nav_active == 'ubicaciones'),
+  ('pricing',   h ~ '#pricing',  t.nav.pricing,   false),
+  ('community', urls.comunidad,  t.nav.community, page.nav_active == 'comunidad'),
+  ('blog',      urls.blog,       t.nav.blog,      page.nav_active == 'blog'),
+  ('contact',   h ~ '#contact',  t.nav.contact,   false),
+] -%}
+<!-- NAV -->
+<nav id="nav"{% if nav_variant %} class="nav-{{ nav_variant }}"{% endif %}>
+  <a href="{{ '#hero' if page.is_home else urls.home }}" class="nav-logo">
+    <div class="logo-wordmark">
+      <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
+    </div>
+    <span class="logo-sub">Coworking &amp; Workplaces</span>
+  </a>
+  <ul class="nav-links">
+{%- for key, href, label, active in items %}
+    <li><a href="{{ href }}"{% if active %} class="active"{% endif %}>{{ label }}</a></li>
+{%- endfor %}
+  </ul>
+  <div class="nav-actions">
+    <div class="lang-switch" role="group" aria-label="{{ t.lang_group }}">
+{%- for alt in page.lang_links %}
+{%- if not loop.first %}
+      <span class="lang-sep" aria-hidden="true"></span>
+{%- endif %}
+      <a href="{{ alt.href }}" hreflang="{{ alt.lang }}" lang="{{ alt.lang }}"{% if alt.current %} aria-current="true"{% else %} title="{{ alt.title }}"{% endif %}>{{ alt.lang|upper }}</a>
+{%- endfor %}
+    </div>
+    <a href="tel:{{ g.tel_link }}" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nav-cta-text">{{ g.telefono }}</span></a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="{{ t.open_menu }}" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+{%- for key, href, label, active in items %}
+  <a href="{{ href }}"{% if active %} class="active"{% endif %}>{{ label }}</a>
+{%- endfor %}
+  <a href="tel:{{ g.tel_link }}" class="mobile-menu-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>{{ g.telefono }}</a>
+</div>

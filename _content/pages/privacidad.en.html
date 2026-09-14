@@ -1,0 +1,100 @@
+---
+id: privacidad
+lang: en
+url: /en/privacy-policy/
+layout: legal
+title: "Privacy policy and data protection | OficinasYA!"
+description: "OficinasYA! privacy policy: what personal data we process and why, who it is shared with, how we keep it secure and how to exercise your GDPR rights."
+---
+{% block jsonld %}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ site.url }}/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Privacy policy",
+          "item": "{{ site.url }}/en/privacy-policy.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Privacy policy",
+      "url": "{{ site.url }}/en/privacy-policy.html",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@id": "{{ site.url }}/#website"
+      },
+      "about": {
+        "@id": "{{ site.url }}/#organization"
+      }
+    }
+  ]
+}
+{% endblock %}
+
+{% block content %}
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Privacy Policy</span>
+    </div>
+    <h1 class="page-hero-title">Privacy Policy</h1>
+    <p class="page-hero-sub">How we handle your personal data, in compliance with the GDPR.</p>
+  </div>
+</div>
+
+<div class="legal-wrap">
+  <div class="legal-note" style="margin-top:0;margin-bottom:40px">
+    <p><strong>Translation for information only.</strong> This is an English translation provided for convenience. The legally binding version of this text is the Spanish one, available at <a href="/politica-de-privacidad/" style="color:var(--orange)">Política de Privacidad</a>. In the event of any discrepancy, the Spanish version prevails.</p>
+  </div>
+  <p>In compliance with the General Data Protection Regulation (GDPR 2016/679 of 27 April 2016), <strong>IBCNET ESPAÑA SL</strong> (hereinafter, OficinasYA!) states the following:</p>
+
+  <h2>1. Data controller</h2>
+  <p>The controller of the personal data collected through <strong>www.oficinasya.es</strong> is IBCNET ESPAÑA SL, with its address at C/ Isabel Colbrand, 6, 5th floor, 28050 Madrid, Spain.</p>
+
+  <h2>2. What data we process and why</h2>
+  <p>Personal data means “any information relating to an identified or identifiable natural person”. The data you provide through the website forms is added to a file owned by IBCNET ESPAÑA SL, processed in the strictest confidence, and used solely to:</p>
+  <ol>
+    <li>Handle your enquiry or request for information about our services (offices, meeting rooms, virtual office, coworking).</li>
+    <li>Support the overall management of website users and the enquiries they submit.</li>
+    <li>Send you information about our products and services, if you consent to this.</li>
+  </ol>
+
+  <h2>3. Disclosure of data</h2>
+  <p>By accepting this Policy, you expressly consent to your data being disclosed to companies within the IBCNET ESPAÑA SL group, in order to support overall control and management of the enquiries submitted, and to send information about products and services relating exclusively to our sector.</p>
+
+  <h2>4. Your warranties as a user</h2>
+  <p>You warrant that the data provided is true, accurate, complete and up to date, and you are liable for any damage or loss that may arise from failing to meet this obligation. If the data provided belongs to a third party, you warrant that you have informed them of this Policy and obtained their authorisation.</p>
+
+  <h2>5. Mandatory fields</h2>
+  <p>Where data is collected through a form, you must at least complete the fields marked with an asterisk; if they are not provided, we will not be able to handle your request.</p>
+
+  <h2>6. Security</h2>
+  <p>We have adopted the levels of security required to protect your personal data, putting in place the technical means available to us to prevent its loss, misuse, alteration, unauthorised access or theft.</p>
+
+  <h2>7. Cookies</h2>
+  <p>We use cookies on the website solely to optimise and personalise your browsing, without storing personalised browsing profiles in our systems. See our <a href="/en/cookie-policy/" style="color:var(--orange);font-weight:600">Cookie Policy</a> for more information.</p>
+
+  <h2>8. Your rights (access, rectification, erasure and objection)</h2>
+  <p>You may exercise your rights of access, rectification, erasure and objection by writing, quoting the reference “Protección de Datos”, to the address below. You may also object at any time to receiving commercial electronic communications by writing to <strong>info@ibcnet.es.com</strong>, in accordance with Spanish Law 34/2002 of 11 July on Information Society Services and Electronic Commerce.</p>
+
+  <div class="legal-note">
+    <p><strong>IBCNET ESPAÑA SL · Data Protection</strong></p>
+    <p>C/ Isabel Colbrand, 6, 5th floor · 28050 Madrid, Spain</p>
+    <p>{{ g.telefono }} · {{ g.email }}</p>
+  </div>
+</div>
+{% endblock %}

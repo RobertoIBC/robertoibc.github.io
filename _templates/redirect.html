@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Ruta antigua del prototipo. GitHub Pages no permite 301, asi que se
+       redirige con meta refresh + canonical al destino. Sin noindex: Google trata
+       el refresh 0 como redireccion permanente y el canonical apunta al destino.
+       TODO migracion: sustituir por un 301 real (python _build.py --htaccess). -->
+  <meta http-equiv="refresh" content="0; url={{ to }}" />
+  <link rel="canonical" href="{{ site.url }}{{ to }}" />
+  <title>Redirigiendo…</title>
+  <script>location.replace("{{ to }}");</script>
+</head>
+<body>
+  <p>Esta página se ha movido a <a href="{{ to }}">{{ site.url }}{{ to }}</a>.</p>
+</body>
+</html>

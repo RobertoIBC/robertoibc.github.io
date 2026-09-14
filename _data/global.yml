@@ -1,0 +1,46 @@
+# Cifras y datos compartidos por TODA la web, en los dos idiomas.
+# Cada cifra se escribe aqui una vez; las plantillas y los contenidos la
+# leen como {{ g.espacios }}, {{ g.telefono }}, etc.
+#
+# Si cambia el numero de espacios o de ciudades, se cambia aqui y se
+# regenera (python _build.py). No hay que tocar ningun HTML.
+
+site:
+  # TODO migracion: https://www.oficinasya.es
+  url: https://robertoibc.github.io
+  name: OficinasYA!
+  # Mientras sea prototipo, TODAS las paginas llevan noindex.
+  # TODO migracion: poner a false el dia que se publique en oficinasya.es.
+  noindex: true
+  og_image: /assets/img/og-oficinasya.jpg
+  og_image_alt:
+    es: Sala de reuniones del centro de OficinasYA! en Zaragoza
+    en: Meeting room at the OficinasYA! centre in Zaragoza
+
+# Red
+espacios: 35        # centros de negocio + espacios de coliving. Nunca "35 centros" a secas.
+ciudades: 17
+empresas: 1500
+
+# Tarifas "desde" de la home. Todas + IVA.
+precios:
+  despacho_hora: 8.5
+  despacho_mes: 270
+  oficina_virtual_mes: 20
+
+# Contacto de la central
+telefono: 918 298 500
+tel_link: "918298500"
+tel_e164: "+34918298500"
+whatsapp: 624 119 705
+whatsapp_link: "34624119705"
+email: hola@oficinasya.es
+
+# Titular
+empresa: IBCNET ESPAÑA SL
+direccion: C/ Isabel Colbrand, 6, 5ª planta, 28050 Madrid
+
+# Precios por centro: la hoja privada (datos-centros.csv, NO se commitea) se
+# mezcla con _data/centros.csv solo si esta bandera esta a true. Pendiente de
+# que el cliente confirme que quiere publicar el "desde" por ciudad.
+publicar_precios_por_centro: false

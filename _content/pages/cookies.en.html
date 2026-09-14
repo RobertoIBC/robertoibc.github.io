@@ -1,0 +1,108 @@
+---
+id: cookies
+lang: en
+url: /en/cookie-policy/
+layout: legal
+title: "Cookie policy and how to manage cookies | OficinasYA!"
+description: "OficinasYA! cookie policy: what cookies are, the types this website uses, which third-party services set them and how to disable them in your browser."
+---
+{% block jsonld %}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ site.url }}/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cookie policy",
+          "item": "{{ site.url }}/en/cookie-policy.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Cookie policy",
+      "url": "{{ site.url }}/en/cookie-policy.html",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@id": "{{ site.url }}/#website"
+      },
+      "about": {
+        "@id": "{{ site.url }}/#organization"
+      }
+    }
+  ]
+}
+{% endblock %}
+
+{% block content %}
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Cookie Policy</span>
+    </div>
+    <h1 class="page-hero-title">Cookie Policy</h1>
+    <p class="page-hero-sub">What cookies are, what we use them for and how you can manage them.</p>
+  </div>
+</div>
+
+<div class="legal-wrap">
+  <div class="legal-note" style="margin-top:0;margin-bottom:40px">
+    <p><strong>Translation for information only.</strong> This is an English translation provided for convenience. The legally binding version of this text is the Spanish one, available at <a href="/politica-de-cookies/" style="color:var(--orange)">Política de Cookies</a>. In the event of any discrepancy, the Spanish version prevails.</p>
+  </div>
+  <h2>What cookies are</h2>
+  <p>Cookies are files downloaded onto your device through web pages. They are essential tools for delivering many information society services: they let a website store and retrieve information about a user's browsing habits or their device and, depending on the information obtained, can be used to recognise the user and improve the service offered.</p>
+  <p>Under the Spanish Information Society Services Act (LSSICE), as amended by Royal Decree 13/2012, it is mandatory to obtain the user's express consent before they browse pages that use non-essential cookies.</p>
+  <p><strong>IBCNET ESPAÑA SL</strong>, on its own behalf or on behalf of a third party engaged to provide measurement services, may use cookies when you browse www.oficinasya.es. Cookies are associated only with an anonymous user and their device, and do not in themselves provide personal data. They are also used to measure audience, traffic parameters and the number of visits.</p>
+
+  <h2>Types of cookie</h2>
+  <h3>By who manages them</h3>
+  <ul>
+    <li><strong>First-party cookies:</strong> sent to the user's device from a domain managed by us, from which the requested service is provided.</li>
+    <li><strong>Third-party cookies:</strong> sent from a domain not managed by us but by another entity that processes the data obtained.</li>
+  </ul>
+  <h3>By how long they stay active</h3>
+  <ul>
+    <li><strong>Session cookies:</strong> collect and store data while the user browses, and are deleted when the session ends.</li>
+    <li><strong>Persistent cookies:</strong> the data stays stored on the device for a defined period, from minutes to several years.</li>
+  </ul>
+  <h3>By purpose</h3>
+  <ul>
+    <li><strong>Technical:</strong> enable browsing and the use of the various options or services (identifying the session, managing the purchase process, using security features, and so on).</li>
+    <li><strong>Personalisation:</strong> allow the service to be accessed with predefined settings (language, browser type, regional configuration and so on).</li>
+    <li><strong>Analytics:</strong> allow user behaviour to be tracked and analysed so improvements can be made based on how the service is used.</li>
+    <li><strong>Advertising:</strong> allow advertising space to be managed as effectively as possible.</li>
+    <li><strong>Behavioural advertising:</strong> store browsing behaviour information in order to show advertising based on a specific profile.</li>
+    <li><strong>External social networks:</strong> allow interaction with content from social platforms (Facebook, YouTube, Twitter, LinkedIn and others), governed by each platform's own privacy policy.</li>
+  </ul>
+
+  <h2>Third-party cookies</h2>
+  <p>This website uses third-party services to collect information for statistical and website-usage purposes. Specifically, we use <strong>Google Analytics</strong> and <strong>Google Adsense</strong> for our statistics and advertising, including DoubleClick cookies to improve the advertising shown. Some cookies are essential to the site working, such as the built-in search.</p>
+
+  <h2>Disabling and deleting cookies</h2>
+  <p>You can allow, block or delete the cookies installed on your device through your browser settings. Note that disabling cookies may stop some site services from working. See your browser's instructions:</p>
+  <div class="browser-links">
+    <a href="http://windows.microsoft.com/es-es/windows-vista/Block-or-allow-cookies" target="_blank" rel="noopener">Internet Explorer / Edge</a>
+    <a href="http://support.mozilla.org/es/kb/impedir-que-los-sitios-web-guarden-sus-preferencia" target="_blank" rel="noopener">Mozilla Firefox</a>
+    <a href="https://support.google.com/accounts/answer/61416?hl=es" target="_blank" rel="noopener">Chrome</a>
+    <a href="http://safari.helpmax.net/es/privacidad-y-seguridad/como-gestionar-las-cookies/" target="_blank" rel="noopener">Safari</a>
+    <a href="http://help.opera.com/Linux/10.60/es-ES/cookies.html" target="_blank" rel="noopener">Opera</a>
+  </div>
+
+  <div class="legal-note">
+    <p><strong>IBCNET ESPAÑA SL</strong></p>
+    <p>C/ Isabel Colbrand, 6, 5th floor · 28050 Madrid, Spain</p>
+    <p>{{ g.telefono }} · {{ g.email }}</p>
+  </div>
+</div>
+{% endblock %}

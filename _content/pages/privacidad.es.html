@@ -1,0 +1,97 @@
+---
+id: privacidad
+lang: es
+url: /politica-de-privacidad/
+layout: legal
+title: "Política de privacidad y protección de datos | OficinasYA!"
+description: "Política de privacidad de OficinasYA!: qué datos personales tratamos, con qué finalidad y base legal, cuánto los conservamos y cómo ejercer tus derechos."
+---
+{% block jsonld %}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "{{ site.url }}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Política de privacidad",
+          "item": "{{ site.url }}/privacidad.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Política de privacidad",
+      "url": "{{ site.url }}/privacidad.html",
+      "inLanguage": "es-ES",
+      "isPartOf": {
+        "@id": "{{ site.url }}/#website"
+      },
+      "about": {
+        "@id": "{{ site.url }}/#organization"
+      }
+    }
+  ]
+}
+{% endblock %}
+
+{% block content %}
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Política de Privacidad</span>
+    </div>
+    <h1 class="page-hero-title">Política de Privacidad</h1>
+    <p class="page-hero-sub">Cómo tratamos tus datos personales, en cumplimiento del RGPD.</p>
+  </div>
+</div>
+
+<div class="legal-wrap">
+  <p>En cumplimiento de lo dispuesto en el Reglamento General de Protección de Datos (RGPD 2016/679, de 27 de abril de 2016), <strong>IBCNET ESPAÑA SL</strong> (en adelante, OficinasYA!) informa de lo siguiente:</p>
+
+  <h2>1. Responsable del tratamiento</h2>
+  <p>El responsable del tratamiento de los datos personales recogidos a través de <strong>www.oficinasya.es</strong> es IBCNET ESPAÑA SL, con domicilio en C/ Isabel Colbrand, 6, 5º planta, 28050 Madrid.</p>
+
+  <h2>2. Qué datos tratamos y con qué finalidad</h2>
+  <p>Se entiende por datos de carácter personal «cualquier información concerniente a personas físicas identificadas o identificables». Los datos que nos facilitas a través de los formularios del sitio web quedan incorporados a un fichero titularidad de IBCNET ESPAÑA SL, tratados con la máxima confidencialidad, y se utilizan exclusivamente para:</p>
+  <ol>
+    <li>Gestionar tu consulta o solicitud de información sobre nuestros servicios (despachos, salas, oficina virtual, coworking).</li>
+    <li>Facilitar la gestión global de usuarios del sitio web y las consultas formuladas por éstos.</li>
+    <li>Enviarte información sobre nuestros productos y servicios, si así lo consientes.</li>
+  </ol>
+
+  <h2>3. Comunicación de datos</h2>
+  <p>Mediante la aceptación de esta Política, consientes de forma expresa que tus datos sean comunicados a las sociedades del grupo IBCNET ESPAÑA SL, con el fin de facilitar un control y gestión global de las consultas formuladas, así como el envío de información de productos y servicios relacionados exclusivamente con nuestro sector de actividad.</p>
+
+  <h2>4. Tus garantías como usuario</h2>
+  <p>Garantizas que los datos aportados son verdaderos, exactos, completos y actualizados, siendo responsable de cualquier daño o perjuicio que pudiera ocasionarse como consecuencia del incumplimiento de esta obligación. Si los datos aportados pertenecieran a un tercero, garantizas haberle informado de esta Política y obtenido su autorización.</p>
+
+  <h2>5. Campos obligatorios</h2>
+  <p>Cuando los datos se recaben a través de un formulario, será necesario aportar, al menos, los campos marcados con un asterisco; si no se facilitan, no podremos gestionar tu solicitud.</p>
+
+  <h2>6. Seguridad</h2>
+  <p>Hemos adoptado los niveles de seguridad requeridos para la protección de tus datos personales, instalando los medios técnicos a nuestro alcance para evitar su pérdida, mal uso, alteración, acceso no autorizado o robo.</p>
+
+  <h2>7. Cookies</h2>
+  <p>Utilizamos cookies en el sitio web únicamente para optimizar y personalizar tu navegación, sin guardar en nuestros sistemas perfiles personalizados de navegación. Consulta nuestra <a href="/politica-de-cookies/" style="color:var(--orange);font-weight:600">Política de Cookies</a> para más información.</p>
+
+  <h2>8. Tus derechos (acceso, rectificación, cancelación y oposición)</h2>
+  <p>Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición dirigiéndote por escrito, identificado con la referencia «Protección de Datos», a la dirección que figura más abajo. También puedes oponerte en cualquier momento al envío de comunicaciones comerciales electrónicas escribiendo a <strong>info@ibcnet.es.com</strong>, de conformidad con la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico.</p>
+
+  <div class="legal-note">
+    <p><strong>IBCNET ESPAÑA SL · Protección de Datos</strong></p>
+    <p>C/ Isabel Colbrand, 6, 5º planta · 28050 Madrid</p>
+    <p>{{ g.telefono }} · {{ g.email }}</p>
+  </div>
+</div>
+{% endblock %}

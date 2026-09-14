@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== PROTOTIPO: NO INDEXAR =====
+       Este prototipo vive en un dominio publico e indexable. El noindex evita que
+       compita con www.oficinasya.es y que se filtren precios sin aprobar.
+       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
+       Google no podria leer este noindex.
+       TODO migracion: poner site.noindex a false en _data/global.yml y regenerar. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <!-- TODO migracion: cambiar site.url en _data/global.yml -->
+  <link rel="canonical" href="https://robertoibc.github.io/en/blog/" />
+  <link rel="alternate" hreflang="es" href="https://robertoibc.github.io/blog/" />
+  <link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/blog/" />
+  <link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/blog/" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
+  <title>Productivity and business blog for small firms | OficinasYA!</title>
+  <meta name="description" content="Articles on productivity, running a small business, workplace wellbeing and technology for freelancers and companies, written by the OficinasYA! team." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OficinasYA!" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:title" content="Productivity and business blog for small firms | OficinasYA!" />
+  <meta property="og:description" content="Articles on productivity, running a small business, workplace wellbeing and technology for freelancers and companies, written by the OficinasYA! team." />
+  <!-- TODO migracion: cambiar site.url en _data/global.yml -->
+  <meta property="og:url" content="https://robertoibc.github.io/en/blog/" />
+  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Meeting room at the OficinasYA! centre in Zaragoza" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Productivity and business blog for small firms | OficinasYA!" />
+  <meta name="twitter:description" content="Articles on productivity, running a small business, workplace wellbeing and technology for freelancers and companies, written by the OficinasYA! team." />
+  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.oficinasya.es" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange:      #F5921A;
+      --orange-dark: #E07810;
+      --orange-pale: #FFF3E0;
+      --dark:        #1C1C1C;
+      --dark-mid:    #2D2D2D;
+      --gray-50:     #FAFAFA;
+      --gray-100:    #F5F5F5;
+      --gray-200:    #E8E8E8;
+      --gray-400:    #A3A3A3;
+      --gray-600:    #525252;
+      --white:       #FFFFFF;
+      --radius:      20px;
+      --ease:        cubic-bezier(.16,1,.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; max-width: 100%; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all .4s var(--ease);
+    }
+    nav.scrolled {
+      background: var(--white);
+      box-shadow: 0 2px 24px rgba(0,0,0,.09);
+      padding: 14px 6%;
+    }
+    /* Variantes de cabecera. Sin clase: transparente sobre el hero (home).
+       nav-dark: fondo oscuro fijo (ubicaciones, comunidad, blog).
+       nav-light: fondo blanco desde el principio (paginas legales). */
+    nav.nav-dark { background: var(--dark); }
+    nav.nav-light { background: var(--white); box-shadow: 0 2px 24px rgba(0,0,0,.09); }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+    .logo-wordmark { display: flex; align-items: baseline; gap: 0; }
+    .logo-word {
+      font-family: 'Barlow', sans-serif; font-weight: 900;
+      font-size: 1.75rem; letter-spacing: -1px;
+      color: var(--white); transition: color .4s;
+    }
+    nav.scrolled .logo-word, nav.nav-light .logo-word { color: var(--dark); }
+    .logo-ya {
+      font-family: 'Barlow', sans-serif; font-weight: 900;
+      font-size: 1.75rem; letter-spacing: -1px;
+      color: var(--orange); 
+    }
+    .logo-sub {
+      font-size: .62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.55); transition: color .4s;
+      padding-left: 1px;
+    }
+    nav.scrolled .logo-sub, nav.nav-light .logo-sub { color: var(--gray-400); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; }
+    nav.scrolled .nav-links a, nav.nav-light .nav-links a { color: var(--dark-mid); }
+    .menu-toggle {
+      display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 44px; height: 44px; margin-left: 10px;
+      background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.2); border-radius: 12px;
+      cursor: pointer; padding: 0; z-index: 201; flex-shrink: 0;
+      transition: background .3s, border-color .3s, transform .15s;
+    }
+    .menu-toggle span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s, background .3s; }
+    .menu-toggle:active { transform: scale(.94); }
+    nav.scrolled .menu-toggle, nav.nav-light .menu-toggle { background: var(--gray-100); border-color: var(--gray-200); }
+    nav.scrolled .menu-toggle span, nav.nav-light .menu-toggle span { background: var(--dark); }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .menu-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 199; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .menu-backdrop.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(300px, 80vw); z-index: 200;
+      background: var(--dark); padding: 110px 32px 40px; overflow-y: auto;
+      display: flex; flex-direction: column;
+      transform: translateX(100%); transition: transform .35s var(--ease);
+      box-shadow: -24px 0 60px rgba(0,0,0,.35);
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu a { color: rgba(255,255,255,.85); text-decoration: none; font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 700; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .mobile-menu a.active, .mobile-menu a:hover { color: var(--orange); }
+    .mobile-menu-cta { margin-top: 24px; background: var(--orange); color: var(--white) !important; text-align: center; border-radius: 50px; border-bottom: none !important; padding: 15px !important; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange) !important; }
+    .nav-cta {
+      background: var(--orange); color: var(--white);
+      padding: 11px 26px; border-radius: 50px;
+      font-weight: 700; font-size: .9rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .3s, transform .3s, box-shadow .3s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,146,26,.45); }
+    .rv  { opacity: 0; transform: translateY(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rvl { opacity: 0; transform: translateX(-48px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rvr { opacity: 0; transform: translateX(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rv.on, .rvl.on, .rvr.on { opacity: 1; transform: none; }
+    footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 72px 6% 40px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .footer-logo { margin-bottom: 20px; }
+    .footer-logo .logo-word { color: rgba(255,255,255,.85); font-size: 1.6rem; }
+    .footer-logo .logo-ya { font-size: 1.6rem; }
+    .footer-logo .logo-sub { color: rgba(255,255,255,.35); }
+    .footer-brand p { font-size: .9rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h5 { color: var(--white); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; }
+    .footer-col ul a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
+    .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
+    .socials { display: flex; gap: 10px; }
+    .soc { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .soc svg { width: 16px; height: 16px; }
+    .wa {
+      position: fixed; bottom: 32px; right: 32px; z-index: 99;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; color: white;
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+      text-decoration: none; box-shadow: 0 8px 28px rgba(37,211,102,.4);
+      transition: transform .3s;
+      opacity: 0; animation: up .7s 1.6s var(--ease) forwards;
+    }
+    .wa:hover { transform: scale(1.1); }
+    .nav-actions { display: flex; align-items: center; gap: 20px; }
+    .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
+    .lang-switch a {
+      font-size: .78rem; font-weight: 700; letter-spacing: .8px;
+      color: rgba(255,255,255,.45); text-decoration: none;
+      transition: color .3s var(--ease);
+    }
+    .lang-switch a[aria-current] { color: var(--white); }
+    .lang-switch a:hover { color: var(--orange); }
+    .lang-sep { width: 1px; height: 10px; background: rgba(255,255,255,.25); transition: background .4s var(--ease); }
+    nav.scrolled .lang-switch a, nav.nav-light .lang-switch a { color: var(--gray-400); }
+    nav.scrolled .lang-switch a[aria-current], nav.nav-light .lang-switch a[aria-current] { color: var(--dark); }
+    nav.scrolled .lang-sep, nav.nav-light .lang-sep { background: var(--gray-200); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-actions { gap: 14px; }
+      .lang-switch { gap: 7px; }
+      .logo-sub { letter-spacing: .5px; }
+      .lang-switch a { font-size: .72rem; letter-spacing: .4px; }
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .nav-cta { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; gap: 0; }
+      .nav-cta-text { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+
+    /* ── NAV ── */
+
+    /* ── SHARED ── */
+
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s} .d5{transition-delay:.5s} .d6{transition-delay:.6s}
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+    .eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--orange); }
+    .stitle { font-family: 'Barlow', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--dark); }
+    .stitle .hl { color: var(--orange); }
+    .max-wrap { max-width: 1200px; margin: 0 auto; }
+    @keyframes up { to { opacity: 1; transform: translateY(0); } }
+
+    /* ── HERO ── */
+    .page-hero { background: linear-gradient(110deg, rgba(20,20,20,.92) 0%, rgba(20,20,20,.72) 50%, rgba(20,20,20,.4) 100%), url('https://images.unsplash.com/photo-1591382696684-38c427c7547a?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: 160px 6% 100px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -200px; right: -100px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.1) 0%, transparent 65%); pointer-events: none; }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .page-hero-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(245,146,26,.15); border: 1px solid rgba(245,146,26,.3); color: var(--orange); padding: 8px 20px; border-radius: 50px; font-size: .78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px; opacity: 0; animation: up .7s .2s var(--ease) forwards; }
+    .page-hero-title { font-family: 'Barlow', sans-serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: .95; color: var(--white); letter-spacing: -2px; margin-bottom: 24px; opacity: 0; animation: up .8s .35s var(--ease) forwards; }
+    .page-hero-title .hl { color: var(--orange); }
+    .page-hero-sub { color: rgba(255,255,255,.6); font-size: 1.05rem; line-height: 1.7; margin-bottom: 40px; opacity: 0; animation: up .8s .5s var(--ease) forwards; }
+    .hero-search { display: flex; gap: 0; opacity: 0; animation: up .8s .65s var(--ease) forwards; max-width: 400px; }
+    .hero-search input { flex: 1; padding: 14px 18px; background: rgba(255,255,255,.08); border: 1.5px solid rgba(255,255,255,.15); border-right: none; border-radius: 12px 0 0 12px; font-family: 'Inter', sans-serif; font-size: .9rem; color: var(--white); outline: none; }
+    .hero-search input::placeholder { color: rgba(255,255,255,.35); }
+    .hero-search input:focus { border-color: var(--orange); background: rgba(255,255,255,.12); }
+    .hero-search button { background: var(--orange); color: var(--white); border: none; padding: 14px 20px; border-radius: 0 12px 12px 0; cursor: pointer; font-size: 1rem; transition: background .3s; display: flex; align-items: center; justify-content: center; }
+    .hero-search button:hover { background: var(--orange-dark); }
+    .blog-card-img img { transition: transform .5s var(--ease); }
+    .blog-card:hover .blog-card-img img { transform: scale(1.06); }
+
+    /* Hero right — featured article preview */
+    .hero-featured {
+      background: rgba(28,28,28,.55); backdrop-filter: blur(6px); border: 1.5px solid rgba(245,146,26,.5);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35), 0 0 0 1px rgba(245,146,26,.08);
+      opacity: 0; animation: up .8s .5s var(--ease) forwards;
+    }
+    .hero-feat-img { height: 200px; background: linear-gradient(135deg, #F5921A 0%, #E07810 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; position: relative; overflow: hidden; }
+    .hero-feat-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .hero-feat-img::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,.1) 60%); z-index: 1; }
+    .hero-feat-img .feat-emoji { position: relative; z-index: 2; opacity: .85; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4)); }
+    .hero-feat-body { padding: 24px; }
+    .hero-feat-cat { display: inline-block; background: var(--orange); color: var(--white); font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; margin-bottom: 12px; }
+    .hero-feat-title { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--white); line-height: 1.25; margin-bottom: 10px; }
+    .hero-feat-meta { font-size: .78rem; color: rgba(255,255,255,.4); font-weight: 600; }
+
+    /* ── FILTERS ── */
+    #filters { padding: 36px 6% 0; background: var(--white); }
+    .filter-wrap { max-width: 1200px; margin: 0 auto; }
+    .filter-tabs {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: 50px;
+      padding: 7px; width: fit-content; margin: 0 auto;
+    }
+    .filter-tab {
+      display: flex; align-items: center; gap: 7px;
+      padding: 11px 20px; border-radius: 50px; font-size: .86rem; font-weight: 700;
+      cursor: pointer; border: none; background: transparent; color: var(--gray-600);
+      transition: color .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
+      white-space: nowrap;
+    }
+    .filter-tab svg { width: 15px; height: 15px; flex-shrink: 0; opacity: .8; }
+    .filter-tab:hover { color: var(--orange-dark); }
+    .filter-tab.active { color: var(--white); background: var(--orange); box-shadow: 0 8px 20px rgba(245,146,26,.35); }
+
+    /* ── BLOG GRID ── */
+    #blog-grid { padding: 60px 6% 100px; background: var(--white); }
+    .blog-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+    /* Featured article (full width) */
+    .blog-card-featured {
+      grid-column: span 3; display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
+      border-radius: var(--radius); overflow: hidden;
+      border: 1.5px solid var(--gray-200); background: var(--white);
+      transition: transform .4s var(--ease), box-shadow .4s, border-color .4s;
+    }
+    .blog-card-featured:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(0,0,0,.1); border-color: var(--orange); }
+    .blog-card-feat-img { height: 100%; min-height: 320px; background: linear-gradient(135deg, #1C1C1C 0%, #2D2D2D 100%); display: flex; align-items: center; justify-content: center; font-size: 6rem; position: relative; overflow: hidden; }
+    .blog-card-feat-img .feat-emoji { position: relative; z-index: 1; }
+    .blog-card-feat-img::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,146,26,.2) 0%, transparent 60%); }
+    .blog-card-feat-body { padding: 48px 44px; display: flex; flex-direction: column; }
+    .blog-card-feat-body .blog-cat { margin-bottom: 16px; display: inline-block; }
+    .blog-feat-title { font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--dark); line-height: 1.2; margin-bottom: 16px; letter-spacing: -.5px; }
+    .blog-feat-excerpt { color: var(--gray-600); line-height: 1.75; font-size: .98rem; flex: 1; margin-bottom: 32px; }
+    .blog-feat-meta { display: flex; align-items: center; gap: 16px; }
+    .blog-feat-date { font-size: .8rem; color: var(--gray-400); font-weight: 600; }
+    .blog-feat-link { display: inline-flex; align-items: center; gap: 6px; color: var(--orange); font-weight: 700; font-size: .9rem; text-decoration: none; margin-left: auto; transition: gap .3s; }
+    .blog-feat-link:hover { gap: 10px; }
+
+    /* Normal cards */
+    .blog-card {
+      border-radius: var(--radius); overflow: hidden;
+      border: 1.5px solid var(--gray-200); background: var(--white);
+      transition: transform .4s var(--ease), box-shadow .4s, border-color .4s;
+      display: flex; flex-direction: column;
+    }
+    .blog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 56px rgba(0,0,0,.1); border-color: var(--orange); }
+    .blog-card-img { height: 200px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .blog-card-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .cat-prod  { background: #FFF3E0; }
+    .cat-neg   { background: #E8F5E9; }
+    .cat-bien  { background: #E3F2FD; }
+    .cat-tech  { background: #F3E5F5; }
+    .cat-vida  { background: #FFF8E1; }
+    .blog-cat {
+      position: absolute; top: 16px; left: 16px;
+      color: var(--white); font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 50px;
+    }
+    .blog-cat.prod  { background: var(--orange); }
+    .blog-cat.neg   { background: #16A34A; }
+    .blog-cat.bien  { background: #0284C7; }
+    .blog-cat.tech  { background: #7C3AED; }
+    .blog-cat.vida  { background: #D97706; }
+    .blog-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .blog-date { font-size: .78rem; color: var(--gray-400); font-weight: 600; margin-bottom: 10px; }
+    .blog-title { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--dark); line-height: 1.3; margin-bottom: 12px; }
+    .blog-excerpt { color: var(--gray-600); font-size: .9rem; line-height: 1.65; flex: 1; margin-bottom: 24px; }
+    .blog-link { display: inline-flex; align-items: center; gap: 6px; color: var(--orange); font-weight: 700; font-size: .88rem; text-decoration: none; transition: gap .3s; }
+    .blog-link:hover { gap: 10px; }
+
+    /* Read time badge */
+    .read-time { position: absolute; bottom: 14px; right: 14px; background: rgba(0,0,0,.55); color: rgba(255,255,255,.85); font-size: .7rem; font-weight: 600; padding: 4px 10px; border-radius: 50px; }
+
+    /* ── NEWSLETTER ── */
+    #newsletter { background: var(--gray-50); padding: 80px 6%; }
+    .nl-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    .nl-title { font-family: 'Barlow', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; color: var(--dark); letter-spacing: -1px; margin-bottom: 12px; }
+    .nl-sub { color: var(--gray-600); font-size: 1rem; line-height: 1.65; margin-bottom: 36px; }
+    .nl-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto; }
+    .nl-form input { flex: 1; padding: 15px 20px; background: var(--white); border: 2px solid var(--gray-200); border-right: none; border-radius: 12px 0 0 12px; font-family: 'Inter', sans-serif; font-size: .95rem; color: var(--dark); outline: none; transition: border-color .3s; }
+    .nl-form input:focus { border-color: var(--orange); }
+    .nl-form button { background: var(--orange); color: var(--white); border: none; padding: 15px 24px; border-radius: 0 12px 12px 0; font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background .3s; white-space: nowrap; }
+    .nl-form button:hover { background: var(--orange-dark); }
+    .nl-note { font-size: .78rem; color: var(--gray-400); margin-top: 14px; }
+
+    /* ── FOOTER ── */
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .page-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-featured { display: none; }
+      .blog-card-featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .blog-card-feat-img { min-height: 200px; }
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-card-featured { grid-column: span 1; }
+
+      .filter-tabs { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; scrollbar-width: none; }
+      .filter-tabs::-webkit-scrollbar { display: none; }
+
+      .nl-form { flex-direction: column; }
+      .nl-form input, .nl-form button { border-radius: 12px; border: 2px solid var(--gray-200); }
+      .nl-form input { border-right: 2px solid var(--gray-200); margin-bottom: 8px; }
+    }
+
+</style>
+  <!-- TODO migracion: las URLs de este JSON-LD salen de site.url -->
+  <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://robertoibc.github.io/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://robertoibc.github.io/en/blog.html"
+        }
+      ]
+    },
+    {
+      "@type": "Blog",
+      "name": "The OficinasYA! blog",
+      "url": "https://robertoibc.github.io/en/blog.html",
+      "inLanguage": "en-GB",
+      "publisher": {
+        "@id": "https://robertoibc.github.io/#organization"
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "22 productivity tricks to master your day",
+          "datePublished": "2024-08-29",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Booking appointments now has an app: no more fighting government websites",
+          "datePublished": "2024-09-12",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Productivity tricks to win at the everyday (II)",
+          "datePublished": "2024-09-03",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Rejecting office work brings loneliness and depression, experts warn",
+          "datePublished": "2024-08-26",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Getting back into the routine without the stress",
+          "datePublished": "2024-08-20",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Boost your sales with these email marketing essentials",
+          "datePublished": "2024-08-09",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Google Wallet will let you scan any kind of document",
+          "datePublished": "2024-08-07",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Are you making any of these 8 small-business mistakes?",
+          "datePublished": "2024-08-01",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "How to travel almost free if you are under 30",
+          "datePublished": "2024-07-31",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Effective networking: turning contacts into real clients",
+          "datePublished": "2024-07-22",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "inLanguage": "en-GB",
+          "url": "https://robertoibc.github.io/en/blog.html"
+        }
+      ]
+    }
+  ]
+}
+
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="nav-dark">
+  <a href="/en/" class="nav-logo">
+    <div class="logo-wordmark">
+      <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
+    </div>
+    <span class="logo-sub">Coworking &amp; Workplaces</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/en/#services">Services</a></li>
+    <li><a href="/en/locations/">Locations</a></li>
+    <li><a href="/en/#pricing">Pricing</a></li>
+    <li><a href="/en/community/">Community</a></li>
+    <li><a href="/en/blog/" class="active">Blog</a></li>
+    <li><a href="/en/#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="/blog/" hreflang="es" lang="es" title="Leer esta página en español">ES</a>
+      <span class="lang-sep" aria-hidden="true"></span>
+      <a href="/en/blog/" hreflang="en" lang="en" aria-current="true">EN</a>
+    </div>
+    <a href="tel:918298500" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nav-cta-text">918 298 500</span></a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/en/#services">Services</a>
+  <a href="/en/locations/">Locations</a>
+  <a href="/en/#pricing">Pricing</a>
+  <a href="/en/community/">Community</a>
+  <a href="/en/blog/" class="active">Blog</a>
+  <a href="/en/#contact">Contact</a>
+  <a href="tel:918298500" class="mobile-menu-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
+</div>
+
+
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;opacity:0;animation:up .6s .1s var(--ease) forwards">
+        <a href="/en/" style="color:rgba(255,255,255,.35);font-size:.8rem;font-weight:600;text-decoration:none;transition:color .3s" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Home</a>
+        <span style="color:rgba(255,255,255,.2);font-size:.8rem">/</span>
+        <span style="color:var(--orange);font-size:.8rem;font-weight:700">Blog</span>
+      </div>
+      <div class="page-hero-badge">📝 Blog &amp; Resources</div>
+      <h1 class="page-hero-title">Productivity,<br>business and <span class="hl">life</span><br>at the office</h1>
+      <p class="page-hero-sub">Practical advice for freelancers, small businesses and teams that want to do more and live better. Updated weekly.</p>
+      <div class="hero-search">
+        <input type="text" placeholder="Search articles…" id="searchInput" />
+        <button aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></button>
+      </div>
+    </div>
+    <div class="hero-featured">
+      <div class="hero-feat-img">
+        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="22 productivity tricks" onerror="this.remove()" />
+        <span class="feat-emoji">⚡</span>
+      </div>
+      <div class="hero-feat-body">
+        <div class="hero-feat-cat">Featured article</div>
+        <div class="hero-feat-title">22 productivity tricks to master your day</div>
+        <div class="hero-feat-meta">
+          <span class="blog-date">29 Aug 2024</span>
+          <span style="color:rgba(255,255,255,.3);margin-left:8px">· 5 min read</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div id="filters">
+  <div class="filter-wrap">
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-cat="all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>All</button>
+      <button class="filter-tab" data-cat="prod"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Productivity</button>
+      <button class="filter-tab" data-cat="neg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Business</button>
+      <button class="filter-tab" data-cat="bien"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Wellbeing</button>
+      <button class="filter-tab" data-cat="tech"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Tech</button>
+      <button class="filter-tab" data-cat="vida"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Lifestyle</button>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG GRID -->
+<section id="blog-grid">
+  <div class="blog-grid" id="articlesGrid">
+
+    <!-- FEATURED -->
+    <div class="blog-card-featured rv d1" data-cat="prod">
+      <div class="blog-card-feat-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85"
+             style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"
+             alt="22 productivity tricks"
+             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1C1C1C,#2D2D2D)'"
+             onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''" />
+        <span class="feat-emoji" style="position:absolute;font-size:3rem;opacity:.15">⚡</span>
+      </div>
+      <div class="blog-card-feat-body">
+        <span class="blog-cat prod">Productivity</span>
+        <h2 class="blog-feat-title">22 productivity tricks to master your day</h2>
+        <p class="blog-feat-excerpt">Running out of energy mid-afternoon? Tasks piling up while the clock races? This guide brings together 22 concrete, easy-to-apply strategies to manage your time better, hold your focus and finish the day feeling you achieved something, not that you lost.</p>
+        <div class="blog-feat-meta">
+          <span class="blog-feat-date">29 Aug 2024 · 5 min read</span>
+          <a href="https://www.oficinasya.es/blog/" class="blog-feat-link" target="_blank">Read on the blog →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="blog-card rv d1" data-cat="prod">
+      <div class="blog-card-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=85" alt="App cita previa" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
+        <span class="blog-cat prod">Productivity</span>
+        <span class="read-time">4 min</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">12 Sep 2024</div>
+        <h3 class="blog-title">Booking appointments now has an app: no more fighting government websites</h3>
+        <p class="blog-excerpt">A new app that brings every administrative procedure (census, reports, MUFACE) together in one place.</p>
+        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="blog-card rv d2" data-cat="prod">
+      <div class="blog-card-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=600&q=85" alt="Trucos productividad" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
+        <span class="blog-cat prod">Productivity</span>
+        <span class="read-time">5 min</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">3 Sep 2024</div>
+        <h3 class="blog-title">Productivity tricks to win at the everyday (II)</h3>
+        <p class="blog-excerpt">Part two, with practical techniques for time management, focus and balance so you get more done without burning out.</p>
+        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="blog-card rv d3" data-cat="bien">
+      <div class="blog-card-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=85" alt="Trabajo presencial bienestar" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0284C7,#0EA5E9)'" />
+        <span class="blog-cat bien">Wellbeing</span>
+        <span class="read-time">6 min</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">26 Aug 2024</div>
+        <h3 class="blog-title">Rejecting office work brings loneliness and depression, experts warn</h3>
+        <p class="blog-excerpt">Experts warn that the office is not only a place of work but a space for socialising that mental wellbeing depends on.</p>
+        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="blog-card rv d1" data-cat="bien">
+      <div class="blog-card-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=85" alt="Vuelta a la rutina" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#B45309)'" />
+        <span class="blog-cat bien">Wellbeing</span>
+        <span class="read-time">4 min</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">20 Aug 2024</div>
+        <h3 class="blog-title">Getting back into the routine without the stress</h3>
+        <p class="blog-excerpt">Advice on picking up your habits and working rhythm after the holidays without the classic back-to-work slump.</p>
+        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="blog-card rv d2" data-cat="neg">
+      <div class="blog-card-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85" alt="Email marketing" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
+        <span class="blog-cat neg">Business</span>
+        <span class="read-time">7 min</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">9 Aug 2024</div>
+        <h3 class="blog-title">Boost your sales with these email marketing essentials</h3>
+        <p class="blog-excerpt">Concrete email marketing strategies for freelancers and small businesses that want to turn their list into real revenue.</p>
+        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="blog-card rv d3" data-cat="tech">
+      <div class="blog-card-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?auto=format&fit=crop&w=600&q=85" alt="Google Wallet tecnología" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#7C3AED,#5B21B6)'" />
+        <span class="blog-cat tech">Tech</span>
+        <span class="read-time">3 min</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">7 Aug 2024</div>
+        <h3 class="blog-title">Google Wallet will let you scan any kind of document</h3>
+        <p class="blog-excerpt">Google Wallet's new text-scanning feature is here to make digital life easier. Everything you need to know.</p>
+        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="blog-card rv d1" data-cat="neg">
+      <div class="blog-card-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Errores en tu PYME" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#DC2626,#B91C1C)'" />
+        <span class="blog-cat neg">Business</span>
+        <span class="read-time">8 min</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">1 Aug 2024</div>
+        <h3 class="blog-title">Are you making any of these 8 small-business mistakes?</h3>
+        <p class="blog-excerpt">These common slips can undermine your company's success. Spot them early and learn how to avoid them.</p>
+        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="blog-card rv d2" data-cat="vida">
+      <div class="blog-card-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=85" alt="Viajar joven España" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#F59E0B)'" />
+        <span class="blog-cat vida">Lifestyle</span>
+        <span class="read-time">4 min</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">31 Jul 2024</div>
+        <h3 class="blog-title">How to travel almost free if you are under 30</h3>
+        <p class="blog-excerpt">The Verano Joven scheme offers up to 90% off travel around Spain and Europe for 18 to 30-year-olds.</p>
+        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="blog-card rv d3" data-cat="neg">
+      <div class="blog-card-img" style="background:none;overflow:hidden">
+        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=85" alt="Networking profesional" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
+        <span class="blog-cat neg">Business</span>
+        <span class="read-time">5 min</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">22 Jul 2024</div>
+        <h3 class="blog-title">Effective networking: turning contacts into real clients</h3>
+        <p class="blog-excerpt">Networking is not just handing out cards. Here are the strategies that actually work for closing deals.</p>
+        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Load more -->
+  <div style="text-align:center;margin-top:60px" class="rv">
+    <a href="https://www.oficinasya.es/blog/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;border:2px solid var(--orange);color:var(--orange);padding:14px 36px;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;transition:background .3s,color .3s,transform .3s" onmouseover="this.style.background='var(--orange)';this.style.color='white';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='';this.style.color='var(--orange)';this.style.transform=''">See all articles on oficinasya.es →</a>
+  </div>
+</section>
+
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="nl-inner rv">
+    <h2 class="nl-title">Get the best articles<br>in your inbox</h2>
+    <p class="nl-sub">A weekly newsletter with the best advice for freelancers and small businesses. No spam, no waffle. Unsubscribing takes one click.</p>
+    <form class="nl-form" onsubmit="return handleNL(event)">
+      <input type="email" placeholder="you@email.com" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="nl-note">1,200+ professionals already subscribed · Guaranteed no spam</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo nav-logo">
+        <div class="logo-wordmark">
+          <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
+        </div>
+        <span class="logo-sub">Coworking &amp; Workplaces</span>
+      </div>
+      <p>Private offices, coworking and business centres in Madrid and across Spain. Happy Workplaces since the 20th century.</p>
+      <div class="socials" style="margin-top:24px">
+        <a href="https://www.facebook.com/oficinasya" class="soc" aria-label="Facebook"><svg viewBox="0 0 320 512" fill="currentColor"><path d="M279.1 288l14.2-92.7h-88.9v-60.1c0-25.4 12.4-50.1 52.2-50.1h40.4V6.3S260.4 0 225.4 0c-73.2 0-121.1 44.4-121.1 124.7v70.6H22.9V288h81.4v224h100.2V288z"/></svg></a>
+        <a href="https://www.linkedin.com/company/oficinasya" class="soc" aria-label="LinkedIn"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg></a>
+        <a href="https://twitter.com/oficinasya" class="soc" aria-label="X (Twitter)"><svg viewBox="0 0 512 512" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88H109.9L364.4 421.8z"/></svg></a>
+        <a href="https://www.instagram.com/oficinasya" class="soc" aria-label="Instagram"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.5 122.5 1.8 158.3c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/en/#services">Private offices</a></li>
+        <li><a href="/en/#services">Meeting rooms</a></li>
+        <li><a href="/en/#services">Virtual office</a></li>
+        <li><a href="/en/#services">Coworking</a></li>
+        <li><a href="/en/#services">Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/en/#why">Why us</a></li>
+        <li><a href="/en/#testimonials">Clients</a></li>
+        <li><a href="/en/locations/">Locations</a></li>
+        <li><a href="/en/#pricing">Pricing</a></li>
+        <li><a href="/en/community/">Community</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
+        <li><a href="/en/#contact">Contact form</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:918298500">918 298 500</a></li>
+        <li><a href="https://wa.me/34624119705">WhatsApp 624 119 705</a></li>
+        <li><a href="mailto:hola@oficinasya.es">hola@oficinasya.es</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 OficinasYA! · All rights reserved</span>
+    <div class="footer-bottom-links"><a href="/en/legal-notice/">Legal notice</a>·<a href="/en/privacy-policy/">Privacy</a>·<a href="/en/cookie-policy/">Cookies</a></div>
+  </div>
+</footer>
+
+
+<a href="https://wa.me/34624119705" class="wa" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="27" height="27" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+
+<script>
+  // Cabecera: fondo solido al hacer scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 80));
+
+  // Menu movil
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuBackdrop = document.getElementById('menuBackdrop');
+  function closeMenu() {
+    menuToggle.classList.remove('open'); mobileMenu.classList.remove('open'); menuBackdrop.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+  }
+  function openMenu() {
+    menuToggle.classList.add('open'); mobileMenu.classList.add('open'); menuBackdrop.classList.add('open');
+    menuToggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden';
+  }
+  menuToggle.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+  menuBackdrop.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Animaciones de entrada (.rv, .rvl, .rvr)
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => io.observe(el));
+
+  // Category filter
+  document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      const cat = this.dataset.cat;
+      document.querySelectorAll('#articlesGrid > [data-cat]').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Search articles by title/excerpt
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.querySelector('.hero-search button');
+  function runSearch() {
+    const q = searchInput.value.trim().toLowerCase();
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector('.filter-tab[data-cat="all"]').classList.add('active');
+    document.querySelectorAll('#articlesGrid > [data-cat]').forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.style.display = (q === '' || text.includes(q)) ? '' : 'none';
+    });
+    if (q !== '') document.getElementById('filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  searchBtn.addEventListener('click', runSearch);
+  searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); runSearch(); } });
+
+  function handleNL(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Subscribed!';
+    btn.style.background = '#16A34A';
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 4000);
+    return false;
+  }
+
+</script>
+</body>
+</html>
