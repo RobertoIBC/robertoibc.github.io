@@ -1,0 +1,380 @@
+# Horario estructurado (schema.org OpeningHoursSpecification) de cada centro,
+# clave "Ciudad|Centro" como en centros.csv. Curado a mano a partir de la
+# columna `horario` del CSV: los horarios partidos, de verano o "bajo peticion"
+# no se pueden derivar automaticamente. Si cambia un horario en el CSV, hay
+# que actualizarlo tambien aqui. Un centro sin entrada sale sin horario en el
+# JSON-LD (nunca se inventa).
+Madrid|Velázquez:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Madrid|Gasset:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Madrid|Serrano:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Madrid|Capitán Haya:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Madrid|Las Tablas:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Madrid|Sanse (San Sebastián de los Reyes):
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Madrid|La Florida (Pozuelo):
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Madrid|Manoteras (Sanchinarro):
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Albacete|Calle Mayor:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Alicante|Plaza de la Muntanyeta:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: 09:00
+  closes: '19:00'
+Bilbao|Máximo Aguirre:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  opens: 09:00
+  closes: '14:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  opens: '15:30'
+  closes: '19:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Friday
+  opens: 09:00
+  closes: '14:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Friday
+  opens: '15:00'
+  closes: '18:00'
+Bilbao|Edificio Albia:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  opens: 09:00
+  closes: '14:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  opens: '15:30'
+  closes: '19:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Friday
+  opens: 09:00
+  closes: '14:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Friday
+  opens: '15:00'
+  closes: '18:00'
+Murcia|Marla Center:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: 07:00
+  closes: '23:59'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Saturday
+  - Sunday
+  opens: 09:00
+  closes: '23:59'
+Murcia|Edificio Magalia (Alcantarilla):
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: 08:00
+  closes: '14:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: '16:00'
+  closes: '20:00'
+Murcia|Coliving Condado de Alhama:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Salamanca|Edificio Openhouse:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: 08:00
+  closes: '20:00'
+Segovia|Padre Claret:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: 08:00
+  closes: '19:00'
+Segovia|Ezequiel González:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: 08:00
+  closes: '21:00'
+Sevilla|Laraña:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  opens: 09:00
+  closes: '14:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  opens: '15:00'
+  closes: '19:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Friday
+  opens: 09:00
+  closes: '15:00'
+Sevilla|Edificio Galia Puerto:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Sevilla|Edificio Nervión:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Tenerife|Santa Rosalía:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Tenerife|Costa y Grijalba:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Tenerife|La Luna Coliving:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  - Saturday
+  - Sunday
+  opens: 00:00
+  closes: '23:59'
+Valencia|Guillem de Castro:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: 09:00
+  closes: '14:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: '15:15'
+  closes: '19:00'
+Vigo|Plaza Compostela:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  - Friday
+  opens: 09:00
+  closes: '20:00'
+Zaragoza|Independencia:
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Monday
+  - Tuesday
+  - Wednesday
+  - Thursday
+  opens: 08:30
+  closes: '19:00'
+- '@type': OpeningHoursSpecification
+  dayOfWeek:
+  - Friday
+  opens: 08:30
+  closes: '15:00'
