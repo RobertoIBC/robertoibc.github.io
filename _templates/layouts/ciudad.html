@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+{% block nav_variant %}dark{% endblock %}
+{#- Pagina de ciudad. El contenido viene de _content/ciudades/<slug>.<lang>.md:
+    front matter (h1, subtitle, centros[].texto, zonas, faq, cercanas) + cuerpo
+    Markdown. Las fichas de centro salen de _data/centros.csv; nunca se
+    escriben a mano. -#}
+
+{% block css %}
+{% include "assets/inner.css" %}
+    .page-hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+    .page-hero-meta span { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.8); font-size: .82rem; font-weight: 600; padding: 8px 14px; border-radius: 50px; }
+    .page-hero-meta span b { color: var(--orange); font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 900; margin-right: 4px; }
+
+    /* ── INTRO ── */
+    .city-intro { max-width: 1200px; margin: 0 auto; padding: 80px 6% 24px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; }
+    .city-side { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
+    .side-card { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 28px; }
+    .side-card h3 { font-family: 'Barlow', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
+    .side-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .side-card li a { color: var(--dark); text-decoration: none; font-size: .92rem; font-weight: 600; display: flex; justify-content: space-between; gap: 10px; padding: 9px 12px; border-radius: 10px; background: var(--white); border: 1.5px solid var(--gray-200); transition: border-color .3s; }
+    .side-card li a:hover { border-color: var(--orange); }
+    .side-card li a small { color: var(--gray-400); font-weight: 500; }
+    .side-card.cta { background: var(--dark); border-color: var(--dark); }
+    .side-card.cta h3 { color: var(--white); }
+    .side-card.cta p { color: rgba(255,255,255,.55); font-size: .9rem; line-height: 1.6; margin-bottom: 18px; }
+    .side-card.cta a { display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: .95rem; border-radius: 50px; padding: 13px 20px; margin-bottom: 10px; transition: transform .3s, background .3s; }
+    .side-card.cta a:last-child { margin-bottom: 0; }
+    .side-card.cta .a-tel { background: var(--orange); color: var(--white); }
+    .side-card.cta .a-tel:hover { background: var(--orange-dark); transform: translateY(-2px); }
+    .side-card.cta .a-wa { background: #25D366; color: var(--white); }
+    .side-card.cta .a-form { background: rgba(255,255,255,.08); color: var(--white); border: 1.5px solid rgba(255,255,255,.15); }
+
+    /* ── CENTROS ── */
+    .city-centres { background: var(--gray-50); padding: 80px 6%; }
+    .city-centres-inner { max-width: 1200px; margin: 0 auto; }
+    .city-centres-hd { margin-bottom: 40px; }
+    .zone { margin-bottom: 56px; }
+    .zone:last-child { margin-bottom: 0; }
+    .zone-hd { margin-bottom: 24px; }
+    .zone-hd h3 { font-family: 'Barlow', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -.3px; margin-bottom: 10px; scroll-margin-top: 100px; }
+    .zone-hd .srv-article p { margin-bottom: 8px; }
+    .centre { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: 340px minmax(0, 1fr); margin-bottom: 24px; scroll-margin-top: 100px; }
+    .centre:last-child { margin-bottom: 0; }
+    .centre.no-photo { grid-template-columns: 1fr; }
+    .centre-photo { background: var(--gray-200) center/cover no-repeat; min-height: 260px; position: relative; }
+    .centre-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .centre-photo .badge { position: absolute; left: 16px; bottom: 16px; background: var(--dark); color: var(--white); font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 12px; border-radius: 50px; }
+    .centre-body { padding: 30px 32px; }
+    .centre-body h3 { font-family: 'Barlow', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -.3px; margin-bottom: 6px; }
+    .centre-addr { color: var(--gray-600); font-size: .95rem; margin-bottom: 18px; }
+    .centre-text p { color: var(--gray-600); font-size: .98rem; line-height: 1.75; margin-bottom: 12px; }
+    .centre-text a { color: var(--orange-dark); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(245,146,26,.35); }
+    .centre-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 20px; margin: 18px 0; padding: 18px 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); }
+    .fact-lbl { font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; }
+    .fact-val { font-size: .92rem; color: var(--dark); font-weight: 600; line-height: 1.4; }
+    .centre-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .centre-tags span { background: var(--orange-pale); color: var(--orange-dark); font-size: .78rem; font-weight: 700; padding: 6px 12px; border-radius: 50px; }
+    .centre-tags span.h24 { background: var(--dark); color: var(--white); }
+
+    /* ── SERVICIOS ── */
+    .city-services { padding: 80px 6%; }
+    .city-services-inner { max-width: 1200px; margin: 0 auto; }
+    .city-services-hd { text-align: center; margin-bottom: 40px; }
+    .city-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .srv-link { display: block; border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 24px; text-decoration: none; transition: border-color .3s, transform .3s; }
+    .srv-link:hover { border-color: var(--orange); transform: translateY(-3px); }
+    .srv-link-name { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .srv-link-sub { font-size: .9rem; color: var(--gray-600); line-height: 1.5; }
+
+    /* ── FAQ y cercanas ── */
+    .srv-faq { background: var(--gray-50); padding: 88px 6%; }
+    .srv-faq-inner { max-width: 1200px; margin: 0 auto; }
+    .srv-faq-hd { text-align: center; margin-bottom: 48px; }
+    .city-nearby { padding: 64px 6%; }
+    .city-nearby-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .city-nearby h2 { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-right: 10px; }
+    .city-nearby a { background: var(--white); border: 1.5px solid var(--gray-200); color: var(--dark); font-size: .88rem; font-weight: 600; padding: 9px 16px; border-radius: 50px; text-decoration: none; transition: border-color .3s, color .3s; }
+    .city-nearby a:hover { border-color: var(--orange); color: var(--orange-dark); }
+    .city-nearby a.all { border-color: var(--dark); }
+
+    .srv-cta { background: var(--orange); padding: 80px 6%; text-align: center; position: relative; overflow: hidden; }
+    .srv-cta::before { content: ''; position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.1); }
+    .srv-cta-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; margin-bottom: 14px; position: relative; }
+    .srv-cta-sub { color: rgba(255,255,255,.8); font-size: 1.05rem; margin-bottom: 32px; position: relative; }
+    .srv-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+    @media (max-width: 900px) {
+      .city-intro { grid-template-columns: 1fr; gap: 48px; }
+      .city-side { position: static; }
+      .centre { grid-template-columns: 1fr; }
+      .centre-photo { min-height: 200px; }
+    }
+    @media (max-width: 600px) {
+      .city-intro { padding: 56px 5% 16px; }
+      .city-centres, .city-services, .srv-faq { padding: 64px 5%; }
+      .centre-body { padding: 24px 20px; }
+      .side-card { padding: 22px; }
+    }
+{% endblock %}
+
+{% block jsonld %}{{ page.jsonld }}{% endblock %}
+
+{% block content %}
+{%- set city = page.city %}
+{%- set cname = city.nombre if lang == 'es' else city.nombre_en %}
+{%- set n24 = city.centros | selectattr('acceso_24h') | list | length %}
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ urls.home }}">{{ t.breadcrumb_home }}</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="{{ urls.ubicaciones }}">{{ t.ciudad.locations }}</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">{{ cname }}</span>
+    </div>
+    <h1 class="page-hero-title">{{ page.h1 }}</h1>
+    <p class="page-hero-sub">{{ page.subtitle }}</p>
+    <div class="page-hero-meta">
+      <span><b>{{ city.centros | length }}</b> {{ t.ciudad.centre_one if city.centros | length == 1 else t.ciudad.centre_many }}</span>
+{%- if n24 %}
+      <span><b>24 h</b> {{ (t.ciudad.h24_single if city.centros | length == 1 else (t.ciudad.h24_all if n24 == city.centros | length else t.ciudad.h24_some)).replace('{n}', n24 | string).replace('{total}', city.centros | length | string) }}</span>
+{%- endif %}
+{%- for sp in page.servicios_ciudad %}
+      <span>{{ sp.eyebrow }}</span>
+{%- endfor %}
+    </div>
+    <div class="hero-btns">
+      <a href="tel:{{ g.tel_link }}" class="btn-orange">{{ t.srv.call }} · {{ g.telefono }}</a>
+      <a href="#centros" class="btn-ghost">{{ t.ciudad.centres_title.replace('{ciudad}', cname) }} ↓</a>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="city-intro">
+  <article class="srv-article">
+{{ page.body_html }}
+  </article>
+  <aside class="city-side">
+    <div class="side-card">
+      <h3>{{ t.ciudad.centres_title.replace('{ciudad}', cname) }}</h3>
+      <ul>
+{%- for grp in page.grupos %}{% for c in grp.centros %}
+        <li><a href="#{{ c.anchor }}">{{ c.centro }}<small>{{ c.address.streetAddress.split(',')[0] }}</small></a></li>
+{%- endfor %}{% endfor %}
+      </ul>
+    </div>
+    <div class="side-card cta">
+      <h3>{{ t.srv.cta_title }}</h3>
+      <p>{{ t.srv.cta_sub }}</p>
+      <a href="tel:{{ g.tel_link }}" class="a-tel">{{ g.telefono }}</a>
+      <a href="https://wa.me/{{ g.whatsapp_link }}" class="a-wa" target="_blank" rel="noopener">{{ t.srv.whatsapp }} {{ g.whatsapp }}</a>
+      <a href="{{ urls.home }}#contact" class="a-form">{{ t.srv.form }}</a>
+    </div>
+  </aside>
+</div>
+
+<!-- CENTROS -->
+<section class="city-centres" id="centros">
+  <div class="city-centres-inner">
+    <div class="city-centres-hd">
+      <div class="eyebrow">{{ t.ciudad.locations }}</div>
+      <h2 class="stitle">{{ t.ciudad.centres_title.replace('{ciudad}', cname) }}</h2>
+      <p class="ssub">{{ t.ciudad.centres_sub_one if city.centros | length == 1 else t.ciudad.centres_sub_many }}</p>
+    </div>
+{%- for grp in page.grupos %}
+    <div class="zone"{% if grp.anchor %} id="{{ grp.anchor }}"{% endif %}>
+{%- if grp.nombre %}
+      <div class="zone-hd">
+        <h3>{{ grp.nombre }}</h3>
+        <div class="srv-article">{{ grp.texto_html }}</div>
+      </div>
+{%- endif %}
+{%- for c in grp.centros %}
+      <div class="centre{% if not c.foto %} no-photo{% endif %}" id="{{ c.anchor }}">
+{%- if c.foto %}
+        <div class="centre-photo" style="background-image:url('{{ c.foto }}')">
+{%- if c.acceso_24h %}
+          <span class="badge">{{ t.ciudad.access24 }}</span>
+{%- endif %}
+        </div>
+{%- endif %}
+        <div class="centre-body">
+          <h3>{{ c.centro }}</h3>
+          <p class="centre-addr">{{ c.direccion }}</p>
+{%- if c.texto_html %}
+          <div class="centre-text">{{ c.texto_html }}</div>
+{%- endif %}
+          <div class="centre-facts">
+            <div><div class="fact-lbl">{{ t.ciudad.hours }}</div><div class="fact-val">{{ c.horario }}</div></div>
+            <div><div class="fact-lbl">{{ t.ciudad.offices }}</div><div class="fact-val">{{ c.despachos_m2.replace('m2', 'm²') if c.despachos_m2 else t.ciudad.no_data }}</div></div>
+            <div><div class="fact-lbl">{{ t.ciudad.rooms }}</div><div class="fact-val">{{ c.capacidad_salas or t.ciudad.no_data }}</div></div>
+          </div>
+          <div class="centre-tags">
+{%- if c.acceso_24h %}
+            <span class="h24">{{ t.ciudad.access24 }}</span>
+{%- endif %}
+{%- for tag in c.tag_labels %}
+            <span>{{ tag }}</span>
+{%- endfor %}
+          </div>
+        </div>
+      </div>
+{%- endfor %}
+    </div>
+{%- endfor %}
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="city-services">
+  <div class="city-services-inner">
+    <div class="city-services-hd">
+      <div class="eyebrow" style="justify-content:center">{{ t.nav.services }}</div>
+      <h2 class="stitle">{{ t.ciudad.services_title.replace('{ciudad}', cname) }}</h2>
+      <p class="ssub">{{ t.ciudad.services_sub }}</p>
+    </div>
+    <div class="city-services-grid">
+{%- for sp in page.servicios_ciudad %}
+      <a href="{{ urls[sp.id] }}" class="srv-link">
+        <div class="srv-link-name">{{ sp.h1 }}</div>
+        <div class="srv-link-sub">{{ sp.subtitle }}</div>
+      </a>
+{%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+{%- if page.faq %}
+<section class="srv-faq" id="faq">
+  <div class="srv-faq-inner">
+    <div class="srv-faq-hd">
+      <div class="eyebrow" style="justify-content:center">FAQ</div>
+      <h2 class="stitle">{{ t.ciudad.faq_title.replace('{ciudad}', cname) }}</h2>
+    </div>
+    <div class="faq-grid">
+{%- for q in page.faq %}
+      <div class="faq-item">
+        <h3>{{ q.q }}</h3>
+        <p>{{ q.a }}</p>
+      </div>
+{%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<!-- CERCANAS -->
+<section class="city-nearby">
+  <div class="city-nearby-inner">
+    <h2>{{ t.ciudad.nearby }}</h2>
+{%- for c in page.cercanas %}
+    <a href="{{ c.url }}">{{ c.label }}</a>
+{%- endfor %}
+    <a href="{{ urls.ubicaciones }}" class="all">{{ t.ciudad.all_locations }} →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="srv-cta">
+  <h2 class="srv-cta-title">{{ t.srv.cta_title }}</h2>
+  <p class="srv-cta-sub">{{ t.srv.cta_sub }}</p>
+  <div class="srv-cta-btns">
+    <a href="tel:{{ g.tel_link }}" class="btn-white">{{ t.srv.call }} · {{ g.telefono }}</a>
+    <a href="{{ urls.home }}#contact" class="btn-dark-solid">{{ t.srv.form }} →</a>
+  </div>
+</section>
+{% endblock %}

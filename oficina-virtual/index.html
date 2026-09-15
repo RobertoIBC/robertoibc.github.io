@@ -215,23 +215,27 @@
     .breadcrumb-current { color: var(--orange); font-size: .8rem; font-weight: 700; }
     .page-hero-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 900; line-height: .98; color: var(--white); letter-spacing: -1.5px; margin-bottom: 20px; max-width: 900px; }
     .page-hero-sub { color: rgba(255,255,255,.6); font-size: 1.1rem; line-height: 1.7; max-width: 640px; margin-bottom: 36px; }
-    .hero-offers { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
-    .hero-offer { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 16px 22px; min-width: 200px; }
-    .hero-offer-name { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 6px; }
-    .hero-offer-price { font-family: 'Barlow', sans-serif; color: var(--white); line-height: 1; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
-    .hero-offer-price .from { font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.5); font-family: 'Inter', sans-serif; }
-    .hero-offer-price .num { font-size: 2.2rem; font-weight: 900; color: var(--orange); }
-    .hero-offer-price .unit { font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.7); }
-    .hero-offer-price .tax { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35); font-family: 'Inter', sans-serif; }
-    .hero-offer-detail { font-size: .82rem; color: rgba(255,255,255,.5); margin-top: 6px; }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn-orange { background: var(--orange); color: var(--white); padding: 16px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background .3s, transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
     .btn-orange:hover { background: var(--orange-dark); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,146,26,.5); }
     .btn-ghost { background: rgba(255,255,255,.08); color: var(--white); padding: 16px 36px; border-radius: 50px; border: 1.5px solid rgba(255,255,255,.2); font-weight: 600; font-size: 1rem; text-decoration: none; transition: background .3s, border-color .3s; display: inline-flex; align-items: center; gap: 10px; }
     .btn-ghost:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.4); }
 
-    /* ── CUERPO ── */
-    .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; }
+    /* ── FAQ ── */
+    .stitle { font-family: 'Barlow', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--dark); margin: 0 auto 14px; }
+    .ssub { color: var(--gray-600); font-size: 1.05rem; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .faq-item { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 26px 28px; }
+    .faq-item h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin-bottom: 10px; }
+    .faq-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.7; }
+
+    /* ── CTA FINAL ── */
+    .btn-white { background: var(--white); color: var(--orange); padding: 17px 40px; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.2); }
+    .btn-dark-solid { background: var(--dark); color: var(--white); padding: 17px 40px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: transform .3s, background .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-dark-solid:hover { transform: translateY(-3px); background: var(--dark-mid); }
+
+    /* ── TEXTO LARGO (articulo de servicio, texto de ciudad) ── */
     .srv-article { min-width: 0; }
     .srv-article h2 { font-family: 'Barlow', sans-serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 800; line-height: 1.1; letter-spacing: -.5px; color: var(--dark); margin: 52px 0 18px; scroll-margin-top: 100px; }
     .srv-article h2:first-child { margin-top: 0; }
@@ -248,8 +252,25 @@
     .srv-article table { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: .95rem; }
     .srv-article th, .srv-article td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
     .srv-article th { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); }
-    .srv-table-wrap { overflow-x: auto; }
 
+    @media (max-width: 900px) {
+      .faq-grid, .srv-others-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .page-hero { padding: 120px 5% 56px; }
+    }
+
+    .hero-offers { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+    .hero-offer { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 16px 22px; min-width: 200px; }
+    .hero-offer-name { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 6px; }
+    .hero-offer-price { font-family: 'Barlow', sans-serif; color: var(--white); line-height: 1; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+    .hero-offer-price .from { font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.5); font-family: 'Inter', sans-serif; }
+    .hero-offer-price .num { font-size: 2.2rem; font-weight: 900; color: var(--orange); }
+    .hero-offer-price .unit { font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.7); }
+    .hero-offer-price .tax { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35); font-family: 'Inter', sans-serif; }
+    .hero-offer-detail { font-size: .82rem; color: rgba(255,255,255,.5); margin-top: 6px; }
+    .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; }
+    .srv-table-wrap { overflow-x: auto; }
     /* ── LATERAL ── */
     .srv-aside { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
     .srv-card { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 28px; }
@@ -275,18 +296,9 @@
     .srv-card.cta .a-wa:hover { transform: translateY(-2px); }
     .srv-card.cta .a-form { background: rgba(255,255,255,.08); color: var(--white); border: 1.5px solid rgba(255,255,255,.15); }
     .srv-card.cta .a-form:hover { background: rgba(255,255,255,.14); }
-
-    /* ── FAQ ── */
     .srv-faq { background: var(--gray-50); padding: 88px 6%; }
     .srv-faq-inner { max-width: 1200px; margin: 0 auto; }
     .srv-faq-hd { text-align: center; margin-bottom: 48px; }
-    .stitle { font-family: 'Barlow', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--dark); margin: 0 auto 14px; }
-    .ssub { color: var(--gray-600); font-size: 1.05rem; }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .faq-item { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 26px 28px; }
-    .faq-item h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin-bottom: 10px; }
-    .faq-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.7; }
-
     /* ── OTROS SERVICIOS ── */
     .srv-others { padding: 72px 6%; }
     .srv-others-inner { max-width: 1200px; margin: 0 auto; }
@@ -296,25 +308,16 @@
     .srv-other:hover { border-color: var(--orange); transform: translateY(-3px); }
     .srv-other-name { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
     .srv-other-sub { font-size: .9rem; color: var(--gray-600); line-height: 1.5; }
-
-    /* ── CTA FINAL ── */
     .srv-cta { background: var(--orange); padding: 80px 6%; text-align: center; position: relative; overflow: hidden; }
     .srv-cta::before { content: ''; position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.1); }
     .srv-cta-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; margin-bottom: 14px; position: relative; }
     .srv-cta-sub { color: rgba(255,255,255,.8); font-size: 1.05rem; margin-bottom: 32px; position: relative; }
     .srv-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
-    .btn-white { background: var(--white); color: var(--orange); padding: 17px 40px; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
-    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.2); }
-    .btn-dark-solid { background: var(--dark); color: var(--white); padding: 17px 40px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: transform .3s, background .3s; display: inline-flex; align-items: center; gap: 10px; }
-    .btn-dark-solid:hover { transform: translateY(-3px); background: var(--dark-mid); }
-
     @media (max-width: 900px) {
       .srv-layout { grid-template-columns: 1fr; gap: 48px; }
       .srv-aside { position: static; }
-      .faq-grid, .srv-others-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      .page-hero { padding: 120px 5% 56px; }
       .srv-layout { padding: 56px 5% 24px; }
       .srv-faq, .srv-others { padding: 64px 5%; }
       .hero-offer { min-width: 0; flex: 1 1 100%; }
@@ -635,23 +638,23 @@
       <h3>Dónde</h3>
       <p class="srv-card-cities-sub">Disponible en 17 ciudades</p>
       <div class="srv-card-cities">
-        <a href="/ubicaciones/#madrid">Madrid</a>
-        <a href="/ubicaciones/#card-barcelona">Barcelona</a>
-        <a href="/ubicaciones/#card-murcia">Murcia</a>
-        <a href="/ubicaciones/#card-sevilla">Sevilla</a>
-        <a href="/ubicaciones/#card-tenerife">Tenerife</a>
-        <a href="/ubicaciones/#card-coruna">A Coruña</a>
-        <a href="/ubicaciones/#card-bilbao">Bilbao</a>
-        <a href="/ubicaciones/#card-segovia">Segovia</a>
-        <a href="/ubicaciones/#card-albacete">Albacete</a>
-        <a href="/ubicaciones/#card-alicante">Alicante</a>
-        <a href="/ubicaciones/#card-castellon">Castellón</a>
-        <a href="/ubicaciones/#card-malaga">Málaga</a>
-        <a href="/ubicaciones/#card-merida">Mérida</a>
-        <a href="/ubicaciones/#card-salamanca">Salamanca</a>
-        <a href="/ubicaciones/#card-valencia">Valencia</a>
-        <a href="/ubicaciones/#card-vigo">Vigo</a>
-        <a href="/ubicaciones/#card-zaragoza">Zaragoza</a>
+        <a href="/oficinas-en-madrid/">Madrid</a>
+        <a href="/oficinas-en-barcelona/">Barcelona</a>
+        <a href="/oficinas-en-murcia/">Murcia</a>
+        <a href="/oficinas-en-sevilla/">Sevilla</a>
+        <a href="/oficinas-en-tenerife/">Tenerife</a>
+        <a href="/oficinas-en-a-coruna/">A Coruña</a>
+        <a href="/oficinas-en-bilbao/">Bilbao</a>
+        <a href="/oficinas-en-segovia/">Segovia</a>
+        <a href="/oficinas-en-albacete/">Albacete</a>
+        <a href="/oficinas-en-alicante/">Alicante</a>
+        <a href="/oficinas-en-castellon/">Castellón</a>
+        <a href="/oficinas-en-malaga/">Málaga</a>
+        <a href="/oficinas-en-merida/">Mérida</a>
+        <a href="/oficinas-en-salamanca/">Salamanca</a>
+        <a href="/oficinas-en-valencia/">Valencia</a>
+        <a href="/oficinas-en-vigo/">Vigo</a>
+        <a href="/oficinas-en-zaragoza/">Zaragoza</a>
       </div>
     </div>
     <div class="srv-card cta">

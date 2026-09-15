@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== PROTOTIPO: NO INDEXAR =====
+       Este prototipo vive en un dominio publico e indexable. El noindex evita que
+       compita con www.oficinasya.es y que se filtren precios sin aprobar.
+       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
+       Google no podria leer este noindex.
+       TODO migracion: poner site.noindex a false en _data/global.yml y regenerar. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <!-- TODO migracion: cambiar site.url en _data/global.yml -->
+  <link rel="canonical" href="https://robertoibc.github.io/oficinas-en-vigo/" />
+  <link rel="alternate" hreflang="es" href="https://robertoibc.github.io/oficinas-en-vigo/" />
+  <link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/offices-in-vigo/" />
+  <link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/oficinas-en-vigo/" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
+  <title>Alquiler de oficinas y despachos en Vigo | OficinasYA!</title>
+  <meta name="description" content="Centro de negocios en la plaza de Compostela 23 de Vigo, en el centro, junto al puerto deportivo: despachos de 9 a 24 m², sala de 17 y oficina virtual." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OficinasYA!" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:title" content="Alquiler de oficinas y despachos en Vigo | OficinasYA!" />
+  <meta property="og:description" content="Centro de negocios en la plaza de Compostela 23 de Vigo, en el centro, junto al puerto deportivo: despachos de 9 a 24 m², sala de 17 y oficina virtual." />
+  <!-- TODO migracion: cambiar site.url en _data/global.yml -->
+  <meta property="og:url" content="https://robertoibc.github.io/oficinas-en-vigo/" />
+  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Sala de reuniones del centro de OficinasYA! en Zaragoza" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alquiler de oficinas y despachos en Vigo | OficinasYA!" />
+  <meta name="twitter:description" content="Centro de negocios en la plaza de Compostela 23 de Vigo, en el centro, junto al puerto deportivo: despachos de 9 a 24 m², sala de 17 y oficina virtual." />
+  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.oficinasya.es" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange:      #F5921A;
+      --orange-dark: #E07810;
+      --orange-pale: #FFF3E0;
+      --dark:        #1C1C1C;
+      --dark-mid:    #2D2D2D;
+      --gray-50:     #FAFAFA;
+      --gray-100:    #F5F5F5;
+      --gray-200:    #E8E8E8;
+      --gray-400:    #A3A3A3;
+      --gray-600:    #525252;
+      --white:       #FFFFFF;
+      --radius:      20px;
+      --ease:        cubic-bezier(.16,1,.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; max-width: 100%; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all .4s var(--ease);
+    }
+    nav.scrolled {
+      background: var(--white);
+      box-shadow: 0 2px 24px rgba(0,0,0,.09);
+      padding: 14px 6%;
+    }
+    /* Variantes de cabecera. Sin clase: transparente sobre el hero (home).
+       nav-dark: fondo oscuro fijo (ubicaciones, comunidad, blog).
+       nav-light: fondo blanco desde el principio (paginas legales). */
+    nav.nav-dark { background: var(--dark); }
+    nav.nav-light { background: var(--white); box-shadow: 0 2px 24px rgba(0,0,0,.09); }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+    .logo-wordmark { display: flex; align-items: baseline; gap: 0; }
+    .logo-word {
+      font-family: 'Barlow', sans-serif; font-weight: 900;
+      font-size: 1.75rem; letter-spacing: -1px;
+      color: var(--white); transition: color .4s;
+    }
+    nav.scrolled .logo-word, nav.nav-light .logo-word { color: var(--dark); }
+    .logo-ya {
+      font-family: 'Barlow', sans-serif; font-weight: 900;
+      font-size: 1.75rem; letter-spacing: -1px;
+      color: var(--orange); 
+    }
+    .logo-sub {
+      font-size: .62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.55); transition: color .4s;
+      padding-left: 1px;
+    }
+    nav.scrolled .logo-sub, nav.nav-light .logo-sub { color: var(--gray-400); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; }
+    nav.scrolled .nav-links a, nav.nav-light .nav-links a { color: var(--dark-mid); }
+    .menu-toggle {
+      display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 44px; height: 44px; margin-left: 10px;
+      background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.2); border-radius: 12px;
+      cursor: pointer; padding: 0; z-index: 201; flex-shrink: 0;
+      transition: background .3s, border-color .3s, transform .15s;
+    }
+    .menu-toggle span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s, background .3s; }
+    .menu-toggle:active { transform: scale(.94); }
+    nav.scrolled .menu-toggle, nav.nav-light .menu-toggle { background: var(--gray-100); border-color: var(--gray-200); }
+    nav.scrolled .menu-toggle span, nav.nav-light .menu-toggle span { background: var(--dark); }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .menu-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 199; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .menu-backdrop.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(300px, 80vw); z-index: 200;
+      background: var(--dark); padding: 110px 32px 40px; overflow-y: auto;
+      display: flex; flex-direction: column;
+      transform: translateX(100%); transition: transform .35s var(--ease);
+      box-shadow: -24px 0 60px rgba(0,0,0,.35);
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu a { color: rgba(255,255,255,.85); text-decoration: none; font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 700; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .mobile-menu a.active, .mobile-menu a:hover { color: var(--orange); }
+    .mobile-menu-cta { margin-top: 24px; background: var(--orange); color: var(--white) !important; text-align: center; border-radius: 50px; border-bottom: none !important; padding: 15px !important; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange) !important; }
+    .nav-cta {
+      background: var(--orange); color: var(--white);
+      padding: 11px 26px; border-radius: 50px;
+      font-weight: 700; font-size: .9rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .3s, transform .3s, box-shadow .3s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,146,26,.45); }
+    .rv  { opacity: 0; transform: translateY(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rvl { opacity: 0; transform: translateX(-48px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rvr { opacity: 0; transform: translateX(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rv.on, .rvl.on, .rvr.on { opacity: 1; transform: none; }
+    footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 72px 6% 40px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .footer-logo { margin-bottom: 20px; }
+    .footer-logo .logo-word { color: rgba(255,255,255,.85); font-size: 1.6rem; }
+    .footer-logo .logo-ya { font-size: 1.6rem; }
+    .footer-logo .logo-sub { color: rgba(255,255,255,.35); }
+    .footer-brand p { font-size: .9rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h5 { color: var(--white); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; }
+    .footer-col ul a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
+    .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
+    .socials { display: flex; gap: 10px; }
+    .soc { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .soc svg { width: 16px; height: 16px; }
+    .wa {
+      position: fixed; bottom: 32px; right: 32px; z-index: 99;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; color: white;
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+      text-decoration: none; box-shadow: 0 8px 28px rgba(37,211,102,.4);
+      transition: transform .3s;
+      opacity: 0; animation: up .7s 1.6s var(--ease) forwards;
+    }
+    .wa:hover { transform: scale(1.1); }
+    .nav-actions { display: flex; align-items: center; gap: 20px; }
+    .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
+    .lang-switch a {
+      font-size: .78rem; font-weight: 700; letter-spacing: .8px;
+      color: rgba(255,255,255,.45); text-decoration: none;
+      transition: color .3s var(--ease);
+    }
+    .lang-switch a[aria-current] { color: var(--white); }
+    .lang-switch a:hover { color: var(--orange); }
+    .lang-sep { width: 1px; height: 10px; background: rgba(255,255,255,.25); transition: background .4s var(--ease); }
+    nav.scrolled .lang-switch a, nav.nav-light .lang-switch a { color: var(--gray-400); }
+    nav.scrolled .lang-switch a[aria-current], nav.nav-light .lang-switch a[aria-current] { color: var(--dark); }
+    nav.scrolled .lang-sep, nav.nav-light .lang-sep { background: var(--gray-200); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-actions { gap: 14px; }
+      .lang-switch { gap: 7px; }
+      .logo-sub { letter-spacing: .5px; }
+      .lang-switch a { font-size: .72rem; letter-spacing: .4px; }
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .nav-cta { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; gap: 0; }
+      .nav-cta-text { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+    .eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--orange); }
+
+    /* ── HERO ── */
+    .page-hero { background: var(--dark); padding: 160px 6% 72px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -220px; right: -160px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.14) 0%, transparent 65%); }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+    .breadcrumb a { color: rgba(255,255,255,.4); font-size: .8rem; font-weight: 600; text-decoration: none; transition: color .3s; }
+    .breadcrumb a:hover { color: var(--orange); }
+    .breadcrumb-sep { color: rgba(255,255,255,.2); font-size: .8rem; }
+    .breadcrumb-current { color: var(--orange); font-size: .8rem; font-weight: 700; }
+    .page-hero-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 900; line-height: .98; color: var(--white); letter-spacing: -1.5px; margin-bottom: 20px; max-width: 900px; }
+    .page-hero-sub { color: rgba(255,255,255,.6); font-size: 1.1rem; line-height: 1.7; max-width: 640px; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-orange { background: var(--orange); color: var(--white); padding: 16px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background .3s, transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-orange:hover { background: var(--orange-dark); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,146,26,.5); }
+    .btn-ghost { background: rgba(255,255,255,.08); color: var(--white); padding: 16px 36px; border-radius: 50px; border: 1.5px solid rgba(255,255,255,.2); font-weight: 600; font-size: 1rem; text-decoration: none; transition: background .3s, border-color .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-ghost:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.4); }
+
+    /* ── FAQ ── */
+    .stitle { font-family: 'Barlow', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--dark); margin: 0 auto 14px; }
+    .ssub { color: var(--gray-600); font-size: 1.05rem; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .faq-item { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 26px 28px; }
+    .faq-item h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin-bottom: 10px; }
+    .faq-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.7; }
+
+    /* ── CTA FINAL ── */
+    .btn-white { background: var(--white); color: var(--orange); padding: 17px 40px; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.2); }
+    .btn-dark-solid { background: var(--dark); color: var(--white); padding: 17px 40px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: transform .3s, background .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-dark-solid:hover { transform: translateY(-3px); background: var(--dark-mid); }
+
+    /* ── TEXTO LARGO (articulo de servicio, texto de ciudad) ── */
+    .srv-article { min-width: 0; }
+    .srv-article h2 { font-family: 'Barlow', sans-serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 800; line-height: 1.1; letter-spacing: -.5px; color: var(--dark); margin: 52px 0 18px; scroll-margin-top: 100px; }
+    .srv-article h2:first-child { margin-top: 0; }
+    .srv-article h3 { font-family: 'Barlow', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--dark); margin: 32px 0 12px; }
+    .srv-article p { color: var(--gray-600); font-size: 1.02rem; line-height: 1.8; margin-bottom: 18px; }
+    .srv-article strong { color: var(--dark); font-weight: 700; }
+    .srv-article a { color: var(--orange-dark); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(245,146,26,.35); transition: border-color .3s; }
+    .srv-article a:hover { border-color: var(--orange); }
+    .srv-article ul, .srv-article ol { color: var(--gray-600); font-size: 1.02rem; line-height: 1.75; margin: 0 0 20px 22px; }
+    .srv-article li { margin-bottom: 10px; }
+    .srv-article ol { counter-reset: paso; list-style: none; margin-left: 0; }
+    .srv-article ol li { counter-increment: paso; position: relative; padding-left: 52px; margin-bottom: 16px; }
+    .srv-article ol li::before { content: counter(paso); position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--orange-pale); color: var(--orange-dark); font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; }
+    .srv-article table { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: .95rem; }
+    .srv-article th, .srv-article td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
+    .srv-article th { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); }
+
+    @media (max-width: 900px) {
+      .faq-grid, .srv-others-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .page-hero { padding: 120px 5% 56px; }
+    }
+
+    .page-hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+    .page-hero-meta span { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.8); font-size: .82rem; font-weight: 600; padding: 8px 14px; border-radius: 50px; }
+    .page-hero-meta span b { color: var(--orange); font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 900; margin-right: 4px; }
+
+    /* ── INTRO ── */
+    .city-intro { max-width: 1200px; margin: 0 auto; padding: 80px 6% 24px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; }
+    .city-side { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
+    .side-card { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 28px; }
+    .side-card h3 { font-family: 'Barlow', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
+    .side-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .side-card li a { color: var(--dark); text-decoration: none; font-size: .92rem; font-weight: 600; display: flex; justify-content: space-between; gap: 10px; padding: 9px 12px; border-radius: 10px; background: var(--white); border: 1.5px solid var(--gray-200); transition: border-color .3s; }
+    .side-card li a:hover { border-color: var(--orange); }
+    .side-card li a small { color: var(--gray-400); font-weight: 500; }
+    .side-card.cta { background: var(--dark); border-color: var(--dark); }
+    .side-card.cta h3 { color: var(--white); }
+    .side-card.cta p { color: rgba(255,255,255,.55); font-size: .9rem; line-height: 1.6; margin-bottom: 18px; }
+    .side-card.cta a { display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: .95rem; border-radius: 50px; padding: 13px 20px; margin-bottom: 10px; transition: transform .3s, background .3s; }
+    .side-card.cta a:last-child { margin-bottom: 0; }
+    .side-card.cta .a-tel { background: var(--orange); color: var(--white); }
+    .side-card.cta .a-tel:hover { background: var(--orange-dark); transform: translateY(-2px); }
+    .side-card.cta .a-wa { background: #25D366; color: var(--white); }
+    .side-card.cta .a-form { background: rgba(255,255,255,.08); color: var(--white); border: 1.5px solid rgba(255,255,255,.15); }
+
+    /* ── CENTROS ── */
+    .city-centres { background: var(--gray-50); padding: 80px 6%; }
+    .city-centres-inner { max-width: 1200px; margin: 0 auto; }
+    .city-centres-hd { margin-bottom: 40px; }
+    .zone { margin-bottom: 56px; }
+    .zone:last-child { margin-bottom: 0; }
+    .zone-hd { margin-bottom: 24px; }
+    .zone-hd h3 { font-family: 'Barlow', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -.3px; margin-bottom: 10px; scroll-margin-top: 100px; }
+    .zone-hd .srv-article p { margin-bottom: 8px; }
+    .centre { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: 340px minmax(0, 1fr); margin-bottom: 24px; scroll-margin-top: 100px; }
+    .centre:last-child { margin-bottom: 0; }
+    .centre.no-photo { grid-template-columns: 1fr; }
+    .centre-photo { background: var(--gray-200) center/cover no-repeat; min-height: 260px; position: relative; }
+    .centre-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .centre-photo .badge { position: absolute; left: 16px; bottom: 16px; background: var(--dark); color: var(--white); font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 12px; border-radius: 50px; }
+    .centre-body { padding: 30px 32px; }
+    .centre-body h3 { font-family: 'Barlow', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -.3px; margin-bottom: 6px; }
+    .centre-addr { color: var(--gray-600); font-size: .95rem; margin-bottom: 18px; }
+    .centre-text p { color: var(--gray-600); font-size: .98rem; line-height: 1.75; margin-bottom: 12px; }
+    .centre-text a { color: var(--orange-dark); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(245,146,26,.35); }
+    .centre-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 20px; margin: 18px 0; padding: 18px 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); }
+    .fact-lbl { font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; }
+    .fact-val { font-size: .92rem; color: var(--dark); font-weight: 600; line-height: 1.4; }
+    .centre-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .centre-tags span { background: var(--orange-pale); color: var(--orange-dark); font-size: .78rem; font-weight: 700; padding: 6px 12px; border-radius: 50px; }
+    .centre-tags span.h24 { background: var(--dark); color: var(--white); }
+
+    /* ── SERVICIOS ── */
+    .city-services { padding: 80px 6%; }
+    .city-services-inner { max-width: 1200px; margin: 0 auto; }
+    .city-services-hd { text-align: center; margin-bottom: 40px; }
+    .city-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .srv-link { display: block; border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 24px; text-decoration: none; transition: border-color .3s, transform .3s; }
+    .srv-link:hover { border-color: var(--orange); transform: translateY(-3px); }
+    .srv-link-name { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .srv-link-sub { font-size: .9rem; color: var(--gray-600); line-height: 1.5; }
+
+    /* ── FAQ y cercanas ── */
+    .srv-faq { background: var(--gray-50); padding: 88px 6%; }
+    .srv-faq-inner { max-width: 1200px; margin: 0 auto; }
+    .srv-faq-hd { text-align: center; margin-bottom: 48px; }
+    .city-nearby { padding: 64px 6%; }
+    .city-nearby-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .city-nearby h2 { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-right: 10px; }
+    .city-nearby a { background: var(--white); border: 1.5px solid var(--gray-200); color: var(--dark); font-size: .88rem; font-weight: 600; padding: 9px 16px; border-radius: 50px; text-decoration: none; transition: border-color .3s, color .3s; }
+    .city-nearby a:hover { border-color: var(--orange); color: var(--orange-dark); }
+    .city-nearby a.all { border-color: var(--dark); }
+
+    .srv-cta { background: var(--orange); padding: 80px 6%; text-align: center; position: relative; overflow: hidden; }
+    .srv-cta::before { content: ''; position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.1); }
+    .srv-cta-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; margin-bottom: 14px; position: relative; }
+    .srv-cta-sub { color: rgba(255,255,255,.8); font-size: 1.05rem; margin-bottom: 32px; position: relative; }
+    .srv-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+    @media (max-width: 900px) {
+      .city-intro { grid-template-columns: 1fr; gap: 48px; }
+      .city-side { position: static; }
+      .centre { grid-template-columns: 1fr; }
+      .centre-photo { min-height: 200px; }
+    }
+    @media (max-width: 600px) {
+      .city-intro { padding: 56px 5% 16px; }
+      .city-centres, .city-services, .srv-faq { padding: 64px 5%; }
+      .centre-body { padding: 24px 20px; }
+      .side-card { padding: 22px; }
+    }
+
+</style>
+  <!-- TODO migracion: las URLs de este JSON-LD salen de site.url -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://robertoibc.github.io/oficinas-en-vigo/",
+      "url": "https://robertoibc.github.io/oficinas-en-vigo/",
+      "name": "Alquiler de oficinas y despachos en Vigo | OficinasYA!",
+      "description": "Centro de negocios en la plaza de Compostela 23 de Vigo, en el centro, junto al puerto deportivo: despachos de 9 a 24 m², sala de 17 y oficina virtual.",
+      "inLanguage": "es-ES",
+      "isPartOf": {
+        "@id": "https://robertoibc.github.io/#website"
+      },
+      "about": {
+        "@id": "https://robertoibc.github.io/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://robertoibc.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ubicaciones",
+          "item": "https://robertoibc.github.io/ubicaciones/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Vigo",
+          "item": "https://robertoibc.github.io/oficinas-en-vigo/"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Los centros de Vigo",
+      "numberOfItems": 1,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LocalBusiness",
+            "@id": "https://robertoibc.github.io/oficinas-en-vigo/#plaza-compostela",
+            "name": "OficinasYA! Vigo — Plaza Compostela",
+            "description": "Centro de negocios en la plaza de Compostela 23 de Vigo, en pleno centro y junto al puerto deportivo, con despachos equipados de 9 a 24 m², sala de reuniones de 17 personas y oficina virtual.",
+            "url": "https://robertoibc.github.io/oficinas-en-vigo/#plaza-compostela",
+            "telephone": "+34918298500",
+            "parentOrganization": {
+              "@id": "https://robertoibc.github.io/#organization"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Plaza de Compostela 23, 2º D",
+              "postalCode": "36201",
+              "addressLocality": "Vigo",
+              "addressCountry": "ES"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "opens": "09:00",
+                "closes": "20:00"
+              }
+            ],
+            "sameAs": "https://www.oficinasya.es/vigo-alquiler-de-oficinas-y-despachos-en-galicia/",
+            "image": "https://images.unsplash.com/photo-1615922732011-9273b83897f0?auto=format&fit=crop&w=800&q=85"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://robertoibc.github.io/oficinas-en-vigo/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Dónde está el centro de Vigo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En la plaza de Compostela 23, segundo D, en pleno centro de Vigo y junto al puerto deportivo. Es la dirección que el propio centro describe como la mejor zona de la ciudad, y la que da como domicilio a las empresas que contratan la oficina virtual."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué horario tiene el centro de Vigo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La recepción atiende de lunes a viernes de 9:00 a 20:00, uno de los horarios más amplios de la red. Es el horario en el que se reciben visitas y correo y en el que se puede usar la sala de reuniones. Para necesidades fuera de ese horario, consúltalo al contratar en el 918 298 500."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El centro de Vigo organiza eventos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Además de la sala de reuniones de 17 personas para reuniones de trabajo, el centro está especializado en organizar eventos para cualquier tipo de actividad, y no solo en Vigo: en cualquier zona de Galicia. Si tienes un evento en mente, llama al 918 298 500 y cuéntanoslo."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="nav-dark">
+  <a href="/" class="nav-logo">
+    <div class="logo-wordmark">
+      <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
+    </div>
+    <span class="logo-sub">Coworking &amp; Workplaces</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#services">Servicios</a></li>
+    <li><a href="/ubicaciones/">Ubicaciones</a></li>
+    <li><a href="/#pricing">Precios</a></li>
+    <li><a href="/comunidad/">Comunidad</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#contact">Contacto</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="lang-switch" role="group" aria-label="Idioma">
+      <a href="/oficinas-en-vigo/" hreflang="es" lang="es" aria-current="true">ES</a>
+      <span class="lang-sep" aria-hidden="true"></span>
+      <a href="/en/offices-in-vigo/" hreflang="en" lang="en" title="Read this page in English">EN</a>
+    </div>
+    <a href="tel:918298500" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nav-cta-text">918 298 500</span></a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/#services">Servicios</a>
+  <a href="/ubicaciones/">Ubicaciones</a>
+  <a href="/#pricing">Precios</a>
+  <a href="/comunidad/">Comunidad</a>
+  <a href="/blog/">Blog</a>
+  <a href="/#contact">Contacto</a>
+  <a href="tel:918298500" class="mobile-menu-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
+</div>
+
+
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="/ubicaciones/">Ubicaciones</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Vigo</span>
+    </div>
+    <h1 class="page-hero-title">Alquiler de oficinas y despachos en Vigo</h1>
+    <p class="page-hero-sub">Un centro en la plaza de Compostela, en pleno centro de Vigo y junto al puerto deportivo, con despachos equipados, sala de reuniones y oficina virtual.</p>
+    <div class="page-hero-meta">
+      <span><b>1</b> centro</span>
+      <span>Despachos privados</span>
+      <span>Salas de reuniones</span>
+      <span>Oficina virtual</span>
+    </div>
+    <div class="hero-btns">
+      <a href="tel:918298500" class="btn-orange">Llamar · 918 298 500</a>
+      <a href="#centros" class="btn-ghost">Los centros de Vigo ↓</a>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="city-intro">
+  <article class="srv-article">
+<h2>Un centro en la plaza de Compostela, junto al puerto deportivo</h2>
+<p>El centro de OficinasYA! en Vigo está en la plaza de Compostela 23, segundo D, en pleno centro de la ciudad y junto al puerto deportivo, en la que el propio centro describe como la mejor zona de Vigo. Tiene despachos completamente equipados para el día a día de una empresa y una sala para reuniones de trabajo, y es, con los dos de A Coruña, uno de los tres centros de la red en Galicia.</p>
+<p>Dos cosas lo distinguen. La primera, que está especializado en organizar eventos para cualquier tipo de actividad y en cualquier zona de Galicia, no solo en el centro. La segunda, su proximidad con Portugal, que el centro señala como un punto estratégico de negocio para quien trabaja a los dos lados de la frontera.</p>
+<h2>Qué hay en el centro</h2>
+<p>Despachos equipados de 9 a 24 m², por horas o por meses. Una sala de reuniones de 17 personas, por horas. Y oficina virtual y Smart Office: la dirección de la plaza de Compostela 23 como domicilio de tu empresa, correo y visitas atendidos en horario de recepción —de lunes a viernes de 9:00 a 20:00— y horas de despacho y sala cuando las necesites.</p>
+  </article>
+  <aside class="city-side">
+    <div class="side-card">
+      <h3>Los centros de Vigo</h3>
+      <ul>
+        <li><a href="#plaza-compostela">Plaza Compostela<small>Plaza de Compostela 23</small></a></li>
+      </ul>
+    </div>
+    <div class="side-card cta">
+      <h3>¿Hablamos?</h3>
+      <p>Te confirmamos disponibilidad y precio en el momento.</p>
+      <a href="tel:918298500" class="a-tel">918 298 500</a>
+      <a href="https://wa.me/34624119705" class="a-wa" target="_blank" rel="noopener">WhatsApp 624 119 705</a>
+      <a href="/#contact" class="a-form">Formulario de contacto</a>
+    </div>
+  </aside>
+</div>
+
+<!-- CENTROS -->
+<section class="city-centres" id="centros">
+  <div class="city-centres-inner">
+    <div class="city-centres-hd">
+      <div class="eyebrow">Ubicaciones</div>
+      <h2 class="stitle">Los centros de Vigo</h2>
+      <p class="ssub">Ficha del centro, con los datos de la hoja de la red.</p>
+    </div>
+    <div class="zone">
+      <div class="centre" id="plaza-compostela">
+        <div class="centre-photo" style="background-image:url('https://images.unsplash.com/photo-1615922732011-9273b83897f0?auto=format&fit=crop&w=800&q=85')">
+        </div>
+        <div class="centre-body">
+          <h3>Plaza Compostela</h3>
+          <p class="centre-addr">Plaza de Compostela 23, 2º D, 36201 Vigo</p>
+          <div class="centre-text"><p>Está en el segundo D del número 23 de la plaza de Compostela, en pleno centro de Vigo y junto al puerto deportivo. Tiene despachos completamente equipados, de 9 a 24 m², y una sala de reuniones de 17 personas. El centro organiza además eventos para cualquier tipo de actividad en cualquier zona de Galicia, y señala su proximidad con Portugal como un punto estratégico de negocio añadido. La recepción atiende de lunes a viernes de 9:00 a 20:00.</p></div>
+          <div class="centre-facts">
+            <div><div class="fact-lbl">Horario</div><div class="fact-val">Recepcion L-V 9:00-20:00</div></div>
+            <div><div class="fact-lbl">Despachos</div><div class="fact-val">9 a 24 m²</div></div>
+            <div><div class="fact-lbl">Salas</div><div class="fact-val">17 pax</div></div>
+          </div>
+          <div class="centre-tags">
+            <span>Despachos privados</span>
+            <span>Salas de reuniones</span>
+            <span>Oficina virtual y Smart Office</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="city-services">
+  <div class="city-services-inner">
+    <div class="city-services-hd">
+      <div class="eyebrow" style="justify-content:center">Servicios</div>
+      <h2 class="stitle">Servicios en Vigo</h2>
+      <p class="ssub">Lo que se puede contratar en los centros de esta ciudad.</p>
+    </div>
+    <div class="city-services-grid">
+      <a href="/alquiler-de-despachos/" class="srv-link">
+        <div class="srv-link-name">Alquiler de despachos privados</div>
+        <div class="srv-link-sub">Un espacio cerrado, equipado y de uso exclusivo. Por horas o por meses, en 35 espacios de 17 ciudades.</div>
+      </a>
+      <a href="/salas-de-reuniones/" class="srv-link">
+        <div class="srv-link-name">Alquiler de salas de reuniones</div>
+        <div class="srv-link-sub">Salas de 2 a 275 personas, desde una hora y cualquier día del año. Equipadas, con recepción de visitas y, si hace falta, catering. En 17 ciudades.</div>
+      </a>
+      <a href="/oficina-virtual/" class="srv-link">
+        <div class="srv-link-name">Oficina virtual y domiciliación de empresas</div>
+        <div class="srv-link-sub">Una dirección profesional para tu empresa, con recepción, correo y teléfono atendidos, sin ocupar un despacho. Desde 20 € al mes + IVA.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="srv-faq" id="faq">
+  <div class="srv-faq-inner">
+    <div class="srv-faq-hd">
+      <div class="eyebrow" style="justify-content:center">FAQ</div>
+      <h2 class="stitle">Preguntas frecuentes sobre Vigo</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>¿Dónde está el centro de Vigo?</h3>
+        <p>En la plaza de Compostela 23, segundo D, en pleno centro de Vigo y junto al puerto deportivo. Es la dirección que el propio centro describe como la mejor zona de la ciudad, y la que da como domicilio a las empresas que contratan la oficina virtual.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Qué horario tiene el centro de Vigo?</h3>
+        <p>La recepción atiende de lunes a viernes de 9:00 a 20:00, uno de los horarios más amplios de la red. Es el horario en el que se reciben visitas y correo y en el que se puede usar la sala de reuniones. Para necesidades fuera de ese horario, consúltalo al contratar en el 918 298 500.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿El centro de Vigo organiza eventos?</h3>
+        <p>Sí. Además de la sala de reuniones de 17 personas para reuniones de trabajo, el centro está especializado en organizar eventos para cualquier tipo de actividad, y no solo en Vigo: en cualquier zona de Galicia. Si tienes un evento en mente, llama al 918 298 500 y cuéntanoslo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERCANAS -->
+<section class="city-nearby">
+  <div class="city-nearby-inner">
+    <h2>Ciudades cercanas de la red</h2>
+    <a href="/oficinas-en-a-coruna/">A Coruña</a>
+    <a href="/oficinas-en-salamanca/">Salamanca</a>
+    <a href="/ubicaciones/" class="all">Todas las ubicaciones →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="srv-cta">
+  <h2 class="srv-cta-title">¿Hablamos?</h2>
+  <p class="srv-cta-sub">Te confirmamos disponibilidad y precio en el momento.</p>
+  <div class="srv-cta-btns">
+    <a href="tel:918298500" class="btn-white">Llamar · 918 298 500</a>
+    <a href="/#contact" class="btn-dark-solid">Formulario de contacto →</a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo nav-logo">
+        <div class="logo-wordmark">
+          <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
+        </div>
+        <span class="logo-sub">Coworking &amp; Workplaces</span>
+      </div>
+      <p>Despachos privados, coworking y centros de negocios en Madrid y toda España. Happy Workplaces desde el siglo XX.</p>
+      <div class="socials" style="margin-top:24px">
+        <a href="https://www.facebook.com/oficinasya" class="soc" aria-label="Facebook"><svg viewBox="0 0 320 512" fill="currentColor"><path d="M279.1 288l14.2-92.7h-88.9v-60.1c0-25.4 12.4-50.1 52.2-50.1h40.4V6.3S260.4 0 225.4 0c-73.2 0-121.1 44.4-121.1 124.7v70.6H22.9V288h81.4v224h100.2V288z"/></svg></a>
+        <a href="https://www.linkedin.com/company/oficinasya" class="soc" aria-label="LinkedIn"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg></a>
+        <a href="https://twitter.com/oficinasya" class="soc" aria-label="X (Twitter)"><svg viewBox="0 0 512 512" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88H109.9L364.4 421.8z"/></svg></a>
+        <a href="https://www.instagram.com/oficinasya" class="soc" aria-label="Instagram"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.5 122.5 1.8 158.3c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Servicios</h5>
+      <ul>
+        <li><a href="/#services">Despachos privados</a></li>
+        <li><a href="/#services">Salas de reuniones</a></li>
+        <li><a href="/#services">Oficina virtual</a></li>
+        <li><a href="/#services">Coworking</a></li>
+        <li><a href="/#services">Eventos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Empresa</h5>
+      <ul>
+        <li><a href="/#why">Por qué nosotros</a></li>
+        <li><a href="/#testimonials">Clientes</a></li>
+        <li><a href="/ubicaciones/">Ubicaciones</a></li>
+        <li><a href="/#pricing">Precios</a></li>
+        <li><a href="/comunidad/">Comunidad</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#contact">Formulario de contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="tel:918298500">918 298 500</a></li>
+        <li><a href="https://wa.me/34624119705">WhatsApp 624 119 705</a></li>
+        <li><a href="mailto:hola@oficinasya.es">hola@oficinasya.es</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 OficinasYA! · Todos los derechos reservados</span>
+    <div class="footer-bottom-links"><a href="/aviso-legal/">Aviso legal</a>·<a href="/politica-de-privacidad/">Privacidad</a>·<a href="/politica-de-cookies/">Cookies</a></div>
+  </div>
+</footer>
+
+
+<a href="https://wa.me/34624119705" class="wa" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="27" height="27" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+
+<script>
+  // Cabecera: fondo solido al hacer scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 80));
+
+  // Menu movil
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuBackdrop = document.getElementById('menuBackdrop');
+  function closeMenu() {
+    menuToggle.classList.remove('open'); mobileMenu.classList.remove('open'); menuBackdrop.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+  }
+  function openMenu() {
+    menuToggle.classList.add('open'); mobileMenu.classList.add('open'); menuBackdrop.classList.add('open');
+    menuToggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden';
+  }
+  menuToggle.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+  menuBackdrop.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Animaciones de entrada (.rv, .rvl, .rvr)
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => io.observe(el));
+
+</script>
+</body>
+</html>

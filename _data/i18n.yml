@@ -49,6 +49,43 @@ es:
     whatsapp: WhatsApp
     form: Formulario de contacto
     all_locations: Ver todas las ubicaciones
+  ciudad:
+    centres_title: "Los centros de {ciudad}"
+    centres_sub_one: Ficha del centro, con los datos de la hoja de la red.
+    centres_sub_many: "Ficha de cada centro, con los datos de la hoja de la red."
+    address: Dirección
+    hours: Horario
+    offices: Despachos
+    rooms: Salas
+    services: Servicios
+    access24: Acceso 24 h
+    h24_all: acceso permanente en todos los centros
+    h24_single: acceso permanente
+    h24_some: "acceso permanente en {n} de {total} centros"
+    centre_one: centro
+    centre_many: centros
+    no_data: Consultar
+    services_title: "Servicios en {ciudad}"
+    services_sub: Lo que se puede contratar en los centros de esta ciudad.
+    nearby: Ciudades cercanas de la red
+    all_locations: Todas las ubicaciones
+    faq_title: "Preguntas frecuentes sobre {ciudad}"
+    locations: Ubicaciones
+    tags:
+      despachos: Despachos privados
+      salas de reuniones: Salas de reuniones
+      smart office: Oficina virtual y Smart Office
+      coworking: Coworking
+      eventos: Eventos
+      aula de formación: Aula de formación
+      bonos de horas: Bonos de horas
+      coliving: Coliving
+      lofts: Espacios tipo loft
+    srv_pages:
+      despachos: srv-despachos
+      salas de reuniones: srv-salas
+      smart office: srv-oficina-virtual
+      coworking: srv-coworking
   form_sent: "✓ Enviado, te contactamos pronto!"
   form_send: "Enviar solicitud →"
   nl_done: "✓ Suscrito!"
@@ -102,6 +139,43 @@ en:
     whatsapp: WhatsApp
     form: Contact form
     all_locations: See all locations
+  ciudad:
+    centres_title: "Our centres in {ciudad}"
+    centres_sub_one: Centre details, from the network's data sheet.
+    centres_sub_many: "Details of each centre, from the network's data sheet."
+    address: Address
+    hours: Hours
+    offices: Offices
+    rooms: Rooms
+    services: Services
+    access24: 24-hour access
+    h24_all: permanent access at every centre
+    h24_single: permanent access
+    h24_some: "permanent access at {n} of {total} centres"
+    centre_one: centre
+    centre_many: centres
+    no_data: On request
+    services_title: "Services in {ciudad}"
+    services_sub: What you can contract at the centres in this city.
+    nearby: Nearby cities in the network
+    all_locations: All locations
+    faq_title: "Frequently asked questions about {ciudad}"
+    locations: Locations
+    tags:
+      despachos: Private offices
+      salas de reuniones: Meeting rooms
+      smart office: Virtual office and Smart Office
+      coworking: Coworking
+      eventos: Events
+      aula de formación: Training room
+      bonos de horas: Hour packs
+      coliving: Coliving
+      lofts: Loft-style spaces
+    srv_pages:
+      despachos: srv-despachos
+      salas de reuniones: srv-salas
+      smart office: srv-oficina-virtual
+      coworking: srv-coworking
   form_sent: "✓ Sent, we will be in touch soon!"
   form_send: "Send request →"
   nl_done: "✓ Subscribed!"

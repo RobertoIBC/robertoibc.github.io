@@ -51,7 +51,7 @@ Confirmar condiciones por teléfono o formulario.
 ## Ciudades ({{ g.ciudades }}) y espacios ({{ g.espacios }})
 
 {% for c in ciudades -%}
-- {{ c.nombre }} ({{ c.centros|length }} {{ 'espacio' if c.tiene_coliving else 'centro' }}{{ 's' if c.centros|length > 1 }}): {{ c.centros|map(attribute='centro')|join(', ') }}.
+- {{ c.nombre }} ({{ c.centros|length }} {{ 'espacio' if c.tiene_coliving else 'centro' }}{{ 's' if c.centros|length > 1 }}): {{ c.centros|map(attribute='centro')|join(', ') }}.{% if c.url_es %} Página: {{ site.url }}{{ c.url_es }}{% endif %}
 {% endfor %}
 ## Datos de la red
 

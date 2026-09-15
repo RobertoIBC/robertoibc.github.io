@@ -111,6 +111,7 @@ def load_data():
     i18n = yaml.safe_load(read(DATA / 'i18n.yml'))
     redirects = yaml.safe_load(read(DATA / 'redirects.yml'))
     ciudades = yaml.safe_load(read(DATA / 'ciudades.yml'))
+    horarios = yaml.safe_load(read(DATA / 'horarios.yml')) or {}
     with open(DATA / 'centros.csv', encoding='utf-8', newline='') as f:
         centros = [r for r in csv.DictReader(f) if r['activo'].strip().lower() == 'si']
 
@@ -119,6 +120,9 @@ def load_data():
         if c['ciudad'] not in nombres:
             raise SystemExit(f"centros.csv: la ciudad '{c['ciudad']}' no esta en ciudades.yml")
         c['acceso_24h'] = '24' in c['horario']
+        c['opening_hours'] = horarios.get(f"{c['ciudad']}|{c['centro']}")
+        c['address'] = parse_address(c['direccion'], c['ciudad'])
+        c['tags'] = [t.strip() for t in c['servicios'].split(',') if t.strip()]
 
     # Precios por centro: solo si el cliente lo ha aprobado Y la hoja privada existe.
     if g.get('publicar_precios_por_centro'):
@@ -130,6 +134,20 @@ def load_data():
         for c in centros:
             c['precios'] = precios.get((c['ciudad'], c['centro']))
     return g, i18n, redirects, ciudades, centros
+
+
+def parse_address(direccion, ciudad):
+    """'Calle Mayor 22, entreplanta, 02001 Albacete' -> calle, CP y localidad.
+    Si no hay codigo postal, la localidad es la ciudad y el CP se omite."""
+    m = re.search(r'\b(\d{5})\b\s*([^,]*)', direccion)
+    if m:
+        street = direccion[:m.start()].rstrip(', ')
+        locality = m.group(2).strip() or ciudad
+        return {'streetAddress': street, 'postalCode': m.group(1), 'addressLocality': locality}
+    parts = [x.strip() for x in direccion.split(',')]
+    if len(parts) > 1 and parts[-1] in (ciudad, ciudad.split(' (')[0]):
+        return {'streetAddress': ', '.join(parts[:-1]), 'addressLocality': parts[-1]}
+    return {'streetAddress': direccion, 'addressLocality': ciudad}
 
 
 def group_cities(ciudades, centros):
@@ -273,6 +291,70 @@ def jsonld_servicio(p, g, site, lang, prices, ciudades_disp, i18n):
     return {'@context': 'https://schema.org', '@graph': graph}
 
 
+def jsonld_ciudad(p, g, site, lang, i18n, city, centros_ciudad, urls):
+    url = site['url']
+    name = city['nombre' if lang == 'es' else 'nombre_en']
+    items = []
+    for i, c in enumerate(centros_ciudad, 1):
+        lb = {
+            '@type': 'LocalBusiness',
+            '@id': p['abs_url'] + '#' + c['anchor'],
+            'name': f"OficinasYA! {c['ciudad']} — {c['centro']}",
+            'description': c.get('descripcion_corta') or f"Centro de negocios de la red OficinasYA! en {c['ciudad']}.",
+            'url': p['abs_url'] + '#' + c['anchor'],
+            'telephone': g['tel_e164'],
+            'parentOrganization': {'@id': url + '/#organization'},
+            'address': {'@type': 'PostalAddress', **c['address'], 'addressCountry': 'ES'},
+        }
+        if c.get('opening_hours'):
+            lb['openingHoursSpecification'] = c['opening_hours']
+        if c.get('web'):
+            lb['sameAs'] = c['web']
+        if c.get('foto'):
+            lb['image'] = url + c['foto'] if c['foto'].startswith('/') else c['foto']
+        items.append({'@type': 'ListItem', 'position': i, 'item': lb})
+    graph = [
+        {
+            '@type': 'WebPage',
+            '@id': p['abs_url'],
+            'url': p['abs_url'],
+            'name': p['title'],
+            'description': p['description'],
+            'inLanguage': LANG_TAG[lang],
+            'isPartOf': {'@id': url + '/#website'},
+            'about': {'@id': url + '/#organization'},
+        },
+        {
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+                {'@type': 'ListItem', 'position': 1, 'name': i18n['breadcrumb_home'], 'item': url + HOME[lang]},
+                {'@type': 'ListItem', 'position': 2, 'name': i18n['ciudad']['locations'], 'item': url + urls['ubicaciones']},
+                {'@type': 'ListItem', 'position': 3, 'name': name, 'item': p['abs_url']},
+            ],
+        },
+        {
+            '@type': 'ItemList',
+            'name': i18n['ciudad']['centres_title'].replace('{ciudad}', name),
+            'numberOfItems': len(items),
+            'itemListElement': items,
+        },
+    ]
+    if p.get('faq'):
+        graph.append({
+            '@type': 'FAQPage',
+            '@id': p['abs_url'] + '#faq',
+            'mainEntity': [{'@type': 'Question', 'name': q['q'],
+                            'acceptedAnswer': {'@type': 'Answer', 'text': q['a']}} for q in p['faq']],
+        })
+    return {'@context': 'https://schema.org', '@graph': graph}
+
+
+def slugify(text):
+    import unicodedata
+    t = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
+    return re.sub(r'[^a-z0-9]+', '-', t.lower()).strip('-')
+
+
 # ---------------------------------------------------------------- render
 def make_env():
     env = Environment(
@@ -302,6 +384,9 @@ def build(check=False):
     warnings = []
     pages = load_pages()
     by_id = link_alternates(pages, site['url'], warnings)
+    for c in ciudades:
+        grp = by_id.get('ciudad-' + c['slug'], {})
+        c['url_es'] = grp['es'].url if 'es' in grp else None
 
     changed = []
     outputs = set()
@@ -359,6 +444,38 @@ def build(check=False):
                 key = p['csv_key']
                 p['ciudades_disponibles'] = [c for c in cities_ctx if any(key in x['servicios'] for x in c['centros'])]
                 p['jsonld'] = to_jsonld(jsonld_servicio(p, g, site, lang, prices, p['ciudades_disponibles'], t))
+            if p.layout == 'ciudad':
+                city = next(c for c in cities_ctx if c['nombre'] == p['ciudad'])
+                overrides = {o['nombre']: o for o in (p.get('centros') or [])}
+                for c in city['centros']:
+                    o = overrides.get(c['centro'], {})
+                    c['anchor'] = slugify(c['centro'])
+                    c['foto'] = o.get('foto')
+                    c['texto_html'] = render_markdown(env.from_string(o['texto']).render(ctx)) if o.get('texto') else ''
+                    c['descripcion_corta'] = o.get('descripcion')
+                    c['tag_labels'] = [t['ciudad']['tags'].get(x, x) for x in c['tags']]
+                # grupos: por zonas si la pagina las define, si no un solo grupo sin titulo
+                if p.get('zonas'):
+                    by_name = {c['centro']: c for c in city['centros']}
+                    grupos = []
+                    for z in p['zonas']:
+                        grupos.append({'nombre': z['nombre'], 'anchor': slugify(z['nombre']),
+                                       'texto_html': render_markdown(env.from_string(z.get('texto', '')).render(ctx)),
+                                       'centros': [by_name[n] for n in z['centros']]})
+                    listed = {n for z in p['zonas'] for n in z['centros']}
+                    missing = [c['centro'] for c in city['centros'] if c['centro'] not in listed]
+                    if missing:
+                        raise SystemExit(f"{p.source}: centros sin zona: {missing}")
+                else:
+                    grupos = [{'nombre': None, 'anchor': None, 'texto_html': '', 'centros': city['centros']}]
+                p['grupos'] = grupos
+                p['city'] = city
+                tags_city = {x for c in city['centros'] for x in c['tags']}
+                p['servicios_ciudad'] = [pages_by_id[t['ciudad']['srv_pages'][k]] for k in
+                                         ('despachos', 'salas de reuniones', 'smart office', 'coworking')
+                                         if k in tags_city and t['ciudad']['srv_pages'][k] in pages_by_id]
+                p['cercanas'] = [c for c in cities_ctx if c['slug'] in (p.get('cercanas') or [])]
+                p['jsonld'] = to_jsonld(jsonld_ciudad(p, g, site, lang, t, city, city['centros'], urls))
             html = env.get_template(f'layouts/{p.layout}.html').render(ctx)
         else:
             src = f'{{% extends "layouts/{p.layout}.html" %}}\n' + p['body']

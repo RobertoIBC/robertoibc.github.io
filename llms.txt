@@ -50,23 +50,23 @@ Confirmar condiciones por teléfono o formulario.
 
 ## Ciudades (17) y espacios (35)
 
-- Madrid (8 centros): Velázquez, Gasset, Serrano, Capitán Haya, Las Tablas, Sanse (San Sebastián de los Reyes), La Florida (Pozuelo), Manoteras (Sanchinarro).
-- Barcelona (3 centros): Mitre 126, Raset 29, Plaza Urquinaona.
-- Murcia (3 espacios): Marla Center, Edificio Magalia (Alcantarilla), Coliving Condado de Alhama.
-- Sevilla (3 centros): Laraña, Edificio Galia Puerto, Edificio Nervión.
-- Tenerife (3 espacios): Santa Rosalía, Costa y Grijalba, La Luna Coliving.
-- A Coruña (2 centros): Andres Martinez Salazar, Juan de la Cierva.
-- Bilbao (2 centros): Máximo Aguirre, Edificio Albia.
-- Segovia (2 centros): Padre Claret, Ezequiel González.
-- Albacete (1 centro): Calle Mayor.
-- Alicante (1 centro): Plaza de la Muntanyeta.
-- Castellón (1 centro): Dean Marti.
-- Málaga (1 centro): Calle Larios.
-- Mérida (1 centro): Edificio Delgado Casamayor.
-- Salamanca (1 centro): Edificio Openhouse.
-- Valencia (1 centro): Guillem de Castro.
-- Vigo (1 centro): Plaza Compostela.
-- Zaragoza (1 centro): Independencia.
+- Madrid (8 centros): Velázquez, Gasset, Serrano, Capitán Haya, Las Tablas, Sanse (San Sebastián de los Reyes), La Florida (Pozuelo), Manoteras (Sanchinarro). Página: https://robertoibc.github.io/oficinas-en-madrid/
+- Barcelona (3 centros): Mitre 126, Raset 29, Plaza Urquinaona. Página: https://robertoibc.github.io/oficinas-en-barcelona/
+- Murcia (3 espacios): Marla Center, Edificio Magalia (Alcantarilla), Coliving Condado de Alhama. Página: https://robertoibc.github.io/oficinas-en-murcia/
+- Sevilla (3 centros): Laraña, Edificio Galia Puerto, Edificio Nervión. Página: https://robertoibc.github.io/oficinas-en-sevilla/
+- Tenerife (3 espacios): Santa Rosalía, Costa y Grijalba, La Luna Coliving. Página: https://robertoibc.github.io/oficinas-en-tenerife/
+- A Coruña (2 centros): Andres Martinez Salazar, Juan de la Cierva. Página: https://robertoibc.github.io/oficinas-en-a-coruna/
+- Bilbao (2 centros): Máximo Aguirre, Edificio Albia. Página: https://robertoibc.github.io/oficinas-en-bilbao/
+- Segovia (2 centros): Padre Claret, Ezequiel González. Página: https://robertoibc.github.io/oficinas-en-segovia/
+- Albacete (1 centro): Calle Mayor. Página: https://robertoibc.github.io/oficinas-en-albacete/
+- Alicante (1 centro): Plaza de la Muntanyeta. Página: https://robertoibc.github.io/oficinas-en-alicante/
+- Castellón (1 centro): Dean Marti. Página: https://robertoibc.github.io/oficinas-en-castellon/
+- Málaga (1 centro): Calle Larios. Página: https://robertoibc.github.io/oficinas-en-malaga/
+- Mérida (1 centro): Edificio Delgado Casamayor. Página: https://robertoibc.github.io/oficinas-en-merida/
+- Salamanca (1 centro): Edificio Openhouse. Página: https://robertoibc.github.io/oficinas-en-salamanca/
+- Valencia (1 centro): Guillem de Castro. Página: https://robertoibc.github.io/oficinas-en-valencia/
+- Vigo (1 centro): Plaza Compostela. Página: https://robertoibc.github.io/oficinas-en-vigo/
+- Zaragoza (1 centro): Independencia. Página: https://robertoibc.github.io/oficinas-en-zaragoza/
 
 ## Datos de la red
 
@@ -101,6 +101,23 @@ La web está disponible en español (raíz del sitio) y en inglés (/en/).
 Equivalencias:
 - / = /en/
 - /ubicaciones/ = /en/locations/
+- /oficinas-en-a-coruna/ = /en/offices-in-a-coruna/
+- /oficinas-en-albacete/ = /en/offices-in-albacete/
+- /oficinas-en-alicante/ = /en/offices-in-alicante/
+- /oficinas-en-barcelona/ = /en/offices-in-barcelona/
+- /oficinas-en-bilbao/ = /en/offices-in-bilbao/
+- /oficinas-en-castellon/ = /en/offices-in-castellon/
+- /oficinas-en-madrid/ = /en/offices-in-madrid/
+- /oficinas-en-malaga/ = /en/offices-in-malaga/
+- /oficinas-en-merida/ = /en/offices-in-merida/
+- /oficinas-en-murcia/ = /en/offices-in-murcia/
+- /oficinas-en-salamanca/ = /en/offices-in-salamanca/
+- /oficinas-en-segovia/ = /en/offices-in-segovia/
+- /oficinas-en-sevilla/ = /en/offices-in-seville/
+- /oficinas-en-tenerife/ = /en/offices-in-tenerife/
+- /oficinas-en-valencia/ = /en/offices-in-valencia/
+- /oficinas-en-vigo/ = /en/offices-in-vigo/
+- /oficinas-en-zaragoza/ = /en/offices-in-zaragoza/
 - /alquiler-de-despachos/ = /en/private-offices/
 - /salas-de-reuniones/ = /en/meeting-rooms/
 - /oficina-virtual/ = /en/virtual-office/
