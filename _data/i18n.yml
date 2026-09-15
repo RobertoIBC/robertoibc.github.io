@@ -28,6 +28,27 @@ es:
     legal: Aviso legal
     privacy: Privacidad
     cookies: Cookies
+  breadcrumb_home: Inicio
+  srv:
+    from: desde
+    eur_before: false
+    tax: + IVA
+    per_hour: /hora
+    per_month: /mes
+    call: Llamar
+    quote: Pedir presupuesto
+    includes: Qué incluye
+    not_includes: Qué no incluye
+    where: Dónde
+    where_sub: "Disponible en {n} ciudades"
+    faq: Preguntas frecuentes
+    faq_sub: Lo que nos preguntan sobre este servicio
+    others: Otros servicios
+    cta_title: ¿Hablamos?
+    cta_sub: Te confirmamos disponibilidad y precio en el momento.
+    whatsapp: WhatsApp
+    form: Formulario de contacto
+    all_locations: Ver todas las ubicaciones
   form_sent: "✓ Enviado, te contactamos pronto!"
   form_send: "Enviar solicitud →"
   nl_done: "✓ Suscrito!"
@@ -60,6 +81,27 @@ en:
     legal: Legal notice
     privacy: Privacy
     cookies: Cookies
+  breadcrumb_home: Home
+  srv:
+    from: from
+    eur_before: true
+    tax: + VAT
+    per_hour: /hour
+    per_month: /month
+    call: Call us
+    quote: Request a quote
+    includes: What's included
+    not_includes: What's not included
+    where: Where
+    where_sub: "Available in {n} cities"
+    faq: Frequently asked questions
+    faq_sub: What people ask us about this service
+    others: Other services
+    cta_title: Shall we talk?
+    cta_sub: We confirm availability and price on the spot.
+    whatsapp: WhatsApp
+    form: Contact form
+    all_locations: See all locations
   form_sent: "✓ Sent, we will be in touch soon!"
   form_send: "Send request →"
   nl_done: "✓ Subscribed!"

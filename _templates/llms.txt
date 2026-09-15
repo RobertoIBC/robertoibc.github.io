@@ -27,6 +27,13 @@ profesional.
 - Oficina virtual: dirección fiscal y comercial, gestión de correspondencia,
   recepción de visitas y posibilidad de atención telefónica.
 
+{% if servicios -%}
+## Páginas de servicio
+
+{% for s in servicios -%}
+- {{ s.h1 }}: {{ site.url }}{{ s.url }}
+{% endfor %}
+{% endif -%}
 ## Precios
 
 - Por horas: desde {{ p.despacho_hora }} € por hora + IVA. Incluye despacho privado equipado, WiFi de

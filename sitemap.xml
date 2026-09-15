@@ -15,6 +15,22 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/ubicaciones/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/locations/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/ubicaciones/"/></url>
+  <url><loc>https://robertoibc.github.io/alquiler-de-despachos/</loc><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/alquiler-de-despachos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/private-offices/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/alquiler-de-despachos/"/></url>
+  <url><loc>https://robertoibc.github.io/salas-de-reuniones/</loc><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/salas-de-reuniones/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/meeting-rooms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/salas-de-reuniones/"/></url>
+  <url><loc>https://robertoibc.github.io/oficina-virtual/</loc><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/oficina-virtual/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/virtual-office/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/oficina-virtual/"/></url>
+  <url><loc>https://robertoibc.github.io/coworking/</loc><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/coworking/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/coworking/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/coworking/"/></url>
   <url><loc>https://robertoibc.github.io/comunidad/</loc><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/comunidad/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/community/"/>
@@ -43,6 +59,22 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/ubicaciones/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/locations/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/ubicaciones/"/></url>
+  <url><loc>https://robertoibc.github.io/en/private-offices/</loc><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/alquiler-de-despachos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/private-offices/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/alquiler-de-despachos/"/></url>
+  <url><loc>https://robertoibc.github.io/en/meeting-rooms/</loc><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/salas-de-reuniones/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/meeting-rooms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/salas-de-reuniones/"/></url>
+  <url><loc>https://robertoibc.github.io/en/virtual-office/</loc><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/oficina-virtual/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/virtual-office/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/oficina-virtual/"/></url>
+  <url><loc>https://robertoibc.github.io/en/coworking/</loc><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/coworking/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/coworking/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/coworking/"/></url>
   <url><loc>https://robertoibc.github.io/en/community/</loc><priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://robertoibc.github.io/comunidad/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/community/"/>

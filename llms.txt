@@ -27,6 +27,13 @@ profesional.
 - Oficina virtual: dirección fiscal y comercial, gestión de correspondencia,
   recepción de visitas y posibilidad de atención telefónica.
 
+## Páginas de servicio
+
+- Alquiler de despachos privados: https://robertoibc.github.io/alquiler-de-despachos/
+- Alquiler de salas de reuniones: https://robertoibc.github.io/salas-de-reuniones/
+- Oficina virtual y domiciliación de empresas: https://robertoibc.github.io/oficina-virtual/
+- Coworking en centros de negocios: https://robertoibc.github.io/coworking/
+
 ## Precios
 
 - Por horas: desde 8,5 € por hora + IVA. Incluye despacho privado equipado, WiFi de
@@ -94,6 +101,10 @@ La web está disponible en español (raíz del sitio) y en inglés (/en/).
 Equivalencias:
 - / = /en/
 - /ubicaciones/ = /en/locations/
+- /alquiler-de-despachos/ = /en/private-offices/
+- /salas-de-reuniones/ = /en/meeting-rooms/
+- /oficina-virtual/ = /en/virtual-office/
+- /coworking/ = /en/coworking/
 - /comunidad/ = /en/community/
 - /blog/ = /en/blog/
 - /aviso-legal/ = /en/legal-notice/

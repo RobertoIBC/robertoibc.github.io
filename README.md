@@ -12,14 +12,18 @@ _data/
   global.yml         cifras de la red, precios "desde", teléfono, email, URL del sitio
   i18n.yml           textos de cabecera y pie en ES y EN
   centros.csv        los 35 espacios: ciudad, dirección, horario, m², salas, servicios
+  ciudades.yml       las 17 ciudades: nombre, slug ES/EN, ancla en el hub
   redirects.yml      rutas antiguas -> nuevas (prototipo y web viva)
 _content/
   pages/             las páginas a medida: home, ubicaciones, comunidad, blog, legales
                      (un fichero por página e idioma: home.es.html, home.en.html, ...)
+  servicios/         las 4 páginas de servicio, en Markdown con front matter
+                     (alquiler-de-despachos.es.md, private-offices.en.md, ...)
 _templates/
   base.html          esqueleto común: <head>, cabecera, pie, WhatsApp, JS
   partials/          nav.html, footer.html
   layouts/           la CSS y el JS propios de cada tipo de página
+                     (servicio.html construye la página de servicio a partir del Markdown)
   assets/            base.css y base.js, compartidos por todas las páginas
   llms.txt           plantilla del llms.txt
   redirect.html      plantilla de los stubs de redirección
@@ -87,6 +91,26 @@ HTML de la página. Las cifras compartidas aparecen como `{{ g.espacios }}`,
 
 Si cambias el título o la descripción, respeta los límites: título 50–60
 caracteres, descripción 140–160.
+
+## Páginas de servicio (Markdown)
+
+Cada servicio es un fichero por idioma en `_content/servicios/`. Arriba, entre
+`---`, los datos estructurados: `title`, `description`, `h1`, `subtitle`,
+`ofertas` (qué precio de `global.yml` mostrar y en qué unidad), `incluye`,
+`no_incluye`, `csv_key` (qué palabra de la columna `servicios` de
+`centros.csv` decide en qué ciudades está disponible) y `faq`. Debajo, el
+texto en Markdown con encabezados `##`. El generador construye con eso el
+HTML, la lista de ciudades, el JSON-LD (`Service`, `Offer`, `FAQPage`,
+`BreadcrumbList`) y los hreflang.
+
+Las dos versiones de una página comparten el mismo `id` en el front matter:
+así se enlazan entre sí. Para dar un id a un encabezado (para enlazar a él),
+la sintaxis es `## Título {: #mi-ancla }`. No uses `{#mi-ancla}`: `{#` abre
+un comentario en Jinja y rompe la página.
+
+Los enlaces a otras páginas se escriben con el mapa de URLs, no a mano:
+`[Smart Office]({{ urls['srv-oficina-virtual'] }}#smart-office)`. Así apuntan
+a la versión del idioma correcto.
 
 ## Cabecera y pie
 

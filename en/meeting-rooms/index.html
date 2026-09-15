@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== PROTOTIPO: NO INDEXAR =====
+       Este prototipo vive en un dominio publico e indexable. El noindex evita que
+       compita con www.oficinasya.es y que se filtren precios sin aprobar.
+       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
+       Google no podria leer este noindex.
+       TODO migracion: poner site.noindex a false en _data/global.yml y regenerar. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <!-- TODO migracion: cambiar site.url en _data/global.yml -->
+  <link rel="canonical" href="https://robertoibc.github.io/en/meeting-rooms/" />
+  <link rel="alternate" hreflang="es" href="https://robertoibc.github.io/salas-de-reuniones/" />
+  <link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/meeting-rooms/" />
+  <link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/salas-de-reuniones/" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
+  <title>Meeting room hire by the hour in Spain | OficinasYA!</title>
+  <meta name="description" content="Equipped meeting rooms by the hour, from one hour, in 17 cities across Spain. For 2 to 275 people, with video conferencing, catering, training and events." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OficinasYA!" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:title" content="Meeting room hire by the hour in Spain | OficinasYA!" />
+  <meta property="og:description" content="Equipped meeting rooms by the hour, from one hour, in 17 cities across Spain. For 2 to 275 people, with video conferencing, catering, training and events." />
+  <!-- TODO migracion: cambiar site.url en _data/global.yml -->
+  <meta property="og:url" content="https://robertoibc.github.io/en/meeting-rooms/" />
+  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Meeting room at the OficinasYA! centre in Zaragoza" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Meeting room hire by the hour in Spain | OficinasYA!" />
+  <meta name="twitter:description" content="Equipped meeting rooms by the hour, from one hour, in 17 cities across Spain. For 2 to 275 people, with video conferencing, catering, training and events." />
+  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.oficinasya.es" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange:      #F5921A;
+      --orange-dark: #E07810;
+      --orange-pale: #FFF3E0;
+      --dark:        #1C1C1C;
+      --dark-mid:    #2D2D2D;
+      --gray-50:     #FAFAFA;
+      --gray-100:    #F5F5F5;
+      --gray-200:    #E8E8E8;
+      --gray-400:    #A3A3A3;
+      --gray-600:    #525252;
+      --white:       #FFFFFF;
+      --radius:      20px;
+      --ease:        cubic-bezier(.16,1,.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; max-width: 100%; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all .4s var(--ease);
+    }
+    nav.scrolled {
+      background: var(--white);
+      box-shadow: 0 2px 24px rgba(0,0,0,.09);
+      padding: 14px 6%;
+    }
+    /* Variantes de cabecera. Sin clase: transparente sobre el hero (home).
+       nav-dark: fondo oscuro fijo (ubicaciones, comunidad, blog).
+       nav-light: fondo blanco desde el principio (paginas legales). */
+    nav.nav-dark { background: var(--dark); }
+    nav.nav-light { background: var(--white); box-shadow: 0 2px 24px rgba(0,0,0,.09); }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+    .logo-wordmark { display: flex; align-items: baseline; gap: 0; }
+    .logo-word {
+      font-family: 'Barlow', sans-serif; font-weight: 900;
+      font-size: 1.75rem; letter-spacing: -1px;
+      color: var(--white); transition: color .4s;
+    }
+    nav.scrolled .logo-word, nav.nav-light .logo-word { color: var(--dark); }
+    .logo-ya {
+      font-family: 'Barlow', sans-serif; font-weight: 900;
+      font-size: 1.75rem; letter-spacing: -1px;
+      color: var(--orange); 
+    }
+    .logo-sub {
+      font-size: .62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.55); transition: color .4s;
+      padding-left: 1px;
+    }
+    nav.scrolled .logo-sub, nav.nav-light .logo-sub { color: var(--gray-400); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; }
+    nav.scrolled .nav-links a, nav.nav-light .nav-links a { color: var(--dark-mid); }
+    .menu-toggle {
+      display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 44px; height: 44px; margin-left: 10px;
+      background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.2); border-radius: 12px;
+      cursor: pointer; padding: 0; z-index: 201; flex-shrink: 0;
+      transition: background .3s, border-color .3s, transform .15s;
+    }
+    .menu-toggle span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s, background .3s; }
+    .menu-toggle:active { transform: scale(.94); }
+    nav.scrolled .menu-toggle, nav.nav-light .menu-toggle { background: var(--gray-100); border-color: var(--gray-200); }
+    nav.scrolled .menu-toggle span, nav.nav-light .menu-toggle span { background: var(--dark); }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .menu-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 199; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .menu-backdrop.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(300px, 80vw); z-index: 200;
+      background: var(--dark); padding: 110px 32px 40px; overflow-y: auto;
+      display: flex; flex-direction: column;
+      transform: translateX(100%); transition: transform .35s var(--ease);
+      box-shadow: -24px 0 60px rgba(0,0,0,.35);
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu a { color: rgba(255,255,255,.85); text-decoration: none; font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 700; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .mobile-menu a.active, .mobile-menu a:hover { color: var(--orange); }
+    .mobile-menu-cta { margin-top: 24px; background: var(--orange); color: var(--white) !important; text-align: center; border-radius: 50px; border-bottom: none !important; padding: 15px !important; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange) !important; }
+    .nav-cta {
+      background: var(--orange); color: var(--white);
+      padding: 11px 26px; border-radius: 50px;
+      font-weight: 700; font-size: .9rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .3s, transform .3s, box-shadow .3s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,146,26,.45); }
+    .rv  { opacity: 0; transform: translateY(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rvl { opacity: 0; transform: translateX(-48px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rvr { opacity: 0; transform: translateX(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rv.on, .rvl.on, .rvr.on { opacity: 1; transform: none; }
+    footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 72px 6% 40px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .footer-logo { margin-bottom: 20px; }
+    .footer-logo .logo-word { color: rgba(255,255,255,.85); font-size: 1.6rem; }
+    .footer-logo .logo-ya { font-size: 1.6rem; }
+    .footer-logo .logo-sub { color: rgba(255,255,255,.35); }
+    .footer-brand p { font-size: .9rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h5 { color: var(--white); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; }
+    .footer-col ul a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
+    .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
+    .socials { display: flex; gap: 10px; }
+    .soc { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .soc svg { width: 16px; height: 16px; }
+    .wa {
+      position: fixed; bottom: 32px; right: 32px; z-index: 99;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; color: white;
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+      text-decoration: none; box-shadow: 0 8px 28px rgba(37,211,102,.4);
+      transition: transform .3s;
+      opacity: 0; animation: up .7s 1.6s var(--ease) forwards;
+    }
+    .wa:hover { transform: scale(1.1); }
+    .nav-actions { display: flex; align-items: center; gap: 20px; }
+    .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
+    .lang-switch a {
+      font-size: .78rem; font-weight: 700; letter-spacing: .8px;
+      color: rgba(255,255,255,.45); text-decoration: none;
+      transition: color .3s var(--ease);
+    }
+    .lang-switch a[aria-current] { color: var(--white); }
+    .lang-switch a:hover { color: var(--orange); }
+    .lang-sep { width: 1px; height: 10px; background: rgba(255,255,255,.25); transition: background .4s var(--ease); }
+    nav.scrolled .lang-switch a, nav.nav-light .lang-switch a { color: var(--gray-400); }
+    nav.scrolled .lang-switch a[aria-current], nav.nav-light .lang-switch a[aria-current] { color: var(--dark); }
+    nav.scrolled .lang-sep, nav.nav-light .lang-sep { background: var(--gray-200); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-actions { gap: 14px; }
+      .lang-switch { gap: 7px; }
+      .logo-sub { letter-spacing: .5px; }
+      .lang-switch a { font-size: .72rem; letter-spacing: .4px; }
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .nav-cta { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; gap: 0; }
+      .nav-cta-text { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+    .eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--orange); }
+
+    /* ── HERO ── */
+    .page-hero { background: var(--dark); padding: 160px 6% 72px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -220px; right: -160px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.14) 0%, transparent 65%); }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+    .breadcrumb a { color: rgba(255,255,255,.4); font-size: .8rem; font-weight: 600; text-decoration: none; transition: color .3s; }
+    .breadcrumb a:hover { color: var(--orange); }
+    .breadcrumb-sep { color: rgba(255,255,255,.2); font-size: .8rem; }
+    .breadcrumb-current { color: var(--orange); font-size: .8rem; font-weight: 700; }
+    .page-hero-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 900; line-height: .98; color: var(--white); letter-spacing: -1.5px; margin-bottom: 20px; max-width: 900px; }
+    .page-hero-sub { color: rgba(255,255,255,.6); font-size: 1.1rem; line-height: 1.7; max-width: 640px; margin-bottom: 36px; }
+    .hero-offers { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+    .hero-offer { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 16px 22px; min-width: 200px; }
+    .hero-offer-name { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 6px; }
+    .hero-offer-price { font-family: 'Barlow', sans-serif; color: var(--white); line-height: 1; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+    .hero-offer-price .from { font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.5); font-family: 'Inter', sans-serif; }
+    .hero-offer-price .num { font-size: 2.2rem; font-weight: 900; color: var(--orange); }
+    .hero-offer-price .unit { font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.7); }
+    .hero-offer-price .tax { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35); font-family: 'Inter', sans-serif; }
+    .hero-offer-detail { font-size: .82rem; color: rgba(255,255,255,.5); margin-top: 6px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-orange { background: var(--orange); color: var(--white); padding: 16px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background .3s, transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-orange:hover { background: var(--orange-dark); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,146,26,.5); }
+    .btn-ghost { background: rgba(255,255,255,.08); color: var(--white); padding: 16px 36px; border-radius: 50px; border: 1.5px solid rgba(255,255,255,.2); font-weight: 600; font-size: 1rem; text-decoration: none; transition: background .3s, border-color .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-ghost:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.4); }
+
+    /* ── CUERPO ── */
+    .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; }
+    .srv-article { min-width: 0; }
+    .srv-article h2 { font-family: 'Barlow', sans-serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 800; line-height: 1.1; letter-spacing: -.5px; color: var(--dark); margin: 52px 0 18px; scroll-margin-top: 100px; }
+    .srv-article h2:first-child { margin-top: 0; }
+    .srv-article h3 { font-family: 'Barlow', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--dark); margin: 32px 0 12px; }
+    .srv-article p { color: var(--gray-600); font-size: 1.02rem; line-height: 1.8; margin-bottom: 18px; }
+    .srv-article strong { color: var(--dark); font-weight: 700; }
+    .srv-article a { color: var(--orange-dark); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(245,146,26,.35); transition: border-color .3s; }
+    .srv-article a:hover { border-color: var(--orange); }
+    .srv-article ul, .srv-article ol { color: var(--gray-600); font-size: 1.02rem; line-height: 1.75; margin: 0 0 20px 22px; }
+    .srv-article li { margin-bottom: 10px; }
+    .srv-article ol { counter-reset: paso; list-style: none; margin-left: 0; }
+    .srv-article ol li { counter-increment: paso; position: relative; padding-left: 52px; margin-bottom: 16px; }
+    .srv-article ol li::before { content: counter(paso); position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--orange-pale); color: var(--orange-dark); font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; }
+    .srv-article table { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: .95rem; }
+    .srv-article th, .srv-article td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
+    .srv-article th { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); }
+    .srv-table-wrap { overflow-x: auto; }
+
+    /* ── LATERAL ── */
+    .srv-aside { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
+    .srv-card { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 28px; }
+    .srv-card h3 { font-family: 'Barlow', sans-serif; font-size: 1.05rem; font-weight: 800; letter-spacing: -.2px; color: var(--dark); margin-bottom: 16px; }
+    .srv-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .srv-card li { font-size: .92rem; color: var(--gray-600); line-height: 1.5; padding-left: 26px; position: relative; }
+    .srv-card li::before { content: ''; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--orange-pale); }
+    .srv-card li::after { content: ''; position: absolute; left: 5px; top: 8px; width: 6px; height: 4px; border-left: 2px solid var(--orange-dark); border-bottom: 2px solid var(--orange-dark); transform: rotate(-45deg); }
+    .srv-card.no li::before { background: var(--gray-200); }
+    .srv-card.no li::after { width: 6px; height: 0; border: none; border-top: 2px solid var(--gray-400); transform: none; top: 11px; }
+    .srv-card-cities { display: flex; flex-wrap: wrap; gap: 8px; }
+    .srv-card-cities a { background: var(--white); border: 1.5px solid var(--gray-200); color: var(--dark); font-size: .82rem; font-weight: 600; padding: 7px 13px; border-radius: 50px; text-decoration: none; transition: border-color .3s, color .3s; }
+    .srv-card-cities a:hover { border-color: var(--orange); color: var(--orange-dark); }
+    .srv-card-cities-sub { font-size: .85rem; color: var(--gray-400); margin-bottom: 14px; margin-top: -8px; }
+    .srv-card.cta { background: var(--dark); border-color: var(--dark); }
+    .srv-card.cta h3 { color: var(--white); }
+    .srv-card.cta p { color: rgba(255,255,255,.55); font-size: .9rem; line-height: 1.6; margin-bottom: 18px; }
+    .srv-card.cta a { display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: .95rem; border-radius: 50px; padding: 13px 20px; margin-bottom: 10px; transition: transform .3s, background .3s; }
+    .srv-card.cta a:last-child { margin-bottom: 0; }
+    .srv-card.cta .a-tel { background: var(--orange); color: var(--white); }
+    .srv-card.cta .a-tel:hover { background: var(--orange-dark); transform: translateY(-2px); }
+    .srv-card.cta .a-wa { background: #25D366; color: var(--white); }
+    .srv-card.cta .a-wa:hover { transform: translateY(-2px); }
+    .srv-card.cta .a-form { background: rgba(255,255,255,.08); color: var(--white); border: 1.5px solid rgba(255,255,255,.15); }
+    .srv-card.cta .a-form:hover { background: rgba(255,255,255,.14); }
+
+    /* ── FAQ ── */
+    .srv-faq { background: var(--gray-50); padding: 88px 6%; }
+    .srv-faq-inner { max-width: 1200px; margin: 0 auto; }
+    .srv-faq-hd { text-align: center; margin-bottom: 48px; }
+    .stitle { font-family: 'Barlow', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--dark); margin: 0 auto 14px; }
+    .ssub { color: var(--gray-600); font-size: 1.05rem; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .faq-item { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 26px 28px; }
+    .faq-item h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin-bottom: 10px; }
+    .faq-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.7; }
+
+    /* ── OTROS SERVICIOS ── */
+    .srv-others { padding: 72px 6%; }
+    .srv-others-inner { max-width: 1200px; margin: 0 auto; }
+    .srv-others h2 { font-family: 'Barlow', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--dark); margin-bottom: 24px; }
+    .srv-others-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .srv-other { display: block; border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 24px; text-decoration: none; transition: border-color .3s, transform .3s; }
+    .srv-other:hover { border-color: var(--orange); transform: translateY(-3px); }
+    .srv-other-name { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .srv-other-sub { font-size: .9rem; color: var(--gray-600); line-height: 1.5; }
+
+    /* ── CTA FINAL ── */
+    .srv-cta { background: var(--orange); padding: 80px 6%; text-align: center; position: relative; overflow: hidden; }
+    .srv-cta::before { content: ''; position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.1); }
+    .srv-cta-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; margin-bottom: 14px; position: relative; }
+    .srv-cta-sub { color: rgba(255,255,255,.8); font-size: 1.05rem; margin-bottom: 32px; position: relative; }
+    .srv-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-white { background: var(--white); color: var(--orange); padding: 17px 40px; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.2); }
+    .btn-dark-solid { background: var(--dark); color: var(--white); padding: 17px 40px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: transform .3s, background .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-dark-solid:hover { transform: translateY(-3px); background: var(--dark-mid); }
+
+    @media (max-width: 900px) {
+      .srv-layout { grid-template-columns: 1fr; gap: 48px; }
+      .srv-aside { position: static; }
+      .faq-grid, .srv-others-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .page-hero { padding: 120px 5% 56px; }
+      .srv-layout { padding: 56px 5% 24px; }
+      .srv-faq, .srv-others { padding: 64px 5%; }
+      .hero-offer { min-width: 0; flex: 1 1 100%; }
+      .srv-card { padding: 22px; }
+    }
+
+</style>
+  <!-- TODO migracion: las URLs de este JSON-LD salen de site.url -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://robertoibc.github.io/en/meeting-rooms/#service",
+      "name": "Meeting room hire",
+      "serviceType": "Meeting room hire",
+      "description": "Equipped meeting rooms by the hour, from one hour, in 17 cities across Spain. For 2 to 275 people, with video conferencing, catering, training and events.",
+      "url": "https://robertoibc.github.io/en/meeting-rooms/",
+      "inLanguage": "en-GB",
+      "provider": {
+        "@id": "https://robertoibc.github.io/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Madrid"
+        },
+        {
+          "@type": "City",
+          "name": "Barcelona"
+        },
+        {
+          "@type": "City",
+          "name": "Murcia"
+        },
+        {
+          "@type": "City",
+          "name": "Seville"
+        },
+        {
+          "@type": "City",
+          "name": "Tenerife"
+        },
+        {
+          "@type": "City",
+          "name": "A Coruña"
+        },
+        {
+          "@type": "City",
+          "name": "Bilbao"
+        },
+        {
+          "@type": "City",
+          "name": "Segovia"
+        },
+        {
+          "@type": "City",
+          "name": "Albacete"
+        },
+        {
+          "@type": "City",
+          "name": "Alicante"
+        },
+        {
+          "@type": "City",
+          "name": "Castellón"
+        },
+        {
+          "@type": "City",
+          "name": "Málaga"
+        },
+        {
+          "@type": "City",
+          "name": "Mérida"
+        },
+        {
+          "@type": "City",
+          "name": "Salamanca"
+        },
+        {
+          "@type": "City",
+          "name": "Valencia"
+        },
+        {
+          "@type": "City",
+          "name": "Vigo"
+        },
+        {
+          "@type": "City",
+          "name": "Zaragoza"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://robertoibc.github.io/en/meeting-rooms/",
+      "url": "https://robertoibc.github.io/en/meeting-rooms/",
+      "name": "Meeting room hire by the hour in Spain | OficinasYA!",
+      "description": "Equipped meeting rooms by the hour, from one hour, in 17 cities across Spain. For 2 to 275 people, with video conferencing, catering, training and events.",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@id": "https://robertoibc.github.io/#website"
+      },
+      "about": {
+        "@id": "https://robertoibc.github.io/en/meeting-rooms/#service"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://robertoibc.github.io/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Meeting room hire",
+          "item": "https://robertoibc.github.io/en/meeting-rooms/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://robertoibc.github.io/en/meeting-rooms/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does it cost to hire a meeting room?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rooms are charged by the hour, from one hour, and the rate depends on the room's capacity and the centre: a four-person room in Segovia and a 200-seat auditorium in Murcia are not the same thing. Monthly office clients have meeting-room hours included at several centres. Ask for the price of the specific room on 918 298 500 or through the form."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far in advance do I need to book?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a small room, confirming availability by phone the same day is usually enough. For large rooms, auditorium layouts or bookings with catering it is best to allow a few days, because the setup and the service need preparing. In any case, the earlier you book, the more choice of room and time you will have."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book outside office hours or on a public holiday?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. At the centres with 24-hour access — the eight in Madrid and selected centres elsewhere — the room can be used at night, at weekends or on public holidays. At the other centres bookings follow reception hours, which are listed on each centre's page. You pay only for the time booked."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What equipment does the room have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Screen or projector, whiteboard, high-speed WiFi, video conferencing and a printer available, with coffee and water. Training rooms also offer a classroom layout. If you need something specific — a sound system, a particular setup, catering for the break — say so when booking and we will have it ready before you arrive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use a room in a city where I am not a client?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Rooms are hired by the hour by any company, client of the network or not. If your company is based in Madrid but you need to meet a client in Seville or Bilbao, you book the room at that city's centre and reception welcomes you as if it were your own office. It is one of the most common uses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you host events and training sessions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Murcia centres (Marla Center and Edificio Magalia) and Edificio Galia Puerto in Seville have event spaces for 90 to 275 people, in auditorium, cocktail or conference layouts. For training there are classrooms in Castellón, A Coruña and Valencia, with projector and classroom layout. The other centres offer rooms for up to 50 people."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="nav-dark">
+  <a href="/en/" class="nav-logo">
+    <div class="logo-wordmark">
+      <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
+    </div>
+    <span class="logo-sub">Coworking &amp; Workplaces</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/en/#services">Services</a></li>
+    <li><a href="/en/locations/">Locations</a></li>
+    <li><a href="/en/#pricing">Pricing</a></li>
+    <li><a href="/en/community/">Community</a></li>
+    <li><a href="/en/blog/">Blog</a></li>
+    <li><a href="/en/#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <a href="/salas-de-reuniones/" hreflang="es" lang="es" title="Leer esta página en español">ES</a>
+      <span class="lang-sep" aria-hidden="true"></span>
+      <a href="/en/meeting-rooms/" hreflang="en" lang="en" aria-current="true">EN</a>
+    </div>
+    <a href="tel:918298500" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nav-cta-text">918 298 500</span></a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/en/#services">Services</a>
+  <a href="/en/locations/">Locations</a>
+  <a href="/en/#pricing">Pricing</a>
+  <a href="/en/community/">Community</a>
+  <a href="/en/blog/">Blog</a>
+  <a href="/en/#contact">Contact</a>
+  <a href="tel:918298500" class="mobile-menu-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
+</div>
+
+
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner"><div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Meeting rooms</span>
+    </div>
+    <h1 class="page-hero-title">Meeting room hire</h1>
+    <p class="page-hero-sub">Rooms for 2 to 275 people, from one hour, any day of the year. Equipped, with visitor reception and catering on request. In 17 cities.</p>
+    <div class="hero-btns">
+      <a href="tel:918298500" class="btn-orange">Call us · 918 298 500</a>
+      <a href="/en/#contact" class="btn-ghost">Request a quote →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<div class="srv-layout">
+  <article class="srv-article">
+<h2>Rooms for every kind of meeting</h2>
+<p>Every centre in the network has at least one equipped meeting room, and most have several of different sizes. The smallest, for two to four people, are for an interview, a video call you would rather not take from an open office, or a meeting with a client. The medium ones, for eight to twenty, are the classic boardrooms, with a central table, screen and whiteboard. And some centres have large spaces: up to 50 people at Capitán Haya (Madrid), A Coruña or Segovia, 90 at Edificio Galia Puerto in Seville (150 in an open layout), 200 at Marla Center and 275 at Edificio Magalia, both in Murcia.</p>
+<p>They are all hired the same way: by the hour, from one hour, any day of the year. You book the time you need, arrive, reception welcomes your guests and takes them to the room, and when you finish you leave. There is no fee, no minimum term, and you do not need to be a client of the network.</p>
+<h2>What the booking includes</h2>
+<p>The room is handed over set up and with the equipment running: screen or projector, whiteboard, high-speed WiFi, a video-conferencing system and a printer available. The centre's reception welcomes your visitors, in other languages too, and shows them to the room. There is coffee and water, and the room is cleaned between one booking and the next.</p>
+<p>Catering is contracted separately and on request: a working breakfast, a mid-morning break or lunch for a full-day session. You order it when booking and it is served at the agreed time. Parking depends on the centre; each city page says which ones have it.</p>
+<h2>Price</h2>
+<p>Rooms are charged by the hour and the rate depends on two things: the room's capacity and the centre. A four-person room in a small city and a 200-seat auditorium do not cost the same, and a single "from" price that fitted neither would make no sense. Ask for the price of the specific room you need and we will give it to you on the spot. All prices are shown without VAT.</p>
+<p>If you are a monthly office client, at several centres your fee includes meeting-room hours each month; check the details of yours. Virtual office and Smart Office clients book rooms and offices by the hour at the same hourly rate.</p>
+<h2 id="eventos">Layouts: meetings, training and events</h2>
+<p>Most rooms allow several layouts, and at the larger centres they are set up to order: a boardroom table for a meeting, classroom or U-shape for a training session, auditorium or cocktail for an event.</p>
+<p><strong>Training.</strong> The centres in Castellón (Dean Martí), A Coruña (Andrés Martínez Salazar) and Valencia (Guillem de Castro) have training rooms with a projector for groups of 18 to 28 people. They are the option for in-house courses, client sessions or certification exams.</p>
+<p><strong>Events.</strong> For product launches, company days or conventions, the large-capacity spaces are in Murcia — Marla Center, up to 200 people, with reception open from 7:00 to midnight on weekdays, and Edificio Magalia in Alcantarilla, up to 275 — and in Seville, at Edificio Galia Puerto, with rooms for 12 to 90 people and 150 in an open layout. They are organised with catering, reception support and prior setup.</p>
+<h2>How to book</h2>
+<ol>
+<li><strong>Call 918 298 500 or write</strong> with the city, the number of attendees, the date and the hours. If you need video conferencing, catering or a particular setup, say so then.</li>
+<li><strong>Confirmation on the spot</strong> of room, price and time. For events and large rooms, with a prior visit if you want to see the space.</li>
+<li><strong>On the day</strong> you arrive at reception, they take you to the room and everything is running. When you finish, you pay only for the time booked.</li>
+</ol>
+<h2>Where</h2>
+<p>There are meeting rooms at 33 of the 35 spaces in the network, across 17 cities. The capacity of each room, and the address and reception hours of each centre, are on its city page. In Madrid, all eight centres have 24-hour access, so the meeting can be whenever you need it.</p>
+  </article>
+  <aside class="srv-aside">
+    <div class="srv-card">
+      <h3>What's included</h3>
+      <ul>
+        <li>Rooms for 2 to 275 people, depending on the centre</li>
+        <li>Equipped room with screen or projector and whiteboard</li>
+        <li>Video conferencing</li>
+        <li>High-speed WiFi</li>
+        <li>Visitor reception, in several languages</li>
+        <li>Coffee and water</li>
+        <li>Printer available</li>
+        <li>Cleaning between bookings</li>
+      </ul>
+    </div>
+    <div class="srv-card no">
+      <h3>What's not included</h3>
+      <ul>
+        <li>Catering (contracted separately, on request)</li>
+        <li>Printing costs</li>
+        <li>Parking, except at the centres that have it</li>
+        <li>VAT (all prices are shown without tax)</li>
+      </ul>
+    </div>
+    <div class="srv-card">
+      <h3>Where</h3>
+      <p class="srv-card-cities-sub">Available in 17 cities</p>
+      <div class="srv-card-cities">
+        <a href="/en/locations/#madrid">Madrid</a>
+        <a href="/en/locations/#card-barcelona">Barcelona</a>
+        <a href="/en/locations/#card-murcia">Murcia</a>
+        <a href="/en/locations/#card-sevilla">Seville</a>
+        <a href="/en/locations/#card-tenerife">Tenerife</a>
+        <a href="/en/locations/#card-coruna">A Coruña</a>
+        <a href="/en/locations/#card-bilbao">Bilbao</a>
+        <a href="/en/locations/#card-segovia">Segovia</a>
+        <a href="/en/locations/#card-albacete">Albacete</a>
+        <a href="/en/locations/#card-alicante">Alicante</a>
+        <a href="/en/locations/#card-castellon">Castellón</a>
+        <a href="/en/locations/#card-malaga">Málaga</a>
+        <a href="/en/locations/#card-merida">Mérida</a>
+        <a href="/en/locations/#card-salamanca">Salamanca</a>
+        <a href="/en/locations/#card-valencia">Valencia</a>
+        <a href="/en/locations/#card-vigo">Vigo</a>
+        <a href="/en/locations/#card-zaragoza">Zaragoza</a>
+      </div>
+    </div>
+    <div class="srv-card cta">
+      <h3>Shall we talk?</h3>
+      <p>We confirm availability and price on the spot.</p>
+      <a href="tel:918298500" class="a-tel">918 298 500</a>
+      <a href="https://wa.me/34624119705" class="a-wa" target="_blank" rel="noopener">WhatsApp 624 119 705</a>
+      <a href="/en/#contact" class="a-form">Contact form</a>
+    </div>
+  </aside>
+</div>
+
+<!-- FAQ -->
+<section class="srv-faq" id="faq">
+  <div class="srv-faq-inner">
+    <div class="srv-faq-hd">
+      <div class="eyebrow" style="justify-content:center">FAQ</div>
+      <h2 class="stitle">Frequently asked questions</h2>
+      <p class="ssub">What people ask us about this service</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>How much does it cost to hire a meeting room?</h3>
+        <p>Rooms are charged by the hour, from one hour, and the rate depends on the room's capacity and the centre: a four-person room in Segovia and a 200-seat auditorium in Murcia are not the same thing. Monthly office clients have meeting-room hours included at several centres. Ask for the price of the specific room on 918 298 500 or through the form.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How far in advance do I need to book?</h3>
+        <p>For a small room, confirming availability by phone the same day is usually enough. For large rooms, auditorium layouts or bookings with catering it is best to allow a few days, because the setup and the service need preparing. In any case, the earlier you book, the more choice of room and time you will have.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I book outside office hours or on a public holiday?</h3>
+        <p>Yes. At the centres with 24-hour access — the eight in Madrid and selected centres elsewhere — the room can be used at night, at weekends or on public holidays. At the other centres bookings follow reception hours, which are listed on each centre's page. You pay only for the time booked.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What equipment does the room have?</h3>
+        <p>Screen or projector, whiteboard, high-speed WiFi, video conferencing and a printer available, with coffee and water. Training rooms also offer a classroom layout. If you need something specific — a sound system, a particular setup, catering for the break — say so when booking and we will have it ready before you arrive.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I use a room in a city where I am not a client?</h3>
+        <p>Yes. Rooms are hired by the hour by any company, client of the network or not. If your company is based in Madrid but you need to meet a client in Seville or Bilbao, you book the room at that city's centre and reception welcomes you as if it were your own office. It is one of the most common uses.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you host events and training sessions?</h3>
+        <p>Yes. The Murcia centres (Marla Center and Edificio Magalia) and Edificio Galia Puerto in Seville have event spaces for 90 to 275 people, in auditorium, cocktail or conference layouts. For training there are classrooms in Castellón, A Coruña and Valencia, with projector and classroom layout. The other centres offer rooms for up to 50 people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTROS SERVICIOS -->
+<section class="srv-others">
+  <div class="srv-others-inner">
+    <h2>Other services</h2>
+    <div class="srv-others-grid">
+      <a href="/en/private-offices/" class="srv-other">
+        <div class="srv-other-name">Private office rental</div>
+        <div class="srv-other-sub">A closed, furnished space for your exclusive use. By the hour or by the month, in 35 spaces across 17 cities.</div>
+      </a>
+      <a href="/en/virtual-office/" class="srv-other">
+        <div class="srv-other-name">Virtual office and registered business address</div>
+        <div class="srv-other-sub">A professional address for your company, with reception, mail and phone handled, without renting an office. From €20 a month + VAT.</div>
+      </a>
+      <a href="/en/coworking/" class="srv-other">
+        <div class="srv-other-name">Coworking in business centres</div>
+        <div class="srv-other-sub">Workstations by the month at three centres in the network, in Barcelona, A Coruña and Salamanca, with everything a business centre offers around them.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="srv-cta">
+  <h2 class="srv-cta-title">Shall we talk?</h2>
+  <p class="srv-cta-sub">We confirm availability and price on the spot.</p>
+  <div class="srv-cta-btns">
+    <a href="tel:918298500" class="btn-white">Call us · 918 298 500</a>
+    <a href="/en/#contact" class="btn-dark-solid">Contact form →</a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo nav-logo">
+        <div class="logo-wordmark">
+          <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
+        </div>
+        <span class="logo-sub">Coworking &amp; Workplaces</span>
+      </div>
+      <p>Private offices, coworking and business centres in Madrid and across Spain. Happy Workplaces since the 20th century.</p>
+      <div class="socials" style="margin-top:24px">
+        <a href="https://www.facebook.com/oficinasya" class="soc" aria-label="Facebook"><svg viewBox="0 0 320 512" fill="currentColor"><path d="M279.1 288l14.2-92.7h-88.9v-60.1c0-25.4 12.4-50.1 52.2-50.1h40.4V6.3S260.4 0 225.4 0c-73.2 0-121.1 44.4-121.1 124.7v70.6H22.9V288h81.4v224h100.2V288z"/></svg></a>
+        <a href="https://www.linkedin.com/company/oficinasya" class="soc" aria-label="LinkedIn"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg></a>
+        <a href="https://twitter.com/oficinasya" class="soc" aria-label="X (Twitter)"><svg viewBox="0 0 512 512" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88H109.9L364.4 421.8z"/></svg></a>
+        <a href="https://www.instagram.com/oficinasya" class="soc" aria-label="Instagram"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.5 122.5 1.8 158.3c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="/en/#services">Private offices</a></li>
+        <li><a href="/en/#services">Meeting rooms</a></li>
+        <li><a href="/en/#services">Virtual office</a></li>
+        <li><a href="/en/#services">Coworking</a></li>
+        <li><a href="/en/#services">Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/en/#why">Why us</a></li>
+        <li><a href="/en/#testimonials">Clients</a></li>
+        <li><a href="/en/locations/">Locations</a></li>
+        <li><a href="/en/#pricing">Pricing</a></li>
+        <li><a href="/en/community/">Community</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
+        <li><a href="/en/#contact">Contact form</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:918298500">918 298 500</a></li>
+        <li><a href="https://wa.me/34624119705">WhatsApp 624 119 705</a></li>
+        <li><a href="mailto:hola@oficinasya.es">hola@oficinasya.es</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 OficinasYA! · All rights reserved</span>
+    <div class="footer-bottom-links"><a href="/en/legal-notice/">Legal notice</a>·<a href="/en/privacy-policy/">Privacy</a>·<a href="/en/cookie-policy/">Cookies</a></div>
+  </div>
+</footer>
+
+
+<a href="https://wa.me/34624119705" class="wa" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="27" height="27" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+
+<script>
+  // Cabecera: fondo solido al hacer scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 80));
+
+  // Menu movil
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuBackdrop = document.getElementById('menuBackdrop');
+  function closeMenu() {
+    menuToggle.classList.remove('open'); mobileMenu.classList.remove('open'); menuBackdrop.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+  }
+  function openMenu() {
+    menuToggle.classList.add('open'); mobileMenu.classList.add('open'); menuBackdrop.classList.add('open');
+    menuToggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden';
+  }
+  menuToggle.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+  menuBackdrop.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Animaciones de entrada (.rv, .rvl, .rvr)
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => io.observe(el));
+
+</script>
+</body>
+</html>

@@ -9,8 +9,11 @@ Fuentes:
     _data/global.yml      cifras, precios "desde", contacto, URL del sitio
     _data/i18n.yml        cadenas de cabecera y pie en cada idioma
     _data/centros.csv     los espacios de la red (sin precios)
+    _data/ciudades.yml    nombres y slugs de las ciudades
     _data/redirects.yml   rutas antiguas -> nuevas
-    _content/pages/       paginas a medida (home, hub, comunidad, blog, legales)
+    _content/pages/       paginas a medida (home, hub, comunidad, blog, legales): HTML
+    _content/servicios/   paginas de servicio: Markdown con front matter
+    _content/ciudades/    paginas de ciudad: Markdown con front matter (fase 4)
     _templates/           base.html, layouts/, partials/, assets/base.css y base.js
 
 Salida: un index.html por URL (p. ej. /ubicaciones/index.html), sitemap.xml,
@@ -21,10 +24,12 @@ No hay dependencias raras: Jinja2, PyYAML y Markdown (ver requirements.txt).
 """
 import argparse
 import csv
+import json
 import pathlib
 import re
 import sys
 
+import markdown
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
@@ -35,10 +40,25 @@ TEMPLATES = ROOT / '_templates'
 
 LANGS = ('es', 'en')
 OG_LOCALE = {'es': 'es_ES', 'en': 'en_GB'}
+LANG_TAG = {'es': 'es-ES', 'en': 'en-GB'}
 DEFAULT_LANG = 'es'
+HOME = {'es': '/', 'en': '/en/'}
 
-# Orden y prioridad del sitemap por tipo de pagina
+# Prioridad del sitemap por tipo de pagina; el resto va a 0.2 (legales) o
+# a lo que diga SITEMAP_PRIORITY_BY_LAYOUT.
 SITEMAP_PRIORITY = {'home': '1.0', 'ubicaciones': '0.9', 'comunidad': '0.7', 'blog': '0.6'}
+SITEMAP_PRIORITY_BY_LAYOUT = {'servicio': '0.8', 'ciudad': '0.8'}
+
+# Claves de la columna `servicios` de centros.csv que cuentan como cada servicio
+SERVICE_KEYS = {
+    'despachos': 'despachos',
+    'salas': 'salas de reuniones',
+    'smart_office': 'smart office',
+    'coworking': 'coworking',
+    'eventos': 'eventos',
+    'aula': 'aula',
+    'coliving': 'coliving',
+}
 
 
 # ---------------------------------------------------------------- utilidades
@@ -56,11 +76,11 @@ def write_if_changed(path, text):
     return True
 
 
-def front_matter(text):
+def front_matter(text, source):
     """Separa el front matter YAML (entre '---') del cuerpo."""
     m = re.match(r'^---\n(.*?)\n---\n', text, re.S)
     if not m:
-        raise SystemExit('falta el front matter')
+        raise SystemExit(f'{source}: falta el front matter')
     return yaml.safe_load(m.group(1)), text[m.end():]
 
 
@@ -80,13 +100,25 @@ def url_to_path(url):
     return (url.strip('/') + '/index.html').lstrip('/')
 
 
+def to_jsonld(obj):
+    """JSON-LD legible, con tildes tal cual y sangria de dos espacios."""
+    return json.dumps(obj, ensure_ascii=False, indent=2)
+
+
 # ---------------------------------------------------------------- datos
 def load_data():
     g = yaml.safe_load(read(DATA / 'global.yml'))
     i18n = yaml.safe_load(read(DATA / 'i18n.yml'))
     redirects = yaml.safe_load(read(DATA / 'redirects.yml'))
+    ciudades = yaml.safe_load(read(DATA / 'ciudades.yml'))
     with open(DATA / 'centros.csv', encoding='utf-8', newline='') as f:
         centros = [r for r in csv.DictReader(f) if r['activo'].strip().lower() == 'si']
+
+    nombres = {c['nombre'] for c in ciudades}
+    for c in centros:
+        if c['ciudad'] not in nombres:
+            raise SystemExit(f"centros.csv: la ciudad '{c['ciudad']}' no esta en ciudades.yml")
+        c['acceso_24h'] = '24' in c['horario']
 
     # Precios por centro: solo si el cliente lo ha aprobado Y la hoja privada existe.
     if g.get('publicar_precios_por_centro'):
@@ -97,23 +129,24 @@ def load_data():
             precios = {(r['ciudad'], r['centro']): r for r in csv.DictReader(f)}
         for c in centros:
             c['precios'] = precios.get((c['ciudad'], c['centro']))
-    return g, i18n, redirects, centros
+    return g, i18n, redirects, ciudades, centros
 
 
-def group_cities(centros):
-    """Agrupa los centros por ciudad, en el orden del CSV, de mas a menos centros."""
-    by = {}
-    for c in centros:
-        by.setdefault(c['ciudad'], []).append(c)
-    ciudades = []
-    for nombre, cs in by.items():
-        ciudades.append({
-            'nombre': nombre,
-            'centros': cs,
-            'tiene_coliving': any('coliving' in c['servicios'] for c in cs),
-        })
-    ciudades.sort(key=lambda c: (-len(c['centros']), c['nombre']))
-    return ciudades
+def group_cities(ciudades, centros):
+    """Una entrada por ciudad con sus centros, de mas a menos centros."""
+    out = []
+    for c in ciudades:
+        cs = [x for x in centros if x['ciudad'] == c['nombre']]
+        if not cs:
+            continue
+        out.append({**c, 'centros': cs,
+                    'tiene_coliving': any('coliving' in x['servicios'] for x in cs)})
+    out.sort(key=lambda c: (-len(c['centros']), c['nombre']))
+    return out
+
+
+def service_counts(centros):
+    return {k: sum(1 for c in centros if key in c['servicios']) for k, key in SERVICE_KEYS.items()}
 
 
 # ---------------------------------------------------------------- paginas
@@ -125,12 +158,16 @@ class Page(dict):
 
 def load_pages():
     pages = []
-    for path in sorted((CONTENT / 'pages').glob('*.html')):
-        meta, body = front_matter(read(path))
-        pages.append(Page(meta, body=body, source=path))
-    # Comprobaciones de estructura: cada id tiene una version por idioma y URLs unicas
+    for path in sorted(CONTENT.rglob('*')):
+        if path.suffix not in ('.html', '.md') or not path.is_file():
+            continue
+        meta, body = front_matter(read(path), path)
+        pages.append(Page(meta, body=body, source=path, kind=path.suffix[1:]))
     urls = {}
     for p in pages:
+        for k in ('id', 'lang', 'url', 'layout', 'title', 'description'):
+            if not p.get(k):
+                raise SystemExit(f'{p.source}: falta "{k}" en el front matter')
         if p.lang not in LANGS:
             raise SystemExit(f'{p.source}: lang debe ser es o en')
         if p.url in urls:
@@ -139,27 +176,101 @@ def load_pages():
     return pages
 
 
-def page_order(pid):
-    """Home, hub, comunidad, blog y despues el resto por orden alfabetico."""
-    return (-float(SITEMAP_PRIORITY.get(pid, '0.2')), pid)
+SERVICE_ORDER = ['srv-despachos', 'srv-salas', 'srv-oficina-virtual', 'srv-coworking']
 
 
-def link_alternates(pages, site_url):
+def page_order(p):
+    """Home, hub, comunidad, blog, servicios (en su orden), ciudades y despues el resto."""
+    prio = SITEMAP_PRIORITY.get(p['id']) or SITEMAP_PRIORITY_BY_LAYOUT.get(p.layout, '0.2')
+    srv = SERVICE_ORDER.index(p['id']) if p['id'] in SERVICE_ORDER else 99
+    return (-float(prio), p.layout, srv, p['id'])
+
+
+def link_alternates(pages, site_url, warnings):
     by_id = {}
-    for p in sorted(pages, key=lambda p: page_order(p['id'])):
+    for p in sorted(pages, key=page_order):
         by_id.setdefault(p['id'], {})[p.lang] = p
     for p in pages:
         group = by_id[p['id']]
-        if set(group) != set(LANGS):
-            raise SystemExit(f"la pagina '{p['id']}' no tiene version en los dos idiomas")
+        missing = [l for l in LANGS if l not in group]
+        if missing:
+            warnings.append(f"'{p['id']}' no tiene version en {', '.join(missing)}: se publica solo en {p.lang}")
         p['abs_url'] = site_url + p.url
         p['og_locale'] = OG_LOCALE[p.lang]
         p['is_home'] = p['id'] == 'home'
-        alts = [{'lang': l, 'url': site_url + group[l].url, 'og_locale': OG_LOCALE[l]} for l in LANGS]
-        alts.append({'lang': 'x-default', 'url': site_url + group[DEFAULT_LANG].url, 'og_locale': None})
+        alts = [{'lang': l, 'url': site_url + group[l].url, 'og_locale': OG_LOCALE[l]} for l in LANGS if l in group]
+        xdef = group.get(DEFAULT_LANG) or p
+        alts.append({'lang': 'x-default', 'url': site_url + xdef.url, 'og_locale': None})
         p['alternates'] = alts
         p['pair'] = group
     return by_id
+
+
+# ---------------------------------------------------------------- JSON-LD de las paginas Markdown
+def jsonld_servicio(p, g, site, lang, prices, ciudades_disp, i18n):
+    url = site['url']
+    offers = []
+    for o in p.get('ofertas') or []:
+        offers.append({
+            '@type': 'Offer',
+            'name': o['nombre'],
+            'description': o.get('detalle', ''),
+            'url': p['abs_url'],
+            'priceCurrency': 'EUR',
+            'price': json_price(g['precios'][o['precio']]),
+            'priceSpecification': {
+                '@type': 'UnitPriceSpecification',
+                'price': json_price(g['precios'][o['precio']]),
+                'priceCurrency': 'EUR',
+                'unitCode': o['unit_code'],
+                'valueAddedTaxIncluded': False,
+            },
+            'availability': 'https://schema.org/InStock',
+        })
+    service = {
+        '@type': 'Service',
+        '@id': p['abs_url'] + '#service',
+        'name': p['h1'],
+        'serviceType': p['service_type'],
+        'description': p['description'],
+        'url': p['abs_url'],
+        'inLanguage': LANG_TAG[lang],
+        'provider': {'@id': url + '/#organization'},
+        'areaServed': [{'@type': 'City', 'name': c['nombre' if lang == 'es' else 'nombre_en']} for c in ciudades_disp],
+    }
+    if offers:
+        service['offers'] = offers
+    graph = [
+        service,
+        {
+            '@type': 'WebPage',
+            '@id': p['abs_url'],
+            'url': p['abs_url'],
+            'name': p['title'],
+            'description': p['description'],
+            'inLanguage': LANG_TAG[lang],
+            'isPartOf': {'@id': url + '/#website'},
+            'about': {'@id': p['abs_url'] + '#service'},
+        },
+        {
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+                {'@type': 'ListItem', 'position': 1, 'name': i18n['breadcrumb_home'], 'item': url + HOME[lang]},
+                {'@type': 'ListItem', 'position': 2, 'name': p['h1'], 'item': p['abs_url']},
+            ],
+        },
+    ]
+    if p.get('faq'):
+        graph.append({
+            '@type': 'FAQPage',
+            '@id': p['abs_url'] + '#faq',
+            'mainEntity': [{
+                '@type': 'Question',
+                'name': q['q'],
+                'acceptedAnswer': {'@type': 'Answer', 'text': q['a']},
+            } for q in p['faq']],
+        })
+    return {'@context': 'https://schema.org', '@graph': graph}
 
 
 # ---------------------------------------------------------------- render
@@ -171,45 +282,88 @@ def make_env():
         keep_trailing_newline=True,
     )
     env.filters['jsonprice'] = json_price
+    env.filters['jsonld'] = to_jsonld
     return env
 
 
+def render_markdown(text):
+    return markdown.markdown(text, extensions=['attr_list', 'tables', 'sane_lists'], output_format='html5')
+
+
 def build(check=False):
-    g, i18n, redirects, centros = load_data()
+    g, i18n, redirects, ciudades_yml, centros = load_data()
     site = g['site']
     env = make_env()
     base_css = read(TEMPLATES / 'assets' / 'base.css').rstrip('\n')
     base_js = read(TEMPLATES / 'assets' / 'base.js').rstrip('\n')
+    ciudades = group_cities(ciudades_yml, centros)
+    n = service_counts(centros)
 
+    warnings = []
     pages = load_pages()
-    by_id = link_alternates(pages, site['url'])
+    by_id = link_alternates(pages, site['url'], warnings)
 
     changed = []
     outputs = set()
 
+    def city_url(city, lang):
+        """URL de la pagina de ciudad si existe; si no, el hub con su ancla."""
+        pid = 'ciudad-' + city['slug']
+        if pid in by_id and lang in by_id[pid]:
+            return by_id[pid][lang].url
+        return by_id['ubicaciones'][lang].url + '#' + city['hub_anchor']
+
+    # Pasada 1: los textos del front matter pueden usar {{ g.* }}; se renderizan
+    # antes de nada para que una pagina pueda citar el h1 de otra.
     for p in pages:
         lang = p.lang
-        urls = {pid: group[lang].url for pid, group in by_id.items()}
+        ctx0 = {'g': g, 'p': {k: fmt_price(v, lang) for k, v in g['precios'].items()},
+                'n': n, 'site': site, 't': i18n[lang]}
+        for k in ('title', 'description', 'h1', 'subtitle'):
+            if p.get(k):
+                p[k] = env.from_string(p[k]).render(ctx0)
+        for q in p.get('faq') or []:
+            q['q'] = env.from_string(q['q']).render(ctx0)
+            q['a'] = env.from_string(q['a']).render(ctx0)
+
+    # Pasada 2: render
+    for p in pages:
+        lang = p.lang
+        t = i18n[lang]
+        urls = {pid: group[lang].url if lang in group else HOME[lang] for pid, group in by_id.items()}
+        pages_by_id = {pid: group[lang] for pid, group in by_id.items() if lang in group}
         prices = {k: fmt_price(v, lang) for k, v in g['precios'].items()}
         pair = p['pair']
         p['lang_links'] = [{
             'lang': l,
-            'href': ('#hero' if p.is_home else p.url) if l == lang else pair[l].url,
+            'href': ('#hero' if p.is_home else p.url) if l == lang else (pair[l].url if l in pair else HOME[l]),
             'current': l == lang,
             # el title va en el idioma de destino ("Read this page in English" en la ES)
-            'title': '' if l == lang else i18n[lang]['lang_other_title'],
+            'title': '' if l == lang else t['lang_other_title'],
         } for l in LANGS]
 
-        ctx = {
-            'site': site, 'g': g, 'p': prices, 't': i18n[lang], 'page': p, 'urls': urls,
-            'base_css': base_css, 'base_js': base_js, 'centros': centros,
-        }
-        # title y description tambien pueden usar {{ g.* }}
-        p['title'] = env.from_string(p['title']).render(ctx)
-        p['description'] = env.from_string(p['description']).render(ctx)
+        # ciudades con enlace, para las paginas que listan donde esta un servicio
+        cities_ctx = [{**c, 'url': city_url(c, lang), 'label': c['nombre' if lang == 'es' else 'nombre_en']}
+                      for c in ciudades]
 
-        src = f'{{% extends "layouts/{p.layout}.html" %}}\n' + p['body']
-        html = env.from_string(src).render(ctx)
+        ctx = {
+            'site': site, 'g': g, 'p': prices, 't': t, 'page': p, 'urls': urls, 'n': n,
+            'base_css': base_css, 'base_js': base_js, 'centros': centros, 'ciudades': cities_ctx,
+            'lang': lang, 'pages_by_id': pages_by_id,
+        }
+
+        if p.kind == 'md':
+            body = env.from_string(p['body']).render(ctx)
+            p['body_html'] = render_markdown(body)
+            if p.layout == 'servicio':
+                key = p['csv_key']
+                p['ciudades_disponibles'] = [c for c in cities_ctx if any(key in x['servicios'] for x in c['centros'])]
+                p['jsonld'] = to_jsonld(jsonld_servicio(p, g, site, lang, prices, p['ciudades_disponibles'], t))
+            html = env.get_template(f'layouts/{p.layout}.html').render(ctx)
+        else:
+            src = f'{{% extends "layouts/{p.layout}.html" %}}\n' + p['body']
+            html = env.from_string(src).render(ctx)
+
         out = ROOT / url_to_path(p.url)
         outputs.add(out)
         if check:
@@ -220,10 +374,11 @@ def build(check=False):
 
     # ---- sitemap.xml (solo paginas reales; los stubs de redireccion no van)
     def prio(p):
-        return SITEMAP_PRIORITY.get(p['id'], '0.2') if p.lang == 'es' else \
-            {'1.0': '0.9', '0.9': '0.8', '0.7': '0.6', '0.6': '0.5'}.get(SITEMAP_PRIORITY.get(p['id'], '0.2'), '0.2')
+        base = SITEMAP_PRIORITY.get(p['id']) or SITEMAP_PRIORITY_BY_LAYOUT.get(p.layout, '0.2')
+        if p.lang == DEFAULT_LANG or base == '0.2':
+            return base
+        return f'{float(base) - 0.1:.1f}'
 
-    order = {pid: i for i, pid in enumerate(by_id)}
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<!--',
           '  Generado por _build.py a partir de _content/. No editar a mano.',
@@ -233,7 +388,7 @@ def build(check=False):
           '-->',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
           '        xmlns:xhtml="http://www.w3.org/1999/xhtml">']
-    for p in sorted(pages, key=lambda p: (p.lang != DEFAULT_LANG, order[p['id']])):
+    for p in sorted(pages, key=lambda p: (p.lang != DEFAULT_LANG, page_order(p))):
         sm.append(f'  <url><loc>{p.abs_url}</loc><priority>{prio(p)}</priority>')
         for a in p.alternates:
             sm.append(f'    <xhtml:link rel="alternate" hreflang="{a["lang"]}" href="{a["url"]}"/>')
@@ -242,11 +397,11 @@ def build(check=False):
     sitemap = '\n'.join(sm)
 
     # ---- llms.txt
-    ciudades = group_cities(centros)
-    pares = [{'es': grp['es'].url, 'en': grp['en'].url} for grp in by_id.values()]
+    pares = [{'es': grp['es'].url, 'en': grp['en'].url} for grp in by_id.values() if 'es' in grp and 'en' in grp]
+    servicios = [grp['es'] for grp in by_id.values() if 'es' in grp and grp['es'].layout == 'servicio']
     llms = env.get_template('llms.txt').render(
         site=site, g=g, p={k: fmt_price(v, 'es') for k, v in g['precios'].items()},
-        ciudades=ciudades, pares=pares,
+        ciudades=ciudades, pares=pares, servicios=servicios, n=n,
         n_centros=sum(1 for c in centros if 'coliving' not in c['servicios']),
         n_colivings=sum(1 for c in centros if 'coliving' in c['servicios']),
     )
@@ -265,10 +420,10 @@ def build(check=False):
         elif write_if_changed(out, text):
             changed.append(out)
 
-    return changed, outputs
+    return changed, outputs, warnings
 
 
-def print_htaccess(redirects, site):
+def print_htaccess(redirects):
     print('# Redirecciones 301 generadas por _build.py --htaccess')
     print('# Pegar en .htaccess (Apache) o importar en el plugin Redirection.')
     for section in ('prototipo', 'migracion'):
@@ -284,12 +439,14 @@ def main():
     args = ap.parse_args()
 
     if args.htaccess:
-        g, _, redirects, _ = load_data()
-        print_htaccess(redirects, g['site'])
+        _, _, redirects, _, _ = load_data()
+        print_htaccess(redirects)
         return
 
-    changed, outputs = build(check=args.check)
+    changed, outputs, warnings = build(check=args.check)
     rel = lambda p: p.relative_to(ROOT).as_posix()
+    for w in warnings:
+        print('AVISO:', w)
     if args.check:
         if changed:
             print('DESACTUALIZADO:\n  ' + '\n  '.join(rel(c) for c in changed))
