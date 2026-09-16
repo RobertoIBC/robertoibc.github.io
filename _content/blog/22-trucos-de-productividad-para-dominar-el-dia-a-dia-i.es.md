@@ -5,7 +5,7 @@ titulo: "Te traemos 22 trucos de productividad para dominar el día a día (I)"
 fecha: 2024-08-29
 categoria: prod
 resumen: "Hazte fácil la vuelta a la rutina con estos 22 hacks de productividad para mantenerte centrado y sacar todo el partido a tu día a día."
-imagen: https://www.oficinasya.es/wp-content/uploads/2023/10/autonomos-2.jpg
+imagen: /assets/img/blog/22-trucos-de-productividad-para-dominar-el-dia-a-dia-i.jpg
 destacado: true
 url: /te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/   # mismo slug que el post en WordPress: al migrar conserva su URL
 title: "22 trucos de productividad para el día a día | OficinasYA!"

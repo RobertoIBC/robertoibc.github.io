@@ -5,7 +5,7 @@ titulo: "Volver a la rutina sin estresarte es posible"
 fecha: 2024-08-20
 categoria: bien
 resumen: "Te contamos las mejores estrategias para evitar que la vuelta a la rutina se convierta en un proceso estresante que afecte a tu salud."
-imagen: https://www.oficinasya.es/wp-content/uploads/2024/08/vuelta-a-la-rutina.jpg
+imagen: /assets/img/blog/volver-a-la-rutina-sin-estresarte-es-posible.jpg
 url: /volver-a-la-rutina-sin-estresarte-es-posible/   # mismo slug que el post en WordPress: al migrar conserva su URL
 title: "Volver a la rutina sin estrés: estrategias | OficinasYA!"
 description: "Síndrome posvacacional: por qué la vuelta a la rutina nos afecta y pautas para afrontar el regreso a la normalidad sin que se convierta en una fuente de estrés."

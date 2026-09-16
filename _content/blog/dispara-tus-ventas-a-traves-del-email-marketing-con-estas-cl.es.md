@@ -5,7 +5,7 @@ titulo: "Dispara tus ventas a través del email marketing con estas claves"
 fecha: 2024-08-09
 categoria: neg
 resumen: "El email marketing es una gran herramienta para vender más en tu negocio, sólo requieres estas cinco claves para sacarle partido."
-imagen: https://www.oficinasya.es/wp-content/uploads/2024/08/How-To-Do-To-Improve-Your-Email-Marketing-Campaign-Part-3-2.jpg
+imagen: /assets/img/blog/dispara-tus-ventas-a-traves-del-email-marketing-con-estas-cl.jpg
 url: /dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/   # mismo slug que el post en WordPress: al migrar conserva su URL
 title: "Email marketing: claves para vender más | OficinasYA!"
 description: "El email marketing es una gran herramienta para vender más: una buena base de datos, listas de segmentación, un buen asunto, un gancho, un buen diseño y más."

@@ -5,7 +5,7 @@ titulo: "Google Wallet permitirá escanear cualquier tipo de documento"
 fecha: 2024-08-07
 categoria: tech
 resumen: "Google Wallet ha implementado una característica que permite escanear cualquier tipo de documento que contenga texto, mediante la opción ‘Everything Else’ (‘Todo lo demás’)."
-imagen: https://www.oficinasya.es/wp-content/uploads/2024/08/google-wallet.jpg
+imagen: /assets/img/blog/google-wallet-permitira-escanear-cualquier-tipo-de-documento.jpg
 url: /googlwe-wallet-permitira-escanear-cualquier-tipo-de-documento/   # mismo slug que el post en WordPress: al migrar conserva su URL
 title: "Google Wallet escaneará cualquier documento | OficinasYA!"
 description: "Google Wallet añade la opción “Todo lo demás”: escanear y guardar cualquier documento con texto junto a tarjetas bancarias, de embarque y entradas."

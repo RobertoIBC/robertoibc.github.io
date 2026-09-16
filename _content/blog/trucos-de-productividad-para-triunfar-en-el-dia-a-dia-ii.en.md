@@ -5,7 +5,7 @@ titulo: "Productivity tricks to win at the everyday (II)"
 fecha: 2024-09-03
 categoria: prod
 resumen: "Part two of our round-up of the best productivity ideas you can put to work in your day-to-day."
-imagen: /assets/img/stock/photo-1483058712412-4245e9b90334.jpg
+imagen: /assets/img/blog/trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii.jpg
 # Sin version inglesa (decision: no traducir textos del cliente sin su aprobacion).
 # La tarjeta enlaza al articulo en espanol y lo indica.
 enlace: /trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii/

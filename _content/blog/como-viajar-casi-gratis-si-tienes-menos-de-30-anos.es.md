@@ -5,7 +5,7 @@ titulo: "Cómo viajar casi gratis si tienes menos de 30 años"
 fecha: 2024-07-31
 categoria: vida
 resumen: "La campaña del Ministerio de Transportes está dirigida a jóvenes de entre 18 y 30 años y permite conseguir descuentos de hasta el 90% para viajar por España y Europa."
-imagen: https://www.oficinasya.es/wp-content/uploads/2024/07/trans_atlantic.jpg
+imagen: /assets/img/blog/como-viajar-casi-gratis-si-tienes-menos-de-30-anos.jpg
 url: /como-viajar-casi-gratis-si-tienes-menos-de-30-anos/   # mismo slug que el post en WordPress: al migrar conserva su URL
 actualizado: 2024-07-24
 title: "Viajar casi gratis con menos de 30 años | OficinasYA!"

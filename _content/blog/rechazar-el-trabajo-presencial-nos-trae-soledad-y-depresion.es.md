@@ -5,7 +5,7 @@ titulo: "Rechazar el trabajo presencial nos trae soledad y depresión, según ex
 fecha: 2024-08-26
 categoria: bien
 resumen: "El rechazo a regresar a la oficina es una de las mayores causas de aislamiento actual, pudiendo acabar en casos de soledad y depresión."
-imagen: https://www.oficinasya.es/wp-content/uploads/2024/08/7c20eff6dacd-mujer-banco-t.avif
+imagen: /assets/img/blog/rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion.jpg
 url: /rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/   # mismo slug que el post en WordPress: al migrar conserva su URL
 title: "Trabajo presencial, soledad y depresión | OficinasYA!"
 description: "Según los expertos, rechazar volver a la oficina es una de las mayores causas de aislamiento actual: la oficina como punto de socialización y salud."

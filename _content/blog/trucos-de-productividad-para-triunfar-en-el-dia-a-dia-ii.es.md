@@ -5,7 +5,7 @@ titulo: "Trucos de productividad para triunfar en el día a día (II)"
 fecha: 2024-09-03
 categoria: prod
 resumen: "Continuamos hoy con nuestro repaso por las mejores ideas de productividad que podéis implementar en el día  día, sistemas simples y métodos fáciles de aplicar que os permitirán sacar el máximo de las horas de vuestro día."
-imagen: https://www.oficinasya.es/wp-content/uploads/2024/07/06803-encontrar-equilibrio-vida-laboral-personal_l.jpg
+imagen: /assets/img/blog/trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii.jpg
 url: /trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii/   # mismo slug que el post en WordPress: al migrar conserva su URL
 actualizado: 2024-09-04
 title: "Trucos de productividad para el día a día (II) | OficinasYA!"

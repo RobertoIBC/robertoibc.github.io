@@ -5,7 +5,7 @@ titulo: "Cita previa ya tiene app: adiós a pelearse con las webs de la administ
 fecha: 2024-09-12
 categoria: prod
 resumen: "La aplicación Cita Previa ha llegado y promete hacer más cómodas las interacciones con la Administración para todos sus usuarios."
-imagen: https://www.oficinasya.es/wp-content/uploads/2024/09/1200_800.webp
+imagen: /assets/img/blog/cita-previa-ya-tiene-app-adios-a-pelearse-con-las-webs-de-la.jpg
 url: /cita-previa-ya-tiene-app-adios-a-pelearse-con-las-webs-de-la-administracion/   # mismo slug que el post en WordPress: al migrar conserva su URL
 title: "Cita previa con la Administración: ya hay app | OficinasYA!"
 description: "La app Cita Previa centraliza en el móvil las citas con las administraciones públicas: registro, denuncias, MUFACE, renovación de documentos o prestaciones."

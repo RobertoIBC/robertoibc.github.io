@@ -5,7 +5,7 @@ titulo: "¿Cometes alguno de estos 8 errores en tu PYME?"
 fecha: 2024-08-01
 categoria: neg
 resumen: "Éstos son algunos de los fallos más frecuentes que suele cometer una pyme y que pueden dar al traste con tu proyecto."
-imagen: https://www.oficinasya.es/wp-content/uploads/2024/07/como-debe-ser-el-community-manager-de-tu-negocio-Pyme-o-autonomo.jpg
+imagen: /assets/img/blog/cometes-alguno-de-estos-8-errores-en-tu-pyme.jpg
 url: /cometes-alguno-de-estos-8-errores-en-tu-pyme/   # mismo slug que el post en WordPress: al migrar conserva su URL
 actualizado: 2024-07-24
 title: "¿Cometes alguno de estos 8 errores en tu pyme? | OficinasYA!"

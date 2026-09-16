@@ -128,7 +128,7 @@
     nav.scrolled .nav-links a:hover, nav.scrolled .nav-links a.active { color: var(--dark); box-shadow: inset 0 -2px 0 var(--orange); }   /* naranja sobre blanco = 2,3:1 */
     .nav-cta {
       background: var(--orange); color: var(--white);
-      padding: 13px 26px; border-radius: 50px;
+      padding: 14px 26px; border-radius: 50px;   /* 45 px de alto: objetivo tactil */
       font-weight: 700; font-size: .9rem; text-decoration: none;
       display: inline-flex; align-items: center; gap: 8px;
       transition: background .3s, transform .3s, box-shadow .3s;
@@ -247,7 +247,7 @@
     .legal-wrap ul { color: var(--gray-600); font-size: 1rem; line-height: 1.8; margin: 0 0 16px 20px; }
     .legal-wrap ul li { margin-bottom: 10px; }
     .browser-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 24px; }
-    .browser-links a { background: var(--orange-pale); color: var(--orange-dark); border-radius: 50px; padding: 8px 18px; font-size: .85rem; font-weight: 600; text-decoration: none; transition: background .3s; }
+    .browser-links a { background: var(--orange-pale); color: var(--orange-dark); border-radius: 50px; padding: 8px 18px; font-size: .85rem; font-weight: 600; text-decoration: none; transition: background .3s; min-height: 44px; display: inline-flex; align-items: center; }
     .browser-links a:hover { background: var(--orange); color: var(--white); }
     .legal-wrap strong { color: var(--dark); }
     .legal-note { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: 16px; padding: 24px 28px; margin-top: 40px; }
