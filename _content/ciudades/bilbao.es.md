@@ -12,7 +12,7 @@ resumen: "Abando: Máximo Aguirre y Edificio Albia"
 cercanas: [zaragoza, a-coruna, madrid]
 centros:
   - nombre: Máximo Aguirre
-    foto: https://images.unsplash.com/photo-1594229416093-5d595163e641?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1594229416093-5d595163e641.jpg
     descripcion: Centro de negocios en la calle Máximo Aguirre 12 de Bilbao, en Abando, junto a la Gran Vía, con vistas al parque de Doña Casilda, despachos de 12 a 27 m², sala de 10 personas y oficina virtual.
     texto: |
       Está en el primero derecha del número 12 de la calle Máximo Aguirre, en la zona de Abando y Gran Vía, el centro financiero, administrativo y comercial de Bilbao, con vistas al parque de Doña Casilda. Alrededor hay parkings públicos y privados, paradas de metro, taxi, autobús y tranvía, hoteles de tres a cinco estrellas, restaurantes y comercios, y salidas rápidas por autopista; el Guggenheim y el Bellas Artes quedan a un paseo. El centro se organiza en espacios de trabajo con luz natural y salas para eventos, y admite desde un puesto de trabajo hasta una oficina multipuesto en bancadas o isletas. Los despachos van de 12 a 27 m² y la sala de reuniones es de 10 personas, con uso mínimo de dos horas en salas y despachos por horas.

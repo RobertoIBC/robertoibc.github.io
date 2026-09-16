@@ -33,7 +33,7 @@ zonas:
       A centre in the La Marina business park, at Calle Fuerteventura 4, next to Antena 3 Televisión, in what the centre itself calls the most emblematic business park in San Sebastián de los Reyes. It is the only centre in the network with an annual Smart Office offer.
 centros:
   - nombre: Velázquez
-    foto: https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1543783207-ec64e4d95325.jpg
     descripcion: Business centre at Calle Velázquez 86B in Madrid, ground floor, on the golden mile of the Salamanca district, with 8 exterior and interior offices of 11 to 39 m², a 10-person boardroom, virtual office and 24-hour access.
     texto: |
       On the ground floor of Velázquez 86B, on the golden mile, with bus stops and a taxi rank within 200 metres and good links to the airport. Refurbished in 2004, it has eight offices, exterior and interior, of 11 to 39 m², and a 10-person boardroom. Reception Monday to Thursday from 9:00 to 14:00 and from 14:30 to 18:00 and Fridays from 9:00 to 17:00, with reduced hours from 15 June to 15 September; 24-hour access 7 days a week with the building's surveillance and control system.

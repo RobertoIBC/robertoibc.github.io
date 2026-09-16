@@ -12,7 +12,7 @@ resumen: "Plaza de Compostela, junto al puerto deportivo"
 cercanas: [a-coruna, salamanca]
 centros:
   - nombre: Plaza Compostela
-    foto: https://images.unsplash.com/photo-1615922732011-9273b83897f0?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1615922732011-9273b83897f0.jpg
     descripcion: Centro de negocios en la plaza de Compostela 23 de Vigo, en pleno centro y junto al puerto deportivo, con despachos equipados de 9 a 24 m², sala de reuniones de 17 personas y oficina virtual.
     texto: |
       Está en el segundo D del número 23 de la plaza de Compostela, en pleno centro de Vigo y junto al puerto deportivo. Tiene despachos completamente equipados, de 9 a 24 m², y una sala de reuniones de 17 personas. El centro organiza además eventos para cualquier tipo de actividad en cualquier zona de Galicia, y señala su proximidad con Portugal como un punto estratégico de negocio añadido. La recepción atiende de lunes a viernes de 9:00 a 20:00.

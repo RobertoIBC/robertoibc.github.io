@@ -12,12 +12,12 @@ resumen: "Salas hasta 275 personas, ciudad y Polígono Oeste"
 cercanas: [alicante, albacete]
 centros:
   - nombre: Marla Center
-    foto: https://images.unsplash.com/photo-1747493828896-ad0e7fc88dcb?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1747493828896-ad0e7fc88dcb.jpg
     descripcion: Centro de negocios en la avenida Doctor Pedro Guillén 5 de Murcia, con acceso rápido a la circunvalación y conexión en tranvía con el centro, despachos de 17 a 250 m², salas para eventos de hasta 200 personas y recepción hasta medianoche.
     texto: |
       Está en la avenida Doctor Pedro Guillén 5, en el corazón empresarial de Murcia, en un edificio con acceso rápido a la circunvalación y conectado con el centro de la ciudad por el tranvía. Es el centro de la red con el rango de despachos más amplio, de 17 a 250 m², y uno de los dos de Murcia con espacios para eventos de gran capacidad: salas de hasta 200 personas. La recepción tiene el horario más amplio de toda la red: de lunes a viernes de 7:00 a 24:00 y sábados y domingos de 9:00 a 24:00.
   - nombre: Edificio Magalia (Alcantarilla)
-    foto: https://images.unsplash.com/photo-1758304481667-71d545c91241?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1758304481667-71d545c91241.jpg
     descripcion: Centro de negocios en el Edificio Magalia, Polígono Industrial Oeste de Alcantarilla (Murcia), junto a la MU-30 y la A-7, con despachos de 14 a 86 m², salas y aulas, espacios para eventos de hasta 275 personas, terraza ajardinada y parking incluido.
     texto: |
       Está en la calle Uruguay del Polígono Industrial Oeste, en Alcantarilla, con comunicación directa con la autovía MU-30 y la A-7. Lleva más de veinte años alojando empresas, con despachos amueblados o sin amueblar de 14 a 86 m², salas de reuniones, aulas formativas y talleres, domiciliación de sociedades, y espacios para eventos de hasta 275 personas, los mayores de la red. Tiene zona office, terraza ajardinada y áreas de descanso, y un equipo propio que lleva la recepción con atención de visitas y llamadas, la recogida y envío de paquetería, el mantenimiento y servicios contables y administrativos. Parking, limpieza, luz, agua e internet van incluidos. Organiza además talleres, seminarios y almuerzos de networking entre las empresas alojadas. Recepción de lunes a viernes de 8:00 a 14:00 y de 16:00 a 20:00.

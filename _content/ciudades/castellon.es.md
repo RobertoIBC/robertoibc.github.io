@@ -12,7 +12,7 @@ resumen: "Dean Martí 46, con teléfono propio en cada despacho"
 cercanas: [valencia, zaragoza, barcelona]
 centros:
   - nombre: Dean Marti
-    foto: https://images.unsplash.com/photo-1730741779383-dc45709f8e3b?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1730741779383-dc45709f8e3b.jpg
     descripcion: Centro de negocios en la calle Dean Martí 46 de Castellón de la Plana, con despachos equipados de 6 a 30 m², sala de reuniones de 20 personas, aula de formación con proyector y oficina virtual.
     texto: |
       Está en el entresuelo del número 46 de la calle Dean Martí, en Castellón de la Plana. Los despachos, de 6 a 30 m², vienen con el mobiliario completo —mesa, sillón, sillas de confidente y armarios de archivo—, tomas de voz y datos, aire acondicionado y calefacción, y cada uno tiene su propia extensión y número de teléfono. La cuota incluye el uso de la zona de cafetería, la prensa diaria y los gastos de comunidad. La recepción atiende las llamadas con el nombre de tu empresa, recibe y distribuye el correo y recibe a tus visitas. Hay una sala de reuniones de 20 personas y un aula de formación de 18 con proyector, posibilidad de parking cerca y, bajo petición, acceso 24 horas.

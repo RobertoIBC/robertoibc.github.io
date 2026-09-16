@@ -33,7 +33,7 @@ zonas:
       Un centro en el Parque Empresarial La Marina, en la calle Fuerteventura 4, junto a Antena 3 Televisión, en el que el propio centro llama el parque empresarial más emblemático de San Sebastián de los Reyes. Es el único centro de la red con oferta anual de Smart Office.
 centros:
   - nombre: Velázquez
-    foto: https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1543783207-ec64e4d95325.jpg
     descripcion: Centro de negocios en la calle Velázquez 86B de Madrid, planta baja, en la milla de oro del barrio de Salamanca, con 8 despachos exteriores e interiores de 11 a 39 m², sala de juntas de 10 personas, oficina virtual y acceso 24 horas.
     texto: |
       En la planta baja de Velázquez 86B, en la milla de oro, con paradas de autobús y una parada de taxi a menos de 200 metros y buenas comunicaciones con el aeropuerto. Remodelado en 2004, tiene ocho despachos, exteriores e interiores, de 11 a 39 m², y una sala de juntas de 10 personas. Recepción de lunes a jueves de 9:00 a 14:00 y de 14:30 a 18:00 y viernes de 9:00 a 17:00, con horario reducido del 15 de junio al 15 de septiembre; acceso 24 horas los 7 días con sistema de vigilancia y control del edificio.

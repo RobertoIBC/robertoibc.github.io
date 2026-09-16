@@ -12,14 +12,14 @@ resumen: "100 m from the Aqueduct and in the former university"
 cercanas: [madrid, salamanca]
 centros:
   - nombre: Padre Claret
-    foto: https://images.unsplash.com/photo-1643454744768-5caab8a62f76?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1643454744768-5caab8a62f76.jpg
     descripcion: Business centre on Avenida Padre Claret in Segovia, 100 m from the Aqueduct, with offices by the hour and by the month, a meeting room and virtual office.
     texto: |
       This is the centre for anyone dealing with the public administration or receiving visitors in the old town: the Aqueduct and Plaza Oriental are 100 m away, the financial district 200 m, the courts and the provincial council 500 m and the town hall 800 m. There is an entrance to the Padre Claret car park right at the door, and the stop for the bus linking the centre of Segovia with the high-speed (AVE) station is 50 m away. Several hotels and restaurants are within 30 m, handy when the meeting comes from out of town.
 
       Offices range from 9 to 20 m² and are rented by the hour or by the month; extended hourly use is discounted. The meeting room seats 8. Reception is open Monday to Friday from 8:00 to 19:00, and until 15:00 in summer.
   - nombre: Ezequiel González
-    foto: https://images.unsplash.com/photo-1708765036801-4d4d207fc29c?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1708765036801-4d4d207fc29c.jpg
     descripcion: Business centre on Paseo Ezequiel González in Segovia, in the former premises of the University of Valladolid, with offices, meeting rooms, training rooms and a multi-purpose room for events.
     texto: |
       It occupies the former premises of the University of Valladolid in Segovia, at Paseo Ezequiel González 32. Of the two Segovia centres it has the widest choice of rooms: meeting rooms for 4 to 50 people, training rooms and a multi-purpose room for private events, workshops or talks. If you need to bring a group together in Segovia — a training session, a presentation, a full day — this is the place.

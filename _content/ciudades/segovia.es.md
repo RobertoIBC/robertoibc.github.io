@@ -13,14 +13,14 @@ cercanas: [madrid, salamanca]
 centros:
   - nombre: Padre Claret
     # Foto de stock (la misma del hub) mientras el cliente no envie una real. Ver FOTOS-PENDIENTES.md
-    foto: https://images.unsplash.com/photo-1643454744768-5caab8a62f76?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1643454744768-5caab8a62f76.jpg
     descripcion: Centro de negocios en la Avenida Padre Claret de Segovia, a 100 m del Acueducto, con despachos por horas y por meses, sala de reuniones y oficina virtual.
     texto: |
       Es el centro para quien trabaja con la administración o recibe visitas en el casco: el Acueducto y la plaza Oriental están a 100 m, la zona financiera a 200 m, los Juzgados y la Diputación a 500 m y el Ayuntamiento a 800 m. En la misma puerta hay un acceso al parking de Padre Claret, y a 50 m está la parada del autobús que une el centro de Segovia con la estación del AVE. Hay varios hoteles y restaurantes a menos de 30 m, útil cuando la reunión viene de fuera.
 
       Los despachos van de 9 a 20 m² y se alquilan por horas o por meses; en el uso por horas prolongado hay descuentos. La sala de reuniones es de 8 personas. La recepción abre de lunes a viernes de 8:00 a 19:00, y en verano hasta las 15:00.
   - nombre: Ezequiel González
-    foto: https://images.unsplash.com/photo-1708765036801-4d4d207fc29c?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1708765036801-4d4d207fc29c.jpg
     descripcion: Centro de negocios en el Paseo Ezequiel González de Segovia, en las instalaciones de la antigua Universidad de Valladolid, con despachos, salas de reuniones, salas de formación y una sala multiusos para eventos.
     texto: |
       Ocupa las instalaciones de la antigua Universidad de Valladolid en Segovia, en el Paseo Ezequiel González 32. Es el que tiene más variedad de salas de los dos centros de Segovia: salas de reuniones de 4 a 50 personas, salas de formación y una sala multiusos para eventos privados, talleres o charlas. Si necesitas juntar a un grupo en Segovia —una formación, una presentación, una jornada— es aquí.

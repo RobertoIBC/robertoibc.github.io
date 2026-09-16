@@ -12,7 +12,7 @@ resumen: "Guillem de Castro 9, pleno centro, parking en el edificio"
 cercanas: [castellon, alicante, albacete]
 centros:
   - nombre: Guillem de Castro
-    foto: https://images.unsplash.com/photo-1763569113488-93b9ffbb14f6?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1763569113488-93b9ffbb14f6.jpg
     descripcion: Centro de negocios en la calle Guillem de Castro 9 de Valencia, plantas 5ª y 6ª de un edificio de casi 2000 m² en pleno centro, con parking público en el edificio, despachos, ocho salas y aulas de formación, y oficina virtual.
     texto: |
       Ocupa las plantas 5ª y 6ª de un edificio de casi 2000 m² en la calle Guillem de Castro 9, en pleno centro de Valencia, con servicio de parking público en el propio edificio. Los despachos, de 14 a 24 m², se entregan con mobiliario funcional y con luz, agua, limpieza, comunidad e internet incluidos en el alquiler; los clientes tienen tarifas preferentes en el resto de servicios del centro y un lugar para el logo de su empresa en el hall del edificio. Hay ocho espacios distintos para reuniones y formación, desde salas pequeñas para entrevistas o consultas hasta aulas para cursos, juntas o charlas, con proyector, ordenador, altavoces y pizarra, y catering si se quiere; la mayor es de 28 personas. Cuenta también con zonas de descanso, servicio de vending y técnicos informáticos para las incidencias en tus equipos.

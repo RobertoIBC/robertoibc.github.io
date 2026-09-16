@@ -12,7 +12,7 @@ resumen: "Guillem de Castro 9, city centre, parking in the building"
 cercanas: [castellon, alicante, albacete]
 centros:
   - nombre: Guillem de Castro
-    foto: https://images.unsplash.com/photo-1763569113488-93b9ffbb14f6?auto=format&fit=crop&w=640&q=70
+    foto: /assets/img/stock/photo-1763569113488-93b9ffbb14f6.jpg
     descripcion: Business centre at Calle Guillem de Castro 9 in Valencia, 5th and 6th floors of a nearly 2,000 m² building in the city centre, with public parking in the building, offices, eight meeting and training rooms, and virtual office.
     texto: |
       It occupies the 5th and 6th floors of a nearly 2,000 m² building at Calle Guillem de Castro 9, right in the centre of Valencia, with a public parking service in the building itself. The offices, from 14 to 24 m², come with functional furniture and with electricity, water, cleaning, community charges and internet included in the rent; clients get preferential rates on the centre's other services and a place for their company logo in the building's lobby. There are eight different spaces for meetings and training, from small rooms for interviews or consultations to classrooms for courses, board meetings or talks, with projector, computer, speakers and whiteboard, and catering if wanted; the largest seats 28. It also has break areas, a vending service and IT technicians for problems with your equipment.
