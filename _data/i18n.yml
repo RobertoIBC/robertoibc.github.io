@@ -51,6 +51,16 @@ es:
     form: Formulario de contacto
     all_locations: Ver todas las ubicaciones
   ciudad:
+    cta_wa: WhatsApp
+    wa_msg: "Hola, me interesa el centro de {centro} en {ciudad}"
+    close_eyebrow: ¿Y ahora qué?
+    close_title_many: "¿No sabes qué centro de {ciudad} elegir?"
+    close_title_one: "¿Hablamos del centro de {ciudad}?"
+    close_sub_many: "Dinos cuántas personas sois, desde cuándo lo necesitáis y si buscáis despacho, sala u oficina virtual, y te decimos cuál de los {n} centros de {ciudad} encaja. Sin compromiso."
+    close_sub_one: "Dinos cuántas personas sois, desde cuándo lo necesitáis y si buscáis despacho, sala u oficina virtual, y te confirmamos disponibilidad y precio en {ciudad}. Sin compromiso."
+    close_wa_many: "Hola, busco espacio en {ciudad} y no sé qué centro me encaja"
+    close_wa_one: "Hola, me interesa el centro de {centro} en {ciudad}"
+    close_btn_wa: Escribir por WhatsApp
     centres_title: "Los centros de {ciudad}"
     centres_sub_one: Ficha del centro, con los datos de la hoja de la red.
     centres_sub_many: "Ficha de cada centro, con los datos de la hoja de la red."
@@ -149,6 +159,16 @@ en:
     form: Contact form
     all_locations: See all locations
   ciudad:
+    cta_wa: WhatsApp
+    wa_msg: "Hello, I am interested in the {centro} centre in {ciudad}"
+    close_eyebrow: What next?
+    close_title_many: "Not sure which {ciudad} centre to choose?"
+    close_title_one: "Shall we talk about the {ciudad} centre?"
+    close_sub_many: "Tell us how many people you are, when you need it and whether you are after an office, a meeting room or a virtual office, and we will tell you which of the {n} centres in {ciudad} fits. No commitment."
+    close_sub_one: "Tell us how many people you are, when you need it and whether you are after an office, a meeting room or a virtual office, and we will confirm availability and price in {ciudad}. No commitment."
+    close_wa_many: "Hello, I am looking for space in {ciudad} and I am not sure which centre suits me"
+    close_wa_one: "Hello, I am interested in the {centro} centre in {ciudad}"
+    close_btn_wa: Message us on WhatsApp
     centres_title: "Our centres in {ciudad}"
     centres_sub_one: Centre details, from the network's data sheet.
     centres_sub_many: "Details of each centre, from the network's data sheet."
