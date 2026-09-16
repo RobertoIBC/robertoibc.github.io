@@ -33,15 +33,17 @@ zonas:
       A centre in the La Marina business park, at Calle Fuerteventura 4, next to Antena 3 Televisión, in what the centre itself calls the most emblematic business park in San Sebastián de los Reyes. It is the only centre in the network with an annual Smart Office offer.
 centros:
   - nombre: Velázquez
-    foto: /assets/img/stock/photo-1543783207-ec64e4d95325.jpg
+    foto: /assets/img/centros/centro-madrid-velazquez.jpg
     descripcion: Business centre at Calle Velázquez 86B in Madrid, ground floor, on the golden mile of the Salamanca district, with 8 exterior and interior offices of 11 to 39 m², a 10-person boardroom, virtual office and 24-hour access.
     texto: |
       On the ground floor of Velázquez 86B, on the golden mile, with bus stops and a taxi rank within 200 metres and good links to the airport. Refurbished in 2004, it has eight offices, exterior and interior, of 11 to 39 m², and a 10-person boardroom. Reception Monday to Thursday from 9:00 to 14:00 and from 14:30 to 18:00 and Fridays from 9:00 to 17:00, with reduced hours from 15 June to 15 September; 24-hour access 7 days a week with the building's surveillance and control system.
   - nombre: Gasset
+    foto: /assets/img/centros/centro-madrid-gasset.jpg
     descripcion: Business centre at Calle José Ortega y Gasset 25 in Madrid, ground floor, on the golden mile of the Salamanca district, with 13 offices of 13 to 39 m², a boardroom for up to 25 people with screen and projector, virtual office and 24-hour access.
     texto: |
       On the ground floor of Ortega y Gasset 25, on the golden mile, with metro, bus and taxi stops within 100 metres and excellent links to the airport. Opened in December 2004, it has 13 offices of 13 to 39 m² and a boardroom for up to 25 people with screen and projector. Reception Monday to Thursday from 9:00 to 14:00 and from 14:30 to 18:00 and Fridays from 9:00 to 17:00; 24-hour access 7 days a week with access control.
   - nombre: Serrano
+    foto: /assets/img/centros/centro-madrid-serrano.jpg
     descripcion: Business centre at Calle Serrano 93, 3º E, Madrid, in the Salamanca district very close to the Castellana, with offices of 6 to 38 m², an 8-person room, hot desks, concierge and 24-hour access.
     texto: |
       On the third floor (3º E) of Serrano 93, very close to the Castellana, beside embassies such as that of the United States and the Lázaro Galdiano museum, with a direct route to the airport and taxi, metro and bus stops very close. It has the smallest offices in Madrid, from 6 m², up to 38 m², and common areas: an 8-person meeting room, a waiting room, an office kitchen and hot desks. Fibre-optic internet and a concierge in the building. Reception Monday to Thursday from 9:00 to 14:30 and from 15:00 to 18:00 and Fridays from 9:00 to 17:00, in summer from 9:00 to 16:00; 24-hour access.

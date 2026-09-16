@@ -33,15 +33,17 @@ zonas:
       Un centro en el Parque Empresarial La Marina, en la calle Fuerteventura 4, junto a Antena 3 Televisión, en el que el propio centro llama el parque empresarial más emblemático de San Sebastián de los Reyes. Es el único centro de la red con oferta anual de Smart Office.
 centros:
   - nombre: Velázquez
-    foto: /assets/img/stock/photo-1543783207-ec64e4d95325.jpg
+    foto: /assets/img/centros/centro-madrid-velazquez.jpg
     descripcion: Centro de negocios en la calle Velázquez 86B de Madrid, planta baja, en la milla de oro del barrio de Salamanca, con 8 despachos exteriores e interiores de 11 a 39 m², sala de juntas de 10 personas, oficina virtual y acceso 24 horas.
     texto: |
       En la planta baja de Velázquez 86B, en la milla de oro, con paradas de autobús y una parada de taxi a menos de 200 metros y buenas comunicaciones con el aeropuerto. Remodelado en 2004, tiene ocho despachos, exteriores e interiores, de 11 a 39 m², y una sala de juntas de 10 personas. Recepción de lunes a jueves de 9:00 a 14:00 y de 14:30 a 18:00 y viernes de 9:00 a 17:00, con horario reducido del 15 de junio al 15 de septiembre; acceso 24 horas los 7 días con sistema de vigilancia y control del edificio.
   - nombre: Gasset
+    foto: /assets/img/centros/centro-madrid-gasset.jpg
     descripcion: Centro de negocios en la calle José Ortega y Gasset 25 de Madrid, planta baja, en la milla de oro del barrio de Salamanca, con 13 despachos de 13 a 39 m², sala de juntas de hasta 25 personas con pantalla y proyector, oficina virtual y acceso 24 horas.
     texto: |
       En la planta baja de Ortega y Gasset 25, en la milla de oro, con paradas de metro, autobús y taxi a menos de 100 metros y comunicaciones inmejorables con el aeropuerto. Abierto en diciembre de 2004, tiene 13 despachos de 13 a 39 m² y una sala de juntas de hasta 25 personas con pantalla y proyector. Recepción de lunes a jueves de 9:00 a 14:00 y de 14:30 a 18:00 y viernes de 9:00 a 17:00; acceso 24 horas los 7 días con control de accesos.
   - nombre: Serrano
+    foto: /assets/img/centros/centro-madrid-serrano.jpg
     descripcion: Centro de negocios en la calle Serrano 93, 3º E, Madrid, en el barrio de Salamanca, muy cerca de la Castellana, con despachos de 6 a 38 m², sala de 8 personas, hot desk, conserjería y acceso 24 horas.
     texto: |
       En el tercero E de Serrano 93, muy cerca de la Castellana, al lado de embajadas como la de Estados Unidos y del museo Lázaro Galdiano, comunicado directamente con la salida al aeropuerto y con paradas de taxi, metro y autobús muy cerca. Tiene los despachos más pequeños de Madrid, desde 6 m², hasta 38 m², y zonas comunes: sala de reuniones de 8 personas, sala de espera, office y puestos de hot desk. Internet por fibra óptica y conserjería en el edificio. Recepción de lunes a jueves de 9:00 a 14:30 y de 15:00 a 18:00 y viernes de 9:00 a 17:00, en verano de 9:00 a 16:00; acceso 24 horas.

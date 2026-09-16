@@ -13,7 +13,7 @@ cercanas: [sevilla, salamanca, madrid]
 centros:
   - nombre: Edificio Delgado Casamayor
     # Foto de stock (la misma del hub) mientras el cliente no envie una real.
-    foto: /assets/img/stock/photo-1650103134649-5d7621808a1f.jpg
+    foto: /assets/img/centros/centro-merida.jpg
     descripcion: Edificio exclusivo de oficinas de 1600 m² en la avenida de Santa Teresa Jornet 48 de Mérida, zona de la Universidad (Bodegones), con parking privado para clientes, despachos, salas de reuniones de hasta 40 personas con catering y oficina virtual.
     texto: |
       El Edificio Delgado Casamayor es un edificio exclusivo de oficinas de 1600 m² en la avenida de Santa Teresa Jornet 48, en la zona de la Universidad de Mérida, en Bodegones. Tiene parking privado a disposición de los clientes y salas de reuniones con capacidad hasta 40 personas con servicio de catering. La recepción atiende de 9:00 a 14:00 y de 16:00 a 19:30.

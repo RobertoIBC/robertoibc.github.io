@@ -12,11 +12,12 @@ resumen: "Abando: Máximo Aguirre y Edificio Albia"
 cercanas: [zaragoza, a-coruna, madrid]
 centros:
   - nombre: Máximo Aguirre
-    foto: /assets/img/stock/photo-1594229416093-5d595163e641.jpg
+    foto: /assets/img/centros/centro-bilbao-maximo-aguirre.jpg
     descripcion: Centro de negocios en la calle Máximo Aguirre 12 de Bilbao, en Abando, junto a la Gran Vía, con vistas al parque de Doña Casilda, despachos de 12 a 27 m², sala de 10 personas y oficina virtual.
     texto: |
       Está en el primero derecha del número 12 de la calle Máximo Aguirre, en la zona de Abando y Gran Vía, el centro financiero, administrativo y comercial de Bilbao, con vistas al parque de Doña Casilda. Alrededor hay parkings públicos y privados, paradas de metro, taxi, autobús y tranvía, hoteles de tres a cinco estrellas, restaurantes y comercios, y salidas rápidas por autopista; el Guggenheim y el Bellas Artes quedan a un paseo. El centro se organiza en espacios de trabajo con luz natural y salas para eventos, y admite desde un puesto de trabajo hasta una oficina multipuesto en bancadas o isletas. Los despachos van de 12 a 27 m² y la sala de reuniones es de 10 personas, con uso mínimo de dos horas en salas y despachos por horas.
   - nombre: Edificio Albia
+    foto: /assets/img/centros/centro-bilbao-albia.jpg
     descripcion: Centro de negocios en la sexta planta del Edificio Albia I, calle San Vicente 8 de Bilbao, en el centro financiero, con vistas a la Ría, despachos de 15 a 40 m², sala de 27 personas y oficina virtual.
     texto: |
       Ocupa la sexta planta del Edificio Albia I, en la calle San Vicente 8, en el centro financiero, administrativo y comercial de Bilbao, con vistas a la Ría. Comparte con Máximo Aguirre el entorno —parkings, metro, tranvía, hoteles, comercios y accesos por autopista— y la fórmula: espacios de trabajo con luz natural, salas para eventos y amplias áreas de recepción, reunión y espera. Es el de los dos con los despachos más grandes, de 15 a 40 m², y con la sala mayor, de 27 personas. Uso mínimo de dos horas en salas y despachos por horas.

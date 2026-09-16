@@ -12,11 +12,12 @@ resumen: "Abando: Máximo Aguirre and Edificio Albia"
 cercanas: [zaragoza, a-coruna, madrid]
 centros:
   - nombre: Máximo Aguirre
-    foto: /assets/img/stock/photo-1594229416093-5d595163e641.jpg
+    foto: /assets/img/centros/centro-bilbao-maximo-aguirre.jpg
     descripcion: Business centre at Calle Máximo Aguirre 12 in Bilbao, in Abando next to the Gran Vía, overlooking Doña Casilda park, with offices of 12 to 27 m², a 10-person room and virtual office.
     texto: |
       It is on the first floor right of number 12 Calle Máximo Aguirre, in the Abando and Gran Vía area, Bilbao's financial, administrative and commercial centre, overlooking Doña Casilda park. Around it there are public and private car parks, metro, taxi, bus and tram stops, three- to five-star hotels, restaurants and shops, and fast motorway exits; the Guggenheim and the Fine Arts Museum are a walk away. The centre is organised into workspaces with natural light and rooms for events, and takes anything from a single workstation to a multi-desk office in benches or islands. Offices range from 12 to 27 m² and the meeting room seats 10, with a two-hour minimum on rooms and hourly offices.
   - nombre: Edificio Albia
+    foto: /assets/img/centros/centro-bilbao-albia.jpg
     descripcion: Business centre on the sixth floor of Edificio Albia I, Calle San Vicente 8 in Bilbao, in the financial district, overlooking the river, with offices of 15 to 40 m², a 27-person room and virtual office.
     texto: |
       It occupies the sixth floor of Edificio Albia I, at Calle San Vicente 8, in Bilbao's financial, administrative and commercial centre, overlooking the river. It shares with Máximo Aguirre the surroundings — car parks, metro, tram, hotels, shops and motorway access — and the formula: workspaces with natural light, rooms for events and large reception, meeting and waiting areas. Of the two it has the larger offices, 15 to 40 m², and the larger room, for 27 people. Two-hour minimum on rooms and hourly offices.

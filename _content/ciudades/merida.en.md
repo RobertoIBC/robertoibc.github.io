@@ -12,7 +12,7 @@ resumen: "Office building with private parking, university area"
 cercanas: [sevilla, salamanca, madrid]
 centros:
   - nombre: Edificio Delgado Casamayor
-    foto: /assets/img/stock/photo-1650103134649-5d7621808a1f.jpg
+    foto: /assets/img/centros/centro-merida.jpg
     descripcion: Exclusive 1,600 m² office building at Avenida Santa Teresa Jornet 48 in Mérida, in the university area (Bodegones), with private client parking, offices, meeting rooms for up to 40 people with catering and virtual office.
     texto: |
       The Edificio Delgado Casamayor is an exclusive 1,600 m² office building at Avenida Santa Teresa Jornet 48, in the university area of Mérida, in Bodegones. It has private parking for clients and meeting rooms for up to 40 people with a catering service. Reception is open from 9:00 to 14:00 and from 16:00 to 19:30.

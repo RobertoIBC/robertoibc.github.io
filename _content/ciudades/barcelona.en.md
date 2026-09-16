@@ -12,15 +12,17 @@ resumen: "Upper city and Plaza Urquinaona, with coworking"
 cercanas: [castellon, zaragoza, valencia]
 centros:
   - nombre: Mitre 126
-    foto: /assets/img/stock/photo-1722863380905-539ae092fc5f.jpg
+    foto: /assets/img/centros/centro-barcelona-mitre.jpg
     descripcion: Business centre in an exclusive office building at Ronda del General Mitre 126, in the upper part of Barcelona, with offices of different sizes, rooms for 2, 4, 10 and 20 people and virtual office.
     texto: |
       It is in an exclusive office building at Ronda del General Mitre 126, in the upper part of Barcelona. It has offices of different sizes and fully equipped rooms — for 2, 4, 10 and 20 people — ready to work from the first moment, with a modern, functional look. All the building's costs, electricity and internet connection included, are in the price, and there is a team at the centre to sort out whatever comes up during your stay. Reception Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.
   - nombre: Raset 29
+    foto: /assets/img/centros/centro-barcelona-raset.jpg
     descripcion: Business centre at Carrer de Raset 29, in Sarrià-Sant Gervasi, Barcelona, with offices of 12 to 26 m², rooms for 2, 4 and 8 people and virtual office.
     texto: |
       At Carrer de Raset 29, in Sarrià-Sant Gervasi, with offices of 12 to 26 m² and rooms for 2, 4 and 8 people. The centre defines itself by design, comfort and technology, with open, bright spaces, and by a community of freelancers, entrepreneurs and growing companies. Same hours as Mitre: Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, Fridays until 15:00.
   - nombre: Plaza Urquinaona
+    foto: /assets/img/centros/centro-barcelona-urquinaona.jpg
     descripcion: Business and coworking centre on the 8th floor of Plaza de Urquinaona 6, Barcelona, with naturally lit exterior offices of 8 to 30 m², a limited number of coworking desks and virtual office.
     texto: |
       On the eighth floor of number 6 Plaza de Urquinaona, in the centre of Barcelona, with exterior offices of 8 to 30 m² flooded with natural light and a limited number of coworking desks: it is one of the network's three centres with coworking. The centre presents itself as a space for concentration, with a personal touch — "here you are not a desk number" — and a familiar atmosphere. Reception Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.
