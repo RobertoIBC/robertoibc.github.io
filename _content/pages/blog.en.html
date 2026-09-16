@@ -74,10 +74,10 @@ nav_active: blog
       <div class="blog-card-feat-body">
         <span class="blog-cat {{ a.categoria }}">{{ t.blog.cats[a.categoria] }}</span>
         <h2 class="blog-feat-title"><a href="{{ a.href }}"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ a.titulo }}</a></h2>
-        <p class="blog-feat-excerpt">{{ a.resumen }}</p>
+        <p class="blog-feat-excerpt">{{ a.resumen }}</p>{% if a.otro_idioma %}<p class="blog-lang-note">{{ t.blog.in_spanish }}</p>{% endif %}
         <div class="blog-feat-meta">
           <span class="blog-feat-date">{{ a.fecha_legible }}</span>
-          <a href="{{ a.href }}" class="blog-feat-link"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ t.blog.read_external if a.externo else t.blog.read }} →</a>
+          <a href="{{ a.href }}" class="blog-feat-link"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ t.blog.read_spanish if a.otro_idioma else t.blog.read }} →</a>
         </div>
       </div>
     </div>
@@ -92,15 +92,12 @@ nav_active: blog
       <div class="blog-body">
         <div class="blog-date">{{ a.fecha_legible }}</div>
         <h3 class="blog-title"><a href="{{ a.href }}"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ a.titulo }}</a></h3>
-        <p class="blog-excerpt">{{ a.resumen }}</p>
-        <a href="{{ a.href }}" class="blog-link"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ t.blog.read_external if a.externo else t.blog.read }} →</a>
+        <p class="blog-excerpt">{{ a.resumen }}</p>{% if a.otro_idioma %}<p class="blog-lang-note">{{ t.blog.in_spanish }}</p>{% endif %}
+        <a href="{{ a.href }}" class="blog-link"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ t.blog.read_spanish if a.otro_idioma else t.blog.read }} →</a>
       </div>
     </div>
 {%- endif %}
 {%- endfor %}
-  </div>
-  <div style="text-align:center;margin-top:60px" class="rv">
-    <a href="https://www.oficinasya.es/blog/" target="_blank" rel="noopener" class="btn-outline">{{ t.blog.all_external }} →</a>
   </div>
 </section>
 

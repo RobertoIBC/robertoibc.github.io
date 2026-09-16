@@ -233,9 +233,12 @@ def link_alternates(pages, site_url, warnings):
         p['abs_url'] = site_url + p.url
         p['og_locale'] = OG_LOCALE[p.lang]
         p['is_home'] = p['id'] == 'home'
-        alts = [{'lang': l, 'url': site_url + group[l].url, 'og_locale': OG_LOCALE[l]} for l in LANGS if l in group]
-        xdef = group.get(DEFAULT_LANG) or p
-        alts.append({'lang': 'x-default', 'url': site_url + xdef.url, 'og_locale': None})
+        if len(group) < 2:
+            alts = []   # sin pareja no hay hreflang que declarar (ni siquiera x-default)
+        else:
+            alts = [{'lang': l, 'url': site_url + group[l].url, 'og_locale': OG_LOCALE[l]} for l in LANGS if l in group]
+            xdef = group.get(DEFAULT_LANG) or p
+            alts.append({'lang': 'x-default', 'url': site_url + xdef.url, 'og_locale': None})
         p['alternates'] = alts
         p['pair'] = group
     return by_id
@@ -396,6 +399,8 @@ def fecha_legible(iso, lang):
 
 
 def blogposting(a, site, lang, href):
+    if a.get('otro_idioma'):
+        lang = DEFAULT_LANG   # el articulo enlazado esta en el idioma por defecto
     node = {'@type': 'BlogPosting', 'headline': a['titulo'], 'datePublished': a['fecha'], 'description': a['resumen'],
             'inLanguage': LANG_TAG[lang], 'url': href,
             'author': {'@id': site['url'] + '/#organization'}, 'publisher': {'@id': site['url'] + '/#organization'}}
@@ -410,7 +415,7 @@ def jsonld_blog(p, site, lang, i18n, posts):
         {'@type': 'Blog', '@id': p['abs_url'] + '#blog', 'url': p['abs_url'], 'name': p['title'],
          'description': p['description'], 'inLanguage': LANG_TAG[lang],
          'publisher': {'@id': url + '/#organization'},
-         'blogPost': [blogposting(a, site, lang, a['href'] if a['externo'] else url + a['url']) for a in posts]},
+         'blogPost': [blogposting(a, site, lang, a['href'] if a['externo'] else url + a['href']) for a in posts]},
         {'@type': 'BreadcrumbList', 'itemListElement': [
             {'@type': 'ListItem', 'position': 1, 'name': i18n['breadcrumb_home'], 'item': url + HOME[lang]},
             {'@type': 'ListItem', 'position': 2, 'name': i18n['nav']['blog'], 'item': p['abs_url']}]},
@@ -506,7 +511,8 @@ def build(check=False):
         pair = p['pair']
         p['lang_links'] = [{
             'lang': l,
-            'href': ('#hero' if p.is_home else p.url) if l == lang else (pair[l].url if l in pair else HOME[l]),
+            # sin pareja: un articulo lleva al listado del blog del otro idioma; el resto, a su home
+            'href': ('#hero' if p.is_home else p.url) if l == lang else (pair[l].url if l in pair else (by_id['blog'][l].url if p.layout == 'articulo' else HOME[l])),
             'current': l == lang,
             # el title va en el idioma de destino ("Read this page in English" en la ES)
             'title': '' if l == lang else t['lang_other_title'],
@@ -539,7 +545,11 @@ def build(check=False):
         for a in posts:
             if a['lang'] != lang:
                 continue
-            lang_posts.append({**a, 'href': a.get('enlace') or a['url'], 'externo': bool(a.get('enlace')),
+            enlace = a.get('enlace') or ''
+            # enlace externo (http) = tarjeta que sale fuera; enlace interno (/slug/) = articulo que
+            # solo existe en otro idioma (los posts del cliente no se traducen sin su aprobacion)
+            lang_posts.append({**a, 'href': enlace or a['url'], 'externo': enlace.startswith('http'),
+                               'otro_idioma': bool(enlace) and not enlace.startswith('http'),
                                'imagen': a.get('imagen'), 'destacado': bool(a.get('destacado')),
                                'fecha_legible': fecha_legible(a['fecha'], lang)})
         ctx = {

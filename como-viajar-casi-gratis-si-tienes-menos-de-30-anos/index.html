@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== PROTOTIPO: NO INDEXAR =====
+       Este prototipo vive en un dominio publico e indexable. El noindex evita que
+       compita con www.oficinasya.es y que se filtren precios sin aprobar.
+       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
+       Google no podria leer este noindex.
+       TODO migracion: poner site.noindex a false en _data/global.yml y regenerar. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <!-- TODO migracion: cambiar site.url en _data/global.yml -->
+  <link rel="canonical" href="https://robertoibc.github.io/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-32x32.png" sizes="32x32" />
+  <link rel="icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-180x180.png" />
+  <title>Viajar casi gratis con menos de 30 años | OficinasYA!</title>
+  <meta name="description" content="Verano Joven: descuentos de hasta el 90 % en tren y autobús por España y Europa para jóvenes de 18 a 30 años. Quién puede pedirlos, cómo y hasta cuándo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OficinasYA!" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Viajar casi gratis con menos de 30 años | OficinasYA!" />
+  <meta property="og:description" content="Verano Joven: descuentos de hasta el 90 % en tren y autobús por España y Europa para jóvenes de 18 a 30 años. Quién puede pedirlos, cómo y hasta cuándo." />
+  <!-- TODO migracion: cambiar site.url en _data/global.yml -->
+  <meta property="og:url" content="https://robertoibc.github.io/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/" />
+  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Sala de reuniones del centro de OficinasYA! en Zaragoza" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Viajar casi gratis con menos de 30 años | OficinasYA!" />
+  <meta name="twitter:description" content="Verano Joven: descuentos de hasta el 90 % en tren y autobús por España y Europa para jóvenes de 18 a 30 años. Quién puede pedirlos, cómo y hasta cuándo." />
+  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.oficinasya.es" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange:      #F5921A;
+      --orange-dark: #E07810;
+      --orange-pale: #FFF3E0;
+      --dark:        #1C1C1C;
+      --dark-mid:    #2D2D2D;
+      --gray-50:     #FAFAFA;
+      --gray-100:    #F5F5F5;
+      --gray-200:    #E8E8E8;
+      --gray-400:    #A3A3A3;
+      --gray-600:    #525252;
+      --white:       #FFFFFF;
+      --radius:      20px;
+      --ease:        cubic-bezier(.16,1,.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; max-width: 100%; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background-color .15s, box-shadow .15s, padding .25s var(--ease);
+    }
+    /* Dos estados, un solo comportamiento en todas las paginas:
+       - arriba (sobre el hero): texto blanco. Home sin clase = transparente; el resto
+         lleva nav-dark = fondo oscuro solido.
+       - .scrolled (pasado el hero, lo pone base.js): fondo blanco opaco, texto oscuro,
+         sombra. Las reglas .scrolled van DESPUES de la variante para ganar el cascade. */
+    nav.nav-dark { background: var(--dark); }
+    /* Home (sin variante): sobre la foto del hero hay zonas claras (ventanas) donde el
+       blanco se quedaba en 2,9:1. Un velo degradado garantiza el contraste sin tapar la foto. */
+    nav:not(.nav-dark):not(.scrolled) { background: linear-gradient(to bottom, rgba(20,20,20,.78), rgba(20,20,20,.55) 70%, rgba(20,20,20,0)); }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; padding: 3px 0; }
+    .logo-wordmark { display: flex; align-items: baseline; gap: 0; }
+    .logo-word {
+      font-family: 'Barlow', sans-serif; font-weight: 900;
+      font-size: 1.75rem; letter-spacing: -1px;
+      color: var(--white); transition: color .15s;
+    }
+    nav.scrolled .logo-word { color: var(--dark); }
+    .logo-ya {
+      font-family: 'Barlow', sans-serif; font-weight: 900;
+      font-size: 1.75rem; letter-spacing: -1px;
+      color: var(--orange); 
+    }
+    .logo-sub {
+      font-size: .62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,.7); transition: color .15s;
+      padding-left: 1px;
+    }
+    nav.scrolled .logo-sub { color: var(--gray-600); }   /* gray-400 sobre blanco daba 2,5:1 */
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .15s; display: inline-block; padding: 12px 0; }
+    nav.scrolled .nav-links a { color: var(--dark-mid); }
+    .menu-toggle {
+      display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 44px; height: 44px; margin-left: 10px;
+      background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.2); border-radius: 12px;
+      cursor: pointer; padding: 0; z-index: 201; flex-shrink: 0;
+      transition: background .15s, border-color .15s, transform .15s;
+    }
+    .menu-toggle span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s, background .15s; }
+    .menu-toggle:active { transform: scale(.94); }
+    nav.scrolled .menu-toggle { background: var(--gray-100); border-color: var(--gray-200); }
+    nav.scrolled .menu-toggle span { background: var(--dark); }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .menu-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 199; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .menu-backdrop.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(300px, 80vw); z-index: 200;
+      background: var(--dark); padding: 110px 32px 40px; overflow-y: auto;
+      display: flex; flex-direction: column;
+      transform: translateX(100%); transition: transform .35s var(--ease);
+      box-shadow: -24px 0 60px rgba(0,0,0,.35);
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu a { color: rgba(255,255,255,.85); text-decoration: none; font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 700; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .mobile-menu a.active, .mobile-menu a:hover { color: var(--orange); }
+    .mobile-menu-cta { margin-top: 24px; background: var(--orange); color: var(--white) !important; text-align: center; border-radius: 50px; border-bottom: none !important; padding: 15px !important; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+    nav.scrolled .nav-links a:hover, nav.scrolled .nav-links a.active { color: var(--dark); box-shadow: inset 0 -2px 0 var(--orange); }   /* naranja sobre blanco = 2,3:1 */
+    .nav-cta {
+      background: var(--orange); color: var(--white);
+      padding: 13px 26px; border-radius: 50px;
+      font-weight: 700; font-size: .9rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .3s, transform .3s, box-shadow .3s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,146,26,.45); }
+    .rv  { opacity: 0; transform: translateY(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rvl { opacity: 0; transform: translateX(-48px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rvr { opacity: 0; transform: translateX(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rv.on, .rvl.on, .rvr.on { opacity: 1; transform: none; }
+    footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 72px 6% 40px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .footer-logo { margin-bottom: 20px; }
+    .footer-logo .logo-word { color: rgba(255,255,255,.85); font-size: 1.6rem; }
+    .footer-logo .logo-ya { font-size: 1.6rem; }
+    .footer-logo .logo-sub { color: rgba(255,255,255,.35); }
+    .footer-brand p { font-size: .9rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h5 { color: var(--white); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; display: inline-block; padding: 14px 0; line-height: 1.2; }   /* 44 px de alto tactil */
+    .footer-col ul a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
+    .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; display: inline-block; padding: 12px 4px; }
+    .footer-bottom-links a:hover { color: var(--orange); }
+    .socials { display: flex; gap: 10px; }
+    .soc { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .soc svg { width: 16px; height: 16px; }
+    .wa {
+      position: fixed; bottom: 32px; right: 32px; z-index: 99;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; color: white;
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+      text-decoration: none; box-shadow: 0 8px 28px rgba(37,211,102,.4);
+      transition: transform .3s;
+      opacity: 0; animation: up .7s 1.6s var(--ease) forwards;
+    }
+    .wa:hover { transform: scale(1.1); }
+    .nav-actions { display: flex; align-items: center; gap: 20px; }
+    .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
+    .lang-switch a {
+      font-size: .78rem; font-weight: 700; letter-spacing: .8px; padding: 16px 5px;
+      color: rgba(255,255,255,.7); text-decoration: none;   /* .45 daba 4,43:1 sobre --dark */
+      transition: color .15s;
+    }
+    .lang-switch a[aria-current] { color: var(--white); }
+    .lang-switch a:hover { color: var(--orange); }
+    .lang-sep { width: 1px; height: 10px; background: rgba(255,255,255,.25); transition: background .15s; }
+    nav.scrolled .lang-switch a { color: var(--gray-600); }   /* AA: 7,5:1 sobre blanco */
+    nav.scrolled .lang-switch a[aria-current] { color: var(--dark); }
+    nav.scrolled .lang-sep { background: var(--gray-200); }
+
+    nav.scrolled, nav.nav-dark.scrolled {
+      background: var(--white);
+      box-shadow: 0 2px 24px rgba(0,0,0,.09);
+      padding: 14px 6%;
+    }
+
+    /* ── DESPLEGABLE DE SERVICIOS (solo CSS: hover y focus-within) ── */
+    .nav-item { position: relative; }
+    .nav-caret { margin-left: 5px; vertical-align: middle; transition: transform .3s var(--ease); }
+    .nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret { transform: rotate(180deg); }
+    .nav-menu { position: absolute; top: 100%; left: -18px; min-width: 240px; padding: 10px 0; margin-top: 14px; list-style: none;
+      background: var(--white); border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,.16); border: 1px solid var(--gray-200);
+      opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s; }
+    .nav-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }   /* puente para no perder el hover */
+    .nav-item:hover .nav-menu, .nav-item:focus-within .nav-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .nav-menu li a { display: block; padding: 11px 22px; color: var(--dark-mid) !important; font-size: .9rem; font-weight: 600; text-decoration: none; }
+    .nav-menu li a:hover, .nav-menu li a:focus-visible { background: var(--gray-50); color: var(--orange) !important; }
+    .nav-menu li a[aria-current] { color: var(--orange) !important; }
+    .mobile-menu-group { display: block; font-size: .68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.55); padding: 8px 0 4px; }
+    .mobile-menu a.mobile-menu-sub { padding-left: 14px; font-size: 1.02rem; font-weight: 600; color: rgba(255,255,255,.7); }
+
+    /* ── PIE: las 17 ciudades en dos columnas compactas ── */
+    .footer-grid { grid-template-columns: 1.6fr 1fr 1.3fr 1fr; }
+    .footer-col ul.footer-cities-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    .footer-h5-gap { margin-top: 28px; }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-actions { gap: 14px; }
+      .lang-switch { gap: 7px; }
+      .logo-sub { letter-spacing: .5px; }
+      .lang-switch a { font-size: .72rem; letter-spacing: .4px; }
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .nav-cta { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; gap: 0; }
+      .nav-cta-text { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-col ul.footer-cities-list { gap: 0 12px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+    .eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--orange); }
+
+    /* ── HERO ── */
+    .page-hero { background: var(--dark); padding: 160px 6% 72px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -220px; right: -160px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.14) 0%, transparent 65%); }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+    .breadcrumb a { color: rgba(255,255,255,.4); font-size: .8rem; font-weight: 600; text-decoration: none; transition: color .3s; }
+    .breadcrumb a:hover { color: var(--orange); }
+    .breadcrumb-sep { color: rgba(255,255,255,.2); font-size: .8rem; }
+    .breadcrumb-current { color: var(--orange); font-size: .8rem; font-weight: 700; }
+    .page-hero-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 900; line-height: .98; color: var(--white); letter-spacing: -1.5px; margin-bottom: 20px; max-width: 900px; }
+    .page-hero-sub { color: rgba(255,255,255,.6); font-size: 1.1rem; line-height: 1.7; max-width: 640px; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-orange { background: var(--orange); color: var(--white); padding: 16px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background .3s, transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-orange:hover { background: var(--orange-dark); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,146,26,.5); }
+    .btn-ghost { background: rgba(255,255,255,.08); color: var(--white); padding: 16px 36px; border-radius: 50px; border: 1.5px solid rgba(255,255,255,.2); font-weight: 600; font-size: 1rem; text-decoration: none; transition: background .3s, border-color .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-ghost:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.4); }
+
+    /* ── FAQ ── */
+    .stitle { font-family: 'Barlow', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--dark); margin: 0 auto 14px; }
+    .ssub { color: var(--gray-600); font-size: 1.05rem; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .faq-item { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 26px 28px; }
+    .faq-item h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin-bottom: 10px; }
+    .faq-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.7; }
+
+    /* ── CTA FINAL ── */
+    .btn-white { background: var(--white); color: var(--orange); padding: 17px 40px; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.2); }
+    .btn-dark-solid { background: var(--dark); color: var(--white); padding: 17px 40px; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: transform .3s, background .3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-dark-solid:hover { transform: translateY(-3px); background: var(--dark-mid); }
+
+    /* ── TEXTO LARGO (articulo de servicio, texto de ciudad) ── */
+    .srv-article { min-width: 0; }
+    .srv-article h2 { font-family: 'Barlow', sans-serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 800; line-height: 1.1; letter-spacing: -.5px; color: var(--dark); margin: 52px 0 18px; scroll-margin-top: 100px; }
+    .srv-article h2:first-child { margin-top: 0; }
+    .srv-article h3 { font-family: 'Barlow', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--dark); margin: 32px 0 12px; }
+    .srv-article p { color: var(--gray-600); font-size: 1.02rem; line-height: 1.8; margin-bottom: 18px; }
+    .srv-article strong { color: var(--dark); font-weight: 700; }
+    .srv-article a { color: var(--orange-dark); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(245,146,26,.35); transition: border-color .3s; }
+    .srv-article a:hover { border-color: var(--orange); }
+    .srv-article ul, .srv-article ol { color: var(--gray-600); font-size: 1.02rem; line-height: 1.75; margin: 0 0 20px 22px; }
+    .srv-article li { margin-bottom: 10px; }
+    .srv-article ol { counter-reset: paso; list-style: none; margin-left: 0; }
+    .srv-article ol li { counter-increment: paso; position: relative; padding-left: 52px; margin-bottom: 16px; }
+    .srv-article ol li::before { content: counter(paso); position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--orange-pale); color: var(--orange-dark); font-family: 'Barlow', sans-serif; font-weight: 900; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; }
+    .srv-article table { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: .95rem; }
+    .srv-article th, .srv-article td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
+    .srv-article th { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); }
+
+    @media (max-width: 900px) {
+      .faq-grid, .srv-others-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .page-hero { padding: 120px 5% 56px; }
+    }
+
+    .art-hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .art-cat { background: rgba(245,146,26,.15); border: 1px solid rgba(245,146,26,.35); color: var(--orange); font-size: .72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; }
+    .art-date { color: rgba(255,255,255,.5); font-size: .88rem; font-weight: 600; }
+    .art-wrap { max-width: 800px; margin: 0 auto; padding: 72px 6% 96px; }
+    .art-img { width: 100%; height: auto; border-radius: var(--radius); margin: -120px 0 48px; position: relative; z-index: 2; box-shadow: 0 24px 60px rgba(0,0,0,.18); }
+    .art-body p:first-child { font-size: 1.12rem; color: var(--dark-mid); }
+    .art-body img { border-radius: 16px; margin: 8px 0 24px; }
+    .art-body blockquote { border-left: 3px solid var(--orange); margin: 24px 0; padding: 4px 0 4px 22px; color: var(--dark-mid); font-style: italic; }
+    .art-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 48px; color: var(--orange-dark); font-weight: 700; text-decoration: none; }
+    .page-hero { padding-bottom: 160px; }
+    @media (max-width: 600px) { .art-wrap { padding: 48px 5% 72px; } .art-img { margin-top: -90px; } }
+
+</style>
+  <!-- TODO migracion: las URLs de este JSON-LD salen de site.url -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Cómo viajar casi gratis si tienes menos de 30 años",
+      "datePublished": "2024-07-31",
+      "description": "La campaña del Ministerio de Transportes está dirigida a jóvenes de entre 18 y 30 años y permite conseguir descuentos de hasta el 90% para viajar por España y Europa.",
+      "inLanguage": "es-ES",
+      "url": "https://robertoibc.github.io/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/",
+      "author": {
+        "@id": "https://robertoibc.github.io/#organization"
+      },
+      "publisher": {
+        "@id": "https://robertoibc.github.io/#organization"
+      },
+      "image": "https://www.oficinasya.es/wp-content/uploads/2024/07/trans_atlantic.jpg",
+      "@id": "https://robertoibc.github.io/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/#article",
+      "mainEntityOfPage": "https://robertoibc.github.io/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/",
+      "isPartOf": {
+        "@id": "https://robertoibc.github.io/blog/#blog"
+      },
+      "dateModified": "2024-07-24"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://robertoibc.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://robertoibc.github.io/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cómo viajar casi gratis si tienes menos de 30 años",
+          "item": "https://robertoibc.github.io/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="nav-dark">
+  <a href="/" class="nav-logo">
+    <div class="logo-wordmark">
+      <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
+    </div>
+    <span class="logo-sub">Coworking &amp; Workplaces</span>
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item has-menu">
+      <a href="/alquiler-de-despachos/" aria-haspopup="true">Servicios<svg class="nav-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <ul class="nav-menu" aria-label="Servicios">
+        <li><a href="/alquiler-de-despachos/">Despachos privados</a></li>
+        <li><a href="/salas-de-reuniones/">Salas de reuniones</a></li>
+        <li><a href="/oficina-virtual/">Oficina virtual</a></li>
+        <li><a href="/coworking/">Coworking</a></li>
+      </ul>
+    </li>
+    <li><a href="/ubicaciones/">Ubicaciones</a></li>
+    <li><a href="/#pricing">Precios</a></li>
+    <li><a href="/comunidad/">Comunidad</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+    <li><a href="/#contact">Contacto</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="lang-switch" role="group" aria-label="Idioma">
+      <a href="/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/" hreflang="es" lang="es" aria-current="true">ES</a>
+      <span class="lang-sep" aria-hidden="true"></span>
+      <a href="/en/blog/" hreflang="en" lang="en" title="Read this page in English">EN</a>
+    </div>
+    <a href="tel:918298500" class="nav-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="nav-cta-text">918 298 500</span></a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-menu-group">Servicios</span>
+  <a href="/alquiler-de-despachos/" class="mobile-menu-sub">Despachos privados</a>
+  <a href="/salas-de-reuniones/" class="mobile-menu-sub">Salas de reuniones</a>
+  <a href="/oficina-virtual/" class="mobile-menu-sub">Oficina virtual</a>
+  <a href="/coworking/" class="mobile-menu-sub">Coworking</a>
+  <a href="/ubicaciones/">Ubicaciones</a>
+  <a href="/#pricing">Precios</a>
+  <a href="/comunidad/">Comunidad</a>
+  <a href="/blog/" class="active">Blog</a>
+  <a href="/#contact">Contacto</a>
+  <a href="tel:918298500" class="mobile-menu-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
+</div>
+
+
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Inicio</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="/blog/">Blog</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Estilo de vida</span>
+    </div>
+    <div class="art-hero-meta"><span class="art-cat">Estilo de vida</span><span class="art-date">Publicado el 31 jul 2024</span></div>
+    <h1 class="page-hero-title">Cómo viajar casi gratis si tienes menos de 30 años</h1>
+    <p class="page-hero-sub">La campaña del Ministerio de Transportes está dirigida a jóvenes de entre 18 y 30 años y permite conseguir descuentos de hasta el 90% para viajar por España y Europa.</p>
+  </div>
+</div>
+
+<div class="art-wrap">
+  <img class="art-img" src="https://www.oficinasya.es/wp-content/uploads/2024/07/trans_atlantic.jpg" alt="" width="1200" height="675" decoding="async" />
+  <article class="srv-article art-body">
+<p>La campaña del Ministerio de Transportes está dirigida a jóvenes de entre 18 y 30 años y permite conseguir descuentos de hasta el 90% para viajar por España y Europa</p>
+<p>El 1 de julio arrancó <strong>Verano Joven, la campaña que permite a los menores de 30 años viajar casi gratis</strong> por España y Europa. Impulsada por el Ministerio de Transportes y Movilidad Sostenible, la iniciativa trata de facilitar a movilidad estival de los jóvenes sin importar su estrato social o circunstancias económicas.</p>
+<p>Desde el Ministerio señalan también como objetivos del programa: «promover el uso del transporte público entre los jóvenes, potenciar su aprendizaje y fortalecer el sentimiento europeo». Los descuentos se aplican <strong>hasta el 30 de septiembre</strong> para billetes de tres y autobús y son diferentes en función del medio y la modalidad elegida.</p>
+<h2>Verano joven 2024</h2>
+<p>La que acaba de arrancar es la <strong>segunda edición del programa de incentivos</strong> para los viajes. En 2023, más de dos millones de jóvenes se beneficiaron de los descuentos; la mayor parte (80% de las peticiones) inició su viaje en Andalucía, Cataluña, Madrid y la Comunidad Valenciana, siendo las rutas entre Madrid y Barcelona y Madrid y Valencia las más demandadas.</p>
+<p>Para la edición 2024 se han reservado un presupuesto de 130 millones de euros.</p>
+<h3>Quién y cómo conseguir los descuentos en viajes</h3>
+<p>Podrán solicitar loes descuentos todos los <strong>jóvenes con nacionalidad española o residencia legal en España</strong>, siempre y cuando hayan nacido entre el 1 de enero de 1994 y el 31 de diciembre de 2006; es decir, es requisito imprescindible ser mayor de edad, pero no mayor de 30 años.</p>
+<p>Transportes ha habilitado una <strong><a href="https://veranojoven.transportes.gob.es/">página web</a></strong> desde la que solicitar los descuentos de la campaña Verano 2024. El solicitante debe <strong>registrarse con DNI, NIE o pasaporte electrónico</strong>y esperar a que el sistema verifique si cumple los requisitos fijados (residencia y edad). En caso afirmativo, recibe un código persona e intransferible que tendrá que introducir en el momento de la compra de los billetes.</p>
+<p>El código está compuesto por el número de DNI o NIE y un conjunto de caracteres. El usuario lo recibe en su teléfono móvil o a través de correo electrónico y es válido para todo el período y todos los medios de transporte incluidos en la campaña.</p>
+<p>Es importantes señalar que el registro se debe realizar con, al menos 24 horas de antelación a la emisión del primer billete. Y aunque <strong>el registro es gratuito</strong>, las empresas de transporte asociadas pueden cobrar gastos de emisión, con un límite máximo de un euro por billete.</p>
+<h4>Viajar por España y Europa casi gratis</h4>
+<p>Verano Joven 2024 permite viajar por España y Europa casi gratis. Los descuentos llagan al 90% del precio del billete de ida y vuelta, aunque varían en función del medio de transporte elegido (solo están cubiertos <strong>desplazamientos en tren y autobús</strong>):</p>
+<ul>
+<li>Para los <strong>viajes en bus el descuento es del 90%</strong>si se trata de un desplazamiento regular en compañía estatal.</li>
+<li>Para los<strong>viajes en tren</strong>, la campaña del Ministerio de Transportes aplica diferentes descuentos. El viajero solo pagará un 10% del valor del billete en los servicios de media distancia convencional y en trenes de ancho métrico. Los <strong>títulos sencillos de Avant</strong> están subvencionados al 50%, los mismo que los servicios comerciales de <strong>larga distancia o alta velocidad</strong>, estos últimos con un descuento máximo de 30 euros por billete. Mientras que la opción <strong>Global flexible del Pase Interrail de 10 días en dos meses</strong>tiene un descuento del 50% cuando se comercialice a través de Renfe. Este servicio permite viajar en tren por 33 países europeos.</li>
+</ul>
+<p>En la siguiente tabla se reflejan <strong>todos los descuentos de la Campaña Verano 2024</strong>:</p>
+<p><img alt="" src="https://www.oficinasya.es/wp-content/uploads/2024/07/Captura-300x202.png"></p>
+<p>Un matiz: los descuentos del plan Verano 2024 son compatibles con otros beneficios económicos en la compra de billetes como los que disfrutan, por ejemplo, las familias numerosas. En este caso, la bonificación familiar se aplica una vez imputada la rebaja de la campaña de verano.</p>
+<h5>Sanciones por uso fraudelento</h5>
+<p>Si estás pensando alguna maldad respecto a los descuentos (por ejemplo, revender los billetes) debes saber que las condiciones de uso de las ayudas a los viajes de Verano 2024 contemplan s<strong>anciones por el uso indebido de los beneficios</strong>.</p>
+<p>Esa idea de comprar los billetes a tu nombre y que los use un amigo a cambio de una pequeña ganancia para tu cuenta corriente es un <strong>uso fraudulento</strong> que puede costar caro, ya que el uso del código de descuento por una persona diferente al usuario registrado puede conllevar una <strong>multa de hasta 750 euros</strong> si la trampa se hace con un billete de tren o de hasta 200 euros si es de bus.</p>
+<p><strong>Y uso indebido</strong></p>
+<p>Más leves son las consecuencias de los llamados <strong>usos indebidos.</strong>Entre supuestos el más frecuente es no cancelar un viaje formalizado con, al menos 24 horas de antelación. Frente a esta circunstancia hay matices ya que el plazo de aviso puede ser inferior si se trata de trayectos de corta duración en los que los desplazamientos respondan a una movilidad obligada.</p>
+<p>En caso de incurrir en un uso indebido no habrá sanción, pero si el titular de un código de descuento de Verano 2024 acumula <strong>seis usos indebidos podrá perder la condición de beneficiario</strong>. «Previamente, la empresa advertirá de cada utilización indebida por mensaje o SMS teléfono móvil o al correo electrónico registrado y de las posibles consecuencias de su actuación», explican fuentes del Ministerio de Transportes.</p>
+<p>Indicar, por último, que si bien no existe límite para el número de billetes que se podrán adquirir con cada código de descuento sí se impide la reserva en la misma empresa concesionaria de más de un viaje por sentido para un mismo origen-destino en el mismo día, salvo que previamente se haya procedido a la anulación de la reserva. Y para realizar dos viajes en el mismo día con el mismo origen-destino, habrá que haber realizado el primero.</p>
+<p><strong>Fuente: <a href="https://www.autobild.es/reportajes/verano-joven-2024-como-viajar-casi-gratis-tienes-menos-30-anos-1394733">Verano Joven 2024 o cómo viajar casi gratis si tienes menos de 30 años</a></strong></p>
+  </article>
+  <a href="/blog/" class="art-back">← Volver al blog</a>
+</div>
+
+<section class="srv-cta">
+  <h2 class="srv-cta-title">¿Hablamos?</h2>
+  <p class="srv-cta-sub">Te confirmamos disponibilidad y precio en el momento.</p>
+  <div class="srv-cta-btns">
+    <a href="tel:918298500" class="btn-white">Llamar · 918 298 500</a>
+    <a href="/#contact" class="btn-dark-solid">Formulario de contacto →</a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo nav-logo">
+        <div class="logo-wordmark">
+          <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
+        </div>
+        <span class="logo-sub">Coworking &amp; Workplaces</span>
+      </div>
+      <p>Despachos privados, coworking y centros de negocios en Madrid y toda España. Happy Workplaces desde el siglo XX.</p>
+      <div class="socials" style="margin-top:24px">
+        <a href="https://www.facebook.com/Oficinas-YA-597501736950272/" class="soc" aria-label="Facebook"><svg viewBox="0 0 320 512" fill="currentColor"><path d="M279.1 288l14.2-92.7h-88.9v-60.1c0-25.4 12.4-50.1 52.2-50.1h40.4V6.3S260.4 0 225.4 0c-73.2 0-121.1 44.4-121.1 124.7v70.6H22.9V288h81.4v224h100.2V288z"/></svg></a>
+        <a href="https://www.linkedin.com/in/oficinas-ya-856bb575/" class="soc" aria-label="LinkedIn"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg></a>
+        <a href="https://twitter.com/oficinasYA" class="soc" aria-label="X (Twitter)"><svg viewBox="0 0 512 512" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88H109.9L364.4 421.8z"/></svg></a>
+        <a href="https://www.instagram.com/Oficinas_YA/" class="soc" aria-label="Instagram"><svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.5 122.5 1.8 158.3c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Servicios</h5>
+      <ul>
+        <li><a href="/alquiler-de-despachos/">Despachos privados</a></li>
+        <li><a href="/salas-de-reuniones/">Salas de reuniones</a></li>
+        <li><a href="/oficina-virtual/">Oficina virtual</a></li>
+        <li><a href="/coworking/">Coworking</a></li>
+        <li><a href="/ubicaciones/">Ubicaciones</a></li>
+        <li><a href="/#pricing">Precios</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-cities">
+      <h5>Ciudades</h5>
+      <ul class="footer-cities-list">
+        <li><a href="/oficinas-en-madrid/">Madrid</a></li>
+        <li><a href="/oficinas-en-barcelona/">Barcelona</a></li>
+        <li><a href="/oficinas-en-murcia/">Murcia</a></li>
+        <li><a href="/oficinas-en-sevilla/">Sevilla</a></li>
+        <li><a href="/oficinas-en-tenerife/">Tenerife</a></li>
+        <li><a href="/oficinas-en-a-coruna/">A Coruña</a></li>
+        <li><a href="/oficinas-en-bilbao/">Bilbao</a></li>
+        <li><a href="/oficinas-en-segovia/">Segovia</a></li>
+        <li><a href="/oficinas-en-albacete/">Albacete</a></li>
+        <li><a href="/oficinas-en-alicante/">Alicante</a></li>
+        <li><a href="/oficinas-en-castellon/">Castellón</a></li>
+        <li><a href="/oficinas-en-malaga/">Málaga</a></li>
+        <li><a href="/oficinas-en-merida/">Mérida</a></li>
+        <li><a href="/oficinas-en-salamanca/">Salamanca</a></li>
+        <li><a href="/oficinas-en-valencia/">Valencia</a></li>
+        <li><a href="/oficinas-en-vigo/">Vigo</a></li>
+        <li><a href="/oficinas-en-zaragoza/">Zaragoza</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Empresa</h5>
+      <ul>
+        <li><a href="/#why">Por qué nosotros</a></li>
+        <li><a href="/#testimonials">Clientes</a></li>
+        <li><a href="/comunidad/">Comunidad</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#contact">Formulario de contacto</a></li>
+      </ul>
+      <h5 class="footer-h5-gap">Contacto</h5>
+      <ul>
+        <li><a href="tel:918298500">918 298 500</a></li>
+        <li><a href="https://wa.me/34624119705">WhatsApp 624 119 705</a></li>
+        <li><a href="mailto:hola@oficinasya.es">hola@oficinasya.es</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 OficinasYA! · Todos los derechos reservados</span>
+    <div class="footer-bottom-links"><a href="/aviso-legal/">Aviso legal</a>·<a href="/politica-de-privacidad/">Privacidad</a>·<a href="/politica-de-cookies/">Cookies</a></div>
+  </div>
+</footer>
+
+
+<a href="https://wa.me/34624119705" class="wa" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="27" height="27" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+
+<script>
+  // Cabecera: fondo solido al hacer scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 80));
+
+  // Menu movil
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuBackdrop = document.getElementById('menuBackdrop');
+  function closeMenu() {
+    menuToggle.classList.remove('open'); mobileMenu.classList.remove('open'); menuBackdrop.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+  }
+  function openMenu() {
+    menuToggle.classList.add('open'); mobileMenu.classList.add('open'); menuBackdrop.classList.add('open');
+    menuToggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden';
+  }
+  menuToggle.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+  menuBackdrop.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Animaciones de entrada (.rv, .rvl, .rvr)
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => io.observe(el));
+
+</script>
+</body>
+</html>

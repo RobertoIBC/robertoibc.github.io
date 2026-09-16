@@ -89,8 +89,8 @@ es:
       coworking: srv-coworking
   blog:
     read: Leer artículo
-    read_external: Leer en el blog de OficinasYA
-    all_external: Ver todos los artículos en oficinasya.es
+    read_spanish: Leer artículo
+    in_spanish: ""
     back: Volver al blog
     published: Publicado el
     cats: { prod: Productividad, neg: Negocio, bien: Bienestar, tech: Tech, vida: Estilo de vida }
@@ -187,8 +187,8 @@ en:
       coworking: srv-coworking
   blog:
     read: Read the article
-    read_external: Read on the OficinasYA blog
-    all_external: See all the articles on oficinasya.es
+    read_spanish: Read the article (in Spanish)
+    in_spanish: Article available in Spanish
     back: Back to the blog
     published: Published on
     cats: { prod: Productivity, neg: Business, bien: Wellbeing, tech: Tech, vida: Lifestyle }
