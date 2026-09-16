@@ -285,7 +285,7 @@
       padding: 10px 16px 12px; font-size: .8rem; font-weight: 600;
       box-shadow: 0 12px 32px rgba(0,0,0,.25);
       opacity: 0; transform: translate(-50%, -12px); transition: opacity .18s, transform .18s;
-      white-space: nowrap; cursor: pointer;
+      white-space: nowrap; cursor: pointer; text-decoration: none; display: block;
     }
     .map-tooltip.on { pointer-events: auto; }
     .map-tooltip::after {
@@ -829,7 +829,7 @@
           <div class="ti-dot"></div>
           <div><div class="ti-text">Tenerife</div><div class="ti-count">×3 centres</div></div></a>
         </div>
-        <div class="map-tooltip" id="mapTooltip"><span class="mt-city"></span> <span class="mt-count"></span><span class="mt-cta">See centres →</span></div>
+        <a class="map-tooltip" id="mapTooltip" href="#espana"><span class="mt-city"></span> <span class="mt-count"></span><span class="mt-cta">See centres →</span></a>
       </div>
       <div class="map-legend">
         <div class="legend-item"><div class="legend-dot"></div> OficinasYA! centre · the number beside the name shows how many there are</div>
@@ -1354,6 +1354,9 @@
     if (!city) return;
     clearTimeout(tooltipHideTimer);
     tooltipTarget = link;
+    // El tooltip es un <a>: hereda el destino del enlace de la ciudad. OJO: en un <a> de SVG,
+    // .href es un SVGAnimatedString, no un string (navegar con el daba /ubicaciones/[object SVGAnimatedString]).
+    tooltip.setAttribute('href', link.getAttribute('href'));
     tooltip.querySelector('.mt-city').textContent = city;
     tooltip.querySelector('.mt-count').textContent = '· ' + count;
     const elRect = el.getBoundingClientRect();
@@ -1377,7 +1380,6 @@
   });
   tooltip.addEventListener('mouseenter', () => clearTimeout(tooltipHideTimer));
   tooltip.addEventListener('mouseleave', scheduleHideTooltip);
-  tooltip.addEventListener('click', () => { if (tooltipTarget) location.href = tooltipTarget.href; });
 
 
 </script>
