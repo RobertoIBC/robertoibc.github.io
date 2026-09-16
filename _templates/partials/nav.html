@@ -1,12 +1,16 @@
 {#- Cabecera comun. Los enlaces salen de _data/i18n.yml y de las URLs de las
-    paginas; el estado activo, de nav_active en el front matter de cada pagina. -#}
+    paginas; el estado activo, de nav_active en el front matter de cada pagina.
+    "Servicios" es un desplegable solo con CSS (hover y focus-within): sin JS,
+    accesible con teclado, y el propio "Servicios" enlaza a la primera pagina. -#}
 {%- set h = '' if page.is_home else urls.home -%}
+{%- set servicios = [('srv-despachos', t.footer.private_offices), ('srv-salas', t.footer.meeting_rooms),
+                     ('srv-oficina-virtual', t.footer.virtual_office), ('srv-coworking', t.footer.coworking)] -%}
+{%- set srv_active = page.layout == 'servicio' -%}
 {%- set items = [
-  ('services',  h ~ '#services', t.nav.services,  false),
-  ('locations', urls.ubicaciones, t.nav.locations, page.nav_active == 'ubicaciones'),
+  ('locations', urls.ubicaciones, t.nav.locations, page.nav_active == 'ubicaciones' or page.layout == 'ciudad'),
   ('pricing',   h ~ '#pricing',  t.nav.pricing,   false),
   ('community', urls.comunidad,  t.nav.community, page.nav_active == 'comunidad'),
-  ('blog',      urls.blog,       t.nav.blog,      page.nav_active == 'blog'),
+  ('blog',      urls.blog,       t.nav.blog,      page.nav_active == 'blog' or page.layout == 'articulo'),
   ('contact',   h ~ '#contact',  t.nav.contact,   false),
 ] -%}
 <!-- NAV -->
@@ -18,6 +22,14 @@
     <span class="logo-sub">Coworking &amp; Workplaces</span>
   </a>
   <ul class="nav-links">
+    <li class="nav-item has-menu">
+      <a href="{{ urls['srv-despachos'] if 'srv-despachos' in urls else h ~ '#services' }}"{% if srv_active %} class="active"{% endif %} aria-haspopup="true">{{ t.nav.services }}<svg class="nav-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <ul class="nav-menu" aria-label="{{ t.nav.services }}">
+{%- for pid, label in servicios if pid in urls %}
+        <li><a href="{{ urls[pid] }}"{% if page.id == pid %} aria-current="page"{% endif %}>{{ label }}</a></li>
+{%- endfor %}
+      </ul>
+    </li>
 {%- for key, href, label, active in items %}
     <li><a href="{{ href }}"{% if active %} class="active"{% endif %}>{{ label }}</a></li>
 {%- endfor %}
@@ -39,6 +51,10 @@
 </nav>
 <div class="menu-backdrop" id="menuBackdrop"></div>
 <div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-menu-group">{{ t.nav.services }}</span>
+{%- for pid, label in servicios if pid in urls %}
+  <a href="{{ urls[pid] }}" class="mobile-menu-sub{% if page.id == pid %} active{% endif %}">{{ label }}</a>
+{%- endfor %}
 {%- for key, href, label, active in items %}
   <a href="{{ href }}"{% if active %} class="active"{% endif %}>{{ label }}</a>
 {%- endfor %}

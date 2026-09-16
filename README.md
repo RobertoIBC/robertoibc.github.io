@@ -21,6 +21,7 @@ _content/
   servicios/         las 4 páginas de servicio, en Markdown con front matter
                      (alquiler-de-despachos.es.md, private-offices.en.md, ...)
   ciudades/          las 17 páginas de ciudad, igual: segovia.es.md, segovia.en.md, ...
+  blog/              un fichero por artículo e idioma (front matter + Markdown)
 _templates/
   base.html          esqueleto común: <head>, cabecera, pie, WhatsApp, JS
   partials/          nav.html, footer.html
@@ -29,6 +30,7 @@ _templates/
   assets/            base.css y base.js, compartidos por todas las páginas
   llms.txt           plantilla del llms.txt
   redirect.html      plantilla de los stubs de redirección
+_build.manifest      lista de lo generado en la última build (para borrar lo que sobra)
 assets/img/          fotos e imagen de Open Graph (esto sí se sube tal cual)
 ```
 
@@ -145,10 +147,61 @@ Añadir una ciudad, paso a paso. Ejemplo: la red abre un centro en Valladolid.
 6. `python _build.py`. Mientras la ciudad no tenga página, los enlaces a ella
    van al hub con su ancla; en cuanto existe, apuntan a la página sola.
 
+## Blog y cómo añadir un artículo
+
+Cada artículo es un fichero por idioma en `_content/blog/`. El listado del
+blog (`/blog/` y `/en/blog/`), las tarjetas, el JSON-LD (`Blog` con sus
+`BlogPosting`) y el sitemap se construyen solos a partir de esos ficheros,
+ordenados por fecha descendente; el artículo marcado `destacado: true` sale
+en la tarjeta grande.
+
+Hay dos tipos de fichero:
+
+- **Con `enlace`**: el artículo vive en el blog de oficinasya.es. Solo se
+  genera la tarjeta, que enlaza allí. Así están los 10 actuales.
+- **Con `url`**: el artículo se publica aquí. El generador crea la página
+  con el layout `articulo`, su `BlogPosting`, sus hreflang y su entrada en
+  el sitemap.
+
+Ejemplo completo de artículo propio. Fichero `_content/blog/como-elegir-despacho.es.md`:
+
+```markdown
+---
+id: post-como-elegir-despacho          # el mismo id en la versión inglesa
+lang: es
+url: /blog/como-elegir-despacho/       # con esto se genera la página
+titulo: "Cómo elegir un despacho: cinco preguntas antes de firmar"
+fecha: 2026-10-01
+categoria: neg                         # prod | neg | bien | tech | vida (las pestañas del blog)
+resumen: "Tamaño, horario, salas, dirección y flexibilidad: lo que conviene mirar antes de contratar un despacho."
+imagen: /assets/img/blog/como-elegir-despacho.jpg   # 1200x675, opcional
+imagen_alt: "Despacho equipado con dos puestos"
+destacado: false
+---
+Primer párrafo del artículo: es el que se muestra en grande.
+
+## La primera pregunta: ¿cuántas horas a la semana?
+
+Texto en Markdown. Los enlaces internos se escriben con el mapa de URLs para
+que apunten al idioma correcto: [despachos privados]({{ urls['srv-despachos'] }})
+o [la página de Segovia]({{ cu['Segovia'] }}). Las cifras, como siempre,
+con {{ g.espacios }} y {{ g.ciudades }}.
+```
+
+Y su pareja `como-elegir-despacho.en.md`, con `lang: en`, el mismo `id` y
+`url: /en/blog/how-to-choose-an-office/`. Si solo existe un idioma, la página
+se publica igualmente y el generador avisa. Después, `python _build.py`.
+
+Para retirar un artículo basta borrar sus ficheros y regenerar: el generador
+elimina la página que había creado (lo apunta en `_build.manifest`).
+
 ## Cabecera y pie
 
 Los enlaces y textos de la cabecera y el pie están en `_data/i18n.yml`
-(un bloque `es` y otro `en`). El HTML está en `_templates/partials/`.
+(un bloque `es` y otro `en`). El HTML está en `_templates/partials/`. El
+desplegable de "Servicios" es solo CSS (hover y foco de teclado, sin JS), y
+el pie lista las 17 ciudades y los 4 servicios desde las páginas existentes:
+no hay que tocarlo al añadir una ciudad o un servicio.
 
 ## Migración a www.oficinasya.es
 

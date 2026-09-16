@@ -47,7 +47,7 @@ HOME = {'es': '/', 'en': '/en/'}
 # Prioridad del sitemap por tipo de pagina; el resto va a 0.2 (legales) o
 # a lo que diga SITEMAP_PRIORITY_BY_LAYOUT.
 SITEMAP_PRIORITY = {'home': '1.0', 'ubicaciones': '0.9', 'comunidad': '0.7', 'blog': '0.6'}
-SITEMAP_PRIORITY_BY_LAYOUT = {'servicio': '0.8', 'ciudad': '0.8'}
+SITEMAP_PRIORITY_BY_LAYOUT = {'servicio': '0.8', 'ciudad': '0.8', 'articulo': '0.5'}
 
 # Claves de la columna `servicios` de centros.csv que cuentan como cada servicio
 SERVICE_KEYS = {
@@ -175,12 +175,29 @@ class Page(dict):
 
 
 def load_pages():
-    pages = []
+    pages, posts = [], []
     for path in sorted(CONTENT.rglob('*')):
         if path.suffix not in ('.html', '.md') or not path.is_file():
             continue
         meta, body = front_matter(read(path), path)
-        pages.append(Page(meta, body=body, source=path, kind=path.suffix[1:]))
+        page = Page(meta, body=body, source=path, kind=path.suffix[1:])
+        if path.parent.name == 'blog':
+            # Articulo del blog. Obligatorio: id, lang, titulo, fecha, categoria, resumen.
+            for k in ('id', 'lang', 'titulo', 'fecha', 'categoria', 'resumen'):
+                if not page.get(k):
+                    raise SystemExit(f'{path}: falta "{k}" en el front matter del articulo')
+            page['fecha'] = str(page['fecha'])
+            if page.get('enlace') and page.get('url'):
+                raise SystemExit(f'{path}: un articulo tiene enlace externo O url propia, no los dos')
+            if page.get('url'):
+                page.setdefault('layout', 'articulo')
+                page.setdefault('title', page['titulo'] + ' | OficinasYA!')
+                page.setdefault('description', page['resumen'])
+                page.setdefault('h1', page['titulo'])
+                pages.append(page)
+            posts.append(page)
+            continue
+        pages.append(page)
     urls = {}
     for p in pages:
         for k in ('id', 'lang', 'url', 'layout', 'title', 'description'):
@@ -191,7 +208,7 @@ def load_pages():
         if p.url in urls:
             raise SystemExit(f'URL repetida {p.url}: {p.source} y {urls[p.url]}')
         urls[p.url] = p.source
-    return pages
+    return pages, posts
 
 
 SERVICE_ORDER = ['srv-despachos', 'srv-salas', 'srv-oficina-virtual', 'srv-coworking']
@@ -349,6 +366,71 @@ def jsonld_ciudad(p, g, site, lang, i18n, city, centros_ciudad, urls):
     return {'@context': 'https://schema.org', '@graph': graph}
 
 
+def tag_order(tag):
+    order = list(SERVICE_KEYS.values())
+    return order.index(tag) if tag in order else 99
+
+
+def jsonld_hub(p, site, lang, i18n, cities, urls):
+    url = site['url']
+    return {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'WebPage', '@id': p['abs_url'], 'url': p['abs_url'], 'name': p['title'],
+         'description': p['description'], 'inLanguage': LANG_TAG[lang],
+         'isPartOf': {'@id': url + '/#website'}, 'about': {'@id': url + '/#organization'}},
+        {'@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': i18n['breadcrumb_home'], 'item': url + HOME[lang]},
+            {'@type': 'ListItem', 'position': 2, 'name': i18n['ciudad']['locations'], 'item': p['abs_url']}]},
+        {'@type': 'ItemList', 'name': p['h1'] if p.get('h1') else p['title'], 'numberOfItems': len(cities),
+         'itemListElement': [{'@type': 'ListItem', 'position': i, 'name': c['label'], 'url': url + c['url']}
+                             for i, c in enumerate(cities, 1)]},
+    ]}
+
+
+MESES = {'es': ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+         'en': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
+
+
+def fecha_legible(iso, lang):
+    y, m, d = iso.split('-')
+    return f'{int(d)} {MESES[lang][int(m) - 1]} {y}' if lang == 'es' else f'{int(d)} {MESES[lang][int(m) - 1]} {y}'
+
+
+def blogposting(a, site, lang, href):
+    node = {'@type': 'BlogPosting', 'headline': a['titulo'], 'datePublished': a['fecha'], 'description': a['resumen'],
+            'inLanguage': LANG_TAG[lang], 'url': href,
+            'author': {'@id': site['url'] + '/#organization'}, 'publisher': {'@id': site['url'] + '/#organization'}}
+    if a.get('imagen'):
+        node['image'] = a['imagen'] if a['imagen'].startswith('http') else site['url'] + a['imagen']
+    return node
+
+
+def jsonld_blog(p, site, lang, i18n, posts):
+    url = site['url']
+    return {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'Blog', '@id': p['abs_url'] + '#blog', 'url': p['abs_url'], 'name': p['title'],
+         'description': p['description'], 'inLanguage': LANG_TAG[lang],
+         'publisher': {'@id': url + '/#organization'},
+         'blogPost': [blogposting(a, site, lang, a['href'] if a['externo'] else url + a['url']) for a in posts]},
+        {'@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': i18n['breadcrumb_home'], 'item': url + HOME[lang]},
+            {'@type': 'ListItem', 'position': 2, 'name': i18n['nav']['blog'], 'item': p['abs_url']}]},
+    ]}
+
+
+def jsonld_articulo(p, site, lang, i18n, urls):
+    url = site['url']
+    node = blogposting(p, site, lang, p['abs_url'])
+    node.update({'@id': p['abs_url'] + '#article', 'mainEntityOfPage': p['abs_url'],
+                 'isPartOf': {'@id': url + urls['blog'] + '#blog'}})
+    if p.get('actualizado'):
+        node['dateModified'] = str(p['actualizado'])
+    return {'@context': 'https://schema.org', '@graph': [node,
+        {'@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': i18n['breadcrumb_home'], 'item': url + HOME[lang]},
+            {'@type': 'ListItem', 'position': 2, 'name': i18n['nav']['blog'], 'item': url + urls['blog']},
+            {'@type': 'ListItem', 'position': 3, 'name': p['titulo'], 'item': p['abs_url']}]}]}
+
+
 def slugify(text):
     import unicodedata
     t = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
@@ -382,8 +464,11 @@ def build(check=False):
     n = service_counts(centros)
 
     warnings = []
-    pages = load_pages()
+    pages, posts = load_pages()
     by_id = link_alternates(pages, site['url'], warnings)
+    # fecha descendente; el articulo marcado `destacado` va primero (es la tarjeta grande del listado)
+    posts.sort(key=lambda a: a['fecha'], reverse=True)
+    posts.sort(key=lambda a: 0 if a.get('destacado') else 1)
     for c in ciudades:
         grp = by_id.get('ciudad-' + c['slug'], {})
         c['url_es'] = grp['es'].url if 'es' in grp else None
@@ -427,14 +512,42 @@ def build(check=False):
             'title': '' if l == lang else t['lang_other_title'],
         } for l in LANGS]
 
-        # ciudades con enlace, para las paginas que listan donde esta un servicio
-        cities_ctx = [{**c, 'url': city_url(c, lang), 'label': c['nombre' if lang == 'es' else 'nombre_en']}
-                      for c in ciudades]
+        # ciudades con enlace y datos de su pagina, para hub, home y listados
+        cities_ctx = []
+        for c in ciudades:
+            cp = pages_by_id.get('ciudad-' + c['slug'])
+            fotos = [x.get('foto') for x in (cp.get('centros') if cp else []) or [] if x.get('foto')]
+            cities_ctx.append({**c, 'url': city_url(c, lang),
+                               'label': c['nombre' if lang == 'es' else 'nombre_en'],
+                               'region_label': c['region' if lang == 'es' else 'region_en'],
+                               'resumen': cp.get('resumen') if cp else '',
+                               'foto': fotos[0] if fotos else None,
+                               'tags': sorted({x for cc in c['centros'] for x in cc['tags']}, key=tag_order)})
+        # el hub agrupa las tarjetas por zona (`grupo`), en el orden de ciudades.yml
+        regiones = []
+        for c in cities_ctx:
+            key = c['grupo' if lang == 'es' else 'grupo_en']
+            r = next((r for r in regiones if r['nombre'] == key), None)
+            if not r:
+                r = {'nombre': key, 'ciudades': []}; regiones.append(r)
+            r['ciudades'].append(c)
+        zone_order = ['Norte', 'Noreste', 'Centro', 'Mediterráneo', 'Sur', 'Canarias',
+                      'North', 'North-east', 'Centre', 'Mediterranean', 'South', 'Canary Islands']
+        regiones.sort(key=lambda r: zone_order.index(r['nombre']) if r['nombre'] in zone_order else 99)
 
+        lang_posts = []
+        for a in posts:
+            if a['lang'] != lang:
+                continue
+            lang_posts.append({**a, 'href': a.get('enlace') or a['url'], 'externo': bool(a.get('enlace')),
+                               'imagen': a.get('imagen'), 'destacado': bool(a.get('destacado')),
+                               'fecha_legible': fecha_legible(a['fecha'], lang)})
         ctx = {
-            'site': site, 'g': g, 'p': prices, 't': t, 'page': p, 'urls': urls, 'n': n,
+            'site': site, 'g': g, 'p': prices, 't': t, 'page': p, 'urls': urls, 'n': n, 'posts': lang_posts,
             'base_css': base_css, 'base_js': base_js, 'centros': centros, 'ciudades': cities_ctx,
-            'lang': lang, 'pages_by_id': pages_by_id,
+            'lang': lang, 'pages_by_id': pages_by_id, 'regiones': regiones,
+            'cu': {c['nombre']: c['url'] for c in cities_ctx},
+            'cn': {c['nombre']: len(c['centros']) for c in cities_ctx},
         }
 
         if p.kind == 'md':
@@ -444,6 +557,9 @@ def build(check=False):
                 key = p['csv_key']
                 p['ciudades_disponibles'] = [c for c in cities_ctx if any(key in x['servicios'] for x in c['centros'])]
                 p['jsonld'] = to_jsonld(jsonld_servicio(p, g, site, lang, prices, p['ciudades_disponibles'], t))
+            if p.layout == 'articulo':
+                p['fecha_legible'] = fecha_legible(p['fecha'], lang)
+                p['jsonld'] = to_jsonld(jsonld_articulo(p, site, lang, t, urls))
             if p.layout == 'ciudad':
                 city = next(c for c in cities_ctx if c['nombre'] == p['ciudad'])
                 overrides = {o['nombre']: o for o in (p.get('centros') or [])}
@@ -478,6 +594,25 @@ def build(check=False):
                 p['jsonld'] = to_jsonld(jsonld_ciudad(p, g, site, lang, t, city, city['centros'], urls))
             html = env.get_template(f'layouts/{p.layout}.html').render(ctx)
         else:
+            if p.layout == 'blog':
+                p['jsonld'] = to_jsonld(jsonld_blog(p, site, lang, t, lang_posts))
+            if p.layout == 'hub':
+                mp = pages_by_id.get('ciudad-madrid')
+                mcity = next((c for c in cities_ctx if c['nombre'] == 'Madrid'), None)
+                cards = []
+                if mp and mcity:
+                    over = {o['nombre']: o for o in mp.get('centros') or []}
+                    zonas = mp.get('zonas') or [{'nombre': None, 'centros': [c['centro'] for c in mcity['centros']]}]
+                    by_name = {c['centro']: c for c in mcity['centros']}
+                    for z in zonas:
+                        for n_ in z['centros']:
+                            c = by_name[n_]
+                            cards.append({**c, 'zona': z['nombre'], 'foto': over.get(n_, {}).get('foto'),
+                                          'anchor': slugify(n_), 'url': mcity['url'] + '#' + slugify(n_),
+                                          'tag_labels': [t['ciudad']['tags'].get(x, x) for x in c['tags']]})
+                ctx['madrid_cards'] = cards
+                ctx['madrid_url'] = mcity['url'] if mcity else urls['ubicaciones']
+                p['jsonld'] = to_jsonld(jsonld_hub(p, site, lang, t, cities_ctx, urls))
             src = f'{{% extends "layouts/{p.layout}.html" %}}\n' + p['body']
             html = env.from_string(src).render(ctx)
 
@@ -537,6 +672,23 @@ def build(check=False):
         elif write_if_changed(out, text):
             changed.append(out)
 
+    # ---- manifiesto: lo generado en la build anterior que ya no se genera se borra
+    # (por ejemplo, la pagina de un articulo o una ciudad cuyo fichero se elimino).
+    manifest = ROOT / '_build.manifest'
+    previous = set(manifest.read_text(encoding='utf-8').splitlines()) if manifest.exists() else set()
+    current = {o.relative_to(ROOT).as_posix() for o in outputs}
+    stale = [ROOT / rel for rel in sorted(previous - current) if rel]
+    if not check:
+        for f in stale:
+            if f.exists():
+                f.unlink(); changed.append(f)
+                try:
+                    f.parent.rmdir()   # solo si queda vacia
+                except OSError:
+                    pass
+        write_if_changed(manifest, chr(10).join(sorted(current)) + chr(10))
+    elif stale:
+        changed.extend(f for f in stale if f.exists())
     return changed, outputs, warnings
 
 

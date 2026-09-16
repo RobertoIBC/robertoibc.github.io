@@ -8,6 +8,7 @@ title: "Alquiler de oficinas y despachos en Zaragoza | OficinasYA!"
 description: "Centro de negocios en el paseo de la Independencia 8 de Zaragoza, en el centro financiero: despachos de 1 a 5 personas, sala de 12 y oficina virtual."
 h1: Alquiler de oficinas y despachos en Zaragoza
 subtitle: Un centro en el paseo de la Independencia, en el centro financiero, de ocio y cultural de Zaragoza, con despachos de 1 a 5 personas, sala de 12 y oficina virtual.
+resumen: "Paseo de la Independencia, centro financiero"
 cercanas: [madrid, castellon, bilbao, barcelona]
 centros:
   - nombre: Independencia

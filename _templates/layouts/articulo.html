@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block nav_variant %}dark{% endblock %}
+{#- Articulo del blog. Contenido en _content/blog/<slug>.<lang>.md con `url`:
+    front matter (titulo, fecha, categoria, resumen, imagen) + cuerpo Markdown. -#}
+
+{% block css %}
+{% include "assets/inner.css" %}
+    .art-hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .art-cat { background: rgba(245,146,26,.15); border: 1px solid rgba(245,146,26,.35); color: var(--orange); font-size: .72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; }
+    .art-date { color: rgba(255,255,255,.5); font-size: .88rem; font-weight: 600; }
+    .art-wrap { max-width: 800px; margin: 0 auto; padding: 72px 6% 96px; }
+    .art-img { width: 100%; height: auto; border-radius: var(--radius); margin: -120px 0 48px; position: relative; z-index: 2; box-shadow: 0 24px 60px rgba(0,0,0,.18); }
+    .art-body p:first-child { font-size: 1.12rem; color: var(--dark-mid); }
+    .art-body img { border-radius: 16px; margin: 8px 0 24px; }
+    .art-body blockquote { border-left: 3px solid var(--orange); margin: 24px 0; padding: 4px 0 4px 22px; color: var(--dark-mid); font-style: italic; }
+    .art-back { display: inline-flex; align-items: center; gap: 8px; margin-top: 48px; color: var(--orange-dark); font-weight: 700; text-decoration: none; }
+    .page-hero { padding-bottom: 160px; }
+    @media (max-width: 600px) { .art-wrap { padding: 48px 5% 72px; } .art-img { margin-top: -90px; } }
+{% endblock %}
+
+{% block jsonld %}{{ page.jsonld }}{% endblock %}
+
+{% block content %}
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ urls.home }}">{{ t.breadcrumb_home }}</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="{{ urls.blog }}">{{ t.nav.blog }}</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">{{ t.blog.cats[page.categoria] }}</span>
+    </div>
+    <div class="art-hero-meta"><span class="art-cat">{{ t.blog.cats[page.categoria] }}</span><span class="art-date">{{ t.blog.published }} {{ page.fecha_legible }}</span></div>
+    <h1 class="page-hero-title">{{ page.titulo }}</h1>
+    <p class="page-hero-sub">{{ page.resumen }}</p>
+  </div>
+</div>
+
+<div class="art-wrap">
+{%- if page.imagen %}
+  <img class="art-img" src="{{ page.imagen }}" alt="{{ page.imagen_alt or '' }}" width="1200" height="675" decoding="async" />
+{%- endif %}
+  <article class="srv-article art-body">
+{{ page.body_html }}
+  </article>
+  <a href="{{ urls.blog }}" class="art-back">← {{ t.blog.back }}</a>
+</div>
+
+<section class="srv-cta">
+  <h2 class="srv-cta-title">{{ t.srv.cta_title }}</h2>
+  <p class="srv-cta-sub">{{ t.srv.cta_sub }}</p>
+  <div class="srv-cta-btns">
+    <a href="tel:{{ g.tel_link }}" class="btn-white">{{ t.srv.call }} · {{ g.telefono }}</a>
+    <a href="{{ urls.home }}#contact" class="btn-dark-solid">{{ t.srv.form }} →</a>
+  </div>
+</section>
+{% endblock %}

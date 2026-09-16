@@ -8,10 +8,11 @@ title: "Office rental in Castellón with own phone line | OficinasYA!"
 description: "Business centre at Calle Dean Martí 46 in Castellón: offices of 6 to 30 m² with their own phone line, a 20-person room, a training room and virtual office."
 h1: Office rental in Castellón
 subtitle: A centre on Calle Dean Martí, with furnished offices and their own phone line, a meeting room, a training room with projector and a virtual office discounted for annual payment.
+resumen: "Dean Martí 46, own phone line in every office"
 cercanas: [valencia, zaragoza, barcelona]
 centros:
   - nombre: Dean Marti
-    foto: https://images.unsplash.com/photo-1730741779383-dc45709f8e3b?auto=format&fit=crop&w=800&q=85
+    foto: https://images.unsplash.com/photo-1730741779383-dc45709f8e3b?auto=format&fit=crop&w=640&q=70
     descripcion: Business centre at Calle Dean Martí 46 in Castellón de la Plana, with furnished offices of 6 to 30 m², a 20-person meeting room, a training room with projector and virtual office.
     texto: |
       It is on the mezzanine floor of number 46 Calle Dean Martí, in Castellón de la Plana. The offices, from 6 to 30 m², come with full furniture — desk, chair, visitor chairs and filing cabinets — voice and data points, air conditioning and heating, and each has its own extension and phone number. The fee includes use of the coffee area, the daily press and community charges. Reception answers calls in your company's name, receives and distributes mail and welcomes your visitors. There is a 20-person meeting room and an 18-person training room with projector, parking nearby and, on request, 24-hour access.

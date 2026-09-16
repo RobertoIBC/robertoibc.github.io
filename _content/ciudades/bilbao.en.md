@@ -8,10 +8,11 @@ title: "Office rental in Bilbao: two centres in Abando | OficinasYA!"
 description: "Two centres in Abando, Bilbao's financial district: Máximo Aguirre 12, next to Doña Casilda park, and the Edificio Albia, overlooking the river."
 h1: Office rental in Bilbao
 subtitle: Two centres in Abando, Bilbao's financial, administrative and commercial centre, with offices by the hour, day or month, rooms for meetings and events, and a virtual office with call answering.
+resumen: "Abando: Máximo Aguirre and Edificio Albia"
 cercanas: [zaragoza, a-coruna, madrid]
 centros:
   - nombre: Máximo Aguirre
-    foto: https://images.unsplash.com/photo-1594229416093-5d595163e641?auto=format&fit=crop&w=1200&q=85
+    foto: https://images.unsplash.com/photo-1594229416093-5d595163e641?auto=format&fit=crop&w=640&q=70
     descripcion: Business centre at Calle Máximo Aguirre 12 in Bilbao, in Abando next to the Gran Vía, overlooking Doña Casilda park, with offices of 12 to 27 m², a 10-person room and virtual office.
     texto: |
       It is on the first floor right of number 12 Calle Máximo Aguirre, in the Abando and Gran Vía area, Bilbao's financial, administrative and commercial centre, overlooking Doña Casilda park. Around it there are public and private car parks, metro, taxi, bus and tram stops, three- to five-star hotels, restaurants and shops, and fast motorway exits; the Guggenheim and the Fine Arts Museum are a walk away. The centre is organised into workspaces with natural light and rooms for events, and takes anything from a single workstation to a multi-desk office in benches or islands. Offices range from 12 to 27 m² and the meeting room seats 10, with a two-hour minimum on rooms and hourly offices.

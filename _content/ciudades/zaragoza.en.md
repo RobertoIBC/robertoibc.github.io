@@ -8,6 +8,7 @@ title: "Office rental in Zaragoza: Paseo Independencia | OficinasYA!"
 description: "Business centre at Paseo de la Independencia 8 in Zaragoza, in the financial centre: offices for 1 to 5 people, a 12-person room, from one hour, and more."
 h1: Office rental in Zaragoza
 subtitle: A centre on Paseo de la Independencia, in Zaragoza's financial, leisure and cultural centre, with offices for 1 to 5 people, a 12-person room and virtual office.
+resumen: "Paseo de la Independencia, financial centre"
 cercanas: [madrid, castellon, bilbao, barcelona]
 centros:
   - nombre: Independencia

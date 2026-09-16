@@ -2,25 +2,26 @@
 # de centros.csv. `slug` y `slug_en` forman las URLs de las paginas de ciudad
 # (/oficinas-en-{slug}/ y /en/offices-in-{slug_en}/), que se crean en la fase 4.
 # Mientras una ciudad no tenga pagina propia, los enlaces van al hub de
-# ubicaciones con el ancla `hub_anchor`.
+# ubicaciones con el ancla `hub_anchor`. `region` es la comunidad autonoma
+# (etiqueta de la tarjeta) y `grupo` la zona por la que el hub agrupa las tarjetas.
 #
 # Anadir una ciudad = una fila en centros.csv + una entrada aqui (+ su pagina
 # en _content/ciudades/ cuando toque).
 
-- { nombre: Madrid,     nombre_en: Madrid,     slug: madrid,     slug_en: madrid,     hub_anchor: madrid }
-- { nombre: Barcelona,  nombre_en: Barcelona,  slug: barcelona,  slug_en: barcelona,  hub_anchor: card-barcelona }
-- { nombre: Sevilla,    nombre_en: Seville,    slug: sevilla,    slug_en: seville,    hub_anchor: card-sevilla }
-- { nombre: Tenerife,   nombre_en: Tenerife,   slug: tenerife,   slug_en: tenerife,   hub_anchor: card-tenerife }
-- { nombre: Murcia,     nombre_en: Murcia,     slug: murcia,     slug_en: murcia,     hub_anchor: card-murcia }
-- { nombre: A Coruña,   nombre_en: A Coruña,   slug: a-coruna,   slug_en: a-coruna,   hub_anchor: card-coruna }
-- { nombre: Bilbao,     nombre_en: Bilbao,     slug: bilbao,     slug_en: bilbao,     hub_anchor: card-bilbao }
-- { nombre: Segovia,    nombre_en: Segovia,    slug: segovia,    slug_en: segovia,    hub_anchor: card-segovia }
-- { nombre: Valencia,   nombre_en: Valencia,   slug: valencia,   slug_en: valencia,   hub_anchor: card-valencia }
-- { nombre: Málaga,     nombre_en: Málaga,     slug: malaga,     slug_en: malaga,     hub_anchor: card-malaga }
-- { nombre: Zaragoza,   nombre_en: Zaragoza,   slug: zaragoza,   slug_en: zaragoza,   hub_anchor: card-zaragoza }
-- { nombre: Alicante,   nombre_en: Alicante,   slug: alicante,   slug_en: alicante,   hub_anchor: card-alicante }
-- { nombre: Castellón,  nombre_en: Castellón,  slug: castellon,  slug_en: castellon,  hub_anchor: card-castellon }
-- { nombre: Vigo,       nombre_en: Vigo,       slug: vigo,       slug_en: vigo,       hub_anchor: card-vigo }
-- { nombre: Salamanca,  nombre_en: Salamanca,  slug: salamanca,  slug_en: salamanca,  hub_anchor: card-salamanca }
-- { nombre: Mérida,     nombre_en: Mérida,     slug: merida,     slug_en: merida,     hub_anchor: card-merida }
-- { nombre: Albacete,   nombre_en: Albacete,   slug: albacete,   slug_en: albacete,   hub_anchor: card-albacete }
+- { nombre: Madrid,     nombre_en: Madrid,     slug: madrid,     slug_en: madrid,     hub_anchor: madrid, region: "Comunidad de Madrid", region_en: "Community of Madrid", grupo: "Centro", grupo_en: "Centre" }
+- { nombre: Barcelona,  nombre_en: Barcelona,  slug: barcelona,  slug_en: barcelona,  hub_anchor: card-barcelona, region: "Cataluña", region_en: "Catalonia", grupo: "Noreste", grupo_en: "North-east" }
+- { nombre: Sevilla,    nombre_en: Seville,    slug: sevilla,    slug_en: seville,    hub_anchor: card-sevilla, region: "Andalucía", region_en: "Andalusia", grupo: "Sur", grupo_en: "South" }
+- { nombre: Tenerife,   nombre_en: Tenerife,   slug: tenerife,   slug_en: tenerife,   hub_anchor: card-tenerife, region: "Canarias", region_en: "Canary Islands", grupo: "Canarias", grupo_en: "Canary Islands" }
+- { nombre: Murcia,     nombre_en: Murcia,     slug: murcia,     slug_en: murcia,     hub_anchor: card-murcia, region: "Región de Murcia", region_en: "Region of Murcia", grupo: "Mediterráneo", grupo_en: "Mediterranean" }
+- { nombre: A Coruña,   nombre_en: A Coruña,   slug: a-coruna,   slug_en: a-coruna,   hub_anchor: card-coruna, region: "Galicia", region_en: "Galicia", grupo: "Norte", grupo_en: "North" }
+- { nombre: Bilbao,     nombre_en: Bilbao,     slug: bilbao,     slug_en: bilbao,     hub_anchor: card-bilbao, region: "País Vasco", region_en: "Basque Country", grupo: "Norte", grupo_en: "North" }
+- { nombre: Segovia,    nombre_en: Segovia,    slug: segovia,    slug_en: segovia,    hub_anchor: card-segovia, region: "Castilla y León", region_en: "Castile and León", grupo: "Centro", grupo_en: "Centre" }
+- { nombre: Valencia,   nombre_en: Valencia,   slug: valencia,   slug_en: valencia,   hub_anchor: card-valencia, region: "Comunidad Valenciana", region_en: "Valencian Community", grupo: "Mediterráneo", grupo_en: "Mediterranean" }
+- { nombre: Málaga,     nombre_en: Málaga,     slug: malaga,     slug_en: malaga,     hub_anchor: card-malaga, region: "Andalucía", region_en: "Andalusia", grupo: "Sur", grupo_en: "South" }
+- { nombre: Zaragoza,   nombre_en: Zaragoza,   slug: zaragoza,   slug_en: zaragoza,   hub_anchor: card-zaragoza, region: "Aragón", region_en: "Aragon", grupo: "Noreste", grupo_en: "North-east" }
+- { nombre: Alicante,   nombre_en: Alicante,   slug: alicante,   slug_en: alicante,   hub_anchor: card-alicante, region: "Comunidad Valenciana", region_en: "Valencian Community", grupo: "Mediterráneo", grupo_en: "Mediterranean" }
+- { nombre: Castellón,  nombre_en: Castellón,  slug: castellon,  slug_en: castellon,  hub_anchor: card-castellon, region: "Comunidad Valenciana", region_en: "Valencian Community", grupo: "Mediterráneo", grupo_en: "Mediterranean" }
+- { nombre: Vigo,       nombre_en: Vigo,       slug: vigo,       slug_en: vigo,       hub_anchor: card-vigo, region: "Galicia", region_en: "Galicia", grupo: "Norte", grupo_en: "North" }
+- { nombre: Salamanca,  nombre_en: Salamanca,  slug: salamanca,  slug_en: salamanca,  hub_anchor: card-salamanca, region: "Castilla y León", region_en: "Castile and León", grupo: "Centro", grupo_en: "Centre" }
+- { nombre: Mérida,     nombre_en: Mérida,     slug: merida,     slug_en: merida,     hub_anchor: card-merida, region: "Extremadura", region_en: "Extremadura", grupo: "Centro", grupo_en: "Centre" }
+- { nombre: Albacete,   nombre_en: Albacete,   slug: albacete,   slug_en: albacete,   hub_anchor: card-albacete, region: "Castilla-La Mancha", region_en: "Castile-La Mancha", grupo: "Centro", grupo_en: "Centre" }

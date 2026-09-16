@@ -8,6 +8,7 @@ title: "Office rental in Salamanca: Edificio Openhouse | OficinasYA!"
 description: "Edificio Openhouse, in the El Montalvo III estate, 5 minutes from the centre of Salamanca: offices of 22 to 210 m², coworking, rooms for 15 and 60, restaurant."
 h1: Office rental in Salamanca
 subtitle: The Edificio Openhouse, a 12,000 m² office building in Carbajosa de la Sagrada, 5 minutes from the centre of Salamanca, with offices, coworking, rooms, café, restaurant and private parking.
+resumen: "Edificio Openhouse, 5 minutes from the centre, with parking"
 cercanas: [segovia, madrid, merida, vigo]
 centros:
   - nombre: Edificio Openhouse

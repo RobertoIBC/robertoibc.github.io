@@ -8,6 +8,7 @@ title: "Office rental in Madrid: eight 24-hour centres | OficinasYA!"
 description: "Eight centres in Madrid, all with 24-hour access: Salamanca district, Plaza de Castilla, Las Tablas, Sanchinarro, Pozuelo and Sanse. Offices and rooms."
 h1: Office rental in Madrid
 subtitle: Eight centres in five areas of Madrid, all with 24-hour access, from the Salamanca district to Las Tablas, Pozuelo and San Sebastián de los Reyes. Furnished offices by the hour or by the month, rooms for up to 50 people and virtual office.
+resumen: "Eight centres in five areas, all with 24-hour access"
 cercanas: [segovia, salamanca, albacete, zaragoza]
 zonas:
   - nombre: Salamanca district
@@ -32,7 +33,7 @@ zonas:
       A centre in the La Marina business park, at Calle Fuerteventura 4, next to Antena 3 Televisión, in what the centre itself calls the most emblematic business park in San Sebastián de los Reyes. It is the only centre in the network with an annual Smart Office offer.
 centros:
   - nombre: Velázquez
-    foto: https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=85
+    foto: https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=640&q=70
     descripcion: Business centre at Calle Velázquez 86B in Madrid, ground floor, on the golden mile of the Salamanca district, with 8 exterior and interior offices of 11 to 39 m², a 10-person boardroom, virtual office and 24-hour access.
     texto: |
       On the ground floor of Velázquez 86B, on the golden mile, with bus stops and a taxi rank within 200 metres and good links to the airport. Refurbished in 2004, it has eight offices, exterior and interior, of 11 to 39 m², and a 10-person boardroom. Reception Monday to Thursday from 9:00 to 14:00 and from 14:30 to 18:00 and Fridays from 9:00 to 17:00, with reduced hours from 15 June to 15 September; 24-hour access 7 days a week with the building's surveillance and control system.

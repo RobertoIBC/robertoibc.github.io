@@ -19,6 +19,7 @@ es:
     virtual_office: Oficina virtual
     coworking: Coworking
     events: Eventos
+    cities: Ciudades
     company: Empresa
     why: Por qué nosotros
     clients: Clientes
@@ -86,6 +87,13 @@ es:
       salas de reuniones: srv-salas
       smart office: srv-oficina-virtual
       coworking: srv-coworking
+  blog:
+    read: Leer artículo
+    read_external: Leer en el blog de OficinasYA
+    all_external: Ver todos los artículos en oficinasya.es
+    back: Volver al blog
+    published: Publicado el
+    cats: { prod: Productividad, neg: Negocio, bien: Bienestar, tech: Tech, vida: Estilo de vida }
   form_sent: "✓ Enviado, te contactamos pronto!"
   form_send: "Enviar solicitud →"
   nl_done: "✓ Suscrito!"
@@ -109,6 +117,7 @@ en:
     virtual_office: Virtual office
     coworking: Coworking
     events: Events
+    cities: Cities
     company: Company
     why: Why us
     clients: Clients
@@ -176,6 +185,13 @@ en:
       salas de reuniones: srv-salas
       smart office: srv-oficina-virtual
       coworking: srv-coworking
+  blog:
+    read: Read the article
+    read_external: Read on the OficinasYA blog
+    all_external: See all the articles on oficinasya.es
+    back: Back to the blog
+    published: Published on
+    cats: { prod: Productivity, neg: Business, bien: Wellbeing, tech: Tech, vida: Lifestyle }
   form_sent: "✓ Sent, we will be in touch soon!"
   form_send: "Send request →"
   nl_done: "✓ Subscribed!"

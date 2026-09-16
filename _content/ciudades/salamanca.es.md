@@ -8,6 +8,7 @@ title: "Alquiler de oficinas y despachos en Salamanca | OficinasYA!"
 description: "Edificio Openhouse, en el polígono El Montalvo III, a 5 minutos del centro de Salamanca: despachos de 22 a 210 m², coworking, salas de 15 y 60 y restaurante."
 h1: Alquiler de oficinas y despachos en Salamanca
 subtitle: El Edificio Openhouse, un edificio de oficinas de 12.000 m² en Carbajosa de la Sagrada, a 5 minutos del centro de Salamanca, con despachos, coworking, salas, cafetería, restaurante y parking privado.
+resumen: "Edificio Openhouse, a 5 minutos del centro, con parking"
 cercanas: [segovia, madrid, merida, vigo]
 centros:
   - nombre: Edificio Openhouse

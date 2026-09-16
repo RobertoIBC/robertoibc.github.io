@@ -32,7 +32,7 @@
        nav-light: fondo blanco desde el principio (paginas legales). */
     nav.nav-dark { background: var(--dark); }
     nav.nav-light { background: var(--white); box-shadow: 0 2px 24px rgba(0,0,0,.09); }
-    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; padding: 3px 0; }
     .logo-wordmark { display: flex; align-items: baseline; gap: 0; }
     .logo-word {
       font-family: 'Barlow', sans-serif; font-weight: 900;
@@ -52,7 +52,7 @@
     }
     nav.scrolled .logo-sub, nav.nav-light .logo-sub { color: var(--gray-400); }
     .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; }
+    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; display: inline-block; padding: 12px 0; }
     nav.scrolled .nav-links a, nav.nav-light .nav-links a { color: var(--dark-mid); }
     .menu-toggle {
       display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
@@ -84,7 +84,7 @@
     .nav-links a:hover, .nav-links a.active { color: var(--orange) !important; }
     .nav-cta {
       background: var(--orange); color: var(--white);
-      padding: 11px 26px; border-radius: 50px;
+      padding: 13px 26px; border-radius: 50px;
       font-weight: 700; font-size: .9rem; text-decoration: none;
       display: inline-flex; align-items: center; gap: 8px;
       transition: background .3s, transform .3s, box-shadow .3s;
@@ -103,15 +103,15 @@
     .footer-logo .logo-sub { color: rgba(255,255,255,.35); }
     .footer-brand p { font-size: .9rem; line-height: 1.7; max-width: 260px; }
     .footer-col h5 { color: var(--white); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; display: inline-block; padding: 14px 0; line-height: 1.2; }   /* 44 px de alto tactil */
     .footer-col ul a:hover { color: var(--orange); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
     .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
-    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; display: inline-block; padding: 12px 4px; }
     .footer-bottom-links a:hover { color: var(--orange); }
     .socials { display: flex; gap: 10px; }
-    .soc { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
     .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
     .soc svg { width: 16px; height: 16px; }
     .wa {
@@ -127,7 +127,7 @@
     .nav-actions { display: flex; align-items: center; gap: 20px; }
     .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
     .lang-switch a {
-      font-size: .78rem; font-weight: 700; letter-spacing: .8px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .8px; padding: 16px 5px;
       color: rgba(255,255,255,.45); text-decoration: none;
       transition: color .3s var(--ease);
     }
@@ -137,6 +137,26 @@
     nav.scrolled .lang-switch a, nav.nav-light .lang-switch a { color: var(--gray-400); }
     nav.scrolled .lang-switch a[aria-current], nav.nav-light .lang-switch a[aria-current] { color: var(--dark); }
     nav.scrolled .lang-sep, nav.nav-light .lang-sep { background: var(--gray-200); }
+
+    /* ── DESPLEGABLE DE SERVICIOS (solo CSS: hover y focus-within) ── */
+    .nav-item { position: relative; }
+    .nav-caret { margin-left: 5px; vertical-align: middle; transition: transform .3s var(--ease); }
+    .nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret { transform: rotate(180deg); }
+    .nav-menu { position: absolute; top: 100%; left: -18px; min-width: 240px; padding: 10px 0; margin-top: 14px; list-style: none;
+      background: var(--white); border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,.16); border: 1px solid var(--gray-200);
+      opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s; }
+    .nav-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }   /* puente para no perder el hover */
+    .nav-item:hover .nav-menu, .nav-item:focus-within .nav-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .nav-menu li a { display: block; padding: 11px 22px; color: var(--dark-mid) !important; font-size: .9rem; font-weight: 600; text-decoration: none; }
+    .nav-menu li a:hover, .nav-menu li a:focus-visible { background: var(--gray-50); color: var(--orange) !important; }
+    .nav-menu li a[aria-current] { color: var(--orange) !important; }
+    .mobile-menu-group { display: block; font-size: .68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); padding: 8px 0 4px; }
+    .mobile-menu a.mobile-menu-sub { padding-left: 14px; font-size: 1.02rem; font-weight: 600; color: rgba(255,255,255,.7); }
+
+    /* ── PIE: las 17 ciudades en dos columnas compactas ── */
+    .footer-grid { grid-template-columns: 1.6fr 1fr 1.3fr 1fr; }
+    .footer-col ul.footer-cities-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    .footer-h5-gap { margin-top: 28px; }
 
     @media (max-width: 900px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -151,6 +171,7 @@
       .menu-toggle { display: flex; }
       .nav-cta { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; gap: 0; }
       .nav-cta-text { display: none; }
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-col ul.footer-cities-list { gap: 0 12px; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
     }

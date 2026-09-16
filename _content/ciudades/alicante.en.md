@@ -8,6 +8,7 @@ title: "Office rental in Alicante city centre | OficinasYA!"
 description: "Business centre at Plaza de la Montañeta 4 in Alicante, next to the official bodies: exterior offices of 12 to 20 m², two meeting rooms and virtual office."
 h1: Office rental in Alicante
 subtitle: A centre on Plaza de la Montañeta, in Alicante's administrative and financial centre, with exterior offices with natural light, rooms from one hour and virtual office.
+resumen: "Plaza de la Montañeta, next to the official bodies"
 cercanas: [valencia, murcia, albacete]
 centros:
   - nombre: Plaza de la Muntanyeta

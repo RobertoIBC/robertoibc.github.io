@@ -8,6 +8,7 @@ title: "Office rental in A Coruña: two centres | OficinasYA!"
 description: "Two centres in A Coruña: Juan de la Cierva 5, next to Marineda City, with coworking and rooms for up to 50, and Andrés Martínez Salazar 3, a PAE point."
 h1: Office rental in A Coruña
 subtitle: Two business centres in A Coruña, one with coworking, rooms for up to 50 people, training rooms, virtual office and advisory services for freelancers and SMEs.
+resumen: "Next to Marineda City, with coworking and a PAE point"
 cercanas: [vigo, salamanca]
 centros:
   - nombre: Juan de la Cierva

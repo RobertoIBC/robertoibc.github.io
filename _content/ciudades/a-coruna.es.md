@@ -8,6 +8,7 @@ title: "Alquiler de oficinas y despachos en A Coruña | OficinasYA!"
 description: "Dos centros en A Coruña: Juan de la Cierva 5, junto a Marineda City, con coworking y salas hasta 50 personas, y Andrés Martínez Salazar 3, Punto PAE, con aula."
 h1: Alquiler de oficinas y despachos en A Coruña
 subtitle: Dos centros de negocios en A Coruña, uno de ellos con coworking, salas de hasta 50 personas, aulas de formación, oficina virtual y asesoría para autónomos y pymes.
+resumen: "Junto a Marineda City, con coworking y Punto PAE"
 cercanas: [vigo, salamanca]
 centros:
   - nombre: Juan de la Cierva

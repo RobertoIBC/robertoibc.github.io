@@ -8,6 +8,7 @@ title: "Alquiler de oficinas y despachos en Sevilla | OficinasYA!"
 description: "Tres centros en Sevilla: Laraña 4, en pleno centro; el Edificio Galia Puerto, junto a la SE-30, con parking de 500 plazas; y el Edificio Nervión."
 h1: Alquiler de oficinas y despachos en Sevilla
 subtitle: Tres centros para tres necesidades distintas, del despacho en el centro histórico a las oficinas de hasta 2.500 m² junto a la SE-30. Dos de ellos con acceso 24 horas.
+resumen: "Centro, Puerto junto a la SE-30 y Nervión"
 cercanas: [malaga, merida]
 centros:
   - nombre: Laraña

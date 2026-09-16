@@ -8,6 +8,7 @@ title: "Alquiler de oficinas y despachos en Tenerife | OficinasYA!"
 description: "Tres espacios en Santa Cruz de Tenerife: dos centros con acceso 24 h, en Santa Rosalía 49 y Costa y Grijalba 10, y un coliving en la calle La Luna 8."
 h1: Alquiler de oficinas y despachos en Tenerife
 subtitle: Dos centros de negocios con acceso 24 horas en pleno centro de Santa Cruz de Tenerife, más un coliving para vivir y trabajar en el mismo sitio. Despachos, salas y oficina virtual.
+resumen: "Dos centros 24 h en el centro de Santa Cruz y un coliving"
 cercanas: []
 centros:
   - nombre: Santa Rosalía

@@ -8,10 +8,11 @@ title: "Alquiler de oficinas y despachos en Barcelona | OficinasYA!"
 description: "Tres centros en Barcelona: Mitre 126 y Raset 29, en la zona alta, y Plaza Urquinaona 6 con coworking. Despachos, salas de 2 a 20 personas y oficina virtual."
 h1: Alquiler de oficinas y despachos en Barcelona
 subtitle: Tres centros en Barcelona, dos en la zona alta y uno en Plaza Urquinaona con coworking, con despachos equipados, salas de 2 a 20 personas y oficina virtual.
+resumen: "Zona alta y Plaza Urquinaona, con coworking"
 cercanas: [castellon, zaragoza, valencia]
 centros:
   - nombre: Mitre 126
-    foto: https://images.unsplash.com/photo-1722863380905-539ae092fc5f?auto=format&fit=crop&w=1200&q=85
+    foto: https://images.unsplash.com/photo-1722863380905-539ae092fc5f?auto=format&fit=crop&w=640&q=70
     descripcion: Centro de negocios en un edificio exclusivo de oficinas en la Ronda del General Mitre 126, en la zona alta de Barcelona, con despachos de diferentes tamaños, salas de 2, 4, 10 y 20 personas y oficina virtual.
     texto: |
       Está en un edificio exclusivo de oficinas en la Ronda del General Mitre 126, en la zona alta de Barcelona. Tiene despachos de diferentes tamaños y salas completamente equipadas —de 2, 4, 10 y 20 personas—, listas para trabajar desde el primer momento, con un aspecto moderno y funcional. Todos los gastos del edificio, luz y conexión a internet incluidos, van en el precio, y hay un equipo en el centro para resolver lo que surja durante la estancia. Recepción de lunes a jueves de 9:00 a 14:00 y de 15:00 a 18:00, y viernes hasta las 15:00.

@@ -8,6 +8,7 @@ title: "Alquiler de oficinas y despachos en Albacete | OficinasYA!"
 description: "Centro de negocios en la Calle Mayor 22 de Albacete, junto a la zona financiera, con acceso 24/7: despachos de 1 a 4 puestos, sala de reuniones y domiciliación."
 h1: Alquiler de oficinas y despachos en Albacete
 subtitle: Un centro en plena Calle Mayor, con acceso 24 horas, despachos de 10 a 47 m² por horas o por meses, sala de reuniones y oficina virtual.
+resumen: "Calle Mayor 22, con acceso 24 h"
 cercanas: [murcia, valencia, madrid]
 centros:
   - nombre: Calle Mayor

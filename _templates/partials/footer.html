@@ -1,6 +1,9 @@
-{#- Pie comun a todas las paginas. Un solo pie por idioma: las 14 paginas
-    originales tenian pies ligeramente distintos entre si y se han unificado. -#}
+{#- Pie comun a todas las paginas: servicios, las 17 ciudades (en dos columnas
+    compactas, tambien en movil), empresa y contacto. Los enlaces salen de las
+    paginas existentes; ninguno se escribe a mano. -#}
 {%- set h = '' if page.is_home else urls.home -%}
+{%- set servicios = [('srv-despachos', t.footer.private_offices), ('srv-salas', t.footer.meeting_rooms),
+                     ('srv-oficina-virtual', t.footer.virtual_office), ('srv-coworking', t.footer.coworking)] -%}
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -22,11 +25,19 @@
     <div class="footer-col">
       <h5>{{ t.footer.services }}</h5>
       <ul>
-        <li><a href="{{ h }}#services">{{ t.footer.private_offices }}</a></li>
-        <li><a href="{{ h }}#services">{{ t.footer.meeting_rooms }}</a></li>
-        <li><a href="{{ h }}#services">{{ t.footer.virtual_office }}</a></li>
-        <li><a href="{{ h }}#services">{{ t.footer.coworking }}</a></li>
-        <li><a href="{{ h }}#services">{{ t.footer.events }}</a></li>
+{%- for pid, label in servicios if pid in urls %}
+        <li><a href="{{ urls[pid] }}">{{ label }}</a></li>
+{%- endfor %}
+        <li><a href="{{ urls.ubicaciones }}">{{ t.nav.locations }}</a></li>
+        <li><a href="{{ h }}#pricing">{{ t.nav.pricing }}</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-cities">
+      <h5>{{ t.footer.cities }}</h5>
+      <ul class="footer-cities-list">
+{%- for c in ciudades %}
+        <li><a href="{{ c.url }}">{{ c.label }}</a></li>
+{%- endfor %}
       </ul>
     </div>
     <div class="footer-col">
@@ -34,15 +45,11 @@
       <ul>
         <li><a href="{{ h }}#why">{{ t.footer.why }}</a></li>
         <li><a href="{{ h }}#testimonials">{{ t.footer.clients }}</a></li>
-        <li><a href="{{ urls.ubicaciones }}">{{ t.nav.locations }}</a></li>
-        <li><a href="{{ h }}#pricing">{{ t.nav.pricing }}</a></li>
         <li><a href="{{ urls.comunidad }}">{{ t.nav.community }}</a></li>
         <li><a href="{{ urls.blog }}">{{ t.nav.blog }}</a></li>
         <li><a href="{{ h }}#contact">{{ t.footer.contact_form }}</a></li>
       </ul>
-    </div>
-    <div class="footer-col">
-      <h5>{{ t.footer.contact }}</h5>
+      <h5 class="footer-h5-gap">{{ t.footer.contact }}</h5>
       <ul>
         <li><a href="tel:{{ g.tel_link }}">{{ g.telefono }}</a></li>
         <li><a href="https://wa.me/{{ g.whatsapp_link }}">WhatsApp {{ g.whatsapp }}</a></li>

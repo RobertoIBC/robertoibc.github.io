@@ -8,6 +8,7 @@ title: "Office rental in Málaga on Calle Larios | OficinasYA!"
 description: "Business centre at Calle Larios 1 in Málaga: private offices of 17 to 38 m² with balcony and natural light, a 12-person room and virtual office. Near the AVE."
 h1: Office rental in Málaga
 subtitle: A centre at Calle Larios 1, with private offices with balconies and natural light, a 12-person meeting room and virtual office. A walk from the high-speed train station.
+resumen: "Calle Larios 1, a walk from the AVE station"
 cercanas: [sevilla, murcia]
 centros:
   - nombre: Calle Larios

@@ -8,10 +8,11 @@ title: "Alquiler de oficinas y despachos en Bilbao | OficinasYA!"
 description: "Dos centros en Abando, el centro financiero de Bilbao: Máximo Aguirre 12, junto al parque de Doña Casilda, y el Edificio Albia, con vistas a la Ría."
 h1: Alquiler de oficinas y despachos en Bilbao
 subtitle: Dos centros en Abando, el centro financiero, administrativo y comercial de Bilbao, con despachos por horas, días o meses, salas para reuniones y eventos, y oficina virtual con atención telefónica.
+resumen: "Abando: Máximo Aguirre y Edificio Albia"
 cercanas: [zaragoza, a-coruna, madrid]
 centros:
   - nombre: Máximo Aguirre
-    foto: https://images.unsplash.com/photo-1594229416093-5d595163e641?auto=format&fit=crop&w=1200&q=85
+    foto: https://images.unsplash.com/photo-1594229416093-5d595163e641?auto=format&fit=crop&w=640&q=70
     descripcion: Centro de negocios en la calle Máximo Aguirre 12 de Bilbao, en Abando, junto a la Gran Vía, con vistas al parque de Doña Casilda, despachos de 12 a 27 m², sala de 10 personas y oficina virtual.
     texto: |
       Está en el primero derecha del número 12 de la calle Máximo Aguirre, en la zona de Abando y Gran Vía, el centro financiero, administrativo y comercial de Bilbao, con vistas al parque de Doña Casilda. Alrededor hay parkings públicos y privados, paradas de metro, taxi, autobús y tranvía, hoteles de tres a cinco estrellas, restaurantes y comercios, y salidas rápidas por autopista; el Guggenheim y el Bellas Artes quedan a un paseo. El centro se organiza en espacios de trabajo con luz natural y salas para eventos, y admite desde un puesto de trabajo hasta una oficina multipuesto en bancadas o isletas. Los despachos van de 12 a 27 m² y la sala de reuniones es de 10 personas, con uso mínimo de dos horas en salas y despachos por horas.

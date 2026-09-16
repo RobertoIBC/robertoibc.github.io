@@ -77,7 +77,7 @@
        nav-light: fondo blanco desde el principio (paginas legales). */
     nav.nav-dark { background: var(--dark); }
     nav.nav-light { background: var(--white); box-shadow: 0 2px 24px rgba(0,0,0,.09); }
-    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; padding: 3px 0; }
     .logo-wordmark { display: flex; align-items: baseline; gap: 0; }
     .logo-word {
       font-family: 'Barlow', sans-serif; font-weight: 900;
@@ -97,7 +97,7 @@
     }
     nav.scrolled .logo-sub, nav.nav-light .logo-sub { color: var(--gray-400); }
     .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; }
+    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; display: inline-block; padding: 12px 0; }
     nav.scrolled .nav-links a, nav.nav-light .nav-links a { color: var(--dark-mid); }
     .menu-toggle {
       display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
@@ -129,7 +129,7 @@
     .nav-links a:hover, .nav-links a.active { color: var(--orange) !important; }
     .nav-cta {
       background: var(--orange); color: var(--white);
-      padding: 11px 26px; border-radius: 50px;
+      padding: 13px 26px; border-radius: 50px;
       font-weight: 700; font-size: .9rem; text-decoration: none;
       display: inline-flex; align-items: center; gap: 8px;
       transition: background .3s, transform .3s, box-shadow .3s;
@@ -148,15 +148,15 @@
     .footer-logo .logo-sub { color: rgba(255,255,255,.35); }
     .footer-brand p { font-size: .9rem; line-height: 1.7; max-width: 260px; }
     .footer-col h5 { color: var(--white); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; display: inline-block; padding: 14px 0; line-height: 1.2; }   /* 44 px de alto tactil */
     .footer-col ul a:hover { color: var(--orange); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
     .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
-    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; display: inline-block; padding: 12px 4px; }
     .footer-bottom-links a:hover { color: var(--orange); }
     .socials { display: flex; gap: 10px; }
-    .soc { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
     .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
     .soc svg { width: 16px; height: 16px; }
     .wa {
@@ -172,7 +172,7 @@
     .nav-actions { display: flex; align-items: center; gap: 20px; }
     .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
     .lang-switch a {
-      font-size: .78rem; font-weight: 700; letter-spacing: .8px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .8px; padding: 16px 5px;
       color: rgba(255,255,255,.45); text-decoration: none;
       transition: color .3s var(--ease);
     }
@@ -182,6 +182,26 @@
     nav.scrolled .lang-switch a, nav.nav-light .lang-switch a { color: var(--gray-400); }
     nav.scrolled .lang-switch a[aria-current], nav.nav-light .lang-switch a[aria-current] { color: var(--dark); }
     nav.scrolled .lang-sep, nav.nav-light .lang-sep { background: var(--gray-200); }
+
+    /* ── DESPLEGABLE DE SERVICIOS (solo CSS: hover y focus-within) ── */
+    .nav-item { position: relative; }
+    .nav-caret { margin-left: 5px; vertical-align: middle; transition: transform .3s var(--ease); }
+    .nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret { transform: rotate(180deg); }
+    .nav-menu { position: absolute; top: 100%; left: -18px; min-width: 240px; padding: 10px 0; margin-top: 14px; list-style: none;
+      background: var(--white); border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,.16); border: 1px solid var(--gray-200);
+      opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s; }
+    .nav-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }   /* puente para no perder el hover */
+    .nav-item:hover .nav-menu, .nav-item:focus-within .nav-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .nav-menu li a { display: block; padding: 11px 22px; color: var(--dark-mid) !important; font-size: .9rem; font-weight: 600; text-decoration: none; }
+    .nav-menu li a:hover, .nav-menu li a:focus-visible { background: var(--gray-50); color: var(--orange) !important; }
+    .nav-menu li a[aria-current] { color: var(--orange) !important; }
+    .mobile-menu-group { display: block; font-size: .68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); padding: 8px 0 4px; }
+    .mobile-menu a.mobile-menu-sub { padding-left: 14px; font-size: 1.02rem; font-weight: 600; color: rgba(255,255,255,.7); }
+
+    /* ── PIE: las 17 ciudades en dos columnas compactas ── */
+    .footer-grid { grid-template-columns: 1.6fr 1fr 1.3fr 1fr; }
+    .footer-col ul.footer-cities-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    .footer-h5-gap { margin-top: 28px; }
 
     @media (max-width: 900px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -196,7 +216,8 @@
       .menu-toggle { display: flex; }
       .nav-cta { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; gap: 0; }
       .nav-cta-text { display: none; }
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-col ul.footer-cities-list { gap: 0 12px; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
     }
 
@@ -371,6 +392,7 @@
       background-size: cover; background-position: center;
       transition: transform .55s var(--ease);
     }
+    .city-photo-card-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .city-photo-card:hover .city-photo-card-bg { transform: scale(1.06); }
     .city-photo-card-overlay {
       position: absolute; inset: 0;
@@ -380,7 +402,7 @@
     .city-photo-card:hover .city-photo-card-overlay { background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.12) 100%); }
 
     .city-photo-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 22px; z-index: 1; }
-    .city-photo-region { font-size: .65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 4px; }
+    .city-photo-region { font-size: .7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 4px; }
     .city-photo-name { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -.3px; margin-bottom: 4px; }
     .city-photo-center { font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.6); margin-bottom: 10px; }
     .city-photo-tags { display: flex; gap: 6px; flex-wrap: wrap; max-height: 0; overflow: hidden; transition: max-height .4s var(--ease), opacity .3s; opacity: 0; }
@@ -403,6 +425,20 @@
     /* ── FOOTER ── */
 
     /* ── RESPONSIVE ── */
+    /* tarjetas como enlaces (fase 5): la ficha completa vive en la pagina de ciudad */
+    a.madrid-card, a.city-photo-card { text-decoration: none; color: inherit; cursor: pointer; display: flex; flex-direction: column; }
+    a.city-photo-card { display: block; }
+    a.city-photo-card:focus-visible, a.madrid-card:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+    .madrid-all { text-align: center; margin-top: 32px; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--orange); color: var(--orange); padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: .95rem; text-decoration: none; transition: background .3s, color .3s, transform .3s; }
+    .btn-outline:hover { background: var(--orange); color: var(--white); transform: translateY(-2px); }
+    .inline-link { color: var(--orange-dark); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(245,146,26,.35); }
+    .spain-svg a { cursor: pointer; }
+    .spain-svg a:focus-visible .dot { r: 8; }
+    .spain-svg a:focus { outline: none; }
+    .spain-svg a:focus-visible .city-label { fill: var(--orange); font-weight: 800; }
+    a.tenerife-inset { text-decoration: none; }
+
     @media (max-width: 1100px) { .madrid-grid { grid-template-columns: repeat(2, 1fr); } .madrid-card.wide { grid-column: span 2; } }
     @media (max-width: 900px) {
       .row-2-1, .row-1-2 { grid-template-columns: 1fr; }
@@ -429,6 +465,20 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://robertoibc.github.io/ubicaciones/",
+      "url": "https://robertoibc.github.io/ubicaciones/",
+      "name": "Centros de negocio en 17 ciudades de España | OficinasYA!",
+      "description": "Encuentra tu espacio: 35 centros y colivings en 17 ciudades de España, de Madrid y Barcelona a Sevilla, Valencia o Tenerife. Consulta la disponibilidad.",
+      "inLanguage": "es-ES",
+      "isPartOf": {
+        "@id": "https://robertoibc.github.io/#website"
+      },
+      "about": {
+        "@id": "https://robertoibc.github.io/#organization"
+      }
+    },
+    {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -447,1464 +497,110 @@
     },
     {
       "@type": "ItemList",
-      "name": "Centros y espacios de coliving de OficinasYA! en España",
-      "numberOfItems": 35,
+      "name": "Centros de negocio en 17 ciudades de España | OficinasYA!",
+      "numberOfItems": 17,
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Madrid — Velázquez",
-            "description": "Centro de negocios de la red OficinasYA! en Madrid.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Madrid",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Velázquez 86B, planta baja",
-              "addressLocality": "Madrid",
-              "addressCountry": "ES",
-              "postalCode": "28006"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/madrid-salamanca-velazquez-alquiler-despachos-oficinas-velazquez"
-          }
+          "name": "Madrid",
+          "url": "https://robertoibc.github.io/oficinas-en-madrid/"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Madrid — Gasset",
-            "description": "Centro de negocios de la red OficinasYA! en Madrid.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Madrid",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle José Ortega y Gasset 25, planta baja",
-              "addressLocality": "Madrid",
-              "addressCountry": "ES",
-              "postalCode": "28006"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/madrid-salamanca-gasset-alquiler-despachos-oficinas-gasset/"
-          }
+          "name": "Barcelona",
+          "url": "https://robertoibc.github.io/oficinas-en-barcelona/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Madrid — Serrano",
-            "description": "Centro de negocios de la red OficinasYA! en Madrid.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Madrid",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Serrano 93, 3º E",
-              "addressLocality": "Madrid",
-              "addressCountry": "ES",
-              "postalCode": "28006"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/madrid-salamanca-serrano-alquiler-despachos-oficinas-serrano/"
-          }
+          "name": "Murcia",
+          "url": "https://robertoibc.github.io/oficinas-en-murcia/"
         },
         {
           "@type": "ListItem",
           "position": 4,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Madrid — Capitán Haya",
-            "description": "Centro de negocios de la red OficinasYA! en Madrid.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Madrid",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Poeta Joan Maragall 60, 2ª planta",
-              "addressLocality": "Madrid",
-              "addressCountry": "ES",
-              "postalCode": "28020"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/madrid-castellana-capitan-haya-alquiler-despachos-oficinas-plaza-castilla/"
-          }
+          "name": "Sevilla",
+          "url": "https://robertoibc.github.io/oficinas-en-sevilla/"
         },
         {
           "@type": "ListItem",
           "position": 5,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Madrid — Las Tablas",
-            "description": "Centro de negocios de la red OficinasYA! en Madrid.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Madrid",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Isabel Colbrand 6, planta 5",
-              "addressLocality": "Madrid",
-              "addressCountry": "ES",
-              "postalCode": "28050"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/madrid-norte-las-tablas-alquiler-despachos-oficinas-las-tablas/"
-          }
+          "name": "Tenerife",
+          "url": "https://robertoibc.github.io/oficinas-en-tenerife/"
         },
         {
           "@type": "ListItem",
           "position": 6,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Madrid — Sanse (San Sebastián de los Reyes)",
-            "description": "Centro de negocios de la red OficinasYA! en San Sebastián de los Reyes.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Madrid",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Fuerteventura 4, planta baja, oficina 1",
-              "addressLocality": "San Sebastián de los Reyes",
-              "addressCountry": "ES",
-              "postalCode": "28701"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/madrid-san-sebastian-los-reyes-alquiler-despachos-oficinas-san-sebastian-los-reyes/"
-          }
+          "name": "A Coruña",
+          "url": "https://robertoibc.github.io/oficinas-en-a-coruna/"
         },
         {
           "@type": "ListItem",
           "position": 7,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Madrid — La Florida (Pozuelo)",
-            "description": "Centro de negocios de la red OficinasYA! en Madrid.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Madrid",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Gobelas 17, planta baja",
-              "addressLocality": "Madrid",
-              "addressCountry": "ES",
-              "postalCode": "28023"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/madrid-pozuelo-la-florida-alquiler-despachos-oficinas-la-florida"
-          }
+          "name": "Bilbao",
+          "url": "https://robertoibc.github.io/oficinas-en-bilbao/"
         },
         {
           "@type": "ListItem",
           "position": 8,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Madrid — Manoteras (Sanchinarro)",
-            "description": "Centro de negocios de la red OficinasYA! en Madrid.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Madrid",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Avenida de Manoteras 22, 3ª planta, oficina 111",
-              "addressLocality": "Madrid",
-              "addressCountry": "ES",
-              "postalCode": "28050"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ]
-          }
+          "name": "Segovia",
+          "url": "https://robertoibc.github.io/oficinas-en-segovia/"
         },
         {
           "@type": "ListItem",
           "position": 9,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Albacete — Calle Mayor",
-            "description": "Centro de negocios de la red OficinasYA! en Albacete.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Albacete",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Mayor 22, entreplanta",
-              "addressLocality": "Albacete",
-              "addressCountry": "ES",
-              "postalCode": "02001"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/albacete-alquiler-de-despachos-y-oficinas-en-albacete"
-          }
+          "name": "Albacete",
+          "url": "https://robertoibc.github.io/oficinas-en-albacete/"
         },
         {
           "@type": "ListItem",
           "position": 10,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Alicante — Plaza de la Muntanyeta",
-            "description": "Centro de negocios de la red OficinasYA! en Alicante.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Alicante",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Plaza de la Muntanyeta 4, entreplanta",
-              "addressLocality": "Alicante",
-              "addressCountry": "ES",
-              "postalCode": "03001"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "09:00",
-                "closes": "19:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/alicante-alquiler-despachos-oficinas-alicante/"
-          }
+          "name": "Alicante",
+          "url": "https://robertoibc.github.io/oficinas-en-alicante/"
         },
         {
           "@type": "ListItem",
           "position": 11,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Barcelona — Mitre 126",
-            "description": "Centro de negocios de la red OficinasYA! en Barcelona.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Barcelona",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Ronda General Mitre 126",
-              "addressLocality": "Barcelona",
-              "addressCountry": "ES"
-            },
-            "sameAs": "https://www.oficinasya.es/barcelona-alquiler-de-despachos-y-oficinas-en-barcelona-ii/"
-          }
+          "name": "Castellón",
+          "url": "https://robertoibc.github.io/oficinas-en-castellon/"
         },
         {
           "@type": "ListItem",
           "position": 12,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Barcelona — Raset 29",
-            "description": "Centro de negocios de la red OficinasYA! en Barcelona.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Barcelona",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Carrer de Raset 29, Sarrià-Sant Gervasi",
-              "addressLocality": "Barcelona",
-              "addressCountry": "ES",
-              "postalCode": "08021"
-            },
-            "sameAs": "https://www.oficinasya.es/barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-sant-gervasi/"
-          }
+          "name": "Málaga",
+          "url": "https://robertoibc.github.io/oficinas-en-malaga/"
         },
         {
           "@type": "ListItem",
           "position": 13,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Barcelona — Plaza Urquinaona",
-            "description": "Centro de negocios de la red OficinasYA! en Barcelona.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Barcelona",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Plaza de Urquinaona 6, planta 8",
-              "addressLocality": "Barcelona",
-              "addressCountry": "ES",
-              "postalCode": "08010"
-            },
-            "sameAs": "https://www.oficinasya.es/barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-plaza-urquinaona/"
-          }
+          "name": "Mérida",
+          "url": "https://robertoibc.github.io/oficinas-en-merida/"
         },
         {
           "@type": "ListItem",
           "position": 14,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Bilbao — Máximo Aguirre",
-            "description": "Centro de negocios de la red OficinasYA! en Bilbao.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Bilbao",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Máximo Aguirre 12, 1º Dcha",
-              "addressLocality": "Bilbao",
-              "addressCountry": "ES",
-              "postalCode": "48011"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday"
-                ],
-                "opens": "09:00",
-                "closes": "14:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday"
-                ],
-                "opens": "15:30",
-                "closes": "19:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Friday"
-                ],
-                "opens": "09:00",
-                "closes": "14:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Friday"
-                ],
-                "opens": "15:00",
-                "closes": "18:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/bilbao-maximo-aguirre-alquiler-de-despachos-y-oficinas-en-bilbao"
-          }
+          "name": "Salamanca",
+          "url": "https://robertoibc.github.io/oficinas-en-salamanca/"
         },
         {
           "@type": "ListItem",
           "position": 15,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Bilbao — Edificio Albia",
-            "description": "Centro de negocios de la red OficinasYA! en Bilbao.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Bilbao",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "San Vicente 8, 6ª planta, dpto. 8, Edificio Albia I",
-              "addressLocality": "Bilbao",
-              "addressCountry": "ES",
-              "postalCode": "48001"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday"
-                ],
-                "opens": "09:00",
-                "closes": "14:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday"
-                ],
-                "opens": "15:30",
-                "closes": "19:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Friday"
-                ],
-                "opens": "09:00",
-                "closes": "14:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Friday"
-                ],
-                "opens": "15:00",
-                "closes": "18:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/bilbao-albia-alquiler-de-despachos-y-oficinas-en-bilbao/"
-          }
+          "name": "Valencia",
+          "url": "https://robertoibc.github.io/oficinas-en-valencia/"
         },
         {
           "@type": "ListItem",
           "position": 16,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Castellón — Dean Marti",
-            "description": "Centro de negocios de la red OficinasYA! en Castellón de la Plana.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Castellón",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Dean Martí 46, entlo",
-              "addressLocality": "Castellón de la Plana",
-              "addressCountry": "ES",
-              "postalCode": "12004"
-            },
-            "sameAs": "https://www.oficinasya.es/castellon-alquiler-despachos-oficinas-castellon/"
-          }
+          "name": "Vigo",
+          "url": "https://robertoibc.github.io/oficinas-en-vigo/"
         },
         {
           "@type": "ListItem",
           "position": 17,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! A Coruña — Andres Martinez Salazar",
-            "description": "Centro de negocios de la red OficinasYA! en A Coruña.",
-            "areaServed": {
-              "@type": "City",
-              "name": "A Coruña",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Andrés Martínez Salazar 3, 1º",
-              "addressLocality": "A Coruña",
-              "addressCountry": "ES",
-              "postalCode": "15011"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 18,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! A Coruña — Juan de la Cierva",
-            "description": "Centro de negocios de la red OficinasYA! en A Coruña.",
-            "areaServed": {
-              "@type": "City",
-              "name": "A Coruña",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Juan de la Cierva 5",
-              "addressLocality": "A Coruña",
-              "addressCountry": "ES"
-            },
-            "sameAs": "https://www.oficinasya.es/a-coruna-alquiler-de-despachos-y-oficinas-en-a-coruna/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 19,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Málaga — Calle Larios",
-            "description": "Centro de negocios de la red OficinasYA! en Málaga.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Málaga",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Larios 1, 3º izda",
-              "addressLocality": "Málaga",
-              "addressCountry": "ES"
-            },
-            "sameAs": "https://www.oficinasya.es/malaga-alquiler-de-oficinas-y-despachos-en-malaga/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 20,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Mérida — Edificio Delgado Casamayor",
-            "description": "Centro de negocios de la red OficinasYA! en Mérida.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Mérida",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Sta. Teresa Jornet 48",
-              "addressLocality": "Mérida",
-              "addressCountry": "ES",
-              "postalCode": "06800"
-            },
-            "sameAs": "https://www.oficinasya.es/merida-alquiler-de-oficinas-y-despachos-en-merida/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 21,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Murcia — Marla Center",
-            "description": "Centro de negocios de la red OficinasYA! en Murcia.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Murcia",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Avenida Doctor Pedro Guillén 5",
-              "addressLocality": "Murcia",
-              "addressCountry": "ES",
-              "postalCode": "30100"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "07:00",
-                "closes": "23:59"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "09:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/murcia-alquiler-de-despachos-y-oficinas-en-murcia/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 22,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Murcia — Edificio Magalia (Alcantarilla)",
-            "description": "Centro de negocios de la red OficinasYA! en Alcantarilla.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Murcia",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Uruguay, parcela 13/21, Polígono Industrial Oeste",
-              "addressLocality": "Alcantarilla",
-              "addressCountry": "ES",
-              "postalCode": "30820"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "08:00",
-                "closes": "14:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "16:00",
-                "closes": "20:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/murcia-alquiler-de-despachos-y-oficinas-en-murcia-poligono-industrial-oeste/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 23,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Murcia — Coliving Condado de Alhama",
-            "description": "Espacio de coliving de la red OficinasYA! en Alhama de Murcia.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Murcia",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Ctra. de Mazarrón KM 33",
-              "addressLocality": "Alhama de Murcia",
-              "addressCountry": "ES",
-              "postalCode": "30840"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/coliving-murcia-vive-y-trabaja-en-un-lugar-diferente/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 24,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Salamanca — Edificio Openhouse",
-            "description": "Centro de negocios de la red OficinasYA! en Carbajosa de la Sagrada.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Salamanca",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Segunda 43-49",
-              "addressLocality": "Carbajosa de la Sagrada",
-              "addressCountry": "ES",
-              "postalCode": "37188"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "08:00",
-                "closes": "20:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/coworking-salamanca-alquiler-de-despachos-y-oficinas-en-salamanca/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 25,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Segovia — Padre Claret",
-            "description": "Centro de negocios de la red OficinasYA! en Segovia.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Segovia",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Avenida Padre Claret 12",
-              "addressLocality": "Segovia",
-              "addressCountry": "ES",
-              "postalCode": "40001"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "08:00",
-                "closes": "19:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/segovia-alquiler-de-despachos-y-oficinas-en-avenida-padre-claret"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 26,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Segovia — Ezequiel González",
-            "description": "Centro de negocios de la red OficinasYA! en Segovia.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Segovia",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Paseo Ezequiel González 32",
-              "addressLocality": "Segovia",
-              "addressCountry": "ES",
-              "postalCode": "40002"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "08:00",
-                "closes": "21:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/segovia-alquiler-de-despachos-y-oficinas-en-paseo-ezequiel-gonzalez/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 27,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Sevilla — Laraña",
-            "description": "Centro de negocios de la red OficinasYA! en Sevilla.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Sevilla",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Laraña 4, planta 3",
-              "addressLocality": "Sevilla",
-              "addressCountry": "ES",
-              "postalCode": "41003"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday"
-                ],
-                "opens": "09:00",
-                "closes": "14:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday"
-                ],
-                "opens": "15:00",
-                "closes": "19:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Friday"
-                ],
-                "opens": "09:00",
-                "closes": "15:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 28,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Sevilla — Edificio Galia Puerto",
-            "description": "Centro de negocios de la red OficinasYA! en Sevilla.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Sevilla",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Avenida José Delgado Brackembury 11, 1ª planta",
-              "addressLocality": "Sevilla",
-              "addressCountry": "ES",
-              "postalCode": "41011"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla-galia/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 29,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Sevilla — Edificio Nervión",
-            "description": "Centro de negocios de la red OficinasYA! en Sevilla.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Sevilla",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Avenida Eduardo Dato 69, plantas 4 y 7",
-              "addressLocality": "Sevilla",
-              "addressCountry": "ES",
-              "postalCode": "41005"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ]
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 30,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Tenerife — Santa Rosalía",
-            "description": "Centro de negocios de la red OficinasYA! en Santa Cruz de Tenerife.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Tenerife",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle de Santa Rosalía 49",
-              "addressLocality": "Santa Cruz de Tenerife",
-              "addressCountry": "ES",
-              "postalCode": "38002"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/tenerife-alquiler-de-despachos-y-oficinas-en-tenerife/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 31,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Tenerife — Costa y Grijalba",
-            "description": "Centro de negocios de la red OficinasYA! en Santa Cruz de Tenerife.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Tenerife",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Costa y Grijalba 10",
-              "addressLocality": "Santa Cruz de Tenerife",
-              "addressCountry": "ES",
-              "postalCode": "38004"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/tenerife-alquiler-de-despachos-y-oficinas-en-tenerife-2/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 32,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Tenerife — La Luna Coliving",
-            "description": "Espacio de coliving de la red OficinasYA! en Santa Cruz de Tenerife.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Tenerife",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle La Luna 8",
-              "addressLocality": "Santa Cruz de Tenerife",
-              "addressCountry": "ES",
-              "postalCode": "38002"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              }
-            ]
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 33,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Valencia — Guillem de Castro",
-            "description": "Centro de negocios de la red OficinasYA! en Valencia.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Valencia",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Calle Guillem de Castro 9, plantas 5ª y 6ª",
-              "addressLocality": "Valencia",
-              "addressCountry": "ES",
-              "postalCode": "46007"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "09:00",
-                "closes": "14:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "15:15",
-                "closes": "19:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/valencia-alquiler-de-despachos-y-oficinas-en-valencia/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 34,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Vigo — Plaza Compostela",
-            "description": "Centro de negocios de la red OficinasYA! en Vigo.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Vigo",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Plaza de Compostela 23, 2º D",
-              "addressLocality": "Vigo",
-              "addressCountry": "ES",
-              "postalCode": "36201"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "09:00",
-                "closes": "20:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/vigo-alquiler-de-oficinas-y-despachos-en-galicia/"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 35,
-          "item": {
-            "@type": "LocalBusiness",
-            "name": "OficinasYA! Zaragoza — Independencia",
-            "description": "Centro de negocios de la red OficinasYA! en Zaragoza.",
-            "areaServed": {
-              "@type": "City",
-              "name": "Zaragoza",
-              "addressCountry": "ES"
-            },
-            "telephone": "+34918298500",
-            "url": "https://robertoibc.github.io/ubicaciones/",
-            "parentOrganization": {
-              "@id": "https://robertoibc.github.io/#organization"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Paseo de la Independencia 8 duplicado, 2ª planta",
-              "addressLocality": "Zaragoza",
-              "addressCountry": "ES",
-              "postalCode": "50004"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday"
-                ],
-                "opens": "08:30",
-                "closes": "19:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Friday"
-                ],
-                "opens": "08:30",
-                "closes": "15:00"
-              }
-            ],
-            "sameAs": "https://www.oficinasya.es/zaragoza-alquiler-de-despachos-y-oficinas-en-zaragoza/"
-          }
+          "name": "Zaragoza",
+          "url": "https://robertoibc.github.io/oficinas-en-zaragoza/"
         }
       ]
     }
@@ -1924,7 +620,15 @@
     <span class="logo-sub">Coworking &amp; Workplaces</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/#services">Servicios</a></li>
+    <li class="nav-item has-menu">
+      <a href="/alquiler-de-despachos/" aria-haspopup="true">Servicios<svg class="nav-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <ul class="nav-menu" aria-label="Servicios">
+        <li><a href="/alquiler-de-despachos/">Despachos privados</a></li>
+        <li><a href="/salas-de-reuniones/">Salas de reuniones</a></li>
+        <li><a href="/oficina-virtual/">Oficina virtual</a></li>
+        <li><a href="/coworking/">Coworking</a></li>
+      </ul>
+    </li>
     <li><a href="/ubicaciones/" class="active">Ubicaciones</a></li>
     <li><a href="/#pricing">Precios</a></li>
     <li><a href="/comunidad/">Comunidad</a></li>
@@ -1945,7 +649,11 @@
 </nav>
 <div class="menu-backdrop" id="menuBackdrop"></div>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/#services">Servicios</a>
+  <span class="mobile-menu-group">Servicios</span>
+  <a href="/alquiler-de-despachos/" class="mobile-menu-sub">Despachos privados</a>
+  <a href="/salas-de-reuniones/" class="mobile-menu-sub">Salas de reuniones</a>
+  <a href="/oficina-virtual/" class="mobile-menu-sub">Oficina virtual</a>
+  <a href="/coworking/" class="mobile-menu-sub">Coworking</a>
   <a href="/ubicaciones/" class="active">Ubicaciones</a>
   <a href="/#pricing">Precios</a>
   <a href="/comunidad/">Comunidad</a>
@@ -1981,7 +689,7 @@
     <div class="map-hd rv">
       <span class="eyebrow">Mapa de la red</span>
       <h2 class="stitle" style="color:var(--white);margin:0 auto">Presencia nacional</h2>
-      <p class="ssub" style="margin:14px auto 0">Haz clic en cada ciudad para ver los centros disponibles.</p>
+      <p class="ssub" style="margin:14px auto 0">Haz clic en una ciudad para ir a su página, con la ficha de cada centro.</p>
     </div>
     <div class="map-container rv">
       <div class="map-svg-wrap">
@@ -1993,126 +701,126 @@
           <path class="spain-shape" d="M 90,45 C 106,28 122,20 130,20 C 158,19 192,24 222,30 C 258,36 296,37 330,38 C 348,39 368,45 389,52 C 408,52 428,50 441,51 L 452,45 C 462,57 476,70 494,79 C 518,83 544,85 569,87 C 598,90 628,94 659,97 C 679,100 709,103 730,107 C 719,118 702,130 668,143 C 643,153 628,156 617,158 C 598,175 580,212 560,240 C 548,256 537,268 528,276 C 540,294 554,308 562,319 C 557,330 542,340 523,342 C 515,360 513,372 511,384 C 483,410 452,432 416,451 C 380,463 320,470 258,471 L 242,480 C 228,472 215,460 205,449 C 188,432 178,418 170,406 L 145,409 C 152,378 160,348 163,310 C 166,284 170,238 172,185 C 148,168 112,148 77,124 C 75,120 73,116 73,112 C 55,95 47,82 43,74 C 62,60 76,52 90,45 Z" />
           <circle cx="347" cy="220" r="52" fill="url(#centerGlow)"/>
           <!-- Madrid hub -->
-          <g class="city-dot main" data-city="Madrid" data-count="8 centros" onclick="goToCity(this,'madrid')">
+          <a href="/oficinas-en-madrid/"><g class="city-dot main" data-city="Madrid" data-count="8 centros">
             <circle class="hit-area" cx="347" cy="220" r="22"/>
             <circle cx="347" cy="220" r="18" fill="rgba(245,146,26,.1)" stroke="rgba(245,146,26,.2)" stroke-width="1"/>
             <circle cx="347" cy="220" r="11" fill="rgba(245,146,26,.15)" stroke="rgba(245,146,26,.3)" stroke-width="1"/>
             <circle class="pulse-ring" cx="347" cy="220" r="7"/>
             <circle class="dot" cx="347" cy="220" r="7" fill="var(--orange)" filter="url(#glow)"/>
             <text class="city-label main-label" x="347" y="244" text-anchor="middle" font-size="11" font-weight="700">MADRID ×8</text>
-          </g>
+          </g></a>
           <!-- A Coruña -->
-          <g class="city-dot" data-city="A Coruña" data-count="2 centros" onclick="goToCity(this,'card-coruna')">
-            <circle class="hit-area" cx="92" cy="48" r="13"/>
+          <a href="/oficinas-en-a-coruna/"><g class="city-dot" data-city="A Coruña" data-count="2 centros">
+            <circle class="hit-area" cx="92" cy="48" r="22"/>
             <circle class="pulse-ring" cx="92" cy="48" r="5"/>
             <circle class="dot" cx="92" cy="48" r="5" filter="url(#glow)"/>
             <text class="city-label" x="100" y="46">A Coruña ×2</text>
-          </g>
+          </g></a>
           <!-- Vigo -->
-          <g class="city-dot" data-city="Vigo" data-count="1 centro" onclick="goToCity(this,'card-vigo')">
-            <circle class="hit-area" cx="75" cy="116" r="13"/>
+          <a href="/oficinas-en-vigo/"><g class="city-dot" data-city="Vigo" data-count="1 centro">
+            <circle class="hit-area" cx="75" cy="116" r="22"/>
             <circle class="pulse-ring" cx="75" cy="116" r="5"/>
             <circle class="dot" cx="75" cy="116" r="5" filter="url(#glow)"/>
             <text class="city-label" x="83" y="114">Vigo</text>
-          </g>
+          </g></a>
           <!-- Bilbao -->
-          <g class="city-dot" data-city="Bilbao" data-count="2 centros" onclick="goToCity(this,'card-bilbao')">
-            <circle class="hit-area" cx="389" cy="54" r="13"/>
+          <a href="/oficinas-en-bilbao/"><g class="city-dot" data-city="Bilbao" data-count="2 centros">
+            <circle class="hit-area" cx="389" cy="54" r="22"/>
             <circle class="pulse-ring" cx="389" cy="54" r="5.5"/>
             <circle class="dot" cx="389" cy="54" r="5.5" filter="url(#glow)"/>
             <text class="city-label" x="397" y="52">Bilbao ×2</text>
-          </g>
+          </g></a>
           <!-- Zaragoza -->
-          <g class="city-dot" data-city="Zaragoza" data-count="1 centro" onclick="goToCity(this,'card-zaragoza')">
-            <circle class="hit-area" cx="500" cy="150" r="13"/>
+          <a href="/oficinas-en-zaragoza/"><g class="city-dot" data-city="Zaragoza" data-count="1 centro">
+            <circle class="hit-area" cx="500" cy="150" r="22"/>
             <circle class="pulse-ring" cx="500" cy="150" r="4.5"/>
             <circle class="dot" cx="500" cy="150" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="508" y="148">Zaragoza</text>
-          </g>
+          </g></a>
           <!-- Barcelona -->
-          <g class="city-dot" data-city="Barcelona" data-count="3 centros" onclick="goToCity(this,'card-barcelona')">
-            <circle class="hit-area" cx="665" cy="148" r="13"/>
+          <a href="/oficinas-en-barcelona/"><g class="city-dot" data-city="Barcelona" data-count="3 centros">
+            <circle class="hit-area" cx="665" cy="148" r="22"/>
             <circle class="pulse-ring" cx="665" cy="148" r="5.5"/>
             <circle class="dot" cx="665" cy="148" r="5.5" filter="url(#glow)"/>
             <text class="city-label" x="665" y="164" text-anchor="middle">Barcelona ×3</text>
-          </g>
+          </g></a>
           <!-- Salamanca -->
-          <g class="city-dot" data-city="Salamanca" data-count="1 centro" onclick="goToCity(this,'card-salamanca')">
-            <circle class="hit-area" cx="238" cy="190" r="13"/>
+          <a href="/oficinas-en-salamanca/"><g class="city-dot" data-city="Salamanca" data-count="1 centro">
+            <circle class="hit-area" cx="238" cy="190" r="22"/>
             <circle class="pulse-ring" cx="238" cy="190" r="4.5"/>
             <circle class="dot" cx="238" cy="190" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="232" y="205" text-anchor="middle">Salamanca</text>
-          </g>
+          </g></a>
           <!-- Segovia -->
-          <g class="city-dot" data-city="Segovia" data-count="2 centros" onclick="goToCity(this,'card-segovia')">
-            <circle class="hit-area" cx="322" cy="191" r="13"/>
+          <a href="/oficinas-en-segovia/"><g class="city-dot" data-city="Segovia" data-count="2 centros">
+            <circle class="hit-area" cx="322" cy="191" r="22"/>
             <circle class="pulse-ring" cx="322" cy="191" r="4.5"/>
             <circle class="dot" cx="322" cy="191" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="322" y="206" text-anchor="middle">Segovia ×2</text>
-          </g>
+          </g></a>
           <!-- Mérida -->
-          <g class="city-dot" data-city="Mérida" data-count="1 centro" onclick="goToCity(this,'card-merida')">
-            <circle class="hit-area" cx="202" cy="310" r="13"/>
+          <a href="/oficinas-en-merida/"><g class="city-dot" data-city="Mérida" data-count="1 centro">
+            <circle class="hit-area" cx="202" cy="310" r="22"/>
             <circle class="pulse-ring" cx="202" cy="310" r="4.5"/>
             <circle class="dot" cx="202" cy="310" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="196" y="325" text-anchor="middle">Mérida</text>
-          </g>
+          </g></a>
           <!-- Albacete -->
-          <g class="city-dot" data-city="Albacete" data-count="1 centro" onclick="goToCity(this,'card-albacete')">
-            <circle class="hit-area" cx="444" cy="308" r="13"/>
+          <a href="/oficinas-en-albacete/"><g class="city-dot" data-city="Albacete" data-count="1 centro">
+            <circle class="hit-area" cx="444" cy="308" r="22"/>
             <circle class="pulse-ring" cx="444" cy="308" r="4.5"/>
             <circle class="dot" cx="444" cy="308" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="444" y="323" text-anchor="middle">Albacete</text>
-          </g>
+          </g></a>
           <!-- Castellón -->
-          <g class="city-dot" data-city="Castellón" data-count="1 centro" onclick="goToCity(this,'card-castellon')">
-            <circle class="hit-area" cx="543" cy="250" r="13"/>
+          <a href="/oficinas-en-castellon/"><g class="city-dot" data-city="Castellón" data-count="1 centro">
+            <circle class="hit-area" cx="543" cy="250" r="22"/>
             <circle class="pulse-ring" cx="543" cy="250" r="4.5"/>
             <circle class="dot" cx="543" cy="250" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="551" y="248">Castellón</text>
-          </g>
+          </g></a>
           <!-- Valencia -->
-          <g class="city-dot" data-city="Valencia" data-count="1 centro" onclick="goToCity(this,'card-valencia')">
-            <circle class="hit-area" cx="525" cy="278" r="13"/>
+          <a href="/oficinas-en-valencia/"><g class="city-dot" data-city="Valencia" data-count="1 centro">
+            <circle class="hit-area" cx="525" cy="278" r="22"/>
             <circle class="pulse-ring" cx="525" cy="278" r="5.5"/>
             <circle class="dot" cx="525" cy="278" r="5.5" filter="url(#glow)"/>
             <text class="city-label" x="533" y="276">Valencia</text>
-          </g>
+          </g></a>
           <!-- Alicante -->
-          <g class="city-dot" data-city="Alicante" data-count="1 centro" onclick="goToCity(this,'card-alicante')">
-            <circle class="hit-area" cx="518" cy="344" r="13"/>
+          <a href="/oficinas-en-alicante/"><g class="city-dot" data-city="Alicante" data-count="1 centro">
+            <circle class="hit-area" cx="518" cy="344" r="22"/>
             <circle class="pulse-ring" cx="518" cy="344" r="4.5"/>
             <circle class="dot" cx="518" cy="344" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="526" y="342">Alicante</text>
-          </g>
+          </g></a>
           <!-- Murcia -->
-          <g class="city-dot" data-city="Murcia" data-count="3 centros" onclick="goToCity(this,'card-murcia')">
-            <circle class="hit-area" cx="483" cy="365" r="13"/>
+          <a href="/oficinas-en-murcia/"><g class="city-dot" data-city="Murcia" data-count="3 centros">
+            <circle class="hit-area" cx="483" cy="365" r="22"/>
             <circle class="pulse-ring" cx="483" cy="365" r="5"/>
             <circle class="dot" cx="483" cy="365" r="5" filter="url(#glow)"/>
             <text class="city-label" x="491" y="363">Murcia ×3</text>
-          </g>
+          </g></a>
           <!-- Sevilla -->
-          <g class="city-dot" data-city="Sevilla" data-count="3 centros" onclick="goToCity(this,'card-sevilla')">
-            <circle class="hit-area" cx="222" cy="400" r="13"/>
+          <a href="/oficinas-en-sevilla/"><g class="city-dot" data-city="Sevilla" data-count="3 centros">
+            <circle class="hit-area" cx="222" cy="400" r="22"/>
             <circle class="pulse-ring" cx="222" cy="400" r="5.5"/>
             <circle class="dot" cx="222" cy="400" r="5.5" filter="url(#glow)"/>
             <text class="city-label" x="230" y="398">Sevilla ×3</text>
-          </g>
+          </g></a>
           <!-- Málaga -->
-          <g class="city-dot" data-city="Málaga" data-count="1 centro" onclick="goToCity(this,'card-malaga')">
-            <circle class="hit-area" cx="306" cy="451" r="13"/>
+          <a href="/oficinas-en-malaga/"><g class="city-dot" data-city="Málaga" data-count="1 centro">
+            <circle class="hit-area" cx="306" cy="451" r="22"/>
             <circle class="pulse-ring" cx="306" cy="451" r="4.5"/>
             <circle class="dot" cx="306" cy="451" r="4.5" filter="url(#glow)"/>
             <text class="city-label" x="306" y="443" text-anchor="middle">Málaga</text>
-          </g>
+          </g></a>
           <!-- Balearic islands decorative -->
           <circle cx="628" cy="228" r="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
           <circle cx="645" cy="234" r="3.5" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
         </svg>
-        <div class="tenerife-inset" onclick="goToCity(this,'card-tenerife')" data-city="Tenerife" data-count="3 centros" style="cursor:pointer">
+        <a class="tenerife-inset" href="/oficinas-en-tenerife/" data-city="Tenerife" data-count="3 centros">
           <div class="ti-dot"></div>
-          <div><div class="ti-text">Tenerife</div><div class="ti-count">×3 centros</div></div>
+          <div><div class="ti-text">Tenerife</div><div class="ti-count">×3 centros</div></a>
         </div>
         <div class="map-tooltip" id="mapTooltip"><span class="mt-city"></span> <span class="mt-count"></span><span class="mt-cta">Ver centros →</span></div>
       </div>
@@ -2136,501 +844,366 @@
     <div class="madrid-intro">
       <div class="rvl">
         <span class="eyebrow">Hub principal</span>
-        <h2 class="stitle">Madrid<br><span class="hl">8 centros en los mejores barrios</span></h2>
-        <p class="ssub">Desde el exclusivo Barrio de Salamanca hasta Las Tablas. Siempre a pie de metro, siempre con la mejor imagen para tu empresa.</p>
+        <h2 class="stitle">Madrid<br><span class="hl">8 centros, todos con acceso 24 h</span></h2>
+        <p class="ssub">Del barrio de Salamanca a Las Tablas, Pozuelo y San Sebastián de los Reyes. Cada centro, con su ficha completa en la <a href="/oficinas-en-madrid/" class="inline-link">página de Madrid</a>.</p>
       </div>
     </div>
 
     <div class="madrid-grid">
-
-      <!-- Barrio Salamanca — wide, featured -->
-      <div class="madrid-card wide rv d1">
+      <a class="madrid-card rv" href="/oficinas-en-madrid/#velazquez">
         <div class="madrid-card-img">
-          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=85"
-               alt="Barrio de Salamanca Madrid"
-               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1C1C1C,#2D2D2D)'" />
-          <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge madrid-card-featured-badge">Zona premium · 3 centros</div>
-        </div>
-        <div class="madrid-card-body">
-          <div class="madrid-card-name">Barrio de Salamanca</div>
-          <div class="madrid-card-zone">Madrid · Distrito más exclusivo</div>
-          <ul class="madrid-card-sublist">
-            <li><strong>Serrano</strong> · La calle más icónica de Madrid</li>
-            <li><strong>Velázquez</strong> · Entre Retiro y Goya</li>
-            <li><strong>Ortega y Gasset</strong> · Zona financiera y de lujo</li>
-          </ul>
-          <div class="madrid-card-tags">
-            <div class="madrid-tag">Despachos privados</div>
-            <div class="madrid-tag">Salas de reuniones</div>
-            <div class="madrid-tag">Oficina virtual</div>
-            <div class="madrid-tag">Domiciliación</div>
-            <div class="madrid-tag">24/7</div>
-          </div>
-          <div class="madrid-metro">
-            <div class="metro-dot m4"></div>
-            <div class="metro-dot m9"></div>
-            <div class="metro-dot m6"></div>
-            <div class="metro-dot m5"></div>
-            <span style="margin-left:4px">L4 · L5 · L6 · L9 · acceso a pie</span>
-          </div>
-          <a href="/#contact" class="madrid-card-link">Ver disponibilidad →</a>
-        </div>
-      </div>
-
-      <!-- Capitán Haya -->
-      <div class="madrid-card rv d2">
-        <div class="madrid-card-img">
-          <img loading="lazy" decoding="async" src="/assets/img/centros/centro-madrid-capitan-haya.jpg"
-               alt="Despacho de cuatro puestos del centro de OficinasYA! en Capitán Haya, Madrid"
-               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#16213e)'" />
-          <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge">Torres Azca</div>
-        </div>
-        <div class="madrid-card-body">
-          <div class="madrid-card-name">Capitán Haya</div>
-          <div class="madrid-card-zone">Castellana · Tetuán</div>
-          <div class="madrid-card-tags">
-            <div class="madrid-tag">Despachos</div>
-            <div class="madrid-tag">Salas</div>
-            <div class="madrid-tag">Virtual</div>
-          </div>
-          <div class="madrid-metro">
-            <div class="metro-dot m9"></div>
-            <span>L9 · Cuzco / Bernabéu</span>
-          </div>
-          <a href="/#contact" class="madrid-card-link">Consultar →</a>
-        </div>
-      </div>
-
-      <!-- Las Tablas -->
-      <div class="madrid-card rv d1">
-        <div class="madrid-card-img">
-          <img loading="lazy" decoding="async" src="/assets/img/centros/centro-madrid-las-tablas.jpg"
-               alt="Sala de juntas del centro de OficinasYA! en Las Tablas, Madrid"
-               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#134E5E,#71B280)'" />
-          <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge">Zona empresarial</div>
-        </div>
-        <div class="madrid-card-body">
-          <div class="madrid-card-name">Las Tablas</div>
-          <div class="madrid-card-zone">Norte de Madrid · Zona Tech</div>
-          <div class="madrid-card-tags">
-            <div class="madrid-tag">Despachos</div>
-            <div class="madrid-tag">Salas</div>
-            <div class="madrid-tag">Parking incluido</div>
-          </div>
-          <div class="madrid-metro">
-            <div class="metro-dot m10"></div>
-            <span>L10 · Las Tablas</span>
-          </div>
-          <a href="/#contact" class="madrid-card-link">Consultar →</a>
-        </div>
-      </div>
-
-      <!-- Pozuelo / Las Rozas -->
-      <div class="madrid-card rv d2">
-        <div class="madrid-card-img">
-          <img loading="lazy" decoding="async" src="/assets/img/centros/centro-madrid-pozuelo.jpg"
-               alt="Patio ajardinado del centro de OficinasYA! en Pozuelo, Madrid"
-               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0F2027,#203A43,#2C5364)'" />
-          <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge">La Florida</div>
-        </div>
-        <div class="madrid-card-body">
-          <div class="madrid-card-name">Pozuelo / Las Rozas</div>
-          <div class="madrid-card-zone">Noroeste · A-6 / M-40</div>
-          <div class="madrid-card-tags">
-            <div class="madrid-tag">Despachos</div>
-            <div class="madrid-tag">Salas</div>
-            <div class="madrid-tag">Parking fácil</div>
-          </div>
-          <div class="madrid-metro">
-            <div class="metro-dot mC"></div>
-            <span>Cercanías C-1 / C-7</span>
-          </div>
-          <a href="/#contact" class="madrid-card-link">Consultar →</a>
-        </div>
-      </div>
-
-      <!-- SSdelosReyes -->
-      <div class="madrid-card rv d3">
-        <div class="madrid-card-img">
-          <img loading="lazy" decoding="async" src="/assets/img/centros/centro-madrid-sanse.jpg"
-               alt="Vestíbulo del centro de OficinasYA! en San Sebastián de los Reyes"
-               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a1a,#3d3d3d)'" />
-          <div class="madrid-card-img-gradient"></div>
-          <div class="madrid-card-badge">A 20 min de Madrid</div>
-        </div>
-        <div class="madrid-card-body">
-          <div class="madrid-card-name">S.S. de los Reyes</div>
-          <div class="madrid-card-zone">Norte · Autopista A-1</div>
-          <div class="madrid-card-tags">
-            <div class="madrid-tag">Despachos</div>
-            <div class="madrid-tag">Salas</div>
-            <div class="madrid-tag">Virtual</div>
-          </div>
-          <div class="madrid-metro">
-            <div class="metro-dot mC"></div>
-            <span>Cercanías + Bus interurbano</span>
-          </div>
-          <a href="/#contact" class="madrid-card-link">Consultar →</a>
-        </div>
-      </div>
-
-      <!-- Sanchinarro -->
-      <div class="madrid-card rv d1">
-        <div class="madrid-card-img">
-          <img loading="lazy" decoding="async" src="/assets/img/centros/centro-madrid-sanchinarro.jpg"
-               alt="Centro de negocios de OficinasYA! en Sanchinarro, Madrid"
-               onerror="this.onerror=null;this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#232526,#414345)'" />
+          <img loading="lazy" decoding="async" width="600" height="360" src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=640&q=70" alt="Velázquez, OficinasYA! Madrid" />
           <div class="madrid-card-img-gradient"></div>
           <div class="madrid-card-badge">Acceso 24 h</div>
         </div>
         <div class="madrid-card-body">
-          <div class="madrid-card-name">Sanchinarro</div>
-          <div class="madrid-card-zone">Norte · Avenida de Manoteras</div>
+          <div class="madrid-card-name">Velázquez</div>
+          <div class="madrid-card-zone">Barrio de Salamanca · Calle Velázquez 86B</div>
           <div class="madrid-card-tags">
-            <div class="madrid-tag">Despachos</div>
-            <div class="madrid-tag">Lofts</div>
-            <div class="madrid-tag">Acceso 24 h</div>
+            <div class="madrid-tag">Despachos privados</div>
+            <div class="madrid-tag">Salas de reuniones</div>
+            <div class="madrid-tag">Oficina virtual y Smart Office</div>
+            <div class="madrid-tag">Bonos de horas</div>
           </div>
-          <a href="/#contact" class="madrid-card-link">Consultar →</a>
+          <span class="madrid-card-link">Ver ficha del centro →</span>
         </div>
-      </div>
-
+      </a>
+      <a class="madrid-card rv" href="/oficinas-en-madrid/#gasset">
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Gasset</div>
+          <div class="madrid-card-zone">Barrio de Salamanca · Calle José Ortega y Gasset 25</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos privados</div>
+            <div class="madrid-tag">Salas de reuniones</div>
+            <div class="madrid-tag">Oficina virtual y Smart Office</div>
+            <div class="madrid-tag">Bonos de horas</div>
+          </div>
+          <span class="madrid-card-link">Ver ficha del centro →</span>
+        </div>
+      </a>
+      <a class="madrid-card rv" href="/oficinas-en-madrid/#serrano">
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Serrano</div>
+          <div class="madrid-card-zone">Barrio de Salamanca · Calle Serrano 93</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos privados</div>
+            <div class="madrid-tag">Salas de reuniones</div>
+            <div class="madrid-tag">Oficina virtual y Smart Office</div>
+            <div class="madrid-tag">Bonos de horas</div>
+          </div>
+          <span class="madrid-card-link">Ver ficha del centro →</span>
+        </div>
+      </a>
+      <a class="madrid-card rv" href="/oficinas-en-madrid/#capitan-haya">
+        <div class="madrid-card-img">
+          <img loading="lazy" decoding="async" width="600" height="360" src="/assets/img/centros/centro-madrid-capitan-haya.jpg" alt="Capitán Haya, OficinasYA! Madrid" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Acceso 24 h</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Capitán Haya</div>
+          <div class="madrid-card-zone">Castellana y Plaza de Castilla · Calle Poeta Joan Maragall 60</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos privados</div>
+            <div class="madrid-tag">Salas de reuniones</div>
+            <div class="madrid-tag">Oficina virtual y Smart Office</div>
+            <div class="madrid-tag">Bonos de horas</div>
+          </div>
+          <span class="madrid-card-link">Ver ficha del centro →</span>
+        </div>
+      </a>
+      <a class="madrid-card rv" href="/oficinas-en-madrid/#las-tablas">
+        <div class="madrid-card-img">
+          <img loading="lazy" decoding="async" width="600" height="360" src="/assets/img/centros/centro-madrid-las-tablas.jpg" alt="Las Tablas, OficinasYA! Madrid" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Acceso 24 h</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Las Tablas</div>
+          <div class="madrid-card-zone">Madrid norte · Calle Isabel Colbrand 6</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos privados</div>
+            <div class="madrid-tag">Salas de reuniones</div>
+            <div class="madrid-tag">Oficina virtual y Smart Office</div>
+            <div class="madrid-tag">Bonos de horas</div>
+          </div>
+          <span class="madrid-card-link">Ver ficha del centro →</span>
+        </div>
+      </a>
+      <a class="madrid-card rv" href="/oficinas-en-madrid/#manoteras-sanchinarro">
+        <div class="madrid-card-img">
+          <img loading="lazy" decoding="async" width="600" height="360" src="/assets/img/centros/centro-madrid-sanchinarro.jpg" alt="Manoteras (Sanchinarro), OficinasYA! Madrid" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Acceso 24 h</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Manoteras (Sanchinarro)</div>
+          <div class="madrid-card-zone">Madrid norte · Avenida de Manoteras 22</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos privados</div>
+            <div class="madrid-tag">Salas de reuniones</div>
+            <div class="madrid-tag">Oficina virtual y Smart Office</div>
+            <div class="madrid-tag">Bonos de horas</div>
+            <div class="madrid-tag">Espacios tipo loft</div>
+          </div>
+          <span class="madrid-card-link">Ver ficha del centro →</span>
+        </div>
+      </a>
+      <a class="madrid-card rv" href="/oficinas-en-madrid/#la-florida-pozuelo">
+        <div class="madrid-card-img">
+          <img loading="lazy" decoding="async" width="600" height="360" src="/assets/img/centros/centro-madrid-pozuelo.jpg" alt="La Florida (Pozuelo), OficinasYA! Madrid" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Acceso 24 h</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">La Florida (Pozuelo)</div>
+          <div class="madrid-card-zone">Pozuelo de Alarcón · Calle Gobelas 17</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos privados</div>
+            <div class="madrid-tag">Salas de reuniones</div>
+            <div class="madrid-tag">Oficina virtual y Smart Office</div>
+            <div class="madrid-tag">Bonos de horas</div>
+          </div>
+          <span class="madrid-card-link">Ver ficha del centro →</span>
+        </div>
+      </a>
+      <a class="madrid-card rv" href="/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes">
+        <div class="madrid-card-img">
+          <img loading="lazy" decoding="async" width="600" height="360" src="/assets/img/centros/centro-madrid-sanse.jpg" alt="Sanse (San Sebastián de los Reyes), OficinasYA! Madrid" />
+          <div class="madrid-card-img-gradient"></div>
+          <div class="madrid-card-badge">Acceso 24 h</div>
+        </div>
+        <div class="madrid-card-body">
+          <div class="madrid-card-name">Sanse (San Sebastián de los Reyes)</div>
+          <div class="madrid-card-zone">San Sebastián de los Reyes · Calle Fuerteventura 4</div>
+          <div class="madrid-card-tags">
+            <div class="madrid-tag">Despachos privados</div>
+            <div class="madrid-tag">Salas de reuniones</div>
+            <div class="madrid-tag">Oficina virtual y Smart Office</div>
+            <div class="madrid-tag">Bonos de horas</div>
+          </div>
+          <span class="madrid-card-link">Ver ficha del centro →</span>
+        </div>
+      </a>
     </div>
+    <div class="madrid-all rv"><a href="/oficinas-en-madrid/" class="btn-outline">Todos los centros de Madrid →</a></div>
   </div>
 </section>
 
-<!-- RESTO DE ESPAÑA — PREMIUM PHOTO GRID -->
+<!-- RESTO DE ESPAÑA — tarjetas generadas desde _data/ciudades.yml y las paginas de ciudad -->
 <section id="espana">
   <div class="max-wrap">
     <div class="espana-hd rv">
       <span class="eyebrow">Cobertura nacional</span>
       <h2 class="stitle">17 ciudades en <span class="hl">toda España</span></h2>
-      <p class="ssub">Mismas condiciones, mismo estándar. Desde Galicia hasta las Islas Canarias, siempre con la misma calidad OficinasYA!</p>
+      <p class="ssub">Cada ciudad tiene su página, con la ficha completa de sus centros: dirección, horario, tamaños de despacho y salas.</p>
     </div>
-
-    <!-- NORTE: País Vasco + Galicia -->
     <div class="city-photo-section rv">
-      <div class="region-label">Norte de España</div>
-      <div class="city-photo-grid row-2-1">
-
-        <!-- Bilbao — LARGE -->
-        <div id="card-bilbao" class="city-photo-card tall">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1594229416093-5d595163e641?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#1a2a6c,#b21f1f)"></div>
+      <div class="region-label">Norte</div>
+      <div class="city-photo-grid row-3">
+        <a id="card-coruna" class="city-photo-card" href="/oficinas-en-a-coruna/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-a-coruna.jpg" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">2 centros</span></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Galicia</div>
+            <div class="city-photo-name">A Coruña</div>
+            <div class="city-photo-center">Junto a Marineda City, con coworking y Punto PAE</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div><div class="city-photo-tag">Coworking</div><div class="city-photo-tag">Aula de formación</div></div>
+          </div>
+        </a>
+        <a id="card-bilbao" class="city-photo-card" href="/oficinas-en-bilbao/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="https://images.unsplash.com/photo-1594229416093-5d595163e641?auto=format&fit=crop&w=640&q=70" alt="" /></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">2 centros</span></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">País Vasco</div>
             <div class="city-photo-name">Bilbao</div>
-            <div class="city-photo-center">Albia · Máximo Aguirre (2 centros)</div>
-            <div class="city-photo-tags">
-              <div class="city-photo-tag">Despachos</div>
-              <div class="city-photo-tag">Salas reuniones</div>
-              <div class="city-photo-tag">Oficina virtual</div>
-            </div>
+            <div class="city-photo-center">Abando: Máximo Aguirre y Edificio Albia</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div></div>
           </div>
-          <div class="city-photo-corner"><span class="city-photo-corner-text">×2 centros</span></div>
-        </div>
-
-        <!-- Galicia: A Coruña + Vigo -->
-        <div style="display:flex;flex-direction:column;gap:16px">
-          <div id="card-coruna" class="city-photo-card" style="flex:1">
-            <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-a-coruna.jpg'), linear-gradient(135deg,#005c97,#363795)"></div>
-            <div class="city-photo-card-overlay"></div>
-            <div class="city-photo-card-content">
-              <div class="city-photo-region">Galicia</div>
-              <div class="city-photo-name">A Coruña</div>
-              <div class="city-photo-center">iWorks Level · iWorks Business Center (2 centros)</div>
-              <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Aula de formación</div><div class="city-photo-tag">Coworking</div></div>
-            </div>
-            <div class="city-photo-corner"><span class="city-photo-corner-text">×2 centros</span></div>
+        </a>
+        <a id="card-vigo" class="city-photo-card" href="/oficinas-en-vigo/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="https://images.unsplash.com/photo-1615922732011-9273b83897f0?auto=format&fit=crop&w=640&q=70" alt="" /></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">1 centro</span></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Galicia</div>
+            <div class="city-photo-name">Vigo</div>
+            <div class="city-photo-center">Plaza de Compostela, junto al puerto deportivo</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div></div>
           </div>
-          <div id="card-vigo" class="city-photo-card" style="flex:1">
-            <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1615922732011-9273b83897f0?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1a1a2e,#16213e)"></div>
-            <div class="city-photo-card-overlay"></div>
-            <div class="city-photo-card-content">
-              <div class="city-photo-region">Galicia</div>
-              <div class="city-photo-name">Vigo</div>
-              <div class="city-photo-center">Centro ciudad · Ría de Vigo</div>
-              <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div></div>
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
-
-    <!-- NORESTE + CENTRO: Barcelona + Zaragoza + Castilla y León -->
     <div class="city-photo-section rv">
-      <div class="region-label">Noreste, Aragón y Castilla y León</div>
-      <div class="city-photo-grid row-2-1">
-
-        <!-- Barcelona — LARGE -->
-        <div id="card-barcelona" class="city-photo-card tall">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1722863380905-539ae092fc5f?auto=format&fit=crop&w=1200&q=85'), linear-gradient(135deg,#8e2de2,#4a00e0)"></div>
+      <div class="region-label">Noreste</div>
+      <div class="city-photo-grid row-3">
+        <a id="card-barcelona" class="city-photo-card" href="/oficinas-en-barcelona/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="https://images.unsplash.com/photo-1722863380905-539ae092fc5f?auto=format&fit=crop&w=640&q=70" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">3 centros</span></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Cataluña</div>
             <div class="city-photo-name">Barcelona</div>
-            <div class="city-photo-center">Mitre · Pl. Urquinaona · Sant Gervasi (3 centros)</div>
-            <div class="city-photo-tags">
-              <div class="city-photo-tag">Despachos</div>
-              <div class="city-photo-tag">Salas reuniones</div>
-              <div class="city-photo-tag">Coworking</div>
-              <div class="city-photo-tag">Networking</div>
-            </div>
+            <div class="city-photo-center">Zona alta y Plaza Urquinaona, con coworking</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div><div class="city-photo-tag">Coworking</div></div>
           </div>
-          <div class="city-photo-corner"><span class="city-photo-corner-text">×3 centros</span></div>
-        </div>
-
-        <!-- Zaragoza + Salamanca stacked -->
-        <div style="display:flex;flex-direction:column;gap:16px">
-          <div id="card-zaragoza" class="city-photo-card" style="flex:1">
-            <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-zaragoza.jpg'), linear-gradient(135deg,#DA4453,#89216B)"></div>
-            <div class="city-photo-card-overlay"></div>
-            <div class="city-photo-card-content">
-              <div class="city-photo-region">Aragón</div>
-              <div class="city-photo-name">Zaragoza</div>
-              <div class="city-photo-center">Centro · Basílica del Pilar</div>
-              <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div></div>
-            </div>
-          </div>
-          <div id="card-salamanca" class="city-photo-card" style="flex:1">
-            <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-salamanca.jpg'), linear-gradient(135deg,#C79003,#8B6914)"></div>
-            <div class="city-photo-card-overlay"></div>
-            <div class="city-photo-card-content">
-              <div class="city-photo-region">Castilla y León</div>
-              <div class="city-photo-name">Salamanca</div>
-              <div class="city-photo-center">Centro universitario histórico</div>
-              <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div><div class="city-photo-tag">Coworking</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Segovia: 2 centros -->
-    <div class="city-photo-section rv">
-      <div class="region-label">Castilla y León · Segovia</div>
-      <div class="city-photo-grid row-2">
-        <div id="card-segovia" class="city-photo-card short">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1643454744768-5caab8a62f76?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#373B44,#4286f4)"></div>
+        </a>
+        <a id="card-zaragoza" class="city-photo-card" href="/oficinas-en-zaragoza/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-zaragoza.jpg" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">1 centro</span></div>
           <div class="city-photo-card-content">
-            <div class="city-photo-region">Castilla y León</div>
-            <div class="city-photo-name">Segovia I</div>
-            <div class="city-photo-center">Centro ciudad · Acueducto</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
+            <div class="city-photo-region">Aragón</div>
+            <div class="city-photo-name">Zaragoza</div>
+            <div class="city-photo-center">Paseo de la Independencia, centro financiero</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div></div>
           </div>
-        </div>
-        <div class="city-photo-card short">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1708765036801-4d4d207fc29c?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1e3c72,#2a5298)"></div>
-          <div class="city-photo-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.08) 100%)"></div>
-          <div class="city-photo-card-content">
-            <div class="city-photo-region">Castilla y León</div>
-            <div class="city-photo-name">Segovia II</div>
-            <div class="city-photo-center">Zona nueva · Acceso directo A-6</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Parking</div></div>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
-
-    <!-- MEDITERRÁNEO: Valencia + Castellón + Alicante -->
     <div class="city-photo-section rv">
-      <div class="region-label">Costa Mediterránea</div>
+      <div class="region-label">Centro</div>
       <div class="city-photo-grid row-3">
-
-        <div id="card-valencia" class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1763569113488-93b9ffbb14f6?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#005C97,#363795)"></div>
+        <a id="card-segovia" class="city-photo-card" href="/oficinas-en-segovia/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="https://images.unsplash.com/photo-1643454744768-5caab8a62f76?auto=format&fit=crop&w=640&q=70" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">2 centros</span></div>
           <div class="city-photo-card-content">
-            <div class="city-photo-region">Comunitat Valenciana</div>
-            <div class="city-photo-name">Valencia</div>
-            <div class="city-photo-center">Centro · Ciudad de las Artes</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div><div class="city-photo-tag">Aula de formación</div></div>
+            <div class="city-photo-region">Castilla y León</div>
+            <div class="city-photo-name">Segovia</div>
+            <div class="city-photo-center">A 100 m del Acueducto y en la antigua universidad</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div></div>
           </div>
-        </div>
-
-        <div id="card-castellon" class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1730741779383-dc45709f8e3b?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#1FA2FF,#12D8FA,#A6FFCB)"></div>
+        </a>
+        <a id="card-albacete" class="city-photo-card" href="/oficinas-en-albacete/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-albacete.jpg" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
-          <div class="city-photo-card-content">
-            <div class="city-photo-region">Comunitat Valenciana</div>
-            <div class="city-photo-name">Castellón</div>
-            <div class="city-photo-center">Centro · Costa de Castellón</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Aula de formación</div></div>
-          </div>
-        </div>
-
-        <div id="card-alicante" class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-alicante.jpg'), linear-gradient(135deg,#F7971E,#FFD200)"></div>
-          <div class="city-photo-card-overlay"></div>
-          <div class="city-photo-card-content">
-            <div class="city-photo-region">Comunitat Valenciana</div>
-            <div class="city-photo-name">Alicante</div>
-            <div class="city-photo-center">Centro · Castillo Santa Bárbara</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- INTERIOR: Mérida + Albacete -->
-    <div class="city-photo-section rv">
-      <div class="region-label">Extremadura y Castilla-La Mancha</div>
-      <div class="city-photo-grid row-2">
-        <div id="card-merida" class="city-photo-card short">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1650103134649-5d7621808a1f?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#8B6914,#5C4827)"></div>
-          <div class="city-photo-card-overlay"></div>
-          <div class="city-photo-card-content">
-            <div class="city-photo-region">Extremadura</div>
-            <div class="city-photo-name">Mérida</div>
-            <div class="city-photo-center">Centro ciudad · Teatro Romano</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
-          </div>
-        </div>
-        <div id="card-albacete" class="city-photo-card short">
-          <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-albacete.jpg'), linear-gradient(135deg,#4b6cb7,#182848)"></div>
-          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">1 centro</span></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Castilla-La Mancha</div>
             <div class="city-photo-name">Albacete</div>
-            <div class="city-photo-center">Zona empresarial · Centro</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div></div>
+            <div class="city-photo-center">Calle Mayor 22, con acceso 24 h</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div></div>
           </div>
-        </div>
+        </a>
+        <a id="card-merida" class="city-photo-card" href="/oficinas-en-merida/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="https://images.unsplash.com/photo-1650103134649-5d7621808a1f?auto=format&fit=crop&w=640&q=70" alt="" /></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">1 centro</span></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Extremadura</div>
+            <div class="city-photo-name">Mérida</div>
+            <div class="city-photo-center">Edificio de oficinas con parking privado, zona Universidad</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div></div>
+          </div>
+        </a>
+        <a id="card-salamanca" class="city-photo-card" href="/oficinas-en-salamanca/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-salamanca.jpg" alt="" /></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">1 centro</span></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Castilla y León</div>
+            <div class="city-photo-name">Salamanca</div>
+            <div class="city-photo-center">Edificio Openhouse, a 5 minutos del centro, con parking</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div><div class="city-photo-tag">Coworking</div></div>
+          </div>
+        </a>
       </div>
     </div>
-
-    <!-- MURCIA: 3 centros -->
     <div class="city-photo-section rv">
-      <div class="region-label">Región de Murcia</div>
+      <div class="region-label">Mediterráneo</div>
       <div class="city-photo-grid row-3">
-        <div id="card-murcia" class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1747493828896-ad0e7fc88dcb?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#C84B31,#ECDBBA)"></div>
+        <a id="card-murcia" class="city-photo-card" href="/oficinas-en-murcia/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="https://images.unsplash.com/photo-1747493828896-ad0e7fc88dcb?auto=format&fit=crop&w=640&q=70" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">3 centros</span></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Región de Murcia</div>
             <div class="city-photo-name">Murcia</div>
-            <div class="city-photo-center">Centro ciudad · Catedral</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div><div class="city-photo-tag">Eventos</div></div>
+            <div class="city-photo-center">Salas hasta 275 personas, ciudad y Polígono Oeste</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div><div class="city-photo-tag">Eventos</div><div class="city-photo-tag">Coliving</div></div>
           </div>
-        </div>
-        <div class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1758304481667-71d545c91241?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#4b6cb7,#182848)"></div>
+        </a>
+        <a id="card-alicante" class="city-photo-card" href="/oficinas-en-alicante/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-alicante.jpg" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">1 centro</span></div>
           <div class="city-photo-card-content">
-            <div class="city-photo-region">Región de Murcia</div>
-            <div class="city-photo-name">Polígono Industrial Oeste</div>
-            <div class="city-photo-center">Zona empresarial · Acceso autovía</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Eventos</div><div class="city-photo-tag">Parking</div></div>
+            <div class="city-photo-region">Comunidad Valenciana</div>
+            <div class="city-photo-name">Alicante</div>
+            <div class="city-photo-center">Plaza de la Montañeta, junto a los organismos oficiales</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div></div>
           </div>
-        </div>
-        <div class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-murcia-coliving.jpg'), linear-gradient(135deg,#2b5876,#4e4376)"></div>
+        </a>
+        <a id="card-castellon" class="city-photo-card" href="/oficinas-en-castellon/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="https://images.unsplash.com/photo-1730741779383-dc45709f8e3b?auto=format&fit=crop&w=640&q=70" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">1 centro</span></div>
           <div class="city-photo-card-content">
-            <div class="city-photo-region">Región de Murcia</div>
-            <div class="city-photo-name">Murcia Coliving</div>
-            <div class="city-photo-center">Espacio de coliving + coworking</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Coliving</div><div class="city-photo-tag">Coworking</div><div class="city-photo-tag">Networking</div></div>
+            <div class="city-photo-region">Comunidad Valenciana</div>
+            <div class="city-photo-name">Castellón</div>
+            <div class="city-photo-center">Dean Martí 46, con teléfono propio en cada despacho</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div><div class="city-photo-tag">Aula de formación</div></div>
           </div>
-          <div class="city-photo-corner"><span class="city-photo-corner-text">Coliving</span></div>
-        </div>
+        </a>
+        <a id="card-valencia" class="city-photo-card" href="/oficinas-en-valencia/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="https://images.unsplash.com/photo-1763569113488-93b9ffbb14f6?auto=format&fit=crop&w=640&q=70" alt="" /></div>
+          <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">1 centro</span></div>
+          <div class="city-photo-card-content">
+            <div class="city-photo-region">Comunidad Valenciana</div>
+            <div class="city-photo-name">Valencia</div>
+            <div class="city-photo-center">Guillem de Castro 9, pleno centro, parking en el edificio</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div><div class="city-photo-tag">Aula de formación</div></div>
+          </div>
+        </a>
       </div>
     </div>
-
-    <!-- ANDALUCÍA -->
     <div class="city-photo-section rv">
-      <div class="region-label">Andalucía</div>
-      <div class="city-photo-grid row-2-1">
-
-        <!-- Sevilla — LARGE con 2 centros -->
-        <div id="card-sevilla" class="city-photo-card tall">
-          <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-sevilla.jpg'), linear-gradient(135deg,#c94b4b,#4b134f)"></div>
+      <div class="region-label">Sur</div>
+      <div class="city-photo-grid row-3">
+        <a id="card-sevilla" class="city-photo-card" href="/oficinas-en-sevilla/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-sevilla.jpg" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">3 centros</span></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Andalucía</div>
             <div class="city-photo-name">Sevilla</div>
-            <div class="city-photo-center">Sede central · Nervión · Galia (3 centros)</div>
-            <div class="city-photo-tags">
-              <div class="city-photo-tag">Despachos</div>
-              <div class="city-photo-tag">Salas reuniones</div>
-              <div class="city-photo-tag">Oficina virtual</div>
-              <div class="city-photo-tag">Eventos</div>
-            </div>
+            <div class="city-photo-center">Centro, Puerto junto a la SE-30 y Nervión</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div><div class="city-photo-tag">Eventos</div></div>
           </div>
-          <div class="city-photo-corner"><span class="city-photo-corner-text">×3 centros</span></div>
-        </div>
-
-        <!-- Málaga -->
-        <div id="card-malaga" class="city-photo-card tall">
-          <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-malaga.jpg'), linear-gradient(135deg,#F7971E,#FFD200)"></div>
+        </a>
+        <a id="card-malaga" class="city-photo-card" href="/oficinas-en-malaga/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-malaga.jpg" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">1 centro</span></div>
           <div class="city-photo-card-content">
             <div class="city-photo-region">Andalucía</div>
             <div class="city-photo-name">Málaga</div>
-            <div class="city-photo-center">Centro · Alcazaba · Puerto</div>
-            <div class="city-photo-tags">
-              <div class="city-photo-tag">Despachos</div>
-              <div class="city-photo-tag">Salas</div>
-              <div class="city-photo-tag">Virtual</div>
-            </div>
+            <div class="city-photo-center">Calle Larios 1, a un paseo del AVE</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div></div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
-
-    <!-- CANARIAS -->
-    <div id="card-tenerife" class="city-photo-section rv">
-      <div class="region-label">Islas Canarias · Tenerife</div>
+    <div class="city-photo-section rv">
+      <div class="region-label">Canarias</div>
       <div class="city-photo-grid row-3">
-        <div class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-tenerife-1.jpg'), linear-gradient(135deg,#f12711,#f5af19)"></div>
+        <a id="card-tenerife" class="city-photo-card" href="/oficinas-en-tenerife/">
+          <div class="city-photo-card-bg"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-tenerife-1.jpg" alt="" /></div>
           <div class="city-photo-card-overlay"></div>
+          <div class="city-photo-corner"><span class="city-photo-corner-text">3 centros</span></div>
           <div class="city-photo-card-content">
-            <div class="city-photo-region">Islas Canarias</div>
-            <div class="city-photo-name">Tenerife I</div>
-            <div class="city-photo-center">Santa Cruz de Tenerife · Centro</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
+            <div class="city-photo-region">Canarias</div>
+            <div class="city-photo-name">Tenerife</div>
+            <div class="city-photo-center">Dos centros 24 h en el centro de Santa Cruz y un coliving</div>
+            <div class="city-photo-tags"><div class="city-photo-tag">Despachos privados</div><div class="city-photo-tag">Salas de reuniones</div><div class="city-photo-tag">Oficina virtual y Smart Office</div><div class="city-photo-tag">Coliving</div></div>
           </div>
-        </div>
-        <div class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('/assets/img/centros/centro-tenerife-2.jpg'), linear-gradient(135deg,#1a1a2e,#e94560)"></div>
-          <div class="city-photo-card-overlay"></div>
-          <div class="city-photo-card-content">
-            <div class="city-photo-region">Islas Canarias</div>
-            <div class="city-photo-name">Tenerife II</div>
-            <div class="city-photo-center">Santa Cruz · Zona Sur</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Despachos</div><div class="city-photo-tag">Salas</div><div class="city-photo-tag">Virtual</div></div>
-          </div>
-        </div>
-        <div class="city-photo-card">
-          <div class="city-photo-card-bg" style="background-image:url('https://images.unsplash.com/photo-1758520144574-ab8e1270f3d0?auto=format&fit=crop&w=800&q=85'), linear-gradient(135deg,#0f2027,#2c5364)"></div>
-          <div class="city-photo-card-overlay"></div>
-          <div class="city-photo-card-content">
-            <div class="city-photo-region">Islas Canarias</div>
-            <div class="city-photo-name">La Luna Coliving</div>
-            <div class="city-photo-center">Espacio de coliving + coworking</div>
-            <div class="city-photo-tags"><div class="city-photo-tag">Coliving</div><div class="city-photo-tag">Coworking</div><div class="city-photo-tag">Networking</div></div>
-          </div>
-          <div class="city-photo-corner"><span class="city-photo-corner-text">Coliving</span></div>
-        </div>
+        </a>
       </div>
     </div>
-
-    <!-- ¿Tu ciudad no está? -->
-    <div class="rv" style="background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:18px;padding:36px 44px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-top:8px">
-      <div>
-        <h3 style="font-family:'Barlow',sans-serif;font-size:1.35rem;font-weight:800;color:var(--dark)">¿Tu ciudad no aparece?</h3>
-        <p style="color:var(--gray-600);font-size:.92rem;margin-top:5px">La red OficinasYA! crece cada mes. Consúltanos y encontramos la mejor opción para ti.</p>
-      </div>
-      <a href="/#contact" style="background:var(--orange);color:var(--white);padding:14px 30px;border-radius:50px;font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .3s,transform .3s" onmouseover="this.style.background='var(--orange-dark)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--orange)';this.style.transform=''">Consultar disponibilidad →</a>
-    </div>
-
   </div>
 </section>
 
@@ -2668,11 +1241,34 @@
     <div class="footer-col">
       <h5>Servicios</h5>
       <ul>
-        <li><a href="/#services">Despachos privados</a></li>
-        <li><a href="/#services">Salas de reuniones</a></li>
-        <li><a href="/#services">Oficina virtual</a></li>
-        <li><a href="/#services">Coworking</a></li>
-        <li><a href="/#services">Eventos</a></li>
+        <li><a href="/alquiler-de-despachos/">Despachos privados</a></li>
+        <li><a href="/salas-de-reuniones/">Salas de reuniones</a></li>
+        <li><a href="/oficina-virtual/">Oficina virtual</a></li>
+        <li><a href="/coworking/">Coworking</a></li>
+        <li><a href="/ubicaciones/">Ubicaciones</a></li>
+        <li><a href="/#pricing">Precios</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-cities">
+      <h5>Ciudades</h5>
+      <ul class="footer-cities-list">
+        <li><a href="/oficinas-en-madrid/">Madrid</a></li>
+        <li><a href="/oficinas-en-barcelona/">Barcelona</a></li>
+        <li><a href="/oficinas-en-murcia/">Murcia</a></li>
+        <li><a href="/oficinas-en-sevilla/">Sevilla</a></li>
+        <li><a href="/oficinas-en-tenerife/">Tenerife</a></li>
+        <li><a href="/oficinas-en-a-coruna/">A Coruña</a></li>
+        <li><a href="/oficinas-en-bilbao/">Bilbao</a></li>
+        <li><a href="/oficinas-en-segovia/">Segovia</a></li>
+        <li><a href="/oficinas-en-albacete/">Albacete</a></li>
+        <li><a href="/oficinas-en-alicante/">Alicante</a></li>
+        <li><a href="/oficinas-en-castellon/">Castellón</a></li>
+        <li><a href="/oficinas-en-malaga/">Málaga</a></li>
+        <li><a href="/oficinas-en-merida/">Mérida</a></li>
+        <li><a href="/oficinas-en-salamanca/">Salamanca</a></li>
+        <li><a href="/oficinas-en-valencia/">Valencia</a></li>
+        <li><a href="/oficinas-en-vigo/">Vigo</a></li>
+        <li><a href="/oficinas-en-zaragoza/">Zaragoza</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -2680,15 +1276,11 @@
       <ul>
         <li><a href="/#why">Por qué nosotros</a></li>
         <li><a href="/#testimonials">Clientes</a></li>
-        <li><a href="/ubicaciones/">Ubicaciones</a></li>
-        <li><a href="/#pricing">Precios</a></li>
         <li><a href="/comunidad/">Comunidad</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/#contact">Formulario de contacto</a></li>
       </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Contacto</h5>
+      <h5 class="footer-h5-gap">Contacto</h5>
       <ul>
         <li><a href="tel:918298500">918 298 500</a></li>
         <li><a href="https://wa.me/34624119705">WhatsApp 624 119 705</a></li>
@@ -2768,16 +1360,6 @@
   tooltip.addEventListener('mouseleave', scheduleHideTooltip);
   tooltip.addEventListener('click', () => { if (tooltipTarget) tooltipTarget.dispatchEvent(new Event('click')); });
 
-  function goToCity(el, targetId) {
-    hideTooltip();
-    const target = document.getElementById(targetId);
-    if (!target) return;
-    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    target.classList.remove('map-target-flash');
-    void target.offsetWidth; // restart animation
-    target.classList.add('map-target-flash');
-    setTimeout(() => target.classList.remove('map-target-flash'), 1500);
-  }
 
 </script>
 </body>

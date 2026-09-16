@@ -8,6 +8,7 @@ title: "Alquiler de oficinas y despachos en Alicante | OficinasYA!"
 description: "Centro de negocios en la plaza de la Montañeta 4 de Alicante, junto a los organismos oficiales: despachos exteriores de 12 a 20 m², dos salas y oficina virtual."
 h1: Alquiler de oficinas y despachos en Alicante
 subtitle: Un centro en la plaza de la Montañeta, en el centro administrativo y financiero de Alicante, con despachos exteriores con luz natural, salas desde una hora y oficina virtual.
+resumen: "Plaza de la Montañeta, junto a los organismos oficiales"
 cercanas: [valencia, murcia, albacete]
 centros:
   - nombre: Plaza de la Muntanyeta

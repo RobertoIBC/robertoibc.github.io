@@ -77,7 +77,7 @@
        nav-light: fondo blanco desde el principio (paginas legales). */
     nav.nav-dark { background: var(--dark); }
     nav.nav-light { background: var(--white); box-shadow: 0 2px 24px rgba(0,0,0,.09); }
-    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; padding: 3px 0; }
     .logo-wordmark { display: flex; align-items: baseline; gap: 0; }
     .logo-word {
       font-family: 'Barlow', sans-serif; font-weight: 900;
@@ -97,7 +97,7 @@
     }
     nav.scrolled .logo-sub, nav.nav-light .logo-sub { color: var(--gray-400); }
     .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; }
+    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; display: inline-block; padding: 12px 0; }
     nav.scrolled .nav-links a, nav.nav-light .nav-links a { color: var(--dark-mid); }
     .menu-toggle {
       display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
@@ -129,7 +129,7 @@
     .nav-links a:hover, .nav-links a.active { color: var(--orange) !important; }
     .nav-cta {
       background: var(--orange); color: var(--white);
-      padding: 11px 26px; border-radius: 50px;
+      padding: 13px 26px; border-radius: 50px;
       font-weight: 700; font-size: .9rem; text-decoration: none;
       display: inline-flex; align-items: center; gap: 8px;
       transition: background .3s, transform .3s, box-shadow .3s;
@@ -148,15 +148,15 @@
     .footer-logo .logo-sub { color: rgba(255,255,255,.35); }
     .footer-brand p { font-size: .9rem; line-height: 1.7; max-width: 260px; }
     .footer-col h5 { color: var(--white); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; display: inline-block; padding: 14px 0; line-height: 1.2; }   /* 44 px de alto tactil */
     .footer-col ul a:hover { color: var(--orange); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
     .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
-    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; display: inline-block; padding: 12px 4px; }
     .footer-bottom-links a:hover { color: var(--orange); }
     .socials { display: flex; gap: 10px; }
-    .soc { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
     .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
     .soc svg { width: 16px; height: 16px; }
     .wa {
@@ -172,7 +172,7 @@
     .nav-actions { display: flex; align-items: center; gap: 20px; }
     .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
     .lang-switch a {
-      font-size: .78rem; font-weight: 700; letter-spacing: .8px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .8px; padding: 16px 5px;
       color: rgba(255,255,255,.45); text-decoration: none;
       transition: color .3s var(--ease);
     }
@@ -182,6 +182,26 @@
     nav.scrolled .lang-switch a, nav.nav-light .lang-switch a { color: var(--gray-400); }
     nav.scrolled .lang-switch a[aria-current], nav.nav-light .lang-switch a[aria-current] { color: var(--dark); }
     nav.scrolled .lang-sep, nav.nav-light .lang-sep { background: var(--gray-200); }
+
+    /* ── DESPLEGABLE DE SERVICIOS (solo CSS: hover y focus-within) ── */
+    .nav-item { position: relative; }
+    .nav-caret { margin-left: 5px; vertical-align: middle; transition: transform .3s var(--ease); }
+    .nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret { transform: rotate(180deg); }
+    .nav-menu { position: absolute; top: 100%; left: -18px; min-width: 240px; padding: 10px 0; margin-top: 14px; list-style: none;
+      background: var(--white); border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,.16); border: 1px solid var(--gray-200);
+      opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s; }
+    .nav-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }   /* puente para no perder el hover */
+    .nav-item:hover .nav-menu, .nav-item:focus-within .nav-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .nav-menu li a { display: block; padding: 11px 22px; color: var(--dark-mid) !important; font-size: .9rem; font-weight: 600; text-decoration: none; }
+    .nav-menu li a:hover, .nav-menu li a:focus-visible { background: var(--gray-50); color: var(--orange) !important; }
+    .nav-menu li a[aria-current] { color: var(--orange) !important; }
+    .mobile-menu-group { display: block; font-size: .68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); padding: 8px 0 4px; }
+    .mobile-menu a.mobile-menu-sub { padding-left: 14px; font-size: 1.02rem; font-weight: 600; color: rgba(255,255,255,.7); }
+
+    /* ── PIE: las 17 ciudades en dos columnas compactas ── */
+    .footer-grid { grid-template-columns: 1.6fr 1fr 1.3fr 1fr; }
+    .footer-col ul.footer-cities-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    .footer-h5-gap { margin-top: 28px; }
 
     @media (max-width: 900px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -196,7 +216,8 @@
       .menu-toggle { display: flex; }
       .nav-cta { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; gap: 0; }
       .nav-cta-text { display: none; }
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-col ul.footer-cities-list { gap: 0 12px; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
     }
 
@@ -270,7 +291,7 @@
     .side-card { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 28px; }
     .side-card h3 { font-family: 'Barlow', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
     .side-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .side-card li a { color: var(--dark); text-decoration: none; font-size: .92rem; font-weight: 600; display: flex; justify-content: space-between; gap: 10px; padding: 9px 12px; border-radius: 10px; background: var(--white); border: 1.5px solid var(--gray-200); transition: border-color .3s; }
+    .side-card li a { color: var(--dark); text-decoration: none; font-size: .92rem; font-weight: 600; display: flex; justify-content: space-between; gap: 10px; padding: 12px 12px; border-radius: 10px; background: var(--white); border: 1.5px solid var(--gray-200); transition: border-color .3s; }
     .side-card li a:hover { border-color: var(--orange); }
     .side-card li a small { color: var(--gray-400); font-weight: 500; }
     .side-card.cta { background: var(--dark); border-color: var(--dark); }
@@ -295,8 +316,8 @@
     .centre { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: 340px minmax(0, 1fr); margin-bottom: 24px; scroll-margin-top: 100px; }
     .centre:last-child { margin-bottom: 0; }
     .centre.no-photo { grid-template-columns: 1fr; }
-    .centre-photo { background: var(--gray-200) center/cover no-repeat; min-height: 260px; position: relative; }
-    .centre-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .centre-photo { background: var(--gray-200); min-height: 260px; position: relative; }
+    .centre-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .centre-photo .badge { position: absolute; left: 16px; bottom: 16px; background: var(--dark); color: var(--white); font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 12px; border-radius: 50px; }
     .centre-body { padding: 30px 32px; }
     .centre-body h3 { font-family: 'Barlow', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -.3px; margin-bottom: 6px; }
@@ -304,7 +325,7 @@
     .centre-text p { color: var(--gray-600); font-size: .98rem; line-height: 1.75; margin-bottom: 12px; }
     .centre-text a { color: var(--orange-dark); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(245,146,26,.35); }
     .centre-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 20px; margin: 18px 0; padding: 18px 0; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); }
-    .fact-lbl { font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; }
+    .fact-lbl { font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; }
     .fact-val { font-size: .92rem; color: var(--dark); font-weight: 600; line-height: 1.4; }
     .centre-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .centre-tags span { background: var(--orange-pale); color: var(--orange-dark); font-size: .78rem; font-weight: 700; padding: 6px 12px; border-radius: 50px; }
@@ -327,7 +348,7 @@
     .city-nearby { padding: 64px 6%; }
     .city-nearby-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
     .city-nearby h2 { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-right: 10px; }
-    .city-nearby a { background: var(--white); border: 1.5px solid var(--gray-200); color: var(--dark); font-size: .88rem; font-weight: 600; padding: 9px 16px; border-radius: 50px; text-decoration: none; transition: border-color .3s, color .3s; }
+    .city-nearby a { background: var(--white); border: 1.5px solid var(--gray-200); color: var(--dark); font-size: .88rem; font-weight: 600; padding: 13px 18px; border-radius: 50px; text-decoration: none; transition: border-color .3s, color .3s; }
     .city-nearby a:hover { border-color: var(--orange); color: var(--orange-dark); }
     .city-nearby a.all { border-color: var(--dark); }
 
@@ -563,8 +584,16 @@
     <span class="logo-sub">Coworking &amp; Workplaces</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/en/#services">Services</a></li>
-    <li><a href="/en/locations/">Locations</a></li>
+    <li class="nav-item has-menu">
+      <a href="/en/private-offices/" aria-haspopup="true">Services<svg class="nav-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <ul class="nav-menu" aria-label="Services">
+        <li><a href="/en/private-offices/">Private offices</a></li>
+        <li><a href="/en/meeting-rooms/">Meeting rooms</a></li>
+        <li><a href="/en/virtual-office/">Virtual office</a></li>
+        <li><a href="/en/coworking/">Coworking</a></li>
+      </ul>
+    </li>
+    <li><a href="/en/locations/" class="active">Locations</a></li>
     <li><a href="/en/#pricing">Pricing</a></li>
     <li><a href="/en/community/">Community</a></li>
     <li><a href="/en/blog/">Blog</a></li>
@@ -584,8 +613,12 @@
 </nav>
 <div class="menu-backdrop" id="menuBackdrop"></div>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/en/#services">Services</a>
-  <a href="/en/locations/">Locations</a>
+  <span class="mobile-menu-group">Services</span>
+  <a href="/en/private-offices/" class="mobile-menu-sub">Private offices</a>
+  <a href="/en/meeting-rooms/" class="mobile-menu-sub">Meeting rooms</a>
+  <a href="/en/virtual-office/" class="mobile-menu-sub">Virtual office</a>
+  <a href="/en/coworking/" class="mobile-menu-sub">Coworking</a>
+  <a href="/en/locations/" class="active">Locations</a>
   <a href="/en/#pricing">Pricing</a>
   <a href="/en/community/">Community</a>
   <a href="/en/blog/">Blog</a>
@@ -659,7 +692,7 @@
     </div>
     <div class="zone">
       <div class="centre" id="santa-rosalia">
-        <div class="centre-photo" style="background-image:url('/assets/img/centros/centro-tenerife-1.jpg')">
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-tenerife-1.jpg" alt="Santa Rosalía, OficinasYA! Tenerife" />
           <span class="badge">24-hour access</span>
         </div>
         <div class="centre-body">
@@ -680,7 +713,7 @@
         </div>
       </div>
       <div class="centre" id="costa-y-grijalba">
-        <div class="centre-photo" style="background-image:url('/assets/img/centros/centro-tenerife-2.jpg')">
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-tenerife-2.jpg" alt="Costa y Grijalba, OficinasYA! Tenerife" />
           <span class="badge">24-hour access</span>
         </div>
         <div class="centre-body">
@@ -810,11 +843,34 @@
     <div class="footer-col">
       <h5>Services</h5>
       <ul>
-        <li><a href="/en/#services">Private offices</a></li>
-        <li><a href="/en/#services">Meeting rooms</a></li>
-        <li><a href="/en/#services">Virtual office</a></li>
-        <li><a href="/en/#services">Coworking</a></li>
-        <li><a href="/en/#services">Events</a></li>
+        <li><a href="/en/private-offices/">Private offices</a></li>
+        <li><a href="/en/meeting-rooms/">Meeting rooms</a></li>
+        <li><a href="/en/virtual-office/">Virtual office</a></li>
+        <li><a href="/en/coworking/">Coworking</a></li>
+        <li><a href="/en/locations/">Locations</a></li>
+        <li><a href="/en/#pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-cities">
+      <h5>Cities</h5>
+      <ul class="footer-cities-list">
+        <li><a href="/en/offices-in-madrid/">Madrid</a></li>
+        <li><a href="/en/offices-in-barcelona/">Barcelona</a></li>
+        <li><a href="/en/offices-in-murcia/">Murcia</a></li>
+        <li><a href="/en/offices-in-seville/">Seville</a></li>
+        <li><a href="/en/offices-in-tenerife/">Tenerife</a></li>
+        <li><a href="/en/offices-in-a-coruna/">A Coruña</a></li>
+        <li><a href="/en/offices-in-bilbao/">Bilbao</a></li>
+        <li><a href="/en/offices-in-segovia/">Segovia</a></li>
+        <li><a href="/en/offices-in-albacete/">Albacete</a></li>
+        <li><a href="/en/offices-in-alicante/">Alicante</a></li>
+        <li><a href="/en/offices-in-castellon/">Castellón</a></li>
+        <li><a href="/en/offices-in-malaga/">Málaga</a></li>
+        <li><a href="/en/offices-in-merida/">Mérida</a></li>
+        <li><a href="/en/offices-in-salamanca/">Salamanca</a></li>
+        <li><a href="/en/offices-in-valencia/">Valencia</a></li>
+        <li><a href="/en/offices-in-vigo/">Vigo</a></li>
+        <li><a href="/en/offices-in-zaragoza/">Zaragoza</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -822,15 +878,11 @@
       <ul>
         <li><a href="/en/#why">Why us</a></li>
         <li><a href="/en/#testimonials">Clients</a></li>
-        <li><a href="/en/locations/">Locations</a></li>
-        <li><a href="/en/#pricing">Pricing</a></li>
         <li><a href="/en/community/">Community</a></li>
         <li><a href="/en/blog/">Blog</a></li>
         <li><a href="/en/#contact">Contact form</a></li>
       </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Contact</h5>
+      <h5 class="footer-h5-gap">Contact</h5>
       <ul>
         <li><a href="tel:918298500">918 298 500</a></li>
         <li><a href="https://wa.me/34624119705">WhatsApp 624 119 705</a></li>

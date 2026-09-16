@@ -8,10 +8,11 @@ title: "Office rental in Barcelona: three centres | OficinasYA!"
 description: "Three centres in Barcelona: Mitre 126 and Raset 29, in the upper city, and Plaza Urquinaona 6 with coworking. Offices, rooms for 2 to 20 and virtual office."
 h1: Office rental in Barcelona
 subtitle: Three centres in Barcelona, two in the upper part of the city and one on Plaza Urquinaona with coworking, with furnished offices, rooms for 2 to 20 people and virtual office.
+resumen: "Upper city and Plaza Urquinaona, with coworking"
 cercanas: [castellon, zaragoza, valencia]
 centros:
   - nombre: Mitre 126
-    foto: https://images.unsplash.com/photo-1722863380905-539ae092fc5f?auto=format&fit=crop&w=1200&q=85
+    foto: https://images.unsplash.com/photo-1722863380905-539ae092fc5f?auto=format&fit=crop&w=640&q=70
     descripcion: Business centre in an exclusive office building at Ronda del General Mitre 126, in the upper part of Barcelona, with offices of different sizes, rooms for 2, 4, 10 and 20 people and virtual office.
     texto: |
       It is in an exclusive office building at Ronda del General Mitre 126, in the upper part of Barcelona. It has offices of different sizes and fully equipped rooms — for 2, 4, 10 and 20 people — ready to work from the first moment, with a modern, functional look. All the building's costs, electricity and internet connection included, are in the price, and there is a team at the centre to sort out whatever comes up during your stay. Reception Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.

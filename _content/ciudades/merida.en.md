@@ -8,10 +8,11 @@ title: "Office rental in Mérida with private parking | OficinasYA!"
 description: "Office building in Mérida, in the university area, with private client parking: offices by the hour or month, rooms for up to 40 and virtual office."
 h1: Office rental in Mérida
 subtitle: An exclusive 1,600 m² office building on Avenida Santa Teresa Jornet, in the university area, with private parking, offices, rooms for up to 40 people and virtual office.
+resumen: "Office building with private parking, university area"
 cercanas: [sevilla, salamanca, madrid]
 centros:
   - nombre: Edificio Delgado Casamayor
-    foto: https://images.unsplash.com/photo-1650103134649-5d7621808a1f?auto=format&fit=crop&w=800&q=85
+    foto: https://images.unsplash.com/photo-1650103134649-5d7621808a1f?auto=format&fit=crop&w=640&q=70
     descripcion: Exclusive 1,600 m² office building at Avenida Santa Teresa Jornet 48 in Mérida, in the university area (Bodegones), with private client parking, offices, meeting rooms for up to 40 people with catering and virtual office.
     texto: |
       The Edificio Delgado Casamayor is an exclusive 1,600 m² office building at Avenida Santa Teresa Jornet 48, in the university area of Mérida, in Bodegones. It has private parking for clients and meeting rooms for up to 40 people with a catering service. Reception is open from 9:00 to 14:00 and from 16:00 to 19:30.

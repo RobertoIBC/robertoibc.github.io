@@ -77,7 +77,7 @@
        nav-light: fondo blanco desde el principio (paginas legales). */
     nav.nav-dark { background: var(--dark); }
     nav.nav-light { background: var(--white); box-shadow: 0 2px 24px rgba(0,0,0,.09); }
-    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; gap: 2px; padding: 3px 0; }
     .logo-wordmark { display: flex; align-items: baseline; gap: 0; }
     .logo-word {
       font-family: 'Barlow', sans-serif; font-weight: 900;
@@ -97,7 +97,7 @@
     }
     nav.scrolled .logo-sub, nav.nav-light .logo-sub { color: var(--gray-400); }
     .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; }
+    .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .3s; display: inline-block; padding: 12px 0; }
     nav.scrolled .nav-links a, nav.nav-light .nav-links a { color: var(--dark-mid); }
     .menu-toggle {
       display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
@@ -129,7 +129,7 @@
     .nav-links a:hover, .nav-links a.active { color: var(--orange) !important; }
     .nav-cta {
       background: var(--orange); color: var(--white);
-      padding: 11px 26px; border-radius: 50px;
+      padding: 13px 26px; border-radius: 50px;
       font-weight: 700; font-size: .9rem; text-decoration: none;
       display: inline-flex; align-items: center; gap: 8px;
       transition: background .3s, transform .3s, box-shadow .3s;
@@ -148,15 +148,15 @@
     .footer-logo .logo-sub { color: rgba(255,255,255,.35); }
     .footer-brand p { font-size: .9rem; line-height: 1.7; max-width: 260px; }
     .footer-col h5 { color: var(--white); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; display: inline-block; padding: 14px 0; line-height: 1.2; }   /* 44 px de alto tactil */
     .footer-col ul a:hover { color: var(--orange); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
     .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
-    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; }
+    .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; display: inline-block; padding: 12px 4px; }
     .footer-bottom-links a:hover { color: var(--orange); }
     .socials { display: flex; gap: 10px; }
-    .soc { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
+    .soc { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; transition: background .3s, color .3s, border-color .3s; }
     .soc:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
     .soc svg { width: 16px; height: 16px; }
     .wa {
@@ -172,7 +172,7 @@
     .nav-actions { display: flex; align-items: center; gap: 20px; }
     .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
     .lang-switch a {
-      font-size: .78rem; font-weight: 700; letter-spacing: .8px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .8px; padding: 16px 5px;
       color: rgba(255,255,255,.45); text-decoration: none;
       transition: color .3s var(--ease);
     }
@@ -182,6 +182,26 @@
     nav.scrolled .lang-switch a, nav.nav-light .lang-switch a { color: var(--gray-400); }
     nav.scrolled .lang-switch a[aria-current], nav.nav-light .lang-switch a[aria-current] { color: var(--dark); }
     nav.scrolled .lang-sep, nav.nav-light .lang-sep { background: var(--gray-200); }
+
+    /* ── DESPLEGABLE DE SERVICIOS (solo CSS: hover y focus-within) ── */
+    .nav-item { position: relative; }
+    .nav-caret { margin-left: 5px; vertical-align: middle; transition: transform .3s var(--ease); }
+    .nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret { transform: rotate(180deg); }
+    .nav-menu { position: absolute; top: 100%; left: -18px; min-width: 240px; padding: 10px 0; margin-top: 14px; list-style: none;
+      background: var(--white); border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,.16); border: 1px solid var(--gray-200);
+      opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s; }
+    .nav-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }   /* puente para no perder el hover */
+    .nav-item:hover .nav-menu, .nav-item:focus-within .nav-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .nav-menu li a { display: block; padding: 11px 22px; color: var(--dark-mid) !important; font-size: .9rem; font-weight: 600; text-decoration: none; }
+    .nav-menu li a:hover, .nav-menu li a:focus-visible { background: var(--gray-50); color: var(--orange) !important; }
+    .nav-menu li a[aria-current] { color: var(--orange) !important; }
+    .mobile-menu-group { display: block; font-size: .68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); padding: 8px 0 4px; }
+    .mobile-menu a.mobile-menu-sub { padding-left: 14px; font-size: 1.02rem; font-weight: 600; color: rgba(255,255,255,.7); }
+
+    /* ── PIE: las 17 ciudades en dos columnas compactas ── */
+    .footer-grid { grid-template-columns: 1.6fr 1fr 1.3fr 1fr; }
+    .footer-col ul.footer-cities-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    .footer-h5-gap { margin-top: 28px; }
 
     @media (max-width: 900px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -196,7 +216,8 @@
       .menu-toggle { display: flex; }
       .nav-cta { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; gap: 0; }
       .nav-cta-text { display: none; }
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-col ul.footer-cities-list { gap: 0 12px; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
     }
 
@@ -256,7 +277,7 @@
     }
     .filter-tab {
       display: flex; align-items: center; gap: 7px;
-      padding: 11px 20px; border-radius: 50px; font-size: .86rem; font-weight: 700;
+      padding: 13px 20px; border-radius: 50px; font-size: .86rem; font-weight: 700;
       cursor: pointer; border: none; background: transparent; color: var(--gray-600);
       transition: color .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
       white-space: nowrap;
@@ -366,6 +387,169 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Blog",
+      "@id": "https://robertoibc.github.io/en/blog/#blog",
+      "url": "https://robertoibc.github.io/en/blog/",
+      "name": "Productivity and business blog for small firms | OficinasYA!",
+      "description": "Articles on productivity, running a small business, workplace wellbeing and technology for freelancers and companies, written by the OficinasYA! team.",
+      "inLanguage": "en-GB",
+      "publisher": {
+        "@id": "https://robertoibc.github.io/#organization"
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "22 productivity tricks to master your day",
+          "datePublished": "2024-08-29",
+          "description": "Make going back to the routine easier with these 22 productivity hacks to stay focused and organised.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Booking appointments now has an app: no more fighting government websites",
+          "datePublished": "2024-09-12",
+          "description": "The Cita Previa app has arrived and promises to make dealing with Spain's public administration more convenient.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/cita-previa-ya-tiene-app-adios-a-pelearse-con-las-webs-de-la-administracion/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=85"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Productivity tricks to win at the everyday (II)",
+          "datePublished": "2024-09-03",
+          "description": "Part two of our round-up of the best productivity ideas you can put to work in your day-to-day.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=600&q=85"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Rejecting office work brings loneliness and depression, experts warn",
+          "datePublished": "2024-08-26",
+          "description": "Refusing to return to the office is one of the main causes of isolation, according to experts.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=85"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Getting back into the routine without the stress",
+          "datePublished": "2024-08-20",
+          "description": "The best strategies to stop the return to routine from becoming a source of stress.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/volver-a-la-rutina-sin-estresarte-es-posible/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=85"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Boost your sales with these email marketing essentials",
+          "datePublished": "2024-08-09",
+          "description": "Email marketing is a great tool for selling more in your business; you just need to get a few things right.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Google Wallet will let you scan any kind of document",
+          "datePublished": "2024-08-07",
+          "description": "Google Wallet has added a feature that lets you scan any kind of document.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/googlwe-wallet-permitira-escanear-cualquier-tipo-de-documento/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1598128558393-70ff21433be0?auto=format&fit=crop&w=600&q=85"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Are you making any of these 8 small-business mistakes?",
+          "datePublished": "2024-08-01",
+          "description": "Some of the most frequent mistakes small businesses make, and how to avoid them.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/cometes-alguno-de-estos-8-errores-en-tu-pyme/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "How to travel almost free if you are under 30",
+          "datePublished": "2024-07-31",
+          "description": "The Ministry of Transport's campaign is aimed at young people between 18 and 30.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=85"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Keys to better networking",
+          "datePublished": "2018-11-07",
+          "description": "Being good at networking is a matter of practice and attitude. Learn what to focus on.",
+          "inLanguage": "en-GB",
+          "url": "https://www.oficinasya.es/claves-para-mejorar-tu-networking/",
+          "author": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "publisher": {
+            "@id": "https://robertoibc.github.io/#organization"
+          },
+          "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=85"
+        }
+      ]
+    },
+    {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -381,147 +565,6 @@
           "item": "https://robertoibc.github.io/en/blog/"
         }
       ]
-    },
-    {
-      "@type": "Blog",
-      "name": "The OficinasYA! blog",
-      "url": "https://robertoibc.github.io/en/blog/",
-      "inLanguage": "en-GB",
-      "publisher": {
-        "@id": "https://robertoibc.github.io/#organization"
-      },
-      "blogPost": [
-        {
-          "@type": "BlogPosting",
-          "headline": "22 productivity tricks to master your day",
-          "datePublished": "2024-08-29",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Booking appointments now has an app: no more fighting government websites",
-          "datePublished": "2024-09-12",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Productivity tricks to win at the everyday (II)",
-          "datePublished": "2024-09-03",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Rejecting office work brings loneliness and depression, experts warn",
-          "datePublished": "2024-08-26",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Getting back into the routine without the stress",
-          "datePublished": "2024-08-20",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Boost your sales with these email marketing essentials",
-          "datePublished": "2024-08-09",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Google Wallet will let you scan any kind of document",
-          "datePublished": "2024-08-07",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Are you making any of these 8 small-business mistakes?",
-          "datePublished": "2024-08-01",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "How to travel almost free if you are under 30",
-          "datePublished": "2024-07-31",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Effective networking: turning contacts into real clients",
-          "datePublished": "2024-07-22",
-          "author": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "publisher": {
-            "@id": "https://robertoibc.github.io/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "https://robertoibc.github.io/en/blog/"
-        }
-      ]
     }
   ]
 }
@@ -531,7 +574,11 @@
 <body>
 
 <!-- NAV -->
-<nav id="nav" class="nav-dark">
+<nav id="nav" class="nav-dark    .blog-title a, .blog-feat-title a { color: inherit; text-decoration: none; }
+    .blog-title a:hover, .blog-feat-title a:hover { color: var(--orange-dark); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--orange); color: var(--orange); padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: .95rem; text-decoration: none; transition: background .3s, color .3s, transform .3s; }
+    .btn-outline:hover { background: var(--orange); color: var(--white); transform: translateY(-2px); }
+">
   <a href="/en/" class="nav-logo">
     <div class="logo-wordmark">
       <span class="logo-word">Oficinas</span><span class="logo-ya">YA!</span>
@@ -539,7 +586,15 @@
     <span class="logo-sub">Coworking &amp; Workplaces</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/en/#services">Services</a></li>
+    <li class="nav-item has-menu">
+      <a href="/en/private-offices/" aria-haspopup="true">Services<svg class="nav-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <ul class="nav-menu" aria-label="Services">
+        <li><a href="/en/private-offices/">Private offices</a></li>
+        <li><a href="/en/meeting-rooms/">Meeting rooms</a></li>
+        <li><a href="/en/virtual-office/">Virtual office</a></li>
+        <li><a href="/en/coworking/">Coworking</a></li>
+      </ul>
+    </li>
     <li><a href="/en/locations/">Locations</a></li>
     <li><a href="/en/#pricing">Pricing</a></li>
     <li><a href="/en/community/">Community</a></li>
@@ -560,7 +615,11 @@
 </nav>
 <div class="menu-backdrop" id="menuBackdrop"></div>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/en/#services">Services</a>
+  <span class="mobile-menu-group">Services</span>
+  <a href="/en/private-offices/" class="mobile-menu-sub">Private offices</a>
+  <a href="/en/meeting-rooms/" class="mobile-menu-sub">Meeting rooms</a>
+  <a href="/en/virtual-office/" class="mobile-menu-sub">Virtual office</a>
+  <a href="/en/coworking/" class="mobile-menu-sub">Coworking</a>
   <a href="/en/locations/">Locations</a>
   <a href="/en/#pricing">Pricing</a>
   <a href="/en/community/">Community</a>
@@ -590,7 +649,7 @@
     </div>
     <div class="hero-featured">
       <div class="hero-feat-img">
-        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="22 productivity tricks" onerror="this.remove()" />
+        <img width="600" height="400" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="22 productivity tricks" onerror="this.remove()" />
         <span class="feat-emoji">⚡</span>
       </div>
       <div class="hero-feat-body">
@@ -619,171 +678,134 @@
   </div>
 </div>
 
-<!-- BLOG GRID -->
+<!-- BLOG GRID: generado desde _content/blog/*.en.md (orden: fecha descendente) -->
 <section id="blog-grid">
   <div class="blog-grid" id="articlesGrid">
-
-    <!-- FEATURED -->
     <div class="blog-card-featured rv d1" data-cat="prod">
       <div class="blog-card-feat-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85"
-             style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"
-             alt="22 productivity tricks"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1C1C1C,#2D2D2D)'"
-             onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''" />
-        <span class="feat-emoji" style="position:absolute;font-size:3rem;opacity:.15">⚡</span>
+        <img loading="lazy" decoding="async" width="1000" height="640" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85" style="width:100%;height:100%;object-fit:cover" alt="" />
       </div>
       <div class="blog-card-feat-body">
         <span class="blog-cat prod">Productivity</span>
-        <h2 class="blog-feat-title">22 productivity tricks to master your day</h2>
-        <p class="blog-feat-excerpt">Running out of energy mid-afternoon? Tasks piling up while the clock races? This guide brings together 22 concrete, easy-to-apply strategies to manage your time better, hold your focus and finish the day feeling you achieved something, not that you lost.</p>
+        <h2 class="blog-feat-title"><a href="https://www.oficinasya.es/te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/" target="_blank" rel="noopener">22 productivity tricks to master your day</a></h2>
+        <p class="blog-feat-excerpt">Make going back to the routine easier with these 22 productivity hacks to stay focused and organised.</p>
         <div class="blog-feat-meta">
-          <span class="blog-feat-date">29 Aug 2024 · 5 min read</span>
-          <a href="https://www.oficinasya.es/blog/" class="blog-feat-link" target="_blank">Read on the blog →</a>
+          <span class="blog-feat-date">29 Aug 2024</span>
+          <a href="https://www.oficinasya.es/te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/" class="blog-feat-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
         </div>
       </div>
     </div>
-
-    <!-- Card 1 -->
-    <div class="blog-card rv d1" data-cat="prod">
+    <div class="blog-card rv d3" data-cat="prod">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=85" alt="App cita previa" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=85" alt="" />
         <span class="blog-cat prod">Productivity</span>
-        <span class="read-time">4 min</span>
       </div>
       <div class="blog-body">
         <div class="blog-date">12 Sep 2024</div>
-        <h3 class="blog-title">Booking appointments now has an app: no more fighting government websites</h3>
-        <p class="blog-excerpt">A new app that brings every administrative procedure (census, reports, MUFACE) together in one place.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <h3 class="blog-title"><a href="https://www.oficinasya.es/cita-previa-ya-tiene-app-adios-a-pelearse-con-las-webs-de-la-administracion/" target="_blank" rel="noopener">Booking appointments now has an app: no more fighting government websites</a></h3>
+        <p class="blog-excerpt">The Cita Previa app has arrived and promises to make dealing with Spain's public administration more convenient.</p>
+        <a href="https://www.oficinasya.es/cita-previa-ya-tiene-app-adios-a-pelearse-con-las-webs-de-la-administracion/" class="blog-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
       </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="blog-card rv d2" data-cat="prod">
+    <div class="blog-card rv d1" data-cat="prod">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=600&q=85" alt="Trucos productividad" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=600&q=85" alt="" />
         <span class="blog-cat prod">Productivity</span>
-        <span class="read-time">5 min</span>
       </div>
       <div class="blog-body">
         <div class="blog-date">3 Sep 2024</div>
-        <h3 class="blog-title">Productivity tricks to win at the everyday (II)</h3>
-        <p class="blog-excerpt">Part two, with practical techniques for time management, focus and balance so you get more done without burning out.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <h3 class="blog-title"><a href="https://www.oficinasya.es/trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii/" target="_blank" rel="noopener">Productivity tricks to win at the everyday (II)</a></h3>
+        <p class="blog-excerpt">Part two of our round-up of the best productivity ideas you can put to work in your day-to-day.</p>
+        <a href="https://www.oficinasya.es/trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii/" class="blog-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
       </div>
     </div>
-
-    <!-- Card 3 -->
-    <div class="blog-card rv d3" data-cat="bien">
+    <div class="blog-card rv d2" data-cat="bien">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=85" alt="Trabajo presencial bienestar" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0284C7,#0EA5E9)'" />
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=85" alt="" />
         <span class="blog-cat bien">Wellbeing</span>
-        <span class="read-time">6 min</span>
       </div>
       <div class="blog-body">
         <div class="blog-date">26 Aug 2024</div>
-        <h3 class="blog-title">Rejecting office work brings loneliness and depression, experts warn</h3>
-        <p class="blog-excerpt">Experts warn that the office is not only a place of work but a space for socialising that mental wellbeing depends on.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <h3 class="blog-title"><a href="https://www.oficinasya.es/rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/" target="_blank" rel="noopener">Rejecting office work brings loneliness and depression, experts warn</a></h3>
+        <p class="blog-excerpt">Refusing to return to the office is one of the main causes of isolation, according to experts.</p>
+        <a href="https://www.oficinasya.es/rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/" class="blog-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
       </div>
     </div>
-
-    <!-- Card 4 -->
-    <div class="blog-card rv d1" data-cat="bien">
+    <div class="blog-card rv d3" data-cat="bien">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=85" alt="Vuelta a la rutina" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#B45309)'" />
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=85" alt="" />
         <span class="blog-cat bien">Wellbeing</span>
-        <span class="read-time">4 min</span>
       </div>
       <div class="blog-body">
         <div class="blog-date">20 Aug 2024</div>
-        <h3 class="blog-title">Getting back into the routine without the stress</h3>
-        <p class="blog-excerpt">Advice on picking up your habits and working rhythm after the holidays without the classic back-to-work slump.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <h3 class="blog-title"><a href="https://www.oficinasya.es/volver-a-la-rutina-sin-estresarte-es-posible/" target="_blank" rel="noopener">Getting back into the routine without the stress</a></h3>
+        <p class="blog-excerpt">The best strategies to stop the return to routine from becoming a source of stress.</p>
+        <a href="https://www.oficinasya.es/volver-a-la-rutina-sin-estresarte-es-posible/" class="blog-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
       </div>
     </div>
-
-    <!-- Card 5 -->
-    <div class="blog-card rv d2" data-cat="neg">
+    <div class="blog-card rv d1" data-cat="neg">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85" alt="Email marketing" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85" alt="" />
         <span class="blog-cat neg">Business</span>
-        <span class="read-time">7 min</span>
       </div>
       <div class="blog-body">
         <div class="blog-date">9 Aug 2024</div>
-        <h3 class="blog-title">Boost your sales with these email marketing essentials</h3>
-        <p class="blog-excerpt">Concrete email marketing strategies for freelancers and small businesses that want to turn their list into real revenue.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <h3 class="blog-title"><a href="https://www.oficinasya.es/dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/" target="_blank" rel="noopener">Boost your sales with these email marketing essentials</a></h3>
+        <p class="blog-excerpt">Email marketing is a great tool for selling more in your business; you just need to get a few things right.</p>
+        <a href="https://www.oficinasya.es/dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/" class="blog-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
       </div>
     </div>
-
-    <!-- Card 6 -->
-    <div class="blog-card rv d3" data-cat="tech">
+    <div class="blog-card rv d2" data-cat="tech">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?auto=format&fit=crop&w=600&q=85" alt="Google Wallet tecnología" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#7C3AED,#5B21B6)'" />
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?auto=format&fit=crop&w=600&q=85" alt="" />
         <span class="blog-cat tech">Tech</span>
-        <span class="read-time">3 min</span>
       </div>
       <div class="blog-body">
         <div class="blog-date">7 Aug 2024</div>
-        <h3 class="blog-title">Google Wallet will let you scan any kind of document</h3>
-        <p class="blog-excerpt">Google Wallet's new text-scanning feature is here to make digital life easier. Everything you need to know.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <h3 class="blog-title"><a href="https://www.oficinasya.es/googlwe-wallet-permitira-escanear-cualquier-tipo-de-documento/" target="_blank" rel="noopener">Google Wallet will let you scan any kind of document</a></h3>
+        <p class="blog-excerpt">Google Wallet has added a feature that lets you scan any kind of document.</p>
+        <a href="https://www.oficinasya.es/googlwe-wallet-permitira-escanear-cualquier-tipo-de-documento/" class="blog-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
       </div>
     </div>
-
-    <!-- Card 7 -->
-    <div class="blog-card rv d1" data-cat="neg">
+    <div class="blog-card rv d3" data-cat="neg">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Errores en tu PYME" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#DC2626,#B91C1C)'" />
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="" />
         <span class="blog-cat neg">Business</span>
-        <span class="read-time">8 min</span>
       </div>
       <div class="blog-body">
         <div class="blog-date">1 Aug 2024</div>
-        <h3 class="blog-title">Are you making any of these 8 small-business mistakes?</h3>
-        <p class="blog-excerpt">These common slips can undermine your company's success. Spot them early and learn how to avoid them.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <h3 class="blog-title"><a href="https://www.oficinasya.es/cometes-alguno-de-estos-8-errores-en-tu-pyme/" target="_blank" rel="noopener">Are you making any of these 8 small-business mistakes?</a></h3>
+        <p class="blog-excerpt">Some of the most frequent mistakes small businesses make, and how to avoid them.</p>
+        <a href="https://www.oficinasya.es/cometes-alguno-de-estos-8-errores-en-tu-pyme/" class="blog-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
       </div>
     </div>
-
-    <!-- Card 8 -->
-    <div class="blog-card rv d2" data-cat="vida">
+    <div class="blog-card rv d1" data-cat="vida">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=85" alt="Viajar joven España" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#F59E0B)'" />
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=85" alt="" />
         <span class="blog-cat vida">Lifestyle</span>
-        <span class="read-time">4 min</span>
       </div>
       <div class="blog-body">
         <div class="blog-date">31 Jul 2024</div>
-        <h3 class="blog-title">How to travel almost free if you are under 30</h3>
-        <p class="blog-excerpt">The Verano Joven scheme offers up to 90% off travel around Spain and Europe for 18 to 30-year-olds.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <h3 class="blog-title"><a href="https://www.oficinasya.es/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/" target="_blank" rel="noopener">How to travel almost free if you are under 30</a></h3>
+        <p class="blog-excerpt">The Ministry of Transport's campaign is aimed at young people between 18 and 30.</p>
+        <a href="https://www.oficinasya.es/como-viajar-casi-gratis-si-tienes-menos-de-30-anos/" class="blog-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
       </div>
     </div>
-
-    <!-- Card 9 -->
-    <div class="blog-card rv d3" data-cat="neg">
+    <div class="blog-card rv d2" data-cat="neg">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=85" alt="Networking profesional" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=85" alt="" />
         <span class="blog-cat neg">Business</span>
-        <span class="read-time">5 min</span>
       </div>
       <div class="blog-body">
-        <div class="blog-date">22 Jul 2024</div>
-        <h3 class="blog-title">Effective networking: turning contacts into real clients</h3>
-        <p class="blog-excerpt">Networking is not just handing out cards. Here are the strategies that actually work for closing deals.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <div class="blog-date">7 Nov 2018</div>
+        <h3 class="blog-title"><a href="https://www.oficinasya.es/claves-para-mejorar-tu-networking/" target="_blank" rel="noopener">Keys to better networking</a></h3>
+        <p class="blog-excerpt">Being good at networking is a matter of practice and attitude. Learn what to focus on.</p>
+        <a href="https://www.oficinasya.es/claves-para-mejorar-tu-networking/" class="blog-link" target="_blank" rel="noopener">Read on the OficinasYA blog →</a>
       </div>
     </div>
-
   </div>
-
-  <!-- Load more -->
   <div style="text-align:center;margin-top:60px" class="rv">
-    <a href="https://www.oficinasya.es/blog/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;border:2px solid var(--orange);color:var(--orange);padding:14px 36px;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;transition:background .3s,color .3s,transform .3s" onmouseover="this.style.background='var(--orange)';this.style.color='white';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='';this.style.color='var(--orange)';this.style.transform=''">See all articles on oficinasya.es →</a>
+    <a href="https://www.oficinasya.es/blog/" target="_blank" rel="noopener" class="btn-outline">See all the articles on oficinasya.es →</a>
   </div>
 </section>
 
@@ -825,11 +847,34 @@
     <div class="footer-col">
       <h5>Services</h5>
       <ul>
-        <li><a href="/en/#services">Private offices</a></li>
-        <li><a href="/en/#services">Meeting rooms</a></li>
-        <li><a href="/en/#services">Virtual office</a></li>
-        <li><a href="/en/#services">Coworking</a></li>
-        <li><a href="/en/#services">Events</a></li>
+        <li><a href="/en/private-offices/">Private offices</a></li>
+        <li><a href="/en/meeting-rooms/">Meeting rooms</a></li>
+        <li><a href="/en/virtual-office/">Virtual office</a></li>
+        <li><a href="/en/coworking/">Coworking</a></li>
+        <li><a href="/en/locations/">Locations</a></li>
+        <li><a href="/en/#pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-cities">
+      <h5>Cities</h5>
+      <ul class="footer-cities-list">
+        <li><a href="/en/offices-in-madrid/">Madrid</a></li>
+        <li><a href="/en/offices-in-barcelona/">Barcelona</a></li>
+        <li><a href="/en/offices-in-murcia/">Murcia</a></li>
+        <li><a href="/en/offices-in-seville/">Seville</a></li>
+        <li><a href="/en/offices-in-tenerife/">Tenerife</a></li>
+        <li><a href="/en/offices-in-a-coruna/">A Coruña</a></li>
+        <li><a href="/en/offices-in-bilbao/">Bilbao</a></li>
+        <li><a href="/en/offices-in-segovia/">Segovia</a></li>
+        <li><a href="/en/offices-in-albacete/">Albacete</a></li>
+        <li><a href="/en/offices-in-alicante/">Alicante</a></li>
+        <li><a href="/en/offices-in-castellon/">Castellón</a></li>
+        <li><a href="/en/offices-in-malaga/">Málaga</a></li>
+        <li><a href="/en/offices-in-merida/">Mérida</a></li>
+        <li><a href="/en/offices-in-salamanca/">Salamanca</a></li>
+        <li><a href="/en/offices-in-valencia/">Valencia</a></li>
+        <li><a href="/en/offices-in-vigo/">Vigo</a></li>
+        <li><a href="/en/offices-in-zaragoza/">Zaragoza</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -837,15 +882,11 @@
       <ul>
         <li><a href="/en/#why">Why us</a></li>
         <li><a href="/en/#testimonials">Clients</a></li>
-        <li><a href="/en/locations/">Locations</a></li>
-        <li><a href="/en/#pricing">Pricing</a></li>
         <li><a href="/en/community/">Community</a></li>
         <li><a href="/en/blog/">Blog</a></li>
         <li><a href="/en/#contact">Contact form</a></li>
       </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Contact</h5>
+      <h5 class="footer-h5-gap">Contact</h5>
       <ul>
         <li><a href="tel:918298500">918 298 500</a></li>
         <li><a href="https://wa.me/34624119705">WhatsApp 624 119 705</a></li>

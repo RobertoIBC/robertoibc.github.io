@@ -8,6 +8,7 @@ title: "Office rental in Seville: three centres | OficinasYA!"
 description: "Three centres in Seville: Laraña 4, in the city centre; the Edificio Galia Puerto, by the SE-30 with 500 parking spaces; and the Edificio Nervión."
 h1: Office rental in Seville
 subtitle: Three centres for three different needs, from an office in the historic centre to offices of up to 2,500 m² by the SE-30 ring road. Two of them with 24-hour access.
+resumen: "City centre, the Port by the SE-30 and Nervión"
 cercanas: [malaga, merida]
 centros:
   - nombre: Laraña

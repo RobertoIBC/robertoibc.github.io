@@ -8,10 +8,11 @@ title: "Office rental in Vigo: centre by the marina | OficinasYA!"
 description: "Business centre at Plaza de Compostela 23 in Vigo, in the city centre next to the marina: offices of 9 to 24 m², a 17-person meeting room and virtual office."
 h1: Office rental in Vigo
 subtitle: A centre on Plaza de Compostela, in the centre of Vigo next to the marina, with furnished offices, a meeting room and virtual office.
+resumen: "Plaza de Compostela, next to the marina"
 cercanas: [a-coruna, salamanca]
 centros:
   - nombre: Plaza Compostela
-    foto: https://images.unsplash.com/photo-1615922732011-9273b83897f0?auto=format&fit=crop&w=800&q=85
+    foto: https://images.unsplash.com/photo-1615922732011-9273b83897f0?auto=format&fit=crop&w=640&q=70
     descripcion: Business centre at Plaza de Compostela 23 in Vigo, in the city centre next to the marina, with furnished offices of 9 to 24 m², a 17-person meeting room and virtual office.
     texto: |
       It is on the second floor (2º D) of number 23 Plaza de Compostela, right in the centre of Vigo and next to the marina. It has fully furnished offices, from 9 to 24 m², and a 17-person meeting room. The centre also organises events for any kind of activity anywhere in Galicia, and points to its proximity to Portugal as an added strategic business advantage. Reception is open Monday to Friday from 9:00 to 20:00.

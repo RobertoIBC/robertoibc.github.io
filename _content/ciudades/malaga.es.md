@@ -8,6 +8,7 @@ title: "Alquiler de oficinas y despachos en Málaga | OficinasYA!"
 description: "Centro de negocios en la calle Larios 1 de Málaga: despachos de 17 a 38 m² con balcón y luz natural, sala de 12 personas y oficina virtual. A un paseo del AVE."
 h1: Alquiler de oficinas y despachos en Málaga
 subtitle: Un centro en la calle Larios 1, con despachos privados con balcones y luz natural, sala de reuniones de 12 personas y oficina virtual. A un paseo de la estación del AVE.
+resumen: "Calle Larios 1, a un paseo del AVE"
 cercanas: [sevilla, murcia]
 centros:
   - nombre: Calle Larios

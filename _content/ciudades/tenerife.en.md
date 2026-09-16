@@ -8,6 +8,7 @@ title: "Office rental in Tenerife: 24-hour centres | OficinasYA!"
 description: "Three spaces in Santa Cruz de Tenerife: two 24-hour business centres, at Santa Rosalía 49 and Costa y Grijalba 10, and a coliving on Calle La Luna 8."
 h1: Office rental in Tenerife
 subtitle: Two business centres with 24-hour access right in the centre of Santa Cruz de Tenerife, plus a coliving to live and work in the same place. Offices, rooms and virtual office.
+resumen: "Two 24-hour centres in central Santa Cruz and a coliving"
 cercanas: []
 centros:
   - nombre: Santa Rosalía

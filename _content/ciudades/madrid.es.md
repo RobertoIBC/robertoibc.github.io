@@ -8,6 +8,7 @@ title: "Alquiler de oficinas y despachos en Madrid | OficinasYA!"
 description: "Ocho centros en Madrid, todos con acceso 24 h: barrio de Salamanca, Plaza de Castilla, Las Tablas, Sanchinarro, Pozuelo y Sanse. Despachos y salas."
 h1: Alquiler de oficinas y despachos en Madrid
 subtitle: Ocho centros en cinco zonas de Madrid, todos con acceso 24 horas, del barrio de Salamanca a Las Tablas, Pozuelo y San Sebastián de los Reyes. Despachos equipados por horas o por meses, salas de hasta 50 personas y oficina virtual.
+resumen: "Ocho centros en cinco zonas, todos con acceso 24 h"
 cercanas: [segovia, salamanca, albacete, zaragoza]
 zonas:
   - nombre: Barrio de Salamanca
@@ -32,7 +33,7 @@ zonas:
       Un centro en el Parque Empresarial La Marina, en la calle Fuerteventura 4, junto a Antena 3 Televisión, en el que el propio centro llama el parque empresarial más emblemático de San Sebastián de los Reyes. Es el único centro de la red con oferta anual de Smart Office.
 centros:
   - nombre: Velázquez
-    foto: https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=85
+    foto: https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=640&q=70
     descripcion: Centro de negocios en la calle Velázquez 86B de Madrid, planta baja, en la milla de oro del barrio de Salamanca, con 8 despachos exteriores e interiores de 11 a 39 m², sala de juntas de 10 personas, oficina virtual y acceso 24 horas.
     texto: |
       En la planta baja de Velázquez 86B, en la milla de oro, con paradas de autobús y una parada de taxi a menos de 200 metros y buenas comunicaciones con el aeropuerto. Remodelado en 2004, tiene ocho despachos, exteriores e interiores, de 11 a 39 m², y una sala de juntas de 10 personas. Recepción de lunes a jueves de 9:00 a 14:00 y de 14:30 a 18:00 y viernes de 9:00 a 17:00, con horario reducido del 15 de junio al 15 de septiembre; acceso 24 horas los 7 días con sistema de vigilancia y control del edificio.

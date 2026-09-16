@@ -8,169 +8,7 @@ description: "Articles on productivity, running a small business, workplace well
 nav_active: blog
 ---
 {% block jsonld %}
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "{{ site.url }}/en/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Blog",
-          "item": "{{ site.url }}/en/blog/"
-        }
-      ]
-    },
-    {
-      "@type": "Blog",
-      "name": "The OficinasYA! blog",
-      "url": "{{ site.url }}/en/blog/",
-      "inLanguage": "en-GB",
-      "publisher": {
-        "@id": "{{ site.url }}/#organization"
-      },
-      "blogPost": [
-        {
-          "@type": "BlogPosting",
-          "headline": "22 productivity tricks to master your day",
-          "datePublished": "2024-08-29",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Booking appointments now has an app: no more fighting government websites",
-          "datePublished": "2024-09-12",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Productivity tricks to win at the everyday (II)",
-          "datePublished": "2024-09-03",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Rejecting office work brings loneliness and depression, experts warn",
-          "datePublished": "2024-08-26",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Getting back into the routine without the stress",
-          "datePublished": "2024-08-20",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Boost your sales with these email marketing essentials",
-          "datePublished": "2024-08-09",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Google Wallet will let you scan any kind of document",
-          "datePublished": "2024-08-07",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Are you making any of these 8 small-business mistakes?",
-          "datePublished": "2024-08-01",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "How to travel almost free if you are under 30",
-          "datePublished": "2024-07-31",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        },
-        {
-          "@type": "BlogPosting",
-          "headline": "Effective networking: turning contacts into real clients",
-          "datePublished": "2024-07-22",
-          "author": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "publisher": {
-            "@id": "{{ site.url }}/#organization"
-          },
-          "inLanguage": "en-GB",
-          "url": "{{ site.url }}/en/blog/"
-        }
-      ]
-    }
-  ]
-}
+{{ page.jsonld }}
 {% endblock %}
 
 {% block content %}
@@ -193,7 +31,7 @@ nav_active: blog
     </div>
     <div class="hero-featured">
       <div class="hero-feat-img">
-        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="22 productivity tricks" onerror="this.remove()" />
+        <img width="600" height="400" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="22 productivity tricks" onerror="this.remove()" />
         <span class="feat-emoji">⚡</span>
       </div>
       <div class="hero-feat-body">
@@ -222,171 +60,47 @@ nav_active: blog
   </div>
 </div>
 
-<!-- BLOG GRID -->
+<!-- BLOG GRID: generado desde _content/blog/*.en.md (orden: fecha descendente) -->
 <section id="blog-grid">
   <div class="blog-grid" id="articlesGrid">
-
-    <!-- FEATURED -->
-    <div class="blog-card-featured rv d1" data-cat="prod">
+{%- for a in posts %}
+{%- if loop.first and a.destacado %}
+    <div class="blog-card-featured rv d1" data-cat="{{ a.categoria }}">
       <div class="blog-card-feat-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85"
-             style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"
-             alt="22 productivity tricks"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1C1C1C,#2D2D2D)'"
-             onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''" />
-        <span class="feat-emoji" style="position:absolute;font-size:3rem;opacity:.15">⚡</span>
+{%- if a.imagen %}
+        <img loading="lazy" decoding="async" width="1000" height="640" src="{{ a.imagen }}" style="width:100%;height:100%;object-fit:cover" alt="" />
+{%- endif %}
       </div>
       <div class="blog-card-feat-body">
-        <span class="blog-cat prod">Productivity</span>
-        <h2 class="blog-feat-title">22 productivity tricks to master your day</h2>
-        <p class="blog-feat-excerpt">Running out of energy mid-afternoon? Tasks piling up while the clock races? This guide brings together 22 concrete, easy-to-apply strategies to manage your time better, hold your focus and finish the day feeling you achieved something, not that you lost.</p>
+        <span class="blog-cat {{ a.categoria }}">{{ t.blog.cats[a.categoria] }}</span>
+        <h2 class="blog-feat-title"><a href="{{ a.href }}"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ a.titulo }}</a></h2>
+        <p class="blog-feat-excerpt">{{ a.resumen }}</p>
         <div class="blog-feat-meta">
-          <span class="blog-feat-date">29 Aug 2024 · 5 min read</span>
-          <a href="https://www.oficinasya.es/blog/" class="blog-feat-link" target="_blank">Read on the blog →</a>
+          <span class="blog-feat-date">{{ a.fecha_legible }}</span>
+          <a href="{{ a.href }}" class="blog-feat-link"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ t.blog.read_external if a.externo else t.blog.read }} →</a>
         </div>
       </div>
     </div>
-
-    <!-- Card 1 -->
-    <div class="blog-card rv d1" data-cat="prod">
+{%- else %}
+    <div class="blog-card rv d{{ loop.index % 3 + 1 }}" data-cat="{{ a.categoria }}">
       <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=85" alt="App cita previa" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
-        <span class="blog-cat prod">Productivity</span>
-        <span class="read-time">4 min</span>
+{%- if a.imagen %}
+        <img loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover" src="{{ a.imagen }}" alt="" />
+{%- endif %}
+        <span class="blog-cat {{ a.categoria }}">{{ t.blog.cats[a.categoria] }}</span>
       </div>
       <div class="blog-body">
-        <div class="blog-date">12 Sep 2024</div>
-        <h3 class="blog-title">Booking appointments now has an app: no more fighting government websites</h3>
-        <p class="blog-excerpt">A new app that brings every administrative procedure (census, reports, MUFACE) together in one place.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
+        <div class="blog-date">{{ a.fecha_legible }}</div>
+        <h3 class="blog-title"><a href="{{ a.href }}"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ a.titulo }}</a></h3>
+        <p class="blog-excerpt">{{ a.resumen }}</p>
+        <a href="{{ a.href }}" class="blog-link"{% if a.externo %} target="_blank" rel="noopener"{% endif %}>{{ t.blog.read_external if a.externo else t.blog.read }} →</a>
       </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="blog-card rv d2" data-cat="prod">
-      <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=600&q=85" alt="Trucos productividad" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
-        <span class="blog-cat prod">Productivity</span>
-        <span class="read-time">5 min</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">3 Sep 2024</div>
-        <h3 class="blog-title">Productivity tricks to win at the everyday (II)</h3>
-        <p class="blog-excerpt">Part two, with practical techniques for time management, focus and balance so you get more done without burning out.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="blog-card rv d3" data-cat="bien">
-      <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=85" alt="Trabajo presencial bienestar" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0284C7,#0EA5E9)'" />
-        <span class="blog-cat bien">Wellbeing</span>
-        <span class="read-time">6 min</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">26 Aug 2024</div>
-        <h3 class="blog-title">Rejecting office work brings loneliness and depression, experts warn</h3>
-        <p class="blog-excerpt">Experts warn that the office is not only a place of work but a space for socialising that mental wellbeing depends on.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="blog-card rv d1" data-cat="bien">
-      <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=85" alt="Vuelta a la rutina" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#B45309)'" />
-        <span class="blog-cat bien">Wellbeing</span>
-        <span class="read-time">4 min</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">20 Aug 2024</div>
-        <h3 class="blog-title">Getting back into the routine without the stress</h3>
-        <p class="blog-excerpt">Advice on picking up your habits and working rhythm after the holidays without the classic back-to-work slump.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="blog-card rv d2" data-cat="neg">
-      <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=85" alt="Email marketing" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
-        <span class="blog-cat neg">Business</span>
-        <span class="read-time">7 min</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">9 Aug 2024</div>
-        <h3 class="blog-title">Boost your sales with these email marketing essentials</h3>
-        <p class="blog-excerpt">Concrete email marketing strategies for freelancers and small businesses that want to turn their list into real revenue.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
-      </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="blog-card rv d3" data-cat="tech">
-      <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?auto=format&fit=crop&w=600&q=85" alt="Google Wallet tecnología" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#7C3AED,#5B21B6)'" />
-        <span class="blog-cat tech">Tech</span>
-        <span class="read-time">3 min</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">7 Aug 2024</div>
-        <h3 class="blog-title">Google Wallet will let you scan any kind of document</h3>
-        <p class="blog-excerpt">Google Wallet's new text-scanning feature is here to make digital life easier. Everything you need to know.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
-      </div>
-    </div>
-
-    <!-- Card 7 -->
-    <div class="blog-card rv d1" data-cat="neg">
-      <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Errores en tu PYME" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#DC2626,#B91C1C)'" />
-        <span class="blog-cat neg">Business</span>
-        <span class="read-time">8 min</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">1 Aug 2024</div>
-        <h3 class="blog-title">Are you making any of these 8 small-business mistakes?</h3>
-        <p class="blog-excerpt">These common slips can undermine your company's success. Spot them early and learn how to avoid them.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
-      </div>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="blog-card rv d2" data-cat="vida">
-      <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=85" alt="Viajar joven España" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#D97706,#F59E0B)'" />
-        <span class="blog-cat vida">Lifestyle</span>
-        <span class="read-time">4 min</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">31 Jul 2024</div>
-        <h3 class="blog-title">How to travel almost free if you are under 30</h3>
-        <p class="blog-excerpt">The Verano Joven scheme offers up to 90% off travel around Spain and Europe for 18 to 30-year-olds.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
-      </div>
-    </div>
-
-    <!-- Card 9 -->
-    <div class="blog-card rv d3" data-cat="neg">
-      <div class="blog-card-img" style="background:none;overflow:hidden">
-        <img loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=85" alt="Networking profesional" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
-        <span class="blog-cat neg">Business</span>
-        <span class="read-time">5 min</span>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">22 Jul 2024</div>
-        <h3 class="blog-title">Effective networking: turning contacts into real clients</h3>
-        <p class="blog-excerpt">Networking is not just handing out cards. Here are the strategies that actually work for closing deals.</p>
-        <a href="https://www.oficinasya.es/blog/" class="blog-link" target="_blank">Read article →</a>
-      </div>
-    </div>
-
+{%- endif %}
+{%- endfor %}
   </div>
-
-  <!-- Load more -->
   <div style="text-align:center;margin-top:60px" class="rv">
-    <a href="https://www.oficinasya.es/blog/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;border:2px solid var(--orange);color:var(--orange);padding:14px 36px;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;transition:background .3s,color .3s,transform .3s" onmouseover="this.style.background='var(--orange)';this.style.color='white';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='';this.style.color='var(--orange)';this.style.transform=''">See all articles on oficinasya.es →</a>
+    <a href="https://www.oficinasya.es/blog/" target="_blank" rel="noopener" class="btn-outline">{{ t.blog.all_external }} →</a>
   </div>
 </section>
 

@@ -8,6 +8,7 @@ title: "Office rental in Albacete, 24-hour access | OficinasYA!"
 description: "Business centre at Calle Mayor 22 in Albacete, next to the financial district, with 24/7 access: offices for 1 to 4 people, a meeting room and virtual office."
 h1: Office rental in Albacete
 subtitle: A centre right on Calle Mayor, with 24-hour access, offices of 10 to 47 m² by the hour or by the month, a meeting room and virtual office.
+resumen: "Calle Mayor 22, with 24-hour access"
 cercanas: [murcia, valencia, madrid]
 centros:
   - nombre: Calle Mayor

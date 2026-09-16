@@ -1,5 +1,9 @@
 {% extends "base.html" %}
-{% block nav_variant %}dark{% endblock %}
+{% block nav_variant %}dark    .blog-title a, .blog-feat-title a { color: inherit; text-decoration: none; }
+    .blog-title a:hover, .blog-feat-title a:hover { color: var(--orange-dark); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--orange); color: var(--orange); padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: .95rem; text-decoration: none; transition: background .3s, color .3s, transform .3s; }
+    .btn-outline:hover { background: var(--orange); color: var(--white); transform: translateY(-2px); }
+{% endblock %}
 
 {% block css %}
     /* ── NAV ── */
@@ -57,7 +61,7 @@
     }
     .filter-tab {
       display: flex; align-items: center; gap: 7px;
-      padding: 11px 20px; border-radius: 50px; font-size: .86rem; font-weight: 700;
+      padding: 13px 20px; border-radius: 50px; font-size: .86rem; font-weight: 700;
       cursor: pointer; border: none; background: transparent; color: var(--gray-600);
       transition: color .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
       white-space: nowrap;

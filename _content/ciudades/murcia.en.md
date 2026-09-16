@@ -8,15 +8,16 @@ title: "Office rental in Murcia and event spaces | OficinasYA!"
 description: "Three spaces in Murcia: Marla Center, with rooms for up to 200 people; the Edificio Magalia in Alcantarilla, with rooms for up to 275; and a coliving in Alhama."
 h1: Office rental in Murcia
 subtitle: Two business centres with the largest event spaces in the network, one in the city and one in the Oeste industrial estate in Alcantarilla, and a coliving with a golf course 30 minutes from Murcia.
+resumen: "Rooms for up to 275 people, city and Oeste estate"
 cercanas: [alicante, albacete]
 centros:
   - nombre: Marla Center
-    foto: https://images.unsplash.com/photo-1747493828896-ad0e7fc88dcb?auto=format&fit=crop&w=800&q=85
+    foto: https://images.unsplash.com/photo-1747493828896-ad0e7fc88dcb?auto=format&fit=crop&w=640&q=70
     descripcion: Business centre at Avenida Doctor Pedro Guillén 5 in Murcia, with fast access to the ring road and a tram link to the city centre, offices of 17 to 250 m², event rooms for up to 200 people and reception until midnight.
     texto: |
       It is at Avenida Doctor Pedro Guillén 5, in the business heart of Murcia, in a building with fast access to the ring road and linked to the city centre by tram. It is the centre in the network with the widest range of offices, from 17 to 250 m², and one of the two in Murcia with large-capacity event spaces: rooms for up to 200 people. Reception has the longest hours in the whole network: Monday to Friday from 7:00 to midnight and Saturdays and Sundays from 9:00 to midnight.
   - nombre: Edificio Magalia (Alcantarilla)
-    foto: https://images.unsplash.com/photo-1758304481667-71d545c91241?auto=format&fit=crop&w=800&q=85
+    foto: https://images.unsplash.com/photo-1758304481667-71d545c91241?auto=format&fit=crop&w=640&q=70
     descripcion: Business centre in the Edificio Magalia, Oeste industrial estate in Alcantarilla (Murcia), next to the MU-30 and the A-7, with offices of 14 to 86 m², rooms and classrooms, event spaces for up to 275 people, a landscaped terrace and parking included.
     texto: |
       It is on Calle Uruguay in the Oeste industrial estate, in Alcantarilla, with direct links to the MU-30 motorway and the A-7. It has been housing companies for more than twenty years, with furnished or unfurnished offices of 14 to 86 m², meeting rooms, training classrooms and workshops, registered addresses, and event spaces for up to 275 people, the largest in the network. It has an office kitchen area, a landscaped terrace and rest areas, and its own team running reception with visitor and call handling, parcel collection and dispatch, maintenance and accounting and administrative services. Parking, cleaning, electricity, water and internet are included. It also organises workshops, seminars and networking lunches among the companies based there. Reception Monday to Friday from 8:00 to 14:00 and from 16:00 to 20:00.
