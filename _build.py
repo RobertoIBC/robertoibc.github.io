@@ -494,12 +494,18 @@ def build(check=False):
         lang = p.lang
         ctx0 = {'g': g, 'p': {k: fmt_price(v, lang) for k, v in g['precios'].items()},
                 'n': n, 'site': site, 't': i18n[lang]}
-        for k in ('title', 'description', 'h1', 'subtitle'):
-            if p.get(k):
-                p[k] = env.from_string(p[k]).render(ctx0)
-        for q in p.get('faq') or []:
-            q['q'] = env.from_string(q['q']).render(ctx0)
-            q['a'] = env.from_string(q['a']).render(ctx0)
+        # Cualquier texto del front matter (a cualquier profundidad: faq, ofertas, formas, pasos, cifras...)
+        def render_deep(v):
+            if isinstance(v, str):
+                return env.from_string(v).render(ctx0) if '{{' in v else v
+            if isinstance(v, list):
+                return [render_deep(x) for x in v]
+            if isinstance(v, dict) and not isinstance(v, Page):
+                return {k: render_deep(x) for k, x in v.items()}
+            return v
+        for k in list(p.keys()):
+            if k not in ('body', 'source', 'kind', 'lang', 'pair', 'alternates'):
+                p[k] = render_deep(p[k])
 
     # Pasada 2: render
     for p in pages:
@@ -566,6 +572,11 @@ def build(check=False):
             if p.layout == 'servicio':
                 key = p['csv_key']
                 p['ciudades_disponibles'] = [c for c in cities_ctx if any(key in x['servicios'] for x in c['centros'])]
+                # Bloques maquetados desde el front matter: un parrafo "[[nombre]]" en el Markdown se
+                # sustituye por _templates/partials/srv-<nombre>.html (perfiles, formas, incluye, pasos, donde).
+                def bloque(m):
+                    return env.get_template(f'partials/srv-{m.group(1)}.html').render(ctx)
+                p['body_html'] = re.sub(r'<p>\[\[([a-z_]+)\]\]</p>', bloque, p['body_html'])
                 p['jsonld'] = to_jsonld(jsonld_servicio(p, g, site, lang, prices, p['ciudades_disponibles'], t))
             if p.layout == 'articulo':
                 p['fecha_legible'] = fecha_legible(p['fecha'], lang)

@@ -1,0 +1,19 @@
+{#- Que incluye / que no, en dos tarjetas. Front matter: incluye[], no_incluye[] -#}
+<div class="srv-cards srv-cards-2 srv-incl">
+  <div class="srv-card">
+    <h3>{{ t.srv.includes }}</h3>
+    <ul>
+{%- for it in page.incluye %}
+      <li>{{ it }}</li>
+{%- endfor %}
+    </ul>
+  </div>
+  <div class="srv-card no">
+    <h3>{{ t.srv.not_includes }}</h3>
+    <ul>
+{%- for it in page.no_incluye %}
+      <li>{{ it }}</li>
+{%- endfor %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+{#- "Para quien" (opcional) + cifras (opcional). Front matter: perfiles_intro, perfiles[], cifras[] -#}
+{%- if page.get('perfiles') %}
+{%- if page.get('perfiles_intro') %}
+<p>{{ page.perfiles_intro }}</p>
+{%- endif %}
+<div class="srv-cards srv-cards-4">
+{%- for x in page.perfiles %}
+  <div class="srv-mini"><div class="srv-mini-n">{{ loop.index }}</div><p>{{ x }}</p></div>
+{%- endfor %}
+</div>
+{%- endif %}
+{%- if page.get('cifras') %}
+<div class="srv-stats">
+{%- for c in page.cifras %}
+  <div class="srv-stat"><div class="srv-stat-n">{{ c.num }}</div><div class="srv-stat-l">{{ c.label }}</div></div>
+{%- endfor %}
+</div>
+{%- endif %}

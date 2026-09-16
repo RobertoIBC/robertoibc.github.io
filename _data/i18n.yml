@@ -47,6 +47,8 @@ es:
     others: Otros servicios
     cta_title: ¿Hablamos?
     cta_sub: Te confirmamos disponibilidad y precio en el momento.
+    close_title: ¿Te encaja? Hablemos.
+    close_sub: Dinos la ciudad, cuántas personas sois y desde cuándo lo necesitas, y te confirmamos disponibilidad y precio en el momento. Sin compromiso.
     whatsapp: WhatsApp
     form: Formulario de contacto
     all_locations: Ver todas las ubicaciones
@@ -155,6 +157,8 @@ en:
     others: Other services
     cta_title: Shall we talk?
     cta_sub: We confirm availability and price on the spot.
+    close_title: Sound right? Let's talk.
+    close_sub: Tell us the city, how many people you are and when you need it, and we will confirm availability and price on the spot. No commitment.
     whatsapp: WhatsApp
     form: Contact form
     all_locations: See all locations

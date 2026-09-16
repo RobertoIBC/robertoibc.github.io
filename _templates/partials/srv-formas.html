@@ -1,0 +1,36 @@
+{#- Formas de contratarlo: una tarjeta por forma con el precio destacado. Front matter: formas[], formas_nota, formas_dato -#}
+{%- if page.get('formas') %}
+<div class="srv-cards srv-cards-2 srv-formas">
+{%- for f in page.formas %}
+  <div class="srv-option">
+    <div class="srv-option-hd">
+      <div class="srv-option-name">{{ f.titulo }}</div>
+{%- if f.get("precio") %}
+      <div class="srv-option-price"><span class="from">{{ t.srv.from }}</span> <span class="num">{% if t.srv.eur_before %}€{{ p[f.precio] }}{% else %}{{ p[f.precio] }} €{% endif %}</span><span class="unit">/{{ f.unidad }}</span> <span class="tax">{{ t.srv.tax }}</span></div>
+{%- elif f.get("precio_texto") %}
+      <div class="srv-option-price"><span class="num small">{{ f.precio_texto }}</span></div>
+{%- endif %}
+    </div>
+    <div class="srv-option-body">
+      <p>{{ f.texto }}</p>
+{%- if f.get("puntos") %}
+      <ul class="srv-option-list">
+{%- for pt in f.puntos %}
+        <li>{{ pt }}</li>
+{%- endfor %}
+      </ul>
+{%- endif %}
+    </div>
+  </div>
+{%- endfor %}
+</div>
+{%- endif %}
+{%- if page.get("formas_dato") %}
+<div class="srv-callout">
+  <div class="srv-callout-n">{{ page.formas_dato.num }}</div>
+  <p>{{ page.formas_dato.texto }}</p>
+</div>
+{%- endif %}
+{%- if page.get("formas_nota") %}
+<div class="srv-note"><p>{{ page.formas_nota }}</p></div>
+{%- endif %}

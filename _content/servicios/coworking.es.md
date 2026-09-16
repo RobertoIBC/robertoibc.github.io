@@ -12,6 +12,25 @@ eyebrow: Coworking
 service_type: Coworking y puestos de trabajo compartidos
 csv_key: coworking
 ofertas: []
+wa_msg: "Hola, me interesa un puesto de coworking"
+cifras:
+  - { num: "3 centros", label: "con puestos de coworking: Barcelona, A Coruña y Salamanca" }
+  - { num: "{{ g.espacios - 3 }} espacios", label: "con hot desk para clientes de la red" }
+  - { num: "+{{ g.empresas }}", label: "empresas reúne la red" }
+tarjetas:
+  - titulo: "Barcelona, Plaza de Urquinaona 6"
+    texto: "En la octava planta de un edificio en pleno centro, junto a Plaza Cataluña, con despachos de 8 a 30 m² al lado para crecer."
+  - titulo: "A Coruña, Juan de la Cierva 5"
+    texto: "Un centro accesible y multifuncional con salas de reuniones de hasta 50 personas."
+  - titulo: "Salamanca, Edificio Openhouse"
+    texto: "En Carbajosa de la Sagrada, con salas de 15 y 60 personas, recepción de 8:00 a 20:00 y despachos de 22 a 210 m²."
+pasos:
+  - titulo: "Llama al {{ g.telefono }} o escribe por WhatsApp"
+    texto: "Diciendo el centro, cuántos puestos y desde cuándo."
+  - titulo: Pásate a verlo
+    texto: "Si quieres, o te confirmamos disponibilidad por teléfono."
+  - titulo: Empiezas en cuanto hay puesto libre
+    texto: "Contrato mensual, renovable mes a mes."
 incluye:
   - Puesto de trabajo en espacio compartido
   - WiFi de alta velocidad
@@ -29,7 +48,7 @@ faq:
   - q: ¿En qué ciudades hay coworking?
     a: "Solo en tres centros: Plaza Urquinaona en Barcelona, Juan de la Cierva en A Coruña y el Edificio Openhouse en Salamanca. En el resto de la red no se contratan puestos de coworking. Cosa distinta es el hot desk: los clientes de despacho mensual, oficina virtual y Smart Office pueden trabajar desde un puesto en los {{ g.espacios }} espacios cuando están en otra ciudad, sin contratar nada más."
   - q: ¿Cuánto cuesta un puesto de coworking?
-    a: "La cuota depende del centro y se contrata por meses, sin permanencia. Pide precio para el centro que te interese en el {{ g.telefono }} o en el formulario. Si lo que buscas es un puesto para unas horas sueltas, la opción es el despacho por horas, desde {{ p.despacho_hora }} € la hora más IVA."
+    a: "La cuota depende del centro y se contrata por meses, sin permanencia. Pide precio para el centro que te interese en el {{ g.telefono }} o por WhatsApp. Si lo que buscas es un puesto para unas horas sueltas, la opción es el despacho por horas, desde {{ p.despacho_hora }} € la hora más IVA."
   - q: ¿Qué diferencia hay entre coworking y despacho privado?
     a: "El coworking es un puesto en una sala compartida con otros profesionales: más barato, más sociable y sin puerta. El despacho privado es un espacio cerrado, de uso exclusivo, con línea de teléfono propia y domiciliación incluida. Si recibes clientes a diario o manejas información sensible, despacho; si trabajas solo y quieres compañía y flexibilidad, coworking."
   - q: ¿Puedo reunirme con clientes en el coworking?
@@ -37,23 +56,34 @@ faq:
   - q: ¿Hay permanencia?
     a: "No. El puesto se contrata por meses y se renueva mes a mes; avisas y dejas de pagar. Es la fórmula pensada para autónomos, profesionales en remoto y equipos pequeños que no saben cuánto espacio necesitarán dentro de seis meses, y que prefieren crecer hacia un despacho privado cuando toque, en el mismo centro."
 ---
+
 ## Coworking dentro de un centro de negocios
 
-OficinasYA! ofrece coworking —puestos de trabajo en un espacio compartido, contratados por meses— en **tres centros de la red**: Plaza Urquinaona en Barcelona, Juan de la Cierva en A Coruña y el Edificio Openhouse en Salamanca. No es un servicio de toda la red: en el resto de centros lo que hay son despachos privados, salas y oficina virtual, y el uso de puestos compartidos está reservado a los clientes, como se explica más abajo.
+OficinasYA! ofrece coworking —puestos de trabajo en un espacio compartido, contratados por meses— en **tres centros de la red**: Plaza Urquinaona en Barcelona, Juan de la Cierva en A Coruña y el Edificio Openhouse en Salamanca.
 
-En esos tres centros el coworking no es un espacio compartido a secas: es un puesto dentro de un centro de negocios en marcha, con recepción que atiende a tus visitas, salas de reuniones que reservas por horas, limpieza, suministros y café incluidos, y despachos privados al lado para cuando tu negocio crezca. Trabajas en una sala compartida con otros profesionales y usas todo lo demás como cualquier otro cliente del centro.
+No es un servicio de toda la red: en el resto de centros lo que hay son despachos privados, salas y oficina virtual, y el uso de puestos compartidos está reservado a los clientes, como se explica más abajo.
 
-Es la fórmula para autónomos y profesionales que trabajan en remoto y no quieren hacerlo desde casa, para equipos de dos o tres personas que todavía no necesitan un despacho cerrado y para quien valora tener gente alrededor: la red reúne a más de {{ g.empresas }} empresas, y la [Comunidad Naranja]({{ urls.comunidad }}) es el directorio donde se encuentran unas a otras.
+[[perfiles]]
+
+En esos tres centros el coworking no es un espacio compartido a secas: es un puesto dentro de un centro de negocios en marcha, con recepción que atiende a tus visitas, salas de reuniones que reservas por horas, limpieza, suministros y café incluidos, y despachos privados al lado para cuando tu negocio crezca.
+
+Trabajas en una sala compartida con otros profesionales y usas todo lo demás como cualquier otro cliente del centro.
+
+Es la fórmula para autónomos y profesionales que trabajan en remoto y no quieren hacerlo desde casa, para equipos de dos o tres personas que todavía no necesitan un despacho cerrado y para quien valora tener gente alrededor.
+
+La red reúne a más de {{ g.empresas }} empresas, y la [Comunidad Naranja]({{ urls.comunidad }}) es el directorio donde se encuentran unas a otras.
 
 ## Los tres centros con coworking
 
-- **Barcelona, Plaza de Urquinaona 6**, en la octava planta de un edificio en pleno centro, junto a Plaza Cataluña, con despachos de 8 a 30 m² al lado para crecer.
-- **A Coruña, Juan de la Cierva 5**, un centro accesible y multifuncional con salas de reuniones de hasta 50 personas.
-- **Salamanca, Edificio Openhouse** en Carbajosa de la Sagrada, con salas de 15 y 60 personas, recepción de 8:00 a 20:00 y despachos de 22 a 210 m².
+[[tarjetas]]
+
+[[donde]]
 
 ## Hot desk para clientes: no es lo mismo que el coworking
 
-En los otros {{ g.espacios - 3 }} espacios de la red no se contratan puestos de coworking. Lo que existe es el **hot desk para clientes**: si ya tienes un despacho mensual, una oficina virtual o Smart Office en cualquier centro, puedes trabajar desde un puesto de cualquiera de los {{ g.espacios }} espacios de las {{ g.ciudades }} ciudades cuando estás fuera de tu ciudad. Llegas, te identificas en recepción y trabajas. No se contrata aparte ni está abierto a quien no es cliente; es una ventaja de serlo, y la que más usan los clientes que viajan.
+En los otros {{ g.espacios - 3 }} espacios de la red no se contratan puestos de coworking. Lo que existe es el **hot desk para clientes**: si ya tienes un despacho mensual, una oficina virtual o Smart Office en cualquier centro, puedes trabajar desde un puesto de cualquiera de los {{ g.espacios }} espacios de las {{ g.ciudades }} ciudades cuando estás fuera de tu ciudad.
+
+Llegas, te identificas en recepción y trabajas. No se contrata aparte ni está abierto a quien no es cliente; es una ventaja de serlo, y la que más usan los clientes que viajan.
 
 ## Qué incluye
 
@@ -61,14 +91,16 @@ El puesto, con mesa y silla, en un espacio compartido y equipado; WiFi de alta v
 
 Lo que no incluye es lo que corresponde al despacho privado: un espacio cerrado de uso exclusivo, una línea de teléfono propia y la domiciliación de la empresa. La domiciliación se puede añadir contratando la oficina virtual en el mismo centro.
 
+[[incluye]]
+
 ## Precio
 
-La cuota del puesto se contrata por meses, sin permanencia, y depende del centro. Pide precio para el centro que te interese. Si necesitas un sitio donde trabajar unas horas sueltas y no un puesto fijo, la opción es el despacho por horas, desde {{ p.despacho_hora }} € la hora + IVA, disponible en toda la red. Todos los precios se muestran sin IVA.
+La cuota del puesto se contrata por meses, sin permanencia, y depende del centro. Pide precio para el centro que te interese.
+
+> Si necesitas un sitio donde trabajar unas horas sueltas y no un puesto fijo, la opción es el despacho por horas, desde {{ p.despacho_hora }} € la hora + IVA, disponible en toda la red. Todos los precios se muestran sin IVA.
 
 ## Cómo se contrata
 
-1. **Llama al {{ g.telefono }} o escribe** diciendo el centro, cuántos puestos y desde cuándo.
-2. **Pásate a verlo**, si quieres, o te confirmamos disponibilidad por teléfono.
-3. **Empiezas en cuanto hay puesto libre.** Contrato mensual, renovable mes a mes.
+[[pasos]]
 
 Cuando el equipo crezca, el cambio a un despacho privado se hace en el mismo centro y con el mismo interlocutor: no hay mudanza, solo una puerta más.

@@ -1,0 +1,14 @@
+{#- Donde: dato destacado + ciudades con enlace. Front matter opcional: donde_dato {num, label} -#}
+<div class="srv-where">
+{%- if page.get("donde_dato") %}
+  <div class="srv-callout">
+    <div class="srv-callout-n">{{ page.donde_dato.num }}</div>
+    <p>{{ page.donde_dato.texto }}</p>
+  </div>
+{%- endif %}
+  <div class="srv-card-cities">
+{%- for c in page.ciudades_disponibles %}
+    <a href="{{ c.url }}">{{ c.label }}<span class="chip-count">×{{ c.centros | length }}</span></a>
+{%- endfor %}
+  </div>
+</div>

@@ -12,6 +12,41 @@ eyebrow: Meeting rooms
 service_type: Meeting room hire
 csv_key: salas de reuniones
 ofertas: []
+wa_msg: "Hello, I would like to book a meeting room"
+cifras:
+  - { num: "2 to 275", label: "people per room, depending on the centre" }
+  - { num: "From 1 hour", label: "any day of the year, no fee and no minimum term" }
+  - { num: "{{ n.salas }} spaces", label: "in the network have a meeting room" }
+formas:
+  - titulo: Small rooms
+    precio_texto: "2 to 4 people"
+    texto: "The smallest are for an interview, a video call you would rather not take from an open office, or a meeting with a client."
+  - titulo: Medium rooms
+    precio_texto: "8 to 20 people"
+    texto: "The medium ones are the classic boardrooms, with a central table, screen and whiteboard."
+  - titulo: Large spaces
+    precio_texto: "Up to 275"
+    texto: "And some centres have large spaces:"
+    puntos:
+      - "Up to 50 people at Capitán Haya (Madrid), A Coruña or Segovia."
+      - "90 at Edificio Galia Puerto in Seville (150 in an open layout)."
+      - "200 at Marla Center and 275 at Edificio Magalia, both in Murcia."
+tabla:
+  cabeceras: [Layout, Where, Capacity, What for]
+  filas:
+    - [Meetings, "Every centre: a boardroom table with screen and whiteboard, and at the larger centres set up to order.", "2 to 50 people", "Client meetings, interviews, video calls and board meetings."]
+    - [Training, "Castellón (Dean Martí), A Coruña (Andrés Martínez Salazar) and Valencia (Guillem de Castro): training rooms with a projector, in classroom or U-shape layout.", "Groups of 18 to 28 people", "In-house courses, client sessions or certification exams."]
+    - [Events, "Murcia: Marla Center, with reception open from 7:00 to midnight on weekdays, and Edificio Magalia in Alcantarilla. Seville: Edificio Galia Puerto, with rooms for 12 to 90 people and 150 in an open layout.", "Up to 200 people at Marla Center and up to 275 at Edificio Magalia; auditorium or cocktail", "Product launches, company days or conventions. They are organised with catering, reception support and prior setup."]
+pasos:
+  - titulo: "Call {{ g.telefono }} or write on WhatsApp"
+    texto: "With the city, the number of attendees, the date and the hours. If you need video conferencing, catering or a particular setup, say so then."
+  - titulo: Confirmation on the spot
+    texto: "Of room, price and time. For events and large rooms, with a prior visit if you want to see the space."
+  - titulo: On the day
+    texto: "You arrive at reception, they take you to the room and everything is running. When you finish, you pay only for the time booked."
+donde_dato:
+  num: "8 centres"
+  texto: "In Madrid, all eight centres have 24-hour access, so the meeting can be whenever you need it."
 incluye:
   - Rooms for 2 to 275 people, depending on the centre
   - Equipped room with screen or projector and whiteboard
@@ -28,7 +63,7 @@ no_incluye:
   - VAT (all prices are shown without tax)
 faq:
   - q: How much does it cost to hire a meeting room?
-    a: "Rooms are charged by the hour, from one hour, and the rate depends on the room's capacity and the centre: a four-person room in Segovia and a 200-seat auditorium in Murcia are not the same thing. Monthly office clients have meeting-room hours included at several centres. Ask for the price of the specific room on {{ g.telefono }} or through the form."
+    a: "Rooms are charged by the hour, from one hour, and the rate depends on the room's capacity and the centre: a four-person room in Segovia and a 200-seat auditorium in Murcia are not the same thing. Monthly office clients have meeting-room hours included at several centres. Ask for the price of the specific room on {{ g.telefono }} or on WhatsApp."
   - q: How far in advance do I need to book?
     a: "For a small room, confirming availability by phone the same day is usually enough. For large rooms, auditorium layouts or bookings with catering it is best to allow a few days, because the setup and the service need preparing. In any case, the earlier you book, the more choice of room and time you will have."
   - q: Can I book outside office hours or on a public holiday?
@@ -40,38 +75,49 @@ faq:
   - q: Do you host events and training sessions?
     a: "Yes. The Murcia centres (Marla Center and Edificio Magalia) and Edificio Galia Puerto in Seville have event spaces for 90 to 275 people, in auditorium, cocktail or conference layouts. For training there are classrooms in Castellón, A Coruña and Valencia, with projector and classroom layout. The other centres offer rooms for up to 50 people."
 ---
+
 ## Rooms for every kind of meeting
 
-Every centre in the network has at least one equipped meeting room, and most have several of different sizes. The smallest, for two to four people, are for an interview, a video call you would rather not take from an open office, or a meeting with a client. The medium ones, for eight to twenty, are the classic boardrooms, with a central table, screen and whiteboard. And some centres have large spaces: up to 50 people at Capitán Haya (Madrid), A Coruña or Segovia, 90 at Edificio Galia Puerto in Seville (150 in an open layout), 200 at Marla Center and 275 at Edificio Magalia, both in Murcia.
+Every centre in the network has at least one equipped meeting room, and most have several of different sizes.
 
-They are all hired the same way: by the hour, from one hour, any day of the year. You book the time you need, arrive, reception welcomes your guests and takes them to the room, and when you finish you leave. There is no fee, no minimum term, and you do not need to be a client of the network.
+[[perfiles]]
+
+[[formas]]
+
+They are all hired the same way: by the hour, from one hour, any day of the year. You book the time you need, arrive, reception welcomes your guests and takes them to the room, and when you finish you leave.
+
+There is no fee, no minimum term, and you do not need to be a client of the network.
 
 ## What the booking includes
 
-The room is handed over set up and with the equipment running: screen or projector, whiteboard, high-speed WiFi, a video-conferencing system and a printer available. The centre's reception welcomes your visitors, in other languages too, and shows them to the room. There is coffee and water, and the room is cleaned between one booking and the next.
+The room is handed over set up and with the equipment running: screen or projector, whiteboard, high-speed WiFi, a video-conferencing system and a printer available.
+
+The centre's reception welcomes your visitors, in other languages too, and shows them to the room. There is coffee and water, and the room is cleaned between one booking and the next.
 
 Catering is contracted separately and on request: a working breakfast, a mid-morning break or lunch for a full-day session. You order it when booking and it is served at the agreed time. Parking depends on the centre; each city page says which ones have it.
 
+[[incluye]]
+
 ## Price
 
-Rooms are charged by the hour and the rate depends on two things: the room's capacity and the centre. A four-person room in a small city and a 200-seat auditorium do not cost the same, and a single "from" price that fitted neither would make no sense. Ask for the price of the specific room you need and we will give it to you on the spot. All prices are shown without VAT.
+Rooms are charged by the hour and the rate depends on two things: the room's capacity and the centre.
 
-If you are a monthly office client, at several centres your fee includes meeting-room hours each month; check the details of yours. Virtual office and Smart Office clients book rooms and offices by the hour at the same hourly rate.
+A four-person room in a small city and a 200-seat auditorium do not cost the same, and a single "from" price that fitted neither would make no sense. Ask for the price of the specific room you need and we will give it to you on the spot. All prices are shown without VAT.
+
+> If you are a monthly office client, at several centres your fee includes meeting-room hours each month; check the details of yours. Virtual office and Smart Office clients book rooms and offices by the hour at the same hourly rate.
 
 ## Layouts: meetings, training and events {: #eventos }
 
 Most rooms allow several layouts, and at the larger centres they are set up to order: a boardroom table for a meeting, classroom or U-shape for a training session, auditorium or cocktail for an event.
 
-**Training.** The centres in Castellón (Dean Martí), A Coruña (Andrés Martínez Salazar) and Valencia (Guillem de Castro) have training rooms with a projector for groups of 18 to 28 people. They are the option for in-house courses, client sessions or certification exams.
-
-**Events.** For product launches, company days or conventions, the large-capacity spaces are in Murcia — Marla Center, up to 200 people, with reception open from 7:00 to midnight on weekdays, and Edificio Magalia in Alcantarilla, up to 275 — and in Seville, at Edificio Galia Puerto, with rooms for 12 to 90 people and 150 in an open layout. They are organised with catering, reception support and prior setup.
+[[tabla]]
 
 ## How to book
 
-1. **Call {{ g.telefono }} or write** with the city, the number of attendees, the date and the hours. If you need video conferencing, catering or a particular setup, say so then.
-2. **Confirmation on the spot** of room, price and time. For events and large rooms, with a prior visit if you want to see the space.
-3. **On the day** you arrive at reception, they take you to the room and everything is running. When you finish, you pay only for the time booked.
+[[pasos]]
 
 ## Where
 
-There are meeting rooms at {{ n.salas }} of the {{ g.espacios }} spaces in the network, across {{ g.ciudades }} cities. The capacity of each room, and the address and reception hours of each centre, are on its city page. In Madrid, all eight centres have 24-hour access, so the meeting can be whenever you need it.
+There are meeting rooms at {{ n.salas }} of the {{ g.espacios }} spaces in the network, across {{ g.ciudades }} cities. The capacity of each room, and the address and reception hours of each centre, are on its city page.
+
+[[donde]]

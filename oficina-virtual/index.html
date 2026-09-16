@@ -254,6 +254,18 @@
     .faq-item { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 26px 28px; }
     .faq-item h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin-bottom: 10px; }
     .faq-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.7; }
+    /* acordeon (servicios): una columna, cerradas salvo la primera; el texto siempre esta en el HTML */
+    .faq-acc { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-acc details { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 0 28px; }
+    .faq-acc details[open] { border-color: var(--dark); }
+    .faq-acc summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; min-height: 44px; }
+    .faq-acc summary::-webkit-details-marker { display: none; }
+    .faq-acc summary h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin: 0; }
+    .faq-acc summary::after { content: ''; flex: 0 0 10px; width: 10px; height: 10px; border-right: 2px solid var(--dark); border-bottom: 2px solid var(--dark); transform: rotate(45deg); transition: transform .2s; margin-right: 4px; }
+    .faq-acc details[open] summary::after { transform: rotate(-135deg); }
+    .faq-acc summary:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; border-radius: 8px; }
+    .faq-acc .faq-a { padding: 0 0 22px; }
+    .faq-acc .faq-a p { color: var(--gray-600); font-size: .98rem; line-height: 1.75; max-width: 68ch; }
 
     /* ── CTA FINAL ── */
     .btn-white { background: var(--white); color: var(--orange); padding: 17px 40px; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
@@ -263,6 +275,7 @@
 
     /* ── TEXTO LARGO (articulo de servicio, texto de ciudad) ── */
     .srv-article { min-width: 0; }
+    .srv-article p, .srv-article li { max-width: 68ch; }   /* 65-75 caracteres por linea */
     .srv-article h2 { font-family: 'Barlow', sans-serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 800; line-height: 1.1; letter-spacing: -.5px; color: var(--dark); margin: 52px 0 18px; scroll-margin-top: 100px; }
     .srv-article h2:first-child { margin-top: 0; }
     .srv-article h3 { font-family: 'Barlow', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--dark); margin: 32px 0 12px; }
@@ -285,6 +298,17 @@
     @media (max-width: 600px) {
       .page-hero { padding: 120px 5% 56px; }
     }
+    /* CTA de cierre de la pagina */
+    .city-close { background: var(--dark); color: var(--white); padding: 88px 6%; text-align: center; }
+    .city-close-inner { max-width: 720px; margin: 0 auto; }
+    .city-close .eyebrow { color: var(--orange); }
+    .city-close-title { font-family: 'Barlow', sans-serif; font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.05; letter-spacing: -.5px; margin: 12px 0 16px; }
+    .city-close-sub { color: rgba(255,255,255,.72); font-size: 1.05rem; line-height: 1.7; margin: 0 auto 32px; max-width: 60ch; }
+    .city-close-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .city-close-btns a { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 32px; border-radius: 50px; font-size: 1rem; font-weight: 800; text-decoration: none; transition: transform .2s; }
+    .city-close-btns a:hover { transform: translateY(-3px); }
+    .btn-close-primary { background: var(--white); color: var(--dark); }
+    .btn-close-secondary { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.35); }
 
     .hero-offers { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
     .hero-offer { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 16px 22px; min-width: 200px; }
@@ -295,7 +319,7 @@
     .hero-offer-price .unit { font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.7); }
     .hero-offer-price .tax { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35); font-family: 'Inter', sans-serif; }
     .hero-offer-detail { font-size: .82rem; color: rgba(255,255,255,.5); margin-top: 6px; }
-    .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; }
+    .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start; }
     .srv-table-wrap { overflow-x: auto; }
     /* ── LATERAL ── */
     .srv-aside { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
@@ -320,8 +344,62 @@
     .srv-card.cta .a-tel:hover { background: var(--orange-dark); transform: translateY(-2px); }
     .srv-card.cta .a-wa { background: #25D366; color: var(--white); }
     .srv-card.cta .a-wa:hover { transform: translateY(-2px); }
-    .srv-card.cta .a-form { background: rgba(255,255,255,.08); color: var(--white); border: 1.5px solid rgba(255,255,255,.15); }
-    .srv-card.cta .a-form:hover { background: rgba(255,255,255,.14); }
+    /* ── BLOQUES DEL CUERPO (misma familia que las fichas de ciudad: tarjeta blanca, borde gray-200, radio 18) ── */
+    .srv-cards { display: grid; gap: 14px; margin: 22px 0 28px; }
+    .srv-cards-2 { grid-template-columns: 1fr 1fr; }
+    .srv-cards-4 { grid-template-columns: repeat(2, 1fr); }
+    .srv-cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .srv-mini { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+    .srv-mini-n { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; background: var(--orange-pale); color: var(--orange-dark); font-family: 'Barlow', sans-serif; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; }
+    .srv-mini p { margin: 0; font-size: .96rem; line-height: 1.6; color: var(--dark-mid); }
+    .srv-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 28px; }
+    .srv-stat { background: var(--dark); color: var(--white); border-radius: 18px; padding: 20px 22px; }
+    .srv-stat-n { font-family: 'Barlow', sans-serif; font-size: 2.1rem; font-weight: 900; color: var(--orange); line-height: 1; }
+    .srv-stat-l { font-size: .85rem; color: rgba(255,255,255,.72); margin-top: 6px; line-height: 1.4; }
+    .srv-cards-2.srv-formas { grid-template-columns: 1fr; }   /* una forma por fila: precio a la izquierda, texto a la derecha */
+    .srv-option { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 22px 26px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 24px; align-items: start; }
+    .srv-option-hd { border-right: 1px solid var(--gray-200); padding-right: 20px; align-self: stretch; }
+    .srv-option-name { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-600); margin-bottom: 8px; }
+    .srv-option-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; font-family: 'Barlow', sans-serif; line-height: 1; }
+    .srv-option-price .from { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 600; color: var(--gray-600); }
+    .srv-option-price .num { font-size: 2rem; font-weight: 900; color: var(--orange-dark); }
+    .srv-option-price .num.small { font-size: 1.5rem; color: var(--orange-dark); }
+    .srv-option-price .unit { font-size: .95rem; font-weight: 700; color: var(--dark-mid); }
+    .srv-option-price .tax { font-family: 'Inter', sans-serif; font-size: .72rem; font-weight: 600; color: var(--gray-600); }
+    .srv-option p { margin: 0; font-size: .96rem; line-height: 1.7; }
+    .srv-option-body { min-width: 0; }
+    .srv-option-list { margin: 12px 0 0 18px; font-size: .94rem; line-height: 1.6; }
+    .srv-option-list li { margin-bottom: 6px; }
+    .srv-callout { display: flex; gap: 20px; align-items: center; background: var(--orange-pale); border-radius: 18px; padding: 20px 24px; margin: 0 0 22px; }
+    .srv-callout-n { font-family: 'Barlow', sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--orange-dark); line-height: 1; white-space: nowrap; }
+    .srv-callout p { margin: 0; font-size: .96rem; line-height: 1.6; color: var(--dark-mid); }
+    .srv-note, .srv-article blockquote { border-left: 3px solid var(--orange); padding: 4px 0 4px 20px; margin: 0 0 28px; }
+    .srv-article blockquote p { margin: 0 0 10px; }
+    .srv-article blockquote p:last-child { margin: 0; }
+    .srv-note p { margin: 0; font-size: .96rem; line-height: 1.7; }
+    .srv-tarjetas.srv-cards-2 > .srv-feature:last-child:nth-child(odd) { grid-column: 1 / -1; }   /* impar: la ultima a todo el ancho */
+    .srv-feature { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 20px 22px; }
+    .srv-feature h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .srv-feature p { margin: 0; font-size: .95rem; line-height: 1.65; }
+    .srv-table-wrap { margin: 18px 0 28px; border: 1.5px solid var(--gray-200); border-radius: 18px; overflow-x: auto; }
+    .srv-table-wrap table { margin: 0; min-width: 640px; }
+    .srv-table-wrap th { background: var(--gray-50); padding: 14px 16px; }
+    .srv-table-wrap td { padding: 14px 16px; font-size: .93rem; line-height: 1.55; color: var(--gray-600); }
+    .srv-table-wrap td strong { color: var(--dark); }
+    .srv-table-wrap th:nth-child(1) { width: 13%; }
+    .srv-table-wrap th:nth-child(2) { width: 40%; }
+    .srv-table-wrap th:nth-child(3) { width: 19%; }
+    .srv-table-wrap tr:last-child td { border-bottom: none; }
+    .srv-incl { margin-top: 18px; }
+    .srv-incl .srv-card { background: var(--white); }
+    .srv-incl .srv-card h3 { margin-top: 0; }
+    .srv-steps { display: flex; flex-direction: column; gap: 12px; margin: 22px 0 28px; }
+    .srv-step { display: flex; gap: 18px; align-items: flex-start; background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 20px 24px; }
+    .srv-step-n { flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: var(--dark); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; }
+    .srv-step h3 { margin: 4px 0 6px; font-size: 1.15rem; }
+    .srv-step p { margin: 0; font-size: .96rem; line-height: 1.65; }
+    .srv-where { margin: 22px 0 8px; }
+    .srv-where .srv-card-cities a .chip-count { color: var(--gray-600); font-weight: 600; margin-left: 5px; font-size: .78rem; }
     .srv-faq { background: var(--gray-50); padding: 88px 6%; }
     .srv-faq-inner { max-width: 1200px; margin: 0 auto; }
     .srv-faq-hd { text-align: center; margin-bottom: 48px; }
@@ -334,16 +412,16 @@
     .srv-other:hover { border-color: var(--orange); transform: translateY(-3px); }
     .srv-other-name { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
     .srv-other-sub { font-size: .9rem; color: var(--gray-600); line-height: 1.5; }
-    .srv-cta { background: var(--orange); padding: 80px 6%; text-align: center; position: relative; overflow: hidden; }
-    .srv-cta::before { content: ''; position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.1); }
-    .srv-cta-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; margin-bottom: 14px; position: relative; }
-    .srv-cta-sub { color: rgba(255,255,255,.8); font-size: 1.05rem; margin-bottom: 32px; position: relative; }
-    .srv-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
     @media (max-width: 900px) {
       .srv-layout { grid-template-columns: 1fr; gap: 48px; }
       .srv-aside { position: static; }
     }
     @media (max-width: 600px) {
+      .srv-cards-2, .srv-cards-3, .srv-cards-4, .srv-stats { grid-template-columns: 1fr; }
+      .srv-callout { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .srv-option { grid-template-columns: 1fr; gap: 14px; }
+      .srv-option-hd { border-right: none; border-bottom: 1px solid var(--gray-200); padding: 0 0 14px; }
+      .faq-acc details { padding: 0 20px; }
       .srv-layout { padding: 56px 5% 24px; }
       .srv-faq, .srv-others { padding: 64px 5%; }
       .hero-offer { min-width: 0; flex: 1 1 100%; }
@@ -618,7 +696,7 @@
     </div>
     <div class="hero-btns">
       <a href="tel:918298500" class="btn-orange">Llamar · 918 298 500</a>
-      <a href="/#contact" class="btn-ghost">Pedir presupuesto →</a>
+      <a href="https://wa.me/34624119705?text=Hola%2C%20me%20interesa%20la%20oficina%20virtual%20para%20domiciliar%20mi%20empresa" class="btn-ghost" target="_blank" rel="noopener">WhatsApp →</a>
     </div>
   </div>
 </div>
@@ -627,51 +705,122 @@
 <div class="srv-layout">
   <article class="srv-article">
 <h2>Qué es una oficina virtual</h2>
-<p>Una oficina virtual es tener tu empresa en un centro de negocios sin ocupar un despacho en él. Domicilias la sociedad o tu actividad como autónomo en la dirección del centro, la recepción recibe tu correo y a tus visitas, y tu teléfono lo atiende una persona con el nombre de tu empresa. Para quien te busca, tu empresa está en la calle Velázquez de Madrid, en el paseo de la Independencia de Zaragoza o en la calle Larios de Málaga. Para ti, sigues trabajando desde donde trabajas.</p>
-<p>Es la solución de las pymes y autónomos que no quieren que su domicilio fiscal sea su casa, de los emprendedores y empresas de nueva creación que necesitan una dirección seria antes de necesitar una oficina, de los profesionales que trabajan en remoto y de las empresas que quieren presencia en otra ciudad sin abrir una delegación física. Está disponible en 33 de los 35 espacios de la red, en las 17 ciudades.</p>
+<p>Una oficina virtual es tener tu empresa en un centro de negocios sin ocupar un despacho en él. Domicilias la sociedad o tu actividad como autónomo en la dirección del centro, la recepción recibe tu correo y a tus visitas, y tu teléfono lo atiende una persona con el nombre de tu empresa.</p>
+<p>Para quien te busca, tu empresa está en la calle Velázquez de Madrid, en el paseo de la Independencia de Zaragoza o en la calle Larios de Málaga. Para ti, sigues trabajando desde donde trabajas.</p>
+
+<p>Es la solución de:</p>
+<div class="srv-cards srv-cards-4">
+  <div class="srv-mini"><div class="srv-mini-n">1</div><p>Las pymes y autónomos que no quieren que su domicilio fiscal sea su casa.</p></div>
+  <div class="srv-mini"><div class="srv-mini-n">2</div><p>Los emprendedores y empresas de nueva creación que necesitan una dirección seria antes de necesitar una oficina.</p></div>
+  <div class="srv-mini"><div class="srv-mini-n">3</div><p>Los profesionales que trabajan en remoto.</p></div>
+  <div class="srv-mini"><div class="srv-mini-n">4</div><p>Las empresas que quieren presencia en otra ciudad sin abrir una delegación física.</p></div>
+</div>
+<div class="srv-stats">
+  <div class="srv-stat"><div class="srv-stat-n">Desde 20 €</div><div class="srv-stat-l">al mes + IVA, precio de partida de la red</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">33 de 35</div><div class="srv-stat-l">espacios de la red la ofrecen</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">17</div><div class="srv-stat-l">ciudades: está disponible en todas</div></div>
+</div>
+
 <h2>Qué incluye</h2>
-<p><strong>Domiciliación.</strong> La dirección del centro como domicilio fiscal, social y comercial de tu empresa. Puedes usarla ante Hacienda y el Registro Mercantil, en tu web, en tus facturas y en tu correspondencia.</p>
-<p><strong>Correo, paquetería y notificaciones.</strong> La recepción recibe todo lo que llega a tu nombre —cartas, paquetes, certificados, notificaciones— y te avisa en el momento. Lo recoges cuando quieras o, si lo prefieres, se te reenvía.</p>
-<p><strong>Atención telefónica.</strong> Si lo contratas, tus llamadas las atiende la recepción del centro con el nombre de tu empresa y te las transfiere en el acto o te deja el mensaje. Es lo que hace que una empresa de una persona parezca una empresa con oficina.</p>
-<p><strong>Recepción de visitas.</strong> Cuando un cliente va a verte, la recepción lo recibe y lo acompaña a la sala que hayas reservado.</p>
-<p><strong>Despachos, salas y hot desk.</strong> Como cliente de oficina virtual reservas despachos y salas de reuniones por horas en tu centro, y tienes puestos de trabajo en los centros de la red cuando estás en otra ciudad. Es la parte que diferencia una oficina virtual dentro de un centro de negocios de un simple apartado de correos con nombre.</p>
+<div class="srv-cards srv-cards-2 srv-tarjetas">
+  <div class="srv-feature"><h3>Domiciliación</h3><p>La dirección del centro como domicilio fiscal, social y comercial de tu empresa. Puedes usarla ante Hacienda y el Registro Mercantil, en tu web, en tus facturas y en tu correspondencia.</p></div>
+  <div class="srv-feature"><h3>Correo, paquetería y notificaciones</h3><p>La recepción recibe todo lo que llega a tu nombre —cartas, paquetes, certificados, notificaciones— y te avisa en el momento. Lo recoges cuando quieras o, si lo prefieres, se te reenvía.</p></div>
+  <div class="srv-feature"><h3>Atención telefónica</h3><p>Si lo contratas, tus llamadas las atiende la recepción del centro con el nombre de tu empresa y te las transfiere en el acto o te deja el mensaje. Es lo que hace que una empresa de una persona parezca una empresa con oficina.</p></div>
+  <div class="srv-feature"><h3>Recepción de visitas</h3><p>Cuando un cliente va a verte, la recepción lo recibe y lo acompaña a la sala que hayas reservado.</p></div>
+  <div class="srv-feature"><h3>Despachos, salas y hot desk</h3><p>Como cliente de oficina virtual reservas despachos y salas de reuniones por horas en tu centro, y tienes puestos de trabajo en los centros de la red cuando estás en otra ciudad. Es la parte que diferencia una oficina virtual dentro de un centro de negocios de un simple apartado de correos con nombre.</p></div>
+</div>
+
+<div class="srv-cards srv-cards-2 srv-incl">
+  <div class="srv-card">
+    <h3>Qué incluye</h3>
+    <ul>
+      <li>Dirección fiscal y comercial en el centro</li>
+      <li>Recepción de correspondencia, paquetería y notificaciones</li>
+      <li>Aviso inmediato de lo que llega</li>
+      <li>Recepción de visitas en el centro</li>
+      <li>Posibilidad de atención telefónica con el nombre de tu empresa</li>
+      <li>Despachos y salas de reuniones por horas</li>
+      <li>Hot desk en toda la red</li>
+    </ul>
+  </div>
+  <div class="srv-card no">
+    <h3>Qué no incluye</h3>
+    <ul>
+      <li>Un despacho de uso exclusivo (eso es el despacho mensual)</li>
+      <li>Trámites de constitución o gestoría</li>
+      <li>El reenvío de la correspondencia, que se acuerda con el centro</li>
+      <li>IVA (todos los precios son sin impuestos)</li>
+    </ul>
+  </div>
+</div>
+
 <h2>Precio</h2>
-<p>Desde 20 € al mes + IVA. Es el precio de partida de la red; la cuota concreta depende del centro, de la duración del contrato y de lo que añadas: la atención telefónica personalizada y las horas de sala se contratan aparte. Algunos centros ofrecen una tarifa reducida por pago anual. Todos los precios se muestran sin IVA.</p>
+
+<div class="srv-callout">
+  <div class="srv-callout-n">Desde 20 €/mes</div>
+  <p>Es el precio de partida de la red; la cuota concreta depende del centro, de la duración del contrato y de lo que añadas: la atención telefónica personalizada y las horas de sala se contratan aparte. Algunos centros ofrecen una tarifa reducida por pago anual. Todos los precios se muestran sin IVA.</p>
+</div>
+
 <p>Si además de la dirección vas a usar el centro con cierta regularidad, la fórmula que te interesa es Smart Office, que se explica a continuación.</p>
 <h2 id="smart-office">Smart Office: lo que quieres, como quieres, cuando quieres</h2>
-<p>Smart Office es la fórmula modular de OficinasYA!, disponible en 33 de los 35 espacios de la red. Parte de la oficina virtual —dirección fiscal y comercial, correspondencia, atención telefónica— y le añade lo que tu negocio necesite en cada momento: horas de despacho, salas de reuniones, un puesto en el espacio compartido, un número de teléfono atendido con el nombre de tu empresa.</p>
-<p>La diferencia con contratar cada cosa por separado es que los servicios suben y bajan mes a mes. Un mes necesitas atender llamadas y recibir correo; el siguiente, tres reuniones en sala y dos mañanas de despacho; el otro, nada más que la dirección. Contratas y descontratas servicios tantas veces como haga falta sin cambiar de contrato ni de centro. Es la opción de quien trabaja desde casa o en movimiento, de las empresas de nueva creación y de quien abre delegación en una ciudad sin saber todavía cuánto espacio va a necesitar. En algunos centros el pack incluye horas de sala cada mes o tiene tarifa anual reducida; consulta el detalle del centro que te interese. Y si un día el despacho por horas se queda corto, el paso al <a href="/alquiler-de-despachos/">despacho mensual</a> se hace en el mismo centro.</p>
+<p>Smart Office es la fórmula modular de OficinasYA!, disponible en 33 de los 35 espacios de la red. Parte de la oficina virtual —dirección fiscal y comercial, correspondencia, atención telefónica— y le añade lo que tu negocio necesite en cada momento:</p>
+<ul>
+<li>horas de despacho,</li>
+<li>salas de reuniones,</li>
+<li>un puesto en el espacio compartido,</li>
+<li>un número de teléfono atendido con el nombre de tu empresa.</li>
+</ul>
+<p>La diferencia con contratar cada cosa por separado es que los servicios suben y bajan mes a mes. Un mes necesitas atender llamadas y recibir correo; el siguiente, tres reuniones en sala y dos mañanas de despacho; el otro, nada más que la dirección. Contratas y descontratas servicios tantas veces como haga falta sin cambiar de contrato ni de centro.</p>
+<p>Es la opción de quien trabaja desde casa o en movimiento, de las empresas de nueva creación y de quien abre delegación en una ciudad sin saber todavía cuánto espacio va a necesitar.</p>
+<blockquote>
+<p>En algunos centros el pack incluye horas de sala cada mes o tiene tarifa anual reducida; consulta el detalle del centro que te interese. Y si un día el despacho por horas se queda corto, el paso al <a href="/alquiler-de-despachos/">despacho mensual</a> se hace en el mismo centro.</p>
+</blockquote>
 <h2>Cómo se contrata</h2>
-<ol>
-<li><strong>Elige el centro.</strong> Puede ser el de tu ciudad o el de la ciudad donde quieres tener presencia. Cada página de ciudad tiene la dirección exacta y el horario de recepción, que es el horario en que se atienden llamadas y visitas.</li>
-<li><strong>Llama al 918 298 500 o escribe</strong> desde el formulario. Te confirmamos la cuota del centro y los servicios que quieras añadir.</li>
-<li><strong>Firma y usa la dirección desde ese día.</strong> El contrato es mensual, con la documentación habitual de la empresa o del autónomo. A partir de la firma, la recepción ya recibe tu correo y tus llamadas.</li>
-</ol>
+<div class="srv-steps">
+  <div class="srv-step">
+    <div class="srv-step-n">1</div>
+    <div><h3>Elige el centro</h3><p>Puede ser el de tu ciudad o el de la ciudad donde quieres tener presencia. Cada página de ciudad tiene la dirección exacta y el horario de recepción, que es el horario en que se atienden llamadas y visitas.</p></div>
+  </div>
+  <div class="srv-step">
+    <div class="srv-step-n">2</div>
+    <div><h3>Llama al 918 298 500 o escribe por WhatsApp</h3><p>Te confirmamos la cuota del centro y los servicios que quieras añadir.</p></div>
+  </div>
+  <div class="srv-step">
+    <div class="srv-step-n">3</div>
+    <div><h3>Firma y usa la dirección desde ese día</h3><p>El contrato es mensual, con la documentación habitual de la empresa o del autónomo. A partir de la firma, la recepción ya recibe tu correo y tus llamadas.</p></div>
+  </div>
+</div>
+
 <h2>Dónde</h2>
-<p>La oficina virtual está disponible en 33 espacios de las 17 ciudades de la red; solo los dos colivings no la ofrecen. Si tu objetivo es una dirección representativa, los centros de Madrid están en el barrio de Salamanca, la Castellana y Las Tablas, y fuera de Madrid, en calles como Larios en Málaga, Independencia en Zaragoza o la plaza de Urquinaona en Barcelona. La lista completa, con dirección y horario, está en cada página de ciudad.</p>
+<p>Si tu objetivo es una dirección representativa, los centros de Madrid están en el barrio de Salamanca, la Castellana y Las Tablas, y fuera de Madrid, en calles como Larios en Málaga, Independencia en Zaragoza o la plaza de Urquinaona en Barcelona. La lista completa, con dirección y horario, está en cada página de ciudad.</p>
+<div class="srv-where">
+  <div class="srv-callout">
+    <div class="srv-callout-n">33 espacios</div>
+    <p>La oficina virtual está disponible en 33 espacios de las 17 ciudades de la red; solo los dos colivings no la ofrecen.</p>
+  </div>
+  <div class="srv-card-cities">
+    <a href="/oficinas-en-madrid/">Madrid<span class="chip-count">×8</span></a>
+    <a href="/oficinas-en-barcelona/">Barcelona<span class="chip-count">×3</span></a>
+    <a href="/oficinas-en-murcia/">Murcia<span class="chip-count">×3</span></a>
+    <a href="/oficinas-en-sevilla/">Sevilla<span class="chip-count">×3</span></a>
+    <a href="/oficinas-en-tenerife/">Tenerife<span class="chip-count">×3</span></a>
+    <a href="/oficinas-en-a-coruna/">A Coruña<span class="chip-count">×2</span></a>
+    <a href="/oficinas-en-bilbao/">Bilbao<span class="chip-count">×2</span></a>
+    <a href="/oficinas-en-segovia/">Segovia<span class="chip-count">×2</span></a>
+    <a href="/oficinas-en-albacete/">Albacete<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-alicante/">Alicante<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-castellon/">Castellón<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-malaga/">Málaga<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-merida/">Mérida<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-salamanca/">Salamanca<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-valencia/">Valencia<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-vigo/">Vigo<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-zaragoza/">Zaragoza<span class="chip-count">×1</span></a>
+  </div>
+</div>
+
   </article>
   <aside class="srv-aside">
-    <div class="srv-card">
-      <h3>Qué incluye</h3>
-      <ul>
-        <li>Dirección fiscal y comercial en el centro</li>
-        <li>Recepción de correspondencia, paquetería y notificaciones</li>
-        <li>Aviso inmediato de lo que llega</li>
-        <li>Recepción de visitas en el centro</li>
-        <li>Posibilidad de atención telefónica con el nombre de tu empresa</li>
-        <li>Despachos y salas de reuniones por horas</li>
-        <li>Hot desk en toda la red</li>
-      </ul>
-    </div>
-    <div class="srv-card no">
-      <h3>Qué no incluye</h3>
-      <ul>
-        <li>Un despacho de uso exclusivo (eso es el despacho mensual)</li>
-        <li>Trámites de constitución o gestoría</li>
-        <li>El reenvío de la correspondencia, que se acuerda con el centro</li>
-        <li>IVA (todos los precios son sin impuestos)</li>
-      </ul>
-    </div>
     <div class="srv-card">
       <h3>Dónde</h3>
       <p class="srv-card-cities-sub">Disponible en 17 ciudades</p>
@@ -699,8 +848,7 @@
       <h3>¿Hablamos?</h3>
       <p>Te confirmamos disponibilidad y precio en el momento.</p>
       <a href="tel:918298500" class="a-tel">918 298 500</a>
-      <a href="https://wa.me/34624119705" class="a-wa" target="_blank" rel="noopener">WhatsApp 624 119 705</a>
-      <a href="/#contact" class="a-form">Formulario de contacto</a>
+      <a href="https://wa.me/34624119705?text=Hola%2C%20me%20interesa%20la%20oficina%20virtual%20para%20domiciliar%20mi%20empresa" class="a-wa" target="_blank" rel="noopener">WhatsApp 624 119 705</a>
     </div>
   </aside>
 </div>
@@ -712,32 +860,31 @@
       <div class="eyebrow" style="justify-content:center">FAQ</div>
       <h2 class="stitle">Preguntas frecuentes</h2>
       <p class="ssub">Lo que nos preguntan sobre este servicio</p>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <h3>¿Cuánto cuesta la oficina virtual?</h3>
-        <p>Desde 20 € al mes más IVA. Ese es el precio de partida de la red; la cuota concreta depende del centro elegido, de la duración del contrato —hay centros con tarifa reducida por pago anual— y de los servicios que añadas, como la atención telefónica con el nombre de tu empresa o las horas de sala. Pide presupuesto para el centro que te interese.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Qué diferencia hay entre dirección fiscal y dirección comercial?</h3>
-        <p>La dirección fiscal es la que consta ante Hacienda y en el Registro Mercantil como domicilio de la empresa. La dirección comercial es la que das a clientes y proveedores: la de tu web, tus tarjetas y tu correspondencia. Con la oficina virtual puedes usar la dirección del centro para las dos cosas, o solo para una si tu empresa ya tiene domicilio fiscal.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Qué pasa con el correo que llega a mi nombre?</h3>
-        <p>La recepción del centro lo recibe y te avisa en el momento. Después lo recoges cuando pases por el centro o, si lo prefieres, se te reenvía a la dirección que indiques, con las condiciones que fije el centro. Lo mismo con la paquetería.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Puedo usar una sala o un despacho cuando lo necesite?</h3>
-        <p>Sí. Es la razón por la que la oficina virtual está dentro de un centro de negocios real: cuando tienes una reunión, reservas una sala o un despacho por horas en tu centro, y la recepción atiende a tu visita como si fuera tu oficina. También dispones de hot desk en los centros de la red cuando estás en otra ciudad.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Sirve para abrir una delegación en otra ciudad?</h3>
-        <p>Es uno de sus usos principales. Contratas la oficina virtual en la ciudad donde quieres tener presencia —Sevilla, Bilbao, Valencia o cualquiera de las 17 de la red— y desde ese día tienes allí dirección, teléfono atendido y salas donde recibir a tus clientes, sin alquilar un local ni desplazar a nadie.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Qué es Smart Office y en qué se diferencia de la oficina virtual?</h3>
-        <p>Smart Office es la fórmula modular de OficinasYA!: parte de la oficina virtual y le añade horas de despacho, salas y puestos de trabajo que puedes subir o bajar cada mes según lo que necesites. Si solo quieres la dirección y el correo, la oficina virtual es suficiente; si vas a usar el centro físicamente con cierta regularidad, Smart Office te sale más a cuenta.</p>
-      </div>
+    </div><div class="faq-acc">
+      <details class="faq-item" open>
+        <summary><h3>¿Cuánto cuesta la oficina virtual?</h3></summary>
+        <div class="faq-a"><p>Desde 20 € al mes más IVA. Ese es el precio de partida de la red; la cuota concreta depende del centro elegido, de la duración del contrato —hay centros con tarifa reducida por pago anual— y de los servicios que añadas, como la atención telefónica con el nombre de tu empresa o las horas de sala. Pide presupuesto para el centro que te interese.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Qué diferencia hay entre dirección fiscal y dirección comercial?</h3></summary>
+        <div class="faq-a"><p>La dirección fiscal es la que consta ante Hacienda y en el Registro Mercantil como domicilio de la empresa. La dirección comercial es la que das a clientes y proveedores: la de tu web, tus tarjetas y tu correspondencia. Con la oficina virtual puedes usar la dirección del centro para las dos cosas, o solo para una si tu empresa ya tiene domicilio fiscal.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Qué pasa con el correo que llega a mi nombre?</h3></summary>
+        <div class="faq-a"><p>La recepción del centro lo recibe y te avisa en el momento. Después lo recoges cuando pases por el centro o, si lo prefieres, se te reenvía a la dirección que indiques, con las condiciones que fije el centro. Lo mismo con la paquetería.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Puedo usar una sala o un despacho cuando lo necesite?</h3></summary>
+        <div class="faq-a"><p>Sí. Es la razón por la que la oficina virtual está dentro de un centro de negocios real: cuando tienes una reunión, reservas una sala o un despacho por horas en tu centro, y la recepción atiende a tu visita como si fuera tu oficina. También dispones de hot desk en los centros de la red cuando estás en otra ciudad.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Sirve para abrir una delegación en otra ciudad?</h3></summary>
+        <div class="faq-a"><p>Es uno de sus usos principales. Contratas la oficina virtual en la ciudad donde quieres tener presencia —Sevilla, Bilbao, Valencia o cualquiera de las 17 de la red— y desde ese día tienes allí dirección, teléfono atendido y salas donde recibir a tus clientes, sin alquilar un local ni desplazar a nadie.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Qué es Smart Office y en qué se diferencia de la oficina virtual?</h3></summary>
+        <div class="faq-a"><p>Smart Office es la fórmula modular de OficinasYA!: parte de la oficina virtual y le añade horas de despacho, salas y puestos de trabajo que puedes subir o bajar cada mes según lo que necesites. Si solo quieres la dirección y el correo, la oficina virtual es suficiente; si vas a usar el centro físicamente con cierta regularidad, Smart Office te sale más a cuenta.</p></div>
+      </details>
     </div>
   </div>
 </section>
@@ -763,13 +910,16 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="srv-cta">
-  <h2 class="srv-cta-title">¿Hablamos?</h2>
-  <p class="srv-cta-sub">Te confirmamos disponibilidad y precio en el momento.</p>
-  <div class="srv-cta-btns">
-    <a href="tel:918298500" class="btn-white">Llamar · 918 298 500</a>
-    <a href="/#contact" class="btn-dark-solid">Formulario de contacto →</a>
+<!-- CIERRE (mismo bloque oscuro que las paginas de ciudad) -->
+<section class="city-close">
+  <div class="city-close-inner">
+    <div class="eyebrow" style="justify-content:center">¿Y ahora qué?</div>
+    <h2 class="city-close-title">¿Te encaja? Hablemos.</h2>
+    <p class="city-close-sub">Dinos la ciudad, cuántas personas sois y desde cuándo lo necesitas, y te confirmamos disponibilidad y precio en el momento. Sin compromiso.</p>
+    <div class="city-close-btns">
+      <a href="https://wa.me/34624119705?text=Hola%2C%20me%20interesa%20la%20oficina%20virtual%20para%20domiciliar%20mi%20empresa" class="btn-close-primary" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg> Escribir por WhatsApp</a>
+      <a href="tel:918298500" class="btn-close-secondary"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Llamar · 918 298 500</a>
+    </div>
   </div>
 </section>
 

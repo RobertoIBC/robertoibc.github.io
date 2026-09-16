@@ -1,0 +1,6 @@
+{#- Tarjetas con titulo y texto (dos columnas). Front matter: tarjetas[] (titulo, texto) -#}
+<div class="srv-cards {{ 'srv-cards-3' if page.tarjetas | length == 3 else 'srv-cards-2' }} srv-tarjetas">
+{%- for x in page.tarjetas %}
+  <div class="srv-feature"><h3>{{ x.titulo }}</h3><p>{{ x.texto }}</p></div>
+{%- endfor %}
+</div>

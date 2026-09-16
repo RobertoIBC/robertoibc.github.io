@@ -254,6 +254,18 @@
     .faq-item { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 26px 28px; }
     .faq-item h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin-bottom: 10px; }
     .faq-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.7; }
+    /* acordeon (servicios): una columna, cerradas salvo la primera; el texto siempre esta en el HTML */
+    .faq-acc { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-acc details { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 0 28px; }
+    .faq-acc details[open] { border-color: var(--dark); }
+    .faq-acc summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; min-height: 44px; }
+    .faq-acc summary::-webkit-details-marker { display: none; }
+    .faq-acc summary h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin: 0; }
+    .faq-acc summary::after { content: ''; flex: 0 0 10px; width: 10px; height: 10px; border-right: 2px solid var(--dark); border-bottom: 2px solid var(--dark); transform: rotate(45deg); transition: transform .2s; margin-right: 4px; }
+    .faq-acc details[open] summary::after { transform: rotate(-135deg); }
+    .faq-acc summary:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; border-radius: 8px; }
+    .faq-acc .faq-a { padding: 0 0 22px; }
+    .faq-acc .faq-a p { color: var(--gray-600); font-size: .98rem; line-height: 1.75; max-width: 68ch; }
 
     /* ── CTA FINAL ── */
     .btn-white { background: var(--white); color: var(--orange); padding: 17px 40px; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
@@ -263,6 +275,7 @@
 
     /* ── TEXTO LARGO (articulo de servicio, texto de ciudad) ── */
     .srv-article { min-width: 0; }
+    .srv-article p, .srv-article li { max-width: 68ch; }   /* 65-75 caracteres por linea */
     .srv-article h2 { font-family: 'Barlow', sans-serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 800; line-height: 1.1; letter-spacing: -.5px; color: var(--dark); margin: 52px 0 18px; scroll-margin-top: 100px; }
     .srv-article h2:first-child { margin-top: 0; }
     .srv-article h3 { font-family: 'Barlow', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--dark); margin: 32px 0 12px; }
@@ -285,6 +298,17 @@
     @media (max-width: 600px) {
       .page-hero { padding: 120px 5% 56px; }
     }
+    /* CTA de cierre de la pagina */
+    .city-close { background: var(--dark); color: var(--white); padding: 88px 6%; text-align: center; }
+    .city-close-inner { max-width: 720px; margin: 0 auto; }
+    .city-close .eyebrow { color: var(--orange); }
+    .city-close-title { font-family: 'Barlow', sans-serif; font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.05; letter-spacing: -.5px; margin: 12px 0 16px; }
+    .city-close-sub { color: rgba(255,255,255,.72); font-size: 1.05rem; line-height: 1.7; margin: 0 auto 32px; max-width: 60ch; }
+    .city-close-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .city-close-btns a { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 32px; border-radius: 50px; font-size: 1rem; font-weight: 800; text-decoration: none; transition: transform .2s; }
+    .city-close-btns a:hover { transform: translateY(-3px); }
+    .btn-close-primary { background: var(--white); color: var(--dark); }
+    .btn-close-secondary { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.35); }
 
     .hero-offers { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
     .hero-offer { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 16px 22px; min-width: 200px; }
@@ -295,7 +319,7 @@
     .hero-offer-price .unit { font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.7); }
     .hero-offer-price .tax { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35); font-family: 'Inter', sans-serif; }
     .hero-offer-detail { font-size: .82rem; color: rgba(255,255,255,.5); margin-top: 6px; }
-    .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; }
+    .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start; }
     .srv-table-wrap { overflow-x: auto; }
     /* ── LATERAL ── */
     .srv-aside { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
@@ -320,8 +344,62 @@
     .srv-card.cta .a-tel:hover { background: var(--orange-dark); transform: translateY(-2px); }
     .srv-card.cta .a-wa { background: #25D366; color: var(--white); }
     .srv-card.cta .a-wa:hover { transform: translateY(-2px); }
-    .srv-card.cta .a-form { background: rgba(255,255,255,.08); color: var(--white); border: 1.5px solid rgba(255,255,255,.15); }
-    .srv-card.cta .a-form:hover { background: rgba(255,255,255,.14); }
+    /* ── BLOQUES DEL CUERPO (misma familia que las fichas de ciudad: tarjeta blanca, borde gray-200, radio 18) ── */
+    .srv-cards { display: grid; gap: 14px; margin: 22px 0 28px; }
+    .srv-cards-2 { grid-template-columns: 1fr 1fr; }
+    .srv-cards-4 { grid-template-columns: repeat(2, 1fr); }
+    .srv-cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .srv-mini { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+    .srv-mini-n { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; background: var(--orange-pale); color: var(--orange-dark); font-family: 'Barlow', sans-serif; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; }
+    .srv-mini p { margin: 0; font-size: .96rem; line-height: 1.6; color: var(--dark-mid); }
+    .srv-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 28px; }
+    .srv-stat { background: var(--dark); color: var(--white); border-radius: 18px; padding: 20px 22px; }
+    .srv-stat-n { font-family: 'Barlow', sans-serif; font-size: 2.1rem; font-weight: 900; color: var(--orange); line-height: 1; }
+    .srv-stat-l { font-size: .85rem; color: rgba(255,255,255,.72); margin-top: 6px; line-height: 1.4; }
+    .srv-cards-2.srv-formas { grid-template-columns: 1fr; }   /* una forma por fila: precio a la izquierda, texto a la derecha */
+    .srv-option { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 22px 26px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 24px; align-items: start; }
+    .srv-option-hd { border-right: 1px solid var(--gray-200); padding-right: 20px; align-self: stretch; }
+    .srv-option-name { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-600); margin-bottom: 8px; }
+    .srv-option-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; font-family: 'Barlow', sans-serif; line-height: 1; }
+    .srv-option-price .from { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 600; color: var(--gray-600); }
+    .srv-option-price .num { font-size: 2rem; font-weight: 900; color: var(--orange-dark); }
+    .srv-option-price .num.small { font-size: 1.5rem; color: var(--orange-dark); }
+    .srv-option-price .unit { font-size: .95rem; font-weight: 700; color: var(--dark-mid); }
+    .srv-option-price .tax { font-family: 'Inter', sans-serif; font-size: .72rem; font-weight: 600; color: var(--gray-600); }
+    .srv-option p { margin: 0; font-size: .96rem; line-height: 1.7; }
+    .srv-option-body { min-width: 0; }
+    .srv-option-list { margin: 12px 0 0 18px; font-size: .94rem; line-height: 1.6; }
+    .srv-option-list li { margin-bottom: 6px; }
+    .srv-callout { display: flex; gap: 20px; align-items: center; background: var(--orange-pale); border-radius: 18px; padding: 20px 24px; margin: 0 0 22px; }
+    .srv-callout-n { font-family: 'Barlow', sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--orange-dark); line-height: 1; white-space: nowrap; }
+    .srv-callout p { margin: 0; font-size: .96rem; line-height: 1.6; color: var(--dark-mid); }
+    .srv-note, .srv-article blockquote { border-left: 3px solid var(--orange); padding: 4px 0 4px 20px; margin: 0 0 28px; }
+    .srv-article blockquote p { margin: 0 0 10px; }
+    .srv-article blockquote p:last-child { margin: 0; }
+    .srv-note p { margin: 0; font-size: .96rem; line-height: 1.7; }
+    .srv-tarjetas.srv-cards-2 > .srv-feature:last-child:nth-child(odd) { grid-column: 1 / -1; }   /* impar: la ultima a todo el ancho */
+    .srv-feature { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 20px 22px; }
+    .srv-feature h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .srv-feature p { margin: 0; font-size: .95rem; line-height: 1.65; }
+    .srv-table-wrap { margin: 18px 0 28px; border: 1.5px solid var(--gray-200); border-radius: 18px; overflow-x: auto; }
+    .srv-table-wrap table { margin: 0; min-width: 640px; }
+    .srv-table-wrap th { background: var(--gray-50); padding: 14px 16px; }
+    .srv-table-wrap td { padding: 14px 16px; font-size: .93rem; line-height: 1.55; color: var(--gray-600); }
+    .srv-table-wrap td strong { color: var(--dark); }
+    .srv-table-wrap th:nth-child(1) { width: 13%; }
+    .srv-table-wrap th:nth-child(2) { width: 40%; }
+    .srv-table-wrap th:nth-child(3) { width: 19%; }
+    .srv-table-wrap tr:last-child td { border-bottom: none; }
+    .srv-incl { margin-top: 18px; }
+    .srv-incl .srv-card { background: var(--white); }
+    .srv-incl .srv-card h3 { margin-top: 0; }
+    .srv-steps { display: flex; flex-direction: column; gap: 12px; margin: 22px 0 28px; }
+    .srv-step { display: flex; gap: 18px; align-items: flex-start; background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 20px 24px; }
+    .srv-step-n { flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: var(--dark); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; }
+    .srv-step h3 { margin: 4px 0 6px; font-size: 1.15rem; }
+    .srv-step p { margin: 0; font-size: .96rem; line-height: 1.65; }
+    .srv-where { margin: 22px 0 8px; }
+    .srv-where .srv-card-cities a .chip-count { color: var(--gray-600); font-weight: 600; margin-left: 5px; font-size: .78rem; }
     .srv-faq { background: var(--gray-50); padding: 88px 6%; }
     .srv-faq-inner { max-width: 1200px; margin: 0 auto; }
     .srv-faq-hd { text-align: center; margin-bottom: 48px; }
@@ -334,16 +412,16 @@
     .srv-other:hover { border-color: var(--orange); transform: translateY(-3px); }
     .srv-other-name { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
     .srv-other-sub { font-size: .9rem; color: var(--gray-600); line-height: 1.5; }
-    .srv-cta { background: var(--orange); padding: 80px 6%; text-align: center; position: relative; overflow: hidden; }
-    .srv-cta::before { content: ''; position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.1); }
-    .srv-cta-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; margin-bottom: 14px; position: relative; }
-    .srv-cta-sub { color: rgba(255,255,255,.8); font-size: 1.05rem; margin-bottom: 32px; position: relative; }
-    .srv-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
     @media (max-width: 900px) {
       .srv-layout { grid-template-columns: 1fr; gap: 48px; }
       .srv-aside { position: static; }
     }
     @media (max-width: 600px) {
+      .srv-cards-2, .srv-cards-3, .srv-cards-4, .srv-stats { grid-template-columns: 1fr; }
+      .srv-callout { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .srv-option { grid-template-columns: 1fr; gap: 14px; }
+      .srv-option-hd { border-right: none; border-bottom: 1px solid var(--gray-200); padding: 0 0 14px; }
+      .faq-acc details { padding: 0 20px; }
       .srv-layout { padding: 56px 5% 24px; }
       .srv-faq, .srv-others { padding: 64px 5%; }
       .hero-offer { min-width: 0; flex: 1 1 100%; }
@@ -512,7 +590,7 @@
           "name": "How much does a private office cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "By the hour, from €8.50 plus VAT, with the furnished office, WiFi and visitor reception included. By the month, from €270 plus VAT, with an exclusive office, registered address, cleaning and, at several centres, meeting-room hours included. The exact price depends on the size of the office and the centre: ask by phone or through the form."
+            "text": "By the hour, from €8.50 plus VAT, with the furnished office, WiFi and visitor reception included. By the month, from €270 plus VAT, with an exclusive office, registered address, cleaning and, at several centres, meeting-room hours included. The exact price depends on the size of the office and the centre: ask by phone or on WhatsApp."
           }
         },
         {
@@ -639,7 +717,7 @@
     </div>
     <div class="hero-btns">
       <a href="tel:918298500" class="btn-orange">Call us · 918 298 500</a>
-      <a href="/en/#contact" class="btn-ghost">Request a quote →</a>
+      <a href="https://wa.me/34624119705?text=Hello%2C%20I%20am%20interested%20in%20renting%20a%20private%20office" class="btn-ghost" target="_blank" rel="noopener">WhatsApp →</a>
     </div>
   </div>
 </div>
@@ -648,47 +726,133 @@
 <div class="srv-layout">
   <article class="srv-article">
 <h2>What a private office at OficinasYA! is</h2>
-<p>A private office is a closed, furnished space for your exclusive use inside one of our business centres. You walk in, work with your team, and the rest of the building — reception, meeting rooms, common areas, cleaning, utilities — is already running. There is no building work to do, no furniture to buy and no utilities to set up: the office is handed over ready to work from on the day you sign.</p>
-<p>It is the formula used by freelancers who need a proper place to receive clients, small companies that do not want to be tied to a five-year lease, branch offices of companies based in another city, and teams that grow or shrink and need their office to grow or shrink with them. Our network has 35 spaces in 17 cities across Spain, and more than 1500 companies work with us.</p>
+<p>A private office is a closed, furnished space for your exclusive use inside one of our business centres. You walk in, work with your team, and the rest of the building — reception, meeting rooms, common areas, cleaning, utilities — is already running.</p>
+<p>There is no building work to do, no furniture to buy and no utilities to set up: the office is handed over ready to work from on the day you sign.</p>
+
+<p>It is the formula used by:</p>
+<div class="srv-cards srv-cards-4">
+  <div class="srv-mini"><div class="srv-mini-n">1</div><p>Freelancers who need a proper place to receive clients.</p></div>
+  <div class="srv-mini"><div class="srv-mini-n">2</div><p>Small companies that do not want to be tied to a five-year lease.</p></div>
+  <div class="srv-mini"><div class="srv-mini-n">3</div><p>Branch offices of companies based in another city.</p></div>
+  <div class="srv-mini"><div class="srv-mini-n">4</div><p>Teams that grow or shrink and need their office to grow or shrink with them.</p></div>
+</div>
+<div class="srv-stats">
+  <div class="srv-stat"><div class="srv-stat-n">35</div><div class="srv-stat-l">spaces in our network</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">17</div><div class="srv-stat-l">cities across Spain</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">+1500</div><div class="srv-stat-l">companies work with us</div></div>
+</div>
+
 <h2>Two ways to rent it</h2>
-<p><strong>By the hour, from €8.50 per hour + VAT.</strong> You book a furnished office for as long as you need it: a meeting with a client, an interview, a morning of focused work. It includes high-speed WiFi and visitor reception, and carries no commitment. It is also how virtual office clients use the physical office when they need it.</p>
-<p><strong>Monthly, from €270 a month + VAT.</strong> The office is yours: furniture, phone line, daily cleaning, maintenance and utilities included, plus your company's registered address at the centre. At several centres the fee also includes meeting-room hours each month; check the details of yours. In Madrid and at the centres that offer it, access is permanent, 24 hours a day, with an access-control system. The contract runs month to month, renews automatically and is cancelled with 15 to 30 days' notice depending on the centre.</p>
-<p>Prices are starting prices. The final amount depends on the size of the office and the city: across the network there are offices from 6 m² for one person up to 250 m² spaces for large teams.</p>
+
+<div class="srv-cards srv-cards-2 srv-formas">
+  <div class="srv-option">
+    <div class="srv-option-hd">
+      <div class="srv-option-name">By the hour</div>
+      <div class="srv-option-price"><span class="from">from</span> <span class="num">€8.50</span><span class="unit">/hour</span> <span class="tax">+ VAT</span></div>
+    </div>
+    <div class="srv-option-body">
+      <p>You book a furnished office for as long as you need it: a meeting with a client, an interview, a morning of focused work.</p>
+      <ul class="srv-option-list">
+        <li>It includes high-speed WiFi and visitor reception, and carries no commitment.</li>
+        <li>It is also how virtual office clients use the physical office when they need it.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="srv-option">
+    <div class="srv-option-hd">
+      <div class="srv-option-name">Monthly</div>
+      <div class="srv-option-price"><span class="from">from</span> <span class="num">€270</span><span class="unit">/month</span> <span class="tax">+ VAT</span></div>
+    </div>
+    <div class="srv-option-body">
+      <p>The office is yours: furniture, phone line, daily cleaning, maintenance and utilities included, plus your company's registered address at the centre.</p>
+      <ul class="srv-option-list">
+        <li>At several centres the fee also includes meeting-room hours each month; check the details of yours.</li>
+        <li>In Madrid and at the centres that offer it, access is permanent, 24 hours a day, with an access-control system.</li>
+        <li>The contract runs month to month, renews automatically and is cancelled with 15 to 30 days' notice depending on the centre.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="srv-callout">
+  <div class="srv-callout-n">6 to 250 m²</div>
+  <p>Prices are starting prices. The final amount depends on the size of the office and the city: across the network there are offices from 6 m² for one person up to 250 m² spaces for large teams.</p>
+</div>
+
 <p>If what you need is not a fixed office but a few hours of office a month alongside a registered address and an answered phone line, look at <a href="/en/virtual-office/#smart-office">Smart Office</a>: the modular formula that starts from the virtual office and adds office and meeting-room hours as each month requires.</p>
 <h2>What is included and what is not</h2>
-<p>Everything an office needs to run is included in the fee: furniture, connectivity, phone, reception, cleaning, utilities and maintenance. What is not included is what is yours: computer equipment, printing costs and catering for meetings, which are contracted separately. And VAT: all prices on this website are shown without tax.</p>
+<p>Everything an office needs to run is included in the fee: furniture, connectivity, phone, reception, cleaning, utilities and maintenance.</p>
+<p>What is not included is what is yours: computer equipment, printing costs and catering for meetings, which are contracted separately. And VAT: all prices on this website are shown without tax.</p>
+<div class="srv-cards srv-cards-2 srv-incl">
+  <div class="srv-card">
+    <h3>What's included</h3>
+    <ul>
+      <li>Furnished, closed office for your exclusive use</li>
+      <li>High-speed WiFi</li>
+      <li>Phone line and furniture</li>
+      <li>Reception and visitor welcome at the centre</li>
+      <li>Daily cleaning and maintenance</li>
+      <li>Utilities (electricity, water, air conditioning)</li>
+      <li>Registered address with the monthly plan</li>
+      <li>Meeting-room hours included with the monthly plan at several centres</li>
+    </ul>
+  </div>
+  <div class="srv-card no">
+    <h3>What's not included</h3>
+    <ul>
+      <li>Building work, your own furniture or prior installations</li>
+      <li>Computer equipment</li>
+      <li>Printing and catering costs</li>
+      <li>VAT (all prices are shown without tax)</li>
+    </ul>
+  </div>
+</div>
+
 <h2>How to rent</h2>
-<ol>
-<li><strong>Call 918 298 500 or write</strong> through the form, telling us the city, how many people you are and whether you want it by the hour or by the month.</li>
-<li><strong>Visit the centre</strong> if you want to see it; if you already know it or are in a hurry, we confirm availability and price on the spot.</li>
-<li><strong>Sign and move in.</strong> The monthly contract is signed with a deposit, no guarantees and no investment, and the office is ready the same day.</li>
-</ol>
+<div class="srv-steps">
+  <div class="srv-step">
+    <div class="srv-step-n">1</div>
+    <div><h3>Call 918 298 500 or write on WhatsApp</h3><p>Tell us the city, how many people you are and whether you want it by the hour or by the month.</p></div>
+  </div>
+  <div class="srv-step">
+    <div class="srv-step-n">2</div>
+    <div><h3>Visit the centre</h3><p>If you want to see it; if you already know it or are in a hurry, we confirm availability and price on the spot.</p></div>
+  </div>
+  <div class="srv-step">
+    <div class="srv-step-n">3</div>
+    <div><h3>Sign and move in</h3><p>The monthly contract is signed with a deposit, no guarantees and no investment, and the office is ready the same day.</p></div>
+  </div>
+</div>
+
 <h2>Where</h2>
-<p>There are private offices at all 35 spaces in the network, across 17 cities: the full list, with the address, opening hours and office sizes of each centre, is on each city page. The eight Madrid centres also have 24-hour access.</p>
+<p>There are private offices at all 35 spaces in the network, across 17 cities: the full list, with the address, opening hours and office sizes of each centre, is on each city page.</p>
+<div class="srv-where">
+  <div class="srv-callout">
+    <div class="srv-callout-n">8 centres</div>
+    <p>The eight Madrid centres also have 24-hour access.</p>
+  </div>
+  <div class="srv-card-cities">
+    <a href="/en/offices-in-madrid/">Madrid<span class="chip-count">×8</span></a>
+    <a href="/en/offices-in-barcelona/">Barcelona<span class="chip-count">×3</span></a>
+    <a href="/en/offices-in-murcia/">Murcia<span class="chip-count">×3</span></a>
+    <a href="/en/offices-in-seville/">Seville<span class="chip-count">×3</span></a>
+    <a href="/en/offices-in-tenerife/">Tenerife<span class="chip-count">×3</span></a>
+    <a href="/en/offices-in-a-coruna/">A Coruña<span class="chip-count">×2</span></a>
+    <a href="/en/offices-in-bilbao/">Bilbao<span class="chip-count">×2</span></a>
+    <a href="/en/offices-in-segovia/">Segovia<span class="chip-count">×2</span></a>
+    <a href="/en/offices-in-albacete/">Albacete<span class="chip-count">×1</span></a>
+    <a href="/en/offices-in-alicante/">Alicante<span class="chip-count">×1</span></a>
+    <a href="/en/offices-in-castellon/">Castellón<span class="chip-count">×1</span></a>
+    <a href="/en/offices-in-malaga/">Málaga<span class="chip-count">×1</span></a>
+    <a href="/en/offices-in-merida/">Mérida<span class="chip-count">×1</span></a>
+    <a href="/en/offices-in-salamanca/">Salamanca<span class="chip-count">×1</span></a>
+    <a href="/en/offices-in-valencia/">Valencia<span class="chip-count">×1</span></a>
+    <a href="/en/offices-in-vigo/">Vigo<span class="chip-count">×1</span></a>
+    <a href="/en/offices-in-zaragoza/">Zaragoza<span class="chip-count">×1</span></a>
+  </div>
+</div>
+
   </article>
   <aside class="srv-aside">
-    <div class="srv-card">
-      <h3>What's included</h3>
-      <ul>
-        <li>Furnished, closed office for your exclusive use</li>
-        <li>High-speed WiFi</li>
-        <li>Phone line and furniture</li>
-        <li>Reception and visitor welcome at the centre</li>
-        <li>Daily cleaning and maintenance</li>
-        <li>Utilities (electricity, water, air conditioning)</li>
-        <li>Registered address with the monthly plan</li>
-        <li>Meeting-room hours included with the monthly plan at several centres</li>
-      </ul>
-    </div>
-    <div class="srv-card no">
-      <h3>What's not included</h3>
-      <ul>
-        <li>Building work, your own furniture or prior installations</li>
-        <li>Computer equipment</li>
-        <li>Printing and catering costs</li>
-        <li>VAT (all prices are shown without tax)</li>
-      </ul>
-    </div>
     <div class="srv-card">
       <h3>Where</h3>
       <p class="srv-card-cities-sub">Available in 17 cities</p>
@@ -716,8 +880,7 @@
       <h3>Shall we talk?</h3>
       <p>We confirm availability and price on the spot.</p>
       <a href="tel:918298500" class="a-tel">918 298 500</a>
-      <a href="https://wa.me/34624119705" class="a-wa" target="_blank" rel="noopener">WhatsApp 624 119 705</a>
-      <a href="/en/#contact" class="a-form">Contact form</a>
+      <a href="https://wa.me/34624119705?text=Hello%2C%20I%20am%20interested%20in%20renting%20a%20private%20office" class="a-wa" target="_blank" rel="noopener">WhatsApp 624 119 705</a>
     </div>
   </aside>
 </div>
@@ -729,32 +892,31 @@
       <div class="eyebrow" style="justify-content:center">FAQ</div>
       <h2 class="stitle">Frequently asked questions</h2>
       <p class="ssub">What people ask us about this service</p>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <h3>How much does a private office cost?</h3>
-        <p>By the hour, from €8.50 plus VAT, with the furnished office, WiFi and visitor reception included. By the month, from €270 plus VAT, with an exclusive office, registered address, cleaning and, at several centres, meeting-room hours included. The exact price depends on the size of the office and the centre: ask by phone or through the form.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What is the difference between the hourly and the monthly office?</h3>
-        <p>The hourly office is paid for the time you use and carries no commitment: it is the option for one-off meetings or occasional work. The monthly plan gives you a fixed office for your exclusive use, with your company registered at the centre. With the monthly plan the office is yours around the clock in Madrid and at the centres with permanent access.</p>
-      </div>
-      <div class="faq-item">
-        <h3>How long does it take to start working?</h3>
-        <p>The same day. The office comes furnished, with WiFi, phone and cleaning already running, so there is no building work, no move and no installation to wait for. You confirm availability on 918 298 500, sign the contract and move in. Compared with a conventional lease, where fitting out takes months, that is the main difference.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Is there a minimum term or a deposit?</h3>
-        <p>The hourly office has no minimum term. The monthly plan runs month to month, renews automatically and is cancelled with 15 to 30 days' notice depending on the centre. A deposit is paid on signing; the amount depends on the centre and the office. There are no bank guarantees and no upfront investment.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Can I use an office in another city of the network?</h3>
-        <p>Yes. Monthly office clients have workstations and hot desks across the whole network, and can book offices and meeting rooms by the hour at any of the 35 spaces in 17 cities. It is the usual way to meet a client in another city without opening a second office.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What office sizes are available?</h3>
-        <p>From individual offices of 6 m² up to 250 m² spaces for large teams. Each centre has its own range and availability changes every month, so each city page shows the size range and it is worth confirming by phone what is free.</p>
-      </div>
+    </div><div class="faq-acc">
+      <details class="faq-item" open>
+        <summary><h3>How much does a private office cost?</h3></summary>
+        <div class="faq-a"><p>By the hour, from €8.50 plus VAT, with the furnished office, WiFi and visitor reception included. By the month, from €270 plus VAT, with an exclusive office, registered address, cleaning and, at several centres, meeting-room hours included. The exact price depends on the size of the office and the centre: ask by phone or on WhatsApp.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>What is the difference between the hourly and the monthly office?</h3></summary>
+        <div class="faq-a"><p>The hourly office is paid for the time you use and carries no commitment: it is the option for one-off meetings or occasional work. The monthly plan gives you a fixed office for your exclusive use, with your company registered at the centre. With the monthly plan the office is yours around the clock in Madrid and at the centres with permanent access.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>How long does it take to start working?</h3></summary>
+        <div class="faq-a"><p>The same day. The office comes furnished, with WiFi, phone and cleaning already running, so there is no building work, no move and no installation to wait for. You confirm availability on 918 298 500, sign the contract and move in. Compared with a conventional lease, where fitting out takes months, that is the main difference.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Is there a minimum term or a deposit?</h3></summary>
+        <div class="faq-a"><p>The hourly office has no minimum term. The monthly plan runs month to month, renews automatically and is cancelled with 15 to 30 days' notice depending on the centre. A deposit is paid on signing; the amount depends on the centre and the office. There are no bank guarantees and no upfront investment.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>Can I use an office in another city of the network?</h3></summary>
+        <div class="faq-a"><p>Yes. Monthly office clients have workstations and hot desks across the whole network, and can book offices and meeting rooms by the hour at any of the 35 spaces in 17 cities. It is the usual way to meet a client in another city without opening a second office.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>What office sizes are available?</h3></summary>
+        <div class="faq-a"><p>From individual offices of 6 m² up to 250 m² spaces for large teams. Each centre has its own range and availability changes every month, so each city page shows the size range and it is worth confirming by phone what is free.</p></div>
+      </details>
     </div>
   </div>
 </section>
@@ -780,13 +942,16 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="srv-cta">
-  <h2 class="srv-cta-title">Shall we talk?</h2>
-  <p class="srv-cta-sub">We confirm availability and price on the spot.</p>
-  <div class="srv-cta-btns">
-    <a href="tel:918298500" class="btn-white">Call us · 918 298 500</a>
-    <a href="/en/#contact" class="btn-dark-solid">Contact form →</a>
+<!-- CIERRE (mismo bloque oscuro que las paginas de ciudad) -->
+<section class="city-close">
+  <div class="city-close-inner">
+    <div class="eyebrow" style="justify-content:center">What next?</div>
+    <h2 class="city-close-title">Sound right? Let's talk.</h2>
+    <p class="city-close-sub">Tell us the city, how many people you are and when you need it, and we will confirm availability and price on the spot. No commitment.</p>
+    <div class="city-close-btns">
+      <a href="https://wa.me/34624119705?text=Hello%2C%20I%20am%20interested%20in%20renting%20a%20private%20office" class="btn-close-primary" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg> Message us on WhatsApp</a>
+      <a href="tel:918298500" class="btn-close-secondary"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call us · 918 298 500</a>
+    </div>
   </div>
 </section>
 

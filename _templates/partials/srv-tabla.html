@@ -1,0 +1,11 @@
+{#- Tabla. Front matter: tabla { cabeceras[], filas[][] } -#}
+<div class="srv-table-wrap">
+<table>
+  <thead><tr>{% for h in page.tabla.cabeceras %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+  <tbody>
+{%- for fila in page.tabla.filas %}
+    <tr>{% for celda in fila %}<td>{% if loop.first %}<strong>{{ celda }}</strong>{% else %}{{ celda }}{% endif %}</td>{% endfor %}</tr>
+{%- endfor %}
+  </tbody>
+</table>
+</div>

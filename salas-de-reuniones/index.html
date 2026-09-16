@@ -254,6 +254,18 @@
     .faq-item { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 26px 28px; }
     .faq-item h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin-bottom: 10px; }
     .faq-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.7; }
+    /* acordeon (servicios): una columna, cerradas salvo la primera; el texto siempre esta en el HTML */
+    .faq-acc { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-acc details { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 0 28px; }
+    .faq-acc details[open] { border-color: var(--dark); }
+    .faq-acc summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; min-height: 44px; }
+    .faq-acc summary::-webkit-details-marker { display: none; }
+    .faq-acc summary h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin: 0; }
+    .faq-acc summary::after { content: ''; flex: 0 0 10px; width: 10px; height: 10px; border-right: 2px solid var(--dark); border-bottom: 2px solid var(--dark); transform: rotate(45deg); transition: transform .2s; margin-right: 4px; }
+    .faq-acc details[open] summary::after { transform: rotate(-135deg); }
+    .faq-acc summary:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; border-radius: 8px; }
+    .faq-acc .faq-a { padding: 0 0 22px; }
+    .faq-acc .faq-a p { color: var(--gray-600); font-size: .98rem; line-height: 1.75; max-width: 68ch; }
 
     /* ── CTA FINAL ── */
     .btn-white { background: var(--white); color: var(--orange); padding: 17px 40px; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
@@ -263,6 +275,7 @@
 
     /* ── TEXTO LARGO (articulo de servicio, texto de ciudad) ── */
     .srv-article { min-width: 0; }
+    .srv-article p, .srv-article li { max-width: 68ch; }   /* 65-75 caracteres por linea */
     .srv-article h2 { font-family: 'Barlow', sans-serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 800; line-height: 1.1; letter-spacing: -.5px; color: var(--dark); margin: 52px 0 18px; scroll-margin-top: 100px; }
     .srv-article h2:first-child { margin-top: 0; }
     .srv-article h3 { font-family: 'Barlow', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--dark); margin: 32px 0 12px; }
@@ -285,6 +298,17 @@
     @media (max-width: 600px) {
       .page-hero { padding: 120px 5% 56px; }
     }
+    /* CTA de cierre de la pagina */
+    .city-close { background: var(--dark); color: var(--white); padding: 88px 6%; text-align: center; }
+    .city-close-inner { max-width: 720px; margin: 0 auto; }
+    .city-close .eyebrow { color: var(--orange); }
+    .city-close-title { font-family: 'Barlow', sans-serif; font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.05; letter-spacing: -.5px; margin: 12px 0 16px; }
+    .city-close-sub { color: rgba(255,255,255,.72); font-size: 1.05rem; line-height: 1.7; margin: 0 auto 32px; max-width: 60ch; }
+    .city-close-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .city-close-btns a { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 32px; border-radius: 50px; font-size: 1rem; font-weight: 800; text-decoration: none; transition: transform .2s; }
+    .city-close-btns a:hover { transform: translateY(-3px); }
+    .btn-close-primary { background: var(--white); color: var(--dark); }
+    .btn-close-secondary { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.35); }
 
     .hero-offers { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
     .hero-offer { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 16px 22px; min-width: 200px; }
@@ -295,7 +319,7 @@
     .hero-offer-price .unit { font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.7); }
     .hero-offer-price .tax { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35); font-family: 'Inter', sans-serif; }
     .hero-offer-detail { font-size: .82rem; color: rgba(255,255,255,.5); margin-top: 6px; }
-    .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; }
+    .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start; }
     .srv-table-wrap { overflow-x: auto; }
     /* ── LATERAL ── */
     .srv-aside { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
@@ -320,8 +344,62 @@
     .srv-card.cta .a-tel:hover { background: var(--orange-dark); transform: translateY(-2px); }
     .srv-card.cta .a-wa { background: #25D366; color: var(--white); }
     .srv-card.cta .a-wa:hover { transform: translateY(-2px); }
-    .srv-card.cta .a-form { background: rgba(255,255,255,.08); color: var(--white); border: 1.5px solid rgba(255,255,255,.15); }
-    .srv-card.cta .a-form:hover { background: rgba(255,255,255,.14); }
+    /* ── BLOQUES DEL CUERPO (misma familia que las fichas de ciudad: tarjeta blanca, borde gray-200, radio 18) ── */
+    .srv-cards { display: grid; gap: 14px; margin: 22px 0 28px; }
+    .srv-cards-2 { grid-template-columns: 1fr 1fr; }
+    .srv-cards-4 { grid-template-columns: repeat(2, 1fr); }
+    .srv-cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .srv-mini { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+    .srv-mini-n { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; background: var(--orange-pale); color: var(--orange-dark); font-family: 'Barlow', sans-serif; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; }
+    .srv-mini p { margin: 0; font-size: .96rem; line-height: 1.6; color: var(--dark-mid); }
+    .srv-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 28px; }
+    .srv-stat { background: var(--dark); color: var(--white); border-radius: 18px; padding: 20px 22px; }
+    .srv-stat-n { font-family: 'Barlow', sans-serif; font-size: 2.1rem; font-weight: 900; color: var(--orange); line-height: 1; }
+    .srv-stat-l { font-size: .85rem; color: rgba(255,255,255,.72); margin-top: 6px; line-height: 1.4; }
+    .srv-cards-2.srv-formas { grid-template-columns: 1fr; }   /* una forma por fila: precio a la izquierda, texto a la derecha */
+    .srv-option { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 22px 26px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 24px; align-items: start; }
+    .srv-option-hd { border-right: 1px solid var(--gray-200); padding-right: 20px; align-self: stretch; }
+    .srv-option-name { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-600); margin-bottom: 8px; }
+    .srv-option-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; font-family: 'Barlow', sans-serif; line-height: 1; }
+    .srv-option-price .from { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 600; color: var(--gray-600); }
+    .srv-option-price .num { font-size: 2rem; font-weight: 900; color: var(--orange-dark); }
+    .srv-option-price .num.small { font-size: 1.5rem; color: var(--orange-dark); }
+    .srv-option-price .unit { font-size: .95rem; font-weight: 700; color: var(--dark-mid); }
+    .srv-option-price .tax { font-family: 'Inter', sans-serif; font-size: .72rem; font-weight: 600; color: var(--gray-600); }
+    .srv-option p { margin: 0; font-size: .96rem; line-height: 1.7; }
+    .srv-option-body { min-width: 0; }
+    .srv-option-list { margin: 12px 0 0 18px; font-size: .94rem; line-height: 1.6; }
+    .srv-option-list li { margin-bottom: 6px; }
+    .srv-callout { display: flex; gap: 20px; align-items: center; background: var(--orange-pale); border-radius: 18px; padding: 20px 24px; margin: 0 0 22px; }
+    .srv-callout-n { font-family: 'Barlow', sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--orange-dark); line-height: 1; white-space: nowrap; }
+    .srv-callout p { margin: 0; font-size: .96rem; line-height: 1.6; color: var(--dark-mid); }
+    .srv-note, .srv-article blockquote { border-left: 3px solid var(--orange); padding: 4px 0 4px 20px; margin: 0 0 28px; }
+    .srv-article blockquote p { margin: 0 0 10px; }
+    .srv-article blockquote p:last-child { margin: 0; }
+    .srv-note p { margin: 0; font-size: .96rem; line-height: 1.7; }
+    .srv-tarjetas.srv-cards-2 > .srv-feature:last-child:nth-child(odd) { grid-column: 1 / -1; }   /* impar: la ultima a todo el ancho */
+    .srv-feature { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 20px 22px; }
+    .srv-feature h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .srv-feature p { margin: 0; font-size: .95rem; line-height: 1.65; }
+    .srv-table-wrap { margin: 18px 0 28px; border: 1.5px solid var(--gray-200); border-radius: 18px; overflow-x: auto; }
+    .srv-table-wrap table { margin: 0; min-width: 640px; }
+    .srv-table-wrap th { background: var(--gray-50); padding: 14px 16px; }
+    .srv-table-wrap td { padding: 14px 16px; font-size: .93rem; line-height: 1.55; color: var(--gray-600); }
+    .srv-table-wrap td strong { color: var(--dark); }
+    .srv-table-wrap th:nth-child(1) { width: 13%; }
+    .srv-table-wrap th:nth-child(2) { width: 40%; }
+    .srv-table-wrap th:nth-child(3) { width: 19%; }
+    .srv-table-wrap tr:last-child td { border-bottom: none; }
+    .srv-incl { margin-top: 18px; }
+    .srv-incl .srv-card { background: var(--white); }
+    .srv-incl .srv-card h3 { margin-top: 0; }
+    .srv-steps { display: flex; flex-direction: column; gap: 12px; margin: 22px 0 28px; }
+    .srv-step { display: flex; gap: 18px; align-items: flex-start; background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 20px 24px; }
+    .srv-step-n { flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%; background: var(--dark); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; }
+    .srv-step h3 { margin: 4px 0 6px; font-size: 1.15rem; }
+    .srv-step p { margin: 0; font-size: .96rem; line-height: 1.65; }
+    .srv-where { margin: 22px 0 8px; }
+    .srv-where .srv-card-cities a .chip-count { color: var(--gray-600); font-weight: 600; margin-left: 5px; font-size: .78rem; }
     .srv-faq { background: var(--gray-50); padding: 88px 6%; }
     .srv-faq-inner { max-width: 1200px; margin: 0 auto; }
     .srv-faq-hd { text-align: center; margin-bottom: 48px; }
@@ -334,16 +412,16 @@
     .srv-other:hover { border-color: var(--orange); transform: translateY(-3px); }
     .srv-other-name { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
     .srv-other-sub { font-size: .9rem; color: var(--gray-600); line-height: 1.5; }
-    .srv-cta { background: var(--orange); padding: 80px 6%; text-align: center; position: relative; overflow: hidden; }
-    .srv-cta::before { content: ''; position: absolute; top: -150px; left: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.1); }
-    .srv-cta-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; margin-bottom: 14px; position: relative; }
-    .srv-cta-sub { color: rgba(255,255,255,.8); font-size: 1.05rem; margin-bottom: 32px; position: relative; }
-    .srv-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
     @media (max-width: 900px) {
       .srv-layout { grid-template-columns: 1fr; gap: 48px; }
       .srv-aside { position: static; }
     }
     @media (max-width: 600px) {
+      .srv-cards-2, .srv-cards-3, .srv-cards-4, .srv-stats { grid-template-columns: 1fr; }
+      .srv-callout { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .srv-option { grid-template-columns: 1fr; gap: 14px; }
+      .srv-option-hd { border-right: none; border-bottom: 1px solid var(--gray-200); padding: 0 0 14px; }
+      .faq-acc details { padding: 0 20px; }
       .srv-layout { padding: 56px 5% 24px; }
       .srv-faq, .srv-others { padding: 64px 5%; }
       .hero-offer { min-width: 0; flex: 1 1 100%; }
@@ -478,7 +556,7 @@
           "name": "¿Cuánto cuesta alquilar una sala de reuniones?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Se paga por horas, desde una hora, y la tarifa depende de la capacidad de la sala y del centro: no es lo mismo una sala de cuatro personas en Segovia que un auditorio de 200 en Murcia. Los clientes de despacho mensual tienen horas de sala incluidas en varios centros. Pide precio para la sala concreta en el 918 298 500 o en el formulario."
+            "text": "Se paga por horas, desde una hora, y la tarifa depende de la capacidad de la sala y del centro: no es lo mismo una sala de cuatro personas en Segovia que un auditorio de 200 en Murcia. Los clientes de despacho mensual tienen horas de sala incluidas en varios centros. Pide precio para la sala concreta en el 918 298 500 o por WhatsApp."
           }
         },
         {
@@ -593,7 +671,7 @@
     <p class="page-hero-sub">Salas de 2 a 275 personas, desde una hora y cualquier día del año. Equipadas, con recepción de visitas y, si hace falta, catering. En 17 ciudades.</p>
     <div class="hero-btns">
       <a href="tel:918298500" class="btn-orange">Llamar · 918 298 500</a>
-      <a href="/#contact" class="btn-ghost">Pedir presupuesto →</a>
+      <a href="https://wa.me/34624119705?text=Hola%2C%20quiero%20reservar%20una%20sala%20de%20reuniones" class="btn-ghost" target="_blank" rel="noopener">WhatsApp →</a>
     </div>
   </div>
 </div>
@@ -602,50 +680,146 @@
 <div class="srv-layout">
   <article class="srv-article">
 <h2>Salas para cada tipo de reunión</h2>
-<p>Cada centro de la red tiene al menos una sala de reuniones equipada, y la mayoría varias de distintos tamaños. Las más pequeñas, de dos a cuatro personas, sirven para una entrevista, una videollamada que no quieres hacer desde un despacho abierto o una reunión con un cliente. Las medianas, de ocho a veinte, son las salas de juntas clásicas, con mesa central, pantalla y pizarra. Y en algunos centros hay espacios grandes: hasta 50 personas en Capitán Haya (Madrid), A Coruña o Segovia, 90 en el Edificio Galia Puerto de Sevilla (150 en formato abierto), 200 en Marla Center y 275 en el Edificio Magalia, los dos en Murcia.</p>
-<p>Todas se contratan igual: por horas, desde una hora, cualquier día del año. Reservas el tiempo que necesitas, llegas, la recepción recibe a tus invitados y te acompaña a la sala, y cuando terminas te vas. No hay cuota, ni permanencia, ni hace falta ser cliente de la red.</p>
+<p>Cada centro de la red tiene al menos una sala de reuniones equipada, y la mayoría varias de distintos tamaños.</p>
+
+<div class="srv-stats">
+  <div class="srv-stat"><div class="srv-stat-n">De 2 a 275</div><div class="srv-stat-l">personas por sala, según el centro</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">Desde 1 hora</div><div class="srv-stat-l">cualquier día del año, sin cuota ni permanencia</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">33 espacios</div><div class="srv-stat-l">de la red tienen sala de reuniones</div></div>
+</div>
+
+
+<div class="srv-cards srv-cards-2 srv-formas">
+  <div class="srv-option">
+    <div class="srv-option-hd">
+      <div class="srv-option-name">Salas pequeñas</div>
+      <div class="srv-option-price"><span class="num small">2 a 4 personas</span></div>
+    </div>
+    <div class="srv-option-body">
+      <p>Las más pequeñas sirven para una entrevista, una videollamada que no quieres hacer desde un despacho abierto o una reunión con un cliente.</p>
+    </div>
+  </div>
+  <div class="srv-option">
+    <div class="srv-option-hd">
+      <div class="srv-option-name">Salas medianas</div>
+      <div class="srv-option-price"><span class="num small">8 a 20 personas</span></div>
+    </div>
+    <div class="srv-option-body">
+      <p>Las medianas son las salas de juntas clásicas, con mesa central, pantalla y pizarra.</p>
+    </div>
+  </div>
+  <div class="srv-option">
+    <div class="srv-option-hd">
+      <div class="srv-option-name">Espacios grandes</div>
+      <div class="srv-option-price"><span class="num small">Hasta 275</span></div>
+    </div>
+    <div class="srv-option-body">
+      <p>Y en algunos centros hay espacios grandes:</p>
+      <ul class="srv-option-list">
+        <li>Hasta 50 personas en Capitán Haya (Madrid), A Coruña o Segovia.</li>
+        <li>90 en el Edificio Galia Puerto de Sevilla (150 en formato abierto).</li>
+        <li>200 en Marla Center y 275 en el Edificio Magalia, los dos en Murcia.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<p>Todas se contratan igual: por horas, desde una hora, cualquier día del año. Reservas el tiempo que necesitas, llegas, la recepción recibe a tus invitados y te acompaña a la sala, y cuando terminas te vas.</p>
+<p>No hay cuota, ni permanencia, ni hace falta ser cliente de la red.</p>
 <h2>Qué incluye la reserva</h2>
-<p>La sala se entrega montada y con el equipamiento en marcha: pantalla o proyector, pizarra, WiFi de alta velocidad, sistema de videoconferencia e impresora a disposición. La recepción del centro atiende a tus visitas, también en otros idiomas, y les indica la sala. Hay café y agua, y la sala se limpia entre una reserva y la siguiente.</p>
+<p>La sala se entrega montada y con el equipamiento en marcha: pantalla o proyector, pizarra, WiFi de alta velocidad, sistema de videoconferencia e impresora a disposición.</p>
+<p>La recepción del centro atiende a tus visitas, también en otros idiomas, y les indica la sala. Hay café y agua, y la sala se limpia entre una reserva y la siguiente.</p>
 <p>El catering se contrata aparte y a petición: un desayuno de trabajo, un descanso a media mañana o un almuerzo para una jornada completa. Lo pides al reservar y está servido a la hora acordada. El parking depende del centro; en la ficha de cada ciudad se indica cuáles lo tienen.</p>
+<div class="srv-cards srv-cards-2 srv-incl">
+  <div class="srv-card">
+    <h3>Qué incluye</h3>
+    <ul>
+      <li>Salas de 2 a 275 personas, según el centro</li>
+      <li>Sala equipada con pantalla o proyector y pizarra</li>
+      <li>Videoconferencia</li>
+      <li>WiFi de alta velocidad</li>
+      <li>Recepción de visitas, con idiomas</li>
+      <li>Café y agua</li>
+      <li>Impresora a disposición</li>
+      <li>Limpieza entre reservas</li>
+    </ul>
+  </div>
+  <div class="srv-card no">
+    <h3>Qué no incluye</h3>
+    <ul>
+      <li>Catering (se contrata aparte, a petición)</li>
+      <li>Consumos de impresión</li>
+      <li>Parking, salvo en los centros que lo tienen</li>
+      <li>IVA (todos los precios son sin impuestos)</li>
+    </ul>
+  </div>
+</div>
+
 <h2>Precio</h2>
-<p>Las salas se pagan por horas y la tarifa depende de dos cosas: la capacidad de la sala y el centro. Una sala de cuatro personas en una ciudad pequeña y un auditorio de 200 no cuestan lo mismo, y no tendría sentido publicar un único "desde" que no sirviera para ninguna de las dos. Pide precio para la sala concreta que necesitas y te lo damos en el momento. Todos los precios son sin IVA.</p>
+<p>Las salas se pagan por horas y la tarifa depende de dos cosas: la capacidad de la sala y el centro.</p>
+<p>Una sala de cuatro personas en una ciudad pequeña y un auditorio de 200 no cuestan lo mismo, y no tendría sentido publicar un único "desde" que no sirviera para ninguna de las dos. Pide precio para la sala concreta que necesitas y te lo damos en el momento. Todos los precios son sin IVA.</p>
+<blockquote>
 <p>Si eres cliente de despacho mensual, en varios centros la cuota incluye horas de sala al mes; consulta el detalle del tuyo. Los clientes de oficina virtual y Smart Office reservan salas y despachos por horas con la misma tarifa por horas.</p>
+</blockquote>
 <h2 id="eventos">Formatos: reunión, formación y eventos</h2>
 <p>La mayoría de las salas admiten varias configuraciones, y en los centros grandes se monta a medida: mesa de juntas para una reunión, disposición en aula o en U para una formación, auditorio o cóctel para un evento.</p>
-<p><strong>Formación.</strong> Los centros de Castellón (Dean Martí), A Coruña (Andrés Martínez Salazar) y Valencia (Guillem de Castro) tienen aulas de formación con proyector, para grupos de entre 18 y 28 personas. Son la opción para cursos internos, sesiones con clientes o exámenes de certificación.</p>
-<p><strong>Eventos.</strong> Para presentaciones de producto, jornadas de empresa o convenciones, los espacios de gran capacidad están en Murcia —Marla Center, hasta 200 personas, con recepción abierta de 7:00 a 24:00 entre semana, y el Edificio Magalia de Alcantarilla, hasta 275— y en Sevilla, en el Edificio Galia Puerto, con salas de 12 a 90 personas y 150 en formato abierto. Se organizan con catering, apoyo de recepción y montaje previo.</p>
+<div class="srv-table-wrap">
+<table>
+  <thead><tr><th>Formato</th><th>Dónde</th><th>Aforo</th><th>Para qué</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Reunión</strong></td><td>Todos los centros: mesa de juntas con pantalla y pizarra, y en los centros grandes se monta a medida.</td><td>De 2 a 50 personas</td><td>Reuniones con clientes, entrevistas, videollamadas y juntas.</td></tr>
+    <tr><td><strong>Formación</strong></td><td>Castellón (Dean Martí), A Coruña (Andrés Martínez Salazar) y Valencia (Guillem de Castro): aulas de formación con proyector y disposición en aula o en U.</td><td>Grupos de entre 18 y 28 personas</td><td>Cursos internos, sesiones con clientes o exámenes de certificación.</td></tr>
+    <tr><td><strong>Eventos</strong></td><td>Murcia: Marla Center, con recepción abierta de 7:00 a 24:00 entre semana, y el Edificio Magalia de Alcantarilla. Sevilla: Edificio Galia Puerto, con salas de 12 a 90 personas y 150 en formato abierto.</td><td>Hasta 200 personas en Marla Center y hasta 275 en el Edificio Magalia; auditorio o cóctel</td><td>Presentaciones de producto, jornadas de empresa o convenciones. Se organizan con catering, apoyo de recepción y montaje previo.</td></tr>
+  </tbody>
+</table>
+</div>
+
 <h2>Cómo se reserva</h2>
-<ol>
-<li><strong>Llama al 918 298 500 o escribe</strong> con la ciudad, el número de asistentes, la fecha y las horas. Si necesitas videoconferencia, catering o un montaje concreto, dilo en ese momento.</li>
-<li><strong>Confirmación en el acto</strong> de sala, precio y horario. Para eventos y salas grandes, con visita previa si quieres ver el espacio.</li>
-<li><strong>El día de la reunión</strong> llegas a recepción, te acompañan a la sala y todo está en marcha. Al terminar, pagas solo el tiempo reservado.</li>
-</ol>
+<div class="srv-steps">
+  <div class="srv-step">
+    <div class="srv-step-n">1</div>
+    <div><h3>Llama al 918 298 500 o escribe por WhatsApp</h3><p>Con la ciudad, el número de asistentes, la fecha y las horas. Si necesitas videoconferencia, catering o un montaje concreto, dilo en ese momento.</p></div>
+  </div>
+  <div class="srv-step">
+    <div class="srv-step-n">2</div>
+    <div><h3>Confirmación en el acto</h3><p>De sala, precio y horario. Para eventos y salas grandes, con visita previa si quieres ver el espacio.</p></div>
+  </div>
+  <div class="srv-step">
+    <div class="srv-step-n">3</div>
+    <div><h3>El día de la reunión</h3><p>Llegas a recepción, te acompañan a la sala y todo está en marcha. Al terminar, pagas solo el tiempo reservado.</p></div>
+  </div>
+</div>
+
 <h2>Dónde</h2>
-<p>Hay salas de reuniones en 33 de los 35 espacios de la red, en las 17 ciudades. La capacidad de cada sala, la dirección y el horario de recepción de cada centro están en la página de su ciudad. En Madrid, los ocho centros tienen acceso 24 horas, así que la reunión puede ser a la hora que la necesites.</p>
+<p>Hay salas de reuniones en 33 de los 35 espacios de la red, en las 17 ciudades. La capacidad de cada sala, la dirección y el horario de recepción de cada centro están en la página de su ciudad.</p>
+<div class="srv-where">
+  <div class="srv-callout">
+    <div class="srv-callout-n">8 centros</div>
+    <p>En Madrid, los ocho centros tienen acceso 24 horas, así que la reunión puede ser a la hora que la necesites.</p>
+  </div>
+  <div class="srv-card-cities">
+    <a href="/oficinas-en-madrid/">Madrid<span class="chip-count">×8</span></a>
+    <a href="/oficinas-en-barcelona/">Barcelona<span class="chip-count">×3</span></a>
+    <a href="/oficinas-en-murcia/">Murcia<span class="chip-count">×3</span></a>
+    <a href="/oficinas-en-sevilla/">Sevilla<span class="chip-count">×3</span></a>
+    <a href="/oficinas-en-tenerife/">Tenerife<span class="chip-count">×3</span></a>
+    <a href="/oficinas-en-a-coruna/">A Coruña<span class="chip-count">×2</span></a>
+    <a href="/oficinas-en-bilbao/">Bilbao<span class="chip-count">×2</span></a>
+    <a href="/oficinas-en-segovia/">Segovia<span class="chip-count">×2</span></a>
+    <a href="/oficinas-en-albacete/">Albacete<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-alicante/">Alicante<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-castellon/">Castellón<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-malaga/">Málaga<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-merida/">Mérida<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-salamanca/">Salamanca<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-valencia/">Valencia<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-vigo/">Vigo<span class="chip-count">×1</span></a>
+    <a href="/oficinas-en-zaragoza/">Zaragoza<span class="chip-count">×1</span></a>
+  </div>
+</div>
+
   </article>
   <aside class="srv-aside">
-    <div class="srv-card">
-      <h3>Qué incluye</h3>
-      <ul>
-        <li>Salas de 2 a 275 personas, según el centro</li>
-        <li>Sala equipada con pantalla o proyector y pizarra</li>
-        <li>Videoconferencia</li>
-        <li>WiFi de alta velocidad</li>
-        <li>Recepción de visitas, con idiomas</li>
-        <li>Café y agua</li>
-        <li>Impresora a disposición</li>
-        <li>Limpieza entre reservas</li>
-      </ul>
-    </div>
-    <div class="srv-card no">
-      <h3>Qué no incluye</h3>
-      <ul>
-        <li>Catering (se contrata aparte, a petición)</li>
-        <li>Consumos de impresión</li>
-        <li>Parking, salvo en los centros que lo tienen</li>
-        <li>IVA (todos los precios son sin impuestos)</li>
-      </ul>
-    </div>
     <div class="srv-card">
       <h3>Dónde</h3>
       <p class="srv-card-cities-sub">Disponible en 17 ciudades</p>
@@ -673,8 +847,7 @@
       <h3>¿Hablamos?</h3>
       <p>Te confirmamos disponibilidad y precio en el momento.</p>
       <a href="tel:918298500" class="a-tel">918 298 500</a>
-      <a href="https://wa.me/34624119705" class="a-wa" target="_blank" rel="noopener">WhatsApp 624 119 705</a>
-      <a href="/#contact" class="a-form">Formulario de contacto</a>
+      <a href="https://wa.me/34624119705?text=Hola%2C%20quiero%20reservar%20una%20sala%20de%20reuniones" class="a-wa" target="_blank" rel="noopener">WhatsApp 624 119 705</a>
     </div>
   </aside>
 </div>
@@ -686,32 +859,31 @@
       <div class="eyebrow" style="justify-content:center">FAQ</div>
       <h2 class="stitle">Preguntas frecuentes</h2>
       <p class="ssub">Lo que nos preguntan sobre este servicio</p>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <h3>¿Cuánto cuesta alquilar una sala de reuniones?</h3>
-        <p>Se paga por horas, desde una hora, y la tarifa depende de la capacidad de la sala y del centro: no es lo mismo una sala de cuatro personas en Segovia que un auditorio de 200 en Murcia. Los clientes de despacho mensual tienen horas de sala incluidas en varios centros. Pide precio para la sala concreta en el 918 298 500 o en el formulario.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Con cuánta antelación hay que reservar?</h3>
-        <p>Para una sala pequeña, con confirmar disponibilidad por teléfono suele bastar el mismo día. Para salas grandes, formatos de auditorio o con catering conviene reservar con algunos días de margen, porque hay que preparar el montaje y el servicio. En cualquier caso, cuanto antes reserves, más opciones de sala y horario tendrás.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Se puede reservar fuera del horario de oficina o en festivo?</h3>
-        <p>Sí, en los centros con acceso 24 horas —los ocho de Madrid y los centros seleccionados fuera de Madrid— la sala se puede usar de noche, en fin de semana o en festivo. En el resto de centros la reserva se ajusta al horario de recepción, que figura en la ficha de cada centro. Pagas solo el tiempo reservado.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Qué equipamiento tiene la sala?</h3>
-        <p>Pantalla o proyector, pizarra, WiFi de alta velocidad, videoconferencia e impresora a disposición, con café y agua. Las salas de formación disponen además de configuración en aula. Si necesitas algo concreto —un equipo de sonido, un montaje especial, catering para el descanso— dilo al reservar y lo dejamos preparado antes de que lleguéis.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Puedo usar una sala en una ciudad donde no soy cliente?</h3>
-        <p>Sí. Las salas se alquilan por horas a cualquier empresa, sea o no cliente de la red. Si tu empresa tiene sede en Madrid pero necesitas reunirte con un cliente en Sevilla o Bilbao, reservas la sala del centro de esa ciudad y te reciben en recepción como si fuera tu oficina. Es uno de los usos más habituales.</p>
-      </div>
-      <div class="faq-item">
-        <h3>¿Organizáis eventos y formaciones?</h3>
-        <p>Sí. Los centros de Murcia (Marla Center y Edificio Magalia) y el Edificio Galia Puerto de Sevilla tienen espacios para eventos de entre 90 y 275 personas, en formato auditorio, cóctel o conferencia. Para formación hay aulas en Castellón, A Coruña y Valencia, con proyector y disposición de aula. El resto de centros ofrece salas de hasta 50 personas.</p>
-      </div>
+    </div><div class="faq-acc">
+      <details class="faq-item" open>
+        <summary><h3>¿Cuánto cuesta alquilar una sala de reuniones?</h3></summary>
+        <div class="faq-a"><p>Se paga por horas, desde una hora, y la tarifa depende de la capacidad de la sala y del centro: no es lo mismo una sala de cuatro personas en Segovia que un auditorio de 200 en Murcia. Los clientes de despacho mensual tienen horas de sala incluidas en varios centros. Pide precio para la sala concreta en el 918 298 500 o por WhatsApp.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Con cuánta antelación hay que reservar?</h3></summary>
+        <div class="faq-a"><p>Para una sala pequeña, con confirmar disponibilidad por teléfono suele bastar el mismo día. Para salas grandes, formatos de auditorio o con catering conviene reservar con algunos días de margen, porque hay que preparar el montaje y el servicio. En cualquier caso, cuanto antes reserves, más opciones de sala y horario tendrás.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Se puede reservar fuera del horario de oficina o en festivo?</h3></summary>
+        <div class="faq-a"><p>Sí, en los centros con acceso 24 horas —los ocho de Madrid y los centros seleccionados fuera de Madrid— la sala se puede usar de noche, en fin de semana o en festivo. En el resto de centros la reserva se ajusta al horario de recepción, que figura en la ficha de cada centro. Pagas solo el tiempo reservado.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Qué equipamiento tiene la sala?</h3></summary>
+        <div class="faq-a"><p>Pantalla o proyector, pizarra, WiFi de alta velocidad, videoconferencia e impresora a disposición, con café y agua. Las salas de formación disponen además de configuración en aula. Si necesitas algo concreto —un equipo de sonido, un montaje especial, catering para el descanso— dilo al reservar y lo dejamos preparado antes de que lleguéis.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Puedo usar una sala en una ciudad donde no soy cliente?</h3></summary>
+        <div class="faq-a"><p>Sí. Las salas se alquilan por horas a cualquier empresa, sea o no cliente de la red. Si tu empresa tiene sede en Madrid pero necesitas reunirte con un cliente en Sevilla o Bilbao, reservas la sala del centro de esa ciudad y te reciben en recepción como si fuera tu oficina. Es uno de los usos más habituales.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><h3>¿Organizáis eventos y formaciones?</h3></summary>
+        <div class="faq-a"><p>Sí. Los centros de Murcia (Marla Center y Edificio Magalia) y el Edificio Galia Puerto de Sevilla tienen espacios para eventos de entre 90 y 275 personas, en formato auditorio, cóctel o conferencia. Para formación hay aulas en Castellón, A Coruña y Valencia, con proyector y disposición de aula. El resto de centros ofrece salas de hasta 50 personas.</p></div>
+      </details>
     </div>
   </div>
 </section>
@@ -737,13 +909,16 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="srv-cta">
-  <h2 class="srv-cta-title">¿Hablamos?</h2>
-  <p class="srv-cta-sub">Te confirmamos disponibilidad y precio en el momento.</p>
-  <div class="srv-cta-btns">
-    <a href="tel:918298500" class="btn-white">Llamar · 918 298 500</a>
-    <a href="/#contact" class="btn-dark-solid">Formulario de contacto →</a>
+<!-- CIERRE (mismo bloque oscuro que las paginas de ciudad) -->
+<section class="city-close">
+  <div class="city-close-inner">
+    <div class="eyebrow" style="justify-content:center">¿Y ahora qué?</div>
+    <h2 class="city-close-title">¿Te encaja? Hablemos.</h2>
+    <p class="city-close-sub">Dinos la ciudad, cuántas personas sois y desde cuándo lo necesitas, y te confirmamos disponibilidad y precio en el momento. Sin compromiso.</p>
+    <div class="city-close-btns">
+      <a href="https://wa.me/34624119705?text=Hola%2C%20quiero%20reservar%20una%20sala%20de%20reuniones" class="btn-close-primary" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg> Escribir por WhatsApp</a>
+      <a href="tel:918298500" class="btn-close-secondary"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Llamar · 918 298 500</a>
+    </div>
   </div>
 </section>
 
