@@ -1,9 +1,5 @@
 {% extends "base.html" %}
-{% block nav_variant %}dark    .blog-title a, .blog-feat-title a { color: inherit; text-decoration: none; }
-    .blog-title a:hover, .blog-feat-title a:hover { color: var(--orange-dark); }
-    .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--orange); color: var(--orange); padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: .95rem; text-decoration: none; transition: background .3s, color .3s, transform .3s; }
-    .btn-outline:hover { background: var(--orange); color: var(--white); transform: translateY(-2px); }
-{% endblock %}
+{% block nav_variant %}dark{% endblock %}
 
 {% block css %}
     /* ── NAV ── */
@@ -162,6 +158,10 @@
       .nl-form input, .nl-form button { border-radius: 12px; border: 2px solid var(--gray-200); }
       .nl-form input { border-right: 2px solid var(--gray-200); margin-bottom: 8px; }
     }
+    .blog-title a, .blog-feat-title a { color: inherit; text-decoration: none; }
+    .blog-title a:hover, .blog-feat-title a:hover { color: var(--orange-dark); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--orange); color: var(--orange); padding: 14px 36px; border-radius: 50px; font-weight: 700; font-size: .95rem; text-decoration: none; transition: background .3s, color .3s, transform .3s; }
+    .btn-outline:hover { background: var(--orange); color: var(--white); transform: translateY(-2px); }
 {% endblock %}
 
 {% block js %}
