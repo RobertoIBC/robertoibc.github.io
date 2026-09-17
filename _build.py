@@ -436,6 +436,27 @@ def jsonld_articulo(p, site, lang, i18n, urls):
             {'@type': 'ListItem', 'position': 3, 'name': p['titulo'], 'item': p['abs_url']}]}]}
 
 
+# Los datos de ficha (horario, salas, despachos) vienen del CSV en espanol y el cliente los mantiene
+# ahi. Para la version inglesa se traducen por tokens al generar; nada que escribir en el CSV.
+# "Centro autonomo" se traduce sin afirmar ni negar recepcion (acordado para Albacete).
+FACT_TOKENS_EN = [
+    (r'Recepci[oó]n', 'Reception'), (r'Centro aut[oó]nomo', 'Autonomous centre'),
+    (r'clientes acceso 24/7', 'client access 24/7'), (r'acceso clientes 24/7', 'client access 24/7'),
+    (r'[Aa]cceso 24/7', 'access 24/7'), (r'[Aa]cceso 24h', 'access 24h'), (r'acceso bajo petici[oó]n', 'access on request'),
+    (r'\bL-J\b', 'Mon–Thu'), (r'\bL-V\b', 'Mon–Fri'), (r'\bS-D\b', 'Sat–Sun'), (r'tardes de L a J', 'afternoons Mon to Thu'),
+    (r'\bV hasta\b', 'Fri until'), (r'\bV (?=\d)', 'Fri '), (r'\bJul-sep\b', 'Jul–Sep'), (r'Resto del a[nñ]o', 'Rest of the year'),
+    (r'jornada completa', 'full day'), (r'\bverano\b', 'summer'), (r'\bAgosto\b', 'August'),
+    (r'\bhasta (?=\d)', 'up to '), (r'\baula\b', 'classroom'), (r'\bsala\b', 'room'), (r'en formato abierto', 'in an open layout'),
+    (r'(?<=\d) a (?=\d)', ' to '), (r'(?<=\d) y (?=\d)', ' and '), (r'(?<=\d) y (?=\d)', ' and '), (r'\by\b', 'and'),
+]
+
+
+def facts_en(text):
+    for pat, rep_ in FACT_TOKENS_EN:
+        text = re.sub(pat, rep_, text)
+    return text
+
+
 def slugify(text):
     import unicodedata
     t = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
@@ -591,6 +612,11 @@ def build(check=False):
                     c['texto_html'] = render_markdown(env.from_string(o['texto']).render(ctx)) if o.get('texto') else ''
                     c['descripcion_corta'] = o.get('descripcion')
                     c['tag_labels'] = [t['ciudad']['tags'].get(x, x) for x in c['tags']]
+                    # datos de ficha en el idioma de la pagina (el CSV esta en espanol)
+                    tr = facts_en if lang == 'en' else (lambda x: x)
+                    c['horario_txt'] = tr(c['horario'])
+                    c['salas_txt'] = tr(c['capacidad_salas']) if c['capacidad_salas'] else ''
+                    c['m2_txt'] = tr(c['despachos_m2'].replace('m2', 'm²')) if c['despachos_m2'] else ''
                 # grupos: por zonas si la pagina las define, si no un solo grupo sin titulo
                 if p.get('zonas'):
                     by_name = {c['centro']: c for c in city['centros']}

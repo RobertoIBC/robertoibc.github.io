@@ -35,6 +35,13 @@ tel_e164: "+34918298500"
 whatsapp: 624 119 705
 whatsapp_link: "34624119705"
 email: hola@oficinasya.es
+# Redes sociales: las que enlaza hoy www.oficinasya.es (PROVISIONAL: pendiente de que el cliente confirme
+# cuentas, ver PREGUNTAS-CLIENTE.md bloque 6). Pie, JSON-LD de la home (sameAs) y llms.txt leen de aqui.
+redes:
+  facebook: https://www.facebook.com/Oficinas-YA-597501736950272/
+  linkedin: https://www.linkedin.com/in/oficinas-ya-856bb575/
+  twitter: https://twitter.com/oficinasYA
+  instagram: https://www.instagram.com/Oficinas_YA/
 
 # Titular
 empresa: IBCNET ESPAÑA SL

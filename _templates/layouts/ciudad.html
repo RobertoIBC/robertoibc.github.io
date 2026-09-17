@@ -182,7 +182,7 @@
 {%- for c in grp.centros %}
       <div class="centre{% if not c.foto %} no-photo{% endif %}" id="{{ c.anchor }}">
 {%- if c.foto %}
-        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="{{ c.foto }}" alt="{{ c.centro }}, OficinasYA! {{ c.ciudad }}" />
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="{{ c.foto }}" alt="{{ c.centro }}, OficinasYA! {{ cname }}" />
 {%- if c.acceso_24h %}
           <span class="badge">{{ t.ciudad.access24 }}</span>
 {%- endif %}
@@ -195,9 +195,9 @@
           <div class="centre-text">{{ c.texto_html }}</div>
 {%- endif %}
           <div class="centre-facts">
-            <div><div class="fact-lbl">{{ t.ciudad.hours }}</div><div class="fact-val">{{ c.horario }}</div></div>
-            <div><div class="fact-lbl">{{ t.ciudad.offices }}</div><div class="fact-val">{{ c.despachos_m2.replace('m2', 'm²') if c.despachos_m2 else t.ciudad.no_data }}</div></div>
-            <div><div class="fact-lbl">{{ t.ciudad.rooms }}</div><div class="fact-val">{{ c.capacidad_salas or t.ciudad.no_data }}</div></div>
+            <div><div class="fact-lbl">{{ t.ciudad.hours }}</div><div class="fact-val">{{ c.horario_txt }}</div></div>
+            <div><div class="fact-lbl">{{ t.ciudad.offices }}</div><div class="fact-val">{{ c.m2_txt or t.ciudad.no_data }}</div></div>
+            <div><div class="fact-lbl">{{ t.ciudad.rooms }}</div><div class="fact-val">{{ c.salas_txt or t.ciudad.no_data }}</div></div>
           </div>
           <div class="centre-tags">
 {%- if c.acceso_24h %}
@@ -210,7 +210,7 @@
           {#- CTA de ficha: WhatsApp con el centro y la ciudad en el mensaje (quien atiende sabe de que
               centro se habla) y telefono con el numero visible. Sin formulario: no envia (ver 0.2). #}
           <div class="centre-cta">
-            <a class="cc-wa" href="https://wa.me/{{ g.whatsapp_link }}?text={{ t.ciudad.wa_msg.replace('{centro}', c.centro).replace('{ciudad}', c.ciudad) | urlencode }}" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg> {{ t.ciudad.cta_wa }}</a>
+            <a class="cc-wa" href="https://wa.me/{{ g.whatsapp_link }}?text={{ t.ciudad.wa_msg.replace('{centro}', c.centro).replace('{ciudad}', cname) | urlencode }}" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg> {{ t.ciudad.cta_wa }}</a>
             <a class="cc-tel" href="tel:{{ g.tel_link }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {{ g.telefono }}</a>
           </div>
         </div>
@@ -271,7 +271,7 @@
   </div>
 </section>
 
-<!-- CTA DE CIERRE: para quien ha leido todo y no sabe que centro elegir (distinto del CTA de ficha) -->
+{#- CTA de cierre: para quien ha leido todo y no sabe que centro elegir (distinto del CTA de ficha) -#}
 {%- set many = city.centros | length > 1 %}
 <section class="city-close">
   <div class="city-close-inner">

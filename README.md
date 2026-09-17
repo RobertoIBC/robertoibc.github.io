@@ -61,6 +61,31 @@ que el HTML de la raíz está al día con las fuentes (útil antes de un commit)
 Después, `git add -A`, commit y push: GitHub Pages publica en menos de un
 minuto.
 
+### La pasada de comprobación completa
+
+Cuatro scripts en `_tools/` (la carpeta empieza por `_`: no se publica).
+Antes de entregar o de un push importante, en este orden:
+
+```
+python _tools/verificar.py                 # estático, segundos: canonical, hreflang, sitemap, JSON-LD,
+                                           # enlaces y anclas internos, url(), title/description/H1,
+                                           # huérfanas, mayúsculas en assets, alt, ids duplicados,
+                                           # noopener, fuga de idioma en atributos, sameAs = redes del pie
+python _tools/auditoria_clicks.py          # headless Chrome, ~1 min: hace hover y click en todo lo pulsable
+                                           # (tooltips incluidos) de las páginas con navegación por JS y
+                                           # comprueba que el destino existe. Es lo que cazó el 404 del mapa.
+python _tools/auditoria_coherencia.py      # cifras en prosa por idioma, suma de centros, precios "desde",
+                                           # texto en el otro idioma, palabras ES vs EN por pareja
+python _tools/auditoria_enlaces_vivo.py    # tras el push: descarga las páginas PUBLICADAS y comprueba
+                                           # el código de respuesta de todos los href/src (internos y
+                                           # externos), anclas, selector de idioma, wa.me, tel:, mailto:
+```
+
+`verificar.py` y `auditoria_clicks.py` terminan con "SIN ERRORES" / "CLICKS
+ROTOS: 0" cuando todo está bien; las otras dos imprimen tablas para leer.
+Necesitan Chrome (`auditoria_clicks.py`; ruta en la variable `CHROME` si no
+está en la habitual) y el dominio lo leen de `site.url` en `global.yml`.
+
 ### El aviso al commitear
 
 Hay un hook de pre-commit en `_hooks/pre-commit`. Se instala una vez:
@@ -102,10 +127,39 @@ Cada servicio es un fichero por idioma en `_content/servicios/`. Arriba, entre
 `---`, los datos estructurados: `title`, `description`, `h1`, `subtitle`,
 `ofertas` (qué precio de `global.yml` mostrar y en qué unidad), `incluye`,
 `no_incluye`, `csv_key` (qué palabra de la columna `servicios` de
-`centros.csv` decide en qué ciudades está disponible) y `faq`. Debajo, el
+`centros.csv` decide en qué ciudades está disponible), `wa_msg` (el mensaje
+prerrellenado de los botones de WhatsApp de esa página) y `faq`. Debajo, el
 texto en Markdown con encabezados `##`. El generador construye con eso el
 HTML, la lista de ciudades, el JSON-LD (`Service`, `Offer`, `FAQPage`,
 `BreadcrumbList`) y los hreflang.
+
+### Los bloques maquetados
+
+El cuerpo Markdown lleva la prosa y los `##`; donde va un bloque visual
+(tarjetas, cifras, pasos, tabla) se escribe un marcador solo en su línea,
+y el generador lo sustituye por el parcial `_templates/partials/srv-<nombre>.html`
+alimentado con los datos del front matter:
+
+| Marcador | Front matter que lee | Qué pinta |
+|---|---|---|
+| `[[perfiles]]` | `perfiles_intro`, `perfiles` (lista), `cifras` (lista de `{num, label}`) | Frase + tarjetas numeradas "para quién" + tres cifras en bloques oscuros. Cada parte es opcional. |
+| `[[formas]]` | `formas` (lista de `{titulo, precio\|precio_texto, unidad, texto, puntos}`), `formas_dato` (`{num, texto}`), `formas_nota` | Una tarjeta por forma de contratar con el precio destacado; callout con el dato; nota. `precio` es una clave de `global.yml` (`despacho_mes`); `precio_texto` es un texto libre ("2 a 4 personas"). |
+| `[[incluye]]` | `incluye`, `no_incluye` | Las dos listas ✓ / – en tarjetas. |
+| `[[pasos]]` | `pasos` (lista de `{titulo, texto}`) | Pasos numerados. |
+| `[[donde]]` | `donde_dato` (`{num, texto}`) y las ciudades que da `csv_key` | Callout + chips de ciudad enlazados con su número de centros. |
+| `[[tarjetas]]` | `tarjetas` (lista de `{titulo, texto}`) | Tarjetas con título; a tres columnas si son tres, si no a dos. |
+| `[[tabla]]` | `tabla` (`{cabeceras: [...], filas: [[...], ...]}`) | Tabla con la primera columna en negrita. |
+
+Regla de oro: **el texto no se borra, se reparte**. Si una sección se
+convierte en tarjetas, las frases pasan del cuerpo al front matter, no
+desaparecen. `python _tools/auditoria_coherencia.py` compara las palabras de
+cada página con su gemela en el otro idioma para que un bloque sin rellenar
+no pase inadvertido. El cierre oscuro y los botones de WhatsApp los pone la
+plantilla; solo hay que dar `wa_msg`.
+
+Los textos de las fichas de centro que salen del CSV (horario, salas,
+despachos) se traducen al inglés por tokens en `_build.py`
+(`FACT_TOKENS_EN`): si aparece una palabra nueva en el CSV, se añade ahí.
 
 Las dos versiones de una página comparten el mismo `id` en el front matter:
 así se enlazan entre sí. Para dar un id a un encabezado (para enlazar a él),
@@ -216,8 +270,9 @@ site:
 Con eso cambian canonical, hreflang, Open Graph, JSON-LD y sitemap en todas
 las páginas, y desaparece el `noindex`. Las redirecciones 301 desde las URLs
 antiguas las imprime `python _build.py --htaccess`. El detalle completo, con
-el orden de las operaciones, está en la CHECKLIST DE MIGRACIÓN del documento
-de encargo (fuera del repo).
+los dos puntos bloqueantes (el `noindex` y el formulario de contacto, que
+no envía), el orden de las operaciones y las comprobaciones posteriores,
+está en `MIGRACION-TECNICO.md` (fuera del repo, en `OFICINASYAWEB-docs/`).
 
 ## Lo que NO está en el repo
 

@@ -75,7 +75,7 @@ profesionales por sector, ciudad o especialidad.
 - Teléfono: {{ g.telefono }}
 - WhatsApp: {{ g.whatsapp }} (https://wa.me/{{ g.whatsapp_link }})
 - Email: {{ g.email }}
-- LinkedIn: https://www.linkedin.com/company/oficinasya
+- LinkedIn: {{ g.redes.linkedin }}
 - Instagram: https://www.instagram.com/oficinasya
 - Facebook: https://www.facebook.com/oficinasya
 - Twitter/X: https://twitter.com/oficinasya
