@@ -26,9 +26,12 @@ faq:
   - q: ¿Qué incluye la oficina virtual en Valencia?
     a: "Domiciliación social, fiscal y/o comercial en Guillem de Castro 9, recepción de correspondencia y de visitas, posibilidad de atención telefónica personalizada, reenvío de correspondencia y gestión de agenda, con tarifas preferentes en el resto de servicios del centro: salas, reprografía y parking. La recepción atiende de lunes a viernes de 9:00 a 14:00 y por las tardes, de lunes a jueves, de 15:15 a 19:00."
 ---
+
 ## Un edificio de casi 2000 m² en el centro, con parking
 
 El centro de OficinasYA! en Valencia ocupa las plantas 5ª y 6ª de un edificio de casi 2000 m² en la calle Guillem de Castro 9, en pleno centro de la ciudad, con servicio de parking público en el propio edificio. Es un centro grande, con despachos, ocho salas y aulas de formación, zonas de descanso y servicio de vending, y con dos detalles propios: un lugar preferente para el logo de tu empresa en el hall y técnicos informáticos en el centro para las incidencias en tus equipos.
+
+[[cifras]]
 
 ## Qué hay en el centro
 

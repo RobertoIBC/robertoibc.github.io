@@ -35,11 +35,19 @@ faq:
     a: "Yes, at Juan de la Cierva 5: it is one of the network's three centres with coworking desks, inside a business centre with rooms for up to 50 people, training rooms, a kitchen area and common areas. It is designed for independent professionals, entrepreneurs and SMEs from different sectors to share space and collaborate."
   - q: What are the opening hours of the A Coruña centres?
     a: "Both are open Monday to Thursday full day. In July, August and September, from 9:00 to 14:00. The exact full-day hours and Friday hours are confirmed on {{ g.telefono }} when signing up."
+elegir:
+  - { para: "For a coworking desk, a large room or a training session", centro: "Juan de la Cierva", ancla: juan-de-la-cierva, texto: "Business centre and coworking, with meeting rooms for up to 50 people and training rooms." }
+  - { para: "For an office of 18 to 68 m² or to form your company at a PAE point", centro: "Andrés Martínez Salazar", ancla: andres-martinez-salazar, texto: "Its Smart Office pack also includes two hours of room use a month." }
 ---
+
 ## Two centres in A Coruña, with coworking and a PAE point
 
 OficinasYA! has two business centres in A Coruña. **Juan de la Cierva 5** is very close to Marineda City, with excellent links to the access roads into the city, the airport and the historic centre: it is a business and coworking centre, fully accessible and multi-purpose, with meeting rooms for up to 50 people, training rooms, offices and common areas, and also advisory and accountancy services for freelancers and SMEs, bilingual secretarial services, event organisation and an authorised employment agency. **Andrés Martínez Salazar 3** has offices of 18 to 68 m², a 20-person training room and is an official entrepreneur service point (PAE).
 
+[[cifras]]
+
 ## Which centre to choose
+
+[[elegir]]
 
 For a coworking desk, a large room or a training session, Juan de la Cierva. For an office of 18 to 68 m² or to form your company at a PAE point, Andrés Martínez Salazar, whose Smart Office pack also includes two hours of room use a month. Both offer a virtual office with a registered and/or trading address in A Coruña, and both are open Monday to Thursday full day, and from 9:00 to 14:00 from July to September.

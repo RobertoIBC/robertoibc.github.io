@@ -89,13 +89,32 @@ faq:
     a: "Los tres del barrio de Salamanca y Capitán Haya tienen metro, autobús y taxi a menos de 100 o 200 metros y salida directa al aeropuerto. Las Tablas y Manoteras están en la zona de los grandes desarrollos del norte. La Florida se llega en coche, con la A-6 y la M-40 a menos de un kilómetro. Sanse está en el Parque Empresarial La Marina, junto a Antena 3."
   - q: ¿Cómo es el contrato de un despacho mensual en Madrid?
     a: "Mensual o trimestral según el centro, prorrogable de forma automática, y se cancela con un preaviso de 15 a 30 días según el centro. Se entrega un depósito equivalente a dos meses. Los despachos se entregan amueblados y equipados para usarse desde el momento de la firma."
+elegir:
+  - { para: "Si lo que vende es la dirección", centro: "Barrio de Salamanca", ancla: barrio-de-salamanca, texto: "Tres centros a pocas calles, con metro, autobús y taxi al lado y salida al aeropuerto. La milla de oro." }
+  - { para: "Si la actividad está en la Castellana o en los juzgados", centro: "Capitán Haya", ancla: capitan-haya, texto: "El centro financiero y la Plaza de Castilla; además tiene la sala mayor." }
+  - { para: "Si el cliente está en el norte", centro: "Las Tablas o Manoteras", ancla: madrid-norte, texto: "La zona de Telefónica, BBVA y la prolongación de la Castellana." }
+  - { para: "Si se llega siempre en coche desde el oeste", centro: "La Florida", ancla: pozuelo-de-alarcon, texto: "Pozuelo, junto a la A-6." }
+  - { para: "Si la empresa está en San Sebastián de los Reyes o alrededor", centro: "Sanse", ancla: san-sebastian-de-los-reyes, texto: "El Parque Empresarial La Marina." }
 ---
+
 ## Ocho centros en cinco zonas, todos con acceso 24 horas
 
-OficinasYA! tiene ocho centros de negocios en Madrid y los ocho tienen acceso 24 horas los 7 días de la semana para los clientes con despacho. Están repartidos en cinco zonas, y elegir uno es sobre todo elegir zona: el barrio de Salamanca para una dirección en la milla de oro; la Castellana y la Plaza de Castilla para el centro financiero y los juzgados; el norte —Las Tablas y Sanchinarro— para la zona de Telefónica, BBVA y la prolongación de la Castellana; Pozuelo para el oeste, junto a la A-6; y San Sebastián de los Reyes para el Parque Empresarial La Marina.
+OficinasYA! tiene ocho centros de negocios en Madrid y los ocho tienen acceso 24 horas los 7 días de la semana para los clientes con despacho.
+
+Están repartidos en cinco zonas, y elegir uno es sobre todo elegir zona:
+
+- **el barrio de Salamanca** para una dirección en la milla de oro;
+- **la Castellana y la Plaza de Castilla** para el centro financiero y los juzgados;
+- **el norte** —Las Tablas y Sanchinarro— para la zona de Telefónica, BBVA y la prolongación de la Castellana;
+- **Pozuelo** para el oeste, junto a la A-6;
+- y **San Sebastián de los Reyes** para el Parque Empresarial La Marina.
+
+[[cifras]]
 
 En todos hay despachos amueblados y equipados que se entregan listos el día de la firma, por horas o por meses, salas de juntas por horas y oficina virtual con domiciliación. Los ocho centros de Madrid suman más de un centenar de despachos, desde 6 m² en Serrano hasta 69 m² en La Florida, y salas de 8 a 50 personas.
 
 ## Cómo elegir
 
-Si lo que vende es la dirección, **barrio de Salamanca**: tres centros a pocas calles, con metro, autobús y taxi al lado y salida al aeropuerto. Si la actividad está en la Castellana o en los juzgados, **Capitán Haya**, que además tiene la sala mayor. Si el cliente está en el norte, **Las Tablas** o **Manoteras**. Si se llega siempre en coche desde el oeste, **La Florida**. Si la empresa está en San Sebastián de los Reyes o alrededor, **Sanse**. Y si la duda es entre dos, llama al {{ g.telefono }}: cambiar de centro dentro de Madrid es una llamada, y el hot desk de la red permite trabajar desde cualquiera de los ocho cuando toca estar en otra punta de la ciudad.
+[[elegir]]
+
+Y si la duda es entre dos, llama al {{ g.telefono }}: cambiar de centro dentro de Madrid es una llamada, y el hot desk de la red permite trabajar desde cualquiera de los ocho cuando toca estar en otra punta de la ciudad.

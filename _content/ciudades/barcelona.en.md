@@ -35,11 +35,20 @@ faq:
     a: "At Mitre 126, fully equipped rooms for 2, 4, 10 and 20 people; at Raset 29, for 2, 4 and 8. They are booked by the hour, also without being a client of the centre. For a meeting of more than 20 people in Barcelona, ask on {{ g.telefono }}."
   - q: What are the opening hours of the Barcelona centres?
     a: "All three are open Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00. Those are the reception hours for visitors, mail and calls for virtual office clients; for using the offices outside those hours, ask when signing up."
+elegir:
+  - { para: "For a 20-person meeting", centro: "Mitre 126", ancla: mitre-126, texto: "The one for rooms: for 2, 4, 10 and 20 people, fully equipped, in a modern, functional office building with all costs included in the price." }
+  - { para: "For a design-led office in Sant Gervasi", centro: "Raset 29", ancla: raset-29, texto: "The design-led one, with offices of 12 to 26 m², open, bright spaces and rooms for 2, 4 and 8, designed for freelancers, entrepreneurs and growing companies." }
+  - { para: "For a coworking desk", centro: "Plaza Urquinaona", ancla: plaza-urquinaona, texto: "The one in the centre: naturally lit exterior offices of 8 to 30 m², a limited number of coworking desks and a personal touch." }
 ---
+
 ## Three centres in Barcelona: upper city and centre
 
 OficinasYA! has three business centres in Barcelona. Two in the upper part of the city: **Ronda del General Mitre 126**, in an exclusive office building, and **Raset 29**, in Sarrià-Sant Gervasi. And one in the centre, on the eighth floor of **Plaza de Urquinaona 6**, which as well as offices has coworking desks. All three share hours — Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, Fridays until 15:00 — and offer a virtual office with a registered address in Barcelona.
 
+[[cifras]]
+
 ## Which centre to choose
 
-**Mitre 126** is the one for rooms: for 2, 4, 10 and 20 people, fully equipped, in a modern, functional office building with all costs included in the price. **Raset 29** is the design-led one, with offices of 12 to 26 m², open, bright spaces and rooms for 2, 4 and 8, designed for freelancers, entrepreneurs and growing companies. **Plaza Urquinaona** is the one in the centre: naturally lit exterior offices of 8 to 30 m², a limited number of coworking desks and a personal touch. For a coworking desk, Urquinaona; for a 20-person meeting, Mitre; for a design-led office in Sant Gervasi, Raset.
+[[elegir]]
+
+For a coworking desk, Urquinaona; for a 20-person meeting, Mitre; for a design-led office in Sant Gervasi, Raset.

@@ -25,9 +25,12 @@ faq:
   - q: ¿Qué horario tiene el centro de Mérida?
     a: "La recepción atiende de 9:00 a 14:00 y de 16:00 a 19:30. Es el horario en el que se reciben visitas, correo y llamadas para los clientes de oficina virtual. Si necesitas usar un despacho o una sala fuera de ese horario, consúltalo al reservar en el {{ g.telefono }}."
 ---
+
 ## Un edificio de oficinas con parking en la zona de la Universidad
 
 El centro de OficinasYA! en Mérida es un edificio exclusivo de oficinas, el Edificio Delgado Casamayor, en la avenida de Santa Teresa Jornet 48, en la zona de la Universidad, en Bodegones. Tiene 1600 m², parking privado para los clientes y salas de reuniones de hasta 40 personas con servicio de catering. Es el único centro de la red en Extremadura.
+
+[[cifras]]
 
 Encaja con la empresa que necesita en Mérida algo más que una dirección: un despacho al que se llega en coche y se aparca, y salas donde reunir a un equipo o a un cliente sin salir del edificio. Para quien solo necesita la dirección, la oficina virtual da la domiciliación y la recepción de correo y visitas en horario de recepción, de 9:00 a 14:00 y de 16:00 a 19:30.
 

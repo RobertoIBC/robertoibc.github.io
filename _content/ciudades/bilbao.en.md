@@ -30,13 +30,23 @@ faq:
     a: "Yes, by the hour, day, month or year, with a two-hour minimum on rooms and hourly offices. Also by half-day or full day for one-off working sessions. Reception is open Monday to Thursday from 9:00 to 14:00 and from 15:30 to 19:00, and Fridays from 9:00 to 14:00 and from 15:00 to 18:00."
   - q: What does the virtual office offer in Bilbao?
     a: "A business address in the city's financial district, call answering or call forwarding, virtual office and use of the premises by the hour, half-day or full day when needed. The centres themselves recommend it for opening a sales branch in Bilbao without a fixed physical office."
+elegir:
+  - { para: "For an individual office or a small meeting", centro: "Máximo Aguirre", ancla: maximo-aguirre, texto: "Offices of 12 to 27 m² and a 10-person room." }
+  - { para: "For a team or an event", centro: "Edificio Albia", ancla: edificio-albia, texto: "Offices of 15 to 40 m² and a 27-person room." }
 ---
+
 ## Two centres in Abando, Bilbao's financial district
 
 OficinasYA! has two business centres in Bilbao, both in the city's financial, administrative and commercial centre: one at Calle Máximo Aguirre 12, in the Abando and Gran Vía area, overlooking Doña Casilda park, and another on the sixth floor of Edificio Albia I, at Calle San Vicente 8, overlooking the river. Both offer space by the hour, day, month or year, from a single workstation to a multi-desk office, in a building with reception, meeting and waiting areas and rooms for events.
+
+[[cifras]]
 
 The surroundings are the same for both: public and private car parks, metro, taxi, bus and tram stops, three- to five-star hotels, restaurants and shops, easy access and fast motorway exits, and the Guggenheim and the Fine Arts Museum close by for a break in the day. The centres themselves sum it up as presence in Bilbao at reduced cost, very useful for opening a sales branch.
 
 ## Which centre to choose
 
-They share services, hours and how you sign up. The difference is size: **Máximo Aguirre** has offices of 12 to 27 m² and a 10-person room; the **Edificio Albia**, offices of 15 to 40 m² and a 27-person room. For an individual office or a small meeting, either; for a team or an event, Albia. At both, the minimum on rooms and hourly offices is two hours.
+They share services, hours and how you sign up. The difference is size.
+
+[[elegir]]
+
+For an individual office or a small meeting, either; for a team or an event, Albia. At both, the minimum on rooms and hourly offices is two hours.

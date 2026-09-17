@@ -1,0 +1,10 @@
+{#- "Que centro elegir": una tarjeta por centro o zona, enlazada a su ficha. Front matter: elegir[] (para, centro, ancla, texto) -#}
+<div class="city-elegir">
+{%- for e in page.elegir %}
+  <a class="city-elegir-item" href="#{{ e.ancla }}">
+    <div class="city-elegir-para">{{ e.para }}</div>
+    <div class="city-elegir-centro">{{ e.centro }} <span aria-hidden="true">↓</span></div>
+    <p>{{ e.texto }}</p>
+  </a>
+{%- endfor %}
+</div>

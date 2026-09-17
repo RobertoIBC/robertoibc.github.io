@@ -32,9 +32,12 @@ faq:
   - q: What are the opening hours of the Salamanca centre?
     a: "Reception is open Monday to Friday from 8:00 to 20:00. Those are the hours during which visitors and mail are handled for virtual office clients and the rooms and classrooms are used. For using the offices outside those hours, ask when signing up on {{ g.telefono }}."
 ---
+
 ## A whole office building, 5 minutes from the centre
 
 The OficinasYA! centre in Salamanca is the Edificio Openhouse, in the El Montalvo III industrial estate in Carbajosa de la Sagrada, 5 minutes from the centre of Salamanca and with access to the ring road. It is not a floor in someone else's building: it is 12,000 m² of office building, with more than fifty offices and twenty-five commercial units, a café, a restaurant and private parking. It is one of the network's three centres with coworking desks.
+
+[[cifras]]
 
 It suits the company that needs an office in Salamanca it can drive to, that can grow to 210 m² without changing building, and that wants a café, a restaurant and large rooms next door. It also suits the freelancer who prefers a coworking desk inside a building of companies — consultancies, technology, R&D, telephony, renewable energy, industrial design — to working alone.
 

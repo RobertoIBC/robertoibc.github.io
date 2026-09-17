@@ -26,9 +26,12 @@ faq:
   - q: ¿La oficina virtual de Castellón tiene descuento?
     a: "Sí, por pago anual. La oficina virtual incluye la dirección del centro como domicilio social y fiscal, el uso de la dirección postal en tarjetas y documentación, la recepción de correo y visitas y la atención de llamadas con el nombre de tu empresa. Si se contrata y se paga por un año, el centro aplica un descuento; pide la cifra en el {{ g.telefono }}."
 ---
+
 ## Un centro con teléfono propio en cada despacho
 
 El centro de OficinasYA! en Castellón está en la calle Dean Martí 46, en el entresuelo, en Castellón de la Plana. El centro detalla con precisión qué se entrega con cada despacho: mobiliario completo, tomas de voz y datos cableadas, aire acondicionado y calefacción, y una extensión y un número de teléfono propios por despacho. La recepción atiende las llamadas con el nombre de tu empresa, recibe y distribuye el correo y recibe a tus visitas, así que una empresa de una persona funciona de cara a fuera como una empresa con oficina.
+
+[[cifras]]
 
 ## Qué hay en el centro
 

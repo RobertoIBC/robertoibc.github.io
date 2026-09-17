@@ -401,6 +401,24 @@
       .city-close-btns a { width: 100%; }
       .centre-photo { min-height: 200px; }
     }
+    /* Introduccion escaneable: parrafo de entrada destacado, tarjetas "que centro elegir", cifras */
+    .city-intro .srv-article > h2:first-child + p { font-size: 1.14rem; line-height: 1.7; color: var(--dark-mid); }
+    .city-elegir { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 24px; }
+    .city-elegir-item { display: block; background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 18px 20px; text-decoration: none; transition: border-color .2s, transform .2s; }
+    .city-elegir-item:hover { border-color: var(--dark); transform: translateY(-2px); }
+    .city-elegir > .city-elegir-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .city-elegir-para { font-size: .74rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-600); margin-bottom: 6px; }
+    .city-elegir-centro { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .city-elegir-centro span { color: var(--orange-dark); }
+    .city-elegir-item p { margin: 0; font-size: .95rem; line-height: 1.6; color: var(--gray-600); }
+    .city-stats { grid-template-columns: repeat(3, 1fr); margin: 20px 0 26px; }
+    .city-stats .srv-stat { padding: 16px 18px; }
+    .city-stats .srv-stat-n { font-size: 1.6rem; }
+    .srv-stats { display: grid; gap: 12px; }
+    .srv-stat { background: var(--dark); color: var(--white); border-radius: 18px; }
+    .srv-stat-n { font-family: 'Barlow', sans-serif; font-weight: 900; color: var(--orange); line-height: 1; }
+    .srv-stat-l { font-size: .82rem; color: rgba(255,255,255,.72); margin-top: 6px; line-height: 1.4; }
+    @media (max-width: 600px) { .city-elegir, .city-stats { grid-template-columns: 1fr; } }
     /* Cabecera con foto real (opcional): texto a la izquierda, foto a la derecha; en movil, debajo */
     .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 48px; align-items: center; }
     .hero-photo { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
@@ -616,6 +634,12 @@
   <article class="srv-article">
 <h2>A centre with its own phone line in every office</h2>
 <p>The OficinasYA! centre in Castellón is at Calle Dean Martí 46, on the mezzanine floor, in Castellón de la Plana. The centre spells out precisely what comes with each office: full furniture, cabled voice and data points, air conditioning and heating, and an extension and phone number of its own per office. Reception answers calls in your company's name, receives and distributes mail and welcomes your visitors, so a one-person company operates externally like a company with an office.</p>
+<div class="srv-stats city-stats">
+  <div class="srv-stat"><div class="srv-stat-n">1 centre</div><div class="srv-stat-l">with 24-hour access</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">6 to 30 m²</div><div class="srv-stat-l">equipped private offices, by the hour or by the month</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">18 to 20</div><div class="srv-stat-l">people in the meeting rooms</div></div>
+</div>
+
 <h2>What the centre offers</h2>
 <p>Offices from 6 to 30 m², from the individual to the small team, by the hour or by the month, with use of the coffee area, the daily press and community charges included in the fee. A 20-person meeting room and an 18-person training room with projector, booked by the hour. And a virtual office: registered office at the centre, use of the postal address on cards and documents, mail, visitors and answered calls, discounted if paid for a year.</p>
 <p>Reception is open from 8:30 to 18:00. Twenty-four-hour access exists, on request, for anyone who needs it. There is parking available near the offices.</p>

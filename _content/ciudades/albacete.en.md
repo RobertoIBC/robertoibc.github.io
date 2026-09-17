@@ -30,9 +30,12 @@ faq:
   - q: Can the meeting room be hired by the half-day?
     a: "Yes. The Albacete meeting room seats 16, has a screen and whiteboard, and is booked by the hour, by the half-day or with packs of hours if you are going to use it regularly. You do not need to be a client of the centre to book it."
 ---
+
 ## A centre on Calle Mayor, with 24-hour access
 
 The OficinasYA! centre in Albacete is at Calle Mayor 22, on the mezzanine floor, next to the city's commercial and financial district. It is a self-service centre, with access 24 hours a day, 7 days a week. For a freelancer or small company in Albacete that means working whenever suits and receiving people at a central address; for a company from elsewhere, having an office and an address in the city without opening a branch.
+
+[[cifras]]
 
 ## What the centre offers
 

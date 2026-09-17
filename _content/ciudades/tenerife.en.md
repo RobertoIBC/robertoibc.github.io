@@ -38,13 +38,20 @@ faq:
     a: "Both are right in the centre and share hours and services. Santa Rosalía has public parking next door, two rooms (for 4 and 10 people, also for training) and a receptionist, photocopying and coffee. Costa y Grijalba has the larger offices, up to 80 m², an 8-person room and a terrace, and offers help settling in to anyone new to the city."
   - q: What is La Luna Coliving?
     a: "A space in the network at Calle La Luna 8 in Santa Cruz to live and work in the same place: units of 16 to 25 m², a 10-person room and 24-hour access. It is designed for working stays on the island. What each unit includes and its price are confirmed on {{ g.telefono }}."
+elegir:
+  - { para: "A fully equipped office building", centro: "Santa Rosalía", ancla: santa-rosalia, texto: "Offices of 9 to 70 m² with plenty of natural light, meeting and training rooms, a receptionist, photocopying and a coffee service, and public parking next door." }
+  - { para: "The larger private spaces", centro: "Costa y Grijalba", ancla: costa-y-grijalba, texto: "Surrounded by colonial-style houses, up to 80 m², an 8-person room and a terrace, and helps anyone new to the city settle in." }
+  - { para: "For living and working in the same space", centro: "La Luna Coliving", ancla: la-luna-coliving, texto: "During a stay on the island." }
 ---
+
 ## Three spaces in the centre of Santa Cruz de Tenerife
 
 OficinasYA! has three spaces in Tenerife, all three in Santa Cruz: two business centres right in the city centre — Santa Rosalía 49 and Costa y Grijalba 10 — and a coliving at Calle La Luna 8. The two business centres have reception Monday to Friday from 8:30 to 20:00 and 24-hour access for clients, something that outside Madrid only part of the network offers; the coliving is a self-service centre with permanent access.
 
+[[cifras]]
+
 ## Which space to choose
 
-**Santa Rosalía** is a fully equipped office building, with offices of 9 to 70 m² with plenty of natural light, meeting and training rooms, a receptionist, photocopying and a coffee service, and public parking next door. **Costa y Grijalba**, surrounded by colonial-style houses, has the larger private spaces, up to 80 m², an 8-person room and a terrace, and helps anyone new to the city settle in. **La Luna Coliving** is for living and working in the same space during a stay on the island.
+[[elegir]]
 
 All three offer offices; the two business centres also offer meeting rooms and a virtual office with a registered address in the centre of Santa Cruz.

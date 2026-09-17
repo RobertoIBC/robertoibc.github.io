@@ -30,13 +30,23 @@ faq:
     a: "Sí, por horas, días, meses o año, con un uso mínimo de dos horas en salas y despachos por horas. También por medias jornadas o jornadas completas para sesiones puntuales de trabajo. La recepción atiende de lunes a jueves de 9:00 a 14:00 y de 15:30 a 19:00, y los viernes de 9:00 a 14:00 y de 15:00 a 18:00."
   - q: ¿Qué ofrece la oficina virtual en Bilbao?
     a: "Dirección de negocios en el centro financiero de la ciudad, atención telefónica o desvío de llamadas, oficina virtual y el uso de las instalaciones por horas, medias jornadas o jornadas completas cuando haga falta. Los propios centros la recomiendan para abrir una delegación comercial en Bilbao sin oficina física fija."
+elegir:
+  - { para: "Para un despacho individual o una reunión pequeña", centro: "Máximo Aguirre", ancla: maximo-aguirre, texto: "Despachos de 12 a 27 m² y una sala de 10 personas." }
+  - { para: "Para un equipo o un evento", centro: "Edificio Albia", ancla: edificio-albia, texto: "Despachos de 15 a 40 m² y una sala de 27 personas." }
 ---
+
 ## Dos centros en Abando, el centro financiero de Bilbao
 
 OficinasYA! tiene dos centros de negocios en Bilbao, los dos en el centro financiero, administrativo y comercial de la ciudad: uno en la calle Máximo Aguirre 12, en la zona de Abando y Gran Vía, con vistas al parque de Doña Casilda, y otro en la sexta planta del Edificio Albia I, en la calle San Vicente 8, con vistas a la Ría. Los dos ofrecen espacios por horas, días, meses o año, desde un puesto de trabajo hasta una oficina multipuesto, en un edificio con áreas de recepción, reunión y espera y salas para eventos.
+
+[[cifras]]
 
 El entorno es el mismo para los dos: parkings públicos y privados, paradas de metro, taxi, autobús y tranvía, hoteles de tres a cinco estrellas, restaurantes y comercios, accesos fáciles y salidas rápidas por autopista, y el Guggenheim y el Bellas Artes cerca para un descanso en la jornada. Los propios centros lo resumen así: presencia en Bilbao a costes reducidos, muy útil para abrir una delegación comercial.
 
 ## Qué centro elegir
 
-Comparten servicios, horario y forma de contratar. La diferencia está en el tamaño: **Máximo Aguirre** tiene despachos de 12 a 27 m² y una sala de 10 personas; el **Edificio Albia**, despachos de 15 a 40 m² y una sala de 27. Para un despacho individual o una reunión pequeña, cualquiera de los dos; para un equipo o un evento, Albia. En los dos el uso mínimo en salas y despachos por horas es de dos horas.
+Comparten servicios, horario y forma de contratar. La diferencia está en el tamaño.
+
+[[elegir]]
+
+Para un despacho individual o una reunión pequeña, cualquiera de los dos; para un equipo o un evento, Albia. En los dos el uso mínimo en salas y despachos por horas es de dos horas.

@@ -30,9 +30,12 @@ faq:
   - q: What are the opening hours of the Málaga centre?
     a: "Reception is open from 9:30 to 14:30. Those are the hours during which visitors and mail are handled for virtual office clients. If you need to use the office or the room outside those hours, ask when signing up on {{ g.telefono }}."
 ---
+
 ## A centre on Calle Larios
 
 The OficinasYA! centre in Málaga is at Calle Larios 1, third floor left, in what the centre itself calls the best area of Málaga. The private offices have wide balconies that let in natural light, there is a 12-person meeting room for closing deals and a large common area to meet the other companies at the centre. And the AVE station is a walk away: for anyone who receives out-of-town visitors or travels often, it is the location that saves time.
+
+[[cifras]]
 
 ## What the centre offers
 

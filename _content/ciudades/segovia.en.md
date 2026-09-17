@@ -32,15 +32,23 @@ faq:
     a: "From the AVE station there is a bus into the centre of Segovia whose stop is 50 m from the Padre Claret centre. If you come by car, there is an entrance to the Padre Claret car park right at the door. For Ezequiel González, at Paseo Ezequiel González 32, confirm parking when you book."
   - q: Do the Segovia centres have 24-hour access?
     a: "No. Both run on reception hours: Padre Claret Monday to Friday from 8:00 to 19:00 (until 15:00 in summer) and Ezequiel González Monday to Friday from 8:00 to 21:00. If you regularly need to work at night or at weekends, say so when signing up to see what options the centre has."
+elegir:
+  - { para: "For errands and official business", centro: "Padre Claret", ancla: padre-claret, texto: "200 m from the financial district, 500 m from the courts and the provincial council and 800 m from the town hall, with the entrance to the Padre Claret car park at the door and the bus stop for the AVE station 50 m away." }
+  - { para: "For larger meetings", centro: "Ezequiel González", ancla: ezequiel-gonzalez, texto: "Rooms for 4 to 50 people, training rooms and a multi-purpose room for events, workshops or talks, with reception open until 21:00." }
 ---
+
 ## Two centres in the city of Segovia
 
 OficinasYA! has two business centres in Segovia: one on Avenida Padre Claret, in the city centre, 100 m from the Aqueduct, and another on Paseo Ezequiel González, in the former premises of the University of Valladolid. Both have furnished private offices of 9 to 20 m², rented by the hour or by the month, meeting rooms, and a virtual office with registered, official and trading address.
+
+[[cifras]]
 
 They are centres designed for the freelancer and small company in Segovia that needs a proper office without leasing premises, and for the out-of-town company that serves clients or handles business in the city and wants somewhere to receive them. One possible combination is an office by the hour for visits and the virtual office for the address.
 
 ## Which centre to choose
 
-Both share the network's services; what sets them apart is location and rooms. **Padre Claret** is the centre for errands and official business: 200 m from the financial district, 500 m from the courts and the provincial council and 800 m from the town hall, with the entrance to the Padre Claret car park at the door and the bus stop for the AVE station 50 m away. **Ezequiel González** is the centre for larger meetings: rooms for 4 to 50 people, training rooms and a multi-purpose room for events, workshops or talks, with reception open until 21:00.
+Both share the network's services; what sets them apart is location and rooms. Padre Claret is the centre for errands and official business; Ezequiel González, the one for larger meetings.
+
+[[elegir]]
 
 If in doubt, call {{ g.telefono }} and we will tell you what is free at each; moving from one centre to the other within Segovia is a phone call, not a relocation.

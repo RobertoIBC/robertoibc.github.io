@@ -167,6 +167,24 @@ si son tres). Las fotos van en `assets/img/salas/` o `assets/img/despachos/`
 a 900 px de ancho; el generador las añade como `ImageObject` al `Service`.
 Las tarjetas de `[[tarjetas]]` admiten `foto` y `alt` opcionales (coworking).
 
+### La introducción de una página de ciudad
+
+El cuerpo Markdown de `_content/ciudades/<slug>.<lang>.md` admite dos
+marcadores, con el mismo mecanismo que en servicios:
+
+- `[[cifras]]`: tres bloques oscuros con las cifras de la ciudad, **calculadas
+  del CSV al generar** (centros y acceso 24 h, rango de m² de despachos, rango
+  de personas en salas). No hay nada que escribir: se ponen solas y salen bien
+  porque salen de `centros.csv`. Si hiciera falta otra cifra, `cifras:` en el
+  front matter (lista de `{num, label}`) sustituye a las automáticas.
+- `[[elegir]]`: tarjetas "qué centro elegir", una por centro o zona, enlazadas
+  a su ficha. Front matter `elegir:` (lista de `{para, centro, ancla, texto}`).
+  Solo en ciudades con más de un centro y donde el texto ya compara; en las de
+  un centro se deja el párrafo.
+
+El primer párrafo tras el `##` inicial sale destacado (cuerpo mayor): conviene
+que sea la frase de situación, corta.
+
 ### Foto de cabecera en una página de ciudad
 
 Solo con foto **real y distinta de la de su ficha**; si no la hay, se omite

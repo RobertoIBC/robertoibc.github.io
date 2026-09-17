@@ -30,9 +30,12 @@ faq:
   - q: ¿Qué incluye la oficina virtual en el paseo de la Independencia?
     a: "Un domicilio social, fiscal y/o comercial para tu empresa en el paseo de la Independencia 8, la atención de visitas y llamadas y el desvío de llamadas, más el acceso a las salas del centro. Es la opción para quien teletrabaja o no necesita oficina física y quiere una dirección en el centro de Zaragoza."
 ---
+
 ## Un centro en el paseo de la Independencia
 
 El centro de OficinasYA! en Zaragoza está en el paseo de la Independencia 8 duplicado, segunda planta, en el centro financiero, de ocio y cultural de la ciudad. El propio centro atribuye a esa ubicación su posición de referencia en el sector de oficinas y centros de negocios en Zaragoza: la dirección aporta imagen y prestigio a las empresas que la usan, ya sea con un despacho o solo con la oficina virtual.
+
+[[cifras]]
 
 ## Qué hay en el centro
 

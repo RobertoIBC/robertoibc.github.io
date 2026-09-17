@@ -35,13 +35,20 @@ faq:
     a: "The longest in the network: reception Monday to Friday from 7:00 to midnight and Saturdays and Sundays from 9:00 to midnight. That allows early-morning meetings, events into the evening and weekend work with reception open, without needing 24-hour access."
   - q: What is the Condado de Alhama coliving?
     a: "A space in the network to live and work in the same place, 30 minutes from the centre of Murcia and close to Mazarrón: furnished units of 50 to 60 m², a 6-person room, 24-hour access and accommodation for 20 people in a complex with a golf course, tennis, padel, pool, bars and a shopping centre. Monthly contract, renewable, with 15 days' notice and a two-month deposit."
+elegir:
+  - { para: "The centre in the city", centro: "Marla Center", ancla: marla-center, texto: "Fast access to the ring road, a tram to the centre of Murcia, offices from 17 m² up to 250 m² spaces for large teams, and a reception open from 7:00 to midnight on weekdays and from 9:00 to midnight at weekends, the longest in the network." }
+  - { para: "The centre on the industrial estate", centro: "Edificio Magalia", ancla: edificio-magalia-alcantarilla, texto: "Next to the MU-30 and the A-7, with more than twenty years housing companies, offices of 14 to 86 m², classrooms and workshops, a landscaped terrace, parking included and its own reception, parcel, maintenance and administration team." }
+  - { para: "For living and working in the same place", centro: "Condado de Alhama", ancla: coliving-condado-de-alhama, texto: "With golf, tennis, padel and a pool at the door." }
 ---
+
 ## Two business centres and a coliving
 
 OficinasYA! has three spaces in the Region of Murcia: two business centres — Marla Center, on Avenida Doctor Pedro Guillén in the city, and the Edificio Magalia, in the Oeste industrial estate in Alcantarilla — and a coliving in Condado de Alhama, 30 minutes from Murcia. The two business centres have the largest event spaces in the network: up to 200 people at Marla and 275 at Magalia.
 
+[[cifras]]
+
 ## Which space to choose
 
-**Marla Center** is the centre in the city: fast access to the ring road, a tram to the centre of Murcia, offices from 17 m² up to 250 m² spaces for large teams, and a reception open from 7:00 to midnight on weekdays and from 9:00 to midnight at weekends, the longest in the network. **The Edificio Magalia** is the centre on the industrial estate, next to the MU-30 and the A-7, with more than twenty years housing companies, offices of 14 to 86 m², classrooms and workshops, a landscaped terrace, parking included and its own reception, parcel, maintenance and administration team. **Condado de Alhama** is for living and working in the same place, with golf, tennis, padel and a pool at the door.
+[[elegir]]
 
 The two business centres offer a virtual office and Smart Office with a registered address in Murcia; Magalia also provides accounting and administrative services for the companies based there.

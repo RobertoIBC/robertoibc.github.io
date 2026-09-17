@@ -24,9 +24,12 @@ faq:
   - q: ¿El centro de Vigo organiza eventos?
     a: "Sí. Además de la sala de reuniones de 17 personas para reuniones de trabajo, el centro está especializado en organizar eventos para cualquier tipo de actividad, y no solo en Vigo: en cualquier zona de Galicia. Si tienes un evento en mente, llama al {{ g.telefono }} y cuéntanoslo."
 ---
+
 ## Un centro en la plaza de Compostela, junto al puerto deportivo
 
 El centro de OficinasYA! en Vigo está en la plaza de Compostela 23, segundo D, en pleno centro de la ciudad y junto al puerto deportivo, en la que el propio centro describe como la mejor zona de Vigo. Tiene despachos completamente equipados para el día a día de una empresa y una sala para reuniones de trabajo, y es, con los dos de A Coruña, uno de los tres centros de la red en Galicia.
+
+[[cifras]]
 
 Dos cosas lo distinguen. La primera, que está especializado en organizar eventos para cualquier tipo de actividad y en cualquier zona de Galicia, no solo en el centro. La segunda, su proximidad con Portugal, que el centro señala como un punto estratégico de negocio para quien trabaja a los dos lados de la frontera.
 

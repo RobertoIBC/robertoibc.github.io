@@ -35,11 +35,19 @@ faq:
     a: "Sí, en Juan de la Cierva 5: es uno de los tres centros de la red con puestos de coworking, dentro de un centro de negocios con salas de hasta 50 personas, aulas de formación, office y zonas comunes. Está pensado para que profesionales independientes, emprendedores y pymes de distintos sectores compartan espacio y colaboren."
   - q: ¿Qué horario tienen los centros de A Coruña?
     a: "Los dos atienden de lunes a jueves en jornada completa. En julio, agosto y septiembre, de 9:00 a 14:00. Las horas concretas de la jornada completa y el horario de los viernes se confirman en el {{ g.telefono }} al contratar."
+elegir:
+  - { para: "Para un puesto de coworking, una sala grande o una formación", centro: "Juan de la Cierva", ancla: juan-de-la-cierva, texto: "Centro de negocios y coworking, con salas de reuniones de hasta 50 personas y aulas de formación." }
+  - { para: "Para un despacho de 18 a 68 m² o para constituir la empresa en un Punto PAE", centro: "Andrés Martínez Salazar", ancla: andres-martinez-salazar, texto: "Su pack de Smart Office incluye además dos horas de sala al mes." }
 ---
+
 ## Dos centros en A Coruña, con coworking y Punto PAE
 
 OficinasYA! tiene dos centros de negocios en A Coruña. **Juan de la Cierva 5** está muy cerca de Marineda City, con comunicaciones excelentes con las vías de acceso a la ciudad, el aeropuerto y el centro histórico: es un centro de negocios y coworking, totalmente accesible y multifuncional, con salas de reuniones de hasta 50 personas, aulas de formación, despachos y zonas comunes, y además asesoría y gestoría para autónomos y pymes, secretariado bilingüe, organización de eventos y agencia de empleo autorizada. **Andrés Martínez Salazar 3** tiene despachos de 18 a 68 m², un aula de formación de 20 personas y es Punto de Atención al Emprendedor.
 
+[[cifras]]
+
 ## Qué centro elegir
+
+[[elegir]]
 
 Para un puesto de coworking, una sala grande o una formación, Juan de la Cierva. Para un despacho de 18 a 68 m² o para constituir la empresa en un Punto PAE, Andrés Martínez Salazar, cuyo pack de Smart Office incluye además dos horas de sala al mes. Los dos ofrecen oficina virtual con domiciliación fiscal y/o comercial en A Coruña, y los dos atienden de lunes a jueves en jornada completa, y de 9:00 a 14:00 de julio a septiembre.

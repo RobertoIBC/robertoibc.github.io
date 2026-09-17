@@ -26,9 +26,12 @@ faq:
   - q: Is the Castellón virtual office discounted?
     a: "Yes, for annual payment. The virtual office includes the centre's address as registered office, use of the postal address on cards and documents, receipt of mail and visitors and calls answered in your company's name. If it is contracted and paid for a year, the centre applies a discount; ask for the figure on {{ g.telefono }}."
 ---
+
 ## A centre with its own phone line in every office
 
 The OficinasYA! centre in Castellón is at Calle Dean Martí 46, on the mezzanine floor, in Castellón de la Plana. The centre spells out precisely what comes with each office: full furniture, cabled voice and data points, air conditioning and heating, and an extension and phone number of its own per office. Reception answers calls in your company's name, receives and distributes mail and welcomes your visitors, so a one-person company operates externally like a company with an office.
+
+[[cifras]]
 
 ## What the centre offers
 

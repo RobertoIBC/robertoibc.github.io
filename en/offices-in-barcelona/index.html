@@ -401,6 +401,24 @@
       .city-close-btns a { width: 100%; }
       .centre-photo { min-height: 200px; }
     }
+    /* Introduccion escaneable: parrafo de entrada destacado, tarjetas "que centro elegir", cifras */
+    .city-intro .srv-article > h2:first-child + p { font-size: 1.14rem; line-height: 1.7; color: var(--dark-mid); }
+    .city-elegir { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 24px; }
+    .city-elegir-item { display: block; background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 18px 20px; text-decoration: none; transition: border-color .2s, transform .2s; }
+    .city-elegir-item:hover { border-color: var(--dark); transform: translateY(-2px); }
+    .city-elegir > .city-elegir-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .city-elegir-para { font-size: .74rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-600); margin-bottom: 6px; }
+    .city-elegir-centro { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .city-elegir-centro span { color: var(--orange-dark); }
+    .city-elegir-item p { margin: 0; font-size: .95rem; line-height: 1.6; color: var(--gray-600); }
+    .city-stats { grid-template-columns: repeat(3, 1fr); margin: 20px 0 26px; }
+    .city-stats .srv-stat { padding: 16px 18px; }
+    .city-stats .srv-stat-n { font-size: 1.6rem; }
+    .srv-stats { display: grid; gap: 12px; }
+    .srv-stat { background: var(--dark); color: var(--white); border-radius: 18px; }
+    .srv-stat-n { font-family: 'Barlow', sans-serif; font-weight: 900; color: var(--orange); line-height: 1; }
+    .srv-stat-l { font-size: .82rem; color: rgba(255,255,255,.72); margin-top: 6px; line-height: 1.4; }
+    @media (max-width: 600px) { .city-elegir, .city-stats { grid-template-columns: 1fr; } }
     /* Cabecera con foto real (opcional): texto a la izquierda, foto a la derecha; en movil, debajo */
     .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 48px; align-items: center; }
     .hero-photo { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
@@ -663,8 +681,32 @@
   <article class="srv-article">
 <h2>Three centres in Barcelona: upper city and centre</h2>
 <p>OficinasYA! has three business centres in Barcelona. Two in the upper part of the city: <strong>Ronda del General Mitre 126</strong>, in an exclusive office building, and <strong>Raset 29</strong>, in Sarrià-Sant Gervasi. And one in the centre, on the eighth floor of <strong>Plaza de Urquinaona 6</strong>, which as well as offices has coworking desks. All three share hours — Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, Fridays until 15:00 — and offer a virtual office with a registered address in Barcelona.</p>
+<div class="srv-stats city-stats">
+  <div class="srv-stat"><div class="srv-stat-n">3 centres</div><div class="srv-stat-l">in the network in Barcelona</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">8 to 30 m²</div><div class="srv-stat-l">equipped private offices, by the hour or by the month</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">2 to 20</div><div class="srv-stat-l">people in the meeting rooms</div></div>
+</div>
+
 <h2>Which centre to choose</h2>
-<p><strong>Mitre 126</strong> is the one for rooms: for 2, 4, 10 and 20 people, fully equipped, in a modern, functional office building with all costs included in the price. <strong>Raset 29</strong> is the design-led one, with offices of 12 to 26 m², open, bright spaces and rooms for 2, 4 and 8, designed for freelancers, entrepreneurs and growing companies. <strong>Plaza Urquinaona</strong> is the one in the centre: naturally lit exterior offices of 8 to 30 m², a limited number of coworking desks and a personal touch. For a coworking desk, Urquinaona; for a 20-person meeting, Mitre; for a design-led office in Sant Gervasi, Raset.</p>
+<div class="city-elegir">
+  <a class="city-elegir-item" href="#mitre-126">
+    <div class="city-elegir-para">For a 20-person meeting</div>
+    <div class="city-elegir-centro">Mitre 126 <span aria-hidden="true">↓</span></div>
+    <p>The one for rooms: for 2, 4, 10 and 20 people, fully equipped, in a modern, functional office building with all costs included in the price.</p>
+  </a>
+  <a class="city-elegir-item" href="#raset-29">
+    <div class="city-elegir-para">For a design-led office in Sant Gervasi</div>
+    <div class="city-elegir-centro">Raset 29 <span aria-hidden="true">↓</span></div>
+    <p>The design-led one, with offices of 12 to 26 m², open, bright spaces and rooms for 2, 4 and 8, designed for freelancers, entrepreneurs and growing companies.</p>
+  </a>
+  <a class="city-elegir-item" href="#plaza-urquinaona">
+    <div class="city-elegir-para">For a coworking desk</div>
+    <div class="city-elegir-centro">Plaza Urquinaona <span aria-hidden="true">↓</span></div>
+    <p>The one in the centre: naturally lit exterior offices of 8 to 30 m², a limited number of coworking desks and a personal touch.</p>
+  </a>
+</div>
+
+<p>For a coworking desk, Urquinaona; for a 20-person meeting, Mitre; for a design-led office in Sant Gervasi, Raset.</p>
   </article>
   <aside class="city-side">
     <div class="side-card">

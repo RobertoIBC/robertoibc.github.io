@@ -24,9 +24,12 @@ faq:
   - q: Does the Vigo centre organise events?
     a: "Yes. As well as the 17-person meeting room for working meetings, the centre specialises in organising events for any kind of activity, and not only in Vigo: anywhere in Galicia. If you have an event in mind, call {{ g.telefono }} and tell us about it."
 ---
+
 ## A centre on Plaza de Compostela, next to the marina
 
 The OficinasYA! centre in Vigo is at Plaza de Compostela 23, second floor, right in the centre of the city and next to the marina, in what the centre itself describes as the best area of Vigo. It has fully furnished offices for a company's day-to-day work and a room for working meetings, and it is, with the two in A Coruña, one of the network's three centres in Galicia.
+
+[[cifras]]
 
 Two things set it apart. First, it specialises in organising events for any kind of activity and anywhere in Galicia, not only at the centre. Second, its proximity to Portugal, which the centre points to as a strategic business advantage for anyone working on both sides of the border.
 

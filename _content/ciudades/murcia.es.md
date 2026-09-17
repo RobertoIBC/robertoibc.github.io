@@ -35,13 +35,20 @@ faq:
     a: "El más amplio de la red: recepción de lunes a viernes de 7:00 a 24:00 y sábados y domingos de 9:00 a 24:00. Permite reuniones a primera hora, eventos hasta la noche y trabajo en fin de semana con recepción abierta, sin necesidad de acceso 24 horas."
   - q: ¿Qué es el coliving de Condado de Alhama?
     a: "Un espacio de la red para vivir y trabajar en el mismo lugar, a 30 minutos del centro de Murcia y cerca de Mazarrón: unidades de 50 a 60 m² amuebladas, una sala de 6 personas, acceso 24 horas y alojamiento para 20 personas en un complejo con campo de golf, tenis, pádel, piscina, bares y centro comercial. Contrato mensual, prorrogable, con preaviso de 15 días y depósito de dos meses."
+elegir:
+  - { para: "El centro en la ciudad", centro: "Marla Center", ancla: marla-center, texto: "Acceso rápido a la circunvalación, tranvía hasta el centro de Murcia, despachos desde 17 m² hasta espacios de 250 m² para equipos grandes, y una recepción abierta de 7:00 a 24:00 entre semana y de 9:00 a 24:00 los fines de semana, la más amplia de la red." }
+  - { para: "El centro en polígono", centro: "Edificio Magalia", ancla: edificio-magalia-alcantarilla, texto: "Junto a la MU-30 y la A-7, con más de veinte años alojando empresas, despachos de 14 a 86 m², aulas y talleres, terraza ajardinada, parking incluido y un equipo propio de recepción, paquetería, mantenimiento y administración." }
+  - { para: "Para vivir y trabajar en el mismo sitio", centro: "Condado de Alhama", ancla: coliving-condado-de-alhama, texto: "Con golf, tenis, pádel y piscina a la puerta." }
 ---
+
 ## Dos centros de negocios y un coliving
 
 OficinasYA! tiene tres espacios en la Región de Murcia: dos centros de negocios —Marla Center, en la avenida Doctor Pedro Guillén de la ciudad, y el Edificio Magalia, en el Polígono Industrial Oeste de Alcantarilla— y un coliving en Condado de Alhama, a 30 minutos de Murcia. Los dos centros de negocios tienen los espacios para eventos más grandes de la red: hasta 200 personas en Marla y 275 en Magalia.
 
+[[cifras]]
+
 ## Qué espacio elegir
 
-**Marla Center** es el centro en la ciudad: acceso rápido a la circunvalación, tranvía hasta el centro de Murcia, despachos desde 17 m² hasta espacios de 250 m² para equipos grandes, y una recepción abierta de 7:00 a 24:00 entre semana y de 9:00 a 24:00 los fines de semana, la más amplia de la red. **El Edificio Magalia** es el centro en polígono, junto a la MU-30 y la A-7, con más de veinte años alojando empresas, despachos de 14 a 86 m², aulas y talleres, terraza ajardinada, parking incluido y un equipo propio de recepción, paquetería, mantenimiento y administración. **Condado de Alhama** es para vivir y trabajar en el mismo sitio, con golf, tenis, pádel y piscina a la puerta.
+[[elegir]]
 
 Los dos centros de negocios ofrecen oficina virtual y Smart Office con domiciliación en Murcia; Magalia, además, servicios contables y administrativos para las empresas alojadas.

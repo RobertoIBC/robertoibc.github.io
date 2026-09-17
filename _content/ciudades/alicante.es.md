@@ -32,9 +32,12 @@ faq:
   - q: ¿Qué es el Smart Office ampliado de Alicante?
     a: "Además del pack Smart Office de la red —oficina virtual con horas de despacho y de sala que suben o bajan cada mes—, el centro de Alicante ofrece un pack ampliado. Qué incluye exactamente y su precio se confirman en el {{ g.telefono }}: depende de cuánto vayas a usar el centro."
 ---
+
 ## Un centro junto a los organismos oficiales de Alicante
 
 El centro de OficinasYA! en Alicante está en la plaza de la Montañeta 4, en el centro administrativo, financiero y comercial de la ciudad, junto a los organismos oficiales. Es fácil de localizar y de llegar: hay aparcamiento público en la zona y la estación de Renfe queda a unos diez minutos. Para un despacho profesional o para una visita que viene de fuera, es una dirección que no hay que explicar.
+
+[[cifras]]
 
 ## Qué hay en el centro
 

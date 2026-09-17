@@ -53,6 +53,16 @@ es:
     form: Formulario de contacto
     all_locations: Ver todas las ubicaciones
   ciudad:
+    cif_centre_one: centro
+    cif_centre_many: centros
+    cif_h24_all: todos con acceso 24 horas
+    cif_h24_one: con acceso 24 horas
+    cif_upto: hasta
+    cif_h24_some: "{n} con acceso 24 horas"
+    cif_in: "de la red en {ciudad}"
+    cif_to: a
+    cif_m2: despachos privados equipados, por horas o por meses
+    cif_pax: personas en las salas de reuniones
     cta_wa: WhatsApp
     wa_msg: "Hola, me interesa el centro de {centro} en {ciudad}"
     close_eyebrow: ¿Y ahora qué?
@@ -163,6 +173,16 @@ en:
     form: Contact form
     all_locations: See all locations
   ciudad:
+    cif_centre_one: centre
+    cif_centre_many: centres
+    cif_h24_all: all with 24-hour access
+    cif_h24_one: with 24-hour access
+    cif_upto: up to
+    cif_h24_some: "{n} with 24-hour access"
+    cif_in: "in the network in {ciudad}"
+    cif_to: to
+    cif_m2: equipped private offices, by the hour or by the month
+    cif_pax: people in the meeting rooms
     cta_wa: WhatsApp
     wa_msg: "Hello, I am interested in the {centro} centre in {ciudad}"
     close_eyebrow: What next?

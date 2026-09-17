@@ -30,9 +30,12 @@ faq:
   - q: ¿Qué horario tiene el centro de Málaga?
     a: "La recepción atiende de 9:30 a 14:30. Es el horario en el que se reciben visitas y correo para los clientes de oficina virtual. Si necesitas usar el despacho o la sala fuera de ese horario, consúltalo al contratar en el {{ g.telefono }}."
 ---
+
 ## Un centro en la calle Larios
 
 El centro de OficinasYA! en Málaga está en la calle Larios 1, tercero izquierda, en la que el propio centro llama la mejor zona de Málaga. Los despachos privados tienen amplios balcones que dejan pasar la luz natural, hay una sala de reuniones de 12 personas para cerrar acuerdos y una zona común amplia para coincidir con las otras empresas del centro. Y a la estación del AVE se va dando un paseo: para quien recibe visitas de fuera o viaja a menudo, es la ubicación que ahorra tiempo.
+
+[[cifras]]
 
 ## Qué hay en el centro
 

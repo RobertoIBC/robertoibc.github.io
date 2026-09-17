@@ -24,9 +24,12 @@ faq:
   - q: What are the opening hours of the Mérida centre?
     a: "Reception is open from 9:00 to 14:00 and from 16:00 to 19:30. Those are the hours during which visitors, mail and calls are handled for virtual office clients. If you need to use an office or a room outside those hours, ask when booking on {{ g.telefono }}."
 ---
+
 ## An office building with parking in the university area
 
 The OficinasYA! centre in Mérida is an exclusive office building, the Edificio Delgado Casamayor, at Avenida Santa Teresa Jornet 48, in the university area, in Bodegones. It has 1,600 m², private parking for clients and meeting rooms for up to 40 people with a catering service. It is the network's only centre in Extremadura.
+
+[[cifras]]
 
 It suits the company that needs more than an address in Mérida: an office you drive to and park at, and rooms where you can bring a team or a client together without leaving the building. For anyone who only needs the address, the virtual office provides the registered address and the handling of mail and visitors during reception hours, from 9:00 to 14:00 and from 16:00 to 19:30.
 

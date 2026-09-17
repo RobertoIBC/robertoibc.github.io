@@ -1,0 +1,6 @@
+{#- Cifras de la ciudad en bloques oscuros. Front matter: cifras[] (num, label) -#}
+<div class="srv-stats city-stats">
+{%- for c in page.cifras %}
+  <div class="srv-stat"><div class="srv-stat-n">{{ c.num }}</div><div class="srv-stat-l">{{ c.label }}</div></div>
+{%- endfor %}
+</div>

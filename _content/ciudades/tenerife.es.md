@@ -38,13 +38,20 @@ faq:
     a: "Los dos están en pleno centro y comparten horario y servicios. Santa Rosalía tiene parking público al lado, dos salas (de 4 y 10 personas, también para formación) y recepcionista, fotocopias y café. Costa y Grijalba tiene los despachos más grandes, hasta 80 m², una sala de 8 y terraza, y ofrece ayuda para instalarse a quien llega nuevo a la ciudad."
   - q: ¿Qué es La Luna Coliving?
     a: "Un espacio de la red en la calle La Luna 8 de Santa Cruz para vivir y trabajar en el mismo sitio: unidades de 16 a 25 m², una sala de 10 personas y acceso 24 horas. Está pensado para estancias de trabajo en la isla. Qué incluye cada unidad y su precio se confirman en el {{ g.telefono }}."
+elegir:
+  - { para: "Un edificio de oficinas completamente equipado", centro: "Santa Rosalía", ancla: santa-rosalia, texto: "Despachos de 9 a 70 m² con mucha luz natural, salas de reuniones y de formación, recepcionista, fotocopias y servicio de café, y parking público al lado." }
+  - { para: "Los espacios privados más grandes", centro: "Costa y Grijalba", ancla: costa-y-grijalba, texto: "Rodeado de casas de estilo colonial, hasta 80 m², una sala de 8 personas y una terraza, y ayuda a instalarse a quien es nuevo en la ciudad." }
+  - { para: "Para vivir y trabajar en el mismo espacio", centro: "La Luna Coliving", ancla: la-luna-coliving, texto: "Durante una estancia en la isla." }
 ---
+
 ## Tres espacios en el centro de Santa Cruz de Tenerife
 
 OficinasYA! tiene tres espacios en Tenerife, los tres en Santa Cruz: dos centros de negocios en pleno centro de la ciudad —Santa Rosalía 49 y Costa y Grijalba 10— y un coliving en la calle La Luna 8. Los dos centros de negocios tienen recepción de lunes a viernes de 8:30 a 20:00 y acceso 24 horas para los clientes, algo que fuera de Madrid solo ofrece una parte de la red; el coliving es un centro autónomo con acceso permanente.
 
+[[cifras]]
+
 ## Qué espacio elegir
 
-**Santa Rosalía** es un edificio de oficinas completamente equipado, con despachos de 9 a 70 m² con mucha luz natural, salas de reuniones y de formación, recepcionista, fotocopias y servicio de café, y parking público al lado. **Costa y Grijalba**, rodeado de casas de estilo colonial, tiene los espacios privados más grandes, hasta 80 m², una sala de 8 personas y una terraza, y ayuda a instalarse a quien es nuevo en la ciudad. **La Luna Coliving** es para vivir y trabajar en el mismo espacio durante una estancia en la isla.
+[[elegir]]
 
 Los tres ofrecen despachos; los dos centros de negocios, además, salas de reuniones y oficina virtual con domiciliación en el centro de Santa Cruz.

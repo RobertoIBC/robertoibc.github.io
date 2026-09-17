@@ -32,9 +32,12 @@ faq:
   - q: ¿Qué horario tiene el centro de Salamanca?
     a: "La recepción atiende de lunes a viernes de 8:00 a 20:00. Es el horario en el que se reciben visitas y correo para los clientes de oficina virtual y en el que se usan las salas y las aulas. Para el uso de los despachos fuera de ese horario, consúltalo al contratar en el {{ g.telefono }}."
 ---
+
 ## Un edificio de oficinas entero, a 5 minutos del centro
 
 El centro de OficinasYA! en Salamanca es el Edificio Openhouse, en el polígono industrial El Montalvo III de Carbajosa de la Sagrada, a 5 minutos del centro de Salamanca y con acceso a la circunvalación. No es una planta en un edificio de otros: son 12.000 m² de edificio de oficinas, con más de medio centenar de oficinas y veinticinco locales comerciales, cafetería, restaurante y parking privado. Es uno de los tres centros de la red con puestos de coworking.
+
+[[cifras]]
 
 Encaja con la empresa que necesita en Salamanca un despacho al que se llega en coche, que puede crecer hasta 210 m² sin cambiar de edificio y que quiere tener al lado cafetería, restaurante y salas grandes. También con el autónomo que prefiere un puesto de coworking dentro de un edificio de empresas —asesorías, tecnología, I+D+i, telefonía, energías renovables, diseño industrial— antes que trabajar solo.
 

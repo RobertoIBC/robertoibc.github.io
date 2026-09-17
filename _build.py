@@ -610,6 +610,28 @@ def build(check=False):
                 p['jsonld'] = to_jsonld(jsonld_articulo(p, site, lang, t, urls))
             if p.layout == 'ciudad':
                 city = next(c for c in cities_ctx if c['nombre'] == p['ciudad'])
+                # Cifras de la ciudad desde el CSV (se pueden sobreescribir con `cifras` en el front matter)
+                if not p.get('cifras'):
+                    tc = t['ciudad']
+                    # OJO: "10 a 47 m2" lleva un 2 en la unidad; se quita antes de leer los numeros
+                    m2 = [int(x) for c_ in city['centros'] for x in re.findall(r'\d+', (c_['despachos_m2'] or '').replace('m2', '').replace('m²', ''))]
+                    pax_src = [c_['capacidad_salas'] or '' for c_ in city['centros']]
+                    pax = [int(x) for src in pax_src for x in re.findall(r'\d+', src)]
+                    n_ = len(city['centros']); n24_ = sum(1 for c_ in city['centros'] if c_['acceso_24h'])
+                    if n_ == 1:
+                        lbl = tc['cif_h24_one'] if n24_ else tc['cif_in'].replace('{ciudad}', city['nombre' if lang == 'es' else 'nombre_en'])
+                    else:
+                        lbl = tc['cif_h24_all'] if n24_ == n_ else (tc['cif_h24_some'].replace('{n}', str(n24_)) if n24_ else tc['cif_in'].replace('{ciudad}', city['nombre' if lang == 'es' else 'nombre_en']))
+                    cif = [{'num': f"{n_} {tc['cif_centre_one'] if n_ == 1 else tc['cif_centre_many']}", 'label': lbl}]
+                    if m2: cif.append({'num': f"{min(m2)} {tc['cif_to']} {max(m2)} m²", 'label': tc['cif_m2']})
+                    if pax:
+                        if min(pax) != max(pax): num = f"{min(pax)} {tc['cif_to']} {max(pax)}"
+                        elif any('hasta' in x for x in pax_src): num = f"{tc['cif_upto']} {max(pax)}"
+                        else: num = str(max(pax))
+                        cif.append({'num': num, 'label': tc['cif_pax']})
+                    p['cifras'] = cif
+                # Bloques maquetados de la introduccion ([[elegir]], [[cifras]]) desde el front matter
+                p['body_html'] = re.sub(r'<p>\[\[([a-z_]+)\]\]</p>', lambda m: env.get_template(f'partials/city-{m.group(1)}.html').render(ctx), p['body_html'])
                 overrides = {o['nombre']: o for o in (p.get('centros') or [])}
                 for c in city['centros']:
                     o = overrides.get(c['centro'], {})

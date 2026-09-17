@@ -32,9 +32,12 @@ faq:
   - q: What is the extended Smart Office in Alicante?
     a: "In addition to the network's Smart Office pack — a virtual office with office and room hours that scale up or down each month — the Alicante centre offers an extended pack. Exactly what it includes and its price are confirmed on {{ g.telefono }}: it depends on how much you are going to use the centre."
 ---
+
 ## A centre next to Alicante's official bodies
 
 The OficinasYA! centre in Alicante is at Plaza de la Montañeta 4, in the administrative, financial and commercial centre of the city, next to the official bodies. It is easy to find and to reach: there is public parking in the area and the Renfe railway station is about ten minutes away. For a professional office or for a visitor from out of town, it is an address that needs no explaining.
+
+[[cifras]]
 
 ## What the centre offers
 

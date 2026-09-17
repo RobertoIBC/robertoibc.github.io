@@ -33,15 +33,31 @@ faq:
     a: "Desde la estación del AVE hay un autobús hasta el centro de Segovia cuya parada está a 50 m del centro de Padre Claret. Si vienes en coche, en la misma puerta de Padre Claret hay un acceso al parking de Padre Claret. Para Ezequiel González, en el Paseo Ezequiel González 32, confirma el aparcamiento al reservar."
   - q: ¿Los centros de Segovia tienen acceso 24 horas?
     a: "No. Los dos funcionan en horario de recepción: Padre Claret de lunes a viernes de 8:00 a 19:00 (en verano hasta las 15:00) y Ezequiel González de lunes a viernes de 8:00 a 21:00. Si necesitas trabajar de noche o en fin de semana con regularidad, dilo al contratar para ver qué opciones hay en el centro."
+elegir:
+  - para: "Para las gestiones"
+    centro: "Padre Claret"
+    ancla: padre-claret
+    texto: "Está a 200 m de la zona financiera, a 500 m de los Juzgados y de la Diputación y a 800 m del Ayuntamiento, con el acceso al parking de Padre Claret en la misma puerta y la parada del autobús a la estación del AVE a 50 m."
+  - para: "Para las reuniones grandes"
+    centro: "Ezequiel González"
+    ancla: ezequiel-gonzalez
+    texto: "Salas de 4 a 50 personas, salas de formación y una sala multiusos para eventos, talleres o charlas, con la recepción abierta hasta las 21:00."
 ---
+
 ## Dos centros en Segovia capital
 
-OficinasYA! tiene dos centros de negocios en Segovia: uno en la Avenida Padre Claret, en el centro de la ciudad, a 100 m del Acueducto, y otro en el Paseo Ezequiel González, en las instalaciones de la antigua Universidad de Valladolid. En los dos hay despachos privados equipados de 9 a 20 m², que se contratan por horas o por meses, salas de reuniones y oficina virtual con domiciliación social, fiscal y comercial.
+OficinasYA! tiene dos centros de negocios en Segovia: uno en la Avenida Padre Claret, en el centro de la ciudad, a 100 m del Acueducto, y otro en el Paseo Ezequiel González, en las instalaciones de la antigua Universidad de Valladolid.
+
+[[cifras]]
+
+En los dos hay despachos privados equipados de 9 a 20 m², que se contratan por horas o por meses, salas de reuniones y oficina virtual con domiciliación social, fiscal y comercial.
 
 Son centros pensados para el autónomo y la pequeña empresa de Segovia que necesita un despacho serio sin un local en alquiler, y para la empresa de fuera que atiende clientes o gestiones en la ciudad y quiere un sitio donde recibirlos. Una combinación posible es un despacho por horas para las visitas y la oficina virtual para la dirección.
 
 ## Qué centro elegir
 
-Los dos comparten los servicios de la red; lo que los distingue es la ubicación y las salas. **Padre Claret** es el centro de las gestiones: está a 200 m de la zona financiera, a 500 m de los Juzgados y de la Diputación y a 800 m del Ayuntamiento, con el acceso al parking de Padre Claret en la misma puerta y la parada del autobús a la estación del AVE a 50 m. **Ezequiel González** es el centro de las reuniones grandes: salas de 4 a 50 personas, salas de formación y una sala multiusos para eventos, talleres o charlas, con la recepción abierta hasta las 21:00.
+Los dos comparten los servicios de la red; lo que los distingue es la ubicación y las salas. Padre Claret es el centro de las gestiones; Ezequiel González, el de las reuniones grandes.
+
+[[elegir]]
 
 Si dudas, llama al {{ g.telefono }} y te decimos qué hay libre en cada uno; cambiar de un centro a otro dentro de Segovia es una llamada, no una mudanza.

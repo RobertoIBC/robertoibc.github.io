@@ -26,9 +26,12 @@ faq:
   - q: What does the virtual office in Valencia include?
     a: "Registered, official and/or trading address at Guillem de Castro 9, receipt of mail and visitors, optional personalised call answering, mail forwarding and diary management, with preferential rates on the centre's other services: rooms, printing and parking. Reception is open Monday to Friday from 9:00 to 14:00 and in the afternoons, Monday to Thursday, from 15:15 to 19:00."
 ---
+
 ## A nearly 2,000 m² building in the centre, with parking
 
 The OficinasYA! centre in Valencia occupies the 5th and 6th floors of a nearly 2,000 m² building at Calle Guillem de Castro 9, right in the centre of the city, with a public parking service in the building itself. It is a large centre, with offices, eight meeting and training rooms, break areas and a vending service, and with two details of its own: a prime spot for your company logo in the lobby and IT technicians at the centre for problems with your equipment.
+
+[[cifras]]
 
 ## What the centre offers
 

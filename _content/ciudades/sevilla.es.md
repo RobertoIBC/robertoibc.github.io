@@ -41,13 +41,22 @@ faq:
     a: "En el Edificio Galia Puerto: dos salas de usos múltiples diáfanas de hasta 360 m², salas configurables en aula, teatro, U o mesa imperial para 12 a 90 personas y 150 en formato abierto, sala VIP con videoconferencia y espacio para exposiciones. Universidades y escuelas de negocio de toda España lo usan para exámenes y evaluaciones presenciales."
   - q: ¿Se puede alquilar la sala de Laraña con bonos de horas?
     a: "Sí. La sala de reuniones de Laraña, de 8 personas, se alquila con bonos mensuales de 10, 20 y 30 horas o por jornadas, y los despachos por días, semanas o meses. Es el formato para quien pasa por el centro con regularidad sin un despacho fijo."
+elegir:
+  - { para: "Para una oficina en el centro histórico", centro: "Laraña", ancla: larana, texto: "Con reuniones de hasta 8 personas y un uso flexible —por días, semanas o meses, con bonos de sala—." }
+  - { para: "Para un equipo de hasta 10 puestos, una oficina grande, un evento, una formación o un examen presencial", centro: "Galia Puerto", ancla: edificio-galia-puerto, texto: "Y para llegar en coche y aparcar." }
+  - { para: "Para un despacho de 10 a 80 m² en Nervión", centro: "Edificio Nervión", ancla: edificio-nervion, texto: "Con sala VIP y acceso a cualquier hora." }
 ---
+
 ## Tres centros, tres formas de estar en Sevilla
 
 OficinasYA! tiene tres centros de negocios en Sevilla, y son muy distintos entre sí. **Laraña 4** está en pleno centro, en una de las principales arterias comerciales y de negocios de la ciudad: es el despacho representativo en el casco. **El Edificio Galia Puerto**, en el Puerto de Sevilla junto a Los Remedios y con incorporación inmediata a la SE-30, es el edificio de referencia de la red para grandes empresas, con oficinas de hasta 2.500 m², salas para eventos de hasta 150 personas y un parking de más de 500 plazas. **El Edificio Nervión**, en la avenida Eduardo Dato, es el despacho de diseño en una de las zonas de mayor proyección económica de la ciudad, con acceso 24 horas.
 
+[[cifras]]
+
 ## Qué centro elegir
 
-Para una oficina en el centro histórico con reuniones de hasta 8 personas y un uso flexible —por días, semanas o meses, con bonos de sala—, Laraña. Para un equipo de hasta 10 puestos, una oficina grande, un evento, una formación o un examen presencial, y para llegar en coche y aparcar, Galia Puerto. Para un despacho de 10 a 80 m² en Nervión, con sala VIP y acceso a cualquier hora, el Edificio Nervión. Los tres ofrecen oficina virtual con domiciliación en Sevilla.
+[[elegir]]
+
+Los tres ofrecen oficina virtual con domiciliación en Sevilla.
 
 Los tres son distintos también en horario: Laraña atiende de lunes a jueves de 9:00 a 14:00 y de 15:00 a 19:00 y los viernes hasta las 15:00; Galia Puerto tiene recepción de 8:00 a 15:30 y seguridad 24 horas los 365 días; Nervión, recepción de 8:30 a 15:30 y acceso 24 horas.

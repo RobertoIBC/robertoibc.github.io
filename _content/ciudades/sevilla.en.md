@@ -41,13 +41,22 @@ faq:
     a: "At the Edificio Galia Puerto: two open-plan multi-purpose rooms of up to 360 m², rooms configurable in classroom, theatre, U-shape or boardroom layout for 12 to 90 people and 150 in an open layout, a VIP room with video conferencing and an exhibition space. Universities and business schools from all over Spain use it for in-person exams and assessments."
   - q: Can the Laraña room be hired with hour packs?
     a: "Yes. The Laraña meeting room, for 8 people, is hired with monthly packs of 10, 20 and 30 hours or by the day, and the offices by the day, week or month. It is the format for anyone who passes through the centre regularly without a fixed office."
+elegir:
+  - { para: "For an office in the historic centre", centro: "Laraña", ancla: larana, texto: "With meetings of up to 8 people and flexible use — by the day, week or month, with room packs." }
+  - { para: "For a team of up to 10 people, a large office, an event, a training session or an in-person exam", centro: "Galia Puerto", ancla: edificio-galia-puerto, texto: "And to arrive by car and park." }
+  - { para: "For an office of 10 to 80 m² in Nervión", centro: "Edificio Nervión", ancla: edificio-nervion, texto: "With a VIP room and access at any hour." }
 ---
+
 ## Three centres, three ways of being in Seville
 
 OficinasYA! has three business centres in Seville, and they are very different from one another. **Laraña 4** is right in the centre, on one of the city's main commercial and business streets: it is the representative office in the old town. **The Edificio Galia Puerto**, in the Port of Seville next to Los Remedios and with immediate access to the SE-30, is the network's reference building for large companies, with offices of up to 2,500 m², rooms for events of up to 150 people and parking for more than 500 cars. **The Edificio Nervión**, on Avenida Eduardo Dato, is the design-led office in one of the city's fastest-developing business areas, with 24-hour access.
 
+[[cifras]]
+
 ## Which centre to choose
 
-For an office in the historic centre with meetings of up to 8 people and flexible use — by the day, week or month, with room packs — Laraña. For a team of up to 10 people, a large office, an event, a training session or an in-person exam, and to arrive by car and park, Galia Puerto. For an office of 10 to 80 m² in Nervión, with a VIP room and access at any hour, the Edificio Nervión. All three offer a virtual office with a registered address in Seville.
+[[elegir]]
+
+All three offer a virtual office with a registered address in Seville.
 
 The three also differ in hours: Laraña is open Monday to Thursday from 9:00 to 14:00 and from 15:00 to 19:00 and Fridays until 15:00; Galia Puerto has reception from 8:00 to 15:30 and security 24 hours a day, 365 days a year; Nervión, reception from 8:30 to 15:30 and 24-hour access.

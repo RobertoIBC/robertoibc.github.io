@@ -30,9 +30,12 @@ faq:
   - q: ¿Se puede alquilar la sala de reuniones por media jornada?
     a: "Sí. La sala de reuniones de Albacete es de 16 personas, con pantalla y pizarra, y se reserva por horas, por media jornada o con paquetes de horas si la vas a usar con regularidad. No hace falta ser cliente del centro para reservarla."
 ---
+
 ## Un centro en la Calle Mayor, con acceso 24 horas
 
 El centro de OficinasYA! en Albacete está en la Calle Mayor 22, en la entreplanta, junto a la zona comercial y financiera de la ciudad. Es un centro autónomo, con acceso las 24 horas los 7 días de la semana. Para un autónomo o una pequeña empresa de Albacete eso significa poder trabajar a la hora que convenga y recibir en una dirección céntrica; para una empresa de fuera, tener despacho y dirección en la ciudad sin abrir una delegación.
+
+[[cifras]]
 
 ## Qué hay en el centro
 

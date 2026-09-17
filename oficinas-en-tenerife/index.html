@@ -401,6 +401,24 @@
       .city-close-btns a { width: 100%; }
       .centre-photo { min-height: 200px; }
     }
+    /* Introduccion escaneable: parrafo de entrada destacado, tarjetas "que centro elegir", cifras */
+    .city-intro .srv-article > h2:first-child + p { font-size: 1.14rem; line-height: 1.7; color: var(--dark-mid); }
+    .city-elegir { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 24px; }
+    .city-elegir-item { display: block; background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 18px 20px; text-decoration: none; transition: border-color .2s, transform .2s; }
+    .city-elegir-item:hover { border-color: var(--dark); transform: translateY(-2px); }
+    .city-elegir > .city-elegir-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .city-elegir-para { font-size: .74rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-600); margin-bottom: 6px; }
+    .city-elegir-centro { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .city-elegir-centro span { color: var(--orange-dark); }
+    .city-elegir-item p { margin: 0; font-size: .95rem; line-height: 1.6; color: var(--gray-600); }
+    .city-stats { grid-template-columns: repeat(3, 1fr); margin: 20px 0 26px; }
+    .city-stats .srv-stat { padding: 16px 18px; }
+    .city-stats .srv-stat-n { font-size: 1.6rem; }
+    .srv-stats { display: grid; gap: 12px; }
+    .srv-stat { background: var(--dark); color: var(--white); border-radius: 18px; }
+    .srv-stat-n { font-family: 'Barlow', sans-serif; font-weight: 900; color: var(--orange); line-height: 1; }
+    .srv-stat-l { font-size: .82rem; color: rgba(255,255,255,.72); margin-top: 6px; line-height: 1.4; }
+    @media (max-width: 600px) { .city-elegir, .city-stats { grid-template-columns: 1fr; } }
     /* Cabecera con foto real (opcional): texto a la izquierda, foto a la derecha; en movil, debajo */
     .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 48px; align-items: center; }
     .hero-photo { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
@@ -720,8 +738,31 @@
   <article class="srv-article">
 <h2>Tres espacios en el centro de Santa Cruz de Tenerife</h2>
 <p>OficinasYA! tiene tres espacios en Tenerife, los tres en Santa Cruz: dos centros de negocios en pleno centro de la ciudad —Santa Rosalía 49 y Costa y Grijalba 10— y un coliving en la calle La Luna 8. Los dos centros de negocios tienen recepción de lunes a viernes de 8:30 a 20:00 y acceso 24 horas para los clientes, algo que fuera de Madrid solo ofrece una parte de la red; el coliving es un centro autónomo con acceso permanente.</p>
+<div class="srv-stats city-stats">
+  <div class="srv-stat"><div class="srv-stat-n">3 centros</div><div class="srv-stat-l">todos con acceso 24 horas</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">9 a 80 m²</div><div class="srv-stat-l">despachos privados equipados, por horas o por meses</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">4 a 10</div><div class="srv-stat-l">personas en las salas de reuniones</div></div>
+</div>
+
 <h2>Qué espacio elegir</h2>
-<p><strong>Santa Rosalía</strong> es un edificio de oficinas completamente equipado, con despachos de 9 a 70 m² con mucha luz natural, salas de reuniones y de formación, recepcionista, fotocopias y servicio de café, y parking público al lado. <strong>Costa y Grijalba</strong>, rodeado de casas de estilo colonial, tiene los espacios privados más grandes, hasta 80 m², una sala de 8 personas y una terraza, y ayuda a instalarse a quien es nuevo en la ciudad. <strong>La Luna Coliving</strong> es para vivir y trabajar en el mismo espacio durante una estancia en la isla.</p>
+<div class="city-elegir">
+  <a class="city-elegir-item" href="#santa-rosalia">
+    <div class="city-elegir-para">Un edificio de oficinas completamente equipado</div>
+    <div class="city-elegir-centro">Santa Rosalía <span aria-hidden="true">↓</span></div>
+    <p>Despachos de 9 a 70 m² con mucha luz natural, salas de reuniones y de formación, recepcionista, fotocopias y servicio de café, y parking público al lado.</p>
+  </a>
+  <a class="city-elegir-item" href="#costa-y-grijalba">
+    <div class="city-elegir-para">Los espacios privados más grandes</div>
+    <div class="city-elegir-centro">Costa y Grijalba <span aria-hidden="true">↓</span></div>
+    <p>Rodeado de casas de estilo colonial, hasta 80 m², una sala de 8 personas y una terraza, y ayuda a instalarse a quien es nuevo en la ciudad.</p>
+  </a>
+  <a class="city-elegir-item" href="#la-luna-coliving">
+    <div class="city-elegir-para">Para vivir y trabajar en el mismo espacio</div>
+    <div class="city-elegir-centro">La Luna Coliving <span aria-hidden="true">↓</span></div>
+    <p>Durante una estancia en la isla.</p>
+  </a>
+</div>
+
 <p>Los tres ofrecen despachos; los dos centros de negocios, además, salas de reuniones y oficina virtual con domiciliación en el centro de Santa Cruz.</p>
   </article>
   <aside class="city-side">

@@ -35,11 +35,20 @@ faq:
     a: "En Mitre 126, salas de 2, 4, 10 y 20 personas, completamente equipadas; en Raset 29, de 2, 4 y 8. Se reservan por horas, también sin ser cliente del centro. Para una reunión de más de 20 personas en Barcelona, consúltalo en el {{ g.telefono }}."
   - q: ¿Qué horario tienen los centros de Barcelona?
     a: "Los tres atienden de lunes a jueves de 9:00 a 14:00 y de 15:00 a 18:00, y los viernes hasta las 15:00. Es el horario de recepción para visitas, correo y llamadas de los clientes de oficina virtual; para el uso de despachos fuera de ese horario, consúltalo al contratar."
+elegir:
+  - { para: "Para una reunión de 20 personas", centro: "Mitre 126", ancla: mitre-126, texto: "Es el de las salas: de 2, 4, 10 y 20 personas, completamente equipadas, en un edificio de oficinas moderno y funcional con todos los gastos incluidos en el precio." }
+  - { para: "Para un despacho de diseño en Sant Gervasi", centro: "Raset 29", ancla: raset-29, texto: "Es el de diseño, con despachos de 12 a 26 m², espacios abiertos y luminosos y salas de 2, 4 y 8, pensado para freelancers, emprendedores y empresas que crecen." }
+  - { para: "Para un puesto de coworking", centro: "Plaza Urquinaona", ancla: plaza-urquinaona, texto: "Es el del centro: despachos exteriores con luz natural de 8 a 30 m², plazas limitadas de coworking y trato cercano." }
 ---
+
 ## Tres centros en Barcelona: zona alta y centro
 
 OficinasYA! tiene tres centros de negocios en Barcelona. Dos en la zona alta: **Ronda del General Mitre 126**, en un edificio exclusivo de oficinas, y **Raset 29**, en Sarrià-Sant Gervasi. Y uno en el centro, en la octava planta de **Plaza de Urquinaona 6**, que además de despachos tiene plazas de coworking. Los tres comparten horario —lunes a jueves de 9:00 a 14:00 y de 15:00 a 18:00, viernes hasta las 15:00— y ofrecen oficina virtual con domiciliación en Barcelona.
 
+[[cifras]]
+
 ## Qué centro elegir
 
-**Mitre 126** es el de las salas: de 2, 4, 10 y 20 personas, completamente equipadas, en un edificio de oficinas moderno y funcional con todos los gastos incluidos en el precio. **Raset 29** es el de diseño, con despachos de 12 a 26 m², espacios abiertos y luminosos y salas de 2, 4 y 8, pensado para freelancers, emprendedores y empresas que crecen. **Plaza Urquinaona** es el del centro: despachos exteriores con luz natural de 8 a 30 m², plazas limitadas de coworking y trato cercano. Para un puesto de coworking, Urquinaona; para una reunión de 20 personas, Mitre; para un despacho de diseño en Sant Gervasi, Raset.
+[[elegir]]
+
+Para un puesto de coworking, Urquinaona; para una reunión de 20 personas, Mitre; para un despacho de diseño en Sant Gervasi, Raset.

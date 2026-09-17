@@ -30,9 +30,12 @@ faq:
   - q: What does the virtual office on Paseo de la Independencia include?
     a: "A registered, official and/or trading address for your company at Paseo de la Independencia 8, handling of visitors and calls and call forwarding, plus access to the centre's rooms. It is the option for anyone who works remotely or does not need a physical office and wants an address in the centre of Zaragoza."
 ---
+
 ## A centre on Paseo de la Independencia
 
 The OficinasYA! centre in Zaragoza is at Paseo de la Independencia 8 duplicado, second floor, in the city's financial, leisure and cultural centre. The centre itself credits that location with its standing in Zaragoza's office and business-centre sector: the address lends image and prestige to the companies that use it, whether with an office or just the virtual office.
+
+[[cifras]]
 
 ## What the centre offers
 

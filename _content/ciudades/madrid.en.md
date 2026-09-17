@@ -89,13 +89,32 @@ faq:
     a: "The three in the Salamanca district and Capitán Haya have metro, bus and taxi within 100 or 200 metres and a direct route to the airport. Las Tablas and Manoteras are in the area of the big northern developments. La Florida is reached by car, with the A-6 and the M-40 less than a kilometre away. Sanse is in the La Marina business park, next to Antena 3."
   - q: What is the contract for a monthly office in Madrid like?
     a: "Monthly or quarterly depending on the centre, renewing automatically, and cancelled with 15 to 30 days' notice depending on the centre. A deposit equivalent to two months is paid. Offices are handed over furnished and equipped to be used from the moment of signing."
+elegir:
+  - { para: "If the address is what sells", centro: "Salamanca district", ancla: salamanca-district, texto: "Three centres a few streets apart, with metro, bus and taxi next door and a route to the airport. The golden mile." }
+  - { para: "If your business is on the Castellana or at the courts", centro: "Capitán Haya", ancla: capitan-haya, texto: "The financial centre and Plaza de Castilla; it also has the largest room." }
+  - { para: "If the client is in the north", centro: "Las Tablas or Manoteras", ancla: north-madrid, texto: "The Telefónica, BBVA and Castellana-extension area." }
+  - { para: "If you always arrive by car from the west", centro: "La Florida", ancla: pozuelo-de-alarcon, texto: "Pozuelo, next to the A-6." }
+  - { para: "If the company is in or around San Sebastián de los Reyes", centro: "Sanse", ancla: san-sebastian-de-los-reyes, texto: "The La Marina business park." }
 ---
+
 ## Eight centres in five areas, all with 24-hour access
 
-OficinasYA! has eight business centres in Madrid and all eight have 24-hour access, 7 days a week, for clients with an office. They are spread across five areas, and choosing one is above all choosing an area: the Salamanca district for an address on the golden mile; the Castellana and Plaza de Castilla for the financial centre and the courts; the north — Las Tablas and Sanchinarro — for the Telefónica, BBVA and Castellana-extension area; Pozuelo for the west, next to the A-6; and San Sebastián de los Reyes for the La Marina business park.
+OficinasYA! has eight business centres in Madrid and all eight have 24-hour access, 7 days a week, for clients with an office.
+
+They are spread across five areas, and choosing one is above all choosing an area:
+
+- **the Salamanca district** for an address on the golden mile;
+- **the Castellana and Plaza de Castilla** for the financial centre and the courts;
+- **the north** — Las Tablas and Sanchinarro — for the Telefónica, BBVA and Castellana-extension area;
+- **Pozuelo** for the west, next to the A-6;
+- and **San Sebastián de los Reyes** for the La Marina business park.
+
+[[cifras]]
 
 All of them have furnished, equipped offices handed over ready on the day of signing, by the hour or by the month, boardrooms by the hour and a virtual office with registered address. The eight Madrid centres add up to more than a hundred offices, from 6 m² at Serrano to 69 m² at La Florida, and rooms for 8 to 50 people.
 
 ## How to choose
 
-If the address is what sells, the **Salamanca district**: three centres a few streets apart, with metro, bus and taxi next door and a route to the airport. If your business is on the Castellana or at the courts, **Capitán Haya**, which also has the largest room. If the client is in the north, **Las Tablas** or **Manoteras**. If you always arrive by car from the west, **La Florida**. If the company is in or around San Sebastián de los Reyes, **Sanse**. And if it is a toss-up between two, call {{ g.telefono }}: changing centre within Madrid is a phone call, and the network's hot desks let you work from any of the eight when you need to be at the other end of the city.
+[[elegir]]
+
+And if it is a toss-up between two, call {{ g.telefono }}: changing centre within Madrid is a phone call, and the network's hot desks let you work from any of the eight when you need to be at the other end of the city.
