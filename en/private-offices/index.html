@@ -380,6 +380,9 @@
     .srv-tarjetas.srv-cards-2 > .srv-feature:last-child:nth-child(odd) { grid-column: 1 / -1; }   /* impar: la ultima a todo el ancho */
     .srv-feature { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 20px 22px; }
     .srv-feature h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .srv-feature.has-photo { padding: 0 0 20px; overflow: hidden; }
+    .srv-feature.has-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; margin-bottom: 16px; }
+    .srv-feature.has-photo h3, .srv-feature.has-photo p { padding: 0 22px; }
     .srv-feature p { margin: 0; font-size: .95rem; line-height: 1.65; }
     .srv-table-wrap { margin: 18px 0 28px; border: 1.5px solid var(--gray-200); border-radius: 18px; overflow-x: auto; }
     .srv-table-wrap table { margin: 0; min-width: 640px; }
@@ -390,6 +393,14 @@
     .srv-table-wrap th:nth-child(2) { width: 40%; }
     .srv-table-wrap th:nth-child(3) { width: 19%; }
     .srv-table-wrap tr:last-child td { border-bottom: none; }
+    .srv-galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0 28px; }
+    .srv-galeria-3 { grid-template-columns: repeat(3, 1fr); }
+    .srv-galeria-item { margin: 0; position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 3 / 2; background: var(--gray-200); }
+    .srv-galeria-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .srv-galeria-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 18px 14px; background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0)); color: var(--white); display: flex; flex-direction: column; gap: 2px; }
+    .srv-galeria-item figcaption b { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; }
+    .srv-galeria-item figcaption span { font-size: .8rem; opacity: .85; }
+    @media (max-width: 600px) { .srv-galeria, .srv-galeria-3 { grid-template-columns: 1fr; } }
     .srv-incl { margin-top: 18px; }
     .srv-incl .srv-card { background: var(--white); }
     .srv-incl .srv-card h3 { margin-top: 0; }
@@ -547,6 +558,35 @@
             "valueAddedTaxIncluded": false
           },
           "availability": "https://schema.org/InStock"
+        }
+      ],
+      "image": [
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://robertoibc.github.io/assets/img/despachos/gasset.jpg",
+          "url": "https://robertoibc.github.io/assets/img/despachos/gasset.jpg",
+          "caption": "Single office · Gasset, Madrid · from 13 m²",
+          "description": "Single office with desk, computer and phone at the OficinasYA! Gasset centre, Madrid",
+          "width": 900,
+          "height": 600
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://robertoibc.github.io/assets/img/despachos/serrano.jpg",
+          "url": "https://robertoibc.github.io/assets/img/despachos/serrano.jpg",
+          "caption": "Team office · Serrano, Madrid · de 6 a 38 m²",
+          "description": "Team office with several desks and wooden floor at the OficinasYA! Serrano centre, Madrid",
+          "width": 900,
+          "height": 600
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://robertoibc.github.io/assets/img/despachos/capitan-haya.jpg",
+          "url": "https://robertoibc.github.io/assets/img/despachos/capitan-haya.jpg",
+          "caption": "Large office · Capitán Haya, Madrid · up to 49 m²",
+          "description": "Large office with several workstations at the OficinasYA! Capitán Haya centre, Madrid",
+          "width": 900,
+          "height": 600
         }
       ]
     },
@@ -776,6 +816,21 @@
 <div class="srv-callout">
   <div class="srv-callout-n">6 to 250 m²</div>
   <p>Prices are starting prices. The final amount depends on the size of the office and the city: across the network there are offices from 6 m² for one person up to 250 m² spaces for large teams.</p>
+</div>
+
+<div class="srv-galeria srv-galeria-3">
+  <figure class="srv-galeria-item">
+    <img loading="lazy" decoding="async" width="900" height="600" src="/assets/img/despachos/gasset.jpg" alt="Single office with desk, computer and phone at the OficinasYA! Gasset centre, Madrid" />
+    <figcaption><b>Single office</b><span>Gasset, Madrid · from 13 m²</span></figcaption>
+  </figure>
+  <figure class="srv-galeria-item">
+    <img loading="lazy" decoding="async" width="900" height="600" src="/assets/img/despachos/serrano.jpg" alt="Team office with several desks and wooden floor at the OficinasYA! Serrano centre, Madrid" />
+    <figcaption><b>Team office</b><span>Serrano, Madrid · de 6 a 38 m²</span></figcaption>
+  </figure>
+  <figure class="srv-galeria-item">
+    <img loading="lazy" decoding="async" width="900" height="600" src="/assets/img/despachos/capitan-haya.jpg" alt="Large office with several workstations at the OficinasYA! Capitán Haya centre, Madrid" />
+    <figcaption><b>Large office</b><span>Capitán Haya, Madrid · up to 49 m²</span></figcaption>
+  </figure>
 </div>
 
 <p>If what you need is not a fixed office but a few hours of office a month alongside a registered address and an answered phone line, look at <a href="/en/virtual-office/#smart-office">Smart Office</a>: the modular formula that starts from the virtual office and adds office and meeting-room hours as each month requires.</p>

@@ -161,6 +161,33 @@ Los textos de las fichas de centro que salen del CSV (horario, salas,
 despachos) se traducen al inglés por tokens en `_build.py`
 (`FACT_TOKENS_EN`): si aparece una palabra nueva en el CSV, se añade ahí.
 
+Hay un octavo bloque, `[[galeria]]`, que lee `galeria` (lista de
+`{foto, alt, titulo, sub}`) y pinta fotos reales con pie (dos columnas; tres
+si son tres). Las fotos van en `assets/img/salas/` o `assets/img/despachos/`
+a 900 px de ancho; el generador las añade como `ImageObject` al `Service`.
+Las tarjetas de `[[tarjetas]]` admiten `foto` y `alt` opcionales (coworking).
+
+### Foto de cabecera en una página de ciudad
+
+Solo con foto **real y distinta de la de su ficha**; si no la hay, se omite
+y la página va con el hero de texto (Barcelona, Bilbao, Segovia, Valencia,
+Castellón, Vigo, Mérida y Murcia van así). Cinco líneas en el front matter
+del `.es.md` y del `.en.md` (alt y pie en su idioma):
+
+```yaml
+hero_foto: /assets/img/cabeceras/sevilla.jpg      # 1400×800, JPEG
+hero_alt: "Sala de juntas en U con ventanales en el Edificio Galia Puerto, Sevilla"
+hero_caption: "Sala de juntas · Edificio Galia Puerto, Sevilla"
+og_image: /assets/img/og/sevilla.jpg              # 1200×630, la imagen al compartir el enlace
+og_image_alt: "…"
+```
+
+El generador la pone en el hero (a la derecha en escritorio, debajo en
+móvil), sin `lazy` y con `fetchpriority="high"` porque está sobre el
+pliegue, y la declara como `primaryImageOfPage` (`ImageObject`) en el
+JSON-LD. Fotos de cabecera: sin personas, sin logos de terceros, apaisadas,
+de al menos 1200 px de ancho antes de recortar.
+
 Las dos versiones de una página comparten el mismo `id` en el front matter:
 así se enlazan entre sí. Para dar un id a un encabezado (para enlazar a él),
 la sintaxis es `## Título {: #mi-ancla }`. No uses `{#mi-ancla}`: `{#` abre

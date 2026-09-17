@@ -3,6 +3,12 @@ id: ciudad-tenerife
 lang: es
 url: /oficinas-en-tenerife/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/tenerife.jpg
+hero_alt: "Despacho con vistas a la ciudad en el centro OficinasYA! de Santa Rosalía, Santa Cruz de Tenerife"
+hero_caption: "Despacho · Santa Rosalía, Tenerife"
+og_image: /assets/img/og/tenerife.jpg
+og_image_alt: "Despacho con vistas a la ciudad en el centro OficinasYA! de Santa Rosalía, Santa Cruz de Tenerife"
 ciudad: Tenerife
 title: "Alquiler de oficinas y despachos en Tenerife | OficinasYA!"
 description: "Tres espacios en Santa Cruz de Tenerife: dos centros con acceso 24 h, en Santa Rosalía 49 y Costa y Grijalba 10, y un coliving en la calle La Luna 8."

@@ -380,6 +380,9 @@
     .srv-tarjetas.srv-cards-2 > .srv-feature:last-child:nth-child(odd) { grid-column: 1 / -1; }   /* impar: la ultima a todo el ancho */
     .srv-feature { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 20px 22px; }
     .srv-feature h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .srv-feature.has-photo { padding: 0 0 20px; overflow: hidden; }
+    .srv-feature.has-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; margin-bottom: 16px; }
+    .srv-feature.has-photo h3, .srv-feature.has-photo p { padding: 0 22px; }
     .srv-feature p { margin: 0; font-size: .95rem; line-height: 1.65; }
     .srv-table-wrap { margin: 18px 0 28px; border: 1.5px solid var(--gray-200); border-radius: 18px; overflow-x: auto; }
     .srv-table-wrap table { margin: 0; min-width: 640px; }
@@ -390,6 +393,14 @@
     .srv-table-wrap th:nth-child(2) { width: 40%; }
     .srv-table-wrap th:nth-child(3) { width: 19%; }
     .srv-table-wrap tr:last-child td { border-bottom: none; }
+    .srv-galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0 28px; }
+    .srv-galeria-3 { grid-template-columns: repeat(3, 1fr); }
+    .srv-galeria-item { margin: 0; position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 3 / 2; background: var(--gray-200); }
+    .srv-galeria-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .srv-galeria-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 18px 14px; background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0)); color: var(--white); display: flex; flex-direction: column; gap: 2px; }
+    .srv-galeria-item figcaption b { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; }
+    .srv-galeria-item figcaption span { font-size: .8rem; opacity: .85; }
+    @media (max-width: 600px) { .srv-galeria, .srv-galeria-3 { grid-template-columns: 1fr; } }
     .srv-incl { margin-top: 18px; }
     .srv-incl .srv-card { background: var(--white); }
     .srv-incl .srv-card h3 { margin-top: 0; }
@@ -631,9 +642,9 @@
 <p>The network brings together more than 1500 companies, and the <a href="/en/community/">Comunidad Naranja</a> is the directory where they find each other.</p>
 <h2>The three centres with coworking</h2>
 <div class="srv-cards srv-cards-3 srv-tarjetas">
-  <div class="srv-feature"><h3>Barcelona, Plaza de Urquinaona 6</h3><p>On the eighth floor of a building right in the centre, next to Plaça de Catalunya, with offices of 8 to 30 m² next door to grow into.</p></div>
-  <div class="srv-feature"><h3>A Coruña, Juan de la Cierva 5</h3><p>An accessible, multi-purpose centre with meeting rooms for up to 50 people.</p></div>
-  <div class="srv-feature"><h3>Salamanca, Edificio Openhouse</h3><p>In Carbajosa de la Sagrada, with rooms for 15 and 60 people, reception from 8:00 to 20:00 and offices of 22 to 210 m².</p></div>
+  <div class="srv-feature has-photo"><img loading="lazy" decoding="async" width="560" height="373" src="/assets/img/centros/centro-barcelona-urquinaona.jpg" alt="Office with windows and desk at the OficinasYA! Plaza Urquinaona centre, Barcelona" /><h3>Barcelona, Plaza de Urquinaona 6</h3><p>On the eighth floor of a building right in the centre, next to Plaça de Catalunya, with offices of 8 to 30 m² next door to grow into.</p></div>
+  <div class="srv-feature has-photo"><img loading="lazy" decoding="async" width="560" height="373" src="/assets/img/centros/centro-a-coruna.jpg" alt="Office at the OficinasYA! Juan de la Cierva 5 centre, A Coruña" /><h3>A Coruña, Juan de la Cierva 5</h3><p>An accessible, multi-purpose centre with meeting rooms for up to 50 people.</p></div>
+  <div class="srv-feature has-photo"><img loading="lazy" decoding="async" width="560" height="373" src="/assets/img/centros/centro-salamanca.jpg" alt="Office at the OficinasYA! Edificio Openhouse centre, Carbajosa de la Sagrada, Salamanca" /><h3>Salamanca, Edificio Openhouse</h3><p>In Carbajosa de la Sagrada, with rooms for 15 and 60 people, reception from 8:00 to 20:00 and offices of 22 to 210 m².</p></div>
 </div>
 
 <div class="srv-where">

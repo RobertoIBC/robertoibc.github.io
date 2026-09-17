@@ -29,14 +29,14 @@
   <meta property="og:description" content="Two centres in A Coruña: Juan de la Cierva 5, next to Marineda City, with coworking and rooms for up to 50, and Andrés Martínez Salazar 3, a PAE point." />
   <!-- TODO migracion: cambiar site.url en _data/global.yml -->
   <meta property="og:url" content="https://robertoibc.github.io/en/offices-in-a-coruna/" />
-  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og/a-coruna.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Meeting room at the OficinasYA! centre in Zaragoza" />
+  <meta property="og:image:alt" content="Office with glass desk and white chairs at the OficinasYA! Juan de la Cierva 5 centre, A Coruña" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Office rental in A Coruña: two centres | OficinasYA!" />
   <meta name="twitter:description" content="Two centres in A Coruña: Juan de la Cierva 5, next to Marineda City, with coworking and rooms for up to 50, and Andrés Martínez Salazar 3, a PAE point." />
-  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og/a-coruna.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.oficinasya.es" />
@@ -401,6 +401,12 @@
       .city-close-btns a { width: 100%; }
       .centre-photo { min-height: 200px; }
     }
+    /* Cabecera con foto real (opcional): texto a la izquierda, foto a la derecha; en movil, debajo */
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 48px; align-items: center; }
+    .hero-photo { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 18px 14px; font-size: .8rem; font-weight: 600; color: var(--white); background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)); }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } .hero-photo { aspect-ratio: 16 / 9; } }
     @media (max-width: 600px) {
       .city-intro { padding: 56px 5% 16px; }
       .city-centres, .city-services, .srv-faq { padding: 64px 5%; }
@@ -426,6 +432,16 @@
       },
       "about": {
         "@id": "https://robertoibc.github.io/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "contentUrl": "https://robertoibc.github.io/assets/img/cabeceras/a-coruna.jpg",
+        "url": "https://robertoibc.github.io/assets/img/cabeceras/a-coruna.jpg",
+        "caption": "Office · Juan de la Cierva 5, A Coruña",
+        "description": "Office with glass desk and white chairs at the OficinasYA! Juan de la Cierva 5 centre, A Coruña",
+        "width": 1400,
+        "height": 800,
+        "representativeOfPage": true
       }
     },
     {
@@ -610,6 +626,8 @@
       <span class="breadcrumb-sep">/</span>
       <span class="breadcrumb-current">A Coruña</span>
     </div>
+    <div class="hero-grid">
+    <div>
     <h1 class="page-hero-title">Office rental in A Coruña</h1>
     <p class="page-hero-sub">Two business centres in A Coruña, one with coworking, rooms for up to 50 people, training rooms, virtual office and advisory services for freelancers and SMEs.</p>
     <div class="page-hero-meta">
@@ -618,6 +636,12 @@
       <span>Meeting rooms</span>
       <span>Virtual office</span>
       <span>Coworking</span>
+    </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="/assets/img/cabeceras/a-coruna.jpg" alt="Office with glass desk and white chairs at the OficinasYA! Juan de la Cierva 5 centre, A Coruña" width="1400" height="800" decoding="async" fetchpriority="high" />
+      <figcaption>Office · Juan de la Cierva 5, A Coruña</figcaption>
+    </figure>
     </div>
     <div class="hero-btns">
       <a href="tel:918298500" class="btn-orange">Call us · 918 298 500</a>

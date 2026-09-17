@@ -3,6 +3,12 @@ id: ciudad-sevilla
 lang: es
 url: /oficinas-en-sevilla/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/sevilla.jpg
+hero_alt: "Sala de juntas en U con ventanales en el Edificio Galia Puerto, Sevilla"
+hero_caption: "Sala de juntas · Edificio Galia Puerto, Sevilla"
+og_image: /assets/img/og/sevilla.jpg
+og_image_alt: "Sala de juntas en U con ventanales en el Edificio Galia Puerto, Sevilla"
 ciudad: Sevilla
 title: "Alquiler de oficinas y despachos en Sevilla | OficinasYA!"
 description: "Tres centros en Sevilla: Laraña 4, en pleno centro; el Edificio Galia Puerto, junto a la SE-30, con parking de 500 plazas; y el Edificio Nervión."

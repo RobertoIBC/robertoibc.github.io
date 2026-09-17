@@ -3,6 +3,12 @@ id: ciudad-alicante
 lang: en
 url: /en/offices-in-alicante/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/alicante.jpg
+hero_alt: "Office with desk and orange chairs at the OficinasYA! Plaza de la Muntanyeta centre, Alicante"
+hero_caption: "Office · Plaza de la Muntanyeta, Alicante"
+og_image: /assets/img/og/alicante.jpg
+og_image_alt: "Office with desk and orange chairs at the OficinasYA! Plaza de la Muntanyeta centre, Alicante"
 ciudad: Alicante
 title: "Office rental in Alicante city centre | OficinasYA!"
 description: "Business centre at Plaza de la Montañeta 4 in Alicante, next to the official bodies: exterior offices of 12 to 20 m², two meeting rooms and virtual office."

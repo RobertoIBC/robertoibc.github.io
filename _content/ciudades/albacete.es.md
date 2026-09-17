@@ -3,6 +3,12 @@ id: ciudad-albacete
 lang: es
 url: /oficinas-en-albacete/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/albacete.jpg
+hero_alt: "Sala pequeña con mesa para cuatro personas en el centro OficinasYA! de Calle Mayor 22, Albacete"
+hero_caption: "Sala pequeña · Calle Mayor 22, Albacete"
+og_image: /assets/img/og/albacete.jpg
+og_image_alt: "Sala pequeña con mesa para cuatro personas en el centro OficinasYA! de Calle Mayor 22, Albacete"
 ciudad: Albacete
 title: "Alquiler de oficinas y despachos en Albacete | OficinasYA!"
 description: "Centro de negocios en la Calle Mayor 22 de Albacete, junto a la zona financiera, con acceso 24/7: despachos de 1 a 4 puestos, sala de reuniones y domiciliación."

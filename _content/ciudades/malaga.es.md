@@ -3,6 +3,12 @@ id: ciudad-malaga
 lang: es
 url: /oficinas-en-malaga/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/malaga.jpg
+hero_alt: "Sala de reuniones con mesa larga y balcones en el centro OficinasYA! de Calle Larios, Málaga"
+hero_caption: "Sala de reuniones · Calle Larios, Málaga"
+og_image: /assets/img/og/malaga.jpg
+og_image_alt: "Sala de reuniones con mesa larga y balcones en el centro OficinasYA! de Calle Larios, Málaga"
 ciudad: Málaga
 title: "Alquiler de oficinas y despachos en Málaga | OficinasYA!"
 description: "Centro de negocios en la calle Larios 1 de Málaga: despachos de 17 a 38 m² con balcón y luz natural, sala de 12 personas y oficina virtual. A un paseo del AVE."

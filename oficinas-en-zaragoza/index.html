@@ -29,14 +29,14 @@
   <meta property="og:description" content="Centro de negocios en el paseo de la Independencia 8 de Zaragoza, en el centro financiero: despachos de 1 a 5 personas, sala de 12 y oficina virtual." />
   <!-- TODO migracion: cambiar site.url en _data/global.yml -->
   <meta property="og:url" content="https://robertoibc.github.io/oficinas-en-zaragoza/" />
-  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og/zaragoza.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Sala de reuniones del centro de OficinasYA! en Zaragoza" />
+  <meta property="og:image:alt" content="Despacho con ventanas a la calle en el centro OficinasYA! del Paseo de la Independencia, Zaragoza" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Alquiler de oficinas y despachos en Zaragoza | OficinasYA!" />
   <meta name="twitter:description" content="Centro de negocios en el paseo de la Independencia 8 de Zaragoza, en el centro financiero: despachos de 1 a 5 personas, sala de 12 y oficina virtual." />
-  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og/zaragoza.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.oficinasya.es" />
@@ -401,6 +401,12 @@
       .city-close-btns a { width: 100%; }
       .centre-photo { min-height: 200px; }
     }
+    /* Cabecera con foto real (opcional): texto a la izquierda, foto a la derecha; en movil, debajo */
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 48px; align-items: center; }
+    .hero-photo { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 18px 14px; font-size: .8rem; font-weight: 600; color: var(--white); background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)); }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } .hero-photo { aspect-ratio: 16 / 9; } }
     @media (max-width: 600px) {
       .city-intro { padding: 56px 5% 16px; }
       .city-centres, .city-services, .srv-faq { padding: 64px 5%; }
@@ -426,6 +432,16 @@
       },
       "about": {
         "@id": "https://robertoibc.github.io/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "contentUrl": "https://robertoibc.github.io/assets/img/cabeceras/zaragoza.jpg",
+        "url": "https://robertoibc.github.io/assets/img/cabeceras/zaragoza.jpg",
+        "caption": "Despacho · Independencia, Zaragoza",
+        "description": "Despacho con ventanas a la calle en el centro OficinasYA! del Paseo de la Independencia, Zaragoza",
+        "width": 1400,
+        "height": 800,
+        "representativeOfPage": true
       }
     },
     {
@@ -602,6 +618,8 @@
       <span class="breadcrumb-sep">/</span>
       <span class="breadcrumb-current">Zaragoza</span>
     </div>
+    <div class="hero-grid">
+    <div>
     <h1 class="page-hero-title">Alquiler de oficinas y despachos en Zaragoza</h1>
     <p class="page-hero-sub">Un centro en el paseo de la Independencia, en el centro financiero, de ocio y cultural de Zaragoza, con despachos de 1 a 5 personas, sala de 12 y oficina virtual.</p>
     <div class="page-hero-meta">
@@ -609,6 +627,12 @@
       <span>Despachos privados</span>
       <span>Salas de reuniones</span>
       <span>Oficina virtual</span>
+    </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="/assets/img/cabeceras/zaragoza.jpg" alt="Despacho con ventanas a la calle en el centro OficinasYA! del Paseo de la Independencia, Zaragoza" width="1400" height="800" decoding="async" fetchpriority="high" />
+      <figcaption>Despacho · Independencia, Zaragoza</figcaption>
+    </figure>
     </div>
     <div class="hero-btns">
       <a href="tel:918298500" class="btn-orange">Llamar · 918 298 500</a>

@@ -13,6 +13,11 @@ service_type: Alquiler de salas de reuniones
 csv_key: salas de reuniones
 ofertas: []
 wa_msg: "Hola, quiero reservar una sala de reuniones"
+galeria:
+  - { foto: /assets/img/salas/pequena.jpg, alt: "Sala pequeña con mesa redonda para cuatro personas en el centro OficinasYA! de Serrano, Madrid", titulo: "2 a 4 personas", sub: "Serrano, Madrid" }
+  - { foto: /assets/img/salas/mediana.jpg, alt: "Sala de juntas acristalada del centro OficinasYA! del Edificio Nervión, Sevilla", titulo: "Sala de juntas", sub: "Edificio Nervión, Sevilla" }
+  - { foto: /assets/img/salas/aula.jpg, alt: "Aula de formación con mesas individuales en el Edificio Galia Puerto, Sevilla", titulo: "Aula de formación", sub: "Edificio Galia Puerto, Sevilla" }
+  - { foto: /assets/img/salas/auditorio.jpg, alt: "Sala de conferencias en formato auditorio en el Edificio Galia Puerto, Sevilla", titulo: "Hasta 150 en formato abierto", sub: "Edificio Galia Puerto, Sevilla" }
 cifras:
   - { num: "De 2 a 275", label: "personas por sala, según el centro" }
   - { num: "Desde 1 hora", label: "cualquier día del año, sin cuota ni permanencia" }
@@ -81,6 +86,8 @@ faq:
 Cada centro de la red tiene al menos una sala de reuniones equipada, y la mayoría varias de distintos tamaños.
 
 [[perfiles]]
+
+[[galeria]]
 
 [[formas]]
 

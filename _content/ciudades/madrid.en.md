@@ -3,6 +3,12 @@ id: ciudad-madrid
 lang: en
 url: /en/offices-in-madrid/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/madrid.jpg
+hero_alt: "Large office with several workstations at the OficinasYA! Capitán Haya centre, Madrid"
+hero_caption: "Office · Capitán Haya, Madrid"
+og_image: /assets/img/og/madrid.jpg
+og_image_alt: "Large office with several workstations at the OficinasYA! Capitán Haya centre, Madrid"
 ciudad: Madrid
 title: "Office rental in Madrid: eight 24-hour centres | OficinasYA!"
 description: "Eight centres in Madrid, all with 24-hour access: Salamanca district, Plaza de Castilla, Las Tablas, Sanchinarro, Pozuelo and Sanse. Offices and rooms."

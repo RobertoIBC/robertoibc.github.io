@@ -3,6 +3,12 @@ id: ciudad-a-coruna
 lang: es
 url: /oficinas-en-a-coruna/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/a-coruna.jpg
+hero_alt: "Despacho con mesa de cristal y sillas blancas en el centro OficinasYA! de Juan de la Cierva 5, A Coruña"
+hero_caption: "Despacho · Juan de la Cierva 5, A Coruña"
+og_image: /assets/img/og/a-coruna.jpg
+og_image_alt: "Despacho con mesa de cristal y sillas blancas en el centro OficinasYA! de Juan de la Cierva 5, A Coruña"
 ciudad: A Coruña
 title: "Alquiler de oficinas y despachos en A Coruña | OficinasYA!"
 description: "Dos centros en A Coruña: Juan de la Cierva 5, junto a Marineda City, con coworking y salas hasta 50 personas, y Andrés Martínez Salazar 3, Punto PAE, con aula."

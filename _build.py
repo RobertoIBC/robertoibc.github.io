@@ -278,6 +278,9 @@ def jsonld_servicio(p, g, site, lang, prices, ciudades_disp, i18n):
     }
     if offers:
         service['offers'] = offers
+    if p.get('galeria'):   # fotos reales de la galeria de la pagina, como ImageObject
+        service['image'] = [{'@type': 'ImageObject', 'contentUrl': url + g_['foto'], 'url': url + g_['foto'], 'caption': f"{g_['titulo']} · {g_['sub']}",
+                             'description': g_['alt'], 'width': 900, 'height': 600} for g_ in p['galeria']]
     graph = [
         service,
         {
@@ -343,6 +346,9 @@ def jsonld_ciudad(p, g, site, lang, i18n, city, centros_ciudad, urls):
             'inLanguage': LANG_TAG[lang],
             'isPartOf': {'@id': url + '/#website'},
             'about': {'@id': url + '/#organization'},
+            **({'primaryImageOfPage': {'@type': 'ImageObject', 'contentUrl': url + p['hero_foto'], 'url': url + p['hero_foto'],
+                                       'caption': p.get('hero_caption', ''), 'description': p.get('hero_alt', ''), 'width': 1400, 'height': 800,
+                                       'representativeOfPage': True}} if p.get('hero_foto') else {}),
         },
         {
             '@type': 'BreadcrumbList',

@@ -3,6 +3,12 @@ id: ciudad-zaragoza
 lang: es
 url: /oficinas-en-zaragoza/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/zaragoza.jpg
+hero_alt: "Despacho con ventanas a la calle en el centro OficinasYA! del Paseo de la Independencia, Zaragoza"
+hero_caption: "Despacho · Independencia, Zaragoza"
+og_image: /assets/img/og/zaragoza.jpg
+og_image_alt: "Despacho con ventanas a la calle en el centro OficinasYA! del Paseo de la Independencia, Zaragoza"
 ciudad: Zaragoza
 title: "Alquiler de oficinas y despachos en Zaragoza | OficinasYA!"
 description: "Centro de negocios en el paseo de la Independencia 8 de Zaragoza, en el centro financiero: despachos de 1 a 5 personas, sala de 12 y oficina virtual."

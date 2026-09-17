@@ -12,6 +12,10 @@ eyebrow: Despachos privados
 service_type: Alquiler de despachos privados
 csv_key: despachos
 wa_msg: "Hola, me interesa alquilar un despacho privado"
+galeria:
+  - { foto: /assets/img/despachos/gasset.jpg, alt: "Despacho individual con mesa, ordenador y teléfono en el centro OficinasYA! de Gasset, Madrid", titulo: "Despacho individual", sub: "Gasset, Madrid · desde 13 m²" }
+  - { foto: /assets/img/despachos/serrano.jpg, alt: "Despacho para varios puestos con suelo de madera en el centro OficinasYA! de Serrano, Madrid", titulo: "Despacho para equipo", sub: "Serrano, Madrid · de 6 a 38 m²" }
+  - { foto: /assets/img/despachos/capitan-haya.jpg, alt: "Despacho amplio con varios puestos en el centro OficinasYA! de Capitán Haya, Madrid", titulo: "Despacho amplio", sub: "Capitán Haya, Madrid · hasta 49 m²" }
 # --- bloques maquetados (los inserta el cuerpo con [[perfiles]], [[formas]], [[incluye]], [[pasos]], [[donde]])
 perfiles_intro: "Es la fórmula que usan:"
 perfiles:
@@ -103,6 +107,8 @@ No hay obras que acometer, ni mobiliario que comprar, ni alta de suministros: el
 ## Dos formas de contratarlo
 
 [[formas]]
+
+[[galeria]]
 
 Si lo que necesitas no es un despacho fijo sino unas horas de despacho al mes junto a una dirección y un teléfono atendidos, mira [Smart Office]({{ urls['srv-oficina-virtual'] }}#smart-office): la fórmula modular que parte de la oficina virtual y a la que sumas horas de despacho y de sala según el mes.
 

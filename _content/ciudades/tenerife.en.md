@@ -3,6 +3,12 @@ id: ciudad-tenerife
 lang: en
 url: /en/offices-in-tenerife/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/tenerife.jpg
+hero_alt: "Office with city views at the OficinasYA! Santa Rosalía centre, Santa Cruz de Tenerife"
+hero_caption: "Office · Santa Rosalía, Tenerife"
+og_image: /assets/img/og/tenerife.jpg
+og_image_alt: "Office with city views at the OficinasYA! Santa Rosalía centre, Santa Cruz de Tenerife"
 ciudad: Tenerife
 title: "Office rental in Tenerife: 24-hour centres | OficinasYA!"
 description: "Three spaces in Santa Cruz de Tenerife: two 24-hour business centres, at Santa Rosalía 49 and Costa y Grijalba 10, and a coliving on Calle La Luna 8."

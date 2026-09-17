@@ -19,10 +19,16 @@ cifras:
   - { num: "+{{ g.empresas }}", label: "empresas reúne la red" }
 tarjetas:
   - titulo: "Barcelona, Plaza de Urquinaona 6"
+    foto: /assets/img/centros/centro-barcelona-urquinaona.jpg
+    alt: "Despacho con ventanas y mesa de trabajo en el centro OficinasYA! de Plaza Urquinaona, Barcelona"
     texto: "En la octava planta de un edificio en pleno centro, junto a Plaza Cataluña, con despachos de 8 a 30 m² al lado para crecer."
   - titulo: "A Coruña, Juan de la Cierva 5"
+    foto: /assets/img/centros/centro-a-coruna.jpg
+    alt: "Despacho del centro OficinasYA! de Juan de la Cierva 5, A Coruña"
     texto: "Un centro accesible y multifuncional con salas de reuniones de hasta 50 personas."
   - titulo: "Salamanca, Edificio Openhouse"
+    foto: /assets/img/centros/centro-salamanca.jpg
+    alt: "Despacho del centro OficinasYA! del Edificio Openhouse, Carbajosa de la Sagrada, Salamanca"
     texto: "En Carbajosa de la Sagrada, con salas de 15 y 60 personas, recepción de 8:00 a 20:00 y despachos de 22 a 210 m²."
 pasos:
   - titulo: "Llama al {{ g.telefono }} o escribe por WhatsApp"

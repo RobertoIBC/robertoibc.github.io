@@ -19,10 +19,16 @@ cifras:
   - { num: "+{{ g.empresas }}", label: "companies the network brings together" }
 tarjetas:
   - titulo: "Barcelona, Plaza de Urquinaona 6"
+    foto: /assets/img/centros/centro-barcelona-urquinaona.jpg
+    alt: "Office with windows and desk at the OficinasYA! Plaza Urquinaona centre, Barcelona"
     texto: "On the eighth floor of a building right in the centre, next to Plaça de Catalunya, with offices of 8 to 30 m² next door to grow into."
   - titulo: "A Coruña, Juan de la Cierva 5"
+    foto: /assets/img/centros/centro-a-coruna.jpg
+    alt: "Office at the OficinasYA! Juan de la Cierva 5 centre, A Coruña"
     texto: "An accessible, multi-purpose centre with meeting rooms for up to 50 people."
   - titulo: "Salamanca, Edificio Openhouse"
+    foto: /assets/img/centros/centro-salamanca.jpg
+    alt: "Office at the OficinasYA! Edificio Openhouse centre, Carbajosa de la Sagrada, Salamanca"
     texto: "In Carbajosa de la Sagrada, with rooms for 15 and 60 people, reception from 8:00 to 20:00 and offices of 22 to 210 m²."
 pasos:
   - titulo: "Call {{ g.telefono }} or write on WhatsApp"

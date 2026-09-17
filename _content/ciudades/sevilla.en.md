@@ -3,6 +3,12 @@ id: ciudad-sevilla
 lang: en
 url: /en/offices-in-seville/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/sevilla.jpg
+hero_alt: "U-shaped boardroom with large windows at Edificio Galia Puerto, Seville"
+hero_caption: "Boardroom · Edificio Galia Puerto, Seville"
+og_image: /assets/img/og/sevilla.jpg
+og_image_alt: "U-shaped boardroom with large windows at Edificio Galia Puerto, Seville"
 ciudad: Sevilla
 title: "Office rental in Seville: three centres | OficinasYA!"
 description: "Three centres in Seville: Laraña 4, in the city centre; the Edificio Galia Puerto, by the SE-30 with 500 parking spaces; and the Edificio Nervión."

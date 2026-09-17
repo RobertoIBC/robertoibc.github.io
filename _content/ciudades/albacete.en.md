@@ -3,6 +3,12 @@ id: ciudad-albacete
 lang: en
 url: /en/offices-in-albacete/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/albacete.jpg
+hero_alt: "Small room with a table for four at the OficinasYA! Calle Mayor 22 centre, Albacete"
+hero_caption: "Small room · Calle Mayor 22, Albacete"
+og_image: /assets/img/og/albacete.jpg
+og_image_alt: "Small room with a table for four at the OficinasYA! Calle Mayor 22 centre, Albacete"
 ciudad: Albacete
 title: "Office rental in Albacete, 24-hour access | OficinasYA!"
 description: "Business centre at Calle Mayor 22 in Albacete, next to the financial district, with 24/7 access: offices for 1 to 4 people, a meeting room and virtual office."

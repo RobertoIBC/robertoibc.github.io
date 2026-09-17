@@ -29,14 +29,14 @@
   <meta property="og:description" content="Business centre at Calle Larios 1 in Málaga: private offices of 17 to 38 m² with balcony and natural light, a 12-person room and virtual office. Near the AVE." />
   <!-- TODO migracion: cambiar site.url en _data/global.yml -->
   <meta property="og:url" content="https://robertoibc.github.io/en/offices-in-malaga/" />
-  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og/malaga.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Meeting room at the OficinasYA! centre in Zaragoza" />
+  <meta property="og:image:alt" content="Meeting room with a long table and balconies at the OficinasYA! Calle Larios centre, Málaga" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Office rental in Málaga on Calle Larios | OficinasYA!" />
   <meta name="twitter:description" content="Business centre at Calle Larios 1 in Málaga: private offices of 17 to 38 m² with balcony and natural light, a 12-person room and virtual office. Near the AVE." />
-  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og/malaga.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.oficinasya.es" />
@@ -401,6 +401,12 @@
       .city-close-btns a { width: 100%; }
       .centre-photo { min-height: 200px; }
     }
+    /* Cabecera con foto real (opcional): texto a la izquierda, foto a la derecha; en movil, debajo */
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 48px; align-items: center; }
+    .hero-photo { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 18px 14px; font-size: .8rem; font-weight: 600; color: var(--white); background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)); }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } .hero-photo { aspect-ratio: 16 / 9; } }
     @media (max-width: 600px) {
       .city-intro { padding: 56px 5% 16px; }
       .city-centres, .city-services, .srv-faq { padding: 64px 5%; }
@@ -426,6 +432,16 @@
       },
       "about": {
         "@id": "https://robertoibc.github.io/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "contentUrl": "https://robertoibc.github.io/assets/img/cabeceras/malaga.jpg",
+        "url": "https://robertoibc.github.io/assets/img/cabeceras/malaga.jpg",
+        "caption": "Meeting room · Calle Larios, Málaga",
+        "description": "Meeting room with a long table and balconies at the OficinasYA! Calle Larios centre, Málaga",
+        "width": 1400,
+        "height": 800,
+        "representativeOfPage": true
       }
     },
     {
@@ -580,6 +596,8 @@
       <span class="breadcrumb-sep">/</span>
       <span class="breadcrumb-current">Málaga</span>
     </div>
+    <div class="hero-grid">
+    <div>
     <h1 class="page-hero-title">Office rental in Málaga</h1>
     <p class="page-hero-sub">A centre at Calle Larios 1, with private offices with balconies and natural light, a 12-person meeting room and virtual office. A walk from the high-speed train station.</p>
     <div class="page-hero-meta">
@@ -587,6 +605,12 @@
       <span>Private offices</span>
       <span>Meeting rooms</span>
       <span>Virtual office</span>
+    </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="/assets/img/cabeceras/malaga.jpg" alt="Meeting room with a long table and balconies at the OficinasYA! Calle Larios centre, Málaga" width="1400" height="800" decoding="async" fetchpriority="high" />
+      <figcaption>Meeting room · Calle Larios, Málaga</figcaption>
+    </figure>
     </div>
     <div class="hero-btns">
       <a href="tel:918298500" class="btn-orange">Call us · 918 298 500</a>

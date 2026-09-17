@@ -1,0 +1,9 @@
+{#- Galeria de fotos reales con pie. Front matter: galeria[] (foto, alt, titulo, sub) -#}
+<div class="srv-galeria{% if page.galeria | length == 3 %} srv-galeria-3{% endif %}">
+{%- for g_ in page.galeria %}
+  <figure class="srv-galeria-item">
+    <img loading="lazy" decoding="async" width="900" height="600" src="{{ g_.foto }}" alt="{{ g_.alt }}" />
+    <figcaption><b>{{ g_.titulo }}</b><span>{{ g_.sub }}</span></figcaption>
+  </figure>
+{%- endfor %}
+</div>

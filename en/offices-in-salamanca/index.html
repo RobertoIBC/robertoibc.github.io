@@ -29,14 +29,14 @@
   <meta property="og:description" content="Edificio Openhouse, in the El Montalvo III estate, 5 minutes from the centre of Salamanca: offices of 22 to 210 m², coworking, rooms for 15 and 60, restaurant." />
   <!-- TODO migracion: cambiar site.url en _data/global.yml -->
   <meta property="og:url" content="https://robertoibc.github.io/en/offices-in-salamanca/" />
-  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og/salamanca.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Meeting room at the OficinasYA! centre in Zaragoza" />
+  <meta property="og:image:alt" content="Meeting room with a world map on the wall at Edificio Openhouse, Salamanca" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Office rental in Salamanca: Edificio Openhouse | OficinasYA!" />
   <meta name="twitter:description" content="Edificio Openhouse, in the El Montalvo III estate, 5 minutes from the centre of Salamanca: offices of 22 to 210 m², coworking, rooms for 15 and 60, restaurant." />
-  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya.jpg" />
+  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og/salamanca.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.oficinasya.es" />
@@ -401,6 +401,12 @@
       .city-close-btns a { width: 100%; }
       .centre-photo { min-height: 200px; }
     }
+    /* Cabecera con foto real (opcional): texto a la izquierda, foto a la derecha; en movil, debajo */
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 48px; align-items: center; }
+    .hero-photo { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 18px 14px; font-size: .8rem; font-weight: 600; color: var(--white); background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)); }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } .hero-photo { aspect-ratio: 16 / 9; } }
     @media (max-width: 600px) {
       .city-intro { padding: 56px 5% 16px; }
       .city-centres, .city-services, .srv-faq { padding: 64px 5%; }
@@ -426,6 +432,16 @@
       },
       "about": {
         "@id": "https://robertoibc.github.io/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "contentUrl": "https://robertoibc.github.io/assets/img/cabeceras/salamanca.jpg",
+        "url": "https://robertoibc.github.io/assets/img/cabeceras/salamanca.jpg",
+        "caption": "Meeting room · Edificio Openhouse, Salamanca",
+        "description": "Meeting room with a world map on the wall at Edificio Openhouse, Salamanca",
+        "width": 1400,
+        "height": 800,
+        "representativeOfPage": true
       }
     },
     {
@@ -603,6 +619,8 @@
       <span class="breadcrumb-sep">/</span>
       <span class="breadcrumb-current">Salamanca</span>
     </div>
+    <div class="hero-grid">
+    <div>
     <h1 class="page-hero-title">Office rental in Salamanca</h1>
     <p class="page-hero-sub">The Edificio Openhouse, a 12,000 m² office building in Carbajosa de la Sagrada, 5 minutes from the centre of Salamanca, with offices, coworking, rooms, café, restaurant and private parking.</p>
     <div class="page-hero-meta">
@@ -611,6 +629,12 @@
       <span>Meeting rooms</span>
       <span>Virtual office</span>
       <span>Coworking</span>
+    </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="/assets/img/cabeceras/salamanca.jpg" alt="Meeting room with a world map on the wall at Edificio Openhouse, Salamanca" width="1400" height="800" decoding="async" fetchpriority="high" />
+      <figcaption>Meeting room · Edificio Openhouse, Salamanca</figcaption>
+    </figure>
     </div>
     <div class="hero-btns">
       <a href="tel:918298500" class="btn-orange">Call us · 918 298 500</a>

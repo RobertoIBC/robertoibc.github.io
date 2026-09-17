@@ -13,6 +13,11 @@ service_type: Meeting room hire
 csv_key: salas de reuniones
 ofertas: []
 wa_msg: "Hello, I would like to book a meeting room"
+galeria:
+  - { foto: /assets/img/salas/pequena.jpg, alt: "Small room with a round table for four people at the OficinasYA! Serrano centre, Madrid", titulo: "2 to 4 people", sub: "Serrano, Madrid · de 6 a 38 m²" }
+  - { foto: /assets/img/salas/mediana.jpg, alt: "Glass-walled boardroom at the OficinasYA! Edificio Nervión centre, Seville", titulo: "Boardroom", sub: "Edificio Nervión, Seville" }
+  - { foto: /assets/img/salas/aula.jpg, alt: "Training room with individual desks at Edificio Galia Puerto, Seville", titulo: "Training room", sub: "Edificio Galia Puerto, Seville" }
+  - { foto: /assets/img/salas/auditorio.jpg, alt: "Conference room in auditorium layout at Edificio Galia Puerto, Seville", titulo: "Up to 150 in an open layout", sub: "Edificio Galia Puerto, Seville" }
 cifras:
   - { num: "2 to 275", label: "people per room, depending on the centre" }
   - { num: "From 1 hour", label: "any day of the year, no fee and no minimum term" }
@@ -81,6 +86,8 @@ faq:
 Every centre in the network has at least one equipped meeting room, and most have several of different sizes.
 
 [[perfiles]]
+
+[[galeria]]
 
 [[formas]]
 

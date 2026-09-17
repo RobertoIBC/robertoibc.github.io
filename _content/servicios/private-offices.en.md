@@ -12,6 +12,10 @@ eyebrow: Private offices
 service_type: Private office rental
 csv_key: despachos
 wa_msg: "Hello, I am interested in renting a private office"
+galeria:
+  - { foto: /assets/img/despachos/gasset.jpg, alt: "Single office with desk, computer and phone at the OficinasYA! Gasset centre, Madrid", titulo: "Single office", sub: "Gasset, Madrid · from 13 m²" }
+  - { foto: /assets/img/despachos/serrano.jpg, alt: "Team office with several desks and wooden floor at the OficinasYA! Serrano centre, Madrid", titulo: "Team office", sub: "Serrano, Madrid · de 6 a 38 m²" }
+  - { foto: /assets/img/despachos/capitan-haya.jpg, alt: "Large office with several workstations at the OficinasYA! Capitán Haya centre, Madrid", titulo: "Large office", sub: "Capitán Haya, Madrid · up to 49 m²" }
 perfiles_intro: "It is the formula used by:"
 perfiles:
   - Freelancers who need a proper place to receive clients.
@@ -102,6 +106,8 @@ There is no building work to do, no furniture to buy and no utilities to set up:
 ## Two ways to rent it
 
 [[formas]]
+
+[[galeria]]
 
 If what you need is not a fixed office but a few hours of office a month alongside a registered address and an answered phone line, look at [Smart Office]({{ urls['srv-oficina-virtual'] }}#smart-office): the modular formula that starts from the virtual office and adds office and meeting-room hours as each month requires.
 

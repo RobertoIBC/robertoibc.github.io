@@ -3,6 +3,12 @@ id: ciudad-malaga
 lang: en
 url: /en/offices-in-malaga/
 layout: ciudad
+# Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
+hero_foto: /assets/img/cabeceras/malaga.jpg
+hero_alt: "Meeting room with a long table and balconies at the OficinasYA! Calle Larios centre, Málaga"
+hero_caption: "Meeting room · Calle Larios, Málaga"
+og_image: /assets/img/og/malaga.jpg
+og_image_alt: "Meeting room with a long table and balconies at the OficinasYA! Calle Larios centre, Málaga"
 ciudad: Málaga
 title: "Office rental in Málaga on Calle Larios | OficinasYA!"
 description: "Business centre at Calle Larios 1 in Málaga: private offices of 17 to 38 m² with balcony and natural light, a 12-person room and virtual office. Near the AVE."
