@@ -79,7 +79,31 @@ python _tools/auditoria_coherencia.py      # cifras en prosa por idioma, suma de
 python _tools/auditoria_enlaces_vivo.py    # tras el push: descarga las páginas PUBLICADAS y comprueba
                                            # el código de respuesta de todos los href/src (internos y
                                            # externos), anclas, selector de idioma, wa.me, tel:, mailto:
+python _tools/test_build.py                # tests del generador (parseo de m², mínimo plausible)
+python _tools/auditoria_texto.py           # ¿se ha perdido texto? multiconjunto de palabras contra origin/main
 ```
+
+**`auditoria_texto.py` es la garantía real de la regla "el texto no se
+borra, se reparte".** Compara, fichero a fichero de `_content/`, cuántas
+veces aparece cada palabra en la última versión publicada (`origin/main`, o
+la ref que le pases) y cuántas en el fichero actual, y lista las que han
+desaparecido. Mover una frase del cuerpo a una tarjeta del front matter no
+avisa (la palabra sigue ahí); borrarla, sí. Lo que acaba de pasar en Sevilla
+es el motivo de que exista: al repartir "Qué centro elegir" en tarjetas, el
+párrafo de horarios de los tres centros (Laraña de 9:00 a 14:00 y de 15:00 a
+19:00, Galia Puerto seguridad 24 h los 365 días, Nervión acceso 24 h) se
+quedó fuera sin que nada lo señalara: la página se veía bien, el verificador
+daba SIN ERRORES y las palabras totales habían *subido* por las tarjetas
+nuevas. Solo el multiconjunto lo vio: `'00': 6, 'de': 5, 'recepción': 2,
+'24': 2, 'horas': 2…` que estaban y ya no. Lánzala antes de cada push que
+toque `_content/`.
+
+**`test_build.py`** existe por un bug que entró dos veces con meses de
+diferencia: el "2" de la unidad "m2" del CSV leído como si fuera un tamaño
+de despacho ("2 a 69 m²"). Ahora la columna la lee una sola función,
+`parse_m2()`, que quita la unidad antes de buscar números, el generador
+aborta si el mínimo global baja de 5 m² (`M2_MIN_PLAUSIBLE`) y el test
+prueba las variantes de unidad y el CSV real.
 
 `verificar.py` y `auditoria_clicks.py` terminan con "SIN ERRORES" / "CLICKS
 ROTOS: 0" cuando todo está bien; las otras dos imprimen tablas para leer.

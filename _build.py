@@ -105,6 +105,31 @@ def to_jsonld(obj):
     return json.dumps(obj, ensure_ascii=False, indent=2)
 
 
+M2_MIN_PLAUSIBLE = 5   # ningun centro tiene despachos de menos de 5 m²; si el parseo se rompe, salta aqui
+
+
+def parse_m2(text):
+    """Rango de metros de un despacho tal como viene en el CSV ("10 a 47 m2", "10 a 47 m²", "10-47 m 2",
+    "17 a 250 m2"...) -> (min, max) en enteros, o None si esta vacio. Es la UNICA funcion que lee esa
+    columna: la unidad se quita ANTES de buscar numeros, porque el "2" de "m2" ya se ha colado dos veces
+    como si fuera un tamano (fase 3 y tarea de densidad)."""
+    if not text or not text.strip():
+        return None
+    limpio = re.sub(r'm\s*[2²]|m²|metros?(\s+cuadrados)?', ' ', text, flags=re.I)
+    nums = [int(x) for x in re.findall(r'\d+', limpio)]
+    if not nums:
+        raise SystemExit(f'centros.csv: no se entiende el rango de m² "{text}"')
+    return (min(nums), max(nums))
+
+
+def format_m2(text, sep='a'):
+    """Texto normalizado para mostrar: "10 a 47 m²" (sep='to' en ingles)."""
+    r = parse_m2(text)
+    if not r:
+        return ''
+    return f'{r[0]} {sep} {r[1]} m²' if r[0] != r[1] else f'{r[0]} m²'
+
+
 # ---------------------------------------------------------------- datos
 def load_data():
     g = yaml.safe_load(read(DATA / 'global.yml'))
@@ -123,6 +148,12 @@ def load_data():
         c['opening_hours'] = horarios.get(f"{c['ciudad']}|{c['centro']}")
         c['address'] = parse_address(c['direccion'], c['ciudad'])
         c['tags'] = [t.strip() for t in c['servicios'].split(',') if t.strip()]
+        c['m2_rango'] = parse_m2(c['despachos_m2'])
+    # Comprobacion de cordura: si el minimo global de m² baja de M2_MIN_PLAUSIBLE, el parseo se ha roto
+    # (el sintoma las dos veces fue "2 a 69 m²": el 2 de "m2"). Mejor abortar que publicarlo.
+    minimo = min((r[0] for c in centros if c['m2_rango'] for r in [c['m2_rango']]), default=None)
+    if minimo is not None and minimo < M2_MIN_PLAUSIBLE:
+        raise SystemExit(f'centros.csv: minimo de m² = {minimo} (< {M2_MIN_PLAUSIBLE}): el parseo de la columna despachos_m2 esta roto')
 
     # Precios por centro: solo si el cliente lo ha aprobado Y la hoja privada existe.
     if g.get('publicar_precios_por_centro'):
@@ -613,8 +644,7 @@ def build(check=False):
                 # Cifras de la ciudad desde el CSV (se pueden sobreescribir con `cifras` en el front matter)
                 if not p.get('cifras'):
                     tc = t['ciudad']
-                    # OJO: "10 a 47 m2" lleva un 2 en la unidad; se quita antes de leer los numeros
-                    m2 = [int(x) for c_ in city['centros'] for x in re.findall(r'\d+', (c_['despachos_m2'] or '').replace('m2', '').replace('m²', ''))]
+                    m2 = [x for c_ in city['centros'] if c_['m2_rango'] for x in c_['m2_rango']]
                     pax_src = [c_['capacidad_salas'] or '' for c_ in city['centros']]
                     pax = [int(x) for src in pax_src for x in re.findall(r'\d+', src)]
                     n_ = len(city['centros']); n24_ = sum(1 for c_ in city['centros'] if c_['acceso_24h'])
@@ -644,7 +674,7 @@ def build(check=False):
                     tr = facts_en if lang == 'en' else (lambda x: x)
                     c['horario_txt'] = tr(c['horario'])
                     c['salas_txt'] = tr(c['capacidad_salas']) if c['capacidad_salas'] else ''
-                    c['m2_txt'] = tr(c['despachos_m2'].replace('m2', 'm²')) if c['despachos_m2'] else ''
+                    c['m2_txt'] = format_m2(c['despachos_m2'], 'to' if lang == 'en' else 'a')
                 # grupos: por zonas si la pagina las define, si no un solo grupo sin titulo
                 if p.get('zonas'):
                     by_name = {c['centro']: c for c in city['centros']}
