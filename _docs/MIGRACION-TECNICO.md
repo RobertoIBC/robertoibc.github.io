@@ -68,6 +68,8 @@ seguido moviendo. Si ya lo habías clonado, haz `git pull`. Lo que tocan:
 | `90a2e6a` | Hub: el tooltip del mapa navegaba a `/ubicaciones/[object SVGAnimatedString]` (404). Ahora es un `<a>`. Nueva auditoría de clicks en `_tools/`. |
 | `646f855` | Pasada final: fichas en inglés traducidas por tokens, bloque de contacto con enlaces reales y comentario sobre el formulario, redes en `global.yml`, `_tools/`. |
 | `b71be62` | Fotos: cabecera con foto real en 9 ciudades (`hero_foto` en el front matter, `assets/img/cabeceras/`, `og/`), galerías en salas y despachos, fotos en las tarjetas de coworking, fichas a 560 px, `ImageObject` en el marcado, `og:image` por ciudad. |
+| `27b316f` | `og:image`/`twitter:image`: composición corporativa por idioma (`assets/img/og-oficinasya-{es,en}.jpg`) en las páginas sin foto propia; los artículos salen con su imagen destacada. Solo metaetiquetas; nada visible. |
+| `e63d4b5` | Este documento entra en el repo (`_docs/`). |
 | `dfa19ea` | `parse_m2()` como única lectura de la columna de m² del CSV, comprobación que aborta el build si el mínimo baja de 5 m², `_tools/test_build.py` y `_tools/auditoria_texto.py` (multiconjunto de palabras contra la última versión publicada). |
 | `04218b9` | Introducción de las páginas de ciudad: cifras automáticas desde el CSV (`[[cifras]]`), tarjetas "qué centro elegir" (`[[elegir]]`) en las 8 ciudades con más de un centro, párrafo de entrada destacado. Sin cambios de texto. |
 
