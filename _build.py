@@ -494,6 +494,21 @@ def facts_en(text):
     return text
 
 
+def jpeg_size(path):
+    """(ancho, alto) de un JPEG leyendo el marcador SOF; sin dependencias."""
+    with open(path, 'rb') as f:
+        data = f.read()
+    i = 2
+    while i < len(data):
+        if data[i] != 0xFF:
+            return None
+        marker = data[i + 1]; length = int.from_bytes(data[i + 2:i + 4], 'big')
+        if marker in (0xC0, 0xC1, 0xC2):
+            return int.from_bytes(data[i + 7:i + 9], 'big'), int.from_bytes(data[i + 5:i + 7], 'big')
+        i += 2 + length
+    return None
+
+
 def slugify(text):
     import unicodedata
     t = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
@@ -638,6 +653,12 @@ def build(check=False):
                 p['jsonld'] = to_jsonld(jsonld_servicio(p, g, site, lang, prices, p['ciudades_disponibles'], t))
             if p.layout == 'articulo':
                 p['fecha_legible'] = fecha_legible(p['fecha'], lang)
+                # al compartir el articulo sale su imagen destacada (si es local y de la red); si no, la corporativa
+                img = p.get('imagen') or ''
+                if img.startswith('/assets/img/blog/') and (ROOT / img.lstrip('/')).exists() and not p.get('og_image'):
+                    size = jpeg_size(ROOT / img.lstrip('/'))
+                    if size:
+                        p['og_image'] = img; p['og_image_w'], p['og_image_h'] = size; p['og_image_alt'] = p.get('imagen_alt') or p['titulo']
                 p['jsonld'] = to_jsonld(jsonld_articulo(p, site, lang, t, urls))
             if p.layout == 'ciudad':
                 city = next(c for c in cities_ctx if c['nombre'] == p['ciudad'])

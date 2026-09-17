@@ -12,10 +12,14 @@ site:
   # Mientras sea prototipo, TODAS las paginas llevan noindex.
   # TODO migracion: poner a false el dia que se publique en oficinasya.es.
   noindex: true
-  og_image: /assets/img/og-oficinasya.jpg
+  # Imagen al compartir un enlace (WhatsApp, LinkedIn, Facebook): composicion corporativa, una por idioma,
+  # 1200x630. Las paginas con foto propia (ciudades con cabecera, articulos) la sobreescriben con `og_image`.
+  og_image:
+    es: /assets/img/og-oficinasya-es.jpg
+    en: /assets/img/og-oficinasya-en.jpg
   og_image_alt:
-    es: Sala de reuniones del centro de OficinasYA! en Zaragoza
-    en: Meeting room at the OficinasYA! centre in Zaragoza
+    es: "OficinasYA!: 35 centros y colivings en 17 ciudades de España"
+    en: "OficinasYA!: 35 centres and colivings in 17 cities across Spain"
 
 # Red
 espacios: 35        # centros de negocio + espacios de coliving. Nunca "35 centros" a secas.
