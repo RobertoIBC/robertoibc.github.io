@@ -4,12 +4,16 @@
 #   El generador escribe en cada ruta antigua un HTML minimo con meta refresh 0
 #   + canonical al destino, que es lo mas parecido a un 301 que permite GitHub
 #   Pages. Estan fuera del sitemap y no llevan hreflang.
-#   TODO migracion: convertirlas en 301 reales (python _build.py --htaccess).
+#   En el servidor real, ademas, son 301 de verdad (van en el .htaccess).
 #
-# migracion: rutas de la web viva (www.oficinasya.es, WordPress) -> rutas nuevas.
-#   No genera nada hoy. El dia de la migracion, `python _build.py --htaccess`
-#   imprime el bloque de 301 para .htaccess o para el plugin Redirection,
-#   con las dos listas juntas.
+# migracion: rutas del WordPress anterior (www.oficinasya.es) -> rutas nuevas.
+# migracion_blog: articulos del blog anterior que no se migraron -> /blog/.
+# patrones: prefijos (/category/, /tag/, /actividades/...) -> un destino fijo.
+#
+# Todas salen en el .htaccess completo: `python _build.py --htaccess` (Apache)
+# o `python _build.py --nginx`. Destinos absolutos con site.url, un solo salto;
+# la barra final del origen es opcional. Se pegan tal cual: ver
+# _docs/CONFIGURACION-SERVIDOR.md.
 
 prototipo:
   - { from: /ubicaciones.html,         to: /ubicaciones/ }
@@ -71,6 +75,267 @@ migracion:
   - { from: /valencia-alquiler-de-despachos-y-oficinas-en-valencia/,                   to: /oficinas-en-valencia/ }
   - { from: /vigo-alquiler-de-oficinas-y-despachos-en-galicia/,                        to: /oficinas-en-vigo/ }
   - { from: /zaragoza-alquiler-de-despachos-y-oficinas-en-zaragoza/,                   to: /oficinas-en-zaragoza/ }
-  # Pendientes de decision del cliente (no se redirigen solas):
-  #   /quienes-somos/  /contacto/  /gracias/  /concertar-visita/  /7-dias-gratis/
-  #   y las paginas de ofertas y black friday.
+  # --- Ampliacion (octubre 2026): URLs del WordPress que la Wayback Machine tiene archivadas y hoy
+  # dan 404. Centros concretos -> su pagina de ciudad (con ancla a la ficha si el centro sigue abierto).
+  - { from: /centros/alicante/, to: "/oficinas-en-alicante/" }
+  - { from: /centros/madrid-callao/, to: "/oficinas-en-madrid/" }
+  - { from: /madrid-centro-gran-via-callao-alquiler-de-despachos-y-oficinas-en-callao/, to: "/oficinas-en-madrid/" }
+  - { from: /centros/madrid-capitan-haya/, to: "/oficinas-en-madrid/#capitan-haya" }
+  - { from: /centros/madrid-las-tablas/, to: "/oficinas-en-madrid/#las-tablas" }
+  - { from: /centros/madrid-ortega-y-gasset/, to: "/oficinas-en-madrid/#gasset" }
+  - { from: /centros/madrid-pozuelo/, to: "/oficinas-en-madrid/#la-florida-pozuelo" }
+  - { from: /centros/madrid-san-sebastian-de-los-reyes/, to: "/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes" }
+  - { from: /centros/madrid-serrano/, to: "/oficinas-en-madrid/#serrano" }
+  - { from: /centros/madrid-velazquez/, to: "/oficinas-en-madrid/#velazquez" }
+  - { from: /coworking-en-la-calle-serrano-tu-oficina-al-mejor-precio/, to: "/oficinas-en-madrid/#serrano" }
+  - { from: /coworking-en-pozuelo-eficiencia-y-eficacia-a-tu-alcance/, to: "/oficinas-en-madrid/#la-florida-pozuelo" }
+  - { from: /coworking-en-san-sebastian-de-los-reyes-calidad-y-buen-precio/, to: "/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes" }
+  - { from: /coworking-en-san-sebastian-de-los-reyes/, to: "/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes" }
+  - { from: /ofertas-despachos-sanse-1/, to: "/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes" }
+  - { from: /coworking-space-en-las-tablas-tu-oficina-corporativa-mas-completa/, to: "/oficinas-en-madrid/#las-tablas" }
+  - { from: /tu-coworking-en-las-tablas/, to: "/oficinas-en-madrid/#las-tablas" }
+  - { from: /porque-tener-tu-negocio-en-el-barrio-de-salamanca/, to: "/oficinas-en-madrid/" }
+  - { from: /oficinas-ya-llega-barcelona/, to: "/oficinas-en-barcelona/" }
+  - { from: /oficinas-ya-llega-vigo/, to: "/oficinas-en-vigo/" }
+  - { from: /oficinasya-llega-a-murcia/, to: "/oficinas-en-murcia/" }
+  - { from: /salamanca-ciudad-de-talento-e-innovacion/, to: "/oficinas-en-salamanca/" }
+  - { from: /alquiler-de-despachos-en-madrid-noviembre-oferta/, to: "/oficinas-en-madrid/" }
+  - { from: /alquiler-oficinas-despachos-madrid-julio-septiembre/, to: "/oficinas-en-madrid/" }
+  - { from: /alquiler-oficinas-despachos-madrid-noviembre/, to: "/oficinas-en-madrid/" }
+  - { from: /alquiler-oficinas-despachos-madrid-noviembre-2/, to: "/oficinas-en-madrid/" }
+  - { from: /oferta-de-alquiler-de-despachos-en-madrid-junio-2019/, to: "/oficinas-en-madrid/" }
+  - { from: /7-dias-gratis-alquiler-oficinas-despachos-madrid-julio-septiembre/, to: "/oficinas-en-madrid/" }
+  # Ofertas y paginas de servicio -> su servicio
+  - { from: /alquilar-despacho-horas/, to: "/alquiler-de-despachos/" }
+  - { from: /ofertas-despachos/, to: "/alquiler-de-despachos/" }
+  - { from: /7-dias-gratis/, to: "/alquiler-de-despachos/" }
+  - { from: /oferta-oficina-virtual/, to: "/oficina-virtual/" }
+  - { from: /domiciliacion-de-sociedades-desde-solo-1e-al-dia/, to: "/oficina-virtual/" }
+  - { from: /cambiodesedesocial/, to: "/oficina-virtual/" }
+  - { from: /smart-office-lo-que-quieres-como-quieres-cuando-quieres/, to: "/oficina-virtual/#smart-office" }
+  # Paginas sueltas sin equivalente -> home (contacto, al bloque de contacto)
+  - { from: /quienes-somos/, to: "/" }
+  - { from: /contacto/, to: "/#contact" }
+  - { from: /concertar-visita/, to: "/#contact" }
+  - { from: /gracias/, to: "/" }
+  - { from: /black-friday-2018/, to: "/" }
+  - { from: /black-friday-2018-2/, to: "/" }
+  - { from: /black-friday-2019-oficinas-ya/, to: "/" }
+  - { from: /portfolio/, to: "/" }
+  - { from: /project/, to: "/" }
+
+# Articulos del blog antiguo que no se migraron (ninguno coincide por slug con los 10 publicados:
+# esos conservan su URL antigua y no necesitan redireccion) -> listado del blog.
+migracion_blog:
+  - { from: /10-cosas-aprender-del-marketing-apple/, to: /blog/ }
+  - { from: /10-cosas-que-no-debes-decir-en-una-entrevista-de-trabajo/, to: /blog/ }
+  - { from: /abogados-las-tablas-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /abre-tu-negocio-a-otros-paises-con-el-seo-multirregional/, to: /blog/ }
+  - { from: /abrir-un-negocio-en-el-momento-actual-no-es-de-locos/, to: /blog/ }
+  - { from: /adios-a-telegram-motivos-de-su-cierre-y-aplicaciones-alternativas/, to: /blog/ }
+  - { from: /ahorrar-siendo-autonomo-es-posible/, to: /blog/ }
+  - { from: /alcanza-todos-tus-objetivos-para-el-nuevo-ano/, to: /blog/ }
+  - { from: /alfa-inmobiliaria-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /alternativas-a-las-reuniones-presenciales/, to: /blog/ }
+  - { from: /ambialia-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /aprende-a-priorizar-de-forma-rapida-y-sencilla/, to: /blog/ }
+  - { from: /aprende-a-tener-iniciativa/, to: /blog/ }
+  - { from: /aprovecha-las-ventajas-de-la-ia-en-tu-negocio-con-estas-herramientas-gratuitas/, to: /blog/ }
+  - { from: /asi-funciona-el-tinder-para-empresas-nosotros-no-hacemos-nada-es-la-maquina-la-que-lo-hace/, to: /blog/ }
+  - { from: /asi-pueden-los-influencers-dar-visibilidad-a-tu-negocio/, to: /blog/ }
+  - { from: /aumenta-la-motivacion-laboral-de-tu-equipo/, to: /blog/ }
+  - { from: /blog-corporativo-beneficios-reglas-basicas/, to: /blog/ }
+  - { from: /brainstorming-ideas-para-dar-un-giro-a-tu-negocio/, to: /blog/ }
+  - { from: /buscas-planes-para-estas-fiestas-aqui-los-tienes/, to: /blog/ }
+  - { from: /buuuuuh-los-mejores-planes-para-la-noche-de-halloween/, to: /blog/ }
+  - { from: /carsharing-o-coche-privado/, to: /blog/ }
+  - { from: /claves-de-la-nueva-norma-de-registro-de-la-jornada-laboral/, to: /blog/ }
+  - { from: /claves-para-mantener-la-lealtad-de-tus-clientes/, to: /blog/ }
+  - { from: /claves-para-posicionar-tu-negocio-en-google/, to: /blog/ }
+  - { from: /claves-para-que-tu-email-marketing-sea-efectivo/, to: /blog/ }
+  - { from: /club-privado-carsharing-oficinas-ya-callao/, to: /blog/ }
+  - { from: /como-aplicar-la-subida-del-smi-para-autonomos-y-empresas/, to: /blog/ }
+  - { from: /como-aprender-a-tener-paciencia/, to: /blog/ }
+  - { from: /como-aumentar-la-motivacion-de-tu-equipo-de-trabajo/, to: /blog/ }
+  - { from: /como-aumentar-tus-ventas-parte-1/, to: /blog/ }
+  - { from: /como-aumentar-tus-ventas-parte-2/, to: /blog/ }
+  - { from: /como-compartir-tu-dni-por-internet-sin-riesgos-2-2/, to: /blog/ }
+  - { from: /como-contribuyen-los-coworkings-al-ahorro-energetico/, to: /blog/ }
+  - { from: /como-crear-un-buen-entorno-laboral/, to: /blog/ }
+  - { from: /como-darle-valor-de-lujo-a-tu-producto/, to: /blog/ }
+  - { from: /como-elijo-el-coworking-mas-apropiado-para-mi-negocio/, to: /blog/ }
+  - { from: /como-evitar-los-conflictos-laborales/, to: /blog/ }
+  - { from: /como-evitar-que-roben-tus-datos-al-pagar-con-el-movil/, to: /blog/ }
+  - { from: /como-funciona-un-coworking/, to: /blog/ }
+  - { from: /como-google-puede-ayudar-a-tu-negocio-sin-coste-para-ti/, to: /blog/ }
+  - { from: /como-hacer-que-tu-equipo-de-trabajo-este-siempre-motivado/, to: /blog/ }
+  - { from: /como-hacer-que-tu-pequeno-negocio-parezca-una-gran-empresa-caso-practico/, to: /blog/ }
+  - { from: /como-mejorar-tu-economia/, to: /blog/ }
+  - { from: /como-reducir-gastos-de-oficina-sin-perder-calidad-oficina-tradicional-vs-coworking/, to: /blog/ }
+  - { from: /como-responder-a-las-objeciones-mas-comunes-de-los-clientes/, to: /blog/ }
+  - { from: /como-sacar-partido-al-tiempo/, to: /blog/ }
+  - { from: /como-sacarle-partido-a-linkedin/, to: /blog/ }
+  - { from: /como-superar-el-miedo-a-hablar-en-publico/, to: /blog/ }
+  - { from: /como-tener-exito-en-el-trabajo/, to: /blog/ }
+  - { from: /como-un-coworking-hace-crecer-tu-negocio-caso-real/, to: /blog/ }
+  - { from: /conciliacion-la-gran-odisea-del-autonomo/, to: /blog/ }
+  - { from: /conectar-mejor-con-tus-clientes-mediante-un-buen-relato/, to: /blog/ }
+  - { from: /conoceis-google-activate/, to: /blog/ }
+  - { from: /conseguir-clientes-nuevos-y-retener-a-los-actuales-durante-el-covid19-es-posible/, to: /blog/ }
+  - { from: /consejos-para-combatir-las-olas-de-calor-en-verano/, to: /blog/ }
+  - { from: /consejos-para-ser-un-buen-lider/, to: /blog/ }
+  - { from: /cosas-deberias-saber-abrir-negocio/, to: /blog/ }
+  - { from: /coworking-como-solucion-al-estres/, to: /blog/ }
+  - { from: /coworking-para-abogados-privacidad-y-profesionalidad/, to: /blog/ }
+  - { from: /coworking-y-networking-conceptos-clave-para-todo-emprendedor/, to: /blog/ }
+  - { from: /coworking-y-networking-contactos-laborales-de-calidad/, to: /blog/ }
+  - { from: /coworkings-espacios-de-trabajo-que-unen-vida-social-y-laboral/, to: /blog/ }
+  - { from: /creditos-ico-paso-a-paso/, to: /blog/ }
+  - { from: /de-la-oficina-tradicional-al-coworking/, to: /blog/ }
+  - { from: /descubre-estos-trucos-para-disparar-tu-productividad/, to: /blog/ }
+  - { from: /destacar-curriculum-la-competencia/, to: /blog/ }
+  - { from: /diez-tips-para-una-oratoria-insuperable/, to: /blog/ }
+  - { from: /diferencias-entre-coworking-oficina-compartida-y-centro-de-negocios-con-coworking/, to: /blog/ }
+  - { from: /digital-logic-system-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /digitalizacion-analisis-y-estrategia/, to: /blog/ }
+  - { from: /el-coworking-se-impone-en-el-sector-de-las-oficinas/, to: /blog/ }
+  - { from: /el-coworking-se-transforma-en-oficina-de-contingencia/, to: /blog/ }
+  - { from: /el-coworking-y-la-mujer-emprendedora/, to: /blog/ }
+  - { from: /el-creador-de-chatgpt-revela-sus-consejos-para-emprendedores/, to: /blog/ }
+  - { from: /el-enriquecimiento-personal-y-laboral-las-nuevas-prioridades/, to: /blog/ }
+  - { from: /el-gobierno-actualiza-el-calendario-de-ayudas-para-autonomos/, to: /blog/ }
+  - { from: /el-gobierno-anuncia-el-nuevo-kit-consulting-para-pymes/, to: /blog/ }
+  - { from: /el-nuevo-coworking-post-covid/, to: /blog/ }
+  - { from: /el-optimismo-concepto-clave-para-el-mundo-laboral/, to: /blog/ }
+  - { from: /el-precio-de-la-gasolina-y-el-diesel-se-ha-disparado-en-2024-y-estas-son-las-razones/, to: /blog/ }
+  - { from: /el-teletrabajo-ha-llegado-a-su-fin/, to: /blog/ }
+  - { from: /el-teletrabajo-reduce-la-productividad-laboral/, to: /blog/ }
+  - { from: /el-trabajo-100-remoto-no-arraiga-en-espana/, to: /blog/ }
+  - { from: /eleva-tu-economia-de-nivel-con-estos-consejos/, to: /blog/ }
+  - { from: /elige-coworking-y-gana-la-partida/, to: /blog/ }
+  - { from: /emprendedor-aumenta-tus-probabilidades-de-exito/, to: /blog/ }
+  - { from: /emprender-con-exito-2021/, to: /blog/ }
+  - { from: /emprender-con-exito/, to: /blog/ }
+  - { from: /en-oficinas-ya-no-todo-es-trabajar/, to: /blog/ }
+  - { from: /enfrentarse-una-negociacion-salir-victorioso/, to: /blog/ }
+  - { from: /eres-feliz-en-tu-trabajo/, to: /blog/ }
+  - { from: /es-el-verano-un-buen-momento-para-emprender/, to: /blog/ }
+  - { from: /esta-tu-empresa-preparada-para-afrontar-el-coronavirus/, to: /blog/ }
+  - { from: /estas-son-las-cadenas-de-gasolineras-mas-baratas-segun-la-ocu/, to: /blog/ }
+  - { from: /estas-son-las-mejores-apps-para-aprovechar-el-certificado-digital-en-tu-movil/, to: /blog/ }
+  - { from: /estas-son-las-novedades-en-el-impuesto-de-sociedades-de-2024/, to: /blog/ }
+  - { from: /estos-son-los-nuevos-tramos-para-pagar-la-cuota-minima-de-autonomos-en-2024/, to: /blog/ }
+  - { from: /estres-laboral-por-el-covid-deshazte-de-el/, to: /blog/ }
+  - { from: /eventos-que-no-te-puedes-perder-siendo-emprendedor/, to: /blog/ }
+  - { from: /experiencia-en-coworking/, to: /blog/ }
+  - { from: /fgr-asesoria-energetica-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /franquicias-ventajas-y-desventajas/, to: /blog/ }
+  - { from: /freshrules-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /gabinete-de-psicologia-sian-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /gana-velocidad-en-tu-ordenador/, to: /blog/ }
+  - { from: /genera-ideas-de-negocio-con-este-truco/, to: /blog/ }
+  - { from: /google-tendra-un-nuevo-servicio-gratuito-ya-no-habra-que-pagar-por-su-vpn/, to: /blog/ }
+  - { from: /guia-para-irte-de-vacaciones-en-una-camper-este-verano/, to: /blog/ }
+  - { from: /habitos-comunes-de-las-personas-super-productivas/, to: /blog/ }
+  - { from: /hacienda-simplifica-las-rectificaciones-en-las-declaraciones-de-los-autonomos/, to: /blog/ }
+  - { from: /hay-menos-oficinas-vacias-en-alquiler-en-el-centro-de-madrid-que-en-londres/, to: /blog/ }
+  - { from: /herramientas-para-trabajar-desde-casa/, to: /blog/ }
+  - { from: /hola-conoces-a-luzia/, to: /blog/ }
+  - { from: /hr-consultores-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /inteligencia-artificial-en-pymes-innovacion-y-competitividad-en-el-mercado/, to: /blog/ }
+  - { from: /la-estafa-que-te-hara-leer-tu-correo-con-mucha-atencion/, to: /blog/ }
+  - { from: /la-importancia-de-escuchar-a-tus-clientes/, to: /blog/ }
+  - { from: /la-loteria-de-navidad-la-veis-hacienda-y-tu/, to: /blog/ }
+  - { from: /la-oficina-flexible-la-forma-de-trabajo-mas-demandada/, to: /blog/ }
+  - { from: /la-oficina-flexible-la-solucion-favorita-de-startups-pymes-y-emprendedores/, to: /blog/ }
+  - { from: /la-semana-laboral-de-4-dias-al-estilo-aleman/, to: /blog/ }
+  - { from: /las-5-mejores-tecnicas-para-cerrar-una-venta/, to: /blog/ }
+  - { from: /las-oficinas-sostenibles-que-te-ayudan-a-crecer-y-reducen-tus-gastos/, to: /blog/ }
+  - { from: /lecciones-aprendidas-con-la-crisis-del-covid19/, to: /blog/ }
+  - { from: /llega-el-1o-concurso-de-fotografia-navidena-de-oficinas-ya/, to: /blog/ }
+  - { from: /llega-la-cabalgata-de-reyes-a-madrid-fechas-horarios-y-recorridos/, to: /blog/ }
+  - { from: /los-12-pasos-de-una-presentacion-perfecta/, to: /blog/ }
+  - { from: /los-3-problemas-mas-comunes-de-un-emprendedor-y-sus-soluciones/, to: /blog/ }
+  - { from: /los-6-mejores-programas-erp-de-software-libre-o-no/, to: /blog/ }
+  - { from: /los-autonomos-ya-pueden-consultar-sus-datos-en-hacienda-para-la-renta/, to: /blog/ }
+  - { from: /los-coworkings-de-oficinas-ya-continuan-operativos-pese-a-la-gran-nevada/, to: /blog/ }
+  - { from: /los-coworkings-mantienen-activo-tu-negocio-durante-tus-vacaciones/, to: /blog/ }
+  - { from: /los-destinos-turisticos-con-mas-sol-del-mundo/, to: /blog/ }
+  - { from: /los-mejores-descuentos-encontraras-este-black-friday/, to: /blog/ }
+  - { from: /marca-personal-todo-lo-que-necesitas-saber/, to: /blog/ }
+  - { from: /mas-del-65-de-abogados-tiene-una-oficina-virtual/, to: /blog/ }
+  - { from: /mas-productivo-trabajo/, to: /blog/ }
+  - { from: /mergetix-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /mi-dia-en-un-coworking/, to: /blog/ }
+  - { from: /montar-un-negocio/, to: /blog/ }
+  - { from: /motivos-por-los-que-los-autonomos-pueden-perder-la-tarifa-plana-en-2024/, to: /blog/ }
+  - { from: /multas-de-hasta-10-000-euros-a-los-autonomos-que-no-reduzcan-la-jornada-a-385-horas/, to: /blog/ }
+  - { from: /negocio-online-claves-negocio-sea-exito/, to: /blog/ }
+  - { from: /networking-como-ser-el-crack-de-los-contactos/, to: /blog/ }
+  - { from: /neuromarketing-estrategias-y-claves/, to: /blog/ }
+  - { from: /no-dejes-pasar-estos-gastos-desgravables-en-la-renta-2023-2024/, to: /blog/ }
+  - { from: /oficina-barata-en-madrid-si-existe/, to: /blog/ }
+  - { from: /oficina-virtual-la-solucion-negocio/, to: /blog/ }
+  - { from: /oficina-vs-teletrabajo-and-the-real-winner-is/, to: /blog/ }
+  - { from: /oficinas-con-corazon-clave-en-el-enriquecimiento-personal-y-laboral/, to: /blog/ }
+  - { from: /oficinas-nuevos-cambios-se-avecinan/, to: /blog/ }
+  - { from: /oficinas-para-la-contencion-del-coronavirus/, to: /blog/ }
+  - { from: /oficinas-post-covid-nuevas-necesidades-de-los-trabajadores/, to: /blog/ }
+  - { from: /oficinas-ya-abrira-un-nuevo-coworking-en-el-amazonas/, to: /blog/ }
+  - { from: /oficinas-ya-el-coworking-seguro-frente-al-covid-19/, to: /blog/ }
+  - { from: /oficinas-ya-inaugura-su-nuevo-centro-sensorial/, to: /blog/ }
+  - { from: /pinta-vida-naranja/, to: /blog/ }
+  - { from: /ponte-tu-mascara-ha-llegado-el-carnaval/, to: /blog/ }
+  - { from: /por-que-algunas-personas-trabajan-mejor-desde-casa-que-otras/, to: /blog/ }
+  - { from: /por-que-el-trabajo-a-distancia-es-el-preferido-de-los-millennials-y-nomadas-digitales/, to: /blog/ }
+  - { from: /potencia-ya-el-valor-de-tu-marca-y-llevalo-al-siguiente-nivel/, to: /blog/ }
+  - { from: /preguntas-mas-comunes-entrevista-trabajo/, to: /blog/ }
+  - { from: /preguntas-trampa-mas-comunes-en-una-entrevista/, to: /blog/ }
+  - { from: /preparate-para-la-convergencia-real-tu-smartphone-pronto-sera-tu-pc/, to: /blog/ }
+  - { from: /puedes-circular-con-tu-vehiculo-en-las-zbe/, to: /blog/ }
+  - { from: /que-cualidades-debe-tener-el-cofundador-ideal/, to: /blog/ }
+  - { from: /que-es-una-oficina-virtual/, to: /blog/ }
+  - { from: /que-gastos-puedes-deducirte-en-la-renta-si-eres-trabajador-por-cuenta-ajena/, to: /blog/ }
+  - { from: /que-requisitos-debe-cumplir-un-coworking-en-tiempos-de-covid/, to: /blog/ }
+  - { from: /que-va-a-preocupar-a-las-pyme-en-2024/, to: /blog/ }
+  - { from: /rastreadores-privados-en-los-coworkings-de-oficinas-ya/, to: /blog/ }
+  - { from: /redes-sociales-de-empresa-obten-el-maximo-rendimiento/, to: /blog/ }
+  - { from: /renfe-endurece-las-condiciones-para-devolver-dinero-por-retrasos/, to: /blog/ }
+  - { from: /sabes-mantener-la-calma/, to: /blog/ }
+  - { from: /sabes-si-tu-compania-esta-a-la-ultima-en-medios-tecnologicos/, to: /blog/ }
+  - { from: /seguridad-social-pide-datos-a-los-autonomos-para-notificarles-sus-futuras-cuotas/, to: /blog/ }
+  - { from: /si-operas-en-wallapop-o-en-airbnb-hacienda-quiere-hablar-contigo/, to: /blog/ }
+  - { from: /si-teletrabajas-haz-clic-aqui/, to: /blog/ }
+  - { from: /si-usas-bizum-tienes-que-declararte-ante-hacienda/, to: /blog/ }
+  - { from: /silbana-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /storytellin-iii-los/, to: /blog/ }
+  - { from: /storytelling-ii-vender-con-cuentos/, to: /blog/ }
+  - { from: /storytelling-vende-con-una-buena-historia/, to: /blog/ }
+  - { from: /te-traemos-las-startups-mas-innovadoras-del-mundo/, to: /blog/ }
+  - { from: /teletrabajo-sin-complicaciones/, to: /blog/ }
+  - { from: /tesoros-que-podrias-tener-olvidados-en-el-trasero/, to: /blog/ }
+  - { from: /tienes-dudas-sobre-la-factura-electronica-sigue-leyendo/, to: /blog/ }
+  - { from: /tips-para-triunfar-en-el-networking/, to: /blog/ }
+  - { from: /todo-lo-que-necesitas-para-convertirte-en-un-experto-en-ia/, to: /blog/ }
+  - { from: /todo-lo-que-necesitas-saber-sobre-la-nueva-ley-de-teletrabajo/, to: /blog/ }
+  - { from: /todo-lo-que-requieres-saber-sobre-el-pago-con-criptomonedas/, to: /blog/ }
+  - { from: /toni-bassols-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /traslado-masivo-de-pequenas-y-medianas-empresas-a-business-centers/, to: /blog/ }
+  - { from: /traslot-102-nos-cuenta-su-experiencia-en-un-coworking/, to: /blog/ }
+  - { from: /trucos-para-vencer-el-sueno-en-el-trabajo/, to: /blog/ }
+  - { from: /tu-compania-esta-a-la-ultima-en-medios-tecnologicos/, to: /blog/ }
+  - { from: /ultima-oportunidad-para-ajustar-la-cuota-de-autonomos/, to: /blog/ }
+  - { from: /un-metodo-poco-conocido-por-los-autonomos-les-permite-hacer-la-renta-de-forma-casi-automatica/, to: /blog/ }
+  - { from: /ventajas-de-los-business-centers-frente-a-las-oficinas-tradicionales/, to: /blog/ }
+  - { from: /ventajas-del-networking/, to: /blog/ }
+  - { from: /waze-o-google-maps-que-navegador-es-mas-completo/, to: /blog/ }
+  - { from: /y-si-te-dijesen-que-nunca-va-a-haber-vacuna-para-el-covid/, to: /blog/ }
+  - { from: /ya-es-oficial-hacienda-obligara-a-hacer-la-proxima-declaracion-de-la-renta-solo-por-internet/, to: /blog/ }
+
+# Prefijos: todo lo que empiece por `match` va a `to` (no se arrastra el resto de la ruta).
+patrones:
+  - { match: /category/,    to: /blog/ }
+  - { match: /tag/,         to: /blog/ }
+  - { match: /author/,      to: /blog/ }
+  - { match: /actividades/, to: /comunidad/ }
+  - { match: /miembros/,    to: /comunidad/ }

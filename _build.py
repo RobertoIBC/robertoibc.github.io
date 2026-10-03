@@ -3,7 +3,8 @@
 
     python _build.py              genera todo el sitio (ES + EN) en la raiz del repo
     python _build.py --check      solo comprueba: falla si el sitio generado no coincide
-    python _build.py --htaccess   imprime el bloque de 301 para el dia de la migracion
+    python _build.py --htaccess   imprime el .htaccess completo (dominio, bloqueo de fuentes y 301)
+    python _build.py --nginx      lo mismo para nginx
 
 Fuentes:
     _data/global.yml      cifras, precios "desde", contacto, URL del sitio
@@ -851,24 +852,115 @@ def build(check=False):
     return changed, outputs, warnings
 
 
-def print_htaccess(redirects):
-    print('# Redirecciones 301 generadas por _build.py --htaccess')
-    print('# Pegar en .htaccess (Apache) o importar en el plugin Redirection.')
-    for section in ('prototipo', 'migracion'):
-        print(f'\n# --- {section}')
-        for r in redirects[section]:
-            print(f'Redirect 301 {r["from"]} {r["to"]}')
+# Rutas internas que el servidor no debe servir: fuentes del generador, datos y documentos de trabajo.
+# Todo lo que empieza por "_" en la raiz, ficheros ocultos (.git, .claude...) y estas extensiones/nombres.
+BLOQUEO_EXT = 'py|pyc|md|ya?ml|csv|manifest'
+BLOQUEO_NOMBRES = ('requirements.txt', 'datos-centros.csv', 'README.md')
+
+
+def redirect_rules(redirects):
+    """(desde, destino, es_prefijo) de todas las secciones, en orden: exactas primero, prefijos al final."""
+    rules = []
+    for section in ('prototipo', 'migracion', 'migracion_blog'):
+        for r in redirects.get(section) or []:
+            rules.append((r['from'], r['to'], False))
+    for r in redirects.get('patrones') or []:
+        rules.append((r['match'], r['to'], True))
+    return rules
+
+
+def print_htaccess(redirects, site_url):
+    host = site_url.split('://', 1)[1]
+    bare = host[4:] if host.startswith('www.') else host
+    rules = redirect_rules(redirects)
+    out = [
+        '# .htaccess de OficinasYA! -- generado por `python _build.py --htaccess` desde _data/redirects.yml.',
+        '# No editar a mano: cambiar redirects.yml y volver a generarlo.',
+        'Options -Indexes',
+        'RewriteEngine On',
+        '',
+        f'# 1. Dominio canonico: {bare} -> {host}, en un solo salto y ya en https.',
+        '#    (El paso de http a https lo hace hoy el hosting delante de Apache; por eso no hay regla',
+        '#    "%{HTTPS} off": detras de un proxy daria un bucle de redirecciones.)',
+        f'RewriteCond %{{HTTP_HOST}} ^{re.escape(bare)}$ [NC]',
+        f'RewriteRule ^(.*)$ {site_url}/$1 [R=301,L]',
+        '',
+        '# 2. Fuentes y ficheros internos: 404, como si no existieran.',
+        '#    Todo lo que empieza por "_" en la raiz (_data, _content, _templates, _tools, _docs, _hooks,',
+        '#    _build.py, _build.manifest...), los ficheros ocultos menos .well-known, y estos nombres y extensiones.',
+        'RewriteRule ^_ - [R=404,L]',
+        r'RewriteRule (^|/)\.(?!well-known/) - [R=404,L]',
+        'RewriteRule (^|/)(' + '|'.join(re.escape(n) for n in BLOQUEO_NOMBRES) + ')$ - [R=404,L]',
+        rf'RewriteRule \.({BLOQUEO_EXT})$ - [R=404,L]',
+        '',
+        '# 3. Carpeta sin barra final (/blog -> /blog/) en un salto y en https. Sin esta regla Apache',
+        '#    responde con http:// y el hosting vuelve a https: dos saltos de mas.',
+        'RewriteCond %{REQUEST_FILENAME} -d',
+        f'RewriteRule ^(.+[^/])$ {site_url}/$1/ [R=301,L]',
+        '',
+        f'# 4. Redirecciones 301 de URLs antiguas ({len(rules)}). La barra final es opcional.',
+    ]
+    for frm, to, prefix in rules:
+        src = re.escape(frm.strip('/'))
+        pat = f'^{src}/' if prefix else f'^{src}/?$'
+        out.append(f'RewriteRule {pat} {site_url}{to} [R=301,L,NE]')
+    print('\n'.join(out))
+
+
+def print_nginx(redirects, site_url):
+    host = site_url.split('://', 1)[1]
+    bare = host[4:] if host.startswith('www.') else host
+    rules = redirect_rules(redirects)
+    out = [
+        '# nginx para OficinasYA! -- generado por `python _build.py --nginx` desde _data/redirects.yml.',
+        '',
+        '# ---- A) En el bloque http { } (fuera de cualquier server): tabla de redirecciones.',
+        'map $uri $oya_redirect {',
+        '    default "";',
+    ]
+    for frm, to, prefix in rules:
+        if prefix:
+            out.append(f'    ~^{re.escape(frm)} {to};')
+        else:
+            base = frm.rstrip('/')
+            if '.' in base.rsplit('/', 1)[-1]:     # fichero (.html): solo tal cual
+                out.append(f'    {base} {to};')
+                continue
+            out.append(f'    {base}/ {to};')         # carpeta: con y sin barra final
+            if base:
+                out.append(f'    {base} {to};')
+    out += [
+        '}',
+        '',
+        f'# ---- B) Un server propio para el dominio sin www.',
+        'server {',
+        '    listen 80;',
+        '    listen 443 ssl;',
+        f'    server_name {bare};',
+        '    # (los ssl_certificate del hosting)',
+        f'    return 301 {site_url}$request_uri;',
+        '}',
+        '',
+        f'# ---- C) Dentro del server {{ }} de {host}, antes de cualquier otro location.',
+        'location ~ ^/_ { return 404; }',
+        r'location ~ /\.(?!well-known/) { return 404; }',
+        r'location ~ (^|/)(' + '|'.join(re.escape(n) for n in BLOQUEO_NOMBRES) + r')$ { return 404; }',
+        rf'location ~ \.({BLOQUEO_EXT})$ {{ return 404; }}',
+        f'if ($oya_redirect) {{ return 301 {site_url}$oya_redirect; }}',
+    ]
+    print('\n'.join(out))
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--check', action='store_true', help='no escribe; falla si algo esta desactualizado')
-    ap.add_argument('--htaccess', action='store_true', help='imprime las redirecciones 301 para la migracion')
+    ap.add_argument('--htaccess', action='store_true', help='imprime el .htaccess completo (Apache): dominio, bloqueo y 301')
+    ap.add_argument('--nginx', action='store_true', help='imprime lo mismo para nginx')
     args = ap.parse_args()
 
-    if args.htaccess:
-        _, _, redirects, _, _ = load_data()
-        print_htaccess(redirects)
+    if args.htaccess or args.nginx:
+        g, _, redirects, _, _ = load_data()
+        (print_htaccess if args.htaccess else print_nginx)(redirects, g['site']['url'])
         return
 
     changed, outputs, warnings = build(check=args.check)
