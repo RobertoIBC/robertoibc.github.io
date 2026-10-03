@@ -32,7 +32,7 @@ Es hora de reorganizar tu espacio de trabajo: ¡echa un vistazo a estos trucos!
 
 **✅ Solución**:
 
-![Matriz Eisenhower](https://lh3.googleusercontent.com/evizix8DajzJmOXAppkhqV8GBB2_zD4DPEgv1JP2FKDwJ67ZrgkHTNzKQtwbUIdtJBkWCcXm_Od6p_5t00wcHi7DsE46px7vj453hgrhgBMbFgBF-tQadCqvFtxXQOjUEt664uAD6zCm94sUiw)
+![Matriz Eisenhower](/assets/img/blog/matriz-eisenhower.png)
 
 vía ClickUp
 

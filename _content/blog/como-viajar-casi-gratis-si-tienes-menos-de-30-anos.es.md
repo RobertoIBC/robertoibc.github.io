@@ -43,7 +43,7 @@ Verano Joven 2024 permite viajar por España y Europa casi gratis. Los descuento
 
 En la siguiente tabla se reflejan **todos los descuentos de la Campaña Verano 2024**:
 
-![](https://www.oficinasya.es/wp-content/uploads/2024/07/Captura-300x202.png)
+![Tabla de descuentos de Verano Joven 2024 por tipo de transporte](/assets/img/blog/como-viajar-descuentos-verano-joven.png)
 
 Un matiz: los descuentos del plan Verano 2024 son compatibles con otros beneficios económicos en la compra de billetes como los que disfrutan, por ejemplo, las familias numerosas. En este caso, la bonificación familiar se aplica una vez imputada la rebaja de la campaña de verano.
 
