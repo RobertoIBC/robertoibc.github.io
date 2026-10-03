@@ -4,7 +4,7 @@ lang: en
 url: /en/
 layout: home
 title: "Private offices to rent in Madrid and Spain | OficinasYA!"
-description: "Rent private offices, meeting rooms, coworking and virtual office services in Madrid and across Spain: 35 locations in {{ g.ciudades }} cities. From €{{ p.despacho_hora }}/hour + VAT."
+description: "Rent private offices, meeting rooms, coworking and virtual office services in Madrid and across Spain: {{ g.espacios }} locations in {{ g.ciudades }} cities. From €{{ p.despacho_hora }}/hour + VAT."
 ---
 {% block jsonld %}
 {
@@ -18,7 +18,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
       "url": "{{ site.url }}/",
       "logo": "https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png",
       "image": "https://www.oficinasya.es/wp-content/uploads/2017/10/cropped-Icono-Oficinas-YA-192x192.png",
-      "description": "Red de {{ g.espacios }} centros de negocio y espacios de coliving en {{ g.ciudades }} ciudades de España con despachos privados, salas de reuniones, coworking y oficina virtual.",
+      "description": "Network of {{ g.espacios }} business centres and coliving spaces in {{ g.ciudades }} Spanish cities, with private offices, meeting rooms, coworking and virtual office.",
       "telephone": "{{ g.tel_e164 }}",
       "email": "{{ g.email }}",
       "address": {
@@ -31,7 +31,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
       },
       "areaServed": {
         "@type": "Country",
-        "name": "España"
+        "name": "Spain"
       },
       "sameAs": [
         "{{ g.redes.linkedin }}",
@@ -52,15 +52,15 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
     },
     {
       "@type": "Service",
-      "name": "Despacho privado por horas",
-      "serviceType": "Alquiler de despacho privado por horas",
-      "description": "Equipped private office con WiFi de alta velocidad y recepción de visitas, sin permanencia mínima.",
+      "name": "Private office by the hour",
+      "serviceType": "Private office rental by the hour",
+      "description": "Equipped private office with high-speed WiFi and visitor reception, with no minimum commitment.",
       "provider": {
         "@id": "{{ site.url }}/#organization"
       },
       "areaServed": {
         "@type": "Country",
-        "name": "España"
+        "name": "Spain"
       },
       "offers": {
         "@type": "Offer",
@@ -78,15 +78,15 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
     },
     {
       "@type": "Service",
-      "name": "Despacho privado mensual",
-      "serviceType": "Alquiler de despacho privado en régimen mensual",
-      "description": "Exclusive private office con llave propia y acceso 24/7 en Madrid y centros seleccionados, domiciliación, limpieza y mantenimiento y 5 horas de sala de reuniones al mes.",
+      "name": "Monthly private office",
+      "serviceType": "Private office rental on a monthly basis",
+      "description": "Private office for your exclusive use, with 24/7 access in Madrid and selected centres, registered address, cleaning and maintenance; at several centres the fee also includes meeting-room hours.",
       "provider": {
         "@id": "{{ site.url }}/#organization"
       },
       "areaServed": {
         "@type": "Country",
-        "name": "España"
+        "name": "Spain"
       },
       "offers": {
         "@type": "Offer",
@@ -104,15 +104,15 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
     },
     {
       "@type": "Service",
-      "name": "Oficina virtual",
-      "serviceType": "Domiciliación de empresas y oficina virtual",
-      "description": "Registered and trading address, gestión de correspondencia y posibilidad de atención telefónica.",
+      "name": "Virtual office",
+      "serviceType": "Company registered address and virtual office",
+      "description": "Registered and trading address, mail handling and optional call answering.",
       "provider": {
         "@id": "{{ site.url }}/#organization"
       },
       "areaServed": {
         "@type": "Country",
-        "name": "España"
+        "name": "Spain"
       },
       "offers": {
         "@type": "Offer",
@@ -137,7 +137,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
           "name": "How much does it cost to rent a private office by the hour?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Renting a private office by the hour at OficinasYA! starts at €{{ p.despacho_hora }} per hour plus VAT: every price on this site is shown before tax. It includes the equipped office, high-speed WiFi and visitor reception, and there is no minimum commitment. It is the usual choice for one-off meetings or occasional work at any of the 35 locations in the network."
+            "text": "Renting a private office by the hour at OficinasYA! starts at €{{ p.despacho_hora }} per hour plus VAT: every price on this site is shown before tax. It includes the equipped office, high-speed WiFi and visitor reception, and there is no minimum commitment. It is the usual choice for one-off meetings or occasional work at any of the {{ g.espacios }} locations in the network."
           }
         },
         {
@@ -153,7 +153,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
           "name": "Which Spanish cities has OficinasYA! got centres in?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "OficinasYA! has {{ g.espacios }} centres and coliving spaces across 17 Spanish cities: Madrid, Barcelona, Bilbao, Seville, Valencia, Murcia, Tenerife, Malaga, A Coruña, Vigo, Zaragoza, Salamanca, Segovia, Castellón, Alicante, Albacete and Mérida. Madrid has 8 centres, and Barcelona, Murcia, Seville and Tenerife have 3 each. They all belong to the same network, so you deal with a single provider."
+            "text": "OficinasYA! has {{ g.espacios }} centres and coliving spaces across {{ g.ciudades }} Spanish cities: Madrid, Barcelona, Bilbao, Seville, Valencia, Murcia, Tenerife, Malaga, A Coruña, Vigo, Zaragoza, Salamanca, Segovia, Castellón, Alicante, Albacete and Mérida. Madrid has 8 centres, and Barcelona, Murcia, Seville and Tenerife have 3 each. They all belong to the same network, so you deal with a single provider."
           }
         },
         {
@@ -177,7 +177,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
           "name": "What is the difference between hourly and monthly offices?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "With the hourly office you pay only for the time you use, from €{{ p.despacho_hora }} an hour plus VAT, and it creates no commitment. The monthly option, from €{{ p.despacho_mes }} a month plus VAT, gives you an exclusive private office with your own key and 24/7 access in Madrid and selected centres, and includes company registration, cleaning and 5 hours of meeting room a month."
+            "text": "With the hourly office you pay only for the time you use, from €{{ p.despacho_hora }} an hour plus VAT, and it creates no commitment. The monthly option, from €{{ p.despacho_mes }} a month plus VAT, gives you a private office for your exclusive use, with 24/7 access in Madrid and selected centres, and includes company registration and cleaning. At several centres the fee also includes meeting-room hours; check the details of yours."
           }
         }
       ]
@@ -219,7 +219,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
       <div class="stat-lbl">Access in Madrid and selected centres</div>
     </div>
     <div class="stat rv d3">
-      <span class="stat-num" data-target="30">0</span>
+      <span class="stat-num" data-target="{{ g.anios }}">0</span>
       <div class="stat-lbl">Years of experience</div>
     </div>
     <div class="stat rv d4">
@@ -246,7 +246,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
       <h3 class="srv-name">Private Offices</h3>
       <p class="srv-desc">Your own enclosed space, fully equipped. By the hour, by the day or on a monthly contract.</p>
       <ul class="srv-list">
-        <li>Your own key · 24/7 in Madrid and selected centres</li>
+        <li>For your exclusive use · 24/7 in Madrid and selected centres</li>
         <li>High-speed WiFi included</li>
         <li>Phone line and furniture</li>
         <li>Cleaning and maintenance</li>
@@ -265,7 +265,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
       <h3 class="srv-name">Meeting Rooms</h3>
       <p class="srv-desc">Different layouts for any meeting, presentation or corporate event.</p>
       <ul class="srv-list">
-        <li>Book online · 24/7 in Madrid and selected centres</li>
+        <li>Book by phone or WhatsApp</li>
         <li>Screen, projector and video calls</li>
         <li>Catering on request</li>
         <li>Visitor reception included</li>
@@ -287,7 +287,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
       <ul class="srv-list">
         <li>Registered and trading address</li>
         <li>Mail handling</li>
-        <li>Personalised call answering</li>
+        <li>Optional call answering</li>
         <li>Visitor reception</li>
         <li>Meeting room access</li>
       </ul>
@@ -306,7 +306,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
         <img width="800" height="600" loading="lazy" decoding="async" src="https://www.oficinasya.es/wp-content/uploads/2018/02/alquiler-despacho-madrid-low.jpg" alt="OficinasYA private office in Madrid" />
       </div>
       <div class="why-badge">
-        <span class="why-badge-num">+1500</span>
+        <span class="why-badge-num">+{{ g.empresas }}</span>
         <div class="why-badge-lbl">companies<br>trust us</div>
       </div>
     </div>
@@ -326,7 +326,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
           <div class="why-dot"></div>
           <div>
             <h4>Total flexibility for your business</h4>
-            <p>Growing? We scale up. Downsizing? We adjust. Same address, no penalties.</p>
+            <p>Growing? We scale up. Downsizing? We adjust. Same address.</p>
           </div>
         </div>
         <div class="why-item">
@@ -353,7 +353,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
   <div style="max-width:1200px;margin:0 auto">
     <div class="rv" style="text-align:center;margin-bottom:60px">
       <span class="eyebrow">National network</span>
-      <h2 class="stitle" style="margin:0 auto">+35 locations across <span class="hl">Spain</span></h2>
+      <h2 class="stitle" style="margin:0 auto">+{{ g.espacios }} locations across <span class="hl">Spain</span></h2>
       <p class="ssub" style="margin:16px auto 0;text-align:center">One network across Spain. Work wherever you need to, without changing provider.</p>
     </div>
 
@@ -368,11 +368,11 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
         <div style="font-size:.82rem;color:var(--gray-600);margin-top:6px">Cities in Spain</div>
       </div>
       <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:16px;padding:28px 20px;text-align:center;transition:border-color .3s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--gray-200)'">
-        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">35+</div>
+        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">{{ g.espacios }}+</div>
         <div style="font-size:.82rem;color:var(--gray-600);margin-top:6px">Centres and colivings</div>
       </div>
       <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:16px;padding:28px 20px;text-align:center;transition:border-color .3s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--gray-200)'">
-        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">30+</div>
+        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">{{ g.anios }}+</div>
         <div style="font-size:.82rem;color:var(--gray-600);margin-top:6px">Years of experience</div>
       </div>
     </div>
@@ -538,7 +538,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
     <div class="rvl">
       <div class="com-badge">🍊 Orange Community</div>
       <h2 class="com-title">Your next client<br>is already in your <span class="hl">building</span></h2>
-      <p class="com-desc">52+ professionals from 25 sectors publishing their profile, closing deals and growing together inside the OficinasYA! network. Free for clients.</p>
+      <p class="com-desc">{{ g.comunidad_miembros }} professionals from {{ g.comunidad_sectores }} sectors publishing their profile, closing deals and growing together inside the OficinasYA! network. Free for clients.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:36px">
         <a href="/en/community/" class="btn-orange">Explore the community →</a>
         <a href="#contact" class="btn-ghost" style="border-color:rgba(255,255,255,.25)">Become a client</a>
@@ -546,7 +546,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
     </div>
     <div class="rvr">
       <div class="com-visual">
-        <div class="com-visual-title">25+ active sectors in the network</div>
+        <div class="com-visual-title">{{ g.comunidad_sectores }}+ active sectors in the network</div>
         <div class="com-sectors">
           <div class="com-sector">⚖️ Legal</div>
           <div class="com-sector">💼 Consultancy</div>
@@ -563,11 +563,11 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
         </div>
         <div class="com-stats">
           <div class="com-stat-box">
-            <span class="n">52+</span>
+            <span class="n">{{ g.comunidad_miembros }}</span>
             <div class="l">Active professionals</div>
           </div>
           <div class="com-stat-box">
-            <span class="n">25+</span>
+            <span class="n">{{ g.comunidad_sectores }}+</span>
             <div class="l">Sectors represented</div>
           </div>
           <div class="com-stat-box">
@@ -590,7 +590,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
     <div class="rv" style="text-align:center;margin-bottom:56px">
       <span class="eyebrow">Frequently asked questions</span>
       <h2 class="stitle" style="margin:0 auto">What people <span class="hl">always ask us</span></h2>
-      <p class="ssub" style="margin:16px auto 0;text-align:center">OficinasYA! is a network of 35 business centres and coliving spaces in {{ g.ciudades }} cities across Spain, offering private offices, meeting rooms, coworking and virtual office services.</p>
+      <p class="ssub" style="margin:16px auto 0;text-align:center">OficinasYA! is a network of {{ g.espacios }} business centres and coliving spaces in {{ g.ciudades }} cities across Spain, offering private offices, meeting rooms, coworking and virtual office services.</p>
     </div>
 
     <div class="rv" id="faq-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:36px 48px">
@@ -598,7 +598,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
         <div class="why-dot"></div>
         <div>
           <h4>How much does it cost to rent a private office by the hour?</h4>
-          <p>Renting a private office by the hour at OficinasYA! starts at €{{ p.despacho_hora }} per hour plus VAT: every price on this site is shown before tax. It includes the equipped office, high-speed WiFi and visitor reception, and there is no minimum commitment. It is the usual choice for one-off meetings or occasional work at any of the 35 locations in the network.</p>
+          <p>Renting a private office by the hour at OficinasYA! starts at €{{ p.despacho_hora }} per hour plus VAT: every price on this site is shown before tax. It includes the equipped office, high-speed WiFi and visitor reception, and there is no minimum commitment. It is the usual choice for one-off meetings or occasional work at any of the {{ g.espacios }} locations in the network.</p>
         </div>
       </div>
       <div class="why-item">
@@ -612,7 +612,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
         <div class="why-dot"></div>
         <div>
           <h4>Which Spanish cities has OficinasYA! got centres in?</h4>
-          <p>OficinasYA! has {{ g.espacios }} centres and coliving spaces across 17 Spanish cities: Madrid, Barcelona, Bilbao, Seville, Valencia, Murcia, Tenerife, Malaga, A Coruña, Vigo, Zaragoza, Salamanca, Segovia, Castellón, Alicante, Albacete and Mérida. Madrid has 8 centres, and Barcelona, Murcia, Seville and Tenerife have 3 each. They all belong to the same network, so you deal with a single provider.</p>
+          <p>OficinasYA! has {{ g.espacios }} centres and coliving spaces across {{ g.ciudades }} Spanish cities: Madrid, Barcelona, Bilbao, Seville, Valencia, Murcia, Tenerife, Malaga, A Coruña, Vigo, Zaragoza, Salamanca, Segovia, Castellón, Alicante, Albacete and Mérida. Madrid has 8 centres, and Barcelona, Murcia, Seville and Tenerife have 3 each. They all belong to the same network, so you deal with a single provider.</p>
         </div>
       </div>
       <div class="why-item">
@@ -633,7 +633,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
         <div class="why-dot"></div>
         <div>
           <h4>What is the difference between hourly and monthly offices?</h4>
-          <p>With the hourly office you pay only for the time you use, from €{{ p.despacho_hora }} an hour plus VAT, and it creates no commitment. The monthly option, from €{{ p.despacho_mes }} a month plus VAT, gives you an exclusive private office with your own key and 24/7 access in Madrid and selected centres, and includes company registration, cleaning and 5 hours of meeting room a month.</p>
+          <p>With the hourly office you pay only for the time you use, from €{{ p.despacho_hora }} an hour plus VAT, and it creates no commitment. The monthly option, from €{{ p.despacho_mes }} a month plus VAT, gives you a private office for your exclusive use, with 24/7 access in Madrid and selected centres, and includes company registration and cleaning. At several centres the fee also includes meeting-room hours; check the details of yours.</p>
         </div>
       </div>
     </div>
@@ -655,7 +655,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
   <div class="blog-hd rv">
     <span class="eyebrow">Blog & Resources</span>
     <h2 class="stitle">Productivity, business<br>y <span class="hl">office life</span></h2>
-    <p class="ssub">Practical advice for freelancers and small businesses. Updated weekly.</p>
+    <p class="ssub">Practical advice for freelancers and small businesses.</p>
   </div>
   <div class="blog-grid">
 

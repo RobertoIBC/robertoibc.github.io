@@ -4,7 +4,7 @@ lang: en
 url: /en/community/
 layout: comunidad
 title: "Orange Community: networking between companies | OficinasYA!"
-description: "The Orange Community connects the 1500+ companies in the OficinasYA! network. Publish your profile free and find clients, suppliers and partners."
+description: "The Orange Community connects the {{ g.empresas }}+ companies in the OficinasYA! network. Publish your profile free and find clients, suppliers and partners."
 nav_active: comunidad
 ---
 {% block jsonld %}
@@ -104,11 +104,11 @@ nav_active: comunidad
         </div>
         <div class="nc-stats">
           <div class="nc-stat">
-            <span class="nc-stat-num">52</span>
+            <span class="nc-stat-num">{{ g.comunidad_miembros }}</span>
             <div class="nc-stat-lbl">Active members</div>
           </div>
           <div class="nc-stat">
-            <span class="nc-stat-num">25+</span>
+            <span class="nc-stat-num">{{ g.comunidad_sectores }}+</span>
             <div class="nc-stat-lbl">Different sectors</div>
           </div>
           <div class="nc-stat">
@@ -125,11 +125,11 @@ nav_active: comunidad
 <div id="com-stats">
   <div class="com-stats-grid">
     <div class="com-stat rv d1">
-      <span class="com-stat-num" data-target="52">0</span>
+      <span class="com-stat-num" data-target="{{ g.comunidad_miembros }}">0</span>
       <div class="com-stat-lbl">Professionals in the network</div>
     </div>
     <div class="com-stat rv d2">
-      <span class="com-stat-num">25+</span>
+      <span class="com-stat-num">{{ g.comunidad_sectores }}+</span>
       <div class="com-stat-lbl">Sectors represented</div>
     </div>
     <div class="com-stat rv d3">
@@ -238,7 +238,7 @@ nav_active: comunidad
     </div>
     <div class="rvr">
       <div class="sectors-panel">
-        <div class="sp-title">25+ active sectors in the network</div>
+        <div class="sp-title">{{ g.comunidad_sectores }}+ active sectors in the network</div>
         <div class="sectors-cloud">
           <div class="sector-pill">⚖️ Legal</div>
           <div class="sector-pill">💼 Consultancy</div>
@@ -277,7 +277,7 @@ nav_active: comunidad
     <div class="miembros-hd rv">
       <span class="eyebrow">Meet the network</span>
       <h2 class="stitle">Professionals already<br>in the <span class="hl">Orange Community</span></h2>
-      <p class="ssub" style="margin:16px auto 0;text-align:center">More than 52 active members. Here is a sample of who is part of our network.</p>
+      <p class="ssub" style="margin:16px auto 0;text-align:center">{{ g.comunidad_miembros }} active members. Here is a sample of who is part of our network.</p>
     </div>
     <div class="members-grid">
 

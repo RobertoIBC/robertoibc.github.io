@@ -25,6 +25,9 @@ site:
 espacios: 35        # centros de negocio + espacios de coliving. Nunca "35 centros" a secas.
 ciudades: 17
 empresas: 1500
+comunidad_miembros: 52   # perfiles en la Comunidad Naranja (PROVISIONAL: confirmar con el cliente)
+comunidad_sectores: 25
+anios: 30          # años de experiencia de la red ("Más de 30 años", "30+")
 
 # Tarifas "desde" de la home. Todas + IVA.
 precios:

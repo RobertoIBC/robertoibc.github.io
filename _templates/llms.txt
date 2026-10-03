@@ -62,7 +62,7 @@ Confirmar condiciones por teléfono o formulario.
   de Madrid, Albacete, los dos edificios Galia de Sevilla, los dos de Tenerife y
   los dos colivings. Castellón, bajo petición. En el resto la recepción cierra
   entre las 15:00 y las 21:00.
-- Más de 30 años de experiencia.
+- Más de {{ g.anios }} años de experiencia.
 
 ## Comunidad Naranja
 

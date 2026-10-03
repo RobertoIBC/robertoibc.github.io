@@ -104,11 +104,11 @@ nav_active: comunidad
         </div>
         <div class="nc-stats">
           <div class="nc-stat">
-            <span class="nc-stat-num">52</span>
+            <span class="nc-stat-num">{{ g.comunidad_miembros }}</span>
             <div class="nc-stat-lbl">Miembros activos</div>
           </div>
           <div class="nc-stat">
-            <span class="nc-stat-num">25+</span>
+            <span class="nc-stat-num">{{ g.comunidad_sectores }}+</span>
             <div class="nc-stat-lbl">Sectores distintos</div>
           </div>
           <div class="nc-stat">
@@ -125,11 +125,11 @@ nav_active: comunidad
 <div id="com-stats">
   <div class="com-stats-grid">
     <div class="com-stat rv d1">
-      <span class="com-stat-num" data-target="52">0</span>
+      <span class="com-stat-num" data-target="{{ g.comunidad_miembros }}">0</span>
       <div class="com-stat-lbl">Profesionales en la red</div>
     </div>
     <div class="com-stat rv d2">
-      <span class="com-stat-num">25+</span>
+      <span class="com-stat-num">{{ g.comunidad_sectores }}+</span>
       <div class="com-stat-lbl">Sectores representados</div>
     </div>
     <div class="com-stat rv d3">
@@ -238,7 +238,7 @@ nav_active: comunidad
     </div>
     <div class="rvr">
       <div class="sectors-panel">
-        <div class="sp-title">25+ sectores activos en la red</div>
+        <div class="sp-title">{{ g.comunidad_sectores }}+ sectores activos en la red</div>
         <div class="sectors-cloud">
           <div class="sector-pill">⚖️ Legal y Derecho</div>
           <div class="sector-pill">💼 Consultoría</div>
@@ -277,7 +277,7 @@ nav_active: comunidad
     <div class="miembros-hd rv">
       <span class="eyebrow">Conoce a la red</span>
       <h2 class="stitle">Profesionales que ya<br>están en la <span class="hl">Comunidad Naranja</span></h2>
-      <p class="ssub" style="margin:16px auto 0;text-align:center">Más de 52 miembros activos. Aquí tienes una muestra de quién forma parte de nuestra red.</p>
+      <p class="ssub" style="margin:16px auto 0;text-align:center">{{ g.comunidad_miembros }} miembros activos. Aquí tienes una muestra de quién forma parte de nuestra red.</p>
     </div>
     <div class="members-grid">
 

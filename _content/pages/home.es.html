@@ -80,7 +80,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
       "@type": "Service",
       "name": "Despacho privado mensual",
       "serviceType": "Alquiler de despacho privado en régimen mensual",
-      "description": "Despacho privado exclusivo con llave propia y acceso 24/7 en Madrid y centros seleccionados, domiciliación, limpieza y mantenimiento y 5 horas de sala de reuniones al mes.",
+      "description": "Despacho privado de uso exclusivo con acceso 24/7 en Madrid y centros seleccionados, domiciliación, limpieza y mantenimiento; en varios centros, la cuota incluye además horas de sala de reuniones.",
       "provider": {
         "@id": "{{ site.url }}/#organization"
       },
@@ -177,7 +177,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
           "name": "¿Qué diferencia hay entre despacho por horas y mensual fijo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "El despacho por horas se paga solo por el tiempo que se usa, desde {{ p.despacho_hora }} € la hora más IVA, y no genera permanencia. El mensual fijo, desde {{ p.despacho_mes }} € al mes más IVA, asigna un despacho privado exclusivo con llave propia, con acceso 24/7 en Madrid y centros seleccionados, e incluye domiciliación, limpieza y 5 horas de sala de reuniones al mes."
+            "text": "El despacho por horas se paga solo por el tiempo que se usa, desde {{ p.despacho_hora }} € la hora más IVA, y no genera permanencia. El mensual fijo, desde {{ p.despacho_mes }} € al mes más IVA, asigna un despacho privado de uso exclusivo, con acceso 24/7 en Madrid y centros seleccionados, e incluye domiciliación y limpieza. En varios centros la cuota incluye además horas de sala de reuniones; consulta el detalle del tuyo."
           }
         }
       ]
@@ -219,7 +219,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
       <div class="stat-lbl">Acceso en Madrid y centros seleccionados</div>
     </div>
     <div class="stat rv d3">
-      <span class="stat-num" data-target="30">0</span>
+      <span class="stat-num" data-target="{{ g.anios }}">0</span>
       <div class="stat-lbl">Años de experiencia</div>
     </div>
     <div class="stat rv d4">
@@ -246,7 +246,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
       <h3 class="srv-name">Despachos Privados</h3>
       <p class="srv-desc">Tu propio espacio cerrado, completamente equipado. Por horas, días o alquiler fijo mensual.</p>
       <ul class="srv-list">
-        <li>Llave propia · 24/7 en Madrid y centros seleccionados</li>
+        <li>De uso exclusivo · 24/7 en Madrid y centros seleccionados</li>
         <li>WiFi de alta velocidad incluido</li>
         <li>Teléfono y mobiliario</li>
         <li>Limpieza y mantenimiento</li>
@@ -265,7 +265,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
       <h3 class="srv-name">Salas de Reuniones</h3>
       <p class="srv-desc">Diferentes configuraciones para cualquier reunión, presentación o evento corporativo.</p>
       <ul class="srv-list">
-        <li>Reserva online · 24/7 en Madrid y centros seleccionados</li>
+        <li>Reserva por teléfono o WhatsApp</li>
         <li>Pantalla, proyector y videoconf.</li>
         <li>Catering a petición</li>
         <li>Recepción de visitas incluida</li>
@@ -287,7 +287,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
       <ul class="srv-list">
         <li>Dirección fiscal y comercial</li>
         <li>Gestión de correspondencia</li>
-        <li>Atención telefónica personalizada</li>
+        <li>Posibilidad de atención telefónica</li>
         <li>Recepción de visitas</li>
         <li>Acceso a sala de reuniones</li>
       </ul>
@@ -306,7 +306,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
         <img width="800" height="600" loading="lazy" decoding="async" src="https://www.oficinasya.es/wp-content/uploads/2018/02/alquiler-despacho-madrid-low.jpg" alt="Despacho OficinasYA en Madrid" />
       </div>
       <div class="why-badge">
-        <span class="why-badge-num">+1500</span>
+        <span class="why-badge-num">+{{ g.empresas }}</span>
         <div class="why-badge-lbl">empresas confían<br>en nosotros</div>
       </div>
     </div>
@@ -326,7 +326,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
           <div class="why-dot"></div>
           <div>
             <h4>Flexibilidad total para tu negocio</h4>
-            <p>¿Creces? Ampliamos. ¿Reduces? Lo ajustamos. Sin cambiar de dirección, sin penalizaciones.</p>
+            <p>¿Creces? Ampliamos. ¿Reduces? Lo ajustamos. Sin cambiar de dirección.</p>
           </div>
         </div>
         <div class="why-item">
@@ -368,11 +368,11 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
         <div style="font-size:.82rem;color:var(--gray-600);margin-top:6px">Ciudades en España</div>
       </div>
       <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:16px;padding:28px 20px;text-align:center;transition:border-color .3s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--gray-200)'">
-        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">35+</div>
+        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">{{ g.espacios }}+</div>
         <div style="font-size:.82rem;color:var(--gray-600);margin-top:6px">Centros y colivings</div>
       </div>
       <div style="background:var(--white);border:1.5px solid var(--gray-200);border-radius:16px;padding:28px 20px;text-align:center;transition:border-color .3s" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--gray-200)'">
-        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">30+</div>
+        <div style="font-family:'Barlow',sans-serif;font-size:2.4rem;font-weight:900;color:var(--orange);line-height:1">{{ g.anios }}+</div>
         <div style="font-size:.82rem;color:var(--gray-600);margin-top:6px">Años de experiencia</div>
       </div>
     </div>
@@ -538,7 +538,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
     <div class="rvl">
       <div class="com-badge">🍊 Comunidad Naranja</div>
       <h2 class="com-title">Tu próximo cliente<br>ya está en tu <span class="hl">mismo edificio</span></h2>
-      <p class="com-desc">+52 profesionales de 25 sectores publicando su perfil, cerrando acuerdos y creciendo juntos dentro de la red OficinasYA!. Gratis para clientes.</p>
+      <p class="com-desc">{{ g.comunidad_miembros }} profesionales de {{ g.comunidad_sectores }} sectores publicando su perfil, cerrando acuerdos y creciendo juntos dentro de la red OficinasYA!. Gratis para clientes.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:36px">
         <a href="/comunidad/" class="btn-orange">Descubrir la comunidad →</a>
         <a href="#contact" class="btn-ghost" style="border-color:rgba(255,255,255,.25)">Hacerme cliente</a>
@@ -546,7 +546,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
     </div>
     <div class="rvr">
       <div class="com-visual">
-        <div class="com-visual-title">25+ sectores activos en la red</div>
+        <div class="com-visual-title">{{ g.comunidad_sectores }}+ sectores activos en la red</div>
         <div class="com-sectors">
           <div class="com-sector">⚖️ Legal</div>
           <div class="com-sector">💼 Consultoría</div>
@@ -563,11 +563,11 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
         </div>
         <div class="com-stats">
           <div class="com-stat-box">
-            <span class="n">52+</span>
+            <span class="n">{{ g.comunidad_miembros }}</span>
             <div class="l">Profesionales activos</div>
           </div>
           <div class="com-stat-box">
-            <span class="n">25+</span>
+            <span class="n">{{ g.comunidad_sectores }}+</span>
             <div class="l">Sectores representados</div>
           </div>
           <div class="com-stat-box">
@@ -633,7 +633,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
         <div class="why-dot"></div>
         <div>
           <h4>¿Qué diferencia hay entre despacho por horas y mensual fijo?</h4>
-          <p>El despacho por horas se paga solo por el tiempo que se usa, desde {{ p.despacho_hora }} € la hora más IVA, y no genera permanencia. El mensual fijo, desde {{ p.despacho_mes }} € al mes más IVA, asigna un despacho privado exclusivo con llave propia, con acceso 24/7 en Madrid y centros seleccionados, e incluye domiciliación, limpieza y 5 horas de sala de reuniones al mes.</p>
+          <p>El despacho por horas se paga solo por el tiempo que se usa, desde {{ p.despacho_hora }} € la hora más IVA, y no genera permanencia. El mensual fijo, desde {{ p.despacho_mes }} € al mes más IVA, asigna un despacho privado de uso exclusivo, con acceso 24/7 en Madrid y centros seleccionados, e incluye domiciliación y limpieza. En varios centros la cuota incluye además horas de sala de reuniones; consulta el detalle del tuyo.</p>
         </div>
       </div>
     </div>
@@ -655,7 +655,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
   <div class="blog-hd rv">
     <span class="eyebrow">Blog & Recursos</span>
     <h2 class="stitle">Productividad, negocio<br>y <span class="hl">vida en la oficina</span></h2>
-    <p class="ssub">Consejos prácticos para autónomos y pymes. Actualizado cada semana.</p>
+    <p class="ssub">Consejos prácticos para autónomos y pymes.</p>
   </div>
   <div class="blog-grid">
 

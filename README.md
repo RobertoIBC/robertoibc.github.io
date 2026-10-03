@@ -77,7 +77,10 @@ python _tools/auditoria_clicks.py          # headless Chrome, ~1 min: hace hover
                                            # (tooltips incluidos) de las páginas con navegación por JS y
                                            # comprueba que el destino existe. Es lo que cazó el 404 del mapa.
 python _tools/auditoria_coherencia.py      # cifras en prosa por idioma, suma de centros, precios "desde",
-                                           # texto en el otro idioma, palabras ES vs EN por pareja
+                                           # texto en el otro idioma (JSON-LD incluido), palabras ES vs EN, y
+                                           # afirmaciones vigiladas ("llave propia", "5 h de sala", "reserva
+                                           # online"...) contra su pagina de servicio, en texto y JSON-LD.
+                                           # Sale con error si una pagina promete algo que su referencia no dice.
 python _tools/auditoria_enlaces_vivo.py    # tras el push: descarga las páginas PUBLICADAS y comprueba
                                            # el código de respuesta de todos los href/src (internos y
                                            # externos), anclas, selector de idioma, wa.me, tel:, mailto:
