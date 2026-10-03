@@ -8,6 +8,9 @@ title: "Coworking and flexible workstations in Spain | OficinasYA!"
 description: "Coworking desks by the month at three centres: Barcelona, A Coruña and Salamanca. With reception, meeting rooms by the hour and private offices next door."
 h1: Coworking in business centres
 subtitle: Workstations by the month at three centres in the network, in Barcelona, A Coruña and Salamanca, with everything a business centre offers around them.
+hero_foto: /assets/img/centros/centro-salamanca-2x.jpg
+hero_alt: "OficinasYA! Edificio Openhouse centre, Salamanca"
+hero_caption: "Edificio Openhouse, Salamanca"
 eyebrow: Coworking
 service_type: Coworking and shared workstations
 csv_key: coworking

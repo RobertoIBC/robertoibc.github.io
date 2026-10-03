@@ -8,6 +8,9 @@ title: "Virtual office and registered address in Spain | OficinasYA!"
 description: "Register your company from €{{ p.oficina_virtual_mes }}/month + VAT: registered and trading address, mail handling, call answering and rooms by the hour, in {{ g.ciudades }} cities across Spain."
 h1: Virtual office and registered business address
 subtitle: A professional address for your company, with reception, mail and phone handled, without renting an office. From €{{ p.oficina_virtual_mes }} a month + VAT.
+hero_foto: /assets/img/centros/centro-madrid-sanse-2x.jpg
+hero_alt: "Common area at the OficinasYA! San Sebastián de los Reyes centre, Madrid"
+hero_caption: "Sanse centre, San Sebastián de los Reyes"
 eyebrow: Virtual office
 service_type: Virtual office and registered business address
 csv_key: smart office

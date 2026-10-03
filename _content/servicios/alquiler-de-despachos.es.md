@@ -8,6 +8,9 @@ title: "Alquiler de despachos privados equipados | OficinasYA!"
 description: "Despachos privados amueblados y listos para trabajar el mismo día, por horas desde {{ p.despacho_hora }} €/h o mensuales desde {{ p.despacho_mes }} €/mes + IVA, en {{ g.ciudades }} ciudades de España."
 h1: Alquiler de despachos privados
 subtitle: Un espacio cerrado, equipado y de uso exclusivo. Por horas o por meses, en {{ g.espacios }} espacios de {{ g.ciudades }} ciudades.
+hero_foto: /assets/img/despachos/serrano.jpg
+hero_alt: "Despacho para varios puestos con suelo de madera en el centro OficinasYA! de Serrano, Madrid"
+hero_caption: "Despacho en Serrano, Madrid"
 eyebrow: Despachos privados
 service_type: Alquiler de despachos privados
 csv_key: despachos

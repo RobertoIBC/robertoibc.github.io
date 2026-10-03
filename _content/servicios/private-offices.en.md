@@ -8,6 +8,9 @@ title: "Private office rental, furnished and ready | OficinasYA!"
 description: "Furnished private offices ready to work from on day one: by the hour from €{{ p.despacho_hora }}/h or monthly from €{{ p.despacho_mes }}/month + VAT, in {{ g.ciudades }} cities across Spain."
 h1: Private office rental
 subtitle: A closed, furnished space for your exclusive use. By the hour or by the month, in {{ g.espacios }} spaces across {{ g.ciudades }} cities.
+hero_foto: /assets/img/despachos/serrano.jpg
+hero_alt: "Office for several people with a wooden floor at the OficinasYA! Serrano centre, Madrid"
+hero_caption: "Office at Serrano, Madrid"
 eyebrow: Private offices
 service_type: Private office rental
 csv_key: despachos

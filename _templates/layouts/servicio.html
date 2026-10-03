@@ -148,6 +148,10 @@
       <span class="breadcrumb-sep">/</span>
       <span class="breadcrumb-current">{{ page.eyebrow }}</span>
     </div>
+{%- if page.get('hero_foto') %}
+    <div class="hero-grid">
+    <div>
+{%- endif %}
     <h1 class="page-hero-title">{{ page.h1 }}</h1>
     <p class="page-hero-sub">{{ page.subtitle }}</p>
 {%- if page.ofertas %}
@@ -159,6 +163,14 @@
         <div class="hero-offer-detail">{{ o.detalle }}</div>
       </div>
 {%- endfor %}
+    </div>
+{%- endif %}
+{%- if page.get('hero_foto') %}
+    </div>
+    <figure class="hero-photo">
+      <img src="{{ page.hero_foto }}" alt="{{ page.hero_alt }}" width="1200" height="900" decoding="async" fetchpriority="high" />
+      <figcaption>{{ page.hero_caption }}</figcaption>
+    </figure>
     </div>
 {%- endif %}
     <div class="hero-btns">

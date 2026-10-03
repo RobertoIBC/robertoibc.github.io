@@ -190,7 +190,7 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-content">
-    <div class="hero-tag">Immediate availability · Spain</div>
+    <div class="hero-tag">Available right now</div>
     <h1 class="hero-title">Your office<br>in Spain,<br><span class="ya">YA!</span></h1>
     <div class="hero-happy">
       <span class="hero-happy-text">Happy Workplaces!</span>
@@ -655,52 +655,21 @@ description: "Rent private offices, meeting rooms, coworking and virtual office 
     <p class="ssub">Practical advice for freelancers and small businesses.</p>
   </div>
   <div class="blog-grid">
-
-    <div class="blog-card rv d1">
+{#- los tres articulos mas recientes, con su enlace y su imagen destacada (los mismos datos que /blog/) -#}
+{%- for a in (posts | sort(attribute='fecha', reverse=True))[:3] %}
+    <div class="blog-card rv d{{ loop.index }}">
       <div class="blog-card-img" style="overflow:hidden">
-        <img width="600" height="400" loading="lazy" decoding="async" class="blog-card-img-inner" src="/assets/img/stock/photo-1499750310107-5fef28a66643.jpg"
-             alt="Productivity at the office"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
-        <div class="blog-cat">Productivity</div>
+        <img width="600" height="400" loading="lazy" decoding="async" class="blog-card-img-inner" src="{{ a.imagen }}" alt="" />
+        <div class="blog-cat">{{ t.blog.cats[a.categoria] }}</div>
       </div>
       <div class="blog-body">
-        <div class="blog-date">3 Sep 2024 · 5 min read</div>
-        <h3 class="blog-title">Productivity tricks to win at the everyday (II)</h3>
-        <p class="blog-excerpt">Part two, with practical techniques for time management, focus and balance so you get more done without burning out.</p>
-        <a href="/en/blog/" class="blog-link">Read article →</a>
+        <div class="blog-date">{{ a.fecha_legible }}</div>
+        <h3 class="blog-title"><a href="{{ a.href }}">{{ a.titulo }}</a></h3>
+        <p class="blog-excerpt">{{ a.resumen | truncate(170, killwords=False, end='…') }}</p>
+        <a href="{{ a.href }}" class="blog-link">{{ t.blog.read_spanish if a.otro_idioma else t.blog.read }} →</a>
       </div>
     </div>
-
-    <div class="blog-card rv d2">
-      <div class="blog-card-img" style="overflow:hidden">
-        <img width="600" height="400" loading="lazy" decoding="async" class="blog-card-img-inner" src="/assets/img/stock/photo-1497366216548-37526070297c.jpg"
-             alt="Office work and wellbeing"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0284C7,#0EA5E9)'" />
-        <div class="blog-cat">Work &amp; Wellbeing</div>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">26 Aug 2024 · 6 min read</div>
-        <h3 class="blog-title">Rejecting office work brings loneliness and depression, experts warn</h3>
-        <p class="blog-excerpt">Experts warn that the office is not only a place of work but a space for socialising that wellbeing depends on.</p>
-        <a href="/en/blog/" class="blog-link">Read article →</a>
-      </div>
-    </div>
-
-    <div class="blog-card rv d3">
-      <div class="blog-card-img" style="overflow:hidden">
-        <img width="600" height="400" loading="lazy" decoding="async" class="blog-card-img-inner" src="/assets/img/stock/photo-1563013544-824ae1b704d3.jpg"
-             alt="Email marketing for small businesses"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
-        <div class="blog-cat">Business &amp; Sales</div>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">9 Aug 2024 · 7 min read</div>
-        <h3 class="blog-title">Boost your sales with these email marketing essentials</h3>
-        <p class="blog-excerpt">Concrete email marketing strategies for freelancers and small businesses that want to turn their list into real revenue.</p>
-        <a href="/en/blog/" class="blog-link">Read article →</a>
-      </div>
-    </div>
-
+{%- endfor %}
   </div>
   <div class="blog-more rv">
     <a href="/en/blog/" class="btn-outline">See all articles →</a>

@@ -190,7 +190,7 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
 <!-- HERO -->
 <section id="hero">
   <div class="hero-content">
-    <div class="hero-tag">Disponibilidad inmediata · España</div>
+    <div class="hero-tag">Disponible desde YA!</div>
     <h1 class="hero-title">Tu oficina<br>en España,<br><span class="ya">YA!</span></h1>
     <div class="hero-happy">
       <span class="hero-happy-text">Happy Workplaces!</span>
@@ -655,52 +655,21 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
     <p class="ssub">Consejos prácticos para autónomos y pymes.</p>
   </div>
   <div class="blog-grid">
-
-    <div class="blog-card rv d1">
+{#- los tres articulos mas recientes, con su enlace y su imagen destacada (los mismos datos que /blog/) -#}
+{%- for a in (posts | sort(attribute='fecha', reverse=True))[:3] %}
+    <div class="blog-card rv d{{ loop.index }}">
       <div class="blog-card-img" style="overflow:hidden">
-        <img width="600" height="400" loading="lazy" decoding="async" class="blog-card-img-inner" src="/assets/img/stock/photo-1499750310107-5fef28a66643.jpg"
-             alt="Productividad en la oficina"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#F5921A,#E07810)'" />
-        <div class="blog-cat">Productividad</div>
+        <img width="600" height="400" loading="lazy" decoding="async" class="blog-card-img-inner" src="{{ a.imagen }}" alt="" />
+        <div class="blog-cat">{{ t.blog.cats[a.categoria] }}</div>
       </div>
       <div class="blog-body">
-        <div class="blog-date">3 Sep 2024 · 5 min lectura</div>
-        <h3 class="blog-title">Trucos de productividad para triunfar en el día a día (II)</h3>
-        <p class="blog-excerpt">Segunda entrega con técnicas prácticas de gestión del tiempo, concentración y equilibrio para rendir más sin quemarte.</p>
-        <a href="/blog/" class="blog-link">Leer artículo →</a>
+        <div class="blog-date">{{ a.fecha_legible }}</div>
+        <h3 class="blog-title"><a href="{{ a.href }}">{{ a.titulo }}</a></h3>
+        <p class="blog-excerpt">{{ a.resumen | truncate(170, killwords=False, end='…') }}</p>
+        <a href="{{ a.href }}" class="blog-link">{{ t.blog.read_spanish if a.otro_idioma else t.blog.read }} →</a>
       </div>
     </div>
-
-    <div class="blog-card rv d2">
-      <div class="blog-card-img" style="overflow:hidden">
-        <img width="600" height="400" loading="lazy" decoding="async" class="blog-card-img-inner" src="/assets/img/stock/photo-1497366216548-37526070297c.jpg"
-             alt="Trabajo presencial y bienestar"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0284C7,#0EA5E9)'" />
-        <div class="blog-cat">Trabajo &amp; Bienestar</div>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">26 Ago 2024 · 6 min lectura</div>
-        <h3 class="blog-title">Rechazar el trabajo presencial nos trae soledad y depresión, según expertos</h3>
-        <p class="blog-excerpt">Los expertos avisan: la oficina no es solo un lugar de trabajo, sino un espacio de socialización imprescindible para el bienestar.</p>
-        <a href="/blog/" class="blog-link">Leer artículo →</a>
-      </div>
-    </div>
-
-    <div class="blog-card rv d3">
-      <div class="blog-card-img" style="overflow:hidden">
-        <img width="600" height="400" loading="lazy" decoding="async" class="blog-card-img-inner" src="/assets/img/stock/photo-1563013544-824ae1b704d3.jpg"
-             alt="Email marketing para pymes"
-             onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#16A34A,#15803D)'" />
-        <div class="blog-cat">Negocio &amp; Ventas</div>
-      </div>
-      <div class="blog-body">
-        <div class="blog-date">9 Ago 2024 · 7 min lectura</div>
-        <h3 class="blog-title">Dispara tus ventas a través del email marketing con estas claves</h3>
-        <p class="blog-excerpt">Estrategias concretas de email marketing para autónomos y pymes que quieren convertir su lista en una fuente de ingresos real.</p>
-        <a href="/blog/" class="blog-link">Leer artículo →</a>
-      </div>
-    </div>
-
+{%- endfor %}
   </div>
   <div class="blog-more rv">
     <a href="/blog/" class="btn-outline">Ver todos los artículos →</a>

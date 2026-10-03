@@ -233,6 +233,12 @@
 
     /* ── HERO ── */
     .page-hero { background: var(--dark); padding: 160px 6% 72px; position: relative; overflow: hidden; }
+    /* Cabecera con foto real (opcional, ciudades y servicios): texto a la izquierda, foto a la derecha; en movil, debajo */
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 460px; gap: 48px; align-items: center; }
+    .hero-photo { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 18px 14px; font-size: .8rem; font-weight: 600; color: var(--white); background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)); }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } .hero-photo { aspect-ratio: 16 / 9; } .hero-grid + .hero-btns { margin-top: 28px; } }
     .page-hero::before { content: ''; position: absolute; top: -220px; right: -160px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.14) 0%, transparent 65%); }
     .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
@@ -615,8 +621,16 @@
       <span class="breadcrumb-sep">/</span>
       <span class="breadcrumb-current">Coworking</span>
     </div>
+    <div class="hero-grid">
+    <div>
     <h1 class="page-hero-title">Coworking in business centres</h1>
     <p class="page-hero-sub">Workstations by the month at three centres in the network, in Barcelona, A Coruña and Salamanca, with everything a business centre offers around them.</p>
+    </div>
+    <figure class="hero-photo">
+      <img src="/assets/img/centros/centro-salamanca-2x.jpg" alt="OficinasYA! Edificio Openhouse centre, Salamanca" width="1200" height="900" decoding="async" fetchpriority="high" />
+      <figcaption>Edificio Openhouse, Salamanca</figcaption>
+    </figure>
+    </div>
     <div class="hero-btns">
       <a href="tel:918298500" class="btn-orange">Call us · 918 298 500</a>
       <a href="https://wa.me/34624119705?text=Hello%2C%20I%20am%20interested%20in%20a%20coworking%20desk" class="btn-ghost" target="_blank" rel="noopener">WhatsApp →</a>

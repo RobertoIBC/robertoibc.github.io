@@ -8,6 +8,9 @@ title: "Coworking y puestos de trabajo flexibles | OficinasYA!"
 description: "Puestos de coworking por meses en tres centros: Barcelona, A Coruña y Salamanca. Con recepción, salas por horas y despachos privados al lado para crecer."
 h1: Coworking en centros de negocios
 subtitle: Puestos de trabajo por meses en tres centros de la red, Barcelona, A Coruña y Salamanca, con todo lo que ofrece un centro de negocios alrededor.
+hero_foto: /assets/img/centros/centro-salamanca-2x.jpg
+hero_alt: "Centro OficinasYA! Edificio Openhouse, Salamanca"
+hero_caption: "Edificio Openhouse, Salamanca"
 eyebrow: Coworking
 service_type: Coworking y puestos de trabajo compartidos
 csv_key: coworking

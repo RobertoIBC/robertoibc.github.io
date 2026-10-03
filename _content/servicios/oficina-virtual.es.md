@@ -8,6 +8,9 @@ title: "Oficina virtual y domiciliación de empresas | OficinasYA!"
 description: "Domicilia tu empresa desde {{ p.oficina_virtual_mes }} €/mes + IVA: dirección fiscal y comercial, correspondencia, atención telefónica y salas por horas, en {{ g.ciudades }} ciudades de España."
 h1: Oficina virtual y domiciliación de empresas
 subtitle: Una dirección profesional para tu empresa, con recepción, correo y teléfono atendidos, sin ocupar un despacho. Desde {{ p.oficina_virtual_mes }} € al mes + IVA.
+hero_foto: /assets/img/centros/centro-madrid-sanse-2x.jpg
+hero_alt: "Zona común del centro OficinasYA! de San Sebastián de los Reyes, Madrid"
+hero_caption: "Centro de Sanse, San Sebastián de los Reyes"
 eyebrow: Oficina virtual
 service_type: Oficina virtual y domiciliación de empresas
 csv_key: smart office
