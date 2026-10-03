@@ -118,8 +118,10 @@ es:
     cats: { prod: Productividad, neg: Negocio, bien: Bienestar, tech: Tech, vida: Estilo de vida }
   form_sent: "✓ Enviado, te contactamos pronto!"
   form_send: "Enviar solicitud →"
+  form_error: "✗ No se pudo enviar. Llámanos al"
   nl_done: "✓ Suscrito!"
   nl_btn: Suscribirme
+  nl_error: "✗ Error. Inténtalo de nuevo"
 en:
   lang_group: Language
   lang_other_title: Leer esta página en español
@@ -238,5 +240,7 @@ en:
     cats: { prod: Productivity, neg: Business, bien: Wellbeing, tech: Tech, vida: Lifestyle }
   form_sent: "✓ Sent, we will be in touch soon!"
   form_send: "Send request →"
+  form_error: "✗ Could not send. Call us on"
   nl_done: "✓ Subscribed!"
   nl_btn: Subscribe
+  nl_error: "✗ Error. Please try again"

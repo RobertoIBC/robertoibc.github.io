@@ -1,6 +1,6 @@
 # Web de OficinasYA! — prototipo
 
-> **Si vas a migrar esto a www.oficinasya.es, lee primero [`_docs/MIGRACION-TECNICO.md`](_docs/MIGRACION-TECNICO.md)**: tiene dos puntos bloqueantes (el `noindex` y el formulario de contacto, que no envía) y el orden de las operaciones.
+> **Si vas a migrar esto a www.oficinasya.es, lee primero [`_docs/MIGRACION-TECNICO.md`](_docs/MIGRACION-TECNICO.md)**: tiene los puntos bloqueantes (el `noindex`; y `enviar.php`, el envío del formulario, que vive solo en el servidor y no se sobrescribe) y el orden de las operaciones.
 
 Sitio estático en dos idiomas (ES en la raíz, EN en `/en/`). Todo el HTML de
 la raíz **se genera**: no se edita a mano. Lo que se edita está en `_data/`,
@@ -341,8 +341,8 @@ site:
 Con eso cambian canonical, hreflang, Open Graph, JSON-LD y sitemap en todas
 las páginas, y desaparece el `noindex`. Las redirecciones 301 desde las URLs
 antiguas las imprime `python _build.py --htaccess`. El detalle completo, con
-los dos puntos bloqueantes (el `noindex` y el formulario de contacto, que
-no envía), el orden de las operaciones y las comprobaciones posteriores,
+los puntos bloqueantes (el `noindex`, y `enviar.php`, que vive solo en el
+servidor y no se sobrescribe), el orden de las operaciones y las comprobaciones posteriores,
 está en [`_docs/MIGRACION-TECNICO.md`](_docs/MIGRACION-TECNICO.md).
 
 ## Lo que NO está en el repo

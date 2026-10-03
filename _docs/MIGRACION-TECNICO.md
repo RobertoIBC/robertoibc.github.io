@@ -6,7 +6,7 @@ Fecha: 16 de septiembre de 2026. Repositorio: `RobertoIBC/robertoibc.github.io`
 
 ---
 
-## ⛔ DOS PUNTOS BLOQUEANTES — leer antes de nada
+## ⛔ PUNTOS BLOQUEANTES — leer antes de nada (el 2 ya está resuelto)
 
 ### 1. El `noindex`: no se toca hasta estar en el dominio definitivo
 
@@ -28,33 +28,24 @@ controla **una sola línea**: `site.noindex: true` en `_data/global.yml`.
   quedarían en el índice. Al migrar, descomentar en `robots.txt` la línea
   `Sitemap: https://www.oficinasya.es/sitemap.xml`.
 
-### 2. El formulario de contacto NO envía nada y dice que sí
+### 2. El formulario de contacto: YA CONECTADO — no sobrescribir `enviar.php`
 
-El bloque de contacto de la home (`#contact`, en `_content/pages/home.*.html`)
-no es un `<form>`: son `<input>` sin `name` y un botón (`#cfbtn`, JS en
-`_templates/layouts/home.html`) que al pulsarlo se pone verde con
-**"✓ Enviado, te contactamos pronto"** durante cuatro segundos. No hay destino,
-no llega correo, no se guarda nada. Lo mismo el formulario de newsletter del
-blog (`handleNL` en `_templates/layouts/blog.html`).
+Resuelto en el servidor por el técnico (octubre de 2026) y pasado después a
+las fuentes, copiado tal cual de lo publicado:
 
-**Esto no puede publicarse en el dominio real tal cual**: habrá gente
-convencida de que ha contactado. Antes de publicar, una de las dos:
+- El contacto de la home (`#contact`, en `_content/pages/home.*.html`) es un
+  `<form id="cform" action="/enviar.php" method="post">` con `name` en cada
+  campo, campo trampa antispam (`web`) y los ocultos `tipo=contacto` y `lang`.
+  El JS (`_templates/layouts/home.html`) hace el `POST` y solo pinta
+  "✓ Enviado" si `enviar.php` responde `{"ok": true}`; si no, "✗ No se pudo
+  enviar" con el teléfono.
+- La newsletter del blog (`_content/pages/blog.*.html`, `handleNL` en
+  `_templates/layouts/blog.html`) va al mismo `enviar.php` con `tipo=newsletter`.
 
-- **Conectarlo** a un backend (el formulario del WordPress de destino, un
-  endpoint propio, o un servicio tipo Formspree): poner `<form action=…
-  method="post">`, `name` en cada campo, y sustituir el JS del botón por el
-  envío real con su respuesta.
-- **O retirar el mensaje de éxito falso** y dejar el bloque solo con teléfono
-  y WhatsApp, que sí funcionan.
-
-En el HTML de la home hay un **comentario en mayúsculas justo encima del
-formulario** que repite esto (es el único comentario de desarrollo que se
-publica a propósito). El bloque de contacto, además del formulario, tiene el
-teléfono, el WhatsApp y el email como enlaces que sí funcionan.
-
-Mientras tanto, ninguna llamada a la acción del sitio apunta al formulario:
-todas van a `tel:` o a WhatsApp (`wa.me/34624119705`, con mensaje
-prerrellenado según página y centro).
+**`enviar.php` vive SOLO en el servidor, no está en este repositorio.** Lo
+escribió el técnico; destinatario y remitente se configuran dentro del propio
+fichero. **Al subir la web NO se borra ni se sobrescribe.** Si un despliegue
+borra la raíz del servidor antes de copiar, se pierde el formulario.
 
 ---
 
@@ -157,7 +148,7 @@ prototipo son el mismo slug que tienen hoy en WordPress
 
 | Qué | Estado en el prototipo | Qué espera la migración |
 |---|---|---|
-| **Formulario de contacto** (home `#contact`) y **newsletter** (blog) | No envían; mensaje de éxito falso. **Bloqueante, ver arriba.** | Backend de envío, o retirarlos. |
+| **Formulario de contacto** (home `#contact`) y **newsletter** (blog) | Conectados a `/enviar.php` (del técnico, solo en el servidor). Ver arriba. | No sobrescribir `enviar.php` al subir. |
 | **Comunidad**: "Publicar mi perfil" y "Unirme a la Comunidad" | WhatsApp con mensaje prerrellenado ("Hola, quiero unirme a la Comunidad OficinasYA"). | El formulario de alta de la comunidad (hoy en `www.oficinasya.es/comunidad/`). "Ver todos los miembros" se retiró: si el directorio completo se migra, va en `/comunidad/`. |
 | **Blog** | 10 artículos ES con el texto real (traído por `wp-json` del WordPress actual), URL = slug de WordPress. Imagen destacada copiada a `assets/img/blog/` a 1200 px (9 de 10; la décima es un medio privado del WordPress y usa banco de imágenes). | Nada que conectar: las URLs coinciden y las imágenes van con el sitio. |
 | **Blog en inglés** | **Decisión consciente, no pendiente**: los artículos no se traducen sin aprobación del cliente. El listado inglés existe con títulos y resúmenes traducidos; cada tarjeta lleva al artículo en español con el aviso "Article available in Spanish". Esas 10 URLs inglesas no existen y no se declara hreflang en los artículos. | Si el cliente aprueba la traducción (pregunta hecha al cliente), se crea `<slug>.en.md` con `url:` y el generador hace el resto. |

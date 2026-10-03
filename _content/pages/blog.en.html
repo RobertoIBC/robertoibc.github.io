@@ -107,8 +107,13 @@ nav_active: blog
   <div class="nl-inner rv">
     <h2 class="nl-title">Get the best articles<br>in your inbox</h2>
     <p class="nl-sub">A weekly newsletter with the best advice for freelancers and small businesses. No spam, no waffle. Unsubscribing takes one click.</p>
-    <form class="nl-form" onsubmit="return handleNL(event)">
-      <input type="email" placeholder="you@email.com" required />
+    <form class="nl-form" action="/enviar.php" method="post" onsubmit="return handleNL(event)">
+      <input type="hidden" name="tipo" value="newsletter" />
+      <input type="hidden" name="lang" value="en" />
+      <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+        <label>Leave empty</label><input type="text" name="web" tabindex="-1" autocomplete="off" />
+      </div>
+      <input type="email" name="email" placeholder="you@email.com" aria-label="Email" required maxlength="254" autocomplete="email" />
       <button type="submit">Subscribe</button>
     </form>
     <p class="nl-note">1,200+ professionals already subscribed · Guaranteed no spam</p>

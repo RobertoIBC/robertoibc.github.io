@@ -200,10 +200,18 @@
 
   function handleNL(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = '{{ t.nl_done }}';
-    btn.style.background = '#16A34A';
-    setTimeout(() => { btn.textContent = '{{ t.nl_btn }}'; btn.style.background = ''; }, 4000);
+    const form = e.target;
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(r => r.json().then(d => d.ok))
+      .catch(() => false)
+      .then(ok => {
+        btn.textContent = ok ? '{{ t.nl_done }}' : '{{ t.nl_error }}';
+        btn.style.background = ok ? '#16A34A' : '#DC2626';
+        if (ok) form.reset();
+        setTimeout(() => { btn.textContent = '{{ t.nl_btn }}'; btn.style.background = ''; btn.disabled = false; }, 4000);
+      });
     return false;
   }
 {% endblock %}

@@ -107,8 +107,13 @@ nav_active: blog
   <div class="nl-inner rv">
     <h2 class="nl-title">Recibe los mejores artículos<br>en tu bandeja de entrada</h2>
     <p class="nl-sub">Una newsletter semanal con los mejores consejos para autónomos y pymes. Sin spam, sin rollos. Darte de baja es un clic.</p>
-    <form class="nl-form" onsubmit="return handleNL(event)">
-      <input type="email" placeholder="tu@email.com" required />
+    <form class="nl-form" action="/enviar.php" method="post" onsubmit="return handleNL(event)">
+      <input type="hidden" name="tipo" value="newsletter" />
+      <input type="hidden" name="lang" value="es" />
+      <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+        <label>No rellenar</label><input type="text" name="web" tabindex="-1" autocomplete="off" />
+      </div>
+      <input type="email" name="email" placeholder="tu@email.com" aria-label="Email" required maxlength="254" autocomplete="email" />
       <button type="submit">Suscribirme</button>
     </form>
     <p class="nl-note">+1.200 profesionales ya están suscritos · Sin spam garantizado</p>

@@ -566,9 +566,19 @@
   });
 
   // Form
-  document.getElementById('cfbtn').addEventListener('click', function () {
-    this.textContent = '{{ t.form_sent }}';
-    this.style.background = '#16A34A';
-    setTimeout(() => { this.textContent = '{{ t.form_send }}'; this.style.background = ''; }, 4000);
+  document.getElementById('cform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const form = this;
+    const btn = document.getElementById('cfbtn');
+    btn.disabled = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(r => r.json().then(d => d.ok))
+      .catch(() => false)
+      .then(ok => {
+        btn.textContent = ok ? '{{ t.form_sent }}' : '{{ t.form_error }} {{ g.telefono }}';
+        btn.style.background = ok ? '#16A34A' : '#DC2626';
+        if (ok) form.reset();
+        setTimeout(() => { btn.textContent = '{{ t.form_send }}'; btn.style.background = ''; btn.disabled = false; }, 4000);
+      });
   });
 {% endblock %}

@@ -732,42 +732,43 @@ description: "Alquiler de despachos privados, salas de reuniones, coworking y of
         </div>
       </div>
     </div>
-      <!-- ============================================================================
-           ATENCION, TECNICO: ESTE FORMULARIO NO ENVIA NADA.
-           No es un <form>: los campos no tienen name y el boton solo pinta un mensaje de
-           exito ("Enviado, te contactamos pronto") durante 4 segundos. Nadie recibe nada.
-           Antes de publicar en el dominio definitivo hay que CONECTARLO a un backend
-           (action/method, name en los campos, envio real) o RETIRARLO junto con su mensaje.
-           Detalle en _docs/MIGRACION-TECNICO.md, punto bloqueante 2.
-           ============================================================================ -->
+      <!-- Formulario de contacto: POST a /enviar.php (fichero PHP estatico en la raiz, usa mail()).
+           Destinatario y remitente se configuran arriba en enviar.php. El JS esta en layouts/home.html. -->
     <div class="cf rvr">
       <h3 class="cf-title">Solicita información</h3>
       <p class="cf-sub">Cuéntanos qué necesitas y en qué ciudad.</p>
-      <div class="fg-row">
-        <div class="fg"><label>Nombre *</label><input type="text" placeholder="Tu nombre" /></div>
-        <div class="fg"><label>Empresa</label><input type="text" placeholder="Nombre de empresa" /></div>
-      </div>
-      <div class="fg-row">
-        <div class="fg"><label>Teléfono *</label><input type="tel" placeholder="600 000 000" /></div>
-        <div class="fg"><label>Email *</label><input type="email" placeholder="tu@email.com" /></div>
-      </div>
-      <div class="fg">
-        <label>Servicio de interés</label>
-        <select>
-          <option>Selecciona un servicio…</option>
-          <option>Despacho privado (por horas)</option>
-          <option>Despacho privado (mensual)</option>
-          <option>Sala de reuniones</option>
-          <option>Oficina virtual</option>
-          <option>Coworking</option>
-          <option>Otro</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label>Mensaje</label>
-        <textarea placeholder="¿Cuántas personas? ¿Cuándo lo necesitas? Cuéntanos…"></textarea>
-      </div>
-      <button class="cf-btn" id="cfbtn">Enviar solicitud →</button>
+      <form id="cform" action="/enviar.php" method="post">
+        <input type="hidden" name="tipo" value="contacto" />
+        <input type="hidden" name="lang" value="es" />
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+          <label>No rellenar</label><input type="text" name="web" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="cf-nombre">Nombre *</label><input type="text" id="cf-nombre" name="nombre" placeholder="Tu nombre" required maxlength="120" autocomplete="name" /></div>
+          <div class="fg"><label for="cf-empresa">Empresa</label><input type="text" id="cf-empresa" name="empresa" placeholder="Nombre de empresa" maxlength="120" autocomplete="organization" /></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="cf-telefono">Teléfono *</label><input type="tel" id="cf-telefono" name="telefono" placeholder="600 000 000" required maxlength="40" autocomplete="tel" /></div>
+          <div class="fg"><label for="cf-email">Email *</label><input type="email" id="cf-email" name="email" placeholder="tu@email.com" required maxlength="254" autocomplete="email" /></div>
+        </div>
+        <div class="fg">
+          <label for="cf-servicio">Servicio de interés</label>
+          <select id="cf-servicio" name="servicio">
+            <option value="">Selecciona un servicio…</option>
+            <option>Despacho privado (por horas)</option>
+            <option>Despacho privado (mensual)</option>
+            <option>Sala de reuniones</option>
+            <option>Oficina virtual</option>
+            <option>Coworking</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="cf-mensaje">Mensaje</label>
+          <textarea id="cf-mensaje" name="mensaje" placeholder="¿Cuántas personas? ¿Cuándo lo necesitas? Cuéntanos…" maxlength="3000"></textarea>
+        </div>
+        <button type="submit" class="cf-btn" id="cfbtn">Enviar solicitud →</button>
+      </form>
     </div>
   </div>
 </section>

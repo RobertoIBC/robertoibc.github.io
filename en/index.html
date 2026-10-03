@@ -1558,42 +1558,43 @@
         </div>
       </div>
     </div>
-      <!-- ============================================================================
-           ATTENTION, DEVELOPER: THIS FORM DOES NOT SEND ANYTHING.
-           It is not a <form>: the fields have no name and the button only shows a fake
-           success message ("Sent, we will be in touch soon") for 4 seconds. Nobody receives it.
-           Before going live on the final domain it must be CONNECTED to a backend
-           (action/method, field names, real submission) or REMOVED together with its message.
-           Details in _docs/MIGRACION-TECNICO.md, blocking item 2.
-           ============================================================================ -->
+      <!-- Contact form: POST to /enviar.php (static PHP file in the web root, uses mail()).
+           Recipient and sender are set at the top of enviar.php. The JS is in layouts/home.html. -->
     <div class="cf rvr">
       <h3 class="cf-title">Request information</h3>
       <p class="cf-sub">Tell us what you need and in which city.</p>
-      <div class="fg-row">
-        <div class="fg"><label>Name *</label><input type="text" placeholder="Your name" /></div>
-        <div class="fg"><label>Company</label><input type="text" placeholder="Company name" /></div>
-      </div>
-      <div class="fg-row">
-        <div class="fg"><label>Phone *</label><input type="tel" placeholder="600 000 000" /></div>
-        <div class="fg"><label>Email *</label><input type="email" placeholder="tu@email.com" /></div>
-      </div>
-      <div class="fg">
-        <label>Service of interest</label>
-        <select>
-          <option>Select a service…</option>
-          <option>Private office (hourly)</option>
-          <option>Private office (monthly)</option>
-          <option>Meeting room</option>
-          <option>Virtual office</option>
-          <option>Coworking</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label>Message</label>
-        <textarea placeholder="How many people? When do you need it? Tell us…"></textarea>
-      </div>
-      <button class="cf-btn" id="cfbtn">Send request →</button>
+      <form id="cform" action="/enviar.php" method="post">
+        <input type="hidden" name="tipo" value="contacto" />
+        <input type="hidden" name="lang" value="en" />
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+          <label>Leave empty</label><input type="text" name="web" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="cf-nombre">Name *</label><input type="text" id="cf-nombre" name="nombre" placeholder="Your name" required maxlength="120" autocomplete="name" /></div>
+          <div class="fg"><label for="cf-empresa">Company</label><input type="text" id="cf-empresa" name="empresa" placeholder="Company name" maxlength="120" autocomplete="organization" /></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="cf-telefono">Phone *</label><input type="tel" id="cf-telefono" name="telefono" placeholder="600 000 000" required maxlength="40" autocomplete="tel" /></div>
+          <div class="fg"><label for="cf-email">Email *</label><input type="email" id="cf-email" name="email" placeholder="tu@email.com" required maxlength="254" autocomplete="email" /></div>
+        </div>
+        <div class="fg">
+          <label for="cf-servicio">Service of interest</label>
+          <select id="cf-servicio" name="servicio">
+            <option value="">Select a service…</option>
+            <option>Private office (hourly)</option>
+            <option>Private office (monthly)</option>
+            <option>Meeting room</option>
+            <option>Virtual office</option>
+            <option>Coworking</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="cf-mensaje">Message</label>
+          <textarea id="cf-mensaje" name="mensaje" placeholder="How many people? When do you need it? Tell us…" maxlength="3000"></textarea>
+        </div>
+        <button type="submit" class="cf-btn" id="cfbtn">Send request →</button>
+      </form>
     </div>
   </div>
 </section>
@@ -1732,10 +1733,20 @@
   });
 
   // Form
-  document.getElementById('cfbtn').addEventListener('click', function () {
-    this.textContent = '✓ Sent, we will be in touch soon!';
-    this.style.background = '#16A34A';
-    setTimeout(() => { this.textContent = 'Send request →'; this.style.background = ''; }, 4000);
+  document.getElementById('cform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const form = this;
+    const btn = document.getElementById('cfbtn');
+    btn.disabled = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(r => r.json().then(d => d.ok))
+      .catch(() => false)
+      .then(ok => {
+        btn.textContent = ok ? '✓ Sent, we will be in touch soon!' : '✗ Could not send. Call us on 918 298 500';
+        btn.style.background = ok ? '#16A34A' : '#DC2626';
+        if (ok) form.reset();
+        setTimeout(() => { btn.textContent = 'Send request →'; btn.style.background = ''; btn.disabled = false; }, 4000);
+      });
   });
 
 </script>
