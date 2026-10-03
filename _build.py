@@ -311,7 +311,7 @@ def jsonld_servicio(p, g, site, lang, prices, ciudades_disp, i18n):
         service['offers'] = offers
     if p.get('galeria'):   # fotos reales de la galeria de la pagina, como ImageObject
         service['image'] = [{'@type': 'ImageObject', 'contentUrl': url + g_['foto'], 'url': url + g_['foto'], 'caption': f"{g_['titulo']} · {g_['sub']}",
-                             'description': g_['alt'], 'width': 900, 'height': 600} for g_ in p['galeria']]
+                             'description': g_['alt'], 'width': g_.get('w', 900), 'height': g_.get('h', 600)} for g_ in p['galeria']]
     graph = [
         service,
         {
@@ -525,7 +525,24 @@ def make_env():
     )
     env.filters['jsonprice'] = json_price
     env.filters['jsonld'] = to_jsonld
+    env.globals['hub_foto'] = hub_foto
     return env
+
+
+def hub_foto(foto):
+    """Foto de tarjeta del hub: su propio fichero 5:3 en assets/img/hub/ (600x360, o el ancho natural si el original
+    no llega) y su -2x si existe, en vez de la foto de ficha de ciudad (4:3, mas pesada). Sin fichero propio, la de ficha."""
+    if not foto or not foto.startswith('/'):
+        return {'src': foto, 'w': 600, 'h': 360, 'srcset': None}
+    f1 = ROOT / 'assets/img/hub' / foto.rsplit('/', 1)[1]
+    if not f1.exists():
+        w, h = jpeg_size(ROOT / foto.lstrip('/')) or (600, 360)
+        return {'src': foto, 'w': w, 'h': h, 'srcset': None}
+    src = '/assets/img/hub/' + f1.name
+    w, h = jpeg_size(f1)
+    f2 = f1.with_name(f1.stem + '-2x.jpg')
+    srcset = f'{src} {w}w, {src[:-4]}-2x.jpg {jpeg_size(f2)[0]}w' if f2.exists() else None
+    return {'src': src, 'w': w, 'h': h, 'srcset': srcset}
 
 
 def render_markdown(text):
@@ -649,6 +666,10 @@ def build(check=False):
                 # sustituye por _templates/partials/srv-<nombre>.html (perfiles, formas, incluye, pasos, donde).
                 def bloque(m):
                     return env.get_template(f'partials/srv-{m.group(1)}.html').render(ctx)
+                # dimensiones reales de cada foto de galeria (width/height del <img> y del ImageObject)
+                for g_ in (p.get('galeria') or []) + [x for x in (p.get('tarjetas') or []) if x.get('foto')]:
+                    size = jpeg_size(ROOT / g_['foto'].lstrip('/')) if g_['foto'].startswith('/') else None
+                    g_['w'], g_['h'] = size or (900, 600)
                 p['body_html'] = re.sub(r'<p>\[\[([a-z_]+)\]\]</p>', bloque, p['body_html'])
                 p['jsonld'] = to_jsonld(jsonld_servicio(p, g, site, lang, prices, p['ciudades_disponibles'], t))
             if p.layout == 'articulo':
@@ -688,6 +709,18 @@ def build(check=False):
                     o = overrides.get(c['centro'], {})
                     c['anchor'] = slugify(c['centro'])
                     c['foto'] = o.get('foto')
+                    # Foto de ficha: recorte 4:3 a 680 px (2x del cuadro de 340x255); si existe <foto>-2x.jpg se ofrece
+                    # en srcset con su ancho real (tableta y moviles densos). Las dimensiones salen del fichero.
+                    c['foto_w'], c['foto_h'], c['foto_2x'], c['foto_2x_w'] = 680, 510, None, None
+                    if c['foto'] and c['foto'].startswith('/'):
+                        f1 = ROOT / c['foto'].lstrip('/')
+                        if f1.suffix.lower() == '.jpg' and f1.exists():
+                            size = jpeg_size(f1)
+                            if size: c['foto_w'], c['foto_h'] = size
+                            f2 = f1.with_name(f1.stem + '-2x.jpg')
+                            if f2.exists():
+                                size2 = jpeg_size(f2)
+                                if size2: c['foto_2x'], c['foto_2x_w'] = c['foto'].replace('.jpg', '-2x.jpg'), size2[0]
                     c['texto_html'] = render_markdown(env.from_string(o['texto']).render(ctx)) if o.get('texto') else ''
                     c['descripcion_corta'] = o.get('descripcion')
                     c['tag_labels'] = [t['ciudad']['tags'].get(x, x) for x in c['tags']]

@@ -344,7 +344,10 @@
     .centre { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: 340px minmax(0, 1fr); margin-bottom: 24px; scroll-margin-top: 100px; }
     .centre:last-child { margin-bottom: 0; }
     .centre.no-photo { grid-template-columns: 1fr; }
-    .centre-photo { background: var(--gray-200); min-height: 260px; position: relative; }
+    /* Foto de ficha: ocupa toda la altura de la ficha (sin hueco blanco debajo), con 4:3 (340x255) como minimo.
+       El fichero viene recortado a 4:3 a 680 px (y -2x donde hay original): no se amplia hasta 510 px de alto y,
+       en la ficha mas alta (~680 px), x1,33, frente a x1,3-1,5 de los ficheros de 560 px anteriores. */
+    .centre-photo { background: var(--gray-200); min-height: 255px; position: relative; }
     .centre-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .centre-photo .badge { position: absolute; left: 16px; bottom: 16px; background: var(--dark); color: var(--white); font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 12px; border-radius: 50px; }
     .centre-body { padding: 30px 32px; }
@@ -399,7 +402,7 @@
       .centre { grid-template-columns: 1fr; }
       .centre-cta a { flex: 1 1 100%; }
       .city-close-btns a { width: 100%; }
-      .centre-photo { min-height: 200px; }
+      .centre-photo { min-height: 0; height: 200px; }
     }
     /* Introduccion escaneable: parrafo de entrada destacado, tarjetas "que centro elegir", cifras */
     .city-intro .srv-article > h2:first-child + p { font-size: 1.14rem; line-height: 1.7; color: var(--dark-mid); }
@@ -1038,7 +1041,7 @@
         <div class="srv-article"><p>Tres centros en la milla de oro de Madrid, en pleno barrio de Salamanca, a pocas calles unos de otros: Velázquez 86B, Ortega y Gasset 25 y Serrano 93. Los tres comparten la misma fórmula —despacho, domiciliación y salas por horas— y las mismas comunicaciones: salida directa al aeropuerto y paradas de metro, autobús y taxi a menos de 100 o 200 metros. Son la dirección para quien quiere que su empresa esté en Salamanca sin pagar un local en Salamanca.</p></div>
       </div>
       <div class="centre" id="velazquez">
-        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-madrid-velazquez.jpg" alt="Velázquez, OficinasYA! Madrid" />
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="680" height="510" src="/assets/img/centros/centro-madrid-velazquez.jpg" alt="Velázquez, OficinasYA! Madrid" />
           <span class="badge">Acceso 24 h</span>
         </div>
         <div class="centre-body">
@@ -1064,7 +1067,7 @@
         </div>
       </div>
       <div class="centre" id="gasset">
-        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-madrid-gasset.jpg" alt="Gasset, OficinasYA! Madrid" />
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="680" height="510" src="/assets/img/centros/centro-madrid-gasset.jpg" srcset="/assets/img/centros/centro-madrid-gasset.jpg 680w, /assets/img/centros/centro-madrid-gasset-2x.jpg 1195w" sizes="(max-width: 900px) 100vw, 340px" alt="Gasset, OficinasYA! Madrid" />
           <span class="badge">Acceso 24 h</span>
         </div>
         <div class="centre-body">
@@ -1090,7 +1093,7 @@
         </div>
       </div>
       <div class="centre" id="serrano">
-        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-madrid-serrano.jpg" alt="Serrano, OficinasYA! Madrid" />
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="680" height="510" src="/assets/img/centros/centro-madrid-serrano.jpg" srcset="/assets/img/centros/centro-madrid-serrano.jpg 680w, /assets/img/centros/centro-madrid-serrano-2x.jpg 1280w" sizes="(max-width: 900px) 100vw, 340px" alt="Serrano, OficinasYA! Madrid" />
           <span class="badge">Acceso 24 h</span>
         </div>
         <div class="centre-body">
@@ -1122,7 +1125,7 @@
         <div class="srv-article"><p>Un centro en el eje de la Castellana, en la calle Poeta Joan Maragall 60 (la antigua Capitán Haya), en el centro financiero de la capital y junto a los juzgados de la Plaza de Castilla. Es el centro con la sala más grande de la ciudad, de hasta 50 personas.</p></div>
       </div>
       <div class="centre" id="capitan-haya">
-        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-madrid-capitan-haya.jpg" alt="Capitán Haya, OficinasYA! Madrid" />
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="680" height="510" src="/assets/img/centros/centro-madrid-capitan-haya.jpg" srcset="/assets/img/centros/centro-madrid-capitan-haya.jpg 680w, /assets/img/centros/centro-madrid-capitan-haya-2x.jpg 1280w" sizes="(max-width: 900px) 100vw, 340px" alt="Capitán Haya, OficinasYA! Madrid" />
           <span class="badge">Acceso 24 h</span>
         </div>
         <div class="centre-body">
@@ -1154,7 +1157,7 @@
         <div class="srv-article"><p>Dos centros en el norte de Madrid. Las Tablas, en la calle Isabel Colbrand 6, está en el centro de los grandes desarrollos del norte de la ciudad: la prolongación de la Castellana, el PAU de Las Tablas y las sedes de Telefónica y BBVA. Manoteras, en la avenida de Manoteras 22, en Sanchinarro, es un centro autónomo con espacios tipo loft.</p></div>
       </div>
       <div class="centre" id="las-tablas">
-        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-madrid-las-tablas.jpg" alt="Las Tablas, OficinasYA! Madrid" />
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="680" height="510" src="/assets/img/centros/centro-madrid-las-tablas.jpg" srcset="/assets/img/centros/centro-madrid-las-tablas.jpg 680w, /assets/img/centros/centro-madrid-las-tablas-2x.jpg 1272w" sizes="(max-width: 900px) 100vw, 340px" alt="Las Tablas, OficinasYA! Madrid" />
           <span class="badge">Acceso 24 h</span>
         </div>
         <div class="centre-body">
@@ -1180,7 +1183,7 @@
         </div>
       </div>
       <div class="centre" id="manoteras-sanchinarro">
-        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-madrid-sanchinarro.jpg" alt="Manoteras (Sanchinarro), OficinasYA! Madrid" />
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="680" height="510" src="/assets/img/centros/centro-madrid-sanchinarro.jpg" srcset="/assets/img/centros/centro-madrid-sanchinarro.jpg 680w, /assets/img/centros/centro-madrid-sanchinarro-2x.jpg 1024w" sizes="(max-width: 900px) 100vw, 340px" alt="Manoteras (Sanchinarro), OficinasYA! Madrid" />
           <span class="badge">Acceso 24 h</span>
         </div>
         <div class="centre-body">
@@ -1213,7 +1216,7 @@
         <div class="srv-article"><p>Un centro en la calle Gobelas 17, al lado de la carretera de La Coruña, en la urbanización La Florida, con la A-6 y la M-40 a menos de un kilómetro y muy cerca de Pozuelo, Majadahonda y Las Rozas. Es el centro del oeste de Madrid, para quien vive o trabaja en esa zona y no quiere entrar a la ciudad.</p></div>
       </div>
       <div class="centre" id="la-florida-pozuelo">
-        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-madrid-pozuelo.jpg" alt="La Florida (Pozuelo), OficinasYA! Madrid" />
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="680" height="510" src="/assets/img/centros/centro-madrid-pozuelo.jpg" srcset="/assets/img/centros/centro-madrid-pozuelo.jpg 680w, /assets/img/centros/centro-madrid-pozuelo-2x.jpg 1200w" sizes="(max-width: 900px) 100vw, 340px" alt="La Florida (Pozuelo), OficinasYA! Madrid" />
           <span class="badge">Acceso 24 h</span>
         </div>
         <div class="centre-body">
@@ -1245,7 +1248,7 @@
         <div class="srv-article"><p>Un centro en el Parque Empresarial La Marina, en la calle Fuerteventura 4, junto a Antena 3 Televisión, en el que el propio centro llama el parque empresarial más emblemático de San Sebastián de los Reyes. Es el único centro de la red con oferta anual de Smart Office.</p></div>
       </div>
       <div class="centre" id="sanse-san-sebastian-de-los-reyes">
-        <div class="centre-photo"><img loading="lazy" decoding="async" width="640" height="427" src="/assets/img/centros/centro-madrid-sanse.jpg" alt="Sanse (San Sebastián de los Reyes), OficinasYA! Madrid" />
+        <div class="centre-photo"><img loading="lazy" decoding="async" width="680" height="510" src="/assets/img/centros/centro-madrid-sanse.jpg" srcset="/assets/img/centros/centro-madrid-sanse.jpg 680w, /assets/img/centros/centro-madrid-sanse-2x.jpg 1280w" sizes="(max-width: 900px) 100vw, 340px" alt="Sanse (San Sebastián de los Reyes), OficinasYA! Madrid" />
           <span class="badge">Acceso 24 h</span>
         </div>
         <div class="centre-body">

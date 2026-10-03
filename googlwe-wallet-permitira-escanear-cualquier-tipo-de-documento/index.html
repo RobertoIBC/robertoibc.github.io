@@ -310,7 +310,8 @@
     .art-cat { background: rgba(245,146,26,.15); border: 1px solid rgba(245,146,26,.35); color: var(--orange); font-size: .72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 50px; }
     .art-date { color: rgba(255,255,255,.5); font-size: .88rem; font-weight: 600; }
     .art-wrap { max-width: 800px; margin: 0 auto; padding: 72px 6% 96px; }
-    .art-img { width: 100%; height: auto; border-radius: var(--radius); margin: -120px 0 48px; position: relative; z-index: 2; box-shadow: 0 24px 60px rgba(0,0,0,.18); }
+    /* Imagen destacada a su tamano natural y centrada: nunca ampliada (4 de 9 originales del cliente miden 540-640 px) */
+    .art-img { display: block; width: auto; max-width: 100%; height: auto; border-radius: var(--radius); margin: -120px auto 48px; position: relative; z-index: 2; box-shadow: 0 24px 60px rgba(0,0,0,.18); }
     .art-body p:first-child { font-size: 1.12rem; color: var(--dark-mid); }
     .art-body img { border-radius: 16px; margin: 8px 0 24px; }
     .art-body blockquote { border-left: 3px solid var(--orange); margin: 24px 0; padding: 4px 0 4px 22px; color: var(--dark-mid); font-style: italic; }
@@ -442,7 +443,7 @@
 </div>
 
 <div class="art-wrap">
-  <img class="art-img" src="/assets/img/blog/google-wallet-permitira-escanear-cualquier-tipo-de-documento.jpg" alt="" width="1200" height="675" decoding="async" />
+  <img class="art-img" src="/assets/img/blog/google-wallet-permitira-escanear-cualquier-tipo-de-documento.jpg" alt="" width="572" height="390" decoding="async" />
   <article class="srv-article art-body">
 <p>Google ha comenzado a implementar en su aplicación de billetera digital Wallet una característica que <strong>permite escanear cualquier tipo de documento que contenga texto, mediante la opción ‘Everything Else’ (‘Todo lo demás’).</strong></p>
 <p>Actualmente, <strong>Wallet admite tanto tarjetas bancarias como tarjetas de embarque, entradas a conciertos y eventos o tarjetas de fidelización y regalo.</strong> La tarjeta de transporte, por el momento, solo está disponible para Estados Unidos.</p>

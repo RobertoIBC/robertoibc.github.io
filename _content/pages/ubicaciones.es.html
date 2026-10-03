@@ -202,7 +202,7 @@ nav_active: ubicaciones
       <a class="madrid-card rv" href="{{ c.url }}">
 {%- if c.foto %}
         <div class="madrid-card-img">
-          <img loading="lazy" decoding="async" width="600" height="360" src="{{ c.foto }}" alt="{{ c.centro }}, OficinasYA! Madrid" />
+          {% set hf = hub_foto(c.foto) %}<img loading="lazy" decoding="async" width="{{ hf.w }}" height="{{ hf.h }}" src="{{ hf.src }}"{% if hf.srcset %} srcset="{{ hf.srcset }}" sizes="(max-width: 600px) 100vw, 440px"{% endif %} alt="{{ c.centro }}, OficinasYA! Madrid" />
           <div class="madrid-card-img-gradient"></div>
 {%- if c.acceso_24h %}
           <div class="madrid-card-badge">Acceso 24 h</div>
@@ -240,7 +240,7 @@ nav_active: ubicaciones
       <div class="city-photo-grid row-3">
 {%- for c in r.ciudades if c.nombre != 'Madrid' %}
         <a id="{{ c.hub_anchor }}" class="city-photo-card" href="{{ c.url }}">
-          <div class="city-photo-card-bg">{% if c.foto %}<img loading="lazy" decoding="async" width="640" height="427" src="{{ c.foto }}" alt="" />{% endif %}</div>
+          <div class="city-photo-card-bg">{% if c.foto %}{% set hf = hub_foto(c.foto) %}<img loading="lazy" decoding="async" width="{{ hf.w }}" height="{{ hf.h }}" src="{{ hf.src }}"{% if hf.srcset %} srcset="{{ hf.srcset }}" sizes="(max-width: 600px) 50vw, 400px"{% endif %} alt="" />{% endif %}</div>
           <div class="city-photo-card-overlay"></div>
           <div class="city-photo-corner"><span class="city-photo-corner-text">{{ c.centros|length }} {{ 'centro' if c.centros|length == 1 else 'centros' }}</span></div>
           <div class="city-photo-card-content">
