@@ -8,17 +8,17 @@ title: "Private office rental, furnished and ready | OficinasYA!"
 description: "Furnished private offices ready to work from on day one: by the hour from €{{ p.despacho_hora }}/h or monthly from €{{ p.despacho_mes }}/month + VAT, in {{ g.ciudades }} cities across Spain."
 h1: Private office rental
 subtitle: A closed, furnished space for your exclusive use. By the hour or by the month, in {{ g.espacios }} spaces across {{ g.ciudades }} cities.
-hero_foto: /assets/img/despachos/serrano.jpg
-hero_alt: "Office for several people with a wooden floor at the OficinasYA! Serrano centre, Madrid"
-hero_caption: "Office at Serrano, Madrid"
+hero_foto: /assets/img/centros/centro-madrid-capitan-haya-2x.jpg
+hero_alt: "Four-desk office at the OficinasYA! Capitán Haya centre, Madrid"
+hero_caption: "Office at Capitán Haya, Madrid"
 eyebrow: Private offices
 service_type: Private office rental
 csv_key: despachos
 wa_msg: "Hello, I am interested in renting a private office"
 galeria:
   - { foto: /assets/img/despachos/gasset.jpg, alt: "Single office with desk, computer and phone at the OficinasYA! Gasset centre, Madrid", titulo: "Single office", sub: "Gasset, Madrid", dato: "from 13 m²" }
-  - { foto: /assets/img/despachos/serrano.jpg, alt: "Team office with several desks and wooden floor at the OficinasYA! Serrano centre, Madrid", titulo: "Team office", sub: "Serrano, Madrid", dato: "6 to 38 m²" }
-  - { foto: /assets/img/despachos/capitan-haya.jpg, alt: "Large office with several workstations at the OficinasYA! Capitán Haya centre, Madrid", titulo: "Large office", sub: "Capitán Haya, Madrid", dato: "up to 49 m²" }
+  - { foto: /assets/img/despachos/serrano.jpg, alt: "Team office with several desks and wooden floor at the OficinasYA! Serrano centre, Madrid", titulo: "Team office", sub: "Serrano, Madrid", dato: "up to 38 m²" }
+  - { foto: /assets/img/salas/mediana.jpg, alt: "Glass-walled boardroom at the OficinasYA! Edificio Nervión centre, Seville", titulo: "Boardroom", sub: "Edificio Nervión, Seville", dato: "by the hour" }
 perfiles_intro: "It is the formula used by:"
 perfiles:
   - Freelancers who need a proper place to receive clients.

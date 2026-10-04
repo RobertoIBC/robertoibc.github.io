@@ -8,9 +8,9 @@ title: "Alquiler de salas de reuniones por horas | OficinasYA!"
 description: "Salas de reuniones equipadas, por horas y desde una hora, en {{ g.ciudades }} ciudades de España. De 2 a 275 personas, con videoconferencia, catering, formación y eventos."
 h1: Alquiler de salas de reuniones
 subtitle: Salas de 2 a 275 personas, desde una hora y cualquier día del año. Equipadas, con recepción de visitas y, si hace falta, catering. En {{ g.ciudades }} ciudades.
-hero_foto: /assets/img/salas/mediana.jpg
-hero_alt: "Sala de juntas acristalada del centro OficinasYA! del Edificio Nervión, Sevilla"
-hero_caption: "Sala de juntas · Edificio Nervión, Sevilla"
+hero_foto: /assets/img/cabeceras/sevilla.jpg
+hero_alt: "Sala de juntas en U con ventanales en el Edificio Galia Puerto, Sevilla"
+hero_caption: "Sala de juntas · Edificio Galia Puerto, Sevilla"
 eyebrow: Salas de reuniones
 service_type: Alquiler de salas de reuniones
 csv_key: salas de reuniones

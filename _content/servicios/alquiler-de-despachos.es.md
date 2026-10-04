@@ -8,9 +8,9 @@ title: "Alquiler de despachos privados equipados | OficinasYA!"
 description: "Despachos privados amueblados y listos para trabajar el mismo día, por horas desde {{ p.despacho_hora }} €/h o mensuales desde {{ p.despacho_mes }} €/mes + IVA, en {{ g.ciudades }} ciudades de España."
 h1: Alquiler de despachos privados
 subtitle: Un espacio cerrado, equipado y de uso exclusivo. Por horas o por meses, en {{ g.espacios }} espacios de {{ g.ciudades }} ciudades.
-hero_foto: /assets/img/despachos/serrano.jpg
-hero_alt: "Despacho para varios puestos con suelo de madera en el centro OficinasYA! de Serrano, Madrid"
-hero_caption: "Despacho en Serrano, Madrid"
+hero_foto: /assets/img/centros/centro-madrid-capitan-haya-2x.jpg
+hero_alt: "Despacho para cuatro puestos en el centro OficinasYA! de Capitán Haya, Madrid"
+hero_caption: "Despacho en Capitán Haya, Madrid"
 eyebrow: Despachos privados
 service_type: Alquiler de despachos privados
 csv_key: despachos
@@ -18,8 +18,8 @@ precio_linea: true   # propuesta: precio en una linea arriba, cajas en "Dos form
 wa_msg: "Hola, me interesa alquilar un despacho privado"
 galeria:
   - { foto: /assets/img/despachos/gasset.jpg, alt: "Despacho individual con mesa, ordenador y teléfono en el centro OficinasYA! de Gasset, Madrid", titulo: "Despacho individual", sub: "Gasset, Madrid", dato: "desde 13 m²" }
-  - { foto: /assets/img/despachos/serrano.jpg, alt: "Despacho para varios puestos con suelo de madera en el centro OficinasYA! de Serrano, Madrid", titulo: "Despacho para equipo", sub: "Serrano, Madrid", dato: "de 6 a 38 m²" }
-  - { foto: /assets/img/despachos/capitan-haya.jpg, alt: "Despacho amplio con varios puestos en el centro OficinasYA! de Capitán Haya, Madrid", titulo: "Despacho amplio", sub: "Capitán Haya, Madrid", dato: "hasta 49 m²" }
+  - { foto: /assets/img/despachos/serrano.jpg, alt: "Despacho para varios puestos con suelo de madera en el centro OficinasYA! de Serrano, Madrid", titulo: "Despacho para equipo", sub: "Serrano, Madrid", dato: "hasta 38 m²" }
+  - { foto: /assets/img/salas/mediana.jpg, alt: "Sala de juntas acristalada del centro OficinasYA! del Edificio Nervión, Sevilla", titulo: "Sala de juntas", sub: "Edificio Nervión, Sevilla", dato: "por horas" }
 # --- bloques maquetados (los inserta el cuerpo con [[perfiles]], [[formas]], [[incluye]], [[pasos]], [[donde]])
 perfiles_intro: "Es la fórmula que usan:"
 perfiles:

@@ -8,9 +8,9 @@ title: "Meeting room hire by the hour in Spain | OficinasYA!"
 description: "Equipped meeting rooms by the hour, from one hour, in {{ g.ciudades }} cities across Spain. For 2 to 275 people, with video conferencing, catering, training and events."
 h1: Meeting room hire
 subtitle: Rooms for 2 to 275 people, from one hour, any day of the year. Equipped, with visitor reception and catering on request. In {{ g.ciudades }} cities.
-hero_foto: /assets/img/salas/mediana.jpg
-hero_alt: "Glass-walled boardroom at the OficinasYA! Edificio Nervión centre, Seville"
-hero_caption: "Boardroom · Edificio Nervión, Seville"
+hero_foto: /assets/img/cabeceras/sevilla.jpg
+hero_alt: "U-shaped boardroom with large windows at Edificio Galia Puerto, Seville"
+hero_caption: "Boardroom · Edificio Galia Puerto, Seville"
 eyebrow: Meeting rooms
 service_type: Meeting room hire
 csv_key: salas de reuniones
