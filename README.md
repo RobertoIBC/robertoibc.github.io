@@ -87,7 +87,10 @@ python _tools/auditoria_coherencia.py      # cifras en prosa por idioma, suma de
                                            # Sale con error si una pagina promete algo que su referencia no dice.
 python _tools/auditoria_enlaces_vivo.py    # tras el push: descarga las páginas PUBLICADAS y comprueba
                                            # el código de respuesta de todos los href/src (internos y
-                                           # externos), anclas, selector de idioma, wa.me, tel:, mailto:
+                                           # externos), anclas, selector de idioma, wa.me, tel:, mailto:.
+                                           # Con una base (`... http://127.0.0.1:8000` y `python -m
+                                           # http.server 8000`) audita la copia local. Sale con error si
+                                           # algo interno falla (los externos solo se listan).
 python _tools/test_build.py                # tests del generador (parseo de m², mínimo plausible)
 python _tools/auditoria_texto.py           # ¿se ha perdido texto? multiconjunto de palabras contra origin/main
 ```

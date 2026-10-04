@@ -9,6 +9,9 @@ aviso (la palabra sigue en el fichero); borrarla, si. Cazo un parrafo de horario
 import sys, pathlib, re, subprocess, collections, os
 os.chdir(pathlib.Path(__file__).resolve().parent.parent)
 ref = sys.argv[1] if len(sys.argv) > 1 else 'origin/main'
+# Si la referencia no existe, cada fichero contaria como "nuevo" y la auditoria pasaria sin comparar nada.
+if subprocess.run(['git', 'rev-parse', '--verify', '--quiet', ref + '^{commit}'], capture_output=True).returncode != 0:
+    sys.exit(f'auditoria_texto: la referencia {ref!r} no existe en git; no se ha comparado nada')
 def words(s):
     return collections.Counter(re.findall(r"[\wáéíóúñüÁÉÍÓÚÑÜ²]+", s.replace('**', '').lower()))
 files = sorted(p for p in pathlib.Path('_content').rglob('*') if p.suffix in ('.md', '.html'))

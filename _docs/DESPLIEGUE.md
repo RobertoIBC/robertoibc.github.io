@@ -9,12 +9,17 @@ Necesitas: acceso FTP (o el gestor de archivos del hosting) a la raíz de la web
 
 ---
 
-## 1. Copia de seguridad del servidor (OBLIGATORIO)
+## 1. ANTES DE SUBIR NADA: copia de seguridad del servidor
 
-1. Conéctate por FTP y descarga **la raíz entera de la web** a una carpeta de tu ordenador llamada `copia-servidor-AAAA-MM-DD`.
-2. Comprueba que en esa copia están **`enviar.php`** y, si existe, **`.htaccess`**.
-   El `.htaccess` empieza por punto y es un fichero oculto: si no lo ves, activa «mostrar ficheros ocultos» en el cliente FTP.
-3. No sigas hasta tener esa copia. Si algo sale mal, se vuelve atrás subiéndola tal cual.
+**Este es el único paso que no tiene vuelta atrás si te lo saltas.** Todo lo demás se puede deshacer subiendo esta copia. `enviar.php` y el `.htaccess` que haya hoy en el servidor no existen en ningún otro sitio.
+
+1. **Antes de subir, sobrescribir o borrar ningún fichero**, conéctate por FTP y descarga **la raíz entera de la web** a una carpeta de tu ordenador llamada `copia-servidor-AAAA-MM-DD`.
+2. Activa «mostrar ficheros ocultos» en el cliente FTP **antes de descargar**: el `.htaccess` empieza por punto y, sin esa opción, ni se ve ni se descarga.
+3. Abre la carpeta de la copia y comprueba que están, y que no pesan 0 bytes:
+   - **`enviar.php`**: tiene que estar sí o sí. Si no está en la copia, para y avisa al técnico.
+   - **`.htaccess`**: si estaba en el servidor, tiene que estar en la copia. Si el servidor no tenía, apúntalo («no había `.htaccess`»), porque lo necesitarás en el paso 5.
+4. Guarda una segunda copia de esa carpeta en otro sitio (otro disco o la nube).
+5. **No sigas al paso 2 hasta tener la copia comprobada.** Si algo sale mal después, se vuelve atrás subiéndola tal cual.
 
 ## 2. Preparar el paquete
 

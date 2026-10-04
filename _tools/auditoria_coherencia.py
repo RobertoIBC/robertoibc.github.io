@@ -36,12 +36,23 @@ for (lang, phrase), n in sorted(counts.items()):
 # suma por ciudad y contadores
 rows = list(csv.DictReader(open('_data/centros.csv', encoding='utf-8')))
 byc = collections.Counter(r['ciudad'] for r in rows)
+fallos = []   # lo que hace fallar el script (las secciones de recuento solo informan)
 print('== CSV:', len(rows), 'filas;', len(byc), 'ciudades;', 'colivings:', sum(1 for r in rows if 'coliving' in r['centro'].lower() or 'coliving' in r['servicios'].lower()))
 hub = docs['/ubicaciones/']
 map_counts = dict(re.findall(r'data-city="([^"]+)" data-count="(\d+) centro', hub))
-print('   contadores del mapa:', sum(int(v) for v in map_counts.values()), '| difieren del CSV:', {k: (v, byc[k]) for k, v in map_counts.items() if int(v) != byc[k]})
+dif_mapa = {k: (v, byc[k]) for k, v in map_counts.items() if int(v) != byc[k]}
+print('   contadores del mapa:', sum(int(v) for v in map_counts.values()), '| difieren del CSV:', dif_mapa)
+if len(map_counts) != len(byc): fallos.append(f'mapa del hub: {len(map_counts)} ciudades con contador y el CSV tiene {len(byc)} (¿ha cambiado el marcado?)')
+if dif_mapa: fallos.append(f'mapa del hub: contadores distintos del CSV {dif_mapa}')
 fichas = {u: len(re.findall(r'<div class="centre(?: no-photo)?" id=', h)) for u, h in docs.items() if '/oficinas-en-' in u}
-print('   fichas en paginas de ciudad ES:', sum(fichas.values()), {u.replace('/oficinas-en-', ''): n for u, n in fichas.items() if n != byc[[c for c in byc if re.sub(r'[^a-z]', '', c.lower().replace('ñ', 'n').replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u')) == u.replace('/oficinas-en-', '').replace('/', '').replace('-', '')][0]]})
+def ciudad_csv(u):
+    slug = u.replace('/oficinas-en-', '').replace('/', '').replace('-', '')
+    norm = lambda c: re.sub(r'[^a-z]', '', c.lower().translate(str.maketrans('ñáéíóú', 'naeiou')))
+    return next((c for c in byc if norm(c) == slug), None)
+dif_fichas = {u.replace('/oficinas-en-', ''): (n, byc.get(ciudad_csv(u))) for u, n in fichas.items() if n != byc.get(ciudad_csv(u))}
+print('   fichas en paginas de ciudad ES:', sum(fichas.values()), dif_fichas)
+if not fichas or sum(fichas.values()) == 0: fallos.append('no encuentro fichas de centro en las paginas de ciudad (¿ha cambiado el marcado?)')
+if dif_fichas: fallos.append(f'fichas de centro distintas del CSV: {dif_fichas}')
 # precios en prosa
 print('== precios que aparecen (€ con numero):')
 prices = collections.Counter()
@@ -58,7 +69,7 @@ for u, h in docs.items():
     h_ = re.sub(r'<div class="lang-switch".*?</div>', ' ', h, flags=re.S)
     attrs = ' '.join(re.findall(r'(?:alt|aria-label|placeholder|title|content)="([^"]*)"', h_))
     ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S)
-    js = ' '.join(re.findall(r"textContent = '([^']*)'", h))
+    js = ' '.join(s for a in re.findall(r"textContent\s*=\s*([^;]+);", h) for s in re.findall(r"'([^']*)'", a))
     text = visible(h_) + ' ' + attrs + ' ' + js + ' ' + ' '.join(ld_strings(ld))
     text = re.sub(r'Smart Office', ' ', text)   # nombre del producto, igual en los dos idiomas
     if lang == 'es':   # "office" es tambien el anglicismo espanol de la cocina comun ("zona office", "office y zonas comunes")
@@ -67,7 +78,9 @@ for u, h in docs.items():
     hits = collections.Counter(m.group(0).lower() for m in re.finditer(pat, text, re.I))
     # descartar nombres propios/URLs habituales
     for k in ('centro', 'ver', 'more', 'from', 'request', 'name'): hits.pop(k, None)
-    if hits: print(f'   {u:45} {dict(hits.most_common(6))}')
+    if hits:
+        print(f'   {u:45} {dict(hits.most_common(6))}')
+        fallos.append(f'{u}: texto en el otro idioma {dict(hits.most_common(6))}')
 # ---- palabras ES vs EN por pareja
 print('== palabras ES vs EN por pareja (visible):')
 pairs = []
@@ -128,4 +141,7 @@ for nombre, tipo, pes, pen, res_, ren in AFIRMACIONES:
         errores += 1
         print(f'   ERROR es "{nombre}" en /llms.txt' + (f' (su referencia {res_} no lo dice)' if tipo == 'respaldo' else ' (sin fuente)'))
 print(f'   {errores} afirmaciones sin respaldo' if errores else '   OK: ninguna afirmacion sin respaldo')
+if fallos:
+    print('== FALLOS de recuento e idioma:'); [print('   ' + f) for f in fallos]
+errores += len(fallos)
 sys.exit(1 if errores else 0)

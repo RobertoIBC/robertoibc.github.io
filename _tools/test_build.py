@@ -24,13 +24,26 @@ for centro, (lo, hi) in rangos:
     check(lo <= hi <= 3000, f'{centro}: rango raro {lo}-{hi}')
 check(min(lo for _, (lo, hi) in rangos) >= b.M2_MIN_PLAUSIBLE, f'minimo global de m² = {min(lo for _, (lo, hi) in rangos)}')
 
-# el build debe negarse si le cuelan un "2 a 69": simulamos la comprobacion de load_data
-try:
-    minimo = 2
-    if minimo < b.M2_MIN_PLAUSIBLE: raise SystemExit('ok')
-    check(False, 'la comprobacion del minimo no salta')
-except SystemExit:
-    pass
+# el build debe negarse si le cuelan un "2 a 69": load_data() de verdad, con una copia de _data/ cuyo CSV
+# lleva ese rango (antes esta prueba se simulaba a si misma y no podia fallar)
+import shutil, tempfile
+with tempfile.TemporaryDirectory() as tmp:
+    datos = pathlib.Path(tmp) / '_data'; shutil.copytree(ROOT / '_data', datos)
+    csvp = datos / 'centros.csv'; txt = csvp.read_text(encoding='utf-8')
+    filas = txt.splitlines(); cab = filas[0].split(','); i = cab.index('despachos_m2')
+    fila = next(r for r in csv.reader(filas[1:]) if r[i].strip())
+    fila_mala = list(fila); fila_mala[i] = '2 a 69 m2'
+    import io; buf = io.StringIO(); csv.writer(buf, lineterminator='\n').writerow(fila_mala)
+    original = io.StringIO(); csv.writer(original, lineterminator='\n').writerow(fila)
+    csvp.write_text(txt.replace(original.getvalue().rstrip('\n'), buf.getvalue().rstrip('\n'), 1), encoding='utf-8')
+    check('2 a 69 m2' in csvp.read_text(encoding='utf-8'), 'no he podido preparar el CSV de prueba')
+    data_real = b.DATA; b.DATA = datos
+    try:
+        b.load_data(); check(False, 'load_data() acepta un CSV con "2 a 69 m2" (la comprobacion del minimo no salta)')
+    except SystemExit as e:
+        check('parseo' in str(e), f'load_data() aborta, pero no por el minimo de m²: {e}')
+    finally:
+        b.DATA = data_real
 
 if fallos:
     print('FALLOS:'); [print('  -', x) for x in fallos]; sys.exit(1)

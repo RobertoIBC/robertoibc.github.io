@@ -7,6 +7,10 @@ import yaml as _y
 SITE = _y.safe_load(open('_data/global.yml', encoding='utf-8'))['site']['url'].rstrip('/')
 pages = [p for p in ROOT.rglob('index.html') if not p.as_posix().startswith(('_', '.git'))]
 errors, canon, rows = [], {}, []
+_red = _y.safe_load(open('_data/redirects.yml', encoding='utf-8'))
+REDIR_EXACTAS = {r['from'].rstrip('/') for k in ('prototipo', 'migracion', 'migracion_blog') for r in _red.get(k) or []}
+REDIR_PREFIJOS = [r['match'] for r in _red.get('patrones') or []]
+avisos = []
 for p in pages:
     h = p.read_text(encoding='utf-8')
     url = '/' + p.as_posix()[:-len('index.html')]
@@ -38,6 +42,16 @@ for p in pages:
         f = ROOT / href.lstrip('/')
         if href.endswith('/'): f = f / 'index.html'
         if not f.exists(): errors.append(f'{url}: enlace roto {href}')
+    # enlaces absolutos al propio dominio en el cuerpo (los del <head> son canonical/hreflang/og, ya revisados)
+    for su in set(re.findall(r'(?:href|src)="(' + re.escape(SITE) + r'[^"#?]*)', h[h.index('<body'):])):
+        path = su[len(SITE):] or '/'
+        f = ROOT / path.lstrip('/')
+        if path.endswith('/'): f = f / 'index.html'
+        if f.exists(): continue
+        if path.rstrip('/') in REDIR_EXACTAS or any(path.startswith(x) for x in REDIR_PREFIJOS):
+            avisos.append(f'{url}: enlace a {path}, que redirige (301) segun redirects.yml')
+        else:
+            errors.append(f'{url}: enlace absoluto roto {su}')
     for href in re.findall(r'href="(/[^"]*#[^"]+)"', h):
         path, frag = href.split('#', 1)
         f = ROOT / path.lstrip('/') / 'index.html'
@@ -79,7 +93,7 @@ for c, alts in canon.items():
         elif lang != 'x-default' and canon[u] != alts: errors.append(f'{c}: cluster distinto de {u}')
 # ---- comprobaciones baratas anadidas en la pasada de entrega (16-09-2026)
 ASSETS = {p.as_posix() for p in pathlib.Path('assets').rglob('*') if p.is_file()}
-ES_LEAK = re.compile(r'\b(despachos?|salas?|reuniones|ciudades|centros|empresas|precio|desde|llamar|contacto|enviar|nombre|tel[eé]fono|leer|art[ií]culo|solicitud|horario|acceso|reserva|recepci[oó]n|hasta)\b', re.I)
+ES_LEAK = re.compile(r'\b(enviad[oa]|suscrit[oa]|despachos?|salas?|reuniones|ciudades|centros|empresas|precio|desde|llamar|contacto|enviar|nombre|tel[eé]fono|leer|art[ií]culo|solicitud|horario|acceso|reserva|recepci[oó]n|hasta)\b', re.I)
 EN_LEAK = re.compile(r'\b(offices?|rooms?|cities|companies|price|call|contact|send|phone|read|article|request|hours|access|booking|reception|your|name)\b', re.I)
 for p in pages:
     h = p.read_text(encoding='utf-8'); url = '/' + p.as_posix()[:-len('index.html')]; url = '/' if url == '/.' else url.replace('/./', '/')
@@ -94,7 +108,7 @@ for p in pages:
     for m in re.finditer(r'<a\b[^>]*target="_blank"[^>]*>', h):
         if 'noopener' not in m.group(0): errors.append(f'{url}: _blank sin rel="noopener": {m.group(0)[:80]}')
     # fuga de idioma en atributos y mensajes de JS (el texto visible se revisa en auditoria_coherencia.py)
-    attrs = ' '.join(re.findall(r'(?:alt|aria-label|placeholder)="([^"]*)"', h)) + ' ' + ' '.join(re.findall(r"textContent = '([^']*)'", h))
+    attrs = ' '.join(re.findall(r'(?:alt|aria-label|placeholder)="([^"]*)"', h)) + ' ' + ' '.join(s for a in re.findall(r"textContent\s*=\s*([^;]+);", h) for s in re.findall(r"'([^']*)'", a))
     leak = (ES_LEAK if lang == 'en' else EN_LEAK).findall(attrs)
     leak = [x for x in leak if x.lower() not in ('contact', 'request')]   # nombres propios/plantilla compartidos
     if leak: errors.append(f'{url}: texto en el otro idioma en atributos/JS: {sorted(set(leak))[:5]}')
@@ -102,7 +116,8 @@ for p in pages:
     if url in ('/', '/en/'):
         same = set(re.findall(r'"sameAs":\s*\[(.*?)\]', h, re.S)[0].split('"')[1::2]) if '"sameAs"' in h else set()
         foot = {a or b for a, b in re.findall(r'class="soc"[^>]*href="([^"]+)"|href="([^"]+)" class="soc"', h)}
-        if same and foot and same != foot: errors.append(f'{url}: sameAs del JSON-LD != redes del pie: {sorted(same ^ foot)}')
+        if same and not foot: errors.append(f'{url}: hay sameAs pero no encuentro las redes del pie (class="soc")')
+        elif same and same != foot: errors.append(f'{url}: sameAs del JSON-LD != redes del pie: {sorted(same ^ foot)}')
 single = {c for c, a in canon.items() if not a}
 sm = (ROOT / 'sitemap.xml').read_text(encoding='utf-8')
 blocks = re.findall(r'<url>(.*?)</url>', sm, re.S)
@@ -114,5 +129,6 @@ for b in blocks:
     if loc not in canon: errors.append(f'sitemap {loc}: no es canonical')
 print(f'{len(pages)} paginas, {len(blocks)} en sitemap')
 for r in sorted(rows): print(f'{r[0]:28} title {r[1]:3} desc {r[2]:3} h1 {r[3]}')
+for a in avisos: print('AVISO', a)
 print('\n'.join(errors) if errors else 'SIN ERRORES')
 sys.exit(1 if errors else 0)
