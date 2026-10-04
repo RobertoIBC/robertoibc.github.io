@@ -6,12 +6,12 @@
 # regenera (python _build.py). No hay que tocar ningun HTML.
 
 site:
-  # TODO migracion: https://www.oficinasya.es
-  url: https://robertoibc.github.io
+  # Dominio de produccion (con www: es el que usaba el WordPress y el que Google tenia indexado).
+  # Sale en canonical, hreflang, og:url, sitemap, llms.txt y en las 301 del .htaccess.
+  url: https://www.oficinasya.es
   name: OficinasYA!
-  # Mientras sea prototipo, TODAS las paginas llevan noindex.
-  # TODO migracion: poner a false el dia que se publique en oficinasya.es.
-  noindex: true
+  # true solo para un prototipo: pone <meta robots noindex> en las 66 paginas.
+  noindex: false
   # Imagen al compartir un enlace (WhatsApp, LinkedIn, Facebook): composicion corporativa, una por idioma,
   # 1200x630. Las paginas con foto propia (ciudades con cabecera, articulos) la sobreescriben con `og_image`.
   og_image:

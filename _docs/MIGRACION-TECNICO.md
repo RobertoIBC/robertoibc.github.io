@@ -6,9 +6,14 @@ Fecha: 16 de septiembre de 2026. Repositorio: `RobertoIBC/robertoibc.github.io`
 
 ---
 
-## ⛔ PUNTOS BLOQUEANTES — leer antes de nada (el 2 ya está resuelto)
+> **Octubre de 2026: el sitio pasa a producción.** El paso a paso de la subida está en
+> [`DESPLIEGUE.md`](DESPLIEGUE.md) y el `.htaccess` completo (dominio, bloqueo de fuentes y 303
+> redirecciones 301) en [`CONFIGURACION-SERVIDOR.md`](CONFIGURACION-SERVIDOR.md). Lo de abajo queda como
+> referencia de por qué cada cosa es como es.
 
-### 1. El `noindex`: no se toca hasta estar en el dominio definitivo
+## ⛔ PUNTOS BLOQUEANTES — leer antes de nada (los dos ya están resueltos)
+
+### 1. El `noindex`: RETIRADO (octubre de 2026, `site.noindex: false` y `site.url: https://www.oficinasya.es`)
 
 Las 66 páginas llevan `<meta name="robots" content="noindex, nofollow">`. Lo
 controla **una sola línea**: `site.noindex: true` en `_data/global.yml`.
@@ -104,8 +109,8 @@ lo que deja de existir.
 
 ## Cambiar de dominio: `site.url`
 
-En `_data/global.yml`, `site.url: https://robertoibc.github.io` →
-`https://www.oficinasya.es`. Con solo eso, al regenerar cambian:
+En `_data/global.yml`, `site.url` (hoy `https://www.oficinasya.es`; antes
+`https://robertoibc.github.io`). Con solo eso, al regenerar cambian:
 
 - `<link rel="canonical">` de las 66 páginas,
 - las etiquetas `hreflang` (es, en, x-default) entre versiones de idioma,
@@ -194,7 +199,7 @@ prototipo son el mismo slug que tienen hoy en WordPress
 3. **Canonical y hreflang** apuntan al dominio nuevo (no a `robertoibc`):
    `grep -rl robertoibc.github.io --include=index.html .` debe estar vacío
    tras regenerar.
-4. **Redirecciones**: las 50 responden 301 al destino correcto y el destino
+4. **Redirecciones**: las 303 responden 301 al destino correcto y el destino
    responde 200 (un bucle sencillo con `curl -sI`). Sin cadenas.
 5. **`sitemap.xml`** accesible, con 66 `<url>` y el dominio nuevo; declarado en
    `robots.txt`; enviado en Search Console.

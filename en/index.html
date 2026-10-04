@@ -3,19 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ===== PROTOTIPO: NO INDEXAR =====
-       Este prototipo vive en un dominio publico e indexable. El noindex evita que
-       compita con www.oficinasya.es y que se filtren precios sin aprobar.
-       El rastreo se deja ABIERTO en robots.txt a proposito: si lo bloqueasemos,
-       Google no podria leer este noindex.
-       TODO migracion: poner site.noindex a false en _data/global.yml y regenerar. -->
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="googlebot" content="noindex, nofollow" />
   <!-- TODO migracion: cambiar site.url en _data/global.yml -->
-  <link rel="canonical" href="https://robertoibc.github.io/en/" />
-  <link rel="alternate" hreflang="es" href="https://robertoibc.github.io/" />
-  <link rel="alternate" hreflang="en" href="https://robertoibc.github.io/en/" />
-  <link rel="alternate" hreflang="x-default" href="https://robertoibc.github.io/" />
+  <link rel="canonical" href="https://www.oficinasya.es/en/" />
+  <link rel="alternate" hreflang="es" href="https://www.oficinasya.es/" />
+  <link rel="alternate" hreflang="en" href="https://www.oficinasya.es/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.oficinasya.es/" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/assets/img/favicon/icon-32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="/assets/img/favicon/icon-192.png" type="image/png" sizes="192x192" />
@@ -29,15 +21,15 @@
   <meta property="og:title" content="Private offices to rent in Madrid and Spain | OficinasYA!" />
   <meta property="og:description" content="Rent private offices, meeting rooms, coworking and virtual office services in Madrid and across Spain: 35 locations in 17 cities. From €8.50/hour + VAT." />
   <!-- TODO migracion: cambiar site.url en _data/global.yml -->
-  <meta property="og:url" content="https://robertoibc.github.io/en/" />
-  <meta property="og:image" content="https://robertoibc.github.io/assets/img/og-oficinasya-en.jpg" />
+  <meta property="og:url" content="https://www.oficinasya.es/en/" />
+  <meta property="og:image" content="https://www.oficinasya.es/assets/img/og-oficinasya-en.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="OficinasYA!: 35 centres and colivings in 17 cities across Spain" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Private offices to rent in Madrid and Spain | OficinasYA!" />
   <meta name="twitter:description" content="Rent private offices, meeting rooms, coworking and virtual office services in Madrid and across Spain: 35 locations in 17 cities. From €8.50/hour + VAT." />
-  <meta name="twitter:image" content="https://robertoibc.github.io/assets/img/og-oficinasya-en.jpg" />
+  <meta name="twitter:image" content="https://www.oficinasya.es/assets/img/og-oficinasya-en.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.oficinasya.es" />
@@ -780,12 +772,12 @@
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://robertoibc.github.io/#organization",
+      "@id": "https://www.oficinasya.es/#organization",
       "name": "OficinasYA!",
       "legalName": "IBCNET ESPAÑA SL",
-      "url": "https://robertoibc.github.io/",
-      "logo": "https://robertoibc.github.io/assets/img/favicon/icon-512.png",
-      "image": "https://robertoibc.github.io/assets/img/favicon/icon-512.png",
+      "url": "https://www.oficinasya.es/",
+      "logo": "https://www.oficinasya.es/assets/img/favicon/icon-512.png",
+      "image": "https://www.oficinasya.es/assets/img/favicon/icon-512.png",
       "description": "Network of 35 business centres and coliving spaces in 17 Spanish cities, with private offices, meeting rooms, coworking and virtual office.",
       "telephone": "+34918298500",
       "email": "hola@oficinasya.es",
@@ -810,12 +802,12 @@
     },
     {
       "@type": "WebSite",
-      "@id": "https://robertoibc.github.io/#website",
-      "url": "https://robertoibc.github.io/en/",
+      "@id": "https://www.oficinasya.es/#website",
+      "url": "https://www.oficinasya.es/en/",
       "name": "OficinasYA!",
       "inLanguage": "en-GB",
       "publisher": {
-        "@id": "https://robertoibc.github.io/#organization"
+        "@id": "https://www.oficinasya.es/#organization"
       }
     },
     {
@@ -824,7 +816,7 @@
       "serviceType": "Private office rental by the hour",
       "description": "Equipped private office with high-speed WiFi and visitor reception, with no minimum commitment.",
       "provider": {
-        "@id": "https://robertoibc.github.io/#organization"
+        "@id": "https://www.oficinasya.es/#organization"
       },
       "areaServed": {
         "@type": "Country",
@@ -850,7 +842,7 @@
       "serviceType": "Private office rental on a monthly basis",
       "description": "Private office for your exclusive use, with 24/7 access in Madrid and selected centres, registered address, cleaning and maintenance; at several centres the fee also includes meeting-room hours.",
       "provider": {
-        "@id": "https://robertoibc.github.io/#organization"
+        "@id": "https://www.oficinasya.es/#organization"
       },
       "areaServed": {
         "@type": "Country",
@@ -876,7 +868,7 @@
       "serviceType": "Company registered address and virtual office",
       "description": "Registered and trading address, mail handling and optional call answering.",
       "provider": {
-        "@id": "https://robertoibc.github.io/#organization"
+        "@id": "https://www.oficinasya.es/#organization"
       },
       "areaServed": {
         "@type": "Country",

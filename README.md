@@ -1,6 +1,10 @@
-# Web de OficinasYA! — prototipo
+# Web de OficinasYA!
 
-> **Si vas a migrar esto a www.oficinasya.es, lee primero [`_docs/MIGRACION-TECNICO.md`](_docs/MIGRACION-TECNICO.md)**: tiene los puntos bloqueantes (el `noindex`; y `enviar.php`, el envío del formulario, que vive solo en el servidor y no se sobrescribe) y el orden de las operaciones.
+> **Para subir la web a www.oficinasya.es: [`_docs/DESPLIEGUE.md`](_docs/DESPLIEGUE.md)** (paso a paso) y
+> [`_docs/CONFIGURACION-SERVIDOR.md`](_docs/CONFIGURACION-SERVIDOR.md) (el `.htaccess`). `site.url` ya es
+> `https://www.oficinasya.es` y las páginas ya no llevan `noindex`.
+>
+> **Contexto técnico completo: lee primero [`_docs/MIGRACION-TECNICO.md`](_docs/MIGRACION-TECNICO.md)**: tiene los puntos bloqueantes (el `noindex`; y `enviar.php`, el envío del formulario, que vive solo en el servidor y no se sobrescribe) y el orden de las operaciones.
 
 Sitio estático en dos idiomas (ES en la raíz, EN en `/en/`). Todo el HTML de
 la raíz **se genera**: no se edita a mano. Lo que se edita está en `_data/`,

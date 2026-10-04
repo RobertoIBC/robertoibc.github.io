@@ -29,10 +29,10 @@ profesional.
 
 ## Páginas de servicio
 
-- Alquiler de despachos privados: https://robertoibc.github.io/alquiler-de-despachos/
-- Alquiler de salas de reuniones: https://robertoibc.github.io/salas-de-reuniones/
-- Oficina virtual y domiciliación de empresas: https://robertoibc.github.io/oficina-virtual/
-- Coworking en centros de negocios: https://robertoibc.github.io/coworking/
+- Alquiler de despachos privados: https://www.oficinasya.es/alquiler-de-despachos/
+- Alquiler de salas de reuniones: https://www.oficinasya.es/salas-de-reuniones/
+- Oficina virtual y domiciliación de empresas: https://www.oficinasya.es/oficina-virtual/
+- Coworking en centros de negocios: https://www.oficinasya.es/coworking/
 
 ## Precios
 
@@ -50,23 +50,23 @@ Confirmar condiciones por teléfono o formulario.
 
 ## Ciudades (17) y espacios (35)
 
-- Madrid (8 centros): Velázquez, Gasset, Serrano, Capitán Haya, Las Tablas, Sanse (San Sebastián de los Reyes), La Florida (Pozuelo), Manoteras (Sanchinarro). Página: https://robertoibc.github.io/oficinas-en-madrid/
-- Barcelona (3 centros): Mitre 126, Raset 29, Plaza Urquinaona. Página: https://robertoibc.github.io/oficinas-en-barcelona/
-- Murcia (3 espacios): Marla Center, Edificio Magalia (Alcantarilla), Coliving Condado de Alhama. Página: https://robertoibc.github.io/oficinas-en-murcia/
-- Sevilla (3 centros): Laraña, Edificio Galia Puerto, Edificio Nervión. Página: https://robertoibc.github.io/oficinas-en-sevilla/
-- Tenerife (3 espacios): Santa Rosalía, Costa y Grijalba, La Luna Coliving. Página: https://robertoibc.github.io/oficinas-en-tenerife/
-- A Coruña (2 centros): Andres Martinez Salazar, Juan de la Cierva. Página: https://robertoibc.github.io/oficinas-en-a-coruna/
-- Bilbao (2 centros): Máximo Aguirre, Edificio Albia. Página: https://robertoibc.github.io/oficinas-en-bilbao/
-- Segovia (2 centros): Padre Claret, Ezequiel González. Página: https://robertoibc.github.io/oficinas-en-segovia/
-- Albacete (1 centro): Calle Mayor. Página: https://robertoibc.github.io/oficinas-en-albacete/
-- Alicante (1 centro): Plaza de la Muntanyeta. Página: https://robertoibc.github.io/oficinas-en-alicante/
-- Castellón (1 centro): Dean Marti. Página: https://robertoibc.github.io/oficinas-en-castellon/
-- Málaga (1 centro): Calle Larios. Página: https://robertoibc.github.io/oficinas-en-malaga/
-- Mérida (1 centro): Edificio Delgado Casamayor. Página: https://robertoibc.github.io/oficinas-en-merida/
-- Salamanca (1 centro): Edificio Openhouse. Página: https://robertoibc.github.io/oficinas-en-salamanca/
-- Valencia (1 centro): Guillem de Castro. Página: https://robertoibc.github.io/oficinas-en-valencia/
-- Vigo (1 centro): Plaza Compostela. Página: https://robertoibc.github.io/oficinas-en-vigo/
-- Zaragoza (1 centro): Independencia. Página: https://robertoibc.github.io/oficinas-en-zaragoza/
+- Madrid (8 centros): Velázquez, Gasset, Serrano, Capitán Haya, Las Tablas, Sanse (San Sebastián de los Reyes), La Florida (Pozuelo), Manoteras (Sanchinarro). Página: https://www.oficinasya.es/oficinas-en-madrid/
+- Barcelona (3 centros): Mitre 126, Raset 29, Plaza Urquinaona. Página: https://www.oficinasya.es/oficinas-en-barcelona/
+- Murcia (3 espacios): Marla Center, Edificio Magalia (Alcantarilla), Coliving Condado de Alhama. Página: https://www.oficinasya.es/oficinas-en-murcia/
+- Sevilla (3 centros): Laraña, Edificio Galia Puerto, Edificio Nervión. Página: https://www.oficinasya.es/oficinas-en-sevilla/
+- Tenerife (3 espacios): Santa Rosalía, Costa y Grijalba, La Luna Coliving. Página: https://www.oficinasya.es/oficinas-en-tenerife/
+- A Coruña (2 centros): Andres Martinez Salazar, Juan de la Cierva. Página: https://www.oficinasya.es/oficinas-en-a-coruna/
+- Bilbao (2 centros): Máximo Aguirre, Edificio Albia. Página: https://www.oficinasya.es/oficinas-en-bilbao/
+- Segovia (2 centros): Padre Claret, Ezequiel González. Página: https://www.oficinasya.es/oficinas-en-segovia/
+- Albacete (1 centro): Calle Mayor. Página: https://www.oficinasya.es/oficinas-en-albacete/
+- Alicante (1 centro): Plaza de la Muntanyeta. Página: https://www.oficinasya.es/oficinas-en-alicante/
+- Castellón (1 centro): Dean Marti. Página: https://www.oficinasya.es/oficinas-en-castellon/
+- Málaga (1 centro): Calle Larios. Página: https://www.oficinasya.es/oficinas-en-malaga/
+- Mérida (1 centro): Edificio Delgado Casamayor. Página: https://www.oficinasya.es/oficinas-en-merida/
+- Salamanca (1 centro): Edificio Openhouse. Página: https://www.oficinasya.es/oficinas-en-salamanca/
+- Valencia (1 centro): Guillem de Castro. Página: https://www.oficinasya.es/oficinas-en-valencia/
+- Vigo (1 centro): Plaza Compostela. Página: https://www.oficinasya.es/oficinas-en-vigo/
+- Zaragoza (1 centro): Independencia. Página: https://www.oficinasya.es/oficinas-en-zaragoza/
 
 ## Datos de la red
 
@@ -134,4 +134,4 @@ español es la que tiene validez legal.
 ## Nota
 
 Este fichero describe el contenido de un PROTOTIPO de rediseño alojado en
-robertoibc.github.io. El sitio en producción es https://www.oficinasya.es/.
+www.oficinasya.es. El sitio en producción es https://www.oficinasya.es/.
