@@ -14,6 +14,7 @@ hero_caption: "Sanse centre, San Sebastián de los Reyes"
 eyebrow: Virtual office
 service_type: Virtual office and registered business address
 csv_key: smart office
+precio_linea: true   # precio en una linea arriba; las cajas bajan a la seccion de precio
 wa_msg: "Hello, I am interested in a virtual office as my registered business address"
 perfiles_intro: "It is the solution for:"
 perfiles:

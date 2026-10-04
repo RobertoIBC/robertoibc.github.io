@@ -334,6 +334,11 @@
     .hero-price-line .num { font-family: 'Barlow', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--orange); margin-left: 4px; }
     .hero-price-line .unit { font-weight: 700; color: rgba(255,255,255,.8); }
     .hero-price-line .hp-sep { color: rgba(255,255,255,.3); }
+    .hero-price-line .num.txt { font-size: 1.35rem; margin-left: 0; }
+    .hero-price-line .hp-tel { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--orange); text-decoration: none; border-bottom: 2px solid rgba(245,146,26,.4); }
+    .hero-price-line .hp-tel:hover { border-bottom-color: var(--orange); }
+    .srv-callout-detalle { margin: 0 0 6px !important; font-weight: 600; color: var(--dark) !important; }
+    .srv-option-price .nu { white-space: nowrap; }
     .hero-price-line .tax { font-size: .9rem; font-weight: 600; margin-left: 6px; }
     @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } .hero-price-line .hp-sep { display: none; } }
     .srv-option-detail { font-size: .86rem; color: var(--gray-600); line-height: 1.45; margin-top: 10px; }
@@ -640,7 +645,11 @@
     <div class="hero-grid">
     <div>
     <h1 class="page-hero-title">Coworking in business centres</h1>
-    <p class="page-hero-sub">Workstations by the month at three centres in the network, in Barcelona, A Coruña and Salamanca, with everything a business centre offers around them.</p>
+    <p class="page-hero-sub">Workstations by the month at three centres in the network, in Barcelona, A Coruña and Salamanca, with everything a business centre offers around them.</p><p class="hero-price-line">
+      <span class="hp-item"><b class="num txt">By the month, no minimum term</b></span> <span class="hp-sep" aria-hidden="true">·</span>
+      <span class="hp-item">price depends on the centre</span> <span class="hp-sep" aria-hidden="true">·</span>
+      <a class="hp-item hp-tel" href="tel:918298500">918 298 500</a>
+    </p>
     </div>
     <figure class="hero-photo">
       <img src="/assets/img/cabeceras/salamanca.jpg" alt="Meeting room with a world map on the wall at Edificio Openhouse, Salamanca" width="1200" height="900" decoding="async" fetchpriority="high" />

@@ -15,6 +15,7 @@ eyebrow: Coworking
 service_type: Coworking and shared workstations
 csv_key: coworking
 ofertas: []
+precio_linea_texto: { modo: "By the month, no minimum term", nota: "price depends on the centre" }   # sin precio publicado: misma linea, sin cifra
 wa_msg: "Hello, I am interested in a coworking desk"
 cifras:
   - { num: "3 centres", label: "with coworking desks: Barcelona, A Coruña and Salamanca" }

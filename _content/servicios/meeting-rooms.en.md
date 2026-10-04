@@ -15,6 +15,7 @@ eyebrow: Meeting rooms
 service_type: Meeting room hire
 csv_key: salas de reuniones
 ofertas: []
+precio_linea_texto: { modo: "By the hour", nota: "price depends on the room and the centre" }   # sin precio publicado: misma linea, sin cifra
 wa_msg: "Hello, I would like to book a meeting room"
 galeria:
   - { foto: /assets/img/salas/pequena.jpg, alt: "Small room with a round table for four people at the OficinasYA! Serrano centre, Madrid", titulo: "Small room", sub: "Serrano, Madrid", dato: "2 to 4 people" }

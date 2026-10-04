@@ -334,6 +334,11 @@
     .hero-price-line .num { font-family: 'Barlow', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--orange); margin-left: 4px; }
     .hero-price-line .unit { font-weight: 700; color: rgba(255,255,255,.8); }
     .hero-price-line .hp-sep { color: rgba(255,255,255,.3); }
+    .hero-price-line .num.txt { font-size: 1.35rem; margin-left: 0; }
+    .hero-price-line .hp-tel { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--orange); text-decoration: none; border-bottom: 2px solid rgba(245,146,26,.4); }
+    .hero-price-line .hp-tel:hover { border-bottom-color: var(--orange); }
+    .srv-callout-detalle { margin: 0 0 6px !important; font-weight: 600; color: var(--dark) !important; }
+    .srv-option-price .nu { white-space: nowrap; }
     .hero-price-line .tax { font-size: .9rem; font-weight: 600; margin-left: 6px; }
     @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } .hero-price-line .hp-sep { display: none; } }
     .srv-option-detail { font-size: .86rem; color: var(--gray-600); line-height: 1.45; margin-top: 10px; }
@@ -742,7 +747,11 @@
     <div class="hero-grid">
     <div>
     <h1 class="page-hero-title">Meeting room hire</h1>
-    <p class="page-hero-sub">Rooms for 2 to 275 people, from one hour, any day of the year. Equipped, with visitor reception and catering on request. In 17 cities.</p>
+    <p class="page-hero-sub">Rooms for 2 to 275 people, from one hour, any day of the year. Equipped, with visitor reception and catering on request. In 17 cities.</p><p class="hero-price-line">
+      <span class="hp-item"><b class="num txt">By the hour</b></span> <span class="hp-sep" aria-hidden="true">·</span>
+      <span class="hp-item">price depends on the room and the centre</span> <span class="hp-sep" aria-hidden="true">·</span>
+      <a class="hp-item hp-tel" href="tel:918298500">918 298 500</a>
+    </p>
     </div>
     <figure class="hero-photo">
       <img src="/assets/img/cabeceras/sevilla.jpg" alt="U-shaped boardroom with large windows at Edificio Galia Puerto, Seville" width="1200" height="900" decoding="async" fetchpriority="high" />

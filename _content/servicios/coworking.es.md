@@ -15,6 +15,7 @@ eyebrow: Coworking
 service_type: Coworking y puestos de trabajo compartidos
 csv_key: coworking
 ofertas: []
+precio_linea_texto: { modo: "Por meses, sin permanencia", nota: "precio según centro" }   # sin precio publicado: misma linea, sin cifra
 wa_msg: "Hola, me interesa un puesto de coworking"
 cifras:
   - { num: "3 centros", label: "con puestos de coworking: Barcelona, A Coruña y Salamanca" }

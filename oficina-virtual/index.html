@@ -334,6 +334,11 @@
     .hero-price-line .num { font-family: 'Barlow', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--orange); margin-left: 4px; }
     .hero-price-line .unit { font-weight: 700; color: rgba(255,255,255,.8); }
     .hero-price-line .hp-sep { color: rgba(255,255,255,.3); }
+    .hero-price-line .num.txt { font-size: 1.35rem; margin-left: 0; }
+    .hero-price-line .hp-tel { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--orange); text-decoration: none; border-bottom: 2px solid rgba(245,146,26,.4); }
+    .hero-price-line .hp-tel:hover { border-bottom-color: var(--orange); }
+    .srv-callout-detalle { margin: 0 0 6px !important; font-weight: 600; color: var(--dark) !important; }
+    .srv-option-price .nu { white-space: nowrap; }
     .hero-price-line .tax { font-size: .9rem; font-weight: 600; margin-left: 6px; }
     @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } .hero-price-line .hp-sep { display: none; } }
     .srv-option-detail { font-size: .86rem; color: var(--gray-600); line-height: 1.45; margin-top: 10px; }
@@ -722,14 +727,9 @@
     <div class="hero-grid">
     <div>
     <h1 class="page-hero-title">Oficina virtual y domiciliación de empresas</h1>
-    <p class="page-hero-sub">Una dirección profesional para tu empresa, con recepción, correo y teléfono atendidos, sin ocupar un despacho. Desde 20 € al mes + IVA.</p>
-    <div class="hero-offers">
-      <div class="hero-offer">
-        <div class="hero-offer-name">Oficina virtual</div>
-        <div class="hero-offer-price"><span class="from">desde</span> <span class="num">20 €</span><span class="unit">/mes</span> <span class="tax">+ IVA</span></div>
-        <div class="hero-offer-detail">Dirección fiscal y comercial, correspondencia y posibilidad de atención telefónica.</div>
-      </div>
-    </div>
+    <p class="page-hero-sub">Una dirección profesional para tu empresa, con recepción, correo y teléfono atendidos, sin ocupar un despacho. Desde 20 € al mes + IVA.</p><p class="hero-price-line">
+      <span class="hp-item"><span class="from">desde</span> <b class="num">20&nbsp;€</b><span class="unit">/mes</span> <span class="tax">+ IVA</span></span>
+    </p>
     </div>
     <figure class="hero-photo">
       <img src="/assets/img/centros/centro-madrid-sanse-2x.jpg" alt="Zona común del centro OficinasYA! de San Sebastián de los Reyes, Madrid" width="1200" height="900" decoding="async" fetchpriority="high" />
@@ -767,7 +767,7 @@
 
 <div class="srv-callout">
   <div class="srv-callout-n">Desde 20 €/mes</div>
-  <p>Es el precio de partida de la red; la cuota concreta depende del centro, de la duración del contrato y de lo que añadas: la atención telefónica personalizada y las horas de sala se contratan aparte. Algunos centros ofrecen una tarifa reducida por pago anual. Todos los precios se muestran sin IVA.</p>
+  <div><p class="srv-callout-detalle">Dirección fiscal y comercial, correspondencia y posibilidad de atención telefónica.</p><p>Es el precio de partida de la red; la cuota concreta depende del centro, de la duración del contrato y de lo que añadas: la atención telefónica personalizada y las horas de sala se contratan aparte. Algunos centros ofrecen una tarifa reducida por pago anual. Todos los precios se muestran sin IVA.</p></div>
 </div>
 
 <p>Si además de la dirección vas a usar el centro con cierta regularidad, la fórmula que te interesa es Smart Office, que se explica más abajo.</p>

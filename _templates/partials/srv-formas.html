@@ -6,7 +6,7 @@
     <div class="srv-option-hd">
       <div class="srv-option-name">{{ f.titulo }}</div>
 {%- if f.get("precio") %}
-      <div class="srv-option-price"><span class="from">{{ t.srv.from }}</span> <span class="num">{% if t.srv.eur_before %}€{{ p[f.precio] }}{% else %}{{ p[f.precio] }} €{% endif %}</span><span class="unit">/{{ f.unidad }}</span> <span class="tax">{{ t.srv.tax }}</span></div>
+      <div class="srv-option-price"><span class="from">{{ t.srv.from }}</span> <span class="nu"><span class="num">{% if t.srv.eur_before %}€{{ p[f.precio] }}{% else %}{{ p[f.precio] }} €{% endif %}</span><span class="unit">/{{ f.unidad }}</span></span> <span class="tax">{{ t.srv.tax }}</span></div>
 {%- if page.get('precio_linea') %}{% for o in page.ofertas if o.precio == f.precio %}
       <div class="srv-option-detail">{{ o.detalle }}</div>
 {%- endfor %}{% endif %}
@@ -31,7 +31,11 @@
 {%- if page.get("formas_dato") %}
 <div class="srv-callout">
   <div class="srv-callout-n">{{ page.formas_dato.num }}</div>
+{%- if page.get('precio_linea') and not page.get('formas') %}
+  <div>{% for o in page.ofertas %}<p class="srv-callout-detalle">{{ o.detalle }}</p>{% endfor %}<p>{{ page.formas_dato.texto }}</p></div>
+{%- else %}
   <p>{{ page.formas_dato.texto }}</p>
+{%- endif %}
 </div>
 {%- endif %}
 {%- if page.get("formas_nota") %}

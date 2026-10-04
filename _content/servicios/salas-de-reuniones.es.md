@@ -15,6 +15,7 @@ eyebrow: Salas de reuniones
 service_type: Alquiler de salas de reuniones
 csv_key: salas de reuniones
 ofertas: []
+precio_linea_texto: { modo: "Por horas", nota: "precio según sala y centro" }   # sin precio publicado: misma linea, sin cifra
 wa_msg: "Hola, quiero reservar una sala de reuniones"
 galeria:
   - { foto: /assets/img/salas/pequena.jpg, alt: "Sala pequeña con mesa redonda para cuatro personas en el centro OficinasYA! de Serrano, Madrid", titulo: "Sala pequeña", sub: "Serrano, Madrid", dato: "2 a 4 personas" }

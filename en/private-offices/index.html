@@ -334,6 +334,11 @@
     .hero-price-line .num { font-family: 'Barlow', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--orange); margin-left: 4px; }
     .hero-price-line .unit { font-weight: 700; color: rgba(255,255,255,.8); }
     .hero-price-line .hp-sep { color: rgba(255,255,255,.3); }
+    .hero-price-line .num.txt { font-size: 1.35rem; margin-left: 0; }
+    .hero-price-line .hp-tel { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--orange); text-decoration: none; border-bottom: 2px solid rgba(245,146,26,.4); }
+    .hero-price-line .hp-tel:hover { border-bottom-color: var(--orange); }
+    .srv-callout-detalle { margin: 0 0 6px !important; font-weight: 600; color: var(--dark) !important; }
+    .srv-option-price .nu { white-space: nowrap; }
     .hero-price-line .tax { font-size: .9rem; font-weight: 600; margin-left: 6px; }
     @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } .hero-price-line .hp-sep { display: none; } }
     .srv-option-detail { font-size: .86rem; color: var(--gray-600); line-height: 1.45; margin-top: 10px; }
@@ -767,19 +772,10 @@
     <div class="hero-grid">
     <div>
     <h1 class="page-hero-title">Private office rental</h1>
-    <p class="page-hero-sub">A closed, furnished space for your exclusive use. By the hour or by the month, in 35 spaces across 17 cities.</p>
-    <div class="hero-offers">
-      <div class="hero-offer">
-        <div class="hero-offer-name">Office by the hour</div>
-        <div class="hero-offer-price"><span class="from">from</span> <span class="num">€8.50</span><span class="unit">/hour</span> <span class="tax">+ VAT</span></div>
-        <div class="hero-offer-detail">Only the time you use. No commitment.</div>
-      </div>
-      <div class="hero-offer">
-        <div class="hero-offer-name">Monthly office</div>
-        <div class="hero-offer-price"><span class="from">from</span> <span class="num">€270</span><span class="unit">/month</span> <span class="tax">+ VAT</span></div>
-        <div class="hero-offer-detail">Your exclusive office, with registered address.</div>
-      </div>
-    </div>
+    <p class="page-hero-sub">A closed, furnished space for your exclusive use. By the hour or by the month, in 35 spaces across 17 cities.</p><p class="hero-price-line">
+      <span class="hp-item"><span class="from">from</span> <b class="num">€8.50</b><span class="unit">/hour</span></span> <span class="hp-sep" aria-hidden="true">·</span> 
+      <span class="hp-item"><span class="from">from</span> <b class="num">€270</b><span class="unit">/month</span> <span class="tax">+ VAT</span></span>
+    </p>
     </div>
     <figure class="hero-photo">
       <img src="/assets/img/centros/centro-madrid-capitan-haya-2x.jpg" alt="Four-desk office at the OficinasYA! Capitán Haya centre, Madrid" width="1200" height="900" decoding="async" fetchpriority="high" />
@@ -819,7 +815,8 @@
   <div class="srv-option">
     <div class="srv-option-hd">
       <div class="srv-option-name">By the hour</div>
-      <div class="srv-option-price"><span class="from">from</span> <span class="num">€8.50</span><span class="unit">/hour</span> <span class="tax">+ VAT</span></div>
+      <div class="srv-option-price"><span class="from">from</span> <span class="nu"><span class="num">€8.50</span><span class="unit">/hour</span></span> <span class="tax">+ VAT</span></div>
+      <div class="srv-option-detail">Only the time you use. No commitment.</div>
     </div>
     <div class="srv-option-body">
       <p>You book a furnished office for as long as you need it: a meeting with a client, an interview, a morning of focused work.</p>
@@ -832,7 +829,8 @@
   <div class="srv-option">
     <div class="srv-option-hd">
       <div class="srv-option-name">Monthly</div>
-      <div class="srv-option-price"><span class="from">from</span> <span class="num">€270</span><span class="unit">/month</span> <span class="tax">+ VAT</span></div>
+      <div class="srv-option-price"><span class="from">from</span> <span class="nu"><span class="num">€270</span><span class="unit">/month</span></span> <span class="tax">+ VAT</span></div>
+      <div class="srv-option-detail">Your exclusive office, with registered address.</div>
     </div>
     <div class="srv-option-body">
       <p>The office is yours: furniture, phone line, daily cleaning, maintenance and utilities included, plus your company's registered address at the centre.</p>

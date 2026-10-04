@@ -14,6 +14,7 @@ hero_caption: "Centro de Sanse, San Sebastián de los Reyes"
 eyebrow: Oficina virtual
 service_type: Oficina virtual y domiciliación de empresas
 csv_key: smart office
+precio_linea: true   # precio en una linea arriba; las cajas bajan a la seccion de precio
 wa_msg: "Hola, me interesa la oficina virtual para domiciliar mi empresa"
 perfiles_intro: "Es la solución de:"
 perfiles:

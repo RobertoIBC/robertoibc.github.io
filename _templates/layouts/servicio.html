@@ -20,6 +20,11 @@
     .hero-price-line .num { font-family: 'Barlow', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--orange); margin-left: 4px; }
     .hero-price-line .unit { font-weight: 700; color: rgba(255,255,255,.8); }
     .hero-price-line .hp-sep { color: rgba(255,255,255,.3); }
+    .hero-price-line .num.txt { font-size: 1.35rem; margin-left: 0; }
+    .hero-price-line .hp-tel { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--orange); text-decoration: none; border-bottom: 2px solid rgba(245,146,26,.4); }
+    .hero-price-line .hp-tel:hover { border-bottom-color: var(--orange); }
+    .srv-callout-detalle { margin: 0 0 6px !important; font-weight: 600; color: var(--dark) !important; }
+    .srv-option-price .nu { white-space: nowrap; }
     .hero-price-line .tax { font-size: .9rem; font-weight: 600; margin-left: 6px; }
     @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } .hero-price-line .hp-sep { display: none; } }
     .srv-option-detail { font-size: .86rem; color: var(--gray-600); line-height: 1.45; margin-top: 10px; }
@@ -174,6 +179,13 @@
 {%- for o in page.ofertas %}
       <span class="hp-item"><span class="from">{{ t.srv.from }}</span> <b class="num">{% if t.srv.eur_before %}€{{ p[o.precio] }}{% else %}{{ p[o.precio] }}&nbsp;€{% endif %}</b><span class="unit">{{ t.srv.per_hour if o.unidad == 'hora' else t.srv.per_month }}</span>{% if loop.last %} <span class="tax">{{ t.srv.tax }}</span>{% endif %}</span>{% if not loop.last %} <span class="hp-sep" aria-hidden="true">·</span> {% endif %}
 {%- endfor %}
+    </p>
+{%- elif page.get('precio_linea_texto') %}
+    {#- Sin precio publicado: la misma linea, con la forma de pago y a quien preguntar -#}
+    <p class="hero-price-line">
+      <span class="hp-item"><b class="num txt">{{ page.precio_linea_texto.modo }}</b></span> <span class="hp-sep" aria-hidden="true">·</span>
+      <span class="hp-item">{{ page.precio_linea_texto.nota }}</span> <span class="hp-sep" aria-hidden="true">·</span>
+      <a class="hp-item hp-tel" href="tel:{{ g.tel_link }}">{{ g.telefono }}</a>
     </p>
 {%- elif page.ofertas %}
     <div class="hero-offers">

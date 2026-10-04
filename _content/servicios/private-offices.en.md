@@ -14,6 +14,7 @@ hero_caption: "Office at Capitán Haya, Madrid"
 eyebrow: Private offices
 service_type: Private office rental
 csv_key: despachos
+precio_linea: true   # precio en una linea arriba; las cajas bajan a la seccion de precio
 wa_msg: "Hello, I am interested in renting a private office"
 galeria:
   - { foto: /assets/img/despachos/gasset.jpg, alt: "Single office with desk, computer and phone at the OficinasYA! Gasset centre, Madrid", titulo: "Single office", sub: "Gasset, Madrid", dato: "from 13 m²" }
