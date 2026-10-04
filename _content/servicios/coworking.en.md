@@ -82,17 +82,11 @@ It is the formula for freelancers and remote professionals who do not want to wo
 
 The network brings together more than {{ g.empresas }} companies, and the [Comunidad Naranja]({{ urls.comunidad }}) is the directory where they find each other.
 
-## The three centres with coworking
+## Price
 
-[[tarjetas]]
+The desk fee is contracted by the month, with no minimum term, and depends on the centre. Ask for the price of the centre you are interested in.
 
-[[donde]]
-
-## Hot desking for clients: not the same as coworking
-
-At the other {{ g.espacios - 3 }} spaces in the network, coworking desks are not sold. What exists is **hot desking for clients**: if you already have a monthly office, a virtual office or Smart Office at any centre, you can work from a desk at any of the {{ g.espacios }} spaces in {{ g.ciudades }} cities when you are away from your own.
-
-You arrive, identify yourself at reception and work. It is not contracted separately and is not open to non-clients; it is a benefit of being one, and the one travelling clients use most.
+> If you need somewhere to work for a few loose hours rather than a fixed desk, the option is the office by the hour, from €{{ p.despacho_hora }} per hour + VAT, available across the whole network. All prices are shown without VAT.
 
 ## What it includes
 
@@ -102,14 +96,20 @@ What it does not include is what belongs to the private office: a closed space f
 
 [[incluye]]
 
-## Price
+## Hot desking for clients: not the same as coworking
 
-The desk fee is contracted by the month, with no minimum term, and depends on the centre. Ask for the price of the centre you are interested in.
+At the other {{ g.espacios - 3 }} spaces in the network, coworking desks are not sold. What exists is **hot desking for clients**: if you already have a monthly office, a virtual office or Smart Office at any centre, you can work from a desk at any of the {{ g.espacios }} spaces in {{ g.ciudades }} cities when you are away from your own.
 
-> If you need somewhere to work for a few loose hours rather than a fixed desk, the option is the office by the hour, from €{{ p.despacho_hora }} per hour + VAT, available across the whole network. All prices are shown without VAT.
+You arrive, identify yourself at reception and work. It is not contracted separately and is not open to non-clients; it is a benefit of being one, and the one travelling clients use most.
 
 ## How to sign up
 
 [[pasos]]
 
 When the team grows, the move to a private office happens at the same centre and with the same contact person: no relocation, just one more door.
+
+## The three centres with coworking
+
+[[tarjetas]]
+
+[[donde]]

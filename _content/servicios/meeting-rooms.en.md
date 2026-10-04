@@ -90,6 +90,14 @@ Every centre in the network has at least one equipped meeting room, and most hav
 
 [[perfiles]]
 
+## Price
+
+Rooms are charged by the hour and the rate depends on two things: the room's capacity and the centre.
+
+A four-person room in a small city and a 200-seat auditorium do not cost the same, and a single "from" price that fitted neither would make no sense. Ask for the price of the specific room you need and we will give it to you on the spot. All prices are shown without VAT.
+
+> If you are a monthly office client, at several centres your fee includes meeting-room hours each month; check the details of yours. Virtual office and Smart Office clients book rooms and offices by the hour at the same hourly rate.
+
 [[galeria]]
 
 [[formas]]
@@ -107,14 +115,6 @@ The centre's reception welcomes your visitors, in other languages too, and shows
 Catering is contracted separately and on request: a working breakfast, a mid-morning break or lunch for a full-day session. You order it when booking and it is served at the agreed time. Parking depends on the centre; each city page says which ones have it.
 
 [[incluye]]
-
-## Price
-
-Rooms are charged by the hour and the rate depends on two things: the room's capacity and the centre.
-
-A four-person room in a small city and a 200-seat auditorium do not cost the same, and a single "from" price that fitted neither would make no sense. Ask for the price of the specific room you need and we will give it to you on the spot. All prices are shown without VAT.
-
-> If you are a monthly office client, at several centres your fee includes meeting-room hours each month; check the details of yours. Virtual office and Smart Office clients book rooms and offices by the hour at the same hourly rate.
 
 ## Layouts: meetings, training and events {: #eventos }
 

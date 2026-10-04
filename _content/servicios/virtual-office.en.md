@@ -91,17 +91,17 @@ To anyone looking for you, your company is on Calle Velázquez in Madrid, Paseo 
 
 [[perfiles]]
 
-## What it includes
-
-[[tarjetas]]
-
-[[incluye]]
-
 ## Price
 
 [[formas]]
 
 If, beyond the address, you are going to use the centre with some regularity, the formula you want is Smart Office, explained below.
+
+## What it includes
+
+[[tarjetas]]
+
+[[incluye]]
 
 ## Smart Office: what you want, how you want it, when you want it {: #smart-office }
 

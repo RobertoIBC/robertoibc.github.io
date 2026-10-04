@@ -91,17 +91,17 @@ Para quien te busca, tu empresa está en la calle Velázquez de Madrid, en el pa
 
 [[perfiles]]
 
+## Precio
+
+[[formas]]
+
+Si además de la dirección vas a usar el centro con cierta regularidad, la fórmula que te interesa es Smart Office, que se explica más abajo.
+
 ## Qué incluye
 
 [[tarjetas]]
 
 [[incluye]]
-
-## Precio
-
-[[formas]]
-
-Si además de la dirección vas a usar el centro con cierta regularidad, la fórmula que te interesa es Smart Office, que se explica a continuación.
 
 ## Smart Office: lo que quieres, como quieres, cuando quieres {: #smart-office }
 

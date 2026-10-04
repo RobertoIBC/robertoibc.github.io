@@ -82,17 +82,11 @@ Es la fórmula para autónomos y profesionales que trabajan en remoto y no quier
 
 La red reúne a más de {{ g.empresas }} empresas, y la [Comunidad Naranja]({{ urls.comunidad }}) es el directorio donde se encuentran unas a otras.
 
-## Los tres centros con coworking
+## Precio
 
-[[tarjetas]]
+La cuota del puesto se contrata por meses, sin permanencia, y depende del centro. Pide precio para el centro que te interese.
 
-[[donde]]
-
-## Hot desk para clientes: no es lo mismo que el coworking
-
-En los otros {{ g.espacios - 3 }} espacios de la red no se contratan puestos de coworking. Lo que existe es el **hot desk para clientes**: si ya tienes un despacho mensual, una oficina virtual o Smart Office en cualquier centro, puedes trabajar desde un puesto de cualquiera de los {{ g.espacios }} espacios de las {{ g.ciudades }} ciudades cuando estás fuera de tu ciudad.
-
-Llegas, te identificas en recepción y trabajas. No se contrata aparte ni está abierto a quien no es cliente; es una ventaja de serlo, y la que más usan los clientes que viajan.
+> Si necesitas un sitio donde trabajar unas horas sueltas y no un puesto fijo, la opción es el despacho por horas, desde {{ p.despacho_hora }} € la hora + IVA, disponible en toda la red. Todos los precios se muestran sin IVA.
 
 ## Qué incluye
 
@@ -102,14 +96,20 @@ Lo que no incluye es lo que corresponde al despacho privado: un espacio cerrado 
 
 [[incluye]]
 
-## Precio
+## Hot desk para clientes: no es lo mismo que el coworking
 
-La cuota del puesto se contrata por meses, sin permanencia, y depende del centro. Pide precio para el centro que te interese.
+En los otros {{ g.espacios - 3 }} espacios de la red no se contratan puestos de coworking. Lo que existe es el **hot desk para clientes**: si ya tienes un despacho mensual, una oficina virtual o Smart Office en cualquier centro, puedes trabajar desde un puesto de cualquiera de los {{ g.espacios }} espacios de las {{ g.ciudades }} ciudades cuando estás fuera de tu ciudad.
 
-> Si necesitas un sitio donde trabajar unas horas sueltas y no un puesto fijo, la opción es el despacho por horas, desde {{ p.despacho_hora }} € la hora + IVA, disponible en toda la red. Todos los precios se muestran sin IVA.
+Llegas, te identificas en recepción y trabajas. No se contrata aparte ni está abierto a quien no es cliente; es una ventaja de serlo, y la que más usan los clientes que viajan.
 
 ## Cómo se contrata
 
 [[pasos]]
 
 Cuando el equipo crezca, el cambio a un despacho privado se hace en el mismo centro y con el mismo interlocutor: no hay mudanza, solo una puerta más.
+
+## Los tres centros con coworking
+
+[[tarjetas]]
+
+[[donde]]

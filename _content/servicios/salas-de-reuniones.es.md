@@ -90,6 +90,14 @@ Cada centro de la red tiene al menos una sala de reuniones equipada, y la mayor�
 
 [[perfiles]]
 
+## Precio
+
+Las salas se pagan por horas y la tarifa depende de dos cosas: la capacidad de la sala y el centro.
+
+Una sala de cuatro personas en una ciudad pequeña y un auditorio de 200 no cuestan lo mismo, y no tendría sentido publicar un único «desde» que no sirviera para ninguna de las dos. Pide precio para la sala concreta que necesitas y te lo damos en el momento. Todos los precios son sin IVA.
+
+> Si eres cliente de despacho mensual, en varios centros la cuota incluye horas de sala al mes; consulta el detalle del tuyo. Los clientes de oficina virtual y Smart Office reservan salas y despachos por horas con la misma tarifa por horas.
+
 [[galeria]]
 
 [[formas]]
@@ -107,14 +115,6 @@ La recepción del centro atiende a tus visitas, también en otros idiomas, y les
 El catering se contrata aparte y a petición: un desayuno de trabajo, un descanso a media mañana o un almuerzo para una jornada completa. Lo pides al reservar y está servido a la hora acordada. El parking depende del centro; en la ficha de cada ciudad se indica cuáles lo tienen.
 
 [[incluye]]
-
-## Precio
-
-Las salas se pagan por horas y la tarifa depende de dos cosas: la capacidad de la sala y el centro.
-
-Una sala de cuatro personas en una ciudad pequeña y un auditorio de 200 no cuestan lo mismo, y no tendría sentido publicar un único «desde» que no sirviera para ninguna de las dos. Pide precio para la sala concreta que necesitas y te lo damos en el momento. Todos los precios son sin IVA.
-
-> Si eres cliente de despacho mensual, en varios centros la cuota incluye horas de sala al mes; consulta el detalle del tuyo. Los clientes de oficina virtual y Smart Office reservan salas y despachos por horas con la misma tarifa por horas.
 
 ## Formatos: reunión, formación y eventos {: #eventos }
 
