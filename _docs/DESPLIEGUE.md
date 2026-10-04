@@ -1,141 +1,147 @@
-# ⚠️ NO BORRES NI SOBRESCRIBAS `enviar.php`. ES EL FORMULARIO DE CONTACTO, LO CREÓ EL TÉCNICO Y NO ESTÁ EN ESTE REPOSITORIO: SI SE PIERDE, NO HAY COPIA. HAZ LA COPIA DE SEGURIDAD DEL PASO 1 ANTES DE TOCAR NADA.
+# ⚠️ ANTES DE NADA: COPIA DE SEGURIDAD DE `/www`. EN EL SERVIDOR HAY FICHEROS QUE NO ESTÁN EN ESTE REPOSITORIO (`enviar.php`, `enviar.config.php`, `.htaccess`, `.php.ini`, LA VERIFICACIÓN DE GOOGLE Y LA TIENDA DE `/oficinavirtual/`). SI SE PIERDEN, NO HAY OTRA COPIA.
 
 # Subir la web a www.oficinasya.es, paso a paso
 
-Para seguirlo en orden, sin saltarse nada. Cada paso dice qué hacer y qué tienes que ver.
-La configuración del servidor (el `.htaccess` y la versión nginx) está en [CONFIGURACION-SERVIDOR.md](CONFIGURACION-SERVIDOR.md).
+Para seguirlo en orden desde el panel web del hosting (gestor de archivos), sin saltarse nada. Cada paso dice qué hacer y qué tienes que ver.
+La configuración del servidor (el bloque para `.htaccess` y la versión nginx) está en [CONFIGURACION-SERVIDOR.md](CONFIGURACION-SERVIDOR.md).
 
-Necesitas: acceso FTP (o el gestor de archivos del hosting) a la raíz de la web, y este repositorio en tu ordenador con `git`.
+## Lo que hay hoy en el servidor
+
+La web se sirve desde **`/www`**, no desde la raíz de la cuenta. Dentro de `/www` hay, además de la web actual:
+
+| Qué | Qué es | Qué se hace |
+|---|---|---|
+| `enviar.php`, `enviar.config.php` | El formulario de contacto y su configuración (del técnico) | **NO SE TOCA** |
+| `.htaccess` (9,4 kB) | Reglas del técnico | Se edita en el paso 6: se añade nuestro bloque **al principio** |
+| `.php.ini` | Configuración de PHP | **NO SE TOCA** |
+| `googlebe6fd46c002206cc.html` | Verificación de Search Console | **NO SE TOCA** (si se borra, se pierde la propiedad) |
+| `oficinavirtual/` | Otra web en marcha: WordPress con WooCommerce («Oficina Virtual de Oficinas YA!») | **NO SE TOCA** |
+| `OLD/` | Núcleo del WordPress anterior, con su `wp-config.php` (credenciales) | **NO SE BORRA** (lo decide el técnico). El `.htaccess` nuevo lo bloquea al público |
+| `newsite/`, `cache/`, `.tmb/`, `.well-known/` | Carpetas del hosting y del panel | **NO SE TOCAN** |
+| `_data/`, `_content/`, `_templates/`, `_tools/`, `_docs/`, `_build.py`, `_build.manifest`, `README.md`, `requirements.txt` | Fuentes del prototipo, subidas por error y **hoy visibles para cualquiera** | **SE BORRAN** en el paso 7 |
 
 ---
 
-## 1. ANTES DE SUBIR NADA: copia de seguridad del servidor
+## 1. COPIA DE SEGURIDAD DE `/www`, ANTES DE SUBIR, SOBRESCRIBIR O BORRAR NADA
 
-**Este es el único paso que no tiene vuelta atrás si te lo saltas.** Todo lo demás se puede deshacer subiendo esta copia. `enviar.php` y el `.htaccess` que haya hoy en el servidor no existen en ningún otro sitio.
+**Es el único paso que no tiene vuelta atrás si te lo saltas.** Todo lo demás se deshace subiendo esta copia.
 
-1. **Antes de subir, sobrescribir o borrar ningún fichero**, conéctate por FTP y descarga **la raíz entera de la web** a una carpeta de tu ordenador llamada `copia-servidor-AAAA-MM-DD`.
-2. Activa «mostrar ficheros ocultos» en el cliente FTP **antes de descargar**: el `.htaccess` empieza por punto y, sin esa opción, ni se ve ni se descarga.
-3. Abre la carpeta de la copia y comprueba que están, y que no pesan 0 bytes:
-   - **`enviar.php`**: tiene que estar sí o sí. Si no está en la copia, para y avisa al técnico.
-   - **`.htaccess`**: si estaba en el servidor, tiene que estar en la copia. Si el servidor no tenía, apúntalo («no había `.htaccess`»), porque lo necesitarás en el paso 5.
-4. Guarda una segunda copia de esa carpeta en otro sitio (otro disco o la nube).
-5. **No sigas al paso 2 hasta tener la copia comprobada.** Si algo sale mal después, se vuelve atrás subiéndola tal cual.
+1. En el gestor de archivos, activa **«mostrar ficheros ocultos»** antes de nada: `.htaccess` y `.php.ini` empiezan por punto y, sin esa opción, ni se ven ni se copian.
+2. Comprime la carpeta **`/www` entera** con la opción «Comprimir» del panel y **descarga el .zip** a tu ordenador. Llámalo `copia-www-AAAA-MM-DD.zip`.
+   Si el panel no deja comprimir algo tan grande (la tienda de `oficinavirtual/` pesa), descarga como mínimo, uno a uno: `.htaccess`, `.php.ini`, `enviar.php`, `enviar.config.php`, `googlebe6fd46c002206cc.html` e `index.html`.
+3. Abre la copia en tu ordenador y comprueba que están **`enviar.php`, `enviar.config.php`, `.htaccess` y `.php.ini`**, y que ninguno pesa 0 bytes. El `.htaccess` debe pesar unos 9,4 kB.
+4. Guarda una segunda copia en otro sitio (otro disco o la nube).
+5. **No sigas hasta tener la copia comprobada.**
 
-## 2. Preparar el paquete
+## 2. El paquete
 
-En la carpeta del repositorio, con todo commiteado, ejecuta:
+El paquete ya está hecho: **`oficinasya-subida-www.zip`** (9,4 MB, 254 ficheros). Lleva exactamente lo que va a `/www`:
+- las 66 páginas (`index.html` y las carpetas de cada página, incluida `en/`);
+- `assets/` (imágenes, favicon);
+- en la raíz: `favicon.ico`, `robots.txt`, `sitemap.xml`, `llms.txt` y los `.html` del prototipo (`ubicaciones.html`, `blog.html`…), que el `.htaccess` convierte en 301.
+
+No lleva nada de lo que empieza por `_`, ni `README.md`, ni `requirements.txt`, ni `.htaccess`, ni `enviar.php`.
+
+Para volver a generarlo desde el repositorio, con todo commiteado:
 
 ```
-git archive --format=zip -o oficinasya-web.zip HEAD -- . ":(exclude)_*" ":(exclude).gitignore" ":(exclude)README.md" ":(exclude)requirements.txt"
+git archive --format=zip -o oficinasya-subida-www.zip HEAD -- . ":(exclude)_*" ":(exclude).gitignore" ":(exclude)README.md" ":(exclude)requirements.txt"
 ```
 
-Sale `oficinasya-web.zip`, de unos 12 MB y 254 ficheros. Descomprímelo en una carpeta `subir/`. **Lo que hay en `subir/` es exactamente lo que se sube.**
+## 3. Lo que NO se toca bajo ningún concepto
 
-## 3. Qué se sube y qué no
+Ni se borra, ni se sobrescribe, ni se mueve:
 
-**SE SUBE** (todo lo que hay en `subir/`):
-- las carpetas de página: `alquiler-de-despachos/`, `salas-de-reuniones/`, `oficina-virtual/`, `coworking/`, `ubicaciones/`, `comunidad/`, `blog/`, `aviso-legal/`, `politica-de-cookies/`, `politica-de-privacidad/`, las 17 `oficinas-en-…/`, los 10 artículos y `en/` entera;
-- `assets/` (imágenes, entre ellas las nuevas de `assets/img/favicon/`, `home/`, `hub/` y `blog/`);
-- en la raíz: `index.html`, `favicon.ico`, `robots.txt`, `sitemap.xml`, `llms.txt`;
-- en la raíz, los `.html` del prototipo (`ubicaciones.html`, `comunidad.html`, `blog.html`, `aviso-legal.html`, `cookies.html`, `privacidad.html`). Son redirecciones; el `.htaccess` las convierte en 301.
+- **`enviar.php`** y **`enviar.config.php`**
+- **`.php.ini`**
+- **`googlebe6fd46c002206cc.html`**
+- **`oficinavirtual/`** (la tienda)
+- **`OLD/`**, **`newsite/`**, **`cache/`**, **`.tmb/`**, **`.well-known/`**
 
-**NO SE SUBE NUNCA:**
-- `_build.py`, `_build.manifest`, `_data/`, `_content/`, `_templates/`, `_tools/`, `_docs/`, `_hooks/` (las fuentes);
-- `README.md`, `requirements.txt`, `.gitignore`, `.git/`, `.claude/`;
-- `datos-centros.csv`, `fotos_nuevas/`, `__pycache__/`, `__b5.py` (ficheros locales; no están en el paquete).
+El `.htaccess` solo se **edita** (paso 6), nunca se sustituye entero.
 
-**NO SE TOCA EN EL SERVIDOR:**
-- **`enviar.php`**: no está en el paquete; no lo borres ni subas nada con ese nombre;
-- **`.htaccess`**: se sustituye en el paso 5, no antes.
+## 4. Subir el paquete
 
-## 4. Subir, en este orden (para que la web no quede rota a medias)
+1. Sube **`oficinasya-subida-www.zip`** a **`/www`**.
+2. Descomprímelo **en `/www` mismo** (no en una subcarpeta), con la opción **«sobrescribir los existentes»**.
+   El zip no contiene ninguno de los ficheros del paso 3, así que no los toca. Las páginas se sustituyen todas a la vez, en segundos.
+3. Borra `oficinasya-subida-www.zip` de `/www` cuando termine de descomprimir.
 
-Sube **encima** de lo que hay, sobrescribiendo. **No borres antes la carpeta del servidor**: así `enviar.php` se queda donde está.
-
-1. `assets/` entera y `favicon.ico`. Son ficheros nuevos o iguales: la web en vivo no cambia todavía.
-2. `en/` y todas las carpetas de página. Sobrescribe los `index.html`.
+**Si el panel no puede descomprimir**, sube las carpetas a mano, en este orden, para que ninguna página nueva apunte a una imagen que aún no está:
+1. `assets/` entera y `favicon.ico`.
+2. `en/` y todas las carpetas de página.
 3. Los ficheros de la raíz: `index.html`, `robots.txt`, `sitemap.xml`, `llms.txt` y los `.html` del prototipo.
-4. Abre `https://www.oficinasya.es/` en una ventana privada. Tiene que verse bien, con imágenes e icono en la pestaña. Si algo falla, para aquí y vuelve a subir la copia del paso 1.
 
-## 5. El `.htaccess` (lo último)
+## 5. Primera comprobación
 
-1. Abre [CONFIGURACION-SERVIDOR.md](CONFIGURACION-SERVIDOR.md) y copia **entero** el bloque «Apache: `.htaccess`».
-2. Si en la copia del paso 1 **no había** `.htaccess`: crea un fichero de texto llamado exactamente `.htaccess`, pega el bloque y súbelo a la raíz.
-3. Si **sí había** `.htaccess`: ábrelo, pega el bloque **al principio**, deja debajo lo que tuviera y súbelo.
+Abre `https://www.oficinasya.es/` en una ventana privada. Tiene que verse la web nueva, con imágenes y el icono naranja en la pestaña.
+**Si algo falla, para aquí** y sube la copia del paso 1.
+
+## 6. El `.htaccess` (lo último que se cambia)
+
+1. En el gestor de archivos, abre **`/www/.htaccess`** con el editor del panel.
+2. Abre [CONFIGURACION-SERVIDOR.md](CONFIGURACION-SERVIDOR.md) y copia **entero** el bloque «Apache: `.htaccess`».
+3. Pégalo **al principio** del `.htaccess`, antes de la primera línea que ya había, y **deja debajo todo lo que tenía**. Guarda.
 4. Abre `https://oficinasya.es/` (sin www). Tiene que acabar en `https://www.oficinasya.es/`.
-   - Si da «Error 500», sube el `.htaccess` de la copia del paso 1 (o bórralo si no había) y avisa al técnico.
-   - Si no da error pero no cambia a www, el servidor no lee `.htaccess`: manda al hosting el bloque nginx de CONFIGURACION-SERVIDOR.md.
+   - Si da **«Error 500»**: vuelve a poner el `.htaccess` de la copia del paso 1 y avisa al técnico.
+   - Si no da error pero no cambia a www: el servidor no lee `.htaccess`. Manda al hosting el bloque nginx de CONFIGURACION-SERVIDOR.md.
 
-## 6. Borrar del servidor lo que no debe estar
+## 7. Borrar las fuentes que se subieron por error
 
-Hoy el servidor tiene expuestas las fuentes del prototipo. Con el `.htaccess` ya dan 404, pero bórralas igual. Borra **solo** esto, si existe en la raíz:
+Están en `/www` y hoy cualquiera puede descargarlas (`/_build.py` y `/_data/centros.csv` responden). Con el `.htaccess` nuevo ya dan 404, pero hay que borrarlas. Borra **solo** esto, si existe en `/www`:
 
-`_build.py`, `_build.manifest`, `_data/`, `_content/`, `_templates/`, `_tools/`, `_docs/`, `_hooks/`, `README.md`, `requirements.txt`
+- las carpetas `_data/`, `_content/`, `_templates/`, `_tools/`, `_docs/`, `_hooks/`
+- los ficheros `_build.py`, `_build.manifest`, `README.md`, `requirements.txt`
 
-No borres nada más. **`enviar.php` se queda.**
+**Nada más.** Repasa la lista del paso 3 antes de confirmar cada borrado.
 
-## 7. Comprobaciones (en este orden)
+## 8. Comprobaciones, en este orden
 
-Ábrelas en una ventana privada para que el navegador no use lo que tenía guardado. Al lado de cada una va un comando opcional para PowerShell: `curl.exe` viene con Windows.
+Ábrelas en una ventana privada. Al lado va un comando opcional para PowerShell (`curl.exe` viene con Windows).
 
-1. **Sin noindex.** Abre `view-source:https://www.oficinasya.es/`, pulsa Ctrl+F y busca `noindex`.
-   Debe decir **0 resultados**. (`curl.exe -s https://www.oficinasya.es/ | findstr noindex` no debe sacar nada.)
-2. **Canonical con www.** En esa misma vista, busca `canonical`.
-   Debe verse `<link rel="canonical" href="https://www.oficinasya.es/" />`.
-3. **Tres URLs antiguas redirigen con 301.** Ábrelas y mira en qué dirección acabas:
+1. **El servidor lee el `.htaccess`.** `https://oficinasya.es/` → acaba en `https://www.oficinasya.es/`, sin «Error 500».
+2. **Sin bucle con el https del hosting.** `http://oficinasya.es/blog` → acaba en `https://www.oficinasya.es/blog/` y la página carga.
+3. **Sin noindex y con canonical bueno.** En `view-source:https://www.oficinasya.es/` (Chrome; en iPhone, desde el ordenador): buscar «noindex» da 0 resultados, y buscar «canonical» muestra `href="https://www.oficinasya.es/"`.
+4. **Las URLs antiguas redirigen.**
    - `https://www.oficinasya.es/despachos/` → `https://www.oficinasya.es/alquiler-de-despachos/`
-   - `https://www.oficinasya.es/centros/madrid-serrano/` → `https://www.oficinasya.es/oficinas-en-madrid/#serrano` (baja directo a la ficha de Serrano)
-   - `https://www.oficinasya.es/category/blog/page/2/` → `https://www.oficinasya.es/blog/`
-
-   Para ver que es 301: `curl.exe -sI https://www.oficinasya.es/despachos/` → `HTTP/1.1 301` y `Location: https://www.oficinasya.es/alquiler-de-despachos/`.
-4. **Las fuentes no se ven.** Estas cuatro deben dar **404 (Not Found)**:
+   - `https://www.oficinasya.es/centros/madrid-serrano/` → `https://www.oficinasya.es/oficinas-en-madrid/#serrano`
+   - `curl.exe -sI https://www.oficinasya.es/despachos/` → `301` y `Location: https://www.oficinasya.es/alquiler-de-despachos/`
+5. **Las fuentes y el WordPress viejo no se ven.** Deben dar **404**:
    - `https://www.oficinasya.es/_build.py`
    - `https://www.oficinasya.es/_data/centros.csv`
-   - `https://www.oficinasya.es/README.md`
-   - `https://www.oficinasya.es/requirements.txt`
-5. **Sin www va a www.** Abre `https://oficinasya.es/` y también `https://oficinasya.es/coworking/`.
-   La barra de direcciones debe acabar en `https://www.oficinasya.es/` y `https://www.oficinasya.es/coworking/`.
-   (`curl.exe -sI https://oficinasya.es/` → `301` y `Location: https://www.oficinasya.es/`.)
-6. **Favicon.** Abre `https://www.oficinasya.es/favicon.ico`: se ve el icono naranja.
-   En la pestaña de `https://www.oficinasya.es/` aparece ese icono. Si no sale, cierra la pestaña y ábrela en ventana privada: los navegadores guardan el favicon mucho tiempo.
-7. **Imágenes de la home.** Abre `https://www.oficinasya.es/`, pulsa F12, ve a la pestaña **Red** (Network), filtra por **Img** y recarga.
-   Ninguna fila en rojo. Baja la página entera y comprueba que se ven:
-   - los dos iconos de las tarjetas de servicio (sin emoji);
-   - la foto de «Crece sin límites»;
-   - los tres avatares de los testimonios;
-   - las tres tarjetas del blog.
-8. **Carpeta sin barra en un salto.** `curl.exe -sI https://www.oficinasya.es/blog` → `301` y `Location: https://www.oficinasya.es/blog/` (con **https**).
-9. **El formulario funciona:** ver el apartado 8.
+   - `https://www.oficinasya.es/OLD/wp-login.php`
+6. **Lo del técnico sigue ahí.**
+   - `https://www.oficinasya.es/enviar.php` → se ve `{"ok":false}`. Si sale 404, sube el `enviar.php` de la copia **ya**.
+   - `https://www.oficinasya.es/googlebe6fd46c002206cc.html` → se ve `google-site-verification: googlebe6fd46c002206cc.html`.
+7. **El formulario envía de verdad.** Ver el apartado 9.
+8. **La tienda sigue funcionando.** `https://www.oficinasya.es/oficinavirtual/` → carga igual que antes de la subida. Si da error, quita nuestro bloque del `.htaccess` (vuelve a poner el de la copia) y avisa al técnico.
+9. **La home se ve completa.** `https://www.oficinasya.es/` en ventana privada:
+   - el icono naranja en la pestaña;
+   - «Disponible desde YA!» en una línea;
+   - los iconos de las tarjetas de servicio, sin emoji;
+   - la foto de «Crece sin límites», los 3 avatares de los testimonios y las 3 tarjetas del blog.
 
-## 8. El formulario
+## 9. El formulario
 
-`enviar.php` lo escribió el técnico: el destinatario y el remitente están **dentro de ese fichero**, en el servidor. Desde aquí no se puede saber a qué dirección llegan los mensajes, porque el servidor ejecuta el PHP y nunca lo enseña. **Pregúntaselo al técnico**, o abre `enviar.php` desde la copia del paso 1: es texto y las direcciones están arriba.
+`enviar.php` lo escribió el técnico: el destinatario y el remitente están en `enviar.config.php` (o dentro de `enviar.php`), en el servidor. Desde fuera no se puede saber a qué dirección llegan los mensajes. **Pregúntaselo al técnico**, o míralo en la copia del paso 1.
 
-Para probarlo:
-1. En `https://www.oficinasya.es/#contact` rellena el formulario con nombre `PRUEBA – no contestar`, tu teléfono y tu email, y en el mensaje escribe la fecha y la hora.
-2. El botón debe ponerse verde: «✓ Enviado, te contactamos pronto!». Si se pone rojo («✗ No se pudo enviar»), el problema está en `enviar.php` o en el correo del hosting: avisa al técnico.
-3. Comprueba que el correo llega a la dirección que te diga el técnico. Mira también la carpeta de spam.
+1. En `https://www.oficinasya.es/#contact`, rellena el formulario con nombre «PRUEBA – no contestar», tu teléfono y tu email, y en el mensaje la fecha y la hora.
+2. El botón debe ponerse verde: «✓ Enviado, te contactamos pronto!». Si se pone rojo («✗ No se pudo enviar»), avisa al técnico.
+3. Comprueba que el correo llega, también en la carpeta de spam.
 4. Repite en inglés: `https://www.oficinasya.es/en/#contact`.
-5. Newsletter: en `https://www.oficinasya.es/blog/`, abajo, suscribe tu email. Debe salir «✓ Suscrito!» y llegar el aviso a la misma dirección.
+5. Newsletter: en `https://www.oficinasya.es/blog/`, abajo, suscribe tu email. Debe salir «✓ Suscrito!».
 
-## 9. Google Search Console
+## 10. Google Search Console
 
-1. Entra en https://search.google.com/search-console y mira qué propiedad hay para el sitio:
-   - **Propiedad de dominio `oficinasya.es`**: cubre con y sin www. Sigue en el punto 2.
-   - **Solo una propiedad de prefijo `https://oficinasya.es/` (sin www)**: no la borres. Añade otra con «Añadir propiedad» → **Prefijo de la URL** → `https://www.oficinasya.es/`. Verifícala con la opción «Etiqueta HTML» o con Google Analytics si está; si no se puede, pide al hosting que verifique por DNS una propiedad de **Dominio**, que es la mejor opción porque cubre las dos.
-   - **No uses «Cambio de dirección»**: es para cambiar de dominio, y aquí el dominio es el mismo.
-2. En la propiedad de www (o en la de dominio): menú **Sitemaps** → escribe `sitemap.xml` → **Enviar**.
-   A las pocas horas el estado debe ser «Correcto», con **66** URLs descubiertas.
-3. Menú **Inspección de URLs** → pega `https://www.oficinasya.es/` → **Solicitar indexación**. Repite con `https://www.oficinasya.es/alquiler-de-despachos/` y `https://www.oficinasya.es/oficinas-en-madrid/`.
-4. Dentro de 1 o 2 semanas, en **Páginas**:
-   - es normal que crezca «Página con redirección»: son las URLs antiguas;
-   - no debe crecer «No se ha encontrado (404)» con URLs del WordPress antiguo; si crece, pásale la lista al técnico.
+La verificación por fichero (`googlebe6fd46c002206cc.html`) ya está en `/www`, así que la propiedad existe. Mientras no se borre ese fichero, sigue verificada.
 
-## 10. GitHub Pages (el prototipo)
-
-El repositorio también se publica en `https://robertoibc.github.io/`. Desde este commit, esa copia **ya no lleva noindex**: Google la puede indexar, aunque su canonical apunta a www.oficinasya.es.
-Cuando la web real esté en marcha, desactiva GitHub Pages: en GitHub, el repositorio → **Settings** → **Pages** → **Source: None** (o «Unpublish site»).
+1. Entra en https://search.google.com/search-console y comprueba qué propiedad es: de **dominio** `oficinasya.es`, o de **prefijo** `https://www.oficinasya.es/` o `https://oficinasya.es/`.
+   - Si solo hay una de prefijo **sin www**, no la borres: añade otra de prefijo `https://www.oficinasya.es/`; el mismo fichero de verificación sirve.
+   - No uses «Cambio de dirección»: el dominio es el mismo.
+2. En la propiedad de www (o la de dominio): **Sitemaps** → escribe `sitemap.xml` → **Enviar**. A las pocas horas debe estar «Correcto», con **66** URLs.
+3. **Inspección de URLs** → `https://www.oficinasya.es/` → **Solicitar indexación**. Repite con `/alquiler-de-despachos/` y `/oficinas-en-madrid/`.
+4. Dentro de 1 o 2 semanas, en **Páginas**: es normal que crezca «Página con redirección» (las URLs antiguas); no debe crecer «No se ha encontrado (404)» con URLs del WordPress antiguo.
 
 ## Si algo sale mal
 
-Sube la carpeta `copia-servidor-AAAA-MM-DD` del paso 1 tal cual, sobrescribiendo. La web vuelve a estar como antes, con `enviar.php` y el `.htaccess` originales.
+Sube la copia del paso 1 a `/www`, sobrescribiendo. La web vuelve a estar como antes, con `enviar.php`, `enviar.config.php`, `.htaccess` y `.php.ini` originales. La tienda de `oficinavirtual/` no se habrá tocado en ningún momento.

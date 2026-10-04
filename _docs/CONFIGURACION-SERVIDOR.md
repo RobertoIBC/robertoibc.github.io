@@ -1,7 +1,7 @@
 # Configuración del servidor de www.oficinasya.es
 
-**Qué pegar:** el bloque Apache de abajo, entero, en un fichero llamado `.htaccess`.
-**Dónde:** en la raíz de la web del servidor, la misma carpeta donde están `index.html` y `enviar.php`.
+**Qué pegar:** el bloque Apache de abajo, entero, **al principio** del `.htaccess` que ya existe en `/www` (9,4 kB), sin borrar lo que tiene.
+**Dónde:** `/www/.htaccess`, la carpeta donde están `index.html` y `enviar.php`.
 **Cómo comprobarlo:** abre `https://oficinasya.es/` (sin www): tiene que acabar en `https://www.oficinasya.es/`. Si no cambia, el servidor no lee `.htaccess`: ve a «¿Apache o nginx?».
 
 El paso a paso completo de la subida está en [DESPLIEGUE.md](DESPLIEGUE.md). Este fichero solo contiene la configuración.
@@ -23,6 +23,7 @@ Si no pasa nada, el servidor es nginx o tiene `.htaccess` desactivado. En ese ca
    No hay regla de http → https porque el hosting ya la hace delante de Apache. Añadir una regla `%{HTTPS} off` detrás de un proxy puede crear un bucle de redirecciones.
 2. **Bloqueo** de las fuentes y ficheros internos (responden 404, como si no existieran):
    - todo lo que empieza por `_` en la raíz: `_data`, `_content`, `_templates`, `_tools`, `_docs`, `_hooks`, `_build.py`, `_build.manifest`;
+   - `/OLD/`, el núcleo del WordPress anterior;
    - los ficheros ocultos (`.git`, `.claude`, `.env`…), menos `.well-known`;
    - `README.md`, `requirements.txt`, `datos-centros.csv`;
    - cualquier `.py`, `.pyc`, `.md`, `.yml`, `.yaml`, `.csv` o `.manifest`.
@@ -39,7 +40,9 @@ Si no pasa nada, el servidor es nginx o tiene `.htaccess` desactivado. En ese ca
 
 Se genera con `python _build.py --htaccess` (Apache) y `python _build.py --nginx` desde `_data/redirects.yml`. Si cambia una redirección, se cambia allí y se vuelve a generar: el bloque no se edita a mano.
 
-**Si el servidor ya tenía un `.htaccess`** (míralo en la copia de seguridad): no lo borres. Pega este bloque **al principio** y deja debajo lo que hubiera. Si después la web da «Error 500», vuelve a subir el `.htaccess` de la copia y avisa al técnico.
+**El servidor ya tiene un `.htaccess` (9,4 kB, del técnico)**: no lo borres. Pega este bloque **al principio** y deja debajo todo lo que tenía. Si después la web da «Error 500», vuelve a subir el `.htaccess` de la copia y avisa al técnico.
+
+**`/oficinavirtual/` es otra web en marcha** (WordPress con WooCommerce, «Oficina Virtual de Oficinas YA!»). Estas reglas no la tocan: las redirecciones y los bloqueos van anclados a la raíz, y si esa carpeta tiene su propio `.htaccess` (un WordPress con enlaces amigables lo necesita: compruébalo en la copia del paso 1), Apache no le aplica estas reglas de reescritura. En cualquier caso, la comprobación 8 de DESPLIEGUE.md verifica que la tienda sigue funcionando. **`/OLD/`** (el núcleo del WordPress anterior, con su `wp-config.php`) queda bloqueado al público con un 404; borrarlo lo decide el técnico.
 
 ---
 
@@ -61,6 +64,9 @@ RewriteRule ^(.*)$ https://www.oficinasya.es/$1 [R=301,L]
 #    Todo lo que empieza por "_" en la raiz (_data, _content, _templates, _tools, _docs, _hooks,
 #    _build.py, _build.manifest...), los ficheros ocultos menos .well-known, y estos nombres y extensiones.
 RewriteRule ^_ - [R=404,L]
+#    OLD/ es el nucleo del WordPress anterior (con su wp-config.php): sigue ejecutando PHP en el
+#    servidor. Se bloquea al publico; borrarlo lo decide el tecnico. /oficinavirtual/ (la tienda) no se toca.
+RewriteRule ^OLD(/|$) - [R=404,L]
 RewriteRule (^|/)\.(?!well-known/) - [R=404,L]
 RewriteRule (^|/)(requirements\.txt|datos\-centros\.csv|README\.md)$ - [R=404,L]
 RewriteRule \.(py|pyc|md|ya?ml|csv|manifest)$ - [R=404,L]
@@ -991,6 +997,7 @@ server {
 
 # ---- C) Dentro del server { } de www.oficinasya.es, antes de cualquier otro location.
 location ~ ^/_ { return 404; }
+location ^~ /OLD/ { return 404; }   # nucleo del WordPress anterior; /oficinavirtual/ no se toca
 location ~ /\.(?!well-known/) { return 404; }
 location ~ (^|/)(requirements\.txt|datos\-centros\.csv|README\.md)$ { return 404; }
 location ~ \.(py|pyc|md|ya?ml|csv|manifest)$ { return 404; }
