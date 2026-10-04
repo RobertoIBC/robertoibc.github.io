@@ -397,7 +397,9 @@
     .srv-feature { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 20px 22px; }
     .srv-feature h3 { margin: 0 0 8px; font-size: 1.1rem; }
     .srv-feature.has-photo { padding: 0 0 20px; overflow: hidden; }
-    .srv-feature.has-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; margin-bottom: 16px; }
+    /* height: auto para que mande el aspect-ratio y no el height del fichero: con las medidas reales en la etiqueta de imagen,
+       una foto mas pequena (Urquinaona, 416x312) salia mas baja y descolocaba su tarjeta */
+    .srv-feature.has-photo img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; display: block; margin-bottom: 16px; }
     .srv-feature.has-photo h3, .srv-feature.has-photo p { padding: 0 22px; }
     .srv-feature p { margin: 0; font-size: .95rem; line-height: 1.65; }
     .srv-table-wrap { margin: 18px 0 28px; border: 1.5px solid var(--gray-200); border-radius: 18px; overflow-x: auto; }
