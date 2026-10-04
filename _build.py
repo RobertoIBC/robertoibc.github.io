@@ -512,6 +512,17 @@ def jpeg_size(path):
     return None
 
 
+_SEGMENTOS = re.compile(r'(<script\b.*?</script>|<style\b.*?</style>|<[^>]+>)', re.S)
+_UNIDAD = re.compile(r'(\d) (m²|€)')
+
+
+def no_partir_unidades(html):
+    """Espacio no separable entre un numero y su unidad ("30 m²", "270 €") en el texto visible, para que la
+    unidad no se quede sola al principio de una linea. No toca atributos, <script> (JSON-LD) ni <style>."""
+    partes = _SEGMENTOS.split(html)
+    return ''.join(x if i % 2 else _UNIDAD.sub(lambda m: m.group(1) + ' ' + m.group(2), x) for i, x in enumerate(partes))
+
+
 def slugify(text):
     import unicodedata
     t = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
@@ -777,6 +788,7 @@ def build(check=False):
                 p['jsonld'] = to_jsonld(jsonld_hub(p, site, lang, t, cities_ctx, urls))
             src = f'{{% extends "layouts/{p.layout}.html" %}}\n' + p['body']
             html = env.from_string(src).render(ctx)
+        html = no_partir_unidades(html)
 
         out = ROOT / url_to_path(p.url)
         outputs.add(out)

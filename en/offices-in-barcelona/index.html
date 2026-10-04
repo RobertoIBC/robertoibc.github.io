@@ -237,8 +237,8 @@
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 18px 14px; font-size: .8rem; font-weight: 600; color: var(--white); background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)); }
     @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } .hero-photo { aspect-ratio: 16 / 9; } .hero-grid + .hero-btns { margin-top: 28px; } }
-    /* Texto largo a 68 caracteres por linea como maximo (fichas de centro y respuestas de FAQ) */
-    .centre-text p, .faq-item p, .faq-acc p { max-width: 68ch; }
+    /* Texto largo a 65-75 caracteres por linea, medido: 56ch (ch es el ancho del "0"; el texto medio es mas estrecho) */
+    .centre-text p, .faq-item p, .faq-acc p { max-width: 56ch; }
     .page-hero::before { content: ''; position: absolute; top: -220px; right: -160px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.14) 0%, transparent 65%); }
     .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
@@ -258,21 +258,23 @@
     .stitle { font-family: 'Barlow', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--dark); margin: 0 auto 14px; }
     .ssub { color: var(--gray-600); font-size: 1.05rem; }
     .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .faq-item { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 26px 28px; }
+    .faq-item { background: var(--white); border: var(--card-border); border-radius: var(--radius); padding: 26px 28px; }
     .faq-item h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin-bottom: 10px; }
     .faq-item p { color: var(--gray-600); font-size: .95rem; line-height: 1.7; }
     /* acordeon (servicios): una columna, cerradas salvo la primera; el texto siempre esta en el HTML */
     .faq-acc { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-    .faq-acc details { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 0 28px; }
+    .faq-acc details { background: var(--white); border: var(--card-border); border-radius: var(--radius); padding: 0 28px; }
     .faq-acc details[open] { border-color: var(--dark); }
     .faq-acc summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; min-height: 44px; }
     .faq-acc summary::-webkit-details-marker { display: none; }
     .faq-acc summary h3 { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--dark); line-height: 1.25; margin: 0; }
-    .faq-acc summary::after { content: ''; flex: 0 0 10px; width: 10px; height: 10px; border-right: 2px solid var(--dark); border-bottom: 2px solid var(--dark); transform: rotate(45deg); transition: transform .2s; margin-right: 4px; }
-    .faq-acc details[open] summary::after { transform: rotate(-135deg); }
+    .faq-acc summary::after { content: ''; flex: 0 0 10px; width: 10px; height: 10px; border-right: 2px solid var(--dark); border-bottom: 2px solid var(--dark); transform: translateY(-3px) rotate(45deg); transition: transform .2s; margin-right: 4px; }
+    /* El chevron es una L (dos bordes) que gira sobre el centro de su cuadrado: cerrado su trazo cae ~3 px por debajo
+       del centro y abierto ~3 px por encima. El translateY lo centra en los dos estados y deja de saltar al abrir. */
+    .faq-acc details[open] summary::after { transform: translateY(3px) rotate(-135deg); }
     .faq-acc summary:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; border-radius: 8px; }
     .faq-acc .faq-a { padding: 0 0 22px; }
-    .faq-acc .faq-a p { color: var(--gray-600); font-size: .98rem; line-height: 1.75; max-width: 68ch; }
+    .faq-acc .faq-a p { color: var(--gray-600); font-size: .98rem; line-height: 1.75; max-width: 56ch; }
 
     /* ── CTA FINAL ── */
     .btn-white { background: var(--white); color: var(--orange); padding: 17px 40px; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform .3s, box-shadow .3s; display: inline-flex; align-items: center; gap: 10px; }
@@ -282,7 +284,7 @@
 
     /* ── TEXTO LARGO (articulo de servicio, texto de ciudad) ── */
     .srv-article { min-width: 0; }
-    .srv-article p, .srv-article li { max-width: 68ch; }   /* 65-75 caracteres por linea */
+    .srv-article p, .srv-article li { max-width: 56ch; }   /* 65-75 caracteres por linea (medido) */
     .srv-article h2 { font-family: 'Barlow', sans-serif; font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 800; line-height: 1.1; letter-spacing: -.5px; color: var(--dark); margin: 52px 0 18px; scroll-margin-top: 100px; }
     .srv-article h2:first-child { margin-top: 0; }
     .srv-article h3 { font-family: 'Barlow', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--dark); margin: 32px 0 12px; }
@@ -324,10 +326,10 @@
     /* ── INTRO ── */
     .city-intro { max-width: 1200px; margin: 0 auto; padding: 80px 6% 24px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; }
     .city-side { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
-    .side-card { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 28px; }
+    .side-card { background: var(--gray-50); border: var(--card-border); border-radius: var(--radius); padding: 28px; }
     .side-card h3 { font-family: 'Barlow', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
     .side-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .side-card li a { color: var(--dark); text-decoration: none; font-size: .92rem; font-weight: 600; display: flex; justify-content: space-between; gap: 10px; padding: 12px 12px; border-radius: 10px; background: var(--white); border: 1.5px solid var(--gray-200); transition: border-color .3s; }
+    .side-card li a { color: var(--dark); text-decoration: none; font-size: .92rem; font-weight: 600; display: flex; justify-content: space-between; gap: 10px; padding: 12px 12px; border-radius: 10px; background: var(--white); border: var(--card-border); transition: border-color .3s; }
     .side-card li a:hover { border-color: var(--orange); }
     .side-card li a small { color: var(--gray-400); font-weight: 500; }
     .side-card.cta { background: var(--dark); border-color: var(--dark); }
@@ -348,7 +350,7 @@
     .zone-hd { margin-bottom: 24px; }
     .zone-hd h3 { font-family: 'Barlow', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -.3px; margin-bottom: 10px; scroll-margin-top: 100px; }
     .zone-hd .srv-article p { margin-bottom: 8px; }
-    .centre { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: 340px minmax(0, 1fr); margin-bottom: 24px; scroll-margin-top: 100px; }
+    .centre { background: var(--white); border: var(--card-border); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: 340px minmax(0, 1fr); margin-bottom: 24px; scroll-margin-top: 100px; }
     .centre:last-child { margin-bottom: 0; }
     .centre.no-photo { grid-template-columns: 1fr; }
     /* Foto de ficha: ocupa toda la altura de la ficha (sin hueco blanco debajo), con 4:3 (340x255) como minimo.
@@ -373,7 +375,7 @@
     .centre-cta a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 50px; font-size: .92rem; font-weight: 700; text-decoration: none; white-space: nowrap; transition: transform .2s, background .2s, border-color .2s; }
     .centre-cta .cc-wa { background: var(--dark); color: var(--white); }
     .centre-cta .cc-wa:hover { background: var(--dark-mid); transform: translateY(-2px); }
-    .centre-cta .cc-tel { background: var(--white); color: var(--dark); border: 1.5px solid var(--gray-200); }
+    .centre-cta .cc-tel { background: var(--white); color: var(--dark); border: var(--card-border); }
     .centre-cta .cc-tel:hover { border-color: var(--dark); transform: translateY(-2px); }
 
     /* ── SERVICIOS ── */
@@ -381,7 +383,7 @@
     .city-services-inner { max-width: 1200px; margin: 0 auto; }
     .city-services-hd { text-align: center; margin-bottom: 40px; }
     .city-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-    .srv-link { display: block; border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 24px; text-decoration: none; transition: border-color .3s, transform .3s; }
+    .srv-link { display: block; border: var(--card-border); border-radius: var(--radius); padding: 24px; text-decoration: none; transition: border-color .3s, transform .3s; }
     .srv-link:hover { border-color: var(--orange); transform: translateY(-3px); }
     .srv-link-name { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
     .srv-link-sub { font-size: .9rem; color: var(--gray-600); line-height: 1.5; }
@@ -393,7 +395,7 @@
     .city-nearby { padding: 64px 6%; }
     .city-nearby-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
     .city-nearby h2 { font-family: 'Barlow', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-right: 10px; }
-    .city-nearby a { background: var(--white); border: 1.5px solid var(--gray-200); color: var(--dark); font-size: .88rem; font-weight: 600; padding: 13px 18px; border-radius: 50px; text-decoration: none; transition: border-color .3s, color .3s; }
+    .city-nearby a { background: var(--white); border: var(--card-border); color: var(--dark); font-size: .88rem; font-weight: 600; padding: 13px 18px; border-radius: 50px; text-decoration: none; transition: border-color .3s, color .3s; }
     .city-nearby a:hover { border-color: var(--orange); color: var(--orange-dark); }
     .city-nearby a.all { border-color: var(--dark); }
 
@@ -414,7 +416,7 @@
     /* Introduccion escaneable: parrafo de entrada destacado, tarjetas "que centro elegir", cifras */
     .city-intro .srv-article > h2:first-child + p { font-size: 1.14rem; line-height: 1.7; color: var(--dark-mid); }
     .city-elegir { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 24px; }
-    .city-elegir-item { display: block; background: var(--white); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 18px 20px; text-decoration: none; transition: border-color .2s, transform .2s; }
+    .city-elegir-item { display: block; background: var(--white); border: var(--card-border); border-radius: var(--radius); padding: 18px 20px; text-decoration: none; transition: border-color .2s, transform .2s; }
     .city-elegir-item:hover { border-color: var(--dark); transform: translateY(-2px); }
     .city-elegir > .city-elegir-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
     .city-elegir-para { font-size: .74rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-600); margin-bottom: 6px; }
@@ -425,7 +427,7 @@
     .city-stats .srv-stat { padding: 16px 18px; }
     .city-stats .srv-stat-n { font-size: 1.6rem; }
     .srv-stats { display: grid; gap: 12px; }
-    .srv-stat { background: var(--dark); color: var(--white); border-radius: 18px; }
+    .srv-stat { background: var(--dark); color: var(--white); border-radius: var(--radius); }
     .srv-stat-n { font-family: 'Barlow', sans-serif; font-weight: 900; color: var(--orange); line-height: 1; }
     .srv-stat-l { font-size: .82rem; color: rgba(255,255,255,.72); margin-top: 6px; line-height: 1.4; }
     @media (max-width: 600px) { .city-elegir, .city-stats { grid-template-columns: 1fr; } }
@@ -684,7 +686,7 @@
 <p>OficinasYA! has three business centres in Barcelona. Two in the upper part of the city: <strong>Ronda del General Mitre 126</strong>, in an exclusive office building, and <strong>Raset 29</strong>, in Sarrià-Sant Gervasi. And one in the centre, on the eighth floor of <strong>Plaza de Urquinaona 6</strong>, which as well as offices has coworking desks. All three share hours — Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, Fridays until 15:00 — and offer a virtual office with a registered address in Barcelona.</p>
 <div class="srv-stats city-stats">
   <div class="srv-stat"><div class="srv-stat-n">3 centres</div><div class="srv-stat-l">in the network in Barcelona</div></div>
-  <div class="srv-stat"><div class="srv-stat-n">8 to 30 m²</div><div class="srv-stat-l">equipped private offices, by the hour or by the month</div></div>
+  <div class="srv-stat"><div class="srv-stat-n">8 to 30 m²</div><div class="srv-stat-l">equipped private offices, by the hour or by the month</div></div>
   <div class="srv-stat"><div class="srv-stat-n">2 to 20</div><div class="srv-stat-l">people in the meeting rooms</div></div>
 </div>
 
@@ -698,12 +700,12 @@
   <a class="city-elegir-item" href="#raset-29">
     <div class="city-elegir-para">For a design-led office in Sant Gervasi</div>
     <div class="city-elegir-centro">Raset 29 <span aria-hidden="true">↓</span></div>
-    <p>The design-led one, with offices of 12 to 26 m², open, bright spaces and rooms for 2, 4 and 8, designed for freelancers, entrepreneurs and growing companies.</p>
+    <p>The design-led one, with offices of 12 to 26 m², open, bright spaces and rooms for 2, 4 and 8, designed for freelancers, entrepreneurs and growing companies.</p>
   </a>
   <a class="city-elegir-item" href="#plaza-urquinaona">
     <div class="city-elegir-para">For a coworking desk</div>
     <div class="city-elegir-centro">Plaza Urquinaona <span aria-hidden="true">↓</span></div>
-    <p>The one in the centre: naturally lit exterior offices of 8 to 30 m², a limited number of coworking desks and a personal touch.</p>
+    <p>The one in the centre: naturally lit exterior offices of 8 to 30 m², a limited number of coworking desks and a personal touch.</p>
   </a>
 </div>
 
@@ -765,10 +767,10 @@
         <div class="centre-body">
           <h3>Raset 29</h3>
           <p class="centre-addr">Carrer de Raset 29, Sarrià-Sant Gervasi, 08021 Barcelona</p>
-          <div class="centre-text"><p>At Carrer de Raset 29, in Sarrià-Sant Gervasi, with offices of 12 to 26 m² and rooms for 2, 4 and 8 people. The centre defines itself by design, comfort and technology, with open, bright spaces, and by a community of freelancers, entrepreneurs and growing companies. Same hours as Mitre: Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, Fridays until 15:00.</p></div>
+          <div class="centre-text"><p>At Carrer de Raset 29, in Sarrià-Sant Gervasi, with offices of 12 to 26 m² and rooms for 2, 4 and 8 people. The centre defines itself by design, comfort and technology, with open, bright spaces, and by a community of freelancers, entrepreneurs and growing companies. Same hours as Mitre: Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, Fridays until 15:00.</p></div>
           <div class="centre-facts">
             <div><div class="fact-lbl">Hours</div><div class="fact-val">Reception Mon–Thu 9:00-14:00 and 15:00-18:00. Fri until 15:00</div></div>
-            <div><div class="fact-lbl">Offices</div><div class="fact-val">12 to 26 m²</div></div>
+            <div><div class="fact-lbl">Offices</div><div class="fact-val">12 to 26 m²</div></div>
             <div><div class="fact-lbl">Rooms</div><div class="fact-val">2, 4 and 8 pax</div></div>
           </div>
           <div class="centre-tags">
@@ -788,10 +790,10 @@
         <div class="centre-body">
           <h3>Plaza Urquinaona</h3>
           <p class="centre-addr">Plaza de Urquinaona 6, planta 8, 08010 Barcelona</p>
-          <div class="centre-text"><p>On the eighth floor of number 6 Plaza de Urquinaona, in the centre of Barcelona, with exterior offices of 8 to 30 m² flooded with natural light and a limited number of coworking desks: it is one of the network's three centres with coworking. The centre presents itself as a space for concentration, with a personal touch — "here you are not a desk number" — and a familiar atmosphere. Reception Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.</p></div>
+          <div class="centre-text"><p>On the eighth floor of number 6 Plaza de Urquinaona, in the centre of Barcelona, with exterior offices of 8 to 30 m² flooded with natural light and a limited number of coworking desks: it is one of the network's three centres with coworking. The centre presents itself as a space for concentration, with a personal touch — "here you are not a desk number" — and a familiar atmosphere. Reception Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.</p></div>
           <div class="centre-facts">
             <div><div class="fact-lbl">Hours</div><div class="fact-val">Reception Mon–Thu 9:00-14:00 and 15:00-18:00. Fri until 15:00</div></div>
-            <div><div class="fact-lbl">Offices</div><div class="fact-val">8 to 30 m²</div></div>
+            <div><div class="fact-lbl">Offices</div><div class="fact-val">8 to 30 m²</div></div>
             <div><div class="fact-lbl">Rooms</div><div class="fact-val">On request</div></div>
           </div>
           <div class="centre-tags">
@@ -849,11 +851,11 @@
     <div class="faq-grid">
       <div class="faq-item">
         <h3>Which of the three Barcelona centres suits me?</h3>
-        <p>Mitre 126, in the upper part of the city, for an office in an exclusive office building with rooms for up to 20 people. Raset 29, in Sarrià-Sant Gervasi, for an office of 12 to 26 m² in a design-led space with small rooms. Plaza Urquinaona, in the centre, for a naturally lit exterior office of 8 to 30 m² or a coworking desk. All three have the same hours and a virtual office.</p>
+        <p>Mitre 126, in the upper part of the city, for an office in an exclusive office building with rooms for up to 20 people. Raset 29, in Sarrià-Sant Gervasi, for an office of 12 to 26 m² in a design-led space with small rooms. Plaza Urquinaona, in the centre, for a naturally lit exterior office of 8 to 30 m² or a coworking desk. All three have the same hours and a virtual office.</p>
       </div>
       <div class="faq-item">
         <h3>Is there coworking in Barcelona?</h3>
-        <p>Yes, at Plaza Urquinaona 6, 8th floor: a limited number of coworking desks alongside exterior offices of 8 to 30 m². It is one of the network's three centres with coworking desks contracted by the month. At Mitre 126 and Raset 29 what you will find is private offices and rooms.</p>
+        <p>Yes, at Plaza Urquinaona 6, 8th floor: a limited number of coworking desks alongside exterior offices of 8 to 30 m². It is one of the network's three centres with coworking desks contracted by the month. At Mitre 126 and Raset 29 what you will find is private offices and rooms.</p>
       </div>
       <div class="faq-item">
         <h3>What meeting rooms are there in Barcelona?</h3>
