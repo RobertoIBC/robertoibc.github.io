@@ -130,6 +130,31 @@
       opacity: 0; animation: up .7s 1.6s var(--ease) forwards;
     }
     .wa:hover { transform: scale(1.1); }
+    /* La entrada del boton (y de los .rv de la home) usa la animacion "up": tiene que estar aqui, en lo comun. Solo estaba
+       en home, hub, blog y comunidad, y en las otras 58 paginas el boton de WhatsApp se quedaba con opacidad 0. */
+    @keyframes up { to { opacity: 1; transform: translateY(0); } }
+    /* Burbuja junto al boton de WhatsApp: le acompana, no compite (fondo claro, texto oscuro, sin verde ni naranja).
+       Aparece a los 6 s; si se cierra no vuelve en la sesion. A la izquierda del boton; en movil, encima. */
+    .wa-burbuja { position: fixed; right: 104px; bottom: 38px; z-index: 99; display: flex; align-items: center;
+      max-width: calc(100vw - 136px); background: var(--white); color: var(--dark); border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.14), 0 1px 3px rgba(0,0,0,.08);
+      opacity: 0; transform: translateY(8px); transition: opacity .35s var(--ease), transform .35s var(--ease); }
+    .wa-burbuja.visible { opacity: 1; transform: none; }
+    .wa-burbuja[hidden] { display: none; }
+    .wa-burbuja::after { content: ''; position: absolute; right: -7px; top: 50%; width: 14px; height: 14px; margin-top: -7px;
+      background: var(--white); transform: rotate(45deg); border-radius: 2px; box-shadow: 3px -3px 6px rgba(0,0,0,.05); }
+    .wa-burbuja-texto { position: relative; z-index: 1; padding: 13px 4px 13px 18px; font-size: .95rem; font-weight: 600; line-height: 1.3;
+      color: var(--dark); text-decoration: none; white-space: nowrap; border-radius: 16px 0 0 16px; }
+    .wa-burbuja-texto:hover { text-decoration: underline; }
+    .wa-burbuja-cerrar { position: relative; z-index: 1; flex: 0 0 44px; width: 44px; height: 44px; margin-right: 2px; border: 0; background: none;
+      color: var(--gray-600); font-size: 1.35rem; line-height: 1; cursor: pointer; border-radius: 50%; }
+    .wa-burbuja-cerrar:hover { color: var(--dark); background: var(--gray-100, #f3f3f3); }
+    .wa-burbuja-texto:focus-visible, .wa-burbuja-cerrar:focus-visible { outline: 2px solid var(--dark); outline-offset: 2px; }
+    @media (max-width: 480px) {
+      .wa-burbuja { right: 32px; bottom: 104px; max-width: calc(100vw - 48px); }
+      .wa-burbuja::after { right: 22px; top: auto; bottom: -7px; margin-top: 0; box-shadow: 3px 3px 6px rgba(0,0,0,.05); }
+    }
+    @media (prefers-reduced-motion: reduce) { .wa-burbuja { transition: none; transform: none; } }
     .nav-actions { display: flex; align-items: center; gap: 20px; }
     .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
     .lang-switch a {

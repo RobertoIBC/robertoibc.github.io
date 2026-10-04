@@ -118,6 +118,9 @@ es:
     cats: { prod: Productividad, neg: Negocio, bien: Bienestar, tech: Tech, vida: Estilo de vida }
   form_sent: "✓ Enviado, te contactamos pronto!"
   form_send: "Enviar solicitud →"
+  wa_general: "Hola, quiero información sobre un espacio de OficinasYA"
+  wa_burbuja: "¿En qué puedo ayudarte?"
+  wa_burbuja_cerrar: "Cerrar el mensaje"
   form_error: "✗ No se pudo enviar. Llámanos al"
   nl_done: "✓ Suscrito!"
   nl_btn: Suscribirme
@@ -240,6 +243,9 @@ en:
     cats: { prod: Productivity, neg: Business, bien: Wellbeing, tech: Tech, vida: Lifestyle }
   form_sent: "✓ Sent, we will be in touch soon!"
   form_send: "Send request →"
+  wa_general: "Hello, I would like information about an OficinasYA space"
+  wa_burbuja: "How can I help you?"
+  wa_burbuja_cerrar: "Close the message"
   form_error: "✗ Could not send. Call us on"
   nl_done: "✓ Subscribed!"
   nl_btn: Subscribe

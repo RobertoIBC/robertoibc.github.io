@@ -23,3 +23,21 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => io.observe(el));
+
+  // Burbuja de WhatsApp: a los 6 s; si se cierra (o se pulsa) no vuelve en la sesion.
+  // sessionStorage puede fallar (modo privado, cookies bloqueadas): la pagina funciona igual.
+  (function () {
+    const b = document.getElementById('waBurbuja');
+    if (!b) return;
+    const K = 'oya-wa-burbuja';
+    try { if (sessionStorage.getItem(K)) return; } catch (e) {}
+    const recordar = () => { try { sessionStorage.setItem(K, '1'); } catch (e) {} };
+    const cerrar = () => { b.classList.remove('visible'); b.hidden = true; recordar(); };
+    setTimeout(() => {
+      b.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => b.classList.add('visible')));
+    }, 6000);
+    b.querySelector('.wa-burbuja-cerrar').addEventListener('click', cerrar);
+    b.querySelector('.wa-burbuja-texto').addEventListener('click', () => { recordar(); setTimeout(cerrar, 300); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !b.hidden) cerrar(); });
+  })();

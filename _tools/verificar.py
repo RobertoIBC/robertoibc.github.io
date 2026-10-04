@@ -112,6 +112,14 @@ for p in pages:
         izq = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', cuerpo[max(0, m.start() - 80):m.start() + 1])).strip()[-25:]
         der = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', cuerpo[m.end() - 1:m.end() + 60])).strip()[:25]
         errors.append(f'{url}: texto pegado sin espacio: "{izq.strip()}" + "{der.strip()}"')
+    # animaciones sin @keyframes: el elemento se queda en su estado inicial (asi estuvo el boton de WhatsApp,
+    # con opacidad 0, en 58 paginas: @keyframes up solo existia en cuatro plantillas)
+    css_pag = ' '.join(re.findall(r'<style[^>]*>(.*?)</style>', h, re.S)) + ' ' + ' '.join(re.findall(r'style="([^"]*)"', h))
+    definidas = set(re.findall(r'@keyframes\s+([\w-]+)', css_pag))
+    for am in re.finditer(r'animation(?:-name)?\s*:\s*([^;}"]+)', css_pag):
+        for tok in am.group(1).replace(',', ' ').split():
+            if re.match(r'^[a-zA-Z][\w-]*$', tok) and tok not in ('forwards', 'backwards', 'both', 'none', 'infinite', 'ease', 'linear', 'alternate', 'reverse', 'normal', 'running', 'paused', 'ease-in', 'ease-out', 'ease-in-out', 'var') and tok not in definidas:
+                errors.append(f'{url}: animacion "{tok}" sin @keyframes'); break
     for m in re.finditer(r'<img\b[^>]*>', h):
         if ' alt=' not in m.group(0): errors.append(f'{url}: <img> sin alt: {m.group(0)[:80]}')
     ids = re.findall(r'\sid="([^"]+)"', h)

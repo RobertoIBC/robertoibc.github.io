@@ -759,6 +759,10 @@ def build(check=False):
                     grupos = [{'nombre': None, 'anchor': None, 'texto_html': '', 'centros': city['centros']}]
                 p['grupos'] = grupos
                 p['city'] = city
+                # mensaje de WhatsApp de la pagina (boton flotante y burbuja): el de su llamada final
+                cname = city['nombre'] if lang == 'es' else city['nombre_en']
+                p['wa_msg'] = (t['ciudad']['close_wa_many'] if len(city['centros']) > 1 else t['ciudad']['close_wa_one']) \
+                    .replace('{ciudad}', cname).replace('{centro}', city['centros'][0]['centro'])
                 tags_city = {x for c in city['centros'] for x in c['tags']}
                 p['servicios_ciudad'] = [pages_by_id[t['ciudad']['srv_pages'][k]] for k in
                                          ('despachos', 'salas de reuniones', 'smart office', 'coworking')

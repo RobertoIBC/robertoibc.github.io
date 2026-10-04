@@ -167,6 +167,31 @@
       opacity: 0; animation: up .7s 1.6s var(--ease) forwards;
     }
     .wa:hover { transform: scale(1.1); }
+    /* La entrada del boton (y de los .rv de la home) usa la animacion "up": tiene que estar aqui, en lo comun. Solo estaba
+       en home, hub, blog y comunidad, y en las otras 58 paginas el boton de WhatsApp se quedaba con opacidad 0. */
+    @keyframes up { to { opacity: 1; transform: translateY(0); } }
+    /* Burbuja junto al boton de WhatsApp: le acompana, no compite (fondo claro, texto oscuro, sin verde ni naranja).
+       Aparece a los 6 s; si se cierra no vuelve en la sesion. A la izquierda del boton; en movil, encima. */
+    .wa-burbuja { position: fixed; right: 104px; bottom: 38px; z-index: 99; display: flex; align-items: center;
+      max-width: calc(100vw - 136px); background: var(--white); color: var(--dark); border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.14), 0 1px 3px rgba(0,0,0,.08);
+      opacity: 0; transform: translateY(8px); transition: opacity .35s var(--ease), transform .35s var(--ease); }
+    .wa-burbuja.visible { opacity: 1; transform: none; }
+    .wa-burbuja[hidden] { display: none; }
+    .wa-burbuja::after { content: ''; position: absolute; right: -7px; top: 50%; width: 14px; height: 14px; margin-top: -7px;
+      background: var(--white); transform: rotate(45deg); border-radius: 2px; box-shadow: 3px -3px 6px rgba(0,0,0,.05); }
+    .wa-burbuja-texto { position: relative; z-index: 1; padding: 13px 4px 13px 18px; font-size: .95rem; font-weight: 600; line-height: 1.3;
+      color: var(--dark); text-decoration: none; white-space: nowrap; border-radius: 16px 0 0 16px; }
+    .wa-burbuja-texto:hover { text-decoration: underline; }
+    .wa-burbuja-cerrar { position: relative; z-index: 1; flex: 0 0 44px; width: 44px; height: 44px; margin-right: 2px; border: 0; background: none;
+      color: var(--gray-600); font-size: 1.35rem; line-height: 1; cursor: pointer; border-radius: 50%; }
+    .wa-burbuja-cerrar:hover { color: var(--dark); background: var(--gray-100, #f3f3f3); }
+    .wa-burbuja-texto:focus-visible, .wa-burbuja-cerrar:focus-visible { outline: 2px solid var(--dark); outline-offset: 2px; }
+    @media (max-width: 480px) {
+      .wa-burbuja { right: 32px; bottom: 104px; max-width: calc(100vw - 48px); }
+      .wa-burbuja::after { right: 22px; top: auto; bottom: -7px; margin-top: 0; box-shadow: 3px 3px 6px rgba(0,0,0,.05); }
+    }
+    @media (prefers-reduced-motion: reduce) { .wa-burbuja { transition: none; transform: none; } }
     .nav-actions { display: flex; align-items: center; gap: 20px; }
     .lang-switch { display: inline-flex; align-items: center; gap: 9px; line-height: 1; }
     .lang-switch a {
@@ -490,8 +515,7 @@
   </div>
 </footer>
 
-
-<a href="https://wa.me/34624119705" class="wa" title="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="27" height="27" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+<a href="https://wa.me/34624119705?text=Hello%2C%20I%20would%20like%20information%20about%20an%20OficinasYA%20space" class="wa" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" width="27" height="27" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
 <script>
   // Cabecera: fondo solido al hacer scroll
@@ -519,6 +543,24 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => io.observe(el));
+
+  // Burbuja de WhatsApp: a los 6 s; si se cierra (o se pulsa) no vuelve en la sesion.
+  // sessionStorage puede fallar (modo privado, cookies bloqueadas): la pagina funciona igual.
+  (function () {
+    const b = document.getElementById('waBurbuja');
+    if (!b) return;
+    const K = 'oya-wa-burbuja';
+    try { if (sessionStorage.getItem(K)) return; } catch (e) {}
+    const recordar = () => { try { sessionStorage.setItem(K, '1'); } catch (e) {} };
+    const cerrar = () => { b.classList.remove('visible'); b.hidden = true; recordar(); };
+    setTimeout(() => {
+      b.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => b.classList.add('visible')));
+    }, 6000);
+    b.querySelector('.wa-burbuja-cerrar').addEventListener('click', cerrar);
+    b.querySelector('.wa-burbuja-texto').addEventListener('click', () => { recordar(); setTimeout(cerrar, 300); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !b.hidden) cerrar(); });
+  })();
 
 </script>
 </body>
