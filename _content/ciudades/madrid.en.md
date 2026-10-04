@@ -20,7 +20,7 @@ zonas:
   - nombre: Salamanca district
     centros: [Velázquez, Gasset, Serrano]
     texto: |
-      Three centres on Madrid's "golden mile", right in the Salamanca district, a few streets from one another: Velázquez 86B, Ortega y Gasset 25 and Serrano 93. All three share the same formula — office, registered address and rooms by the hour — and the same transport links: a direct route to the airport and metro, bus and taxi stops within 100 or 200 metres. They are the address for anyone who wants their company in Salamanca without paying for premises in Salamanca.
+      Three centres on Madrid's "golden mile", right in the Salamanca district, a few streets from one another: Velázquez 86B, Ortega y Gasset 25 and Serrano 93. All three share the same formula (office, registered address and rooms by the hour) and the same transport links: a direct route to the airport and metro, bus and taxi stops within 100 or 200 metres. They are the address for anyone who wants their company in Salamanca without paying for premises in Salamanca.
   - nombre: Castellana and Plaza de Castilla
     centros: [Capitán Haya]
     texto: |
@@ -105,7 +105,7 @@ They are spread across five areas, and choosing one is above all choosing an are
 
 - **the Salamanca district** for an address on the golden mile;
 - **the Castellana and Plaza de Castilla** for the financial centre and the courts;
-- **the north** — Las Tablas and Sanchinarro — for the Telefónica, BBVA and Castellana-extension area;
+- **the north** (Las Tablas and Sanchinarro), for the Telefónica, BBVA and Castellana-extension area;
 - **Pozuelo** for the west, next to the A-6;
 - and **San Sebastián de los Reyes** for the La Marina business park.
 

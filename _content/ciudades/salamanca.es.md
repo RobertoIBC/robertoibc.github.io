@@ -35,7 +35,7 @@ faq:
 
 ## Un edificio de oficinas entero, a 5 minutos del centro
 
-El centro de OficinasYA! en Salamanca es el Edificio Openhouse, en el polígono industrial El Montalvo III de Carbajosa de la Sagrada, a 5 minutos del centro de Salamanca y con acceso a la circunvalación. No es una planta en un edificio de otros: son 12.000 m² de edificio de oficinas, con más de medio centenar de oficinas y veinticinco locales comerciales, cafetería, restaurante y parking privado. Es uno de los tres centros de la red con puestos de coworking.
+El centro de OficinasYA! en Salamanca es el Edificio Openhouse, en el polígono industrial El Montalvo III de Carbajosa de la Sagrada, a 5 minutos del centro de Salamanca y con acceso a la circunvalación. Está en un edificio de oficinas de 12.000 m², con más de medio centenar de oficinas y veinticinco locales comerciales, cafetería, restaurante y parking privado. Es uno de los tres centros de la red con puestos de coworking.
 
 [[cifras]]
 

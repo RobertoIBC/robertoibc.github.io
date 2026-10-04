@@ -56,6 +56,7 @@
       --gray-600:    #525252;
       --white:       #FFFFFF;
       --radius:      20px;
+      --card-border: 1.5px solid var(--gray-200);   /* la tarjeta de la web: radio 20, borde, sin sombra en reposo */
       --ease:        cubic-bezier(.16,1,.3,1);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -140,6 +141,11 @@
     .rvl { opacity: 0; transform: translateX(-48px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
     .rvr { opacity: 0; transform: translateX(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
     .rv.on, .rvl.on, .rvr.on { opacity: 1; transform: none; }
+    /* Titulares sin palabra huerfana en la ultima linea */
+    h1, h2, h3, h4 { text-wrap: balance; }
+    /* Estados: pulsado y deshabilitado (el formulario deshabilita su boton mientras envia) */
+    a[class*="btn"]:active, button:active, .price-btn:active { transform: translateY(1px) scale(.98); }
+    button:disabled, button[disabled] { opacity: .6; cursor: progress; transform: none; box-shadow: none; }
     footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 72px 6% 40px; }
     .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
     .footer-logo { margin-bottom: 20px; }
@@ -373,10 +379,10 @@
       display: grid; grid-template-columns: repeat(3,1fr); gap: 28px;
     }
     .srv-card {
-      background: var(--white); border-radius: var(--radius);
+      background: var(--white); border-radius: var(--radius); border: var(--card-border);
       padding: 48px 36px 44px; overflow: hidden; position: relative;
-      box-shadow: 0 4px 20px rgba(0,0,0,.06);
       transition: transform .4s var(--ease), box-shadow .4s;
+      display: flex; flex-direction: column;
     }
     .srv-card:hover { transform: translateY(-10px); box-shadow: 0 24px 72px rgba(0,0,0,.14); }
     .srv-card-top {
@@ -405,7 +411,8 @@
       content: ''; width: 18px; height: 18px; flex-shrink: 0; border-radius: 50%;
       background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E") center/10px no-repeat;
     }
-    .srv-cta-wrap { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--gray-200); }
+    .srv-list { margin-bottom: 26px; }
+    .srv-cta-wrap { margin-top: auto; padding-top: 22px; border-top: 1px solid var(--gray-200); }   /* enlace al pie: alineado en las tres */
     .srv-cta { display: inline-flex; align-items: center; gap: 6px; color: var(--orange); font-weight: 700; font-size: .9rem; text-decoration: none; padding: 12px 0; }
     .srv-cta svg { width: 15px; height: 15px; transition: transform .3s var(--ease); }
     .srv-cta:hover svg { transform: translateX(4px); }
@@ -505,8 +512,8 @@
     .testi-hd .ssub { margin: 16px auto 0; }
     .testi-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
     .testi-card {
-      background: var(--white); border-radius: var(--radius);
-      padding: 44px 36px; box-shadow: 0 4px 20px rgba(0,0,0,.06);
+      background: var(--white); border-radius: var(--radius); border: var(--card-border);
+      padding: 44px 36px;
       transition: transform .4s var(--ease), box-shadow .4s;
       display: flex; flex-direction: column;
     }
@@ -521,7 +528,7 @@
     .testi-role { font-size: .82rem; color: var(--gray-400); margin-top: 2px; }
 
     /* ── CTA ORANGE ── */
-    #cta { background: var(--orange); padding: 100px 6%; text-align: center; position: relative; overflow: hidden; }
+    #cta { background: var(--orange); padding: 96px 6%; text-align: center; position: relative; overflow: hidden; }
     #cta::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: rgba(255,255,255,.06); pointer-events: none; }
     #cta::after  { content: ''; position: absolute; bottom: -120px; left: -80px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,.04); pointer-events: none; }
     .cta-title { font-family: 'Barlow', sans-serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -1px; margin-bottom: 20px; position: relative; z-index: 1; }
@@ -694,7 +701,7 @@
     .blog-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
     .blog-card {
       border-radius: var(--radius); overflow: hidden;
-      border: 1.5px solid var(--gray-200); background: var(--white);
+      border: var(--card-border); background: var(--white);
       transition: transform .4s var(--ease), box-shadow .4s, border-color .4s;
       display: flex; flex-direction: column;
     }
@@ -1013,7 +1020,7 @@
     </div>
     <p class="hero-sub">Private offices, coworking and meeting rooms. No building works, no waiting. Ready to work today.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-orange">Book your space →</a>
+      <a href="#contact" class="btn-orange">Check availability →</a>
       <a href="#pricing" class="btn-ghost">See plans and pricing<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" width="15" height="15" style="margin-left:6px;vertical-align:-2px"><polyline points="6 9 12 15 18 9"/></svg></a>
     </div>
   </div>
@@ -1050,7 +1057,7 @@
   <div class="srv-hd rv">
     <span class="eyebrow">What we offer</span>
     <h2 class="stitle">The right space for <span class="hl">every stage</span></h2>
-    <p class="ssub">From a two-hour meeting to your permanent office. All inclusive, no surprises.</p>
+    <p class="ssub">From a two-hour meeting to your permanent office, with WiFi and visitor reception included.</p>
   </div>
   <div class="srv-grid">
     <div class="srv-card rv d1">
@@ -1058,7 +1065,7 @@
       <div class="srv-icon-box">
         <img width="168" height="168" loading="lazy" decoding="async" src="/assets/img/home/circulo-despachos.png" alt="Private offices" />
       </div>
-      <h3 class="srv-name">Private Offices</h3>
+      <h3 class="srv-name">Private offices</h3>
       <p class="srv-desc">Your own enclosed space, fully equipped. By the hour, by the day or on a monthly contract.</p>
       <ul class="srv-list">
         <li>For your exclusive use · 24/7 in Madrid and selected centres</li>
@@ -1076,7 +1083,7 @@
       <div class="srv-icon-box">
         <img width="168" height="168" loading="lazy" decoding="async" src="/assets/img/home/circulo-salas.png" alt="Meeting rooms" />
       </div>
-      <h3 class="srv-name">Meeting Rooms</h3>
+      <h3 class="srv-name">Meeting rooms</h3>
       <p class="srv-desc">Different layouts for any meeting, presentation or corporate event.</p>
       <ul class="srv-list">
         <li>Book by phone or WhatsApp</li>
@@ -1095,7 +1102,7 @@
         <img width="200" height="200" loading="lazy" decoding="async" src="/assets/img/stock/photo-1745970347652-8f22f5d7d3ba.jpg" alt="Virtual Office"
           style="border-radius:50%;object-fit:cover;padding:8px" />
       </div>
-      <h3 class="srv-name">Virtual Office</h3>
+      <h3 class="srv-name">Virtual office</h3>
       <p class="srv-desc">Register your company with all the services of a real office, without being there.</p>
       <ul class="srv-list">
         <li>Registered and trading address</li>
@@ -1125,14 +1132,14 @@
     </div>
     <div class="rvr">
       <span class="eyebrow">Why OficinasYA!</span>
-      <h2 class="stitle">Grow without limits,<br><span class="hl">pay only for what you use</span></h2>
-      <p class="ssub">No building works, nothing to install. Your office ready in minutes, not months.</p>
+      <h2 class="stitle">Grow without limits,<br><span class="hl">pay by the hour or by the&nbsp;month</span></h2>
+      <p class="ssub">No building works or fit-out: you move into a working centre, with reception, cleaning and utilities.</p>
       <div class="why-list">
         <div class="why-item">
           <div class="why-dot"></div>
           <div>
-            <h4>Ready in minutes, not months</h4>
-            <p>An equipped, working office from day one. No fit-out, no waiting, no hassle.</p>
+            <h4>Ready the same day</h4>
+            <p>An equipped, working office from day one: the furniture, the connection and the cleaning are already running when you arrive.</p>
           </div>
         </div>
         <div class="why-item">
@@ -1153,7 +1160,7 @@
           <div class="why-dot"></div>
           <div>
             <h4>A real community</h4>
-            <p>Share space with professionals and companies. The best opportunities start in the corridors.</p>
+            <p>Share space with professionals and companies, and publish your profile in the Orange Community: 52 members looking for clients and partners inside the network.</p>
           </div>
         </div>
       </div>
@@ -1226,8 +1233,8 @@
     </div>
     <div class="ob-content">
       <span class="ob-eyebrow">🍊 Happy Workplaces!</span>
-      <h2 class="ob-title">Spaces that bring out your best</h2>
-      <p class="ob-desc">Environments designed so you and your team enjoy work every day. Wellbeing at work is not an extra here, it is the standard.</p>
+      <h2 class="ob-title">Centres built around your team's working day</h2>
+      <p class="ob-desc">Natural light, shared areas and rooms outside your office for a change of scene, at the centres that have them. Each city page lists what every centre offers.</p>
       <div class="ob-features">
         <span class="ob-feature">☀️ Natural light</span>
         <span class="ob-feature">🌿 Shared areas</span>
@@ -1241,7 +1248,7 @@
 <section id="pricing">
   <div class="price-hd rv">
     <span class="eyebrow">Clear pricing</span>
-    <h2 class="stitle" style="color:white;margin:0 auto">No small print.<br>No surprises.</h2>
+    <h2 class="stitle" style="color:white;margin:0 auto">Offices from €8.50/hour&nbsp;+&nbsp;VAT.<br>No small print.</h2>
     <p class="ssub" style="color:rgba(255,255,255,.45);margin:16px auto 0">Pick the plan that fits you today.</p>
   </div>
   <div class="price-grid">
@@ -1260,7 +1267,7 @@
         <li>Visitor reception</li>
         <li>No minimum commitment</li>
       </ul>
-      <a href="#contact" class="price-btn">Book now</a>
+      <a href="#contact" class="price-btn">Check availability</a>
     </div>
     <div class="price-card hot rv d2">
       <div class="hot-tag">Most popular</div>
@@ -1279,10 +1286,10 @@
         <li>Cleaning and maintenance</li>
         <li>5h meeting room/month</li>
       </ul>
-      <a href="#contact" class="price-btn">Start today</a>
+      <a href="#contact" class="price-btn">Ask for a price</a>
     </div>
     <div class="price-card rv d3">
-      <div class="price-name">Virtual Office</div>
+      <div class="price-name">Virtual office</div>
       <p class="price-desc">A professional address with every service. For freelancers and remote companies.</p>
       <div class="price-val">
         <span class="price-from">from</span>
@@ -1364,8 +1371,8 @@
       <h2 class="com-title">Your next client<br>is already in your <span class="hl">building</span></h2>
       <p class="com-desc">52 professionals from 25 sectors publishing their profile, closing deals and growing together inside the OficinasYA! network. Free for clients.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:36px">
-        <a href="/en/community/" class="btn-orange">Explore the community →</a>
-        <a href="#contact" class="btn-ghost" style="border-color:rgba(255,255,255,.25)">Become a client</a>
+        <a href="/en/community/" class="btn-orange">See the community →</a>
+        <a href="#contact" class="btn-ghost" style="border-color:rgba(255,255,255,.25)">Request information</a>
       </div>
     </div>
     <div class="rvr">
@@ -1467,7 +1474,7 @@
 <!-- CTA -->
 <section id="cta">
   <h2 class="cta-title rv">Ready to work<br>in your ideal office?</h2>
-  <p class="cta-sub rv">Get in touch now and have your space ready today. No paperwork, no building works, no excuses.</p>
+  <p class="cta-sub rv">Call us or message us on WhatsApp: we confirm availability and price straight away, and your space can be ready today.</p>
   <div class="cta-btns rv">
     <a href="tel:918298500" class="btn-white"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>918 298 500</a>
     <a href="https://wa.me/34624119705" class="btn-dark-solid"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor" style="vertical-align:-2px;margin-right:4px"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>WhatsApp</a>
@@ -1478,7 +1485,7 @@
 <section id="blog">
   <div class="blog-hd rv">
     <span class="eyebrow">Blog & Resources</span>
-    <h2 class="stitle">Productivity, business<br>y <span class="hl">office life</span></h2>
+    <h2 class="stitle">Productivity, business<br>and <span class="hl">office life</span></h2>
     <p class="ssub">Practical advice for freelancers and small businesses.</p>
   </div>
   <div class="blog-grid">

@@ -104,7 +104,7 @@ def corpus(h, cliente=False):
     lds = re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S)
     return body + ' ' + ' '.join(ld_strings(lds))
 
-print('== 2.5 afirmaciones vigiladas (visible + JSON-LD):')
+print('== 2.5 afirmaciones vigiladas (visible + JSON-LD + llms.txt):')
 errores = 0
 for nombre, tipo, pes, pen, res_, ren in AFIRMACIONES:
     for lang, pat, ref in (('es', pes, res_), ('en', pen, ren)):
@@ -121,5 +121,11 @@ for nombre, tipo, pes, pen, res_, ren in AFIRMACIONES:
             print(f'   ERROR {lang} "{nombre}" en {u}' + (f' (su referencia {ref} no lo dice)' if tipo == 'respaldo' else ' (sin fuente)'))
         for u in cli:
             print(f'   cliente {lang} "{nombre}" en {u}: bullet del cliente, pendiente de confirmar')
+# llms.txt: lo leen los buscadores de IA; mismas reglas que las paginas en espanol
+llms = pathlib.Path('llms.txt').read_text(encoding='utf-8') if pathlib.Path('llms.txt').exists() else ''
+for nombre, tipo, pes, pen, res_, ren in AFIRMACIONES:
+    if re.search(pes, llms, re.I) and (tipo == 'sin_fuente' or not re.search(pes, corpus(docs.get(res_, '')), re.I)):
+        errores += 1
+        print(f'   ERROR es "{nombre}" en /llms.txt' + (f' (su referencia {res_} no lo dice)' if tipo == 'respaldo' else ' (sin fuente)'))
 print(f'   {errores} afirmaciones sin respaldo' if errores else '   OK: ninguna afirmacion sin respaldo')
 sys.exit(1 if errores else 0)

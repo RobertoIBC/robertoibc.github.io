@@ -74,7 +74,7 @@ It is not a network-wide service: at the other centres what you will find is pri
 
 [[perfiles]]
 
-At those three centres, coworking is not a plain shared office: it is a desk inside a working business centre, with a reception that welcomes your visitors, meeting rooms you book by the hour, cleaning, utilities and coffee included, and private offices next door for when your business grows.
+At those three centres, coworking is a desk inside a working business centre, not just a shared room: with a reception that welcomes your visitors, meeting rooms you book by the hour, cleaning, utilities and coffee included, and private offices next door for when your business grows.
 
 You work in a room shared with other professionals and use everything else like any other client of the centre.
 

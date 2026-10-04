@@ -74,7 +74,7 @@ No es un servicio de toda la red: en el resto de centros lo que hay son despacho
 
 [[perfiles]]
 
-En esos tres centros el coworking no es un espacio compartido a secas: es un puesto dentro de un centro de negocios en marcha, con recepción que atiende a tus visitas, salas de reuniones que reservas por horas, limpieza, suministros y café incluidos, y despachos privados al lado para cuando tu negocio crezca.
+En esos tres centros el coworking es un puesto dentro de un centro de negocios en marcha, no una sala compartida sin más: con recepción que atiende a tus visitas, salas de reuniones que reservas por horas, limpieza, suministros y café incluidos, y despachos privados al lado para cuando tu negocio crezca.
 
 Trabajas en una sala compartida con otros profesionales y usas todo lo demás como cualquier otro cliente del centro.
 

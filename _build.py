@@ -86,10 +86,10 @@ def front_matter(text, source):
 
 
 def fmt_price(value, lang):
-    """8.5 -> '8,5' (es) / '8.50' (en); 270 -> '270' en los dos."""
+    """8.5 -> '8,50' (es) / '8.50' (en); 270 -> '270' en los dos. Moneda: siempre dos decimales si los hay."""
     if float(value).is_integer():
         return str(int(value))
-    return str(value).replace('.', ',') if lang == 'es' else f'{value:.2f}'
+    return f'{value:.2f}'.replace('.', ',') if lang == 'es' else f'{value:.2f}'
 
 
 def json_price(value):

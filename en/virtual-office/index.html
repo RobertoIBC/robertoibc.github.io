@@ -56,6 +56,7 @@
       --gray-600:    #525252;
       --white:       #FFFFFF;
       --radius:      20px;
+      --card-border: 1.5px solid var(--gray-200);   /* la tarjeta de la web: radio 20, borde, sin sombra en reposo */
       --ease:        cubic-bezier(.16,1,.3,1);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -140,6 +141,11 @@
     .rvl { opacity: 0; transform: translateX(-48px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
     .rvr { opacity: 0; transform: translateX(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
     .rv.on, .rvl.on, .rvr.on { opacity: 1; transform: none; }
+    /* Titulares sin palabra huerfana en la ultima linea */
+    h1, h2, h3, h4 { text-wrap: balance; }
+    /* Estados: pulsado y deshabilitado (el formulario deshabilita su boton mientras envia) */
+    a[class*="btn"]:active, button:active, .price-btn:active { transform: translateY(1px) scale(.98); }
+    button:disabled, button[disabled] { opacity: .6; cursor: progress; transform: none; box-shadow: none; }
     footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 72px 6% 40px; }
     .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
     .footer-logo { margin-bottom: 20px; }
@@ -239,6 +245,8 @@
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 18px 14px; font-size: .8rem; font-weight: 600; color: var(--white); background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0)); }
     @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } .hero-photo { aspect-ratio: 16 / 9; } .hero-grid + .hero-btns { margin-top: 28px; } }
+    /* Texto largo a 68 caracteres por linea como maximo (fichas de centro y respuestas de FAQ) */
+    .centre-text p, .faq-item p, .faq-acc p { max-width: 68ch; }
     .page-hero::before { content: ''; position: absolute; top: -220px; right: -160px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(245,146,26,.14) 0%, transparent 65%); }
     .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
     .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
@@ -750,7 +758,7 @@
 <h2>What it includes</h2>
 <div class="srv-cards srv-cards-2 srv-tarjetas">
   <div class="srv-feature"><h3>Registered address</h3><p>The centre's address as your company's registered, official and trading address. You can use it with the tax authority and the Companies Register, on your website, on your invoices and in your correspondence.</p></div>
-  <div class="srv-feature"><h3>Mail, parcels and notifications</h3><p>Reception receives everything that arrives in your name — letters, parcels, registered post, notifications — and lets you know straight away. You collect it whenever you like or, if you prefer, it is forwarded to you.</p></div>
+  <div class="srv-feature"><h3>Mail, parcels and notifications</h3><p>Reception receives everything that arrives in your name (letters, parcels, registered post, notifications) and lets you know straight away. You collect it whenever you like or, if you prefer, it is forwarded to you.</p></div>
   <div class="srv-feature"><h3>Call answering</h3><p>If you take it, your calls are answered by the centre's reception in your company's name and transferred to you on the spot, or a message is taken. It is what makes a one-person company look like a company with an office.</p></div>
   <div class="srv-feature"><h3>Visitor reception</h3><p>When a client comes to see you, reception welcomes them and shows them to the room you have booked.</p></div>
   <div class="srv-feature"><h3>Offices, rooms and hot desks</h3><p>As a virtual office client you book offices and meeting rooms by the hour at your centre, and you have workstations at the network's centres when you are in another city. That is what sets a virtual office inside a business centre apart from a mere PO box with a name.</p></div>
@@ -789,7 +797,7 @@
 
 <p>If, beyond the address, you are going to use the centre with some regularity, the formula you want is Smart Office, explained below.</p>
 <h2 id="smart-office">Smart Office: what you want, how you want it, when you want it</h2>
-<p>Smart Office is OficinasYA!'s modular formula, available at 33 of the network's 35 spaces. It starts from the virtual office — registered and trading address, mail, call answering — and adds whatever your business needs at any given time:</p>
+<p>Smart Office is OficinasYA!'s modular formula, available at 33 of the network's 35 spaces. It starts from the virtual office (registered and trading address, mail, call answering) and adds whatever your business needs at any given time:</p>
 <ul>
 <li>office hours,</li>
 <li>meeting rooms,</li>

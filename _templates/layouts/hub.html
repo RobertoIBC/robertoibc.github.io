@@ -88,11 +88,11 @@
     #madrid { background: var(--gray-50); }
     .madrid-intro { margin-bottom: 56px; }
 
-    .madrid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; align-items: start; }
+    .madrid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; align-items: stretch; }
 
     .madrid-card {
-      border-radius: 18px; overflow: hidden;
-      border: 1.5px solid var(--gray-200); background: var(--white);
+      border-radius: var(--radius); overflow: hidden;
+      border: var(--card-border); background: var(--white);
       transition: border-color .35s, transform .35s var(--ease), box-shadow .35s;
       display: flex; flex-direction: column; cursor: default;
     }
@@ -114,7 +114,7 @@
     .madrid-metro { display: flex; align-items: center; gap: 8px; font-size: .75rem; color: var(--gray-600); padding-top: 12px; border-top: 1px solid var(--gray-100); }
     .metro-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .m1{background:#15A0E8}.m2{background:#FF0000}.m3{background:#FFBA00}.m4{background:#00A049}.m5{background:#13B87C}.m6{background:#8B5CF6}.m9{background:#9D57A2}.m10{background:#002059}.mC{background:#0070C9}
-    .madrid-card-link { font-size: .8rem; font-weight: 700; color: var(--orange); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; transition: gap .3s; }
+    .madrid-card-link { font-size: .8rem; font-weight: 700; color: var(--orange); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-top: auto; padding-top: 14px; transition: gap .3s; }   /* al pie: alineado en la fila */
     .madrid-card-link:hover { gap: 9px; }
 
     /* Wider card for Salamanca group */
@@ -155,10 +155,10 @@
 
     /* Individual photo card */
     .city-photo-card {
-      position: relative; border-radius: 16px; overflow: hidden;
+      position: relative; border-radius: var(--radius); overflow: hidden;
       cursor: default; height: 260px;
     }
-    .map-target-flash { animation: target-flash 1.4s var(--ease); border-radius: 16px; }
+    .map-target-flash { animation: target-flash 1.4s var(--ease); border-radius: var(--radius); }
     @keyframes target-flash {
       0% { box-shadow: 0 0 0 0 rgba(245,146,26,.7); }
       35% { box-shadow: 0 0 0 10px rgba(245,146,26,0); }

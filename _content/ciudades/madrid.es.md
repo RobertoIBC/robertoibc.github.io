@@ -20,7 +20,7 @@ zonas:
   - nombre: Barrio de Salamanca
     centros: [Velázquez, Gasset, Serrano]
     texto: |
-      Tres centros en la milla de oro de Madrid, en pleno barrio de Salamanca, a pocas calles unos de otros: Velázquez 86B, Ortega y Gasset 25 y Serrano 93. Los tres comparten la misma fórmula —despacho, domiciliación y salas por horas— y las mismas comunicaciones: salida directa al aeropuerto y paradas de metro, autobús y taxi a menos de 100 o 200 metros. Son la dirección para quien quiere que su empresa esté en Salamanca sin pagar un local en Salamanca.
+      Tres centros en la milla de oro de Madrid, en pleno barrio de Salamanca, a pocas calles unos de otros: Velázquez 86B, Ortega y Gasset 25 y Serrano 93. Los tres comparten la misma fórmula (despacho, domiciliación y salas por horas) y las mismas comunicaciones: salida directa al aeropuerto y paradas de metro, autobús y taxi a menos de 100 o 200 metros. Son la dirección para quien quiere que su empresa esté en Salamanca sin pagar un local en Salamanca.
   - nombre: Castellana y Plaza de Castilla
     centros: [Capitán Haya]
     texto: |
@@ -105,7 +105,7 @@ Están repartidos en cinco zonas, y elegir uno es sobre todo elegir zona:
 
 - **el barrio de Salamanca** para una dirección en la milla de oro;
 - **la Castellana y la Plaza de Castilla** para el centro financiero y los juzgados;
-- **el norte** —Las Tablas y Sanchinarro— para la zona de Telefónica, BBVA y la prolongación de la Castellana;
+- **el norte** (Las Tablas y Sanchinarro), para la zona de Telefónica, BBVA y la prolongación de la Castellana;
 - **Pozuelo** para el oeste, junto a la A-6;
 - y **San Sebastián de los Reyes** para el Parque Empresarial La Marina.
 

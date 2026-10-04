@@ -35,7 +35,7 @@ faq:
 
 ## A whole office building, 5 minutes from the centre
 
-The OficinasYA! centre in Salamanca is the Edificio Openhouse, in the El Montalvo III industrial estate in Carbajosa de la Sagrada, 5 minutes from the centre of Salamanca and with access to the ring road. It is not a floor in someone else's building: it is 12,000 m² of office building, with more than fifty offices and twenty-five commercial units, a café, a restaurant and private parking. It is one of the network's three centres with coworking desks.
+The OficinasYA! centre in Salamanca is the Edificio Openhouse, in the El Montalvo III industrial estate in Carbajosa de la Sagrada, 5 minutes from the centre of Salamanca and with access to the ring road. It is in an office building of 12,000 m², with more than fifty offices and twenty-five commercial units, a café, a restaurant and private parking. It is one of the network's three centres with coworking desks.
 
 [[cifras]]
 

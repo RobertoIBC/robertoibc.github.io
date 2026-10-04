@@ -29,7 +29,7 @@ tarjetas:
   - titulo: Domiciliación
     texto: "La dirección del centro como domicilio fiscal, social y comercial de tu empresa. Puedes usarla ante Hacienda y el Registro Mercantil, en tu web, en tus facturas y en tu correspondencia."
   - titulo: Correo, paquetería y notificaciones
-    texto: "La recepción recibe todo lo que llega a tu nombre —cartas, paquetes, certificados, notificaciones— y te avisa en el momento. Lo recoges cuando quieras o, si lo prefieres, se te reenvía."
+    texto: "La recepción recibe todo lo que llega a tu nombre (cartas, paquetes, certificados, notificaciones) y te avisa en el momento. Lo recoges cuando quieras o, si lo prefieres, se te reenvía."
   - titulo: Atención telefónica
     texto: "Si lo contratas, tus llamadas las atiende la recepción del centro con el nombre de tu empresa y te las transfiere en el acto o te deja el mensaje. Es lo que hace que una empresa de una persona parezca una empresa con oficina."
   - titulo: Recepción de visitas
@@ -105,7 +105,7 @@ Si además de la dirección vas a usar el centro con cierta regularidad, la fór
 
 ## Smart Office: lo que quieres, como quieres, cuando quieres {: #smart-office }
 
-Smart Office es la fórmula modular de OficinasYA!, disponible en {{ n.smart_office }} de los {{ g.espacios }} espacios de la red. Parte de la oficina virtual —dirección fiscal y comercial, correspondencia, atención telefónica— y le añade lo que tu negocio necesite en cada momento:
+Smart Office es la fórmula modular de OficinasYA!, disponible en {{ n.smart_office }} de los {{ g.espacios }} espacios de la red. Parte de la oficina virtual (dirección fiscal y comercial, correspondencia, atención telefónica) y le añade lo que tu negocio necesite en cada momento:
 
 - horas de despacho,
 - salas de reuniones,

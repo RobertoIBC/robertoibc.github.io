@@ -56,6 +56,7 @@
       --gray-600:    #525252;
       --white:       #FFFFFF;
       --radius:      20px;
+      --card-border: 1.5px solid var(--gray-200);   /* la tarjeta de la web: radio 20, borde, sin sombra en reposo */
       --ease:        cubic-bezier(.16,1,.3,1);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -140,6 +141,11 @@
     .rvl { opacity: 0; transform: translateX(-48px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
     .rvr { opacity: 0; transform: translateX(48px);  transition: opacity .7s var(--ease), transform .7s var(--ease); }
     .rv.on, .rvl.on, .rvr.on { opacity: 1; transform: none; }
+    /* Titulares sin palabra huerfana en la ultima linea */
+    h1, h2, h3, h4 { text-wrap: balance; }
+    /* Estados: pulsado y deshabilitado (el formulario deshabilita su boton mientras envia) */
+    a[class*="btn"]:active, button:active, .price-btn:active { transform: translateY(1px) scale(.98); }
+    button:disabled, button[disabled] { opacity: .6; cursor: progress; transform: none; box-shadow: none; }
     footer { background: var(--dark); color: rgba(255,255,255,.45); padding: 72px 6% 40px; }
     .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
     .footer-logo { margin-bottom: 20px; }
@@ -314,11 +320,11 @@
     #madrid { background: var(--gray-50); }
     .madrid-intro { margin-bottom: 56px; }
 
-    .madrid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; align-items: start; }
+    .madrid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; align-items: stretch; }
 
     .madrid-card {
-      border-radius: 18px; overflow: hidden;
-      border: 1.5px solid var(--gray-200); background: var(--white);
+      border-radius: var(--radius); overflow: hidden;
+      border: var(--card-border); background: var(--white);
       transition: border-color .35s, transform .35s var(--ease), box-shadow .35s;
       display: flex; flex-direction: column; cursor: default;
     }
@@ -340,7 +346,7 @@
     .madrid-metro { display: flex; align-items: center; gap: 8px; font-size: .75rem; color: var(--gray-600); padding-top: 12px; border-top: 1px solid var(--gray-100); }
     .metro-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .m1{background:#15A0E8}.m2{background:#FF0000}.m3{background:#FFBA00}.m4{background:#00A049}.m5{background:#13B87C}.m6{background:#8B5CF6}.m9{background:#9D57A2}.m10{background:#002059}.mC{background:#0070C9}
-    .madrid-card-link { font-size: .8rem; font-weight: 700; color: var(--orange); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; transition: gap .3s; }
+    .madrid-card-link { font-size: .8rem; font-weight: 700; color: var(--orange); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-top: auto; padding-top: 14px; transition: gap .3s; }   /* al pie: alineado en la fila */
     .madrid-card-link:hover { gap: 9px; }
 
     /* Wider card for Salamanca group */
@@ -381,10 +387,10 @@
 
     /* Individual photo card */
     .city-photo-card {
-      position: relative; border-radius: 16px; overflow: hidden;
+      position: relative; border-radius: var(--radius); overflow: hidden;
       cursor: default; height: 260px;
     }
-    .map-target-flash { animation: target-flash 1.4s var(--ease); border-radius: 16px; }
+    .map-target-flash { animation: target-flash 1.4s var(--ease); border-radius: var(--radius); }
     @keyframes target-flash {
       0% { box-shadow: 0 0 0 0 rgba(245,146,26,.7); }
       35% { box-shadow: 0 0 0 10px rgba(245,146,26,0); }
@@ -834,7 +840,6 @@
       </div>
       <div class="map-legend">
         <div class="legend-item"><div class="legend-dot"></div> Centro OficinasYA! · el número junto al nombre indica cuántos hay</div>
-        <div class="legend-item" style="color:rgba(255,255,255,.45)">👆 Pulsa una ciudad para ir a su página</div>
       </div>
     </div>
     <div class="net-stats rv">

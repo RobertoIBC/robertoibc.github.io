@@ -78,9 +78,8 @@
     .como-hd .ssub { margin: 16px auto 0; text-align: center; }
     .como-steps-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .como-step-card {
-      background: var(--white); border-radius: var(--radius);
+      background: var(--white); border-radius: var(--radius); border: var(--card-border);
       padding: 44px 36px 40px; position: relative;
-      box-shadow: 0 4px 24px rgba(0,0,0,.07);
       transition: transform .4s var(--ease), box-shadow .4s;
     }
     .como-step-card:hover { transform: translateY(-8px); box-shadow: 0 20px 56px rgba(0,0,0,.12); }
@@ -134,8 +133,8 @@
     .miembros-hd .ssub { margin: 16px auto 0; text-align: center; }
     .members-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; }
     .member-card {
-      background: var(--white); border-radius: 18px;
-      border: 1.5px solid var(--gray-200); padding: 28px 24px;
+      background: var(--white); border-radius: var(--radius);
+      border: var(--card-border); padding: 28px 24px;
       transition: border-color .3s, transform .3s, box-shadow .3s;
       display: flex; flex-direction: column;
     }

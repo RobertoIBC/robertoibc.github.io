@@ -19,10 +19,10 @@ profesional.
 
 ## Servicios
 
-- Despachos privados: equipados, con llave propia. Acceso 24/7 en Madrid y
+- Despachos privados: equipados y de uso exclusivo. Acceso 24/7 en Madrid y
   centros seleccionados.
 - Salas de reuniones: varios tamaños y formatos, con pantalla, proyector y
-  videoconferencia. Reserva online. Catering a petición.
+  videoconferencia. Reserva por teléfono o WhatsApp. Catering a petición.
 - Coworking: puestos en espacios compartidos dentro de la red.
 - Oficina virtual: dirección fiscal y comercial, gestión de correspondencia,
   recepción de visitas y posibilidad de atención telefónica.
@@ -36,12 +36,12 @@ profesional.
 
 ## Precios
 
-- Por horas: desde 8,5 € por hora + IVA. Incluye despacho privado equipado, WiFi de
+- Por horas: desde 8,50 € por hora + IVA. Incluye despacho privado equipado, WiFi de
   alta velocidad y recepción de visitas. Sin permanencia mínima.
-- Mensual fijo: desde 270 € al mes + IVA. Incluye despacho privado exclusivo, acceso
-  llave propia (24/7 en Madrid y centros seleccionados), domiciliación, limpieza
-  y mantenimiento, y 5 horas de
-  sala de reuniones al mes.
+- Mensual fijo: desde 270 € al mes + IVA. Incluye despacho privado de uso exclusivo,
+  acceso 24/7 en Madrid y centros seleccionados, domiciliación, limpieza y
+  mantenimiento. En varios centros la cuota incluye además horas de sala de
+  reuniones; el detalle, en la ficha de cada centro.
 - Oficina virtual: desde 20 € al mes + IVA. Incluye dirección fiscal y comercial,
   gestión de correo y posibilidad de atención telefónica.
 

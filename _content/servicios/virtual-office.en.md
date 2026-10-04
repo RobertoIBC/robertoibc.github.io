@@ -29,7 +29,7 @@ tarjetas:
   - titulo: Registered address
     texto: "The centre's address as your company's registered, official and trading address. You can use it with the tax authority and the Companies Register, on your website, on your invoices and in your correspondence."
   - titulo: Mail, parcels and notifications
-    texto: "Reception receives everything that arrives in your name — letters, parcels, registered post, notifications — and lets you know straight away. You collect it whenever you like or, if you prefer, it is forwarded to you."
+    texto: "Reception receives everything that arrives in your name (letters, parcels, registered post, notifications) and lets you know straight away. You collect it whenever you like or, if you prefer, it is forwarded to you."
   - titulo: Call answering
     texto: "If you take it, your calls are answered by the centre's reception in your company's name and transferred to you on the spot, or a message is taken. It is what makes a one-person company look like a company with an office."
   - titulo: Visitor reception
@@ -105,7 +105,7 @@ If, beyond the address, you are going to use the centre with some regularity, th
 
 ## Smart Office: what you want, how you want it, when you want it {: #smart-office }
 
-Smart Office is OficinasYA!'s modular formula, available at {{ n.smart_office }} of the network's {{ g.espacios }} spaces. It starts from the virtual office — registered and trading address, mail, call answering — and adds whatever your business needs at any given time:
+Smart Office is OficinasYA!'s modular formula, available at {{ n.smart_office }} of the network's {{ g.espacios }} spaces. It starts from the virtual office (registered and trading address, mail, call answering) and adds whatever your business needs at any given time:
 
 - office hours,
 - meeting rooms,

@@ -112,7 +112,7 @@ El catering se contrata aparte y a petición: un desayuno de trabajo, un descans
 
 Las salas se pagan por horas y la tarifa depende de dos cosas: la capacidad de la sala y el centro.
 
-Una sala de cuatro personas en una ciudad pequeña y un auditorio de 200 no cuestan lo mismo, y no tendría sentido publicar un único "desde" que no sirviera para ninguna de las dos. Pide precio para la sala concreta que necesitas y te lo damos en el momento. Todos los precios son sin IVA.
+Una sala de cuatro personas en una ciudad pequeña y un auditorio de 200 no cuestan lo mismo, y no tendría sentido publicar un único «desde» que no sirviera para ninguna de las dos. Pide precio para la sala concreta que necesitas y te lo damos en el momento. Todos los precios son sin IVA.
 
 > Si eres cliente de despacho mensual, en varios centros la cuota incluye horas de sala al mes; consulta el detalle del tuyo. Los clientes de oficina virtual y Smart Office reservan salas y despachos por horas con la misma tarifa por horas.
 
