@@ -25,7 +25,8 @@ http.server.SimpleHTTPRequestHandler.log_message = lambda *a: None
 srv = Q(('127.0.0.1', port), handler)
 threading.Thread(target=srv.serve_forever, daemon=True).start()
 runner = ROOT / '_clickaudit.html'
-runner.write_text("""<body><script>
+def write_runner(batch):
+  runner.write_text("""<body><script>
 const TARGETS=%s, KNOWN=new Set(%s), out=[];
 function norm(u){u=u.split('#')[0].split('?')[0];if(!u.endsWith('/'))u+='/';return u;}
 function load(url){return new Promise(res=>{const f=document.createElement('iframe');f.style.cssText='width:1280px;height:900px;border:0';f.src=url;f.onload=()=>res(f);document.body.appendChild(f);});}
@@ -63,15 +64,26 @@ async function audit(url){
   out.push(`${url}: ${checked} clicks probados`);f.remove();
 }
 (async()=>{for(const u of TARGETS)await audit(u);document.body.insertAdjacentHTML('beforeend','<pre id=r>'+out.join('\\n')+'</pre>');})();
-</script>""" % (json.dumps(targets), json.dumps(sorted(known))), encoding='utf-8')
+</script>""" % (json.dumps(batch), json.dumps(sorted(known))), encoding='utf-8')
+# Por tandas: con muchas paginas en una sola pasada Chrome agota su tiempo virtual y no devuelve nada
+# (antes eso se leia como "0 rotos": un falso aprobado). Cada tanda tiene que devolver su resultado.
+TANDA = 6
+res_all, sin_resultado = [], []
 try:
-    r = subprocess.run([CH, '--headless=new', '--disable-gpu', '--no-sandbox', '--virtual-time-budget=300000', '--dump-dom', f'http://127.0.0.1:{port}/_clickaudit.html'], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=600)
+    for i in range(0, len(targets), TANDA):
+        batch = targets[i:i + TANDA]
+        write_runner(batch)
+        r = subprocess.run([CH, '--headless=new', '--disable-gpu', '--no-sandbox', '--virtual-time-budget=300000', '--dump-dom', f'http://127.0.0.1:{port}/_clickaudit.html'], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=600)
+        m = re.search(r'<pre id="r">(.*?)</pre>', r.stdout, re.S)
+        if not m:
+            sin_resultado.append(batch); continue
+        res_all.append(re.sub(r'<[^>]+>', '', m.group(1)).replace('&gt;', '>').replace('&lt;', '<').replace('&amp;', '&'))
 finally:
-    runner.unlink(); srv.shutdown()
-m = re.search(r'<pre id="r">(.*?)</pre>', r.stdout, re.S)
-res = re.sub(r'<[^>]+>', '', m.group(1)) if m else '(sin resultado)'
-res = res.replace('&gt;', '>').replace('&lt;', '<').replace('&amp;', '&')
+    if runner.exists(): runner.unlink()
+    srv.shutdown()
+res = '\n'.join(res_all)
 print(res)
 bad = [l for l in res.splitlines() if 'NO EXISTE' in l]
 print('CLICKS ROTOS:', len(bad))
-sys.exit(1 if bad else 0)
+for bt in sin_resultado: print('SIN RESULTADO (la auditoria no termino) en:', bt)
+sys.exit(1 if bad or sin_resultado else 0)

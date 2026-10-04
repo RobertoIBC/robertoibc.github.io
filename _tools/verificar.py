@@ -18,7 +18,10 @@ for p in pages:
     alts = dict(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"', h))
     canon[c] = alts
     if re.search(r'<meta property="og:url" content="([^"]+)"', h).group(1) != c: errors.append(f'{url}: og:url != canonical')
-    if 'name="robots" content="noindex' not in h: errors.append(f'{url}: falta noindex')
+    NOINDEX = _y.safe_load(open('_data/global.yml', encoding='utf-8'))['site'].get('noindex')
+    tiene = 'name="robots" content="noindex' in h
+    if NOINDEX and not tiene: errors.append(f'{url}: falta noindex')
+    if not NOINDEX and tiene: errors.append(f'{url}: noindex en produccion')
     for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', h, re.S):
         try: j = json.loads(m.group(1))
         except Exception as e: errors.append(f'{url}: JSON-LD invalido: {e}'); continue
@@ -112,3 +115,4 @@ for b in blocks:
 print(f'{len(pages)} paginas, {len(blocks)} en sitemap')
 for r in sorted(rows): print(f'{r[0]:28} title {r[1]:3} desc {r[2]:3} h1 {r[3]}')
 print('\n'.join(errors) if errors else 'SIN ERRORES')
+sys.exit(1 if errors else 0)

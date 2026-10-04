@@ -363,7 +363,9 @@ def jsonld_ciudad(p, g, site, lang, i18n, city, centros_ciudad, urls):
         }
         if c.get('opening_hours'):
             lb['openingHoursSpecification'] = c['opening_hours']
-        if c.get('web'):
+        # sameAs solo si la web del centro esta en otro dominio: las fichas del WordPress anterior (mismo
+        # dominio) ahora redirigen con 301 a esta misma pagina, y un sameAs a uno mismo no aporta nada.
+        if c.get('web') and c['web'].split('/')[2:3] != url.split('/')[2:3]:
             lb['sameAs'] = c['web']
         if c.get('foto'):
             lb['image'] = url + c['foto'] if c['foto'].startswith('/') else c['foto']
