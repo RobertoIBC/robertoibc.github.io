@@ -37,4 +37,4 @@ Esto es básico, trata de llegar a la reunión antes de hora, unos minutos de ad
 
 Prepara la reunión con antelación. Analiza los puntos fuertes y débiles de tu negocio, piensa en cómo hacer que los demás lo vean atractivo, cómo llamar su atención, cómo hacer que quieran saber más de ti. Si lo llevas todo muy preparado, a la hora se hacer networking actuarás con mayor seguridad y transmitirás mucha confianza en ti mismo y en tu negocio.
 
-Si quieres conocer todas las ventajas del networking, haz click «[aquí](https://www.oficinasya.es/ventajas-del-networking/)«
+Si quieres conocer todas las ventajas del networking, haz click «[aquí](/blog/)«

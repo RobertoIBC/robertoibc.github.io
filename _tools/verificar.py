@@ -39,6 +39,8 @@ for p in pages:
         if not u.startswith(('http', 'data:', '/', '#')): errors.append(f'{url}: url() relativa {u}')
         elif u.startswith('/') and not (ROOT / u.lstrip('/')).exists(): errors.append(f'{url}: url() rota {u}')
     for href in re.findall(r'(?:href|src)="(/[^"#]*)', h):
+        if href.rstrip('/') in REDIR_EXACTAS and not (ROOT / href.lstrip('/') / 'index.html').exists():
+            errors.append(f'{url}: enlace a {href}, que pasa por una redireccion (301): enlazar el destino final'); continue
         f = ROOT / href.lstrip('/')
         if href.endswith('/'): f = f / 'index.html'
         if not f.exists(): errors.append(f'{url}: enlace roto {href}')
@@ -49,7 +51,7 @@ for p in pages:
         if path.endswith('/'): f = f / 'index.html'
         if f.exists(): continue
         if path.rstrip('/') in REDIR_EXACTAS or any(path.startswith(x) for x in REDIR_PREFIJOS):
-            avisos.append(f'{url}: enlace a {path}, que redirige (301) segun redirects.yml')
+            errors.append(f'{url}: enlace a {path}, que pasa por una redireccion (301): enlazar el destino final')
         else:
             errors.append(f'{url}: enlace absoluto roto {su}')
     for href in re.findall(r'href="(/[^"]*#[^"]+)"', h):
