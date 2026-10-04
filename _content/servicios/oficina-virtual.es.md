@@ -38,7 +38,8 @@ tarjetas:
   - titulo: Despachos, salas y hot desk
     texto: "Como cliente de oficina virtual reservas despachos y salas de reuniones por horas en tu centro, y tienes puestos de trabajo en los centros de la red cuando estás en otra ciudad. Es la parte que diferencia una oficina virtual dentro de un centro de negocios de un simple apartado de correos con nombre."
 formas_dato:
-  num: "Desde {{ p.oficina_virtual_mes }} €/mes"
+  precio: oficina_virtual_mes
+  unidad: mes
   texto: "Es el precio de partida de la red; la cuota concreta depende del centro, de la duración del contrato y de lo que añadas: la atención telefónica personalizada y las horas de sala se contratan aparte. Algunos centros ofrecen una tarifa reducida por pago anual. Todos los precios se muestran sin IVA."
 pasos:
   - titulo: Elige el centro

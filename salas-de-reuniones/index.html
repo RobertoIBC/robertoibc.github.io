@@ -328,18 +328,26 @@
     .hero-offer-price .unit { font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.7); }
     .hero-offer-price .tax { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35); font-family: 'Inter', sans-serif; }
     .hero-offer-detail { font-size: .82rem; color: rgba(255,255,255,.5); margin-top: 6px; }
-    .hero-price-line { margin: 0 0 32px; color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.5; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; row-gap: 4px; }
-    .hero-price-line .hp-item { white-space: nowrap; }
-    .hero-price-line .from { font-size: .9rem; }
-    .hero-price-line .num { font-family: 'Barlow', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--orange); margin-left: 4px; }
-    .hero-price-line .unit { font-weight: 700; color: rgba(255,255,255,.8); }
+    /* ── PRECIO: un solo componente (partials/precio.html). La cifra es lo unico que destaca; "desde", la unidad y
+       el IVA en gris secundario, sobre la linea base de la cifra. El contexto pone colores y tamano. */
+    .precio { display: inline-flex; align-items: baseline; flex-wrap: wrap; row-gap: 2px; line-height: 1.1; font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 0; color: var(--precio-sec, var(--gray-600)); }
+    .precio-desde { font-size: .78rem; font-weight: 500; margin-right: 6px; }
+    .precio-cifra { white-space: nowrap; }
+    .precio-num { font-family: 'Barlow', sans-serif; font-size: var(--precio-size, 2rem); font-weight: 900; letter-spacing: -.5px; color: var(--precio-color, var(--orange-dark)); }
+    .precio-unidad { font-size: .9rem; font-weight: 600; margin-left: 2px; }
+    .precio-iva { font-size: .74rem; font-weight: 600; margin-left: 8px; white-space: nowrap; }
+    /* cabecera oscura */
+    .hero-price-line { margin: 0 0 32px; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 14px; row-gap: 6px; color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.4;
+      --precio-sec: rgba(255,255,255,.62); --precio-color: var(--orange); --precio-size: 2.1rem; }
+    .hero-price-line.sin-cifra .hp-modo { font-weight: 700; color: var(--white); font-size: 1.05rem; }
+    .hero-price-line.sin-cifra .hp-nota { color: rgba(255,255,255,.62); }
+    .hero-price-line .hp-tel { font-family: 'Barlow', sans-serif; font-size: 1.3rem; font-weight: 900; color: var(--orange); text-decoration: none; border-bottom: 2px solid rgba(245,146,26,.4); white-space: nowrap; }
     .hero-price-line .hp-sep { color: rgba(255,255,255,.3); }
-    .hero-price-line .num.txt { font-size: 1.35rem; margin-left: 0; }
-    .hero-price-line .hp-tel { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--orange); text-decoration: none; border-bottom: 2px solid rgba(245,146,26,.4); }
     .hero-price-line .hp-tel:hover { border-bottom-color: var(--orange); }
+    .srv-callout .precio { --precio-size: 1.8rem; }
+    .srv-callout-n:has(.precio) { flex: 0 0 auto; }   /* que no se encoja: "desde" junto a la cifra */
+    .srv-callout .precio-iva { flex-basis: 100%; margin: 4px 0 0; }
     .srv-callout-detalle { margin: 0 0 6px !important; font-weight: 600; color: var(--dark) !important; }
-    .srv-option-price .nu { white-space: nowrap; }
-    .hero-price-line .tax { font-size: .9rem; font-weight: 600; margin-left: 6px; }
     @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } .hero-price-line .hp-sep { display: none; } }
     .srv-option-detail { font-size: .86rem; color: var(--gray-600); line-height: 1.45; margin-top: 10px; }
     .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start; }
@@ -383,12 +391,9 @@
     .srv-option { background: var(--white); border: var(--card-border); border-radius: var(--radius); padding: 22px 26px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 24px; align-items: start; }
     .srv-option-hd { border-right: 1px solid var(--gray-200); padding-right: 20px; align-self: stretch; }
     .srv-option-name { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-600); margin-bottom: 8px; }
-    .srv-option-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; font-family: 'Barlow', sans-serif; line-height: 1; }
-    .srv-option-price .from { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 600; color: var(--gray-600); }
-    .srv-option-price .num { font-size: 2rem; font-weight: 900; color: var(--orange-dark); }
+    .srv-option-price { line-height: 1; }
+    .srv-option-price .precio-iva { flex-basis: 100%; margin: 4px 0 0; }   /* el IVA en su linea en las dos tarjetas: 8,50 y 270 cuadran */
     .srv-option-price .num.small { font-size: 1.5rem; color: var(--orange-dark); }
-    .srv-option-price .unit { font-size: .95rem; font-weight: 700; color: var(--dark-mid); }
-    .srv-option-price .tax { font-family: 'Inter', sans-serif; font-size: .72rem; font-weight: 600; color: var(--gray-600); }
     .srv-option p { margin: 0; font-size: .96rem; line-height: 1.7; }
     .srv-option-body { min-width: 0; }
     .srv-option-list { margin: 12px 0 0 18px; font-size: .94rem; line-height: 1.6; }
@@ -747,10 +752,10 @@
     <div class="hero-grid">
     <div>
     <h1 class="page-hero-title">Alquiler de salas de reuniones</h1>
-    <p class="page-hero-sub">Salas de 2 a 275 personas, desde una hora y cualquier día del año. Equipadas, con recepción de visitas y, si hace falta, catering. En 17 ciudades.</p><p class="hero-price-line">
-      <span class="hp-item"><b class="num txt">Por horas</b></span> <span class="hp-sep" aria-hidden="true">·</span>
-      <span class="hp-item">precio según sala y centro</span> <span class="hp-sep" aria-hidden="true">·</span>
-      <a class="hp-item hp-tel" href="tel:918298500">918 298 500</a>
+    <p class="page-hero-sub">Salas de 2 a 275 personas, desde una hora y cualquier día del año. Equipadas, con recepción de visitas y, si hace falta, catering. En 17 ciudades.</p><p class="hero-price-line sin-cifra">
+      <span class="hp-modo">Por horas</span> <span class="hp-sep" aria-hidden="true">·</span>
+      <span class="hp-nota">precio según sala y centro</span> <span class="hp-sep" aria-hidden="true">·</span>
+      <a class="hp-tel" href="tel:918298500">918 298 500</a>
     </p>
     </div>
     <figure class="hero-photo">

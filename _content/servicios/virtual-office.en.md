@@ -38,7 +38,8 @@ tarjetas:
   - titulo: Offices, rooms and hot desks
     texto: "As a virtual office client you book offices and meeting rooms by the hour at your centre, and you have workstations at the network's centres when you are in another city. That is what sets a virtual office inside a business centre apart from a mere PO box with a name."
 formas_dato:
-  num: "From €{{ p.oficina_virtual_mes }}/month"
+  precio: oficina_virtual_mes
+  unidad: mes
   texto: "That is the network's starting price; the exact fee depends on the centre, the length of the contract and what you add: personalised call answering and meeting-room hours are contracted separately. Some centres offer a reduced rate for annual payment. All prices are shown without VAT."
 pasos:
   - titulo: Choose the centre

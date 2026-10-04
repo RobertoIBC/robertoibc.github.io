@@ -1,0 +1,7 @@
+{#- Precio: el mismo componente en la cabecera, en "Dos formas" y en el recuadro de precio.
+    Jerarquia: la cifra es lo unico que destaca; "desde" pequeno y discreto; la unidad y el IVA en gris secundario,
+    legibles. Todo sobre la linea base de la cifra. Los colores y el tamano los pone el contexto (variables CSS).
+    Uso: {% from "partials/precio.html" import precio with context %}  {{ precio(p.despacho_hora, 'hora') }} -#}
+{%- macro precio(valor, unidad, iva=true) -%}
+<span class="precio"><span class="precio-desde">{{ t.srv.from }}</span> <span class="precio-cifra"><span class="precio-num">{% if t.srv.eur_before %}€{{ valor }}{% else %}{{ valor }}&nbsp;€{% endif %}</span><span class="precio-unidad">{{ t.srv.per_hour if unidad in ('hora', 'hour') else t.srv.per_month }}</span></span>{% if iva %} <span class="precio-iva">{{ t.srv.tax }}</span>{% endif %}</span>
+{%- endmacro %}

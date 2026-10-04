@@ -1,3 +1,4 @@
+{%- from "partials/precio.html" import precio with context %}
 {#- Formas de contratarlo: una tarjeta por forma con el precio destacado. Front matter: formas[], formas_nota, formas_dato -#}
 {%- if page.get('formas') %}
 <div class="srv-cards srv-cards-2 srv-formas">
@@ -6,7 +7,7 @@
     <div class="srv-option-hd">
       <div class="srv-option-name">{{ f.titulo }}</div>
 {%- if f.get("precio") %}
-      <div class="srv-option-price"><span class="from">{{ t.srv.from }}</span> <span class="nu"><span class="num">{% if t.srv.eur_before %}€{{ p[f.precio] }}{% else %}{{ p[f.precio] }} €{% endif %}</span><span class="unit">/{{ f.unidad }}</span></span> <span class="tax">{{ t.srv.tax }}</span></div>
+      <div class="srv-option-price">{{ precio(p[f.precio], f.unidad) }}</div>
 {%- if page.get('precio_linea') %}{% for o in page.ofertas if o.precio == f.precio %}
       <div class="srv-option-detail">{{ o.detalle }}</div>
 {%- endfor %}{% endif %}
@@ -30,7 +31,7 @@
 {%- endif %}
 {%- if page.get("formas_dato") %}
 <div class="srv-callout">
-  <div class="srv-callout-n">{{ page.formas_dato.num }}</div>
+  <div class="srv-callout-n">{% if page.formas_dato.get('precio') %}{{ precio(p[page.formas_dato.precio], page.formas_dato.unidad) }}{% else %}{{ page.formas_dato.num }}{% endif %}</div>
 {%- if page.get('precio_linea') and not page.get('formas') %}
   <div>{% for o in page.ofertas %}<p class="srv-callout-detalle">{{ o.detalle }}</p>{% endfor %}<p>{{ page.formas_dato.texto }}</p></div>
 {%- else %}
