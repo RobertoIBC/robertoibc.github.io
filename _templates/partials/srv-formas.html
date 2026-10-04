@@ -7,6 +7,9 @@
       <div class="srv-option-name">{{ f.titulo }}</div>
 {%- if f.get("precio") %}
       <div class="srv-option-price"><span class="from">{{ t.srv.from }}</span> <span class="num">{% if t.srv.eur_before %}€{{ p[f.precio] }}{% else %}{{ p[f.precio] }} €{% endif %}</span><span class="unit">/{{ f.unidad }}</span> <span class="tax">{{ t.srv.tax }}</span></div>
+{%- if page.get('precio_linea') %}{% for o in page.ofertas if o.precio == f.precio %}
+      <div class="srv-option-detail">{{ o.detalle }}</div>
+{%- endfor %}{% endif %}
 {%- elif f.get("precio_texto") %}
       <div class="srv-option-price"><span class="num small">{{ f.precio_texto }}</span></div>
 {%- endif %}

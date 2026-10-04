@@ -326,6 +326,15 @@
     .hero-offer-price .unit { font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.7); }
     .hero-offer-price .tax { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35); font-family: 'Inter', sans-serif; }
     .hero-offer-detail { font-size: .82rem; color: rgba(255,255,255,.5); margin-top: 6px; }
+    .hero-price-line { margin: 0 0 32px; color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.5; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; row-gap: 4px; }
+    .hero-price-line .hp-item { white-space: nowrap; }
+    .hero-price-line .from { font-size: .9rem; }
+    .hero-price-line .num { font-family: 'Barlow', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--orange); margin-left: 4px; }
+    .hero-price-line .unit { font-weight: 700; color: rgba(255,255,255,.8); }
+    .hero-price-line .hp-sep { color: rgba(255,255,255,.3); }
+    .hero-price-line .tax { font-size: .9rem; font-weight: 600; margin-left: 6px; }
+    @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } .hero-price-line .hp-sep { display: none; } }
+    .srv-option-detail { font-size: .86rem; color: var(--gray-600); line-height: 1.45; margin-top: 10px; }
     .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start; }
     .srv-table-wrap { overflow-x: auto; }
     /* ── LATERAL ── */
@@ -754,19 +763,10 @@
     <div class="hero-grid">
     <div>
     <h1 class="page-hero-title">Alquiler de despachos privados</h1>
-    <p class="page-hero-sub">Un espacio cerrado, equipado y de uso exclusivo. Por horas o por meses, en 35 espacios de 17 ciudades.</p>
-    <div class="hero-offers">
-      <div class="hero-offer">
-        <div class="hero-offer-name">Despacho por horas</div>
-        <div class="hero-offer-price"><span class="from">desde</span> <span class="num">8,50 €</span><span class="unit">/hora</span> <span class="tax">+ IVA</span></div>
-        <div class="hero-offer-detail">Solo el tiempo que uses. Sin permanencia.</div>
-      </div>
-      <div class="hero-offer">
-        <div class="hero-offer-name">Despacho mensual</div>
-        <div class="hero-offer-price"><span class="from">desde</span> <span class="num">270 €</span><span class="unit">/mes</span> <span class="tax">+ IVA</span></div>
-        <div class="hero-offer-detail">Tu despacho exclusivo, con domiciliación.</div>
-      </div>
-    </div>
+    <p class="page-hero-sub">Un espacio cerrado, equipado y de uso exclusivo. Por horas o por meses, en 35 espacios de 17 ciudades.</p><p class="hero-price-line">
+      <span class="hp-item"><span class="from">desde</span> <b class="num">8,50&nbsp;€</b><span class="unit">/hora</span></span> <span class="hp-sep" aria-hidden="true">·</span> 
+      <span class="hp-item"><span class="from">desde</span> <b class="num">270&nbsp;€</b><span class="unit">/mes</span> <span class="tax">+ IVA</span></span>
+    </p>
     </div>
     <figure class="hero-photo">
       <img src="/assets/img/despachos/serrano.jpg" alt="Despacho para varios puestos con suelo de madera en el centro OficinasYA! de Serrano, Madrid" width="1200" height="900" decoding="async" fetchpriority="high" />
@@ -807,6 +807,7 @@
     <div class="srv-option-hd">
       <div class="srv-option-name">Por horas</div>
       <div class="srv-option-price"><span class="from">desde</span> <span class="num">8,50 €</span><span class="unit">/hora</span> <span class="tax">+ IVA</span></div>
+      <div class="srv-option-detail">Solo el tiempo que uses. Sin permanencia.</div>
     </div>
     <div class="srv-option-body">
       <p>Reservas un despacho equipado para el tiempo que necesites: una reunión con un cliente, una entrevista, una mañana de trabajo concentrado.</p>
@@ -820,6 +821,7 @@
     <div class="srv-option-hd">
       <div class="srv-option-name">Mensual</div>
       <div class="srv-option-price"><span class="from">desde</span> <span class="num">270 €</span><span class="unit">/mes</span> <span class="tax">+ IVA</span></div>
+      <div class="srv-option-detail">Tu despacho exclusivo, con domiciliación.</div>
     </div>
     <div class="srv-option-body">
       <p>El despacho es tuyo: mobiliario, línea de teléfono, limpieza diaria, mantenimiento y suministros incluidos, y domiciliación social de tu empresa en el centro.</p>

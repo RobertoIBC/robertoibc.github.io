@@ -14,6 +14,7 @@ hero_caption: "Despacho en Serrano, Madrid"
 eyebrow: Despachos privados
 service_type: Alquiler de despachos privados
 csv_key: despachos
+precio_linea: true   # propuesta: precio en una linea arriba, cajas en "Dos formas" (revision)
 wa_msg: "Hola, me interesa alquilar un despacho privado"
 galeria:
   - { foto: /assets/img/despachos/gasset.jpg, alt: "Despacho individual con mesa, ordenador y teléfono en el centro OficinasYA! de Gasset, Madrid", titulo: "Despacho individual", sub: "Gasset, Madrid", dato: "desde 13 m²" }

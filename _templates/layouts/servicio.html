@@ -14,6 +14,15 @@
     .hero-offer-price .unit { font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.7); }
     .hero-offer-price .tax { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.35); font-family: 'Inter', sans-serif; }
     .hero-offer-detail { font-size: .82rem; color: rgba(255,255,255,.5); margin-top: 6px; }
+    .hero-price-line { margin: 0 0 32px; color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.5; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; row-gap: 4px; }
+    .hero-price-line .hp-item { white-space: nowrap; }
+    .hero-price-line .from { font-size: .9rem; }
+    .hero-price-line .num { font-family: 'Barlow', sans-serif; font-size: 1.9rem; font-weight: 900; color: var(--orange); margin-left: 4px; }
+    .hero-price-line .unit { font-weight: 700; color: rgba(255,255,255,.8); }
+    .hero-price-line .hp-sep { color: rgba(255,255,255,.3); }
+    .hero-price-line .tax { font-size: .9rem; font-weight: 600; margin-left: 6px; }
+    @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } .hero-price-line .hp-sep { display: none; } }
+    .srv-option-detail { font-size: .86rem; color: var(--gray-600); line-height: 1.45; margin-top: 10px; }
     .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start; }
     .srv-table-wrap { overflow-x: auto; }
     /* ── LATERAL ── */
@@ -157,7 +166,14 @@
 {%- endif %}
     <h1 class="page-hero-title">{{ page.h1 }}</h1>
     <p class="page-hero-sub">{{ page.subtitle }}</p>
-{%- if page.ofertas %}
+{%- if page.ofertas and page.get('precio_linea') %}
+    {#- Precio en una linea: el dato que busca quien llega de Google, sin las cajas (que bajan a "Dos formas") -#}
+    <p class="hero-price-line">
+{%- for o in page.ofertas %}
+      <span class="hp-item"><span class="from">{{ t.srv.from }}</span> <b class="num">{% if t.srv.eur_before %}€{{ p[o.precio] }}{% else %}{{ p[o.precio] }}&nbsp;€{% endif %}</b><span class="unit">{{ t.srv.per_hour if o.unidad == 'hora' else t.srv.per_month }}</span>{% if loop.last %} <span class="tax">{{ t.srv.tax }}</span>{% endif %}</span>{% if not loop.last %} <span class="hp-sep" aria-hidden="true">·</span> {% endif %}
+{%- endfor %}
+    </p>
+{%- elif page.ofertas %}
     <div class="hero-offers">
 {%- for o in page.ofertas %}
       <div class="hero-offer">
