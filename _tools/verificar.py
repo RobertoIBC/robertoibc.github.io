@@ -101,6 +101,15 @@ for p in pages:
     # mayusculas/minusculas: GitHub Pages y Linux distinguen; Windows no
     for r in set(re.findall(r'(?:src|href)="(/assets/[^"#?]+)"', h)) | set(re.findall(r"url\('(/assets/[^']+)'\)", h)):
         if r.lstrip('/') not in ASSETS: errors.append(f'{url}: asset con nombre que no coincide exactamente: {r}')
+    # texto pegado: dos elementos en linea seguidos sin espacio. En pantalla los separa el CSS (flex/gap), pero al
+    # copiar, en lectores de pantalla y para Google se lee "desde8,50 €/hora+ IVA". Se excluye el logo (OficinasYA!
+    # va junto) y la palabra partida por una negrita ("c</strong><strong>asi").
+    cuerpo = re.sub(r'<script.*?</script>|<style.*?</style>|<svg.*?</svg>', '', h[h.index('<body'):], flags=re.S)
+    for m in re.finditer(r'([\w€².)!?:»"])((?:</(?:span|b|strong|em|small|a|i|label)>)+)((?:<(?:span|b|strong|em|small|a|i|label)\b[^>]*>)+)([\w€+(«"¿¡])', cuerpo):
+        if 'logo-ya' in m.group(3) or (m.group(1).isalpha() and m.group(4).islower()): continue
+        izq = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', cuerpo[max(0, m.start() - 80):m.start() + 1])).strip()[-25:]
+        der = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', cuerpo[m.end() - 1:m.end() + 60])).strip()[:25]
+        errors.append(f'{url}: texto pegado sin espacio: "{izq.strip()}" + "{der.strip()}"')
     for m in re.finditer(r'<img\b[^>]*>', h):
         if ' alt=' not in m.group(0): errors.append(f'{url}: <img> sin alt: {m.group(0)[:80]}')
     ids = re.findall(r'\sid="([^"]+)"', h)

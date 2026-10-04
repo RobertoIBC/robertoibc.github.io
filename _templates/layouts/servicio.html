@@ -162,7 +162,7 @@
 {%- for o in page.ofertas %}
       <div class="hero-offer">
         <div class="hero-offer-name">{{ o.nombre }}</div>
-        <div class="hero-offer-price"><span class="from">{{ t.srv.from }}</span><span class="num">{% if t.srv.eur_before %}€{{ p[o.precio] }}{% else %}{{ p[o.precio] }} €{% endif %}</span><span class="unit">{{ t.srv.per_hour if o.unidad == 'hora' else t.srv.per_month }}</span><span class="tax">{{ t.srv.tax }}</span></div>
+        <div class="hero-offer-price"><span class="from">{{ t.srv.from }}</span> <span class="num">{% if t.srv.eur_before %}€{{ p[o.precio] }}{% else %}{{ p[o.precio] }} €{% endif %}</span><span class="unit">{{ t.srv.per_hour if o.unidad == 'hora' else t.srv.per_month }}</span> <span class="tax">{{ t.srv.tax }}</span></div>
         <div class="hero-offer-detail">{{ o.detalle }}</div>
       </div>
 {%- endfor %}
