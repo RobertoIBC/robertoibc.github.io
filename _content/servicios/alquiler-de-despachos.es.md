@@ -8,9 +8,9 @@ title: "Alquiler de despachos privados equipados | OficinasYA!"
 description: "Despachos privados amueblados y listos para trabajar el mismo día, por horas desde {{ p.despacho_hora }} €/h o mensuales desde {{ p.despacho_mes }} €/mes + IVA, en {{ g.ciudades }} ciudades de España."
 h1: Alquiler de despachos privados
 subtitle: Un espacio cerrado, equipado y de uso exclusivo. Por horas o por meses, en {{ g.espacios }} espacios de {{ g.ciudades }} ciudades.
-hero_foto: /assets/img/centros/centro-madrid-capitan-haya-2x.jpg
-hero_alt: "Despacho para cuatro puestos en el centro OficinasYA! de Capitán Haya, Madrid"
-hero_caption: "Despacho en Capitán Haya, Madrid"
+hero_foto: /assets/img/centros/centro-sevilla-2x.jpg
+hero_alt: "Despacho individual con mesa de dirección y luz natural en el centro OficinasYA! de Laraña, Sevilla"
+hero_caption: "Despacho en Laraña, Sevilla"
 eyebrow: Despachos privados
 service_type: Alquiler de despachos privados
 csv_key: despachos

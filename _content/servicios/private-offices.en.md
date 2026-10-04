@@ -8,9 +8,9 @@ title: "Private office rental, furnished and ready | OficinasYA!"
 description: "Furnished private offices ready to work from on day one: by the hour from €{{ p.despacho_hora }}/h or monthly from €{{ p.despacho_mes }}/month + VAT, in {{ g.ciudades }} cities across Spain."
 h1: Private office rental
 subtitle: A closed, furnished space for your exclusive use. By the hour or by the month, in {{ g.espacios }} spaces across {{ g.ciudades }} cities.
-hero_foto: /assets/img/centros/centro-madrid-capitan-haya-2x.jpg
-hero_alt: "Four-desk office at the OficinasYA! Capitán Haya centre, Madrid"
-hero_caption: "Office at Capitán Haya, Madrid"
+hero_foto: /assets/img/centros/centro-sevilla-2x.jpg
+hero_alt: "Private office with an executive desk and natural light at the OficinasYA! Laraña centre, Seville"
+hero_caption: "Office at Laraña, Seville"
 eyebrow: Private offices
 service_type: Private office rental
 csv_key: despachos
