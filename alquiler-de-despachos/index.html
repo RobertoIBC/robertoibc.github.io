@@ -402,11 +402,14 @@
     .srv-table-wrap tr:last-child td { border-bottom: none; }
     .srv-galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0 28px; }
     .srv-galeria-3 { grid-template-columns: repeat(3, 1fr); }
-    .srv-galeria-item { margin: 0; position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 3 / 2; background: var(--gray-200); }
-    .srv-galeria-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .srv-galeria-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 18px 14px; background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0)); color: var(--white); display: flex; flex-direction: column; gap: 2px; }
-    .srv-galeria-item figcaption b { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; }
-    .srv-galeria-item figcaption span { font-size: .8rem; opacity: .85; }
+    /* Galeria: la tarjeta de la web (radio, borde) con la foto arriba, todas a la misma proporcion, y el pie
+       debajo: el dato (m² o capacidad) manda, luego el tipo y el centro. */
+    .srv-galeria-item { margin: 0; border-radius: var(--radius); border: var(--card-border); overflow: hidden; background: var(--white); display: flex; flex-direction: column; }
+    .srv-galeria-item img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; display: block; background: var(--gray-200); }
+    .srv-galeria-item figcaption { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 3px; flex: 1; }
+    .srv-galeria-item .g-dato { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--orange-dark); line-height: 1.1; }
+    .srv-galeria-item .g-tipo { font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 800; color: var(--dark); line-height: 1.25; }
+    .srv-galeria-item .g-lugar { font-size: .8rem; color: var(--gray-600); line-height: 1.4; }
     @media (max-width: 600px) { .srv-galeria, .srv-galeria-3 { grid-template-columns: 1fr; } }
     .srv-incl { margin-top: 18px; }
     .srv-incl .srv-card { background: var(--white); }
@@ -836,15 +839,15 @@
 <div class="srv-galeria srv-galeria-3">
   <figure class="srv-galeria-item">
     <img loading="lazy" decoding="async" width="640" height="514" src="/assets/img/despachos/gasset.jpg" alt="Despacho individual con mesa, ordenador y teléfono en el centro OficinasYA! de Gasset, Madrid" />
-    <figcaption><b>Despacho individual</b><span>Gasset, Madrid · desde 13 m²</span></figcaption>
+    <figcaption><span class="g-dato">desde 13 m²</span> <b class="g-tipo">Despacho individual</b> <span class="g-lugar">Gasset, Madrid</span></figcaption>
   </figure>
   <figure class="srv-galeria-item">
     <img loading="lazy" decoding="async" width="640" height="480" src="/assets/img/despachos/serrano.jpg" alt="Despacho para varios puestos con suelo de madera en el centro OficinasYA! de Serrano, Madrid" />
-    <figcaption><b>Despacho para equipo</b><span>Serrano, Madrid · de 6 a 38 m²</span></figcaption>
+    <figcaption><span class="g-dato">de 6 a 38 m²</span> <b class="g-tipo">Despacho para equipo</b> <span class="g-lugar">Serrano, Madrid</span></figcaption>
   </figure>
   <figure class="srv-galeria-item">
     <img loading="lazy" decoding="async" width="640" height="482" src="/assets/img/despachos/capitan-haya.jpg" alt="Despacho amplio con varios puestos en el centro OficinasYA! de Capitán Haya, Madrid" />
-    <figcaption><b>Despacho amplio</b><span>Capitán Haya, Madrid · hasta 49 m²</span></figcaption>
+    <figcaption><span class="g-dato">hasta 49 m²</span> <b class="g-tipo">Despacho amplio</b> <span class="g-lugar">Capitán Haya, Madrid</span></figcaption>
   </figure>
 </div>
 

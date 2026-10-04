@@ -311,7 +311,7 @@ def jsonld_servicio(p, g, site, lang, prices, ciudades_disp, i18n):
     if offers:
         service['offers'] = offers
     if p.get('galeria'):   # fotos reales de la galeria de la pagina, como ImageObject
-        service['image'] = [{'@type': 'ImageObject', 'contentUrl': url + g_['foto'], 'url': url + g_['foto'], 'caption': f"{g_['titulo']} · {g_['sub']}",
+        service['image'] = [{'@type': 'ImageObject', 'contentUrl': url + g_['foto'], 'url': url + g_['foto'], 'caption': ' · '.join(x for x in (g_['titulo'], g_['sub'], g_.get('dato')) if x),
                              'description': g_['alt'], 'width': g_.get('w', 900), 'height': g_.get('h', 600)} for g_ in p['galeria']]
     graph = [
         service,

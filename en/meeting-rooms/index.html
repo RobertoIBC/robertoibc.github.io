@@ -402,11 +402,14 @@
     .srv-table-wrap tr:last-child td { border-bottom: none; }
     .srv-galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0 28px; }
     .srv-galeria-3 { grid-template-columns: repeat(3, 1fr); }
-    .srv-galeria-item { margin: 0; position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 3 / 2; background: var(--gray-200); }
-    .srv-galeria-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .srv-galeria-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 18px 14px; background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0)); color: var(--white); display: flex; flex-direction: column; gap: 2px; }
-    .srv-galeria-item figcaption b { font-family: 'Barlow', sans-serif; font-size: 1.15rem; font-weight: 800; }
-    .srv-galeria-item figcaption span { font-size: .8rem; opacity: .85; }
+    /* Galeria: la tarjeta de la web (radio, borde) con la foto arriba, todas a la misma proporcion, y el pie
+       debajo: el dato (m² o capacidad) manda, luego el tipo y el centro. */
+    .srv-galeria-item { margin: 0; border-radius: var(--radius); border: var(--card-border); overflow: hidden; background: var(--white); display: flex; flex-direction: column; }
+    .srv-galeria-item img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; display: block; background: var(--gray-200); }
+    .srv-galeria-item figcaption { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 3px; flex: 1; }
+    .srv-galeria-item .g-dato { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--orange-dark); line-height: 1.1; }
+    .srv-galeria-item .g-tipo { font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 800; color: var(--dark); line-height: 1.25; }
+    .srv-galeria-item .g-lugar { font-size: .8rem; color: var(--gray-600); line-height: 1.4; }
     @media (max-width: 600px) { .srv-galeria, .srv-galeria-3 { grid-template-columns: 1fr; } }
     .srv-incl { margin-top: 18px; }
     .srv-incl .srv-card { background: var(--white); }
@@ -538,7 +541,7 @@
           "@type": "ImageObject",
           "contentUrl": "https://www.oficinasya.es/assets/img/salas/pequena.jpg",
           "url": "https://www.oficinasya.es/assets/img/salas/pequena.jpg",
-          "caption": "2 to 4 people · Serrano, Madrid · de 6 a 38 m²",
+          "caption": "Small room · Serrano, Madrid · 2 to 4 people",
           "description": "Small room with a round table for four people at the OficinasYA! Serrano centre, Madrid",
           "width": 900,
           "height": 832
@@ -565,7 +568,7 @@
           "@type": "ImageObject",
           "contentUrl": "https://www.oficinasya.es/assets/img/salas/auditorio.jpg",
           "url": "https://www.oficinasya.es/assets/img/salas/auditorio.jpg",
-          "caption": "Up to 150 in an open layout · Edificio Galia Puerto, Seville",
+          "caption": "Conference room · Edificio Galia Puerto, Seville · up to 150 in an open layout",
           "description": "Conference room in auditorium layout at Edificio Galia Puerto, Seville",
           "width": 900,
           "height": 720
@@ -755,19 +758,19 @@
 <div class="srv-galeria">
   <figure class="srv-galeria-item">
     <img loading="lazy" decoding="async" width="900" height="832" src="/assets/img/salas/pequena.jpg" alt="Small room with a round table for four people at the OficinasYA! Serrano centre, Madrid" />
-    <figcaption><b>2 to 4 people</b><span>Serrano, Madrid · de 6 a 38 m²</span></figcaption>
+    <figcaption><span class="g-dato">2 to 4 people</span> <b class="g-tipo">Small room</b> <span class="g-lugar">Serrano, Madrid</span></figcaption>
   </figure>
   <figure class="srv-galeria-item">
     <img loading="lazy" decoding="async" width="900" height="600" src="/assets/img/salas/mediana.jpg" alt="Glass-walled boardroom at the OficinasYA! Edificio Nervión centre, Seville" />
-    <figcaption><b>Boardroom</b><span>Edificio Nervión, Seville</span></figcaption>
+    <figcaption><b class="g-tipo">Boardroom</b> <span class="g-lugar">Edificio Nervión, Seville</span></figcaption>
   </figure>
   <figure class="srv-galeria-item">
     <img loading="lazy" decoding="async" width="900" height="720" src="/assets/img/salas/aula.jpg" alt="Training room with individual desks at Edificio Galia Puerto, Seville" />
-    <figcaption><b>Training room</b><span>Edificio Galia Puerto, Seville</span></figcaption>
+    <figcaption><b class="g-tipo">Training room</b> <span class="g-lugar">Edificio Galia Puerto, Seville</span></figcaption>
   </figure>
   <figure class="srv-galeria-item">
     <img loading="lazy" decoding="async" width="900" height="720" src="/assets/img/salas/auditorio.jpg" alt="Conference room in auditorium layout at Edificio Galia Puerto, Seville" />
-    <figcaption><b>Up to 150 in an open layout</b><span>Edificio Galia Puerto, Seville</span></figcaption>
+    <figcaption><span class="g-dato">up to 150 in an open layout</span> <b class="g-tipo">Conference room</b> <span class="g-lugar">Edificio Galia Puerto, Seville</span></figcaption>
   </figure>
 </div>
 

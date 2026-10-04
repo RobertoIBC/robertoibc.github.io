@@ -16,9 +16,9 @@ service_type: Alquiler de despachos privados
 csv_key: despachos
 wa_msg: "Hola, me interesa alquilar un despacho privado"
 galeria:
-  - { foto: /assets/img/despachos/gasset.jpg, alt: "Despacho individual con mesa, ordenador y teléfono en el centro OficinasYA! de Gasset, Madrid", titulo: "Despacho individual", sub: "Gasset, Madrid · desde 13 m²" }
-  - { foto: /assets/img/despachos/serrano.jpg, alt: "Despacho para varios puestos con suelo de madera en el centro OficinasYA! de Serrano, Madrid", titulo: "Despacho para equipo", sub: "Serrano, Madrid · de 6 a 38 m²" }
-  - { foto: /assets/img/despachos/capitan-haya.jpg, alt: "Despacho amplio con varios puestos en el centro OficinasYA! de Capitán Haya, Madrid", titulo: "Despacho amplio", sub: "Capitán Haya, Madrid · hasta 49 m²" }
+  - { foto: /assets/img/despachos/gasset.jpg, alt: "Despacho individual con mesa, ordenador y teléfono en el centro OficinasYA! de Gasset, Madrid", titulo: "Despacho individual", sub: "Gasset, Madrid", dato: "desde 13 m²" }
+  - { foto: /assets/img/despachos/serrano.jpg, alt: "Despacho para varios puestos con suelo de madera en el centro OficinasYA! de Serrano, Madrid", titulo: "Despacho para equipo", sub: "Serrano, Madrid", dato: "de 6 a 38 m²" }
+  - { foto: /assets/img/despachos/capitan-haya.jpg, alt: "Despacho amplio con varios puestos en el centro OficinasYA! de Capitán Haya, Madrid", titulo: "Despacho amplio", sub: "Capitán Haya, Madrid", dato: "hasta 49 m²" }
 # --- bloques maquetados (los inserta el cuerpo con [[perfiles]], [[formas]], [[incluye]], [[pasos]], [[donde]])
 perfiles_intro: "Es la fórmula que usan:"
 perfiles:
