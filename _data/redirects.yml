@@ -105,6 +105,29 @@ migracion:
   - { from: /alquiler-oficinas-despachos-madrid-noviembre-2/, to: "/oficinas-en-madrid/" }
   - { from: /oferta-de-alquiler-de-despachos-en-madrid-junio-2019/, to: "/oficinas-en-madrid/" }
   - { from: /7-dias-gratis-alquiler-oficinas-despachos-madrid-julio-septiembre/, to: "/oficinas-en-madrid/" }
+  # --- Segunda ampliacion (octubre 2026): el CDX completo de archive.org (2.031 capturas). El esquema
+  # de 2014 (/oficina/<ciudad>/ y /oficinas/<centro>/) y los /portfolio_category/ -> su ciudad.
+  - { from: /oficina/castellon/, to: "/oficinas-en-castellon/" }
+  - { from: /oficina/madrid/, to: "/oficinas-en-madrid/" }
+  - { from: /oficina/murcia/, to: "/oficinas-en-murcia/" }
+  - { from: /oficina/sevilla/, to: "/oficinas-en-sevilla/" }
+  - { from: /oficinas/alicante/, to: "/oficinas-en-alicante/" }
+  - { from: /oficinas/barcelona-alquiler-oficinas-despachos-barcelona/, to: "/oficinas-en-barcelona/" }
+  - { from: /oficinas/callao/, to: "/oficinas-en-madrid/" }
+  - { from: /oficinas/castellon/, to: "/oficinas-en-castellon/" }
+  - { from: /oficinas/gasset/, to: "/oficinas-en-madrid/#gasset" }
+  - { from: /oficinas/la-florida/, to: "/oficinas-en-madrid/#la-florida-pozuelo" }
+  - { from: /oficinas/las-tablas/, to: "/oficinas-en-madrid/#las-tablas" }
+  - { from: /oficinas/murcia-alquiler-de-despachos-y-oficinas-en-murcia/, to: "/oficinas-en-murcia/" }
+  - { from: /oficinas/plaza-de-castilla-alquiler-de-despachos-y-oficinas-en-plaza-de-castilla/, to: "/oficinas-en-madrid/#capitan-haya" }
+  - { from: /oficinas/san-sebastian-de-los-reyes/, to: "/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes" }
+  - { from: /oficinas/serrano/, to: "/oficinas-en-madrid/#serrano" }
+  - { from: /oficinas/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/, to: "/oficinas-en-sevilla/" }
+  - { from: /oficinas/valencia-alquiler-de-despachos-y-oficinas-en-valencia/, to: "/oficinas-en-valencia/" }
+  - { from: /oficinas/velazquez/, to: "/oficinas-en-madrid/#velazquez" }
+  - { from: /oficinas/vigo-alquiler-oficinas-despachos-galicia/, to: "/oficinas-en-vigo/" }
+  - { from: /portfolio_category/castellon/, to: "/oficinas-en-castellon/" }
+  - { from: /portfolio_category/madrid/, to: "/oficinas-en-madrid/" }
   # Ofertas y paginas de servicio -> su servicio
   - { from: /alquilar-despacho-horas/, to: "/alquiler-de-despachos/" }
   - { from: /ofertas-despachos/, to: "/alquiler-de-despachos/" }
@@ -112,12 +135,15 @@ migracion:
   - { from: /oferta-oficina-virtual/, to: "/oficina-virtual/" }
   - { from: /domiciliacion-de-sociedades-desde-solo-1e-al-dia/, to: "/oficina-virtual/" }
   - { from: /cambiodesedesocial/, to: "/oficina-virtual/" }
+  - { from: /oficinas-vistuales/, to: "/oficina-virtual/" }
   - { from: /smart-office-lo-que-quieres-como-quieres-cuando-quieres/, to: "/oficina-virtual/#smart-office" }
   # Paginas sueltas sin equivalente -> home (contacto, al bloque de contacto)
   - { from: /quienes-somos/, to: "/" }
   - { from: /contacto/, to: "/#contact" }
   - { from: /concertar-visita/, to: "/#contact" }
   - { from: /gracias/, to: "/" }
+  - { from: /politica-de-privacidad-2/, to: "/politica-de-privacidad/" }
+  - { from: /experiencia-en-coworking/politica-de-privacidad/, to: "/politica-de-privacidad/" }
   - { from: /black-friday-2018/, to: "/" }
   - { from: /black-friday-2018-2/, to: "/" }
   - { from: /black-friday-2019-oficinas-ya/, to: "/" }
@@ -339,3 +365,24 @@ patrones:
   - { match: /author/,      to: /blog/ }
   - { match: /actividades/, to: /comunidad/ }
   - { match: /miembros/,    to: /comunidad/ }
+  # Archivos y paginacion del WordPress (archive.org, octubre 2026): por fecha (/2019/05/), del blog,
+  # de una etiqueta suelta y de las fichas de centro (/centros/<centro>/page/2/).
+  - { match: /2017/,        to: /blog/ }
+  - { match: /2018/,        to: /blog/ }
+  - { match: /2019/,        to: /blog/ }
+  - { match: /2020/,        to: /blog/ }
+  - { match: /2021/,        to: /blog/ }
+  - { match: /blog/page/,   to: /blog/ }
+  - { match: /web/,         to: /blog/ }
+  - { match: /centros/madrid-callao/page/,                to: /oficinas-en-madrid/ }
+  - { match: /centros/madrid-capitan-haya/page/,          to: "/oficinas-en-madrid/#capitan-haya" }
+  - { match: /centros/madrid-ortega-y-gasset/page/,       to: "/oficinas-en-madrid/#gasset" }
+  - { match: /centros/madrid-pozuelo/page/,               to: "/oficinas-en-madrid/#la-florida-pozuelo" }
+  - { match: /centros/madrid-san-sebastian-de-los-reyes/page/, to: "/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes" }
+  - { match: /centros/madrid-serrano/page/,               to: "/oficinas-en-madrid/#serrano" }
+  - { match: /centros/madrid-velazquez/page/,             to: "/oficinas-en-madrid/#velazquez" }
+  # Red de seguridad para los esquemas antiguos de centros: lo que no tenga regla exacta, al listado.
+  - { match: /centros/,     to: /ubicaciones/ }
+  - { match: /oficinas/,    to: /ubicaciones/ }
+  - { match: /oficina/,     to: /ubicaciones/ }
+  - { match: /portfolio_category/, to: /ubicaciones/ }

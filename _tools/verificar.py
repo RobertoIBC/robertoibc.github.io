@@ -137,6 +137,16 @@ for p in pages:
         foot = {a or b for a, b in re.findall(r'class="soc"[^>]*href="([^"]+)"|href="([^"]+)" class="soc"', h)}
         if same and not foot: errors.append(f'{url}: hay sameAs pero no encuentro las redes del pie (class="soc")')
         elif same and same != foot: errors.append(f'{url}: sameAs del JSON-LD != redes del pie: {sorted(same ^ foot)}')
+# la configuracion del servidor copiada en _docs/CONFIGURACION-SERVIDOR.md es la que genera _build.py
+# (si se cambia redirects.yml y no se regenera el documento, el tecnico pegaria reglas viejas)
+import subprocess
+_doc = (ROOT / '_docs' / 'CONFIGURACION-SERVIDOR.md').read_text(encoding='utf-8').replace('\r\n', '\n')
+for _lang, _flag in (('apache', '--htaccess'), ('nginx', '--nginx')):
+    _gen = subprocess.run([sys.executable, str(ROOT / '_build.py'), _flag], capture_output=True, text=True, encoding='utf-8',
+                          env=dict(os.environ, PYTHONIOENCODING='utf-8')).stdout.rstrip('\n')
+    _m = re.search(r'```' + _lang + r'\n(.*?)\n```', _doc, re.S)
+    if not _gen or not _m or _m.group(1) != _gen:
+        errors.append(f'_docs/CONFIGURACION-SERVIDOR.md: el bloque {_lang} no coincide con `python _build.py {_flag}`: regenerarlo')
 single = {c for c, a in canon.items() if not a}
 sm = (ROOT / 'sitemap.xml').read_text(encoding='utf-8')
 blocks = re.findall(r'<url>(.*?)</url>', sm, re.S)

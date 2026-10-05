@@ -30,10 +30,12 @@ Si no pasa nada, el servidor es nginx o tiene `.htaccess` desactivado. En ese ca
 
    `enviar.php` **no** se bloquea: es el formulario.
 3. **Carpeta sin barra final** (`/blog` → `/blog/`) en un solo salto. Hoy Apache responde a `/blog` con una dirección `http://` y el hosting la devuelve a `https://`: son dos saltos de más.
-4. **303 redirecciones 301** de las URLs antiguas:
-   - las del WordPress anterior;
+4. **345 redirecciones 301** de las URLs antiguas (todas las que tiene archivadas archive.org):
+   - las del WordPress anterior, incluido el esquema de 2014 (`/oficina/<ciudad>/`, `/oficinas/<centro>/`);
    - las del prototipo (`/ubicaciones.html`…);
-   - los prefijos `/category/`, `/tag/`, `/author/` → `/blog/`;
+   - los prefijos `/category/`, `/tag/`, `/author/`, `/web/`, `/blog/page/` y los archivos por fecha (`/2017/` a `/2021/`) → `/blog/`;
+   - la paginación de las fichas de centro (`/centros/<centro>/page/2/`) → su ciudad;
+   - lo que quede de `/centros/`, `/oficinas/`, `/oficina/` y `/portfolio_category/` sin regla exacta → `/ubicaciones/`;
    - los prefijos `/actividades/`, `/miembros/` → `/comunidad/`.
 
    La barra final del origen es opcional. Destino absoluto: un solo salto.
@@ -76,7 +78,7 @@ RewriteRule \.(py|pyc|md|ya?ml|csv|manifest)$ - [R=404,L]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^(.+[^/])$ https://www.oficinasya.es/$1/ [R=301,L]
 
-# 4. Redirecciones 301 de URLs antiguas (303). La barra final es opcional.
+# 4. Redirecciones 301 de URLs antiguas (345). La barra final es opcional.
 RewriteRule ^ubicaciones\.html/?$ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 RewriteRule ^comunidad\.html/?$ https://www.oficinasya.es/comunidad/ [R=301,L,NE]
 RewriteRule ^blog\.html/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -155,17 +157,41 @@ RewriteRule ^alquiler\-oficinas\-despachos\-madrid\-noviembre/?$ https://www.ofi
 RewriteRule ^alquiler\-oficinas\-despachos\-madrid\-noviembre\-2/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
 RewriteRule ^oferta\-de\-alquiler\-de\-despachos\-en\-madrid\-junio\-2019/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
 RewriteRule ^7\-dias\-gratis\-alquiler\-oficinas\-despachos\-madrid\-julio\-septiembre/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
+RewriteRule ^oficina/castellon/?$ https://www.oficinasya.es/oficinas-en-castellon/ [R=301,L,NE]
+RewriteRule ^oficina/madrid/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
+RewriteRule ^oficina/murcia/?$ https://www.oficinasya.es/oficinas-en-murcia/ [R=301,L,NE]
+RewriteRule ^oficina/sevilla/?$ https://www.oficinasya.es/oficinas-en-sevilla/ [R=301,L,NE]
+RewriteRule ^oficinas/alicante/?$ https://www.oficinasya.es/oficinas-en-alicante/ [R=301,L,NE]
+RewriteRule ^oficinas/barcelona\-alquiler\-oficinas\-despachos\-barcelona/?$ https://www.oficinasya.es/oficinas-en-barcelona/ [R=301,L,NE]
+RewriteRule ^oficinas/callao/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
+RewriteRule ^oficinas/castellon/?$ https://www.oficinasya.es/oficinas-en-castellon/ [R=301,L,NE]
+RewriteRule ^oficinas/gasset/?$ https://www.oficinasya.es/oficinas-en-madrid/#gasset [R=301,L,NE]
+RewriteRule ^oficinas/la\-florida/?$ https://www.oficinasya.es/oficinas-en-madrid/#la-florida-pozuelo [R=301,L,NE]
+RewriteRule ^oficinas/las\-tablas/?$ https://www.oficinasya.es/oficinas-en-madrid/#las-tablas [R=301,L,NE]
+RewriteRule ^oficinas/murcia\-alquiler\-de\-despachos\-y\-oficinas\-en\-murcia/?$ https://www.oficinasya.es/oficinas-en-murcia/ [R=301,L,NE]
+RewriteRule ^oficinas/plaza\-de\-castilla\-alquiler\-de\-despachos\-y\-oficinas\-en\-plaza\-de\-castilla/?$ https://www.oficinasya.es/oficinas-en-madrid/#capitan-haya [R=301,L,NE]
+RewriteRule ^oficinas/san\-sebastian\-de\-los\-reyes/?$ https://www.oficinasya.es/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes [R=301,L,NE]
+RewriteRule ^oficinas/serrano/?$ https://www.oficinasya.es/oficinas-en-madrid/#serrano [R=301,L,NE]
+RewriteRule ^oficinas/sevilla\-alquiler\-de\-oficinas\-y\-despachos\-en\-sevilla/?$ https://www.oficinasya.es/oficinas-en-sevilla/ [R=301,L,NE]
+RewriteRule ^oficinas/valencia\-alquiler\-de\-despachos\-y\-oficinas\-en\-valencia/?$ https://www.oficinasya.es/oficinas-en-valencia/ [R=301,L,NE]
+RewriteRule ^oficinas/velazquez/?$ https://www.oficinasya.es/oficinas-en-madrid/#velazquez [R=301,L,NE]
+RewriteRule ^oficinas/vigo\-alquiler\-oficinas\-despachos\-galicia/?$ https://www.oficinasya.es/oficinas-en-vigo/ [R=301,L,NE]
+RewriteRule ^portfolio_category/castellon/?$ https://www.oficinasya.es/oficinas-en-castellon/ [R=301,L,NE]
+RewriteRule ^portfolio_category/madrid/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
 RewriteRule ^alquilar\-despacho\-horas/?$ https://www.oficinasya.es/alquiler-de-despachos/ [R=301,L,NE]
 RewriteRule ^ofertas\-despachos/?$ https://www.oficinasya.es/alquiler-de-despachos/ [R=301,L,NE]
 RewriteRule ^7\-dias\-gratis/?$ https://www.oficinasya.es/alquiler-de-despachos/ [R=301,L,NE]
 RewriteRule ^oferta\-oficina\-virtual/?$ https://www.oficinasya.es/oficina-virtual/ [R=301,L,NE]
 RewriteRule ^domiciliacion\-de\-sociedades\-desde\-solo\-1e\-al\-dia/?$ https://www.oficinasya.es/oficina-virtual/ [R=301,L,NE]
 RewriteRule ^cambiodesedesocial/?$ https://www.oficinasya.es/oficina-virtual/ [R=301,L,NE]
+RewriteRule ^oficinas\-vistuales/?$ https://www.oficinasya.es/oficina-virtual/ [R=301,L,NE]
 RewriteRule ^smart\-office\-lo\-que\-quieres\-como\-quieres\-cuando\-quieres/?$ https://www.oficinasya.es/oficina-virtual/#smart-office [R=301,L,NE]
 RewriteRule ^quienes\-somos/?$ https://www.oficinasya.es/ [R=301,L,NE]
 RewriteRule ^contacto/?$ https://www.oficinasya.es/#contact [R=301,L,NE]
 RewriteRule ^concertar\-visita/?$ https://www.oficinasya.es/#contact [R=301,L,NE]
 RewriteRule ^gracias/?$ https://www.oficinasya.es/ [R=301,L,NE]
+RewriteRule ^politica\-de\-privacidad\-2/?$ https://www.oficinasya.es/politica-de-privacidad/ [R=301,L,NE]
+RewriteRule ^experiencia\-en\-coworking/politica\-de\-privacidad/?$ https://www.oficinasya.es/politica-de-privacidad/ [R=301,L,NE]
 RewriteRule ^black\-friday\-2018/?$ https://www.oficinasya.es/ [R=301,L,NE]
 RewriteRule ^black\-friday\-2018\-2/?$ https://www.oficinasya.es/ [R=301,L,NE]
 RewriteRule ^black\-friday\-2019\-oficinas\-ya/?$ https://www.oficinasya.es/ [R=301,L,NE]
@@ -380,6 +406,24 @@ RewriteRule ^tag/ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^author/ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^actividades/ https://www.oficinasya.es/comunidad/ [R=301,L,NE]
 RewriteRule ^miembros/ https://www.oficinasya.es/comunidad/ [R=301,L,NE]
+RewriteRule ^2017/ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^2018/ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^2019/ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^2020/ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^2021/ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^blog/page/ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^web/ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^centros/madrid\-callao/page/ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
+RewriteRule ^centros/madrid\-capitan\-haya/page/ https://www.oficinasya.es/oficinas-en-madrid/#capitan-haya [R=301,L,NE]
+RewriteRule ^centros/madrid\-ortega\-y\-gasset/page/ https://www.oficinasya.es/oficinas-en-madrid/#gasset [R=301,L,NE]
+RewriteRule ^centros/madrid\-pozuelo/page/ https://www.oficinasya.es/oficinas-en-madrid/#la-florida-pozuelo [R=301,L,NE]
+RewriteRule ^centros/madrid\-san\-sebastian\-de\-los\-reyes/page/ https://www.oficinasya.es/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes [R=301,L,NE]
+RewriteRule ^centros/madrid\-serrano/page/ https://www.oficinasya.es/oficinas-en-madrid/#serrano [R=301,L,NE]
+RewriteRule ^centros/madrid\-velazquez/page/ https://www.oficinasya.es/oficinas-en-madrid/#velazquez [R=301,L,NE]
+RewriteRule ^centros/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
+RewriteRule ^oficinas/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
+RewriteRule ^oficina/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
+RewriteRule ^portfolio_category/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 ```
 
 ---
@@ -539,6 +583,48 @@ map $uri $oya_redirect {
     /oferta-de-alquiler-de-despachos-en-madrid-junio-2019 /oficinas-en-madrid/;
     /7-dias-gratis-alquiler-oficinas-despachos-madrid-julio-septiembre/ /oficinas-en-madrid/;
     /7-dias-gratis-alquiler-oficinas-despachos-madrid-julio-septiembre /oficinas-en-madrid/;
+    /oficina/castellon/ /oficinas-en-castellon/;
+    /oficina/castellon /oficinas-en-castellon/;
+    /oficina/madrid/ /oficinas-en-madrid/;
+    /oficina/madrid /oficinas-en-madrid/;
+    /oficina/murcia/ /oficinas-en-murcia/;
+    /oficina/murcia /oficinas-en-murcia/;
+    /oficina/sevilla/ /oficinas-en-sevilla/;
+    /oficina/sevilla /oficinas-en-sevilla/;
+    /oficinas/alicante/ /oficinas-en-alicante/;
+    /oficinas/alicante /oficinas-en-alicante/;
+    /oficinas/barcelona-alquiler-oficinas-despachos-barcelona/ /oficinas-en-barcelona/;
+    /oficinas/barcelona-alquiler-oficinas-despachos-barcelona /oficinas-en-barcelona/;
+    /oficinas/callao/ /oficinas-en-madrid/;
+    /oficinas/callao /oficinas-en-madrid/;
+    /oficinas/castellon/ /oficinas-en-castellon/;
+    /oficinas/castellon /oficinas-en-castellon/;
+    /oficinas/gasset/ /oficinas-en-madrid/#gasset;
+    /oficinas/gasset /oficinas-en-madrid/#gasset;
+    /oficinas/la-florida/ /oficinas-en-madrid/#la-florida-pozuelo;
+    /oficinas/la-florida /oficinas-en-madrid/#la-florida-pozuelo;
+    /oficinas/las-tablas/ /oficinas-en-madrid/#las-tablas;
+    /oficinas/las-tablas /oficinas-en-madrid/#las-tablas;
+    /oficinas/murcia-alquiler-de-despachos-y-oficinas-en-murcia/ /oficinas-en-murcia/;
+    /oficinas/murcia-alquiler-de-despachos-y-oficinas-en-murcia /oficinas-en-murcia/;
+    /oficinas/plaza-de-castilla-alquiler-de-despachos-y-oficinas-en-plaza-de-castilla/ /oficinas-en-madrid/#capitan-haya;
+    /oficinas/plaza-de-castilla-alquiler-de-despachos-y-oficinas-en-plaza-de-castilla /oficinas-en-madrid/#capitan-haya;
+    /oficinas/san-sebastian-de-los-reyes/ /oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes;
+    /oficinas/san-sebastian-de-los-reyes /oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes;
+    /oficinas/serrano/ /oficinas-en-madrid/#serrano;
+    /oficinas/serrano /oficinas-en-madrid/#serrano;
+    /oficinas/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/ /oficinas-en-sevilla/;
+    /oficinas/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla /oficinas-en-sevilla/;
+    /oficinas/valencia-alquiler-de-despachos-y-oficinas-en-valencia/ /oficinas-en-valencia/;
+    /oficinas/valencia-alquiler-de-despachos-y-oficinas-en-valencia /oficinas-en-valencia/;
+    /oficinas/velazquez/ /oficinas-en-madrid/#velazquez;
+    /oficinas/velazquez /oficinas-en-madrid/#velazquez;
+    /oficinas/vigo-alquiler-oficinas-despachos-galicia/ /oficinas-en-vigo/;
+    /oficinas/vigo-alquiler-oficinas-despachos-galicia /oficinas-en-vigo/;
+    /portfolio_category/castellon/ /oficinas-en-castellon/;
+    /portfolio_category/castellon /oficinas-en-castellon/;
+    /portfolio_category/madrid/ /oficinas-en-madrid/;
+    /portfolio_category/madrid /oficinas-en-madrid/;
     /alquilar-despacho-horas/ /alquiler-de-despachos/;
     /alquilar-despacho-horas /alquiler-de-despachos/;
     /ofertas-despachos/ /alquiler-de-despachos/;
@@ -551,6 +637,8 @@ map $uri $oya_redirect {
     /domiciliacion-de-sociedades-desde-solo-1e-al-dia /oficina-virtual/;
     /cambiodesedesocial/ /oficina-virtual/;
     /cambiodesedesocial /oficina-virtual/;
+    /oficinas-vistuales/ /oficina-virtual/;
+    /oficinas-vistuales /oficina-virtual/;
     /smart-office-lo-que-quieres-como-quieres-cuando-quieres/ /oficina-virtual/#smart-office;
     /smart-office-lo-que-quieres-como-quieres-cuando-quieres /oficina-virtual/#smart-office;
     /quienes-somos/ /;
@@ -561,6 +649,10 @@ map $uri $oya_redirect {
     /concertar-visita /#contact;
     /gracias/ /;
     /gracias /;
+    /politica-de-privacidad-2/ /politica-de-privacidad/;
+    /politica-de-privacidad-2 /politica-de-privacidad/;
+    /experiencia-en-coworking/politica-de-privacidad/ /politica-de-privacidad/;
+    /experiencia-en-coworking/politica-de-privacidad /politica-de-privacidad/;
     /black-friday-2018/ /;
     /black-friday-2018 /;
     /black-friday-2018-2/ /;
@@ -984,6 +1076,24 @@ map $uri $oya_redirect {
     ~^/author/ /blog/;
     ~^/actividades/ /comunidad/;
     ~^/miembros/ /comunidad/;
+    ~^/2017/ /blog/;
+    ~^/2018/ /blog/;
+    ~^/2019/ /blog/;
+    ~^/2020/ /blog/;
+    ~^/2021/ /blog/;
+    ~^/blog/page/ /blog/;
+    ~^/web/ /blog/;
+    ~^/centros/madrid\-callao/page/ /oficinas-en-madrid/;
+    ~^/centros/madrid\-capitan\-haya/page/ /oficinas-en-madrid/#capitan-haya;
+    ~^/centros/madrid\-ortega\-y\-gasset/page/ /oficinas-en-madrid/#gasset;
+    ~^/centros/madrid\-pozuelo/page/ /oficinas-en-madrid/#la-florida-pozuelo;
+    ~^/centros/madrid\-san\-sebastian\-de\-los\-reyes/page/ /oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes;
+    ~^/centros/madrid\-serrano/page/ /oficinas-en-madrid/#serrano;
+    ~^/centros/madrid\-velazquez/page/ /oficinas-en-madrid/#velazquez;
+    ~^/centros/ /ubicaciones/;
+    ~^/oficinas/ /ubicaciones/;
+    ~^/oficina/ /ubicaciones/;
+    ~^/portfolio_category/ /ubicaciones/;
 }
 
 # ---- B) Un server propio para el dominio sin www.
