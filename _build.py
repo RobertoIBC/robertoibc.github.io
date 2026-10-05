@@ -892,8 +892,10 @@ def print_htaccess(redirects, site_url):
     bare = host[4:] if host.startswith('www.') else host
     rules = redirect_rules(redirects)
     out = [
+        '# BEGIN OficinasYA',
         '# .htaccess de OficinasYA! -- generado por `python _build.py --htaccess` desde _data/redirects.yml.',
-        '# No editar a mano: cambiar redirects.yml y volver a generarlo.',
+        '# No editar a mano: cambiar redirects.yml y volver a generarlo. Al actualizarlo se sustituye todo lo que',
+        '# hay entre BEGIN OficinasYA y END OficinasYA; lo que el tecnico tenga debajo no se toca.',
         'Options -Indexes',
         'RewriteEngine On',
         '',
@@ -925,6 +927,7 @@ def print_htaccess(redirects, site_url):
         src = re.escape(frm.strip('/'))
         pat = f'^{src}/' if prefix else f'^{src}/?$'
         out.append(f'RewriteRule {pat} {site_url}{to} [R=301,L,NE]')
+    out.append('# END OficinasYA')
     print('\n'.join(out))
 
 

@@ -12,13 +12,19 @@ La web se sirve desde **`/www`**, no desde la raíz de la cuenta. Dentro de `/ww
 | Qué | Qué es | Qué se hace |
 |---|---|---|
 | `enviar.php`, `enviar.config.php` | El formulario de contacto y su configuración (del técnico) | **NO SE TOCA** |
-| `.htaccess` (9,4 kB) | Reglas del técnico | Se edita en el paso 6: se añade nuestro bloque **al principio** |
+| `.htaccess` | Reglas del técnico; desde el 5 de octubre de 2026, además, un bloque de redirecciones que **no** sale de este repositorio (ver la nota de abajo) | Se edita en el paso 6: nuestro bloque va **al principio** y **sustituye** a ese |
 | `.php.ini` | Configuración de PHP | **NO SE TOCA** |
 | `googlebe6fd46c002206cc.html` | Verificación de Search Console | **NO SE TOCA** (si se borra, se pierde la propiedad) |
 | `oficinavirtual/` | Otra web en marcha: WordPress con WooCommerce («Oficina Virtual de Oficinas YA!») | **NO SE TOCA** |
 | `OLD/` | Núcleo del WordPress anterior, con su `wp-config.php` (credenciales) | **NO SE BORRA** (lo decide el técnico). El `.htaccess` nuevo lo bloquea al público |
 | `newsite/`, `cache/`, `.tmb/`, `.well-known/` | Carpetas del hosting y del panel | **NO SE TOCAN** |
-| `_data/`, `_content/`, `_templates/`, `_tools/`, `_docs/`, `_build.py`, `_build.manifest`, `README.md`, `requirements.txt` | Fuentes del prototipo, subidas por error y **hoy visibles para cualquiera** | **SE BORRAN** en el paso 7 |
+| `_data/`, `_content/`, `_templates/`, `_tools/`, `_docs/`, `_build.py`, `_build.manifest`, `README.md`, `requirements.txt` | Fuentes del prototipo, subidas por error (la última vez, el 5 de octubre de 2026, el repositorio entero en lugar del zip) | **SE BORRAN** en el paso 7, salvo que haya `.git/` (ver el paso 7) |
+
+**Cómo estaba el servidor el 5 de octubre de 2026 por la noche** (comprobado con curl, no con capturas de buscador):
+- La web nueva está subida, con el contenido del último commit, pero **se subió el repositorio entero, no el zip**: de las 10:50 a las 22:45 aprox. (hora peninsular) `/_build.py`, `/_docs/DESPLIEGUE.md`, `/README.md`… se podían descargar.
+- Hacia las 22:45 alguien pegó en el `.htaccess` un bloque que bloquea las fuentes y redirige las URLs antiguas. **No es el de [CONFIGURACION-SERVIDOR.md](CONFIGURACION-SERVIDOR.md)**: le faltan reglas (`/portfolio_category/castellon/`, `/oficinas-vistuales` siguen dando 404) y otras van a otro destino (`/web/` va a la home; `/centros/madrid-serrano/page/2/`, a `/ubicaciones/`). En el paso 6 se sustituye por el nuestro.
+- **No hay WordPress sirviéndose** en `/contacto/` ni en `/ubicaciones/`: `/ubicaciones/` es la página nueva y `/contacto/` redirige a `/#contact`. La plantilla antigua que citaba una auditoría es la que **Google y Bing guardan en su índice** (títulos «Contacto - Oficinas YA!», «Ubicaciones - Oficinas YA!»), no la que sirve el servidor. Se irá sola cuando Google vuelva a pasar y encuentre las 301.
+- `/.git/` responde 403 (no 404): puede que en `/www` haya una carpeta `.git`, es decir, que la web se esté subiendo con git. Ver el paso 7.
 
 ---
 
@@ -60,6 +66,8 @@ Ni se borra, ni se sobrescribe, ni se mueve:
 
 El `.htaccess` solo se **edita** (paso 6), nunca se sustituye entero.
 
+**Se sube el zip, no el repositorio.** Ni con el gestor de archivos, ni con FTP, ni con `git clone`/`git pull` en `/www`: el repositorio lleva las fuentes, que no deben estar en el servidor.
+
 ## 4. Subir el paquete
 
 1. Sube **`oficinasya-subida-www.zip`** a **`/www`**.
@@ -80,9 +88,14 @@ Abre `https://www.oficinasya.es/` en una ventana privada. Tiene que verse la web
 ## 6. El `.htaccess` (lo último que se cambia)
 
 1. En el gestor de archivos, abre **`/www/.htaccess`** con el editor del panel.
-2. Abre [CONFIGURACION-SERVIDOR.md](CONFIGURACION-SERVIDOR.md) y copia **entero** el bloque «Apache: `.htaccess`».
-3. Pégalo **al principio** del `.htaccess`, antes de la primera línea que ya había, y **deja debajo todo lo que tenía**. Guarda.
-4. Abre `https://oficinasya.es/` (sin www). Tiene que acabar en `https://www.oficinasya.es/`.
+2. Abre [CONFIGURACION-SERVIDOR.md](CONFIGURACION-SERVIDOR.md) y copia **entero** el bloque «Apache: `.htaccess`». Empieza por `# BEGIN OficinasYA` y acaba en `# END OficinasYA`.
+3. **Si el `.htaccess` ya tiene reglas de OficinasYA**, bórralas primero:
+   - si hay un `# BEGIN OficinasYA`, borra desde esa línea hasta `# END OficinasYA`, las dos incluidas;
+   - si no hay marcas pero arriba hay `RewriteRule` que redirigen URLs antiguas (`despachos`, `centros/…`, `category/`…) o bloquean `_`, son del bloque que se pegó el 5 de octubre de 2026: bórralas hasta donde empiece lo que había antes (compáralo con el `.htaccess` de la copia del paso 1). **Lo del técnico no se toca**; si dudas de una línea, déjala y pregúntale.
+
+   Dos bloques a la vez no se suman: gana la primera regla que coincide, y las viejas taparían a las nuevas.
+4. Pega el bloque **al principio** del `.htaccess`, antes de la primera línea que queda, y **deja debajo todo lo que tenía**. Guarda.
+5. Abre `https://oficinasya.es/` (sin www). Tiene que acabar en `https://www.oficinasya.es/`.
    - Si da **«Error 500»**: vuelve a poner el `.htaccess` de la copia del paso 1 y avisa al técnico.
    - Si no da error pero no cambia a www: el servidor no lee `.htaccess`. Manda al hosting el bloque nginx de CONFIGURACION-SERVIDOR.md.
 
@@ -95,6 +108,8 @@ Están en `/www` y hoy cualquiera puede descargarlas (`/_build.py` y `/_data/cen
 
 **Nada más.** Repasa la lista del paso 3 antes de confirmar cada borrado.
 
+**Excepción: si en `/www` hay una carpeta `.git/`** (activa «mostrar ficheros ocultos»), alguien está subiendo la web con git. Entonces **no borres nada de esto ni la carpeta `.git/`**: volverían en la siguiente actualización, y borrar `.git/` rompería su forma de subir. Con el bloque del paso 6 todo eso ya da 404 (comprobación 5). Avisa al técnico de que la web debe subirse con el zip.
+
 ## 8. Comprobaciones, en este orden
 
 Ábrelas en una ventana privada. Al lado va un comando opcional para PowerShell (`curl.exe` viene con Windows).
@@ -106,9 +121,12 @@ Están en `/www` y hoy cualquiera puede descargarlas (`/_build.py` y `/_data/cen
    - `https://www.oficinasya.es/despachos/` → `https://www.oficinasya.es/alquiler-de-despachos/`
    - `https://www.oficinasya.es/centros/madrid-serrano/` → `https://www.oficinasya.es/oficinas-en-madrid/#serrano`
    - `curl.exe -sI https://www.oficinasya.es/despachos/` → `301` y `Location: https://www.oficinasya.es/alquiler-de-despachos/`
+   - **Es nuestro bloque, y no otro:** `https://www.oficinasya.es/portfolio_category/castellon/` → `https://www.oficinasya.es/oficinas-en-castellon/`, y `https://www.oficinasya.es/web/` → `https://www.oficinasya.es/blog/`. Si la primera da 404 o la segunda va a la home, sigue activo el bloque del 5 de octubre: vuelve al paso 6.3.
+   - `https://www.oficinasya.es/contacto/` → `https://www.oficinasya.es/#contact`
 5. **Las fuentes y el WordPress viejo no se ven.** Deben dar **404**:
    - `https://www.oficinasya.es/_build.py`
-   - `https://www.oficinasya.es/_data/centros.csv`
+   - `https://www.oficinasya.es/_docs/DESPLIEGUE.md`
+   - `https://www.oficinasya.es/README.md`
    - `https://www.oficinasya.es/OLD/wp-login.php`
 6. **Lo del técnico sigue ahí.**
    - `https://www.oficinasya.es/enviar.php` → se ve `{"ok":false}`. Si sale 404, sube el `enviar.php` de la copia **ya**.

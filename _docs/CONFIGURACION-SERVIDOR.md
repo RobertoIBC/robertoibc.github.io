@@ -42,7 +42,7 @@ Si no pasa nada, el servidor es nginx o tiene `.htaccess` desactivado. En ese ca
 
 Se genera con `python _build.py --htaccess` (Apache) y `python _build.py --nginx` desde `_data/redirects.yml`. Si cambia una redirección, se cambia allí y se vuelve a generar: el bloque no se edita a mano.
 
-**El servidor ya tiene un `.htaccess` (9,4 kB, del técnico)**: no lo borres. Pega este bloque **al principio** y deja debajo todo lo que tenía. Si después la web da «Error 500», vuelve a subir el `.htaccess` de la copia y avisa al técnico.
+**El servidor ya tiene un `.htaccess` (del técnico)**: no lo borres. Este bloque va **al principio**, entre `# BEGIN OficinasYA` y `# END OficinasYA`, y debajo se deja todo lo que tenía. Si ya hay un bloque de OficinasYA (de una subida anterior, o reglas de redirección añadidas a mano por otra persona), **se sustituye entero**: dos bloques a la vez no se suman, gana la primera regla que coincide y las viejas taparían a las nuevas. Si después la web da «Error 500», vuelve a subir el `.htaccess` de la copia y avisa al técnico.
 
 **`/oficinavirtual/` es otra web en marcha** (WordPress con WooCommerce, «Oficina Virtual de Oficinas YA!»). Estas reglas no la tocan: las redirecciones y los bloqueos van anclados a la raíz, y si esa carpeta tiene su propio `.htaccess` (un WordPress con enlaces amigables lo necesita: compruébalo en la copia del paso 1), Apache no le aplica estas reglas de reescritura. En cualquier caso, la comprobación 8 de DESPLIEGUE.md verifica que la tienda sigue funcionando. **`/OLD/`** (el núcleo del WordPress anterior, con su `wp-config.php`) queda bloqueado al público con un 404; borrarlo lo decide el técnico.
 
@@ -51,8 +51,10 @@ Se genera con `python _build.py --htaccess` (Apache) y `python _build.py --nginx
 ## Apache: `.htaccess` (copiar entero)
 
 ```apache
+# BEGIN OficinasYA
 # .htaccess de OficinasYA! -- generado por `python _build.py --htaccess` desde _data/redirects.yml.
-# No editar a mano: cambiar redirects.yml y volver a generarlo.
+# No editar a mano: cambiar redirects.yml y volver a generarlo. Al actualizarlo se sustituye todo lo que
+# hay entre BEGIN OficinasYA y END OficinasYA; lo que el tecnico tenga debajo no se toca.
 Options -Indexes
 RewriteEngine On
 
@@ -424,6 +426,7 @@ RewriteRule ^centros/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 RewriteRule ^oficinas/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 RewriteRule ^oficina/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 RewriteRule ^portfolio_category/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
+# END OficinasYA
 ```
 
 ---
