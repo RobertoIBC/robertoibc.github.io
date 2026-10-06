@@ -15,7 +15,7 @@ centros:
     foto: /assets/img/centros/centro-barcelona-mitre.jpg
     descripcion: Centro de negocios en un edificio exclusivo de oficinas en la Ronda del General Mitre 126, en la zona alta de Barcelona, con despachos de diferentes tamaños, salas de 2, 4, 10 y 20 personas y oficina virtual.
     texto: |
-      Está en un edificio exclusivo de oficinas en la Ronda del General Mitre 126, en la zona alta de Barcelona. Tiene despachos de diferentes tamaños y salas completamente equipadas —de 2, 4, 10 y 20 personas—, listas para trabajar desde el primer momento, con un aspecto moderno y funcional. Todos los gastos del edificio, luz y conexión a internet incluidos, van en el precio, y hay un equipo en el centro para resolver lo que surja durante la estancia. Recepción de lunes a jueves de 9:00 a 14:00 y de 15:00 a 18:00, y viernes hasta las 15:00.
+      Está en un edificio exclusivo de oficinas en la Ronda del General Mitre 126, en la zona alta de Barcelona. Tiene despachos de diferentes tamaños y salas completamente equipadas para 2, 4, 10 y 20 personas, listas para trabajar desde el primer momento, con un aspecto moderno y funcional. Todos los gastos del edificio, luz y conexión a internet incluidos, van en el precio, y hay un equipo en el centro para resolver lo que surja durante la estancia. Recepción de lunes a jueves de 9:00 a 14:00 y de 15:00 a 18:00, y viernes hasta las 15:00.
   - nombre: Raset 29
     foto: /assets/img/centros/centro-barcelona-raset.jpg
     descripcion: Centro de negocios en el Carrer de Raset 29, en Sarrià-Sant Gervasi, Barcelona, con despachos de 12 a 26 m², salas de 2, 4 y 8 personas y oficina virtual.
@@ -25,7 +25,7 @@ centros:
     foto: /assets/img/centros/centro-barcelona-urquinaona.jpg
     descripcion: Centro de negocios y coworking en la planta 8 de la Plaza de Urquinaona 6, Barcelona, con despachos exteriores con luz natural de 8 a 30 m², plazas limitadas de coworking y oficina virtual.
     texto: |
-      En la octava planta del número 6 de la Plaza de Urquinaona, en el centro de Barcelona, con despachos exteriores de 8 a 30 m² inundados de luz natural y plazas limitadas de coworking: es uno de los tres centros de la red con puestos de coworking. El centro se presenta como un espacio para concentrarse, con trato cercano —«aquí no eres un número de mesa»— y ambiente familiar. Recepción de lunes a jueves de 9:00 a 14:00 y de 15:00 a 18:00, y viernes hasta las 15:00.
+      En la octava planta del número 6 de la Plaza de Urquinaona, en el centro de Barcelona, con despachos exteriores de 8 a 30 m² inundados de luz natural y plazas limitadas de coworking: es uno de los tres centros de la red con puestos de coworking. El centro se presenta como un espacio para concentrarse, con trato cercano y ambiente familiar: «aquí no eres un número de mesa». Recepción de lunes a jueves de 9:00 a 14:00 y de 15:00 a 18:00, y viernes hasta las 15:00.
 faq:
   - q: ¿Cuál de los tres centros de Barcelona me conviene?
     a: "Mitre 126, en la zona alta, para un despacho en un edificio exclusivo de oficinas con salas de hasta 20 personas. Raset 29, en Sarrià-Sant Gervasi, para un despacho de 12 a 26 m² en un espacio de diseño con salas pequeñas. Plaza Urquinaona, en el centro, para un despacho exterior con luz natural de 8 a 30 m² o un puesto de coworking. Los tres tienen el mismo horario y oficina virtual."
@@ -43,7 +43,7 @@ elegir:
 
 ## Tres centros en Barcelona: zona alta y centro
 
-OficinasYA! tiene tres centros de negocios en Barcelona. Dos en la zona alta: **Ronda del General Mitre 126**, en un edificio exclusivo de oficinas, y **Raset 29**, en Sarrià-Sant Gervasi. Y uno en el centro, en la octava planta de **Plaza de Urquinaona 6**, que además de despachos tiene plazas de coworking. Los tres comparten horario —lunes a jueves de 9:00 a 14:00 y de 15:00 a 18:00, viernes hasta las 15:00— y ofrecen oficina virtual con domiciliación en Barcelona.
+OficinasYA! tiene tres centros de negocios en Barcelona. Dos en la zona alta: **Ronda del General Mitre 126**, en un edificio exclusivo de oficinas, y **Raset 29**, en Sarrià-Sant Gervasi. Y uno en el centro, en la octava planta de **Plaza de Urquinaona 6**, que además de despachos tiene plazas de coworking. Los tres ofrecen oficina virtual con domiciliación en Barcelona y comparten horario: de lunes a jueves de 9:00 a 14:00 y de 15:00 a 18:00, y los viernes hasta las 15:00.
 
 [[cifras]]
 

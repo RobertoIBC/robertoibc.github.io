@@ -30,7 +30,7 @@ faq:
   - q: ¿Qué salas hay y para qué se pueden usar?
     a: "Dos salas, de 10 y 18 personas, con proyector, pizarra, fibra y WiFi. Se contratan desde una hora en adelante, y en el centro se usan tanto para reuniones con clientes o proveedores como para procesos de selección de personal, formaciones y presentaciones de producto. No hace falta ser cliente del centro para reservarlas."
   - q: ¿Qué es el Smart Office ampliado de Alicante?
-    a: "Además del pack Smart Office de la red —oficina virtual con horas de despacho y de sala que suben o bajan cada mes—, el centro de Alicante ofrece un pack ampliado. Qué incluye exactamente y su precio se confirman en el {{ g.telefono }}: depende de cuánto vayas a usar el centro."
+    a: "Además del pack Smart Office de la red (oficina virtual con horas de despacho y de sala que suben o bajan cada mes), el centro de Alicante ofrece un pack ampliado. Qué incluye exactamente y su precio se confirman en el {{ g.telefono }}: depende de cuánto vayas a usar el centro."
 ---
 
 ## Un centro junto a los organismos oficiales de Alicante

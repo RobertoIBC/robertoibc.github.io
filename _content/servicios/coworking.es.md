@@ -70,7 +70,7 @@ faq:
 
 ## Coworking dentro de un centro de negocios
 
-OficinasYA! ofrece coworking —puestos de trabajo en un espacio compartido, contratados por meses— en **tres centros de la red**: Plaza Urquinaona en Barcelona, Juan de la Cierva en A Coruña y el Edificio Openhouse en Salamanca.
+OficinasYA! ofrece coworking en **tres centros de la red**: puestos de trabajo en un espacio compartido, contratados por meses. Están en Plaza Urquinaona en Barcelona, Juan de la Cierva en A Coruña y el Edificio Openhouse en Salamanca.
 
 No es un servicio de toda la red: en el resto de centros lo que hay son despachos privados, salas y oficina virtual, y el uso de puestos compartidos está reservado a los clientes, como se explica más abajo.
 

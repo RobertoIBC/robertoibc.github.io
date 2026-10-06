@@ -22,7 +22,7 @@ centros:
     foto: /assets/img/stock/photo-1708765036801-4d4d207fc29c.jpg
     descripcion: Business centre on Paseo Ezequiel González in Segovia, in the former premises of the University of Valladolid, with offices, meeting rooms, training rooms and a multi-purpose room for events.
     texto: |
-      It occupies the former premises of the University of Valladolid in Segovia, at Paseo Ezequiel González 32. Of the two Segovia centres it has the widest choice of rooms: meeting rooms for 4 to 50 people, training rooms and a multi-purpose room for private events, workshops or talks. If you need to bring a group together in Segovia — a training session, a presentation, a full day — this is the place.
+      It occupies the former premises of the University of Valladolid in Segovia, at Paseo Ezequiel González 32. Of the two Segovia centres it has the widest choice of rooms: meeting rooms for 4 to 50 people, training rooms and a multi-purpose room for private events, workshops or talks. If you need to bring a group together in Segovia for a training session, a presentation or a full day, this is the place.
 
       Offices are 9 to 20 m², as at Padre Claret, and reception has the longer hours of the two: Monday to Friday from 8:00 to 21:00.
 faq:

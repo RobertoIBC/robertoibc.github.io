@@ -72,7 +72,7 @@ no_incluye:
   - IVA (todos los precios son sin impuestos)
 faq:
   - q: ¿Cuánto cuesta la oficina virtual?
-    a: "Desde {{ p.oficina_virtual_mes }} € al mes más IVA. Ese es el precio de partida de la red; la cuota concreta depende del centro elegido, de la duración del contrato —hay centros con tarifa reducida por pago anual— y de los servicios que añadas, como la atención telefónica con el nombre de tu empresa o las horas de sala. Pide presupuesto para el centro que te interese."
+    a: "Desde {{ p.oficina_virtual_mes }} € al mes más IVA. Ese es el precio de partida de la red; la cuota concreta depende del centro elegido, de la duración del contrato (hay centros con tarifa reducida por pago anual) y de los servicios que añadas, como la atención telefónica con el nombre de tu empresa o las horas de sala. Pide presupuesto para el centro que te interese."
   - q: ¿Qué diferencia hay entre dirección fiscal y dirección comercial?
     a: "La dirección fiscal es la que consta ante Hacienda y en el Registro Mercantil como domicilio de la empresa. La dirección comercial es la que das a clientes y proveedores: la de tu web, tus tarjetas y tu correspondencia. Con la oficina virtual puedes usar la dirección del centro para las dos cosas, o solo para una si tu empresa ya tiene domicilio fiscal."
   - q: ¿Qué pasa con el correo que llega a mi nombre?
@@ -80,7 +80,7 @@ faq:
   - q: ¿Puedo usar una sala o un despacho cuando lo necesite?
     a: "Sí. Es la razón por la que la oficina virtual está dentro de un centro de negocios real: cuando tienes una reunión, reservas una sala o un despacho por horas en tu centro, y la recepción atiende a tu visita como si fuera tu oficina. También dispones de hot desk en los centros de la red cuando estás en otra ciudad."
   - q: ¿Sirve para abrir una delegación en otra ciudad?
-    a: "Es uno de sus usos principales. Contratas la oficina virtual en la ciudad donde quieres tener presencia —Sevilla, Bilbao, Valencia o cualquiera de las {{ g.ciudades }} de la red— y desde ese día tienes allí dirección, teléfono atendido y salas donde recibir a tus clientes, sin alquilar un local ni desplazar a nadie."
+    a: "Es uno de sus usos principales. Contratas la oficina virtual en la ciudad donde quieres tener presencia, sea Sevilla, Bilbao, Valencia o cualquiera de las {{ g.ciudades }} de la red, y desde ese día tienes allí dirección, teléfono atendido y salas donde recibir a tus clientes, sin alquilar un local ni desplazar a nadie."
   - q: ¿Qué es Smart Office y en qué se diferencia de la oficina virtual?
     a: "Smart Office es la fórmula modular de OficinasYA!: parte de la oficina virtual y le añade horas de despacho, salas y puestos de trabajo que puedes subir o bajar cada mes según lo que necesites. Si solo quieres la dirección y el correo, la oficina virtual es suficiente; si vas a usar el centro físicamente con cierta regularidad, Smart Office te sale más a cuenta."
 ---

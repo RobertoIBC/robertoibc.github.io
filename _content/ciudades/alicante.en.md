@@ -30,7 +30,7 @@ faq:
   - q: What rooms are there and what can they be used for?
     a: "Two rooms, for 10 and 18 people, with projector, whiteboard, fibre and WiFi. They are hired from one hour upwards, and at the centre they are used for meetings with clients or suppliers as well as for recruitment processes, training and product presentations. You do not need to be a client of the centre to book them."
   - q: What is the extended Smart Office in Alicante?
-    a: "In addition to the network's Smart Office pack — a virtual office with office and room hours that scale up or down each month — the Alicante centre offers an extended pack. Exactly what it includes and its price are confirmed on {{ g.telefono }}: it depends on how much you are going to use the centre."
+    a: "In addition to the network's Smart Office pack (a virtual office with office and room hours that scale up or down each month), the Alicante centre offers an extended pack. Exactly what it includes and its price are confirmed on {{ g.telefono }}: it depends on how much you are going to use the centre."
 ---
 
 ## A centre next to Alicante's official bodies

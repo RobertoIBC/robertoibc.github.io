@@ -39,6 +39,6 @@ El centro de OficinasYA! en Zaragoza está en el paseo de la Independencia 8 dup
 
 ## Qué hay en el centro
 
-Despachos para 1 y hasta 5 personas, de 10 a 30 m², completamente equipados desde el primer minuto, por horas o por meses. Una sala de hasta 12 personas para reuniones y eventos pequeños, que se contrata por el tiempo que necesites —desde una hora hasta días completos—, con bonos para quien la use con asiduidad. Y oficina virtual: domicilio social, fiscal y/o comercial en el paseo de la Independencia, atención de visitas y llamadas, desvío de llamadas y acceso a las salas del centro, para quien teletrabaja o no necesita una oficina física.
+Despachos para 1 y hasta 5 personas, de 10 a 30 m², completamente equipados desde el primer minuto, por horas o por meses. Una sala de hasta 12 personas para reuniones y eventos pequeños, que se contrata por el tiempo que necesites, desde una hora hasta días completos, con bonos para quien la use con asiduidad. Y oficina virtual: domicilio social, fiscal y/o comercial en el paseo de la Independencia, atención de visitas y llamadas, desvío de llamadas y acceso a las salas del centro, para quien teletrabaja o no necesita una oficina física.
 
 La recepción atiende de lunes a jueves de 8:30 a 19:00 y los viernes de 8:30 a 15:00; en agosto, de 8:30 a 14:30.

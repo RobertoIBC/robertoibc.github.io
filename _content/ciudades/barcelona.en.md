@@ -15,7 +15,7 @@ centros:
     foto: /assets/img/centros/centro-barcelona-mitre.jpg
     descripcion: Business centre in an exclusive office building at Ronda del General Mitre 126, in the upper part of Barcelona, with offices of different sizes, rooms for 2, 4, 10 and 20 people and virtual office.
     texto: |
-      It is in an exclusive office building at Ronda del General Mitre 126, in the upper part of Barcelona. It has offices of different sizes and fully equipped rooms — for 2, 4, 10 and 20 people — ready to work from the first moment, with a modern, functional look. All the building's costs, electricity and internet connection included, are in the price, and there is a team at the centre to sort out whatever comes up during your stay. Reception Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.
+      It is in an exclusive office building at Ronda del General Mitre 126, in the upper part of Barcelona. It has offices of different sizes and fully equipped rooms for 2, 4, 10 and 20 people, ready to work from the first moment, with a modern, functional look. All the building's costs, electricity and internet connection included, are in the price, and there is a team at the centre to sort out whatever comes up during your stay. Reception Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.
   - nombre: Raset 29
     foto: /assets/img/centros/centro-barcelona-raset.jpg
     descripcion: Business centre at Carrer de Raset 29, in Sarrià-Sant Gervasi, Barcelona, with offices of 12 to 26 m², rooms for 2, 4 and 8 people and virtual office.
@@ -25,7 +25,7 @@ centros:
     foto: /assets/img/centros/centro-barcelona-urquinaona.jpg
     descripcion: Business and coworking centre on the 8th floor of Plaza de Urquinaona 6, Barcelona, with naturally lit exterior offices of 8 to 30 m², a limited number of coworking desks and virtual office.
     texto: |
-      On the eighth floor of number 6 Plaza de Urquinaona, in the centre of Barcelona, with exterior offices of 8 to 30 m² flooded with natural light and a limited number of coworking desks: it is one of the network's three centres with coworking. The centre presents itself as a space for concentration, with a personal touch — "here you are not a desk number" — and a familiar atmosphere. Reception Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.
+      On the eighth floor of number 6 Plaza de Urquinaona, in the centre of Barcelona, with exterior offices of 8 to 30 m² flooded with natural light and a limited number of coworking desks: it is one of the network's three centres with coworking. The centre presents itself as a space for concentration, with a personal touch and a familiar atmosphere: "here you are not a desk number". Reception Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.
 faq:
   - q: Which of the three Barcelona centres suits me?
     a: "Mitre 126, in the upper part of the city, for an office in an exclusive office building with rooms for up to 20 people. Raset 29, in Sarrià-Sant Gervasi, for an office of 12 to 26 m² in a design-led space with small rooms. Plaza Urquinaona, in the centre, for a naturally lit exterior office of 8 to 30 m² or a coworking desk. All three have the same hours and a virtual office."
@@ -43,7 +43,7 @@ elegir:
 
 ## Three centres in Barcelona: upper city and centre
 
-OficinasYA! has three business centres in Barcelona. Two in the upper part of the city: **Ronda del General Mitre 126**, in an exclusive office building, and **Raset 29**, in Sarrià-Sant Gervasi. And one in the centre, on the eighth floor of **Plaza de Urquinaona 6**, which as well as offices has coworking desks. All three share hours — Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, Fridays until 15:00 — and offer a virtual office with a registered address in Barcelona.
+OficinasYA! has three business centres in Barcelona. Two in the upper part of the city: **Ronda del General Mitre 126**, in an exclusive office building, and **Raset 29**, in Sarrià-Sant Gervasi. And one in the centre, on the eighth floor of **Plaza de Urquinaona 6**, which as well as offices has coworking desks. All three offer a virtual office with a registered address in Barcelona and share the same hours: Monday to Thursday from 9:00 to 14:00 and from 15:00 to 18:00, and Fridays until 15:00.
 
 [[cifras]]
 

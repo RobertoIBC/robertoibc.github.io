@@ -101,7 +101,7 @@ faq:
 
 ## What a private office at OficinasYA! is
 
-A private office is a closed, furnished space for your exclusive use inside one of our business centres. You walk in, work with your team, and the rest of the building — reception, meeting rooms, common areas, cleaning, utilities — is already running.
+A private office is a closed, furnished space for your exclusive use inside one of our business centres. You walk in, work with your team, and everything else is already running: reception, meeting rooms, common areas, cleaning and utilities.
 
 There is no building work to do, no furniture to buy and no utilities to set up: the office is handed over ready to work from on the day you sign.
 

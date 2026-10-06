@@ -46,7 +46,7 @@ elegir:
 
 ## Tres espacios en el centro de Santa Cruz de Tenerife
 
-OficinasYA! tiene tres espacios en Tenerife, los tres en Santa Cruz: dos centros de negocios en pleno centro de la ciudad —Santa Rosalía 49 y Costa y Grijalba 10— y un coliving en la calle La Luna 8. Los dos centros de negocios tienen recepción de lunes a viernes de 8:30 a 20:00 y acceso 24 horas para los clientes, algo que fuera de Madrid solo ofrece una parte de la red; el coliving es un centro autónomo con acceso permanente.
+OficinasYA! tiene tres espacios en Tenerife, los tres en Santa Cruz: dos centros de negocios en pleno centro de la ciudad, en Santa Rosalía 49 y en Costa y Grijalba 10, y un coliving en la calle La Luna 8. Los dos centros de negocios tienen recepción de lunes a viernes de 8:30 a 20:00 y acceso 24 horas para los clientes, algo que fuera de Madrid solo ofrece una parte de la red; el coliving es un centro autónomo con acceso permanente.
 
 [[cifras]]
 

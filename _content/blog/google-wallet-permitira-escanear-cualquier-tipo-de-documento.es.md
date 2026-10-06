@@ -29,4 +29,4 @@ Durante la creación de estas tarjetas, la ‘app’ de Google permite elegir la
 
 Este servicio también cuenta con una página secundaria en al que se**ofrecen detalles sobre la fecha en la que se añadieron los documentos o su número completo**. Asimismo, estos se pueden utilizar vinculados a Maps o Calendar.
 
-**Fuente: [Semana – Google Wallet incorpora nueva función para evitar recurrir a otras aplicaciones; podrá almacenar más que tarjetas de crédito](https://www.semana.com/tecnologia/articulo/google-wallet-incorpora-nueva-funcion-para-evitar-recurrir-a-otras-aplicaciones-podra-almacenar-mas-que-tarjetas-de-credito/202421/)**
+**Fuente: [Semana: «Google Wallet incorpora nueva función para evitar recurrir a otras aplicaciones; podrá almacenar más que tarjetas de crédito»](https://www.semana.com/tecnologia/articulo/google-wallet-incorpora-nueva-funcion-para-evitar-recurrir-a-otras-aplicaciones-podra-almacenar-mas-que-tarjetas-de-credito/202421/)**

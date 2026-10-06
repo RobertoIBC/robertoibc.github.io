@@ -35,4 +35,4 @@ Dos cosas lo distinguen. La primera, que está especializado en organizar evento
 
 ## Qué hay en el centro
 
-Despachos equipados de 9 a 24 m², por horas o por meses. Una sala de reuniones de 17 personas, por horas. Y oficina virtual y Smart Office: la dirección de la plaza de Compostela 23 como domicilio de tu empresa, correo y visitas atendidos en horario de recepción —de lunes a viernes de 9:00 a 20:00— y horas de despacho y sala cuando las necesites.
+Despachos equipados de 9 a 24 m², por horas o por meses. Una sala de reuniones de 17 personas, por horas. Y oficina virtual y Smart Office: la dirección de la plaza de Compostela 23 como domicilio de tu empresa, correo y visitas atendidos en horario de recepción (de lunes a viernes, de 9:00 a 20:00) y horas de despacho y sala cuando las necesites.

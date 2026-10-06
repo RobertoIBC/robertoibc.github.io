@@ -35,4 +35,4 @@ Two things set it apart. First, it specialises in organising events for any kind
 
 ## What the centre offers
 
-Furnished offices of 9 to 24 m², by the hour or by the month. A 17-person meeting room, by the hour. And virtual office and Smart Office: the Plaza de Compostela 23 address as your company's registered address, mail and visitors handled during reception hours — Monday to Friday from 9:00 to 20:00 — and office and room hours when you need them.
+Furnished offices of 9 to 24 m², by the hour or by the month. A 17-person meeting room, by the hour. And virtual office and Smart Office: the Plaza de Compostela 23 address as your company's registered address, mail and visitors handled during reception hours (Monday to Friday, 9:00 to 20:00) and office and room hours when you need them.

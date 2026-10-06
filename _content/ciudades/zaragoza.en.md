@@ -39,6 +39,6 @@ The OficinasYA! centre in Zaragoza is at Paseo de la Independencia 8 duplicado, 
 
 ## What the centre offers
 
-Offices for 1 to 5 people, 10 to 30 m², fully equipped from the first minute, by the hour or by the month. A room for up to 12 people for meetings and small events, hired for as long as you need — from one hour to full days — with packs for regular users. And a virtual office: registered, official and/or trading address on Paseo de la Independencia, handling of visitors and calls, call forwarding and access to the centre's rooms, for anyone who works remotely or does not need a physical office.
+Offices for 1 to 5 people, 10 to 30 m², fully equipped from the first minute, by the hour or by the month. A room for up to 12 people for meetings and small events, hired for as long as you need, from one hour to full days, with packs for regular users. And a virtual office: registered, official and/or trading address on Paseo de la Independencia, handling of visitors and calls, call forwarding and access to the centre's rooms, for anyone who works remotely or does not need a physical office.
 
 Reception is open Monday to Thursday from 8:30 to 19:00 and Fridays from 8:30 to 15:00; in August, from 8:30 to 14:30.

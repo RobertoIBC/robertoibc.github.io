@@ -41,4 +41,4 @@ El centro de OficinasYA! en Málaga está en la calle Larios 1, tercero izquierd
 
 Despachos privados de 17 a 38 m², con balcón, luz natural y equipamiento tecnológico, por horas o por meses. Una sala de reuniones de 12 personas, por horas. Y oficina virtual y Smart Office: la dirección de la calle Larios 1 como domicilio de tu empresa, correo y visitas atendidos en horario de recepción, de 9:30 a 14:30, y horas de despacho y sala cuando las necesites.
 
-Si necesitas un dato que no está aquí —aparcamiento, acceso fuera de horario, número de despachos libres—, llama al {{ g.telefono }} y te lo confirman en el momento.
+Si necesitas un dato que no está aquí, como el aparcamiento, el acceso fuera de horario o los despachos libres, llama al {{ g.telefono }} y te lo confirman en el momento.

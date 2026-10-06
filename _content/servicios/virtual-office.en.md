@@ -72,7 +72,7 @@ no_incluye:
   - VAT (all prices are shown without tax)
 faq:
   - q: How much does the virtual office cost?
-    a: "From €{{ p.oficina_virtual_mes }} a month plus VAT. That is the network's starting price; the exact fee depends on the centre you choose, the length of the contract — some centres have a reduced rate for annual payment — and the services you add, such as call answering in your company's name or meeting-room hours. Ask for a quote for the centre you are interested in."
+    a: "From €{{ p.oficina_virtual_mes }} a month plus VAT. That is the network's starting price; the exact fee depends on the centre you choose, the length of the contract (some centres have a reduced rate for annual payment) and the services you add, such as call answering in your company's name or meeting-room hours. Ask for a quote for the centre you are interested in."
   - q: What is the difference between a registered address and a trading address?
     a: "The registered address is the one on file with the tax authority and the Companies Register as the company's official domicile. The trading address is the one you give clients and suppliers: on your website, your business cards and your correspondence. With the virtual office you can use the centre's address for both, or for just one if your company already has a registered address."
   - q: What happens to mail that arrives in my name?
@@ -80,7 +80,7 @@ faq:
   - q: Can I use a room or an office when I need one?
     a: "Yes. That is the point of a virtual office inside a real business centre: when you have a meeting, you book a room or an office by the hour at your centre, and reception welcomes your visitor as if it were your own office. You also have hot desks at the network's centres when you are in another city."
   - q: Is it useful for opening a branch in another city?
-    a: "It is one of its main uses. You take a virtual office in the city where you want a presence — Seville, Bilbao, Valencia or any of the {{ g.ciudades }} in the network — and from that day you have an address there, an answered phone line and rooms where you can receive clients, without renting premises or relocating anyone."
+    a: "It is one of its main uses. You take a virtual office in the city where you want a presence, be it Seville, Bilbao, Valencia or any of the {{ g.ciudades }} in the network, and from that day you have an address there, an answered phone line and rooms where you can receive clients, without renting premises or relocating anyone."
   - q: What is Smart Office and how does it differ from the virtual office?
     a: "Smart Office is OficinasYA!'s modular formula: it starts from the virtual office and adds office hours, meeting rooms and workstations that you can scale up or down each month as you need. If all you want is the address and the mail, the virtual office is enough; if you are going to use the centre physically with some regularity, Smart Office works out better."
 ---

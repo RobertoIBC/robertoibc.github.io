@@ -43,7 +43,7 @@ elegir:
 
 ## Two business centres and a coliving
 
-OficinasYA! has three spaces in the Region of Murcia: two business centres — Marla Center, on Avenida Doctor Pedro Guillén in the city, and the Edificio Magalia, in the Oeste industrial estate in Alcantarilla — and a coliving in Condado de Alhama, 30 minutes from Murcia. The two business centres have the largest event spaces in the network: up to 200 people at Marla and 275 at Magalia.
+OficinasYA! has three spaces in the Region of Murcia: two business centres, Marla Center (on Avenida Doctor Pedro Guillén in the city) and the Edificio Magalia (in the Oeste industrial estate in Alcantarilla), and a coliving in Condado de Alhama, 30 minutes from Murcia. The two business centres have the largest event spaces in the network: up to 200 people at Marla and 275 at Magalia.
 
 [[cifras]]
 

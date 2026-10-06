@@ -20,7 +20,7 @@ centros:
     foto: /assets/img/centros/centro-bilbao-albia.jpg
     descripcion: Business centre on the sixth floor of Edificio Albia I, Calle San Vicente 8 in Bilbao, in the financial district, overlooking the river, with offices of 15 to 40 m², a 27-person room and virtual office.
     texto: |
-      It occupies the sixth floor of Edificio Albia I, at Calle San Vicente 8, in Bilbao's financial, administrative and commercial centre, overlooking the river. It shares with Máximo Aguirre the surroundings — car parks, metro, tram, hotels, shops and motorway access — and the formula: workspaces with natural light, rooms for events and large reception, meeting and waiting areas. Of the two it has the larger offices, 15 to 40 m², and the larger room, for 27 people. Two-hour minimum on rooms and hourly offices.
+      It occupies the sixth floor of Edificio Albia I, at Calle San Vicente 8, in Bilbao's financial, administrative and commercial centre, overlooking the river. It shares with Máximo Aguirre the surroundings (car parks, metro, tram, hotels, shops and motorway access) and the formula: workspaces with natural light, rooms for events and large reception, meeting and waiting areas. Of the two it has the larger offices, 15 to 40 m², and the larger room, for 27 people. Two-hour minimum on rooms and hourly offices.
 faq:
   - q: Which of the two Bilbao centres suits me?
     a: "Both are in Bilbao's financial district and share services and hours. Máximo Aguirre, in the Gran Vía area overlooking Doña Casilda park, has offices of 12 to 27 m² and a 10-person room. The Edificio Albia, overlooking the river, has larger offices, 15 to 40 m², and a 27-person room: it is the one for meetings and events with more people."

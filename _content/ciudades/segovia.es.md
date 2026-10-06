@@ -23,7 +23,7 @@ centros:
     foto: /assets/img/stock/photo-1708765036801-4d4d207fc29c.jpg
     descripcion: Centro de negocios en el Paseo Ezequiel González de Segovia, en las instalaciones de la antigua Universidad de Valladolid, con despachos, salas de reuniones, salas de formación y una sala multiusos para eventos.
     texto: |
-      Ocupa las instalaciones de la antigua Universidad de Valladolid en Segovia, en el Paseo Ezequiel González 32. Es el que tiene más variedad de salas de los dos centros de Segovia: salas de reuniones de 4 a 50 personas, salas de formación y una sala multiusos para eventos privados, talleres o charlas. Si necesitas juntar a un grupo en Segovia —una formación, una presentación, una jornada— es aquí.
+      Ocupa las instalaciones de la antigua Universidad de Valladolid en Segovia, en el Paseo Ezequiel González 32. Es el que tiene más variedad de salas de los dos centros de Segovia: salas de reuniones de 4 a 50 personas, salas de formación y una sala multiusos para eventos privados, talleres o charlas. Si necesitas juntar a un grupo en Segovia para una formación, una presentación o una jornada, es aquí.
 
       Los despachos son de 9 a 20 m², como en Padre Claret, y la recepción tiene el horario más amplio de los dos: de lunes a viernes de 8:00 a 21:00.
 faq:

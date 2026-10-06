@@ -102,7 +102,7 @@ faq:
 
 ## Qué es un despacho privado en OficinasYA!
 
-Un despacho privado es un espacio cerrado, amueblado y de uso exclusivo dentro de uno de nuestros centros de negocio. Entras, trabajas con tu equipo y el resto del edificio —recepción, salas de reuniones, zonas comunes, limpieza, suministros— ya funciona.
+Un despacho privado es un espacio cerrado, amueblado y de uso exclusivo dentro de uno de nuestros centros de negocio. Entras, trabajas con tu equipo y todo lo demás ya funciona: recepción, salas de reuniones, zonas comunes, limpieza y suministros.
 
 No hay obras que acometer, ni mobiliario que comprar, ni alta de suministros: el despacho se entrega listo para trabajar el mismo día de la firma.
 

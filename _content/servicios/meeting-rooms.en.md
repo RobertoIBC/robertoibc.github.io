@@ -76,9 +76,9 @@ faq:
   - q: How far in advance do I need to book?
     a: "For a small room, confirming availability by phone the same day is usually enough. For large rooms, auditorium layouts or bookings with catering it is best to allow a few days, because the setup and the service need preparing. In any case, the earlier you book, the more choice of room and time you will have."
   - q: Can I book outside office hours or on a public holiday?
-    a: "Yes. At the centres with 24-hour access — the eight in Madrid and selected centres elsewhere — the room can be used at night, at weekends or on public holidays. At the other centres bookings follow reception hours, which are listed on each centre's page. You pay only for the time booked."
+    a: "Yes. At the centres with 24-hour access (the eight in Madrid and selected centres elsewhere), the room can be used at night, at weekends or on public holidays. At the other centres bookings follow reception hours, which are listed on each centre's page. You pay only for the time booked."
   - q: What equipment does the room have?
-    a: "Screen or projector, whiteboard, high-speed WiFi, video conferencing and a printer available, with coffee and water. Training rooms also offer a classroom layout. If you need something specific — a sound system, a particular setup, catering for the break — say so when booking and we will have it ready before you arrive."
+    a: "Screen or projector, whiteboard, high-speed WiFi, video conferencing and a printer available, with coffee and water. Training rooms also offer a classroom layout. If you need something specific, such as a sound system, a particular setup or catering for the break, say so when booking and we will have it ready before you arrive."
   - q: Can I use a room in a city where I am not a client?
     a: "Yes. Rooms are hired by the hour by any company, client of the network or not. If your company is based in Madrid but you need to meet a client in Seville or Bilbao, you book the room at that city's centre and reception welcomes you as if it were your own office. It is one of the most common uses."
   - q: Do you host events and training sessions?

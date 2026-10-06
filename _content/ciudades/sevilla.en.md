@@ -34,7 +34,7 @@ centros:
       It is on floors 4 and 7 of number 69 Avenida Eduardo Dato, right in the Nervión district, with access to the city's main shopping centres. It is the centre for anyone looking for an office in one of Seville's fastest-developing business areas with an extra touch of design and service: offices of 10 to 80 m², rooms for 7 to 18 people and a VIP room for 12, with reception Monday to Friday from 8:30 to 15:30 and 24-hour access. The centre has been serving large companies, SMEs and entrepreneurs for more than fifteen years.
 faq:
   - q: Which of the three Seville centres suits me?
-    a: "Laraña, right in the centre, for a representative office in the old town and small meetings. Galia Puerto, by the SE-30 and with 500 parking spaces, for large teams — offices for up to 10 people and offices of up to 2,500 m² — and for events of up to 150 people. Nervión, on Eduardo Dato, for an office of 10 to 80 m² in a business district, with a VIP room and 24-hour access."
+    a: "Laraña, right in the centre, for a representative office in the old town and small meetings. Galia Puerto, by the SE-30 and with 500 parking spaces, for large teams (offices for up to 10 people and offices of up to 2,500 m²) and for events of up to 150 people. Nervión, on Eduardo Dato, for an office of 10 to 80 m² in a business district, with a VIP room and 24-hour access."
   - q: Which Seville centres have 24-hour access and parking?
     a: "Galia Puerto and Nervión have 24-hour access; Galia Puerto also has reception and security 365 days a year. For the car, Galia Puerto has surface parking for visitors with more than 500 spaces and immediate access to the SE-30. Laraña, in the historic centre, is well served by public transport."
   - q: Where can I hold an event or an exam in Seville?
@@ -42,7 +42,7 @@ faq:
   - q: Can the Laraña room be hired with hour packs?
     a: "Yes. The Laraña meeting room, for 8 people, is hired with monthly packs of 10, 20 and 30 hours or by the day, and the offices by the day, week or month. It is the format for anyone who passes through the centre regularly without a fixed office."
 elegir:
-  - { para: "For an office in the historic centre", centro: "Laraña", ancla: larana, texto: "With meetings of up to 8 people and flexible use — by the day, week or month, with room packs." }
+  - { para: "For an office in the historic centre", centro: "Laraña", ancla: larana, texto: "With meetings of up to 8 people and flexible use: by the day, week or month, with room packs." }
   - { para: "For a team of up to 10 people, a large office, an event, a training session or an in-person exam", centro: "Galia Puerto", ancla: edificio-galia-puerto, texto: "And to arrive by car and park." }
   - { para: "For an office of 10 to 80 m² in Nervión", centro: "Edificio Nervión", ancla: edificio-nervion, texto: "With a VIP room and access at any hour." }
 ---

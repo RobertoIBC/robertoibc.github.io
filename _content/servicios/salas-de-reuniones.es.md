@@ -76,9 +76,9 @@ faq:
   - q: ¿Con cuánta antelación hay que reservar?
     a: "Para una sala pequeña, con confirmar disponibilidad por teléfono suele bastar el mismo día. Para salas grandes, formatos de auditorio o con catering conviene reservar con algunos días de margen, porque hay que preparar el montaje y el servicio. En cualquier caso, cuanto antes reserves, más opciones de sala y horario tendrás."
   - q: ¿Se puede reservar fuera del horario de oficina o en festivo?
-    a: "Sí, en los centros con acceso 24 horas —los ocho de Madrid y los centros seleccionados fuera de Madrid— la sala se puede usar de noche, en fin de semana o en festivo. En el resto de centros la reserva se ajusta al horario de recepción, que figura en la ficha de cada centro. Pagas solo el tiempo reservado."
+    a: "Sí. En los centros con acceso 24 horas (los ocho de Madrid y los centros seleccionados fuera de Madrid), la sala se puede usar de noche, en fin de semana o en festivo. En el resto de centros la reserva se ajusta al horario de recepción, que figura en la ficha de cada centro. Pagas solo el tiempo reservado."
   - q: ¿Qué equipamiento tiene la sala?
-    a: "Pantalla o proyector, pizarra, WiFi de alta velocidad, videoconferencia e impresora a disposición, con café y agua. Las salas de formación disponen además de configuración en aula. Si necesitas algo concreto —un equipo de sonido, un montaje especial, catering para el descanso— dilo al reservar y lo dejamos preparado antes de que lleguéis."
+    a: "Pantalla o proyector, pizarra, WiFi de alta velocidad, videoconferencia e impresora a disposición, con café y agua. Las salas de formación disponen además de configuración en aula. Si necesitas algo concreto, como un equipo de sonido, un montaje especial o catering para el descanso, dilo al reservar y lo dejamos preparado antes de que lleguéis."
   - q: ¿Puedo usar una sala en una ciudad donde no soy cliente?
     a: "Sí. Las salas se alquilan por horas a cualquier empresa, sea o no cliente de la red. Si tu empresa tiene sede en Madrid pero necesitas reunirte con un cliente en Sevilla o Bilbao, reservas la sala del centro de esa ciudad y te reciben en recepción como si fuera tu oficina. Es uno de los usos más habituales."
   - q: ¿Organizáis eventos y formaciones?

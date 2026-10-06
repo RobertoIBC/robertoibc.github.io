@@ -20,7 +20,7 @@ faq:
   - q: ¿El centro de Valencia tiene parking?
     a: "Sí, en el propio edificio: hay servicio de parking público en Guillem de Castro 9, así que se llega en coche sin buscar aparcamiento en el centro de Valencia. Los clientes del centro tienen tarifas preferentes en el parking, igual que en el uso de salas y en reprografía."
   - q: ¿Qué salas y aulas hay en Valencia?
-    a: "Ocho espacios distintos, adaptables: desde salas pequeñas para entrevistas, reuniones o consultas hasta aulas para formaciones, cursos, juntas directivas, conferencias o charlas; la mayor tiene capacidad para 28 personas. Todas con medios audiovisuales —proyector, ordenador, altavoces, pizarra— y con catering si lo pides al reservar."
+    a: "Ocho espacios distintos, adaptables: desde salas pequeñas para entrevistas, reuniones o consultas hasta aulas para formaciones, cursos, juntas directivas, conferencias o charlas; la mayor tiene capacidad para 28 personas. Todas con medios audiovisuales (proyector, ordenador, altavoces y pizarra) y con catering si lo pides al reservar."
   - q: ¿Qué incluye el alquiler de un despacho en Valencia?
     a: "El mobiliario funcional, los gastos de luz, agua, limpieza, comunidad e internet, tarifas preferentes en los servicios adicionales del centro y un lugar preferente para el logo de tu empresa en el hall del edificio. Los despachos van de 14 a 24 m² y hay técnicos informáticos en el centro para las incidencias en tus equipos."
   - q: ¿Qué incluye la oficina virtual en Valencia?

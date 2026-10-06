@@ -43,7 +43,7 @@ elegir:
 
 ## Dos centros de negocios y un coliving
 
-OficinasYA! tiene tres espacios en la Región de Murcia: dos centros de negocios —Marla Center, en la avenida Doctor Pedro Guillén de la ciudad, y el Edificio Magalia, en el Polígono Industrial Oeste de Alcantarilla— y un coliving en Condado de Alhama, a 30 minutos de Murcia. Los dos centros de negocios tienen los espacios para eventos más grandes de la red: hasta 200 personas en Marla y 275 en Magalia.
+OficinasYA! tiene tres espacios en la Región de Murcia: dos centros de negocios, Marla Center (en la avenida Doctor Pedro Guillén de la ciudad) y el Edificio Magalia (en el Polígono Industrial Oeste de Alcantarilla), y un coliving en Condado de Alhama, a 30 minutos de Murcia. Los dos centros de negocios tienen los espacios para eventos más grandes de la red: hasta 200 personas en Marla y 275 en Magalia.
 
 [[cifras]]
 

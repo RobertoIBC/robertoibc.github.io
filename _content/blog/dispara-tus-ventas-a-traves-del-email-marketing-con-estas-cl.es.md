@@ -89,4 +89,4 @@ La correcta**combinación del asunto y segmentación**es un elemento clave para 
 
 Enviamos el mensaje a las personas adecuadas y las animamos a que lo vean. Obviamente, **el propio contenido es importante**pero sin estos dos elementos es imposible que nos hagan el más mínimo caso, por muy bueno que sea nuestro producto.
 
-**Fuente: [Gananci.org – Cinco secretos del email marketing que te ayudarán a vender más](https://gananci.org/5-secretos-del-email-marketing-que-te-ayudaran-a-vender-mas/#:~:text=5%20secretos%20del%20email%20marketing%20que%20te%20ayudar%C3%A1n,%E2%80%9Cgancho%E2%80%9D%20...%205%205.%20Un%20buen%20dise%C3%B1o%20)**
+**Fuente: [Gananci.org: «Cinco secretos del email marketing que te ayudarán a vender más»](https://gananci.org/5-secretos-del-email-marketing-que-te-ayudaran-a-vender-mas/#:~:text=5%20secretos%20del%20email%20marketing%20que%20te%20ayudar%C3%A1n,%E2%80%9Cgancho%E2%80%9D%20...%205%205.%20Un%20buen%20dise%C3%B1o%20)**

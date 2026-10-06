@@ -41,4 +41,4 @@ The OficinasYA! centre in Málaga is at Calle Larios 1, third floor left, in wha
 
 Private offices of 17 to 38 m², with balcony, natural light and technology in place, by the hour or by the month. A 12-person meeting room, by the hour. And virtual office and Smart Office: the Calle Larios 1 address as your company's registered address, mail and visitors handled during reception hours, 9:30 to 14:30, and office and room hours when you need them.
 
-If you need a detail that is not here — parking, access outside hours, how many offices are free — call {{ g.telefono }} and they will confirm it on the spot.
+If you need a detail that is not here, such as parking, access outside hours or how many offices are free, call {{ g.telefono }} and they will confirm it on the spot.

@@ -20,7 +20,7 @@ faq:
   - q: Does the Valencia centre have parking?
     a: "Yes, in the building itself: there is a public parking service at Guillem de Castro 9, so you arrive by car without hunting for a space in the centre of Valencia. Clients of the centre get preferential rates on parking, as on room hire and printing."
   - q: What rooms and classrooms are there in Valencia?
-    a: "Eight different, adaptable spaces: from small rooms for interviews, meetings or consultations to classrooms for training, courses, board meetings, conferences or talks; the largest seats 28. All with audiovisual equipment — projector, computer, speakers, whiteboard — and with catering if you ask for it when booking."
+    a: "Eight different, adaptable spaces: from small rooms for interviews, meetings or consultations to classrooms for training, courses, board meetings, conferences or talks; the largest seats 28. All with audiovisual equipment (projector, computer, speakers and whiteboard) and with catering if you ask for it when booking."
   - q: What does renting an office in Valencia include?
     a: "Functional furniture, the costs of electricity, water, cleaning, community charges and internet, preferential rates on the centre's additional services and a prime spot for your company logo in the building's lobby. Offices range from 14 to 24 m² and there are IT technicians at the centre for problems with your equipment."
   - q: What does the virtual office in Valencia include?

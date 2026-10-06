@@ -70,7 +70,7 @@ faq:
 
 ## Coworking inside a business centre
 
-OficinasYA! offers coworking — desks in a shared space, contracted by the month — at **three centres in the network**: Plaza Urquinaona in Barcelona, Juan de la Cierva in A Coruña and Edificio Openhouse in Salamanca.
+OficinasYA! offers coworking at **three centres in the network**: desks in a shared space, contracted by the month. They are at Plaza Urquinaona in Barcelona, Juan de la Cierva in A Coruña and Edificio Openhouse in Salamanca.
 
 It is not a network-wide service: at the other centres what you will find is private offices, meeting rooms and virtual offices, and the use of shared desks is reserved for clients, as explained below.
 

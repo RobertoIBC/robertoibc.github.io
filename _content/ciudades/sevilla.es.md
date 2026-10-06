@@ -34,7 +34,7 @@ centros:
       Está en las plantas 4 y 7 del número 69 de la avenida Eduardo Dato, en pleno barrio de Nervión, con acceso a los principales centros comerciales de la ciudad. Es el centro para quien busca despacho en una de las zonas de mayor proyección económica de Sevilla con un plus de diseño y atención: despachos de 10 a 80 m², salas de 7 a 18 personas y una sala VIP para 12, con recepción de lunes a viernes de 8:30 a 15:30 y acceso 24 horas. El centro lleva más de quince años atendiendo a grandes empresas, pymes y emprendedores.
 faq:
   - q: ¿Cuál de los tres centros de Sevilla me conviene?
-    a: "Laraña, en pleno centro, para una oficina representativa en el casco y reuniones pequeñas. Galia Puerto, junto a la SE-30 y con 500 plazas de parking, para equipos grandes —despachos de hasta 10 puestos y oficinas de hasta 2.500 m²— y para eventos de hasta 150 personas. Nervión, en Eduardo Dato, para un despacho de 10 a 80 m² en una zona de negocios, con sala VIP y acceso 24 horas."
+    a: "Laraña, en pleno centro, para una oficina representativa en el casco y reuniones pequeñas. Galia Puerto, junto a la SE-30 y con 500 plazas de parking, para equipos grandes (despachos de hasta 10 puestos y oficinas de hasta 2.500 m²) y para eventos de hasta 150 personas. Nervión, en Eduardo Dato, para un despacho de 10 a 80 m² en una zona de negocios, con sala VIP y acceso 24 horas."
   - q: ¿Qué centros de Sevilla tienen acceso 24 horas y parking?
     a: "Galia Puerto y Nervión tienen acceso 24 horas; Galia Puerto además recepción y seguridad los 365 días. Para el coche, Galia Puerto tiene un aparcamiento en superficie para visitantes de más de 500 plazas e incorporación inmediata a la SE-30. Laraña, en el centro histórico, está bien comunicado en transporte público."
   - q: ¿Dónde se puede organizar un evento o un examen en Sevilla?
@@ -42,7 +42,7 @@ faq:
   - q: ¿Se puede alquilar la sala de Laraña con bonos de horas?
     a: "Sí. La sala de reuniones de Laraña, de 8 personas, se alquila con bonos mensuales de 10, 20 y 30 horas o por jornadas, y los despachos por días, semanas o meses. Es el formato para quien pasa por el centro con regularidad sin un despacho fijo."
 elegir:
-  - { para: "Para una oficina en el centro histórico", centro: "Laraña", ancla: larana, texto: "Con reuniones de hasta 8 personas y un uso flexible —por días, semanas o meses, con bonos de sala—." }
+  - { para: "Para una oficina en el centro histórico", centro: "Laraña", ancla: larana, texto: "Con reuniones de hasta 8 personas y un uso flexible: por días, semanas o meses, con bonos de sala." }
   - { para: "Para un equipo de hasta 10 puestos, una oficina grande, un evento, una formación o un examen presencial", centro: "Galia Puerto", ancla: edificio-galia-puerto, texto: "Y para llegar en coche y aparcar." }
   - { para: "Para un despacho de 10 a 80 m² en Nervión", centro: "Edificio Nervión", ancla: edificio-nervion, texto: "Con sala VIP y acceso a cualquier hora." }
 ---
