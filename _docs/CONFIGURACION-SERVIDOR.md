@@ -19,18 +19,17 @@ Si no pasa nada, el servidor es nginx o tiene `.htaccess` desactivado. En ese ca
 
 ## Qué hace la configuración, en este orden
 
-1. **Dominio:** `oficinasya.es` → `www.oficinasya.es`, con 301, en un solo salto y ya en https.
-   No hay regla de http → https porque el hosting ya la hace delante de Apache. Añadir una regla `%{HTTPS} off` detrás de un proxy puede crear un bucle de redirecciones.
-2. **Bloqueo** de las fuentes y ficheros internos (responden 404, como si no existieran):
-   - todo lo que empieza por `_` en la raíz: `_data`, `_content`, `_templates`, `_tools`, `_docs`, `_hooks`, `_build.py`, `_build.manifest`;
+Primero lo que da 404, luego todo lo que redirige, y el dominio al final. Así una URL antigua llega a la nueva **en un solo salto aunque se pida sin www** (`https://oficinasya.es/despachos/` → `https://www.oficinasya.es/alquiler-de-despachos/`), en vez de pasar antes por la versión con www.
+
+1. **Bloqueo** de las fuentes y ficheros internos (responden 404, como si no existieran):
+   - todo lo que empieza por `_` en la raíz: `_data`, `_content`, `_templates`, `_tools`, `_docs`, `_hooks`, `_build.py`, `_build.manifest`, `__pycache__`;
    - `/OLD/`, el núcleo del WordPress anterior;
-   - los ficheros ocultos (`.git`, `.claude`, `.env`…), menos `.well-known`;
+   - los ficheros ocultos (`.git`, `.gitignore`, `.claude`, `.env`…), menos `.well-known`;
    - `README.md`, `requirements.txt`, `datos-centros.csv`;
    - cualquier `.py`, `.pyc`, `.md`, `.yml`, `.yaml`, `.csv` o `.manifest`.
 
    `enviar.php` **no** se bloquea: es el formulario.
-3. **Carpeta sin barra final** (`/blog` → `/blog/`) en un solo salto. Hoy Apache responde a `/blog` con una dirección `http://` y el hosting la devuelve a `https://`: son dos saltos de más.
-4. **345 redirecciones 301** de las URLs antiguas (todas las que tiene archivadas archive.org):
+2. **345 redirecciones 301** de las URLs antiguas (todas las que tiene archivadas archive.org), directas a la URL final con www:
    - las del WordPress anterior, incluido el esquema de 2014 (`/oficina/<ciudad>/`, `/oficinas/<centro>/`);
    - las del prototipo (`/ubicaciones.html`…);
    - los prefijos `/category/`, `/tag/`, `/author/`, `/web/`, `/blog/page/` y los archivos por fecha (`/2017/` a `/2021/`) → `/blog/`;
@@ -38,13 +37,16 @@ Si no pasa nada, el servidor es nginx o tiene `.htaccess` desactivado. En ese ca
    - lo que quede de `/centros/`, `/oficinas/`, `/oficina/` y `/portfolio_category/` sin regla exacta → `/ubicaciones/`;
    - los prefijos `/actividades/`, `/miembros/` → `/comunidad/`.
 
-   La barra final del origen es opcional. Destino absoluto: un solo salto.
+   La barra final del origen es opcional.
+3. **Carpeta sin barra final** (`/blog` → `https://www.oficinasya.es/blog/`) en un solo salto. Sin esta regla Apache responde a `/blog` con una dirección `http://` y el hosting la devuelve a `https://`: dos saltos de más.
+4. **Dominio:** lo que quede en `oficinasya.es` → `www.oficinasya.es`, con 301, en un solo salto y ya en https.
+   No hay regla de http → https porque el hosting ya la hace delante de Apache. Añadir una regla `%{HTTPS} off` detrás de un proxy puede crear un bucle de redirecciones.
 
 Se genera con `python _build.py --htaccess` (Apache) y `python _build.py --nginx` desde `_data/redirects.yml`. Si cambia una redirección, se cambia allí y se vuelve a generar: el bloque no se edita a mano.
 
 **El servidor ya tiene un `.htaccess` (del técnico)**: no lo borres. Este bloque va **al principio**, entre `# BEGIN OficinasYA` y `# END OficinasYA`, y debajo se deja todo lo que tenía. Si ya hay un bloque de OficinasYA (de una subida anterior, o reglas de redirección añadidas a mano por otra persona), **se sustituye entero**: dos bloques a la vez no se suman, gana la primera regla que coincide y las viejas taparían a las nuevas. Si después la web da «Error 500», vuelve a subir el `.htaccess` de la copia y avisa al técnico.
 
-**`/oficinavirtual/` es otra web en marcha** (WordPress con WooCommerce, «Oficina Virtual de Oficinas YA!»). Estas reglas no la tocan: las redirecciones y los bloqueos van anclados a la raíz, y si esa carpeta tiene su propio `.htaccess` (un WordPress con enlaces amigables lo necesita: compruébalo en la copia del paso 1), Apache no le aplica estas reglas de reescritura. En cualquier caso, la comprobación 8 de DESPLIEGUE.md verifica que la tienda sigue funcionando. **`/OLD/`** (el núcleo del WordPress anterior, con su `wp-config.php`) queda bloqueado al público con un 404; borrarlo lo decide el técnico.
+**`/oficinavirtual/` es otra web en marcha** (WordPress con WooCommerce, «Oficina Virtual de Oficinas YA!»), que se sirve en `https://oficinavirtual.oficinasya.es/`; en `www.oficinasya.es/oficinavirtual/` responde ese mismo WordPress con su propia página de «no encontrada», y es normal. Estas reglas no la tocan: las redirecciones y los bloqueos van anclados a la raíz, y si esa carpeta tiene su propio `.htaccess` (un WordPress con enlaces amigables lo necesita: compruébalo en la copia del paso 1), Apache no le aplica estas reglas de reescritura. En cualquier caso, la comprobación 8 de DESPLIEGUE.md verifica que la tienda sigue funcionando. **`/OLD/`** (el núcleo del WordPress anterior, con su `wp-config.php`) queda bloqueado al público con un 404; borrarlo lo decide el técnico.
 
 ---
 
@@ -58,13 +60,10 @@ Se genera con `python _build.py --htaccess` (Apache) y `python _build.py --nginx
 Options -Indexes
 RewriteEngine On
 
-# 1. Dominio canonico: oficinasya.es -> www.oficinasya.es, en un solo salto y ya en https.
-#    (El paso de http a https lo hace hoy el hosting delante de Apache; por eso no hay regla
-#    "%{HTTPS} off": detras de un proxy daria un bucle de redirecciones.)
-RewriteCond %{HTTP_HOST} ^oficinasya\.es$ [NC]
-RewriteRule ^(.*)$ https://www.oficinasya.es/$1 [R=301,L]
+# Orden: primero lo que da 404, luego todo lo que redirige (siempre a la URL final, absoluta y con www,
+# venga del dominio que venga: un solo salto tambien desde oficinasya.es) y al final el dominio.
 
-# 2. Fuentes y ficheros internos: 404, como si no existieran.
+# 1. Fuentes y ficheros internos: 404, como si no existieran.
 #    Todo lo que empieza por "_" en la raiz (_data, _content, _templates, _tools, _docs, _hooks,
 #    _build.py, _build.manifest...), los ficheros ocultos menos .well-known, y estos nombres y extensiones.
 RewriteRule ^_ - [R=404,L]
@@ -75,12 +74,7 @@ RewriteRule (^|/)\.(?!well-known/) - [R=404,L]
 RewriteRule (^|/)(requirements\.txt|datos\-centros\.csv|README\.md)$ - [R=404,L]
 RewriteRule \.(py|pyc|md|ya?ml|csv|manifest)$ - [R=404,L]
 
-# 3. Carpeta sin barra final (/blog -> /blog/) en un salto y en https. Sin esta regla Apache
-#    responde con http:// y el hosting vuelve a https: dos saltos de mas.
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^(.+[^/])$ https://www.oficinasya.es/$1/ [R=301,L]
-
-# 4. Redirecciones 301 de URLs antiguas (345). La barra final es opcional.
+# 2. Redirecciones 301 de URLs antiguas (345), directas a la URL final. La barra final es opcional.
 RewriteRule ^ubicaciones\.html/?$ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 RewriteRule ^comunidad\.html/?$ https://www.oficinasya.es/comunidad/ [R=301,L,NE]
 RewriteRule ^blog\.html/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -426,6 +420,17 @@ RewriteRule ^centros/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 RewriteRule ^oficinas/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 RewriteRule ^oficina/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 RewriteRule ^portfolio_category/ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
+
+# 3. Carpeta sin barra final (/blog -> /blog/) en un salto y en https. Sin esta regla Apache
+#    responde con http:// y el hosting vuelve a https: dos saltos de mas.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.+[^/])$ https://www.oficinasya.es/$1/ [R=301,L]
+
+# 4. Dominio canonico: oficinasya.es -> www.oficinasya.es, en un solo salto y ya en https (lo que no haya redirigido antes).
+#    (El paso de http a https lo hace hoy el hosting delante de Apache; por eso no hay regla
+#    "%{HTTPS} off": detras de un proxy daria un bucle de redirecciones.)
+RewriteCond %{HTTP_HOST} ^oficinasya\.es$ [NC]
+RewriteRule ^(.*)$ https://www.oficinasya.es/$1 [R=301,L]
 # END OficinasYA
 ```
 

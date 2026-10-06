@@ -899,13 +899,10 @@ def print_htaccess(redirects, site_url):
         'Options -Indexes',
         'RewriteEngine On',
         '',
-        f'# 1. Dominio canonico: {bare} -> {host}, en un solo salto y ya en https.',
-        '#    (El paso de http a https lo hace hoy el hosting delante de Apache; por eso no hay regla',
-        '#    "%{HTTPS} off": detras de un proxy daria un bucle de redirecciones.)',
-        f'RewriteCond %{{HTTP_HOST}} ^{re.escape(bare)}$ [NC]',
-        f'RewriteRule ^(.*)$ {site_url}/$1 [R=301,L]',
+        '# Orden: primero lo que da 404, luego todo lo que redirige (siempre a la URL final, absoluta y con www,',
+        '# venga del dominio que venga: un solo salto tambien desde oficinasya.es) y al final el dominio.',
         '',
-        '# 2. Fuentes y ficheros internos: 404, como si no existieran.',
+        '# 1. Fuentes y ficheros internos: 404, como si no existieran.',
         '#    Todo lo que empieza por "_" en la raiz (_data, _content, _templates, _tools, _docs, _hooks,',
         '#    _build.py, _build.manifest...), los ficheros ocultos menos .well-known, y estos nombres y extensiones.',
         'RewriteRule ^_ - [R=404,L]',
@@ -916,17 +913,25 @@ def print_htaccess(redirects, site_url):
         'RewriteRule (^|/)(' + '|'.join(re.escape(n) for n in BLOQUEO_NOMBRES) + ')$ - [R=404,L]',
         rf'RewriteRule \.({BLOQUEO_EXT})$ - [R=404,L]',
         '',
-        '# 3. Carpeta sin barra final (/blog -> /blog/) en un salto y en https. Sin esta regla Apache',
-        '#    responde con http:// y el hosting vuelve a https: dos saltos de mas.',
-        'RewriteCond %{REQUEST_FILENAME} -d',
-        f'RewriteRule ^(.+[^/])$ {site_url}/$1/ [R=301,L]',
-        '',
-        f'# 4. Redirecciones 301 de URLs antiguas ({len(rules)}). La barra final es opcional.',
+        f'# 2. Redirecciones 301 de URLs antiguas ({len(rules)}), directas a la URL final. La barra final es opcional.',
     ]
     for frm, to, prefix in rules:
         src = re.escape(frm.strip('/'))
         pat = f'^{src}/' if prefix else f'^{src}/?$'
         out.append(f'RewriteRule {pat} {site_url}{to} [R=301,L,NE]')
+    out += [
+        '',
+        '# 3. Carpeta sin barra final (/blog -> /blog/) en un salto y en https. Sin esta regla Apache',
+        '#    responde con http:// y el hosting vuelve a https: dos saltos de mas.',
+        'RewriteCond %{REQUEST_FILENAME} -d',
+        f'RewriteRule ^(.+[^/])$ {site_url}/$1/ [R=301,L]',
+        '',
+        f'# 4. Dominio canonico: {bare} -> {host}, en un solo salto y ya en https (lo que no haya redirigido antes).',
+        '#    (El paso de http a https lo hace hoy el hosting delante de Apache; por eso no hay regla',
+        '#    "%{HTTPS} off": detras de un proxy daria un bucle de redirecciones.)',
+        f'RewriteCond %{{HTTP_HOST}} ^{re.escape(bare)}$ [NC]',
+        f'RewriteRule ^(.*)$ {site_url}/$1 [R=301,L]',
+    ]
     out.append('# END OficinasYA')
     print('\n'.join(out))
 
