@@ -13,7 +13,7 @@ description: "El email marketing es una gran herramienta para vender más: una b
 
 El mundo online está lleno de oportunidades para los negocios. Hay muchas **vías para llegar hasta nuestros clientes potenciales**: página web, blog corporativo, redes sociales… y el correo electrónico.
 
-Ésta última opción se olvida muchas veces porque los medios sociales han irrumpido con fuerza en los departamentos de marketing. Pero no solo sigue vigente, es una buena ayuda para [**ganar dinero por Internet**](https://gananci.org/formas-de-ganar-dinero-por-internet/)porque se complementa perfectamente con otras estrategias.
+Ésta última opción se olvida muchas veces porque los medios sociales han irrumpido con fuerza en los departamentos de marketing. Pero no solo sigue vigente, es una buena ayuda para [**ganar dinero por Internet**](https://gananci.org/formas-de-ganar-dinero-por-internet/) porque se complementa perfectamente con otras estrategias.
 
 Por ejemplo, el email marketing es tan directo como las redes sociales, pero deja abierta la puerta a **reacciones de compra más meditadas:**
 
@@ -23,9 +23,9 @@ Por ejemplo, el email marketing es tan directo como las redes sociales, pero de
 
 El matiz del **tiempo** es importante porque algunos negocios, aunque sean online, requieren de cierta reflexión por parte de los clientes potenciales: descubrir detalles del producto, compararlo con otros, evaluar las opciones…
 
-Sobre todo en estos casos, el **[email marketing](http://www.acrelianews.com/es/blog/post/hacer-email-marketing-es-dificil/)**es una [herramienta de marketing directo](https://www.codigopostalmx.com/articulos/marketing-directo.html) mucho más eficiente que las redes sociales. Claro que **no cualquier envío funciona igual**, hay que trabajarlo bien para lograr que nos compren.
+Sobre todo en estos casos, el **[email marketing](http://www.acrelianews.com/es/blog/post/hacer-email-marketing-es-dificil/)** es una [herramienta de marketing directo](https://www.codigopostalmx.com/articulos/marketing-directo.html) mucho más eficiente que las redes sociales. Claro que **no cualquier envío funciona igual**, hay que trabajarlo bien para lograr que nos compren.
 
-Así, los **5 elementos clave** para que [**el email marketing**](https://imolko.com/2017/08/11/email-marketing-del-futuro-y-como-aplicarlo-desde-hoy/)nos ayude a vender son:
+Así, los **5 elementos clave** para que [**el email marketing**](https://imolko.com/2017/08/11/email-marketing-del-futuro-y-como-aplicarlo-desde-hoy/) nos ayude a vender son:
 
 ## 1. Una buena base de datos
 
@@ -47,19 +47,19 @@ Además, algunos **datos estadísticos** (edad, ciudad o género) pueden acaba
 
 Igual que en publicidad online, **la segmentación** consiste en enviar nuestro mensaje solo a aquellas personas que creemos que van a estar interesadas en leerlo. Enviar a toda la lista es menos efectivo, **segmentar los envíos da mejores resultados**.
 
-Para ello, deberemos**combinar la información de la base de datos** y hacer tantos emails como sea necesario. Por ejemplo, una consultoría legal puede enviar diferente información de sus servicios a empresas y a usuarios utilizando campos dinámicos personalizados. Si no lo hiciese así, estaría perdiendo dinero en cada envío.
+Para ello, deberemos **combinar la información de la base de datos** y hacer tantos emails como sea necesario. Por ejemplo, una consultoría legal puede enviar diferente información de sus servicios a empresas y a usuarios utilizando campos dinámicos personalizados. Si no lo hiciese así, estaría perdiendo dinero en cada envío.
 
 #### 3. Elegir un buen asunto
 
 Para evitar perder dinero en cada envío, llegamos al segundo componente del éxito de cualquier email: **el asunto**. Se trata de la serie de palabras más importante de toda la estrategia, y mejor no tener prisa para redactarlo.
 
-Algunos **consejos**para conseguir más aperturas gracias a un buen asunto:
+Algunos **consejos** para conseguir más aperturas gracias a un buen asunto:
 
 * Tiene que ser **descriptivo** y estar bien escrito (no en mayúsculas ni abusando de símbolos de exclamación o interrogación).
 
 * Mejor si es **corto** y creativo porque logrará un mayor impacto.
 
-* **Personalizar el envío**con los campos personalizados mostrando el nombre del destinatario. Esto hace que este se sienta especial.
+* **Personalizar el envío** con los campos personalizados mostrando el nombre del destinatario. Esto hace que este se sienta especial.
 
 * Los **emojis** ayudan a destacar en la bandeja de entrada, pero no hay que pasarse poniendo demasiados.
 
@@ -85,8 +85,8 @@ La **plantilla** elegida no solo ha de representar nuestra marca, también ha 
 
 En resumen, no hay que olvidar que **la venta se produce en la web**, pero empieza en la campaña que enviamos a nuestra lista de suscriptores o clientes.
 
-La correcta**combinación del asunto y segmentación**es un elemento clave para que el email marketing nos ayude a vender.
+La correcta **combinación del asunto y segmentación** es un elemento clave para que el email marketing nos ayude a vender.
 
-Enviamos el mensaje a las personas adecuadas y las animamos a que lo vean. Obviamente, **el propio contenido es importante**pero sin estos dos elementos es imposible que nos hagan el más mínimo caso, por muy bueno que sea nuestro producto.
+Enviamos el mensaje a las personas adecuadas y las animamos a que lo vean. Obviamente, **el propio contenido es importante** pero sin estos dos elementos es imposible que nos hagan el más mínimo caso, por muy bueno que sea nuestro producto.
 
 **Fuente: [Gananci.org: «Cinco secretos del email marketing que te ayudarán a vender más»](https://gananci.org/5-secretos-del-email-marketing-que-te-ayudaran-a-vender-mas/#:~:text=5%20secretos%20del%20email%20marketing%20que%20te%20ayudar%C3%A1n,%E2%80%9Cgancho%E2%80%9D%20...%205%205.%20Un%20buen%20dise%C3%B1o%20)**

@@ -58,7 +58,7 @@ No se puede exagerar la importancia de realizar una auditoría semanal del espac
 
 ### Trucos para la productividad en el flujo de trabajo y los procesos
 
-Cuando se trata de **[ser productivo](https://clickup.com/es-ES/blog/52747/como-varian-los-niveles-de-productividad-segun-el-estado/)**no existe una respuesta única para todos los casos. Lo que funciona para otra persona puede no funcionar para ti, ¡y no pasa nada!
+Cuando se trata de **[ser productivo](https://clickup.com/es-ES/blog/52747/como-varian-los-niveles-de-productividad-segun-el-estado/)** no existe una respuesta única para todos los casos. Lo que funciona para otra persona puede no funcionar para ti, ¡y no pasa nada!
 
 Establecer una rutina y crear un sistema puede ayudarte a sacar tu lado más productivo.
 

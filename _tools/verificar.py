@@ -112,6 +112,12 @@ for p in pages:
         izq = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', cuerpo[max(0, m.start() - 80):m.start() + 1])).strip()[-25:]
         der = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', cuerpo[m.end() - 1:m.end() + 60])).strip()[:25]
         errors.append(f'{url}: texto pegado sin espacio: "{izq.strip()}" + "{der.strip()}"')
+    # las otras dos formas: palabra pegada a una etiqueta que se abre ("como<strong>Mi") o que se cierra ("</a></strong>que")
+    _IN = r'(?:span|b|strong|em|small|a|i|label)'
+    for m in re.finditer(r'([A-Za-zÁÉÍÓÚÑáéíóúñ]{2})((?:<' + _IN + r'\b[^>]*>)+)([A-ZÁÉÍÓÚÑa-záéíóúñ]{2})|([A-Za-zÁÉÍÓÚÑáéíóúñ]{2})((?:</' + _IN + r'>)+)([a-záéíóúñ]{2})', cuerpo):
+        if 'logo-ya' in (m.group(2) or '') or 'class="ya"' in (m.group(2) or ''): continue
+        txt = re.sub(r'<[^>]+>', '', m.group(0))
+        errors.append(f'{url}: texto pegado sin espacio: "{txt}"')
     # animaciones sin @keyframes: el elemento se queda en su estado inicial (asi estuvo el boton de WhatsApp,
     # con opacidad 0, en 58 paginas: @keyframes up solo existia en cuatro plantillas)
     css_pag = ' '.join(re.findall(r'<style[^>]*>(.*?)</style>', h, re.S)) + ' ' + ' '.join(re.findall(r'style="([^"]*)"', h))

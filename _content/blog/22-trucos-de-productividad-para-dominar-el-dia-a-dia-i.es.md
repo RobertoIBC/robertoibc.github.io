@@ -18,7 +18,7 @@ A todos nos ha pasado: El día empieza bien, pero de repente son las 5 de la tar
 
 Lo entiendo: mantener la productividad no siempre es fácil, sobre todo cuando nos enfrentamos constantemente a distracciones y nuestra fuerza de voluntad se pone a prueba constantemente.
 
-¡Menos mal que hoy en día hay un *hack* para todo! Echa un vistazo a estos 22 *hacks* de productividad que te ayudarán a hacer más cosas en menos tiempo sin sacrificar tu**[concentración o energía](https://clickup.com/es-ES/blog/60864/aplicaciones-focus/)**.
+¡Menos mal que hoy en día hay un *hack* para todo! Echa un vistazo a estos 22 *hacks* de productividad que te ayudarán a hacer más cosas en menos tiempo sin sacrificar tu **[concentración o energía](https://clickup.com/es-ES/blog/60864/aplicaciones-focus/)**.
 
 ## ¿Por qué son importantes los trucos de productividad?
 
@@ -31,7 +31,7 @@ Echa un vistazo a algunos de los asesinos de la productividad más comunes: ¿te
 * Demasiadas cosas, **[herramientas de productividad](https://clickup.com/es-ES/blog/51035/mejores-herramientas-de-productividad/)** o no las suficientes
 * Falta de límites
 * Falta de responsabilidad propia
-* Pobre **[planificación de la productividad](https://clickup.com/es-ES/blog/45256/plan-de-productividad/)**y gestión del tiempo
+* Pobre **[planificación de la productividad](https://clickup.com/es-ES/blog/45256/plan-de-productividad/)** y gestión del tiempo
 * Deuda de sueño
 * Distracciones
 * Burnout
@@ -60,7 +60,7 @@ Aquí tienes unos cuantos consejos para mejorar tu mentalidad y maximizar tu cap
 * Agrupa por lotes las tareas de alta y baja concentración
 * Evita la multitarea para optimizar la capacidad cerebral, la atención y la concentración
 * Activa el modo No molestar o Enfoque en tu teléfono y portátil para pausar las notificaciones
-* Seguir **[buenas prácticas en la organización del correo electrónico](https://front.com/blog/best-ways-organize-email-inbox)**como el método OHIO o el ajuste de horas específicas cada día para revisar el correo electrónico, para que no te distraiga durante todo el día
+* Seguir **[buenas prácticas en la organización del correo electrónico](https://front.com/blog/best-ways-organize-email-inbox)** como el método OHIO o el ajuste de horas específicas cada día para revisar el correo electrónico, para que no te distraiga durante todo el día
 
 ##### 2. Medita y duerme bien
 
@@ -74,7 +74,7 @@ Aquí tienes unos cuantos consejos para mejorar tu mentalidad y maximizar tu cap
 
 ##### 3. Cambia tu entorno de vez en cuando
 
-**❌ Bloqueador**: ¿Tienes **[dificultades para concentrarte](https://clickup.com/es-ES/blog/73859/como-concentrarse/)**en la tarea que tienes entre manos o haciendo la tarea que menos te gusta?
+**❌ Bloqueador**: ¿Tienes **[dificultades para concentrarte](https://clickup.com/es-ES/blog/73859/como-concentrarse/)** en la tarea que tienes entre manos o haciendo la tarea que menos te gusta?
 
 **Solución**:
 
@@ -86,7 +86,7 @@ Si esto te resulta familiar, echa un vistazo a estos consejos consejos para ayu
 
 #### Trucos para la productividad física
 
-¿Conoces el viejo dicho «muévete o piérdelo»? Pues bien, cuando se trata de la capacidad cerebral, ¡es cierto! **[Estudios recientes](https://bmcmusculoskeletdisord.biomedcentral.com/articles/10.1186/s12891-021-04136-5)**han demostrado que permanecer sentado durante largos periodos de tiempo puede reducir el rendimiento cognitivo, ya que lo que hacemos con nuestro cuerpo influye directamente en el funcionamiento de nuestro cerebro.
+¿Conoces el viejo dicho «muévete o piérdelo»? Pues bien, cuando se trata de la capacidad cerebral, ¡es cierto! **[Estudios recientes](https://bmcmusculoskeletdisord.biomedcentral.com/articles/10.1186/s12891-021-04136-5)** han demostrado que permanecer sentado durante largos periodos de tiempo puede reducir el rendimiento cognitivo, ya que lo que hacemos con nuestro cuerpo influye directamente en el funcionamiento de nuestro cerebro.
 
 Así que si, como la mayoría de los que trabajamos en una oficina, te has encontrado sentado en tu escritorio durante largos periodos de tiempo con poco o ningún movimiento aparte de tus dedos tecleando y tu mano alcanzando tu cuarta taza de café, ¡es hora de establecer un nuevo hábito y hacer tus pausas de movimiento!
 

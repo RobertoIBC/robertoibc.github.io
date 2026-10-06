@@ -15,9 +15,9 @@ description: "La app Cita Previa centraliza en el móvil las citas con las admin
 >
 > **Admite pedir cita para el registro, para tramitar denuncias, para trámites con MUFACE…**
 
-¿Necesitas pedir cita para hacer una renovación de documentos, pedir una prestación o **[cualquier otro trámite](https://www.xatakamovil.com/aplicaciones/nunca-habia-sido-facil-hacer-tramites-asi-uso-movil-para-ahorrarme-colas-administracion)**con las administraciones públicas? Pues ahora tienes una aplicación que centraliza todas esas peticiones: **Cita Previa**. Acaba de ponerse a disposición del gran público y promete hacer más cómodas las interacciones con la administración.
+¿Necesitas pedir cita para hacer una renovación de documentos, pedir una prestación o **[cualquier otro trámite](https://www.xatakamovil.com/aplicaciones/nunca-habia-sido-facil-hacer-tramites-asi-uso-movil-para-ahorrarme-colas-administracion)** con las administraciones públicas? Pues ahora tienes una aplicación que centraliza todas esas peticiones: **Cita Previa**. Acaba de ponerse a disposición del gran público y promete hacer más cómodas las interacciones con la administración.
 
-El Ministerio de Transformación Digital se ha puesto las pilas en cuanto al acceso a gran parte de los trámites con la administración, las aplicaciones móviles evolucionan para no sólo facilitar el acceso, también para complementarlo. Apps como**[Mi Carpeta Ciudadana](https://www.xatakamovil.com/aplicaciones/mi-carpeta-ciudadana-a-fondo-esto-todo-que-puedes-hacer-app-oficial-gobierno)**son clave en esta tarea, pero no es la única: hay otras apps hermanas que también conviene mantener instaladas. Cita previa es la nueva incorporación a la familia.
+El Ministerio de Transformación Digital se ha puesto las pilas en cuanto al acceso a gran parte de los trámites con la administración, las aplicaciones móviles evolucionan para no sólo facilitar el acceso, también para complementarlo. Apps como **[Mi Carpeta Ciudadana](https://www.xatakamovil.com/aplicaciones/mi-carpeta-ciudadana-a-fondo-esto-todo-que-puedes-hacer-app-oficial-gobierno)** son clave en esta tarea, pero no es la única: hay otras apps hermanas que también conviene mantener instaladas. Cita previa es la nueva incorporación a la familia.
 
 ## Cita previa, una app que permite pedir cita y llevar al día el calendario
 

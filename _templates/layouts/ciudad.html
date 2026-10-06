@@ -190,7 +190,7 @@
       <h3>{{ t.ciudad.centres_title.replace('{ciudad}', cname) }}</h3>
       <ul>
 {%- for grp in page.grupos %}{% for c in grp.centros %}
-        <li><a href="#{{ c.anchor }}">{{ c.centro }}<small>{{ c.address.streetAddress.split(',')[0] }}</small></a></li>
+        <li><a href="#{{ c.anchor }}">{{ c.centro }} <small>{{ c.address.streetAddress.split(',')[0] }}</small></a></li>
 {%- endfor %}{% endfor %}
       </ul>
     </div>
