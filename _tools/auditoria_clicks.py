@@ -1,5 +1,5 @@
 """Auditoria de clicks: navegacion que NO sale de un href estatico (JS: location.href, window.open...).
-Levanta un servidor local, y para cada pagina que tenga navegacion por JS (o para todas, con --all)
+Levanta un servidor local (o, con --base URL, un proxy local hacia el sitio en vivo), y para cada pagina que tenga navegacion por JS (o para todas, con --all)
 hace hover + click en cada elemento pulsable que no sea un <a> con href (o que este dentro de uno pero con
 JS encima) y comprueba que el destino resultante existe en el sitio. Lo que el verificador estatico no ve."""
 import re, pathlib, subprocess, sys, os, socket, time, json, threading, http.server, functools
@@ -17,9 +17,40 @@ for p in pages:
     if '--all' in sys.argv or NAV_JS.search(h):
         targets.append(url)
 print(f'{len(targets)} paginas con navegacion por JS: {targets}')
+# --base https://www.oficinasya.es : audita el sitio EN VIVO. Las paginas se cargan en iframes del mismo origen,
+# asi que el servidor local hace de proxy: sirve el runner y pide todo lo demas (HTML, CSS, JS, imagenes) al
+# sitio real, byte a byte. Las paginas a probar y las que existen salen del sitemap.xml en vivo.
+BASE = sys.argv[sys.argv.index('--base') + 1].rstrip('/') if '--base' in sys.argv else None
+if BASE:
+    import urllib.request, urllib.error
+    from urllib.parse import urlsplit
+    sm = urllib.request.urlopen(urllib.request.Request(BASE + '/sitemap.xml', headers={'User-Agent': 'Mozilla/5.0'}), timeout=30).read().decode('utf-8')
+    live = [urlsplit(u).path for u in re.findall(r'<loc>([^<]+)</loc>', sm)]
+    known = set(live)
+    targets = live if '--all' in sys.argv else [u for u in targets if u in known]
+    print(f'EN VIVO: {BASE} ({len(live)} paginas en su sitemap; se prueban {len(targets)})')
+    class _NoRedir(urllib.request.HTTPRedirectHandler):
+        def redirect_request(self, *a, **k): return None
+    _op = urllib.request.build_opener(_NoRedir)
+    class ProxyHandler(http.server.SimpleHTTPRequestHandler):
+        def do_GET(self):
+            if self.path.startswith('/_clickaudit.html'): return super().do_GET()
+            try:
+                r = _op.open(urllib.request.Request(BASE + self.path, headers={'User-Agent': 'Mozilla/5.0 (auditoria_clicks)'}), timeout=30)
+                code, hdrs, body = r.status, r.headers, r.read()
+            except urllib.error.HTTPError as e:
+                code, hdrs, body = e.code, e.headers, e.read()
+            self.send_response(code)
+            for k in ('Content-Type', 'Location'):
+                if hdrs.get(k): self.send_header(k, hdrs[k].replace(BASE, ''))
+            self.send_header('Content-Length', str(len(body))); self.end_headers()
+            try: self.wfile.write(body)
+            except ConnectionError: pass   # Chrome cancela peticiones al navegar: no es un fallo de la pagina
+    handler = functools.partial(ProxyHandler, directory=str(ROOT.resolve()))
 # servidor
 with socket.socket() as s: s.bind(('127.0.0.1', 0)); port = s.getsockname()[1]
-handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(ROOT.resolve()))
+if not BASE:
+    handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(ROOT.resolve()))
 class Q(http.server.ThreadingHTTPServer): pass
 http.server.SimpleHTTPRequestHandler.log_message = lambda *a: None
 srv = Q(('127.0.0.1', port), handler)
