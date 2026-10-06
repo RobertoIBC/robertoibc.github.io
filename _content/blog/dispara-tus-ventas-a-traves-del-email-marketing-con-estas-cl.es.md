@@ -15,7 +15,7 @@ El mundo online está lleno de oportunidades para los negocios. Hay muchas **v�
 
 Ésta última opción se olvida muchas veces porque los medios sociales han irrumpido con fuerza en los departamentos de marketing. Pero no solo sigue vigente, es una buena ayuda para [**ganar dinero por Internet**](https://gananci.org/formas-de-ganar-dinero-por-internet/)porque se complementa perfectamente con otras estrategias.
 
-Por ejemplo, [el email marketing es tan directo como las redes sociales](https://www.saeta.net/es/el-marketing-directo-y-la-pequena-empresa/), pero deja abierta la puerta a **reacciones de compra más meditadas:**
+Por ejemplo, el email marketing es tan directo como las redes sociales, pero deja abierta la puerta a **reacciones de compra más meditadas:**
 
 * Una **newsletter** llega a la bandeja de entrada de nuestros posibles clientes y **el asunto** hace que la quieran abrir. Pero, si en ese momento el asunto no les parece atractivo para hacer clic, el email se quedará ahí, sin leerse.
 
@@ -37,7 +37,7 @@ Por ejemplo: podemos hacer **un sorteo en Facebook** **o un concurso en Instag
 
 ### 2. Crear listas de segmentación
 
-Para hacer email marketing y **no solo hacer [el envío de una newsletter](http://medoricomunicacion.com/newsletter-agencia-publicidad-ibiza/)**, tenemos que intentar que la información que le pidamos al nuevo suscriptor sea similar a la que podríamos querer de un futuro cliente.
+Para hacer email marketing y **no solo hacer el envío de una newsletter**, tenemos que intentar que la información que le pidamos al nuevo suscriptor sea similar a la que podríamos querer de un futuro cliente.
 
 Su **nombre** es solo el primer nivel, hay que profundizar más para poderles vender lo que ellos quieren y nosotros ofrecemos.
 
@@ -79,7 +79,7 @@ También hemos de ponerle fácil **el botón para hacer clic** si queremos gan
 
 ###### 5. Un buen diseño
 
-Cuidar todos **los aspectos visuales** para que la [campaña de email](https://blog.niu.marketing/como-crear-una-campana-de-email-marketing) sea atractiva es imprescindible, sobre todo en la versión móvil.
+Cuidar todos **los aspectos visuales** para que la campaña de email sea atractiva es imprescindible, sobre todo en la versión móvil.
 
 La **plantilla** elegida no solo ha de representar nuestra marca, también ha de mostrar los elementos de manera fluida para que al leer la newsletter resulte agradable y al hacer clic sea sencillo.
 
