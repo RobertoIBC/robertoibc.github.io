@@ -207,7 +207,7 @@
 {%- if page.get('hero_foto') %}
     </div>
     <figure class="hero-photo">
-      <img src="{{ page.hero_foto }}" alt="{{ page.hero_alt }}" width="1200" height="900" decoding="async" fetchpriority="high" />
+      <img src="{{ page.hero_foto }}" alt="{{ page.hero_alt }}" width="1200" height="900" decoding="async" fetchpriority="high"{% if page.get('hero_pos') %} style="object-position: {{ page.hero_pos }}"{% endif %} />
       <figcaption>{{ page.hero_caption }}</figcaption>
     </figure>
     </div>

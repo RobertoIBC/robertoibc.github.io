@@ -9,6 +9,7 @@ description: "Puestos de coworking por meses en tres centros: Barcelona, A Coru�
 h1: Coworking en centros de negocios
 subtitle: Puestos de trabajo por meses en tres centros de la red, Barcelona, A Coruña y Salamanca, con todo lo que ofrece un centro de negocios alrededor.
 hero_foto: /assets/img/cabeceras/salamanca.jpg
+hero_pos: "82% 50%"   # el mapa y la mesa al centro: el recorte 4:3 de escritorio quita la pizarra de la izquierda
 hero_alt: "Sala de reuniones con mapa del mundo en la pared en el Edificio Openhouse, Salamanca"
 hero_caption: "Sala de reuniones · Edificio Openhouse, Salamanca"
 eyebrow: Coworking

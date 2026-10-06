@@ -9,6 +9,7 @@ description: "Coworking desks by the month at three centres: Barcelona, A Coruñ
 h1: Coworking in business centres
 subtitle: Workstations by the month at three centres in the network, in Barcelona, A Coruña and Salamanca, with everything a business centre offers around them.
 hero_foto: /assets/img/cabeceras/salamanca.jpg
+hero_pos: "82% 50%"   # el mapa y la mesa al centro: el recorte 4:3 de escritorio quita la pizarra de la izquierda
 hero_alt: "Meeting room with a world map on the wall at Edificio Openhouse, Salamanca"
 hero_caption: "Meeting room · Edificio Openhouse, Salamanca"
 eyebrow: Coworking
