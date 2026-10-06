@@ -147,6 +147,10 @@ for _lang, _flag in (('apache', '--htaccess'), ('nginx', '--nginx')):
     _m = re.search(r'```' + _lang + r'\n(.*?)\n```', _doc, re.S)
     if not _gen or not _m or _m.group(1) != _gen:
         errors.append(f'_docs/CONFIGURACION-SERVIDOR.md: el bloque {_lang} no coincide con `python _build.py {_flag}`: regenerarlo')
+    # el mismo bloque, solo, para copiarlo y pegarlo en el gestor de archivos
+    if _lang == 'apache':
+        _txt = (ROOT / '_docs' / 'bloque-htaccess.txt').read_text(encoding='utf-8').replace('\r\n', '\n').rstrip('\n')
+        if _txt != _gen: errors.append('_docs/bloque-htaccess.txt no coincide con `python _build.py --htaccess`: regenerarlo')
 single = {c for c, a in canon.items() if not a}
 sm = (ROOT / 'sitemap.xml').read_text(encoding='utf-8')
 blocks = re.findall(r'<url>(.*?)</url>', sm, re.S)

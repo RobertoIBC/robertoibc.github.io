@@ -5,6 +5,94 @@
 Para seguirlo en orden desde el panel web del hosting (gestor de archivos), sin saltarse nada. Cada paso dice qué hacer y qué tienes que ver.
 La configuración del servidor (el bloque para `.htaccess` y la versión nginx) está en [CONFIGURACION-SERVIDOR.md](CONFIGURACION-SERVIDOR.md).
 
+## AHORA: corregir la subida del 5 de octubre de 2026 (tres pasos)
+
+**Situación** (comprobada con curl el 5 y el 6 de octubre de 2026): la web nueva está en producción y bien, pero el 5 de octubre se subió **la carpeta entera del repositorio en vez del zip**, y luego se pegó en el `.htaccess` un bloque que **no es el nuestro**. Ese bloque tapa las fuentes con un 404, pero hace otras redirecciones (le faltan `/portfolio_category/…`, `/oficinas-vistuales`, `/experiencia-en-coworking/…`; manda `/web/` a la home y la paginación de los centros a `/ubicaciones/`), y lleva a las URLs antiguas pedidas sin www en dos saltos. **Las fuentes siguen en `/www`, solo tapadas.**
+
+Antes de nada, **el paso 1 de esta guía (copia de seguridad de `/www`)**, aunque ya hicieras una antes de subir: la de ahora es la que tiene el `.htaccess` actual.
+
+### Paso A. Sustituir el bloque del `.htaccess`
+
+1. Abre **`/www/.htaccess`** con el editor del gestor de archivos (con «mostrar ficheros ocultos» activado).
+2. **Borra el bloque que pegaste el 5 de octubre, entero.** Nada de él se aprovecha: el nuestro hace todo lo que hacía (bloquear fuentes, redirigir URLs antiguas) y más.
+   - **La forma segura:** compara con el `.htaccess` de la copia que hiciste **antes** de subir la web el 5 de octubre (el original del técnico, unos 9,4 kB). **Todo lo que no estaba en ese fichero lo pegaste tú: se borra. Todo lo que sí estaba: se queda**, aunque no lo entiendas.
+   - **Si no tienes esa copia**, estas señales distinguen una línea de la otra:
+
+     | Es del bloque pegado (se borra) | Es del técnico o del hosting (se queda) |
+     |---|---|
+     | `RewriteRule` cuyo destino es una página nueva: `…/alquiler-de-despachos/`, `…/oficinas-en-…/`, `…/blog/`, `…/ubicaciones/`, `…/comunidad/`, `…/oficina-virtual/`, `…/salas-de-reuniones/`, `…/#contact` | Bloques con marcas del hosting o de WordPress: `# BEGIN WordPress`, `# php -- BEGIN cPanel-generated handler`, `# BEGIN LSCACHE`… hasta su `# END` |
+     | `RewriteRule` que devuelven 404 a `_`, `.py`, `.md`, `README`, `OLD` (`[R=404]`) | `AddHandler`, `php_value`, `php_flag`, `SetEnv`, `Header set …`, `ErrorDocument`, `DirectoryIndex` |
+     | Comentarios que hablan de la web nueva, de fuentes o de redirecciones antiguas | Reglas sobre `enviar.php`, `enviar.config.php`, `.php.ini`, `oficinavirtual`, `wp-config.php`, `.git` o el https (`%{HTTPS}`, `%{SERVER_PORT}`) |
+     | Todo lo que esté **encima** del primer bloque que sí es del técnico | `<Files …>`, `<FilesMatch …>`, `<IfModule …>` que no redirigen a páginas nuevas |
+
+     Si una línea no encaja en ninguna columna, **déjala** y pregúntale al técnico. Una línea de más del técnico no estorba: el bloque nuestro va delante.
+3. Abre **[`_docs/bloque-htaccess.txt`](bloque-htaccess.txt)** (es el mismo bloque «Apache» de [CONFIGURACION-SERVIDOR.md](CONFIGURACION-SERVIDOR.md), solo), **selecciónalo todo y cópialo**. Empieza por `# BEGIN OficinasYA` y acaba en `# END OficinasYA` (379 líneas, 352 `RewriteRule`).
+4. Pégalo **en la primera línea** del `.htaccess`, encima de todo lo que ha quedado. Guarda.
+5. En una ventana privada:
+   - `https://www.oficinasya.es/` carga. Si da **«Error 500»**, vuelve a poner el `.htaccess` de la copia de hoy y avísame.
+   - `https://www.oficinasya.es/portfolio_category/castellon/` → acaba en `https://www.oficinasya.es/oficinas-en-castellon/`. **Si da 404, sigue mandando el bloque viejo**: no se borró entero o el nuevo no quedó arriba.
+
+### Paso B. Borrar las fuentes
+
+**Primero, ¿hay una carpeta `.git` en `/www`?** En el gestor de archivos, con **«mostrar ficheros ocultos»** activado, mira la lista de `/www`. Desde fuera no se puede saber: `/.git/HEAD` y `/.gitignore` responden 403, y eso es lo mismo que respondería una regla del servidor que los proteja aunque no existan.
+
+- **No hay `.git`** → borra la lista de abajo y ya está.
+- **Hay `.git`** → depende de cómo llegó:
+  - **Si la web la subiste tú con el gestor de archivos o por FTP** (lo que pasó el 5 de octubre), esa `.git` es una copia más de tu carpeta, con **todo el historial del repositorio** dentro. No hay ningún «despliegue» que la use: **bórrala también**, junto con la lista.
+  - **Si en el panel hay un apartado «Git» (o «Git Version Control») con este repositorio, o en `/www` hay un fichero `.cpanel.yml`**, alguien montó una subida automática con git. Entonces **no borres nada todavía**: volvería en la siguiente actualización. La solución es que el técnico quite esa subida automática (o la cambie para que copie solo lo que va en el zip); después, se borra la lista. Mientras tanto, el bloque del paso A ya devuelve 404 a todo eso.
+
+**La lista exacta.** En `/www`, y solo en `/www` (no dentro de otras carpetas). Lo que no exista, se salta:
+
+Carpetas:
+```
+_content
+_data
+_docs
+_hooks
+_templates
+_tools
+__pycache__
+fotos_nuevas
+.claude
+.git        ← solo en el caso «la subiste tú», ver arriba
+```
+
+Ficheros:
+```
+_build.py
+_build.manifest
+README.md
+requirements.txt
+datos-centros.csv
+__b5.py
+.gitignore
+```
+
+`datos-centros.csv` es la hoja del cliente con precios y fianzas por centro: si está, es lo más importante de la lista. **No borres nada que no esté aquí**: en especial `.htaccess`, `.php.ini`, `.well-known`, `.tmb`, `cache`, `newsite`, `OLD`, `oficinavirtual`, `enviar.php`, `enviar.config.php`, `googlebe6fd46c002206cc.html`, `assets`, `en` ni ninguna carpeta de página.
+
+**¿Puede romper algo borrarlas con la web en producción?** Lo comprobado:
+- **Las páginas no las usan.** La web es HTML estático: ninguno de los 254 ficheros del zip enlaza ni carga nada de esta lista (lo he buscado en todos). Ya hoy esas rutas dan 404 y la web funciona: borrarlas no cambia lo que ve nadie.
+- **Google no lo nota**: ya dan 404 y no están en el sitemap.
+- **Lo que no puedo ver es `enviar.php`** (es del técnico). Es muy improbable que lea algo de `_data/` o de `datos-centros.csv`, pero **prueba el formulario después** (apartado 9). Si fallara, sube desde la copia solo el fichero que falte y avísame.
+- **El riesgo real es humano**: borrar algo de al lado (`cache` por `_content`, `.well-known` por `.claude`, `.htaccess` por `.gitignore`). Por eso: copia antes, la lista de arriba, y **de uno en uno**, sin «seleccionar todo». Muchos paneles borran sin papelera.
+- **`.git`**: solo rompe algo si hay una subida automática con git (el segundo caso de arriba).
+
+### Paso C. Subir lo que ha cambiado
+
+Desde lo que hay en producción (el commit `a4afcdd`) solo ha cambiado **una página**: la del artículo de email marketing, al que se le han quitado tres enlaces a sitios que ya no existen. Se sube ese fichero y nada más:
+
+```
+dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/index.html
+```
+
+Súbelo **encima** del que hay en `/www/dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/` (sobrescribir). Es un solo fichero que se reemplaza de golpe: la web no queda rota en ningún momento. Lo sacas del zip `oficinasya-subida-www.zip` o del repositorio.
+
+El orden de los tres pasos es **A → B → C**: primero el `.htaccess` (que tapa todo lo que se va a borrar con el comportamiento definitivo), luego el borrado, y la página al final (es independiente).
+
+Cuando acabes, avísame: compruebo todo contra el servidor con `python _tools/verificar_vivo.py` (las 66 páginas, las 345 redirecciones, las fuentes, el formulario, la tienda y `OLD/`) y la auditoría de clics en vivo (`python _tools/auditoria_clicks.py --all --base https://www.oficinasya.es`).
+
+---
+
 ## Lo que hay hoy en el servidor
 
 La web se sirve desde **`/www`**, no desde la raíz de la cuenta. Dentro de `/www` hay, además de la web actual:
@@ -15,10 +103,10 @@ La web se sirve desde **`/www`**, no desde la raíz de la cuenta. Dentro de `/ww
 | `.htaccess` | Reglas del técnico; desde el 5 de octubre de 2026, además, un bloque de redirecciones que **no** sale de este repositorio (ver la nota de abajo) | Se edita en el paso 6: nuestro bloque va **al principio** y **sustituye** a ese |
 | `.php.ini` | Configuración de PHP | **NO SE TOCA** |
 | `googlebe6fd46c002206cc.html` | Verificación de Search Console | **NO SE TOCA** (si se borra, se pierde la propiedad) |
-| `oficinavirtual/` | Otra web en marcha: WordPress con WooCommerce («Oficina Virtual de Oficinas YA!») | **NO SE TOCA** |
+| `oficinavirtual/` | Otra web en marcha: WordPress con WooCommerce («Oficina Virtual de Oficinas YA!»), que se ve en `https://oficinavirtual.oficinasya.es/` | **NO SE TOCA** |
 | `OLD/` | Núcleo del WordPress anterior, con su `wp-config.php` (credenciales) | **NO SE BORRA** (lo decide el técnico). El `.htaccess` nuevo lo bloquea al público |
 | `newsite/`, `cache/`, `.tmb/`, `.well-known/` | Carpetas del hosting y del panel | **NO SE TOCAN** |
-| `_data/`, `_content/`, `_templates/`, `_tools/`, `_docs/`, `_build.py`, `_build.manifest`, `README.md`, `requirements.txt` | Fuentes del prototipo, subidas por error (la última vez, el 5 de octubre de 2026, el repositorio entero en lugar del zip) | **SE BORRAN** en el paso 7, salvo que haya `.git/` (ver el paso 7) |
+| `_data/`, `_content/`, `_templates/`, `_tools/`, `_docs/`, `_hooks/`, `_build.py`, `_build.manifest`, `README.md`, `requirements.txt`, y quizá `.git/`, `.claude/`, `__pycache__/`, `fotos_nuevas/`, `datos-centros.csv`, `__b5.py`, `.gitignore` | Fuentes y ficheros de trabajo, subidos por error el 5 de octubre de 2026 (la carpeta del repositorio en lugar del zip) | **SE BORRAN**: lista exacta en «Paso B» arriba |
 
 **Cómo estaba el servidor el 5 de octubre de 2026 por la noche** (comprobado con curl, no con capturas de buscador):
 - La web nueva está subida, con el contenido del último commit, pero **se subió el repositorio entero, no el zip**: de las 10:50 a las 22:45 aprox. (hora peninsular) `/_build.py`, `/_docs/DESPLIEGUE.md`, `/README.md`… se podían descargar.
@@ -101,14 +189,10 @@ Abre `https://www.oficinasya.es/` en una ventana privada. Tiene que verse la web
 
 ## 7. Borrar las fuentes que se subieron por error
 
-Están en `/www` y hoy cualquiera puede descargarlas (`/_build.py` y `/_data/centros.csv` responden). Con el `.htaccess` nuevo ya dan 404, pero hay que borrarlas. Borra **solo** esto, si existe en `/www`:
-
-- las carpetas `_data/`, `_content/`, `_templates/`, `_tools/`, `_docs/`, `_hooks/`
-- los ficheros `_build.py`, `_build.manifest`, `README.md`, `requirements.txt`
+Con el `.htaccess` nuevo ya dan 404, pero hay que borrarlas. La lista exacta, y qué hacer si hay una carpeta `.git`, está en **«Paso B. Borrar las fuentes»**, al principio de esta guía.
 
 **Nada más.** Repasa la lista del paso 3 antes de confirmar cada borrado.
 
-**Excepción: si en `/www` hay una carpeta `.git/`** (activa «mostrar ficheros ocultos»), alguien está subiendo la web con git. Entonces **no borres nada de esto ni la carpeta `.git/`**: volverían en la siguiente actualización, y borrar `.git/` rompería su forma de subir. Con el bloque del paso 6 todo eso ya da 404 (comprobación 5). Avisa al técnico de que la web debe subirse con el zip.
 
 ## 8. Comprobaciones, en este orden
 
@@ -132,7 +216,7 @@ Están en `/www` y hoy cualquiera puede descargarlas (`/_build.py` y `/_data/cen
    - `https://www.oficinasya.es/enviar.php` → se ve `{"ok":false}`. Si sale 404, sube el `enviar.php` de la copia **ya**.
    - `https://www.oficinasya.es/googlebe6fd46c002206cc.html` → se ve `google-site-verification: googlebe6fd46c002206cc.html`.
 7. **El formulario envía de verdad.** Ver el apartado 9.
-8. **La tienda sigue funcionando.** `https://www.oficinasya.es/oficinavirtual/` → carga igual que antes de la subida. Si da error, quita nuestro bloque del `.htaccess` (vuelve a poner el de la copia) y avisa al técnico.
+8. **La tienda sigue funcionando.** `https://oficinavirtual.oficinasya.es/` → carga la tienda («Oficina Virtual de Oficinas YA!»). En `https://www.oficinasya.es/oficinavirtual/` responde la misma tienda con su página de «no encontrada»: es normal, ya era así antes. Si da error, quita nuestro bloque del `.htaccess` (vuelve a poner el de la copia) y avisa al técnico.
 9. **La home se ve completa.** `https://www.oficinasya.es/` en ventana privada:
    - el icono naranja en la pestaña;
    - «Disponible desde YA!» en una línea;
