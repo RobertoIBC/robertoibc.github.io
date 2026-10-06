@@ -423,7 +423,8 @@
     .srv-option-body { min-width: 0; }
     .srv-option-list { margin: 12px 0 0 18px; font-size: .94rem; line-height: 1.6; }
     .srv-option-list li { margin-bottom: 6px; }
-    .srv-callout { display: flex; gap: 20px; align-items: center; background: var(--orange-pale); border-radius: var(--radius); padding: 20px 24px; margin: 0 0 22px; }
+    /* Dato destacado: la cifra encima, como titular del bloque, y el texto debajo; nunca al lado (las cifras no miden lo mismo y descuadraban el texto) */
+    .srv-callout { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; background: var(--orange-pale); border-radius: var(--radius); padding: 22px 26px; margin: 0 0 22px; }
     .srv-callout-n { font-family: 'Barlow', sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--orange-dark); line-height: 1; white-space: nowrap; }
     .srv-callout p { margin: 0; font-size: .96rem; line-height: 1.6; color: var(--dark-mid); }
     .srv-note, .srv-article blockquote { border-left: 3px solid var(--orange); padding: 4px 0 4px 20px; margin: 0 0 28px; }
@@ -487,7 +488,7 @@
     }
     @media (max-width: 600px) {
       .srv-cards-2, .srv-cards-3, .srv-cards-4, .srv-stats { grid-template-columns: 1fr; }
-      .srv-callout { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .srv-callout { padding: 20px 22px; }
       .srv-option { grid-template-columns: 1fr; gap: 14px; }
       .srv-option-hd { border-right: none; border-bottom: 1px solid var(--gray-200); padding: 0 0 14px; }
       .faq-acc details { padding: 0 20px; }
