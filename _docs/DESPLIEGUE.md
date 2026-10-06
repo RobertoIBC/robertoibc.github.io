@@ -79,15 +79,13 @@ __b5.py
 
 ### Paso C. Subir lo que ha cambiado
 
-Desde lo que hay en producción (el commit `a4afcdd`) solo ha cambiado **una página**: la del artículo de email marketing, al que se le han quitado tres enlaces a sitios que ya no existen. Se sube ese fichero y nada más:
+Desde lo que hay en producción (el commit `a4afcdd`) han cambiado **las 66 páginas** (`index.html`) y nada más: ni imágenes, ni `assets/`, ni los ficheros de la raíz. Son los cambios del 6 de octubre de 2026: cifras sin caja negra, botones «Llamar 918 298 500», separadores y rayas, bloque de precio, dato destacado, etiquetas de comunidad, encuadre de coworking y palabras pegadas en los artículos.
 
-```
-dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/index.html
-```
+Lo más sencillo es **el zip entero**, como en el paso 4 de esta guía: súbelo a `/www` y descomprímelo allí mismo con «sobrescribir los existentes». No contiene nada de la lista del paso B ni nada de lo que no se toca.
 
-Súbelo **encima** del que hay en `/www/dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/` (sobrescribir). Es un solo fichero que se reemplaza de golpe: la web no queda rota en ningún momento. Lo sacas del zip `oficinasya-subida-www.zip` o del repositorio.
+**La web no queda rota en ningún momento**: cada página lleva su propio CSS dentro, así que cada `index.html` pasa de la versión vieja a la nueva de golpe y funciona sola, se suba en el orden que se suba. Si el panel no descomprime y hay que subirlas a mano, da igual el orden.
 
-El orden de los tres pasos es **A → B → C**: primero el `.htaccess` (que tapa todo lo que se va a borrar con el comportamiento definitivo), luego el borrado, y la página al final (es independiente).
+El orden de los tres pasos es **A → B → C**: primero el `.htaccess` (que tapa todo lo que se va a borrar con el comportamiento definitivo), luego el borrado, y las páginas al final (son independientes).
 
 Cuando acabes, avísame: compruebo todo contra el servidor con `python _tools/verificar_vivo.py` (las 66 páginas, las 345 redirecciones, las fuentes, el formulario, la tienda y `OLD/`) y la auditoría de clics en vivo (`python _tools/auditoria_clicks.py --all --base https://www.oficinasya.es`).
 
