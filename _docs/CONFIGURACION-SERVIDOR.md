@@ -195,16 +195,16 @@ RewriteRule ^portfolio/?$ https://www.oficinasya.es/ [R=301,L,NE]
 RewriteRule ^project/?$ https://www.oficinasya.es/ [R=301,L,NE]
 RewriteRule ^10\-cosas\-aprender\-del\-marketing\-apple/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^10\-cosas\-que\-no\-debes\-decir\-en\-una\-entrevista\-de\-trabajo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^abogados\-las\-tablas\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^abogados\-las\-tablas\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/comunidad/#miembros [R=301,L,NE]
 RewriteRule ^abre\-tu\-negocio\-a\-otros\-paises\-con\-el\-seo\-multirregional/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^abrir\-un\-negocio\-en\-el\-momento\-actual\-no\-es\-de\-locos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^adios\-a\-telegram\-motivos\-de\-su\-cierre\-y\-aplicaciones\-alternativas/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^ahorrar\-siendo\-autonomo\-es\-posible/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^alcanza\-todos\-tus\-objetivos\-para\-el\-nuevo\-ano/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^alfa\-inmobiliaria\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^alfa\-inmobiliaria\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/comunidad/#miembros [R=301,L,NE]
 RewriteRule ^alternativas\-a\-las\-reuniones\-presenciales/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^ambialia\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^aprende\-a\-priorizar\-de\-forma\-rapida\-y\-sencilla/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^ambialia\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/comunidad/#miembros [R=301,L,NE]
+RewriteRule ^aprende\-a\-priorizar\-de\-forma\-rapida\-y\-sencilla/?$ https://www.oficinasya.es/trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii/ [R=301,L,NE]
 RewriteRule ^aprende\-a\-tener\-iniciativa/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^aprovecha\-las\-ventajas\-de\-la\-ia\-en\-tu\-negocio\-con\-estas\-herramientas\-gratuitas/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^asi\-funciona\-el\-tinder\-para\-empresas\-nosotros\-no\-hacemos\-nada\-es\-la\-maquina\-la\-que\-lo\-hace/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -218,7 +218,7 @@ RewriteRule ^carsharing\-o\-coche\-privado/?$ https://www.oficinasya.es/blog/ [R
 RewriteRule ^claves\-de\-la\-nueva\-norma\-de\-registro\-de\-la\-jornada\-laboral/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^claves\-para\-mantener\-la\-lealtad\-de\-tus\-clientes/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^claves\-para\-posicionar\-tu\-negocio\-en\-google/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^claves\-para\-que\-tu\-email\-marketing\-sea\-efectivo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^claves\-para\-que\-tu\-email\-marketing\-sea\-efectivo/?$ https://www.oficinasya.es/dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/ [R=301,L,NE]
 RewriteRule ^club\-privado\-carsharing\-oficinas\-ya\-callao/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-aplicar\-la\-subida\-del\-smi\-para\-autonomos\-y\-empresas/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-aprender\-a\-tener\-paciencia/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -226,24 +226,24 @@ RewriteRule ^como\-aumentar\-la\-motivacion\-de\-tu\-equipo\-de\-trabajo/?$ http
 RewriteRule ^como\-aumentar\-tus\-ventas\-parte\-1/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-aumentar\-tus\-ventas\-parte\-2/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-compartir\-tu\-dni\-por\-internet\-sin\-riesgos\-2\-2/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^como\-contribuyen\-los\-coworkings\-al\-ahorro\-energetico/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^como\-contribuyen\-los\-coworkings\-al\-ahorro\-energetico/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^como\-crear\-un\-buen\-entorno\-laboral/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-darle\-valor\-de\-lujo\-a\-tu\-producto/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^como\-elijo\-el\-coworking\-mas\-apropiado\-para\-mi\-negocio/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^como\-elijo\-el\-coworking\-mas\-apropiado\-para\-mi\-negocio/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^como\-evitar\-los\-conflictos\-laborales/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-evitar\-que\-roben\-tus\-datos\-al\-pagar\-con\-el\-movil/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^como\-funciona\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^como\-funciona\-un\-coworking/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^como\-google\-puede\-ayudar\-a\-tu\-negocio\-sin\-coste\-para\-ti/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-hacer\-que\-tu\-equipo\-de\-trabajo\-este\-siempre\-motivado/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-hacer\-que\-tu\-pequeno\-negocio\-parezca\-una\-gran\-empresa\-caso\-practico/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-mejorar\-tu\-economia/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^como\-reducir\-gastos\-de\-oficina\-sin\-perder\-calidad\-oficina\-tradicional\-vs\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^como\-reducir\-gastos\-de\-oficina\-sin\-perder\-calidad\-oficina\-tradicional\-vs\-coworking/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^como\-responder\-a\-las\-objeciones\-mas\-comunes\-de\-los\-clientes/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-sacar\-partido\-al\-tiempo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-sacarle\-partido\-a\-linkedin/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-superar\-el\-miedo\-a\-hablar\-en\-publico/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^como\-tener\-exito\-en\-el\-trabajo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^como\-un\-coworking\-hace\-crecer\-tu\-negocio\-caso\-real/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^como\-un\-coworking\-hace\-crecer\-tu\-negocio\-caso\-real/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^conciliacion\-la\-gran\-odisea\-del\-autonomo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^conectar\-mejor\-con\-tus\-clientes\-mediante\-un\-buen\-relato/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^conoceis\-google\-activate/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -251,34 +251,34 @@ RewriteRule ^conseguir\-clientes\-nuevos\-y\-retener\-a\-los\-actuales\-durante\
 RewriteRule ^consejos\-para\-combatir\-las\-olas\-de\-calor\-en\-verano/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^consejos\-para\-ser\-un\-buen\-lider/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^cosas\-deberias\-saber\-abrir\-negocio/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^coworking\-como\-solucion\-al\-estres/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^coworking\-para\-abogados\-privacidad\-y\-profesionalidad/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^coworking\-y\-networking\-conceptos\-clave\-para\-todo\-emprendedor/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^coworking\-y\-networking\-contactos\-laborales\-de\-calidad/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^coworkings\-espacios\-de\-trabajo\-que\-unen\-vida\-social\-y\-laboral/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^coworking\-como\-solucion\-al\-estres/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
+RewriteRule ^coworking\-para\-abogados\-privacidad\-y\-profesionalidad/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
+RewriteRule ^coworking\-y\-networking\-conceptos\-clave\-para\-todo\-emprendedor/?$ https://www.oficinasya.es/claves-para-mejorar-tu-networking/ [R=301,L,NE]
+RewriteRule ^coworking\-y\-networking\-contactos\-laborales\-de\-calidad/?$ https://www.oficinasya.es/claves-para-mejorar-tu-networking/ [R=301,L,NE]
+RewriteRule ^coworkings\-espacios\-de\-trabajo\-que\-unen\-vida\-social\-y\-laboral/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^creditos\-ico\-paso\-a\-paso/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^de\-la\-oficina\-tradicional\-al\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^descubre\-estos\-trucos\-para\-disparar\-tu\-productividad/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^de\-la\-oficina\-tradicional\-al\-coworking/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
+RewriteRule ^descubre\-estos\-trucos\-para\-disparar\-tu\-productividad/?$ https://www.oficinasya.es/te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/ [R=301,L,NE]
 RewriteRule ^destacar\-curriculum\-la\-competencia/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^diez\-tips\-para\-una\-oratoria\-insuperable/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^diferencias\-entre\-coworking\-oficina\-compartida\-y\-centro\-de\-negocios\-con\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^digital\-logic\-system\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^diferencias\-entre\-coworking\-oficina\-compartida\-y\-centro\-de\-negocios\-con\-coworking/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
+RewriteRule ^digital\-logic\-system\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/#testimonials [R=301,L,NE]
 RewriteRule ^digitalizacion\-analisis\-y\-estrategia/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^el\-coworking\-se\-impone\-en\-el\-sector\-de\-las\-oficinas/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^el\-coworking\-se\-transforma\-en\-oficina\-de\-contingencia/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^el\-coworking\-y\-la\-mujer\-emprendedora/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^el\-coworking\-se\-impone\-en\-el\-sector\-de\-las\-oficinas/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
+RewriteRule ^el\-coworking\-se\-transforma\-en\-oficina\-de\-contingencia/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
+RewriteRule ^el\-coworking\-y\-la\-mujer\-emprendedora/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^el\-creador\-de\-chatgpt\-revela\-sus\-consejos\-para\-emprendedores/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^el\-enriquecimiento\-personal\-y\-laboral\-las\-nuevas\-prioridades/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^el\-gobierno\-actualiza\-el\-calendario\-de\-ayudas\-para\-autonomos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^el\-gobierno\-anuncia\-el\-nuevo\-kit\-consulting\-para\-pymes/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^el\-nuevo\-coworking\-post\-covid/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^el\-nuevo\-coworking\-post\-covid/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^el\-optimismo\-concepto\-clave\-para\-el\-mundo\-laboral/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^el\-precio\-de\-la\-gasolina\-y\-el\-diesel\-se\-ha\-disparado\-en\-2024\-y\-estas\-son\-las\-razones/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^el\-teletrabajo\-ha\-llegado\-a\-su\-fin/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^el\-teletrabajo\-reduce\-la\-productividad\-laboral/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^el\-trabajo\-100\-remoto\-no\-arraiga\-en\-espana/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^el\-teletrabajo\-ha\-llegado\-a\-su\-fin/?$ https://www.oficinasya.es/rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/ [R=301,L,NE]
+RewriteRule ^el\-teletrabajo\-reduce\-la\-productividad\-laboral/?$ https://www.oficinasya.es/rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/ [R=301,L,NE]
+RewriteRule ^el\-trabajo\-100\-remoto\-no\-arraiga\-en\-espana/?$ https://www.oficinasya.es/rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/ [R=301,L,NE]
 RewriteRule ^eleva\-tu\-economia\-de\-nivel\-con\-estos\-consejos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^elige\-coworking\-y\-gana\-la\-partida/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^elige\-coworking\-y\-gana\-la\-partida/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^emprendedor\-aumenta\-tus\-probabilidades\-de\-exito/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^emprender\-con\-exito\-2021/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^emprender\-con\-exito/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -288,32 +288,32 @@ RewriteRule ^eres\-feliz\-en\-tu\-trabajo/?$ https://www.oficinasya.es/blog/ [R=
 RewriteRule ^es\-el\-verano\-un\-buen\-momento\-para\-emprender/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^esta\-tu\-empresa\-preparada\-para\-afrontar\-el\-coronavirus/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^estas\-son\-las\-cadenas\-de\-gasolineras\-mas\-baratas\-segun\-la\-ocu/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^estas\-son\-las\-mejores\-apps\-para\-aprovechar\-el\-certificado\-digital\-en\-tu\-movil/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^estas\-son\-las\-mejores\-apps\-para\-aprovechar\-el\-certificado\-digital\-en\-tu\-movil/?$ https://www.oficinasya.es/cita-previa-ya-tiene-app-adios-a-pelearse-con-las-webs-de-la-administracion/ [R=301,L,NE]
 RewriteRule ^estas\-son\-las\-novedades\-en\-el\-impuesto\-de\-sociedades\-de\-2024/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^estos\-son\-los\-nuevos\-tramos\-para\-pagar\-la\-cuota\-minima\-de\-autonomos\-en\-2024/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^estres\-laboral\-por\-el\-covid\-deshazte\-de\-el/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^eventos\-que\-no\-te\-puedes\-perder\-siendo\-emprendedor/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^experiencia\-en\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^fgr\-asesoria\-energetica\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^experiencia\-en\-coworking/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
+RewriteRule ^fgr\-asesoria\-energetica\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/#testimonials [R=301,L,NE]
 RewriteRule ^franquicias\-ventajas\-y\-desventajas/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^freshrules\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^gabinete\-de\-psicologia\-sian\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^freshrules\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/comunidad/#miembros [R=301,L,NE]
+RewriteRule ^gabinete\-de\-psicologia\-sian\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/comunidad/#miembros [R=301,L,NE]
 RewriteRule ^gana\-velocidad\-en\-tu\-ordenador/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^genera\-ideas\-de\-negocio\-con\-este\-truco/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^google\-tendra\-un\-nuevo\-servicio\-gratuito\-ya\-no\-habra\-que\-pagar\-por\-su\-vpn/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^guia\-para\-irte\-de\-vacaciones\-en\-una\-camper\-este\-verano/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^habitos\-comunes\-de\-las\-personas\-super\-productivas/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^habitos\-comunes\-de\-las\-personas\-super\-productivas/?$ https://www.oficinasya.es/te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/ [R=301,L,NE]
 RewriteRule ^hacienda\-simplifica\-las\-rectificaciones\-en\-las\-declaraciones\-de\-los\-autonomos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^hay\-menos\-oficinas\-vacias\-en\-alquiler\-en\-el\-centro\-de\-madrid\-que\-en\-londres/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^herramientas\-para\-trabajar\-desde\-casa/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^hola\-conoces\-a\-luzia/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^hr\-consultores\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^hr\-consultores\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/comunidad/#miembros [R=301,L,NE]
 RewriteRule ^inteligencia\-artificial\-en\-pymes\-innovacion\-y\-competitividad\-en\-el\-mercado/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^la\-estafa\-que\-te\-hara\-leer\-tu\-correo\-con\-mucha\-atencion/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^la\-importancia\-de\-escuchar\-a\-tus\-clientes/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^la\-loteria\-de\-navidad\-la\-veis\-hacienda\-y\-tu/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^la\-oficina\-flexible\-la\-forma\-de\-trabajo\-mas\-demandada/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^la\-oficina\-flexible\-la\-solucion\-favorita\-de\-startups\-pymes\-y\-emprendedores/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^la\-oficina\-flexible\-la\-forma\-de\-trabajo\-mas\-demandada/?$ https://www.oficinasya.es/alquiler-de-despachos/ [R=301,L,NE]
+RewriteRule ^la\-oficina\-flexible\-la\-solucion\-favorita\-de\-startups\-pymes\-y\-emprendedores/?$ https://www.oficinasya.es/alquiler-de-despachos/ [R=301,L,NE]
 RewriteRule ^la\-semana\-laboral\-de\-4\-dias\-al\-estilo\-aleman/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^las\-5\-mejores\-tecnicas\-para\-cerrar\-una\-venta/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^las\-oficinas\-sostenibles\-que\-te\-ayudan\-a\-crecer\-y\-reducen\-tus\-gastos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -321,34 +321,34 @@ RewriteRule ^lecciones\-aprendidas\-con\-la\-crisis\-del\-covid19/?$ https://www
 RewriteRule ^llega\-el\-1o\-concurso\-de\-fotografia\-navidena\-de\-oficinas\-ya/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^llega\-la\-cabalgata\-de\-reyes\-a\-madrid\-fechas\-horarios\-y\-recorridos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^los\-12\-pasos\-de\-una\-presentacion\-perfecta/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^los\-3\-problemas\-mas\-comunes\-de\-un\-emprendedor\-y\-sus\-soluciones/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^los\-3\-problemas\-mas\-comunes\-de\-un\-emprendedor\-y\-sus\-soluciones/?$ https://www.oficinasya.es/cometes-alguno-de-estos-8-errores-en-tu-pyme/ [R=301,L,NE]
 RewriteRule ^los\-6\-mejores\-programas\-erp\-de\-software\-libre\-o\-no/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^los\-autonomos\-ya\-pueden\-consultar\-sus\-datos\-en\-hacienda\-para\-la\-renta/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^los\-coworkings\-de\-oficinas\-ya\-continuan\-operativos\-pese\-a\-la\-gran\-nevada/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^los\-coworkings\-mantienen\-activo\-tu\-negocio\-durante\-tus\-vacaciones/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^los\-coworkings\-mantienen\-activo\-tu\-negocio\-durante\-tus\-vacaciones/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^los\-destinos\-turisticos\-con\-mas\-sol\-del\-mundo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^los\-mejores\-descuentos\-encontraras\-este\-black\-friday/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^marca\-personal\-todo\-lo\-que\-necesitas\-saber/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^mas\-del\-65\-de\-abogados\-tiene\-una\-oficina\-virtual/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^mas\-productivo\-trabajo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^mergetix\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^mi\-dia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^mas\-del\-65\-de\-abogados\-tiene\-una\-oficina\-virtual/?$ https://www.oficinasya.es/oficina-virtual/ [R=301,L,NE]
+RewriteRule ^mas\-productivo\-trabajo/?$ https://www.oficinasya.es/te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/ [R=301,L,NE]
+RewriteRule ^mergetix\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/comunidad/#miembros [R=301,L,NE]
+RewriteRule ^mi\-dia\-en\-un\-coworking/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^montar\-un\-negocio/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^motivos\-por\-los\-que\-los\-autonomos\-pueden\-perder\-la\-tarifa\-plana\-en\-2024/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^multas\-de\-hasta\-10\-000\-euros\-a\-los\-autonomos\-que\-no\-reduzcan\-la\-jornada\-a\-385\-horas/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^negocio\-online\-claves\-negocio\-sea\-exito/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^networking\-como\-ser\-el\-crack\-de\-los\-contactos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^networking\-como\-ser\-el\-crack\-de\-los\-contactos/?$ https://www.oficinasya.es/claves-para-mejorar-tu-networking/ [R=301,L,NE]
 RewriteRule ^neuromarketing\-estrategias\-y\-claves/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^no\-dejes\-pasar\-estos\-gastos\-desgravables\-en\-la\-renta\-2023\-2024/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^oficina\-barata\-en\-madrid\-si\-existe/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^oficina\-virtual\-la\-solucion\-negocio/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^oficina\-vs\-teletrabajo\-and\-the\-real\-winner\-is/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^oficina\-barata\-en\-madrid\-si\-existe/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
+RewriteRule ^oficina\-virtual\-la\-solucion\-negocio/?$ https://www.oficinasya.es/oficina-virtual/ [R=301,L,NE]
+RewriteRule ^oficina\-vs\-teletrabajo\-and\-the\-real\-winner\-is/?$ https://www.oficinasya.es/rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/ [R=301,L,NE]
 RewriteRule ^oficinas\-con\-corazon\-clave\-en\-el\-enriquecimiento\-personal\-y\-laboral/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^oficinas\-nuevos\-cambios\-se\-avecinan/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^oficinas\-para\-la\-contencion\-del\-coronavirus/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^oficinas\-post\-covid\-nuevas\-necesidades\-de\-los\-trabajadores/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^oficinas\-ya\-abrira\-un\-nuevo\-coworking\-en\-el\-amazonas/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^oficinas\-ya\-el\-coworking\-seguro\-frente\-al\-covid\-19/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^oficinas\-ya\-el\-coworking\-seguro\-frente\-al\-covid\-19/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^oficinas\-ya\-inaugura\-su\-nuevo\-centro\-sensorial/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^pinta\-vida\-naranja/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^ponte\-tu\-mascara\-ha\-llegado\-el\-carnaval/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -360,9 +360,9 @@ RewriteRule ^preguntas\-trampa\-mas\-comunes\-en\-una\-entrevista/?$ https://www
 RewriteRule ^preparate\-para\-la\-convergencia\-real\-tu\-smartphone\-pronto\-sera\-tu\-pc/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^puedes\-circular\-con\-tu\-vehiculo\-en\-las\-zbe/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^que\-cualidades\-debe\-tener\-el\-cofundador\-ideal/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^que\-es\-una\-oficina\-virtual/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^que\-es\-una\-oficina\-virtual/?$ https://www.oficinasya.es/oficina-virtual/ [R=301,L,NE]
 RewriteRule ^que\-gastos\-puedes\-deducirte\-en\-la\-renta\-si\-eres\-trabajador\-por\-cuenta\-ajena/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^que\-requisitos\-debe\-cumplir\-un\-coworking\-en\-tiempos\-de\-covid/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^que\-requisitos\-debe\-cumplir\-un\-coworking\-en\-tiempos\-de\-covid/?$ https://www.oficinasya.es/coworking/ [R=301,L,NE]
 RewriteRule ^que\-va\-a\-preocupar\-a\-las\-pyme\-en\-2024/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^rastreadores\-privados\-en\-los\-coworkings\-de\-oficinas\-ya/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^redes\-sociales\-de\-empresa\-obten\-el\-maximo\-rendimiento/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -373,7 +373,7 @@ RewriteRule ^seguridad\-social\-pide\-datos\-a\-los\-autonomos\-para\-notificarl
 RewriteRule ^si\-operas\-en\-wallapop\-o\-en\-airbnb\-hacienda\-quiere\-hablar\-contigo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^si\-teletrabajas\-haz\-clic\-aqui/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^si\-usas\-bizum\-tienes\-que\-declararte\-ante\-hacienda/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^silbana\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^silbana\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/#testimonials [R=301,L,NE]
 RewriteRule ^storytellin\-iii\-los/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^storytelling\-ii\-vender\-con\-cuentos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^storytelling\-vende\-con\-una\-buena\-historia/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -381,19 +381,19 @@ RewriteRule ^te\-traemos\-las\-startups\-mas\-innovadoras\-del\-mundo/?$ https:/
 RewriteRule ^teletrabajo\-sin\-complicaciones/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^tesoros\-que\-podrias\-tener\-olvidados\-en\-el\-trasero/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^tienes\-dudas\-sobre\-la\-factura\-electronica\-sigue\-leyendo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^tips\-para\-triunfar\-en\-el\-networking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^tips\-para\-triunfar\-en\-el\-networking/?$ https://www.oficinasya.es/claves-para-mejorar-tu-networking/ [R=301,L,NE]
 RewriteRule ^todo\-lo\-que\-necesitas\-para\-convertirte\-en\-un\-experto\-en\-ia/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^todo\-lo\-que\-necesitas\-saber\-sobre\-la\-nueva\-ley\-de\-teletrabajo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^todo\-lo\-que\-requieres\-saber\-sobre\-el\-pago\-con\-criptomonedas/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^toni\-bassols\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^traslado\-masivo\-de\-pequenas\-y\-medianas\-empresas\-a\-business\-centers/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^traslot\-102\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^toni\-bassols\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/comunidad/#miembros [R=301,L,NE]
+RewriteRule ^traslado\-masivo\-de\-pequenas\-y\-medianas\-empresas\-a\-business\-centers/?$ https://www.oficinasya.es/alquiler-de-despachos/ [R=301,L,NE]
+RewriteRule ^traslot\-102\-nos\-cuenta\-su\-experiencia\-en\-un\-coworking/?$ https://www.oficinasya.es/comunidad/#miembros [R=301,L,NE]
 RewriteRule ^trucos\-para\-vencer\-el\-sueno\-en\-el\-trabajo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^tu\-compania\-esta\-a\-la\-ultima\-en\-medios\-tecnologicos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^ultima\-oportunidad\-para\-ajustar\-la\-cuota\-de\-autonomos/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^un\-metodo\-poco\-conocido\-por\-los\-autonomos\-les\-permite\-hacer\-la\-renta\-de\-forma\-casi\-automatica/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^ventajas\-de\-los\-business\-centers\-frente\-a\-las\-oficinas\-tradicionales/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
-RewriteRule ^ventajas\-del\-networking/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
+RewriteRule ^ventajas\-de\-los\-business\-centers\-frente\-a\-las\-oficinas\-tradicionales/?$ https://www.oficinasya.es/alquiler-de-despachos/ [R=301,L,NE]
+RewriteRule ^ventajas\-del\-networking/?$ https://www.oficinasya.es/claves-para-mejorar-tu-networking/ [R=301,L,NE]
 RewriteRule ^waze\-o\-google\-maps\-que\-navegador\-es\-mas\-completo/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^y\-si\-te\-dijesen\-que\-nunca\-va\-a\-haber\-vacuna\-para\-el\-covid/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
 RewriteRule ^ya\-es\-oficial\-hacienda\-obligara\-a\-hacer\-la\-proxima\-declaracion\-de\-la\-renta\-solo\-por\-internet/?$ https://www.oficinasya.es/blog/ [R=301,L,NE]
@@ -675,8 +675,8 @@ map $uri $oya_redirect {
     /10-cosas-aprender-del-marketing-apple /blog/;
     /10-cosas-que-no-debes-decir-en-una-entrevista-de-trabajo/ /blog/;
     /10-cosas-que-no-debes-decir-en-una-entrevista-de-trabajo /blog/;
-    /abogados-las-tablas-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /abogados-las-tablas-nos-cuenta-su-experiencia-en-un-coworking /blog/;
+    /abogados-las-tablas-nos-cuenta-su-experiencia-en-un-coworking/ /comunidad/#miembros;
+    /abogados-las-tablas-nos-cuenta-su-experiencia-en-un-coworking /comunidad/#miembros;
     /abre-tu-negocio-a-otros-paises-con-el-seo-multirregional/ /blog/;
     /abre-tu-negocio-a-otros-paises-con-el-seo-multirregional /blog/;
     /abrir-un-negocio-en-el-momento-actual-no-es-de-locos/ /blog/;
@@ -687,14 +687,14 @@ map $uri $oya_redirect {
     /ahorrar-siendo-autonomo-es-posible /blog/;
     /alcanza-todos-tus-objetivos-para-el-nuevo-ano/ /blog/;
     /alcanza-todos-tus-objetivos-para-el-nuevo-ano /blog/;
-    /alfa-inmobiliaria-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /alfa-inmobiliaria-nos-cuenta-su-experiencia-en-un-coworking /blog/;
+    /alfa-inmobiliaria-nos-cuenta-su-experiencia-en-un-coworking/ /comunidad/#miembros;
+    /alfa-inmobiliaria-nos-cuenta-su-experiencia-en-un-coworking /comunidad/#miembros;
     /alternativas-a-las-reuniones-presenciales/ /blog/;
     /alternativas-a-las-reuniones-presenciales /blog/;
-    /ambialia-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /ambialia-nos-cuenta-su-experiencia-en-un-coworking /blog/;
-    /aprende-a-priorizar-de-forma-rapida-y-sencilla/ /blog/;
-    /aprende-a-priorizar-de-forma-rapida-y-sencilla /blog/;
+    /ambialia-nos-cuenta-su-experiencia-en-un-coworking/ /comunidad/#miembros;
+    /ambialia-nos-cuenta-su-experiencia-en-un-coworking /comunidad/#miembros;
+    /aprende-a-priorizar-de-forma-rapida-y-sencilla/ /trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii/;
+    /aprende-a-priorizar-de-forma-rapida-y-sencilla /trucos-de-productividad-para-triunfar-en-el-dia-a-dia-ii/;
     /aprende-a-tener-iniciativa/ /blog/;
     /aprende-a-tener-iniciativa /blog/;
     /aprovecha-las-ventajas-de-la-ia-en-tu-negocio-con-estas-herramientas-gratuitas/ /blog/;
@@ -721,8 +721,8 @@ map $uri $oya_redirect {
     /claves-para-mantener-la-lealtad-de-tus-clientes /blog/;
     /claves-para-posicionar-tu-negocio-en-google/ /blog/;
     /claves-para-posicionar-tu-negocio-en-google /blog/;
-    /claves-para-que-tu-email-marketing-sea-efectivo/ /blog/;
-    /claves-para-que-tu-email-marketing-sea-efectivo /blog/;
+    /claves-para-que-tu-email-marketing-sea-efectivo/ /dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/;
+    /claves-para-que-tu-email-marketing-sea-efectivo /dispara-tus-ventas-a-traves-del-email-marketing-con-estas-claves/;
     /club-privado-carsharing-oficinas-ya-callao/ /blog/;
     /club-privado-carsharing-oficinas-ya-callao /blog/;
     /como-aplicar-la-subida-del-smi-para-autonomos-y-empresas/ /blog/;
@@ -737,20 +737,20 @@ map $uri $oya_redirect {
     /como-aumentar-tus-ventas-parte-2 /blog/;
     /como-compartir-tu-dni-por-internet-sin-riesgos-2-2/ /blog/;
     /como-compartir-tu-dni-por-internet-sin-riesgos-2-2 /blog/;
-    /como-contribuyen-los-coworkings-al-ahorro-energetico/ /blog/;
-    /como-contribuyen-los-coworkings-al-ahorro-energetico /blog/;
+    /como-contribuyen-los-coworkings-al-ahorro-energetico/ /coworking/;
+    /como-contribuyen-los-coworkings-al-ahorro-energetico /coworking/;
     /como-crear-un-buen-entorno-laboral/ /blog/;
     /como-crear-un-buen-entorno-laboral /blog/;
     /como-darle-valor-de-lujo-a-tu-producto/ /blog/;
     /como-darle-valor-de-lujo-a-tu-producto /blog/;
-    /como-elijo-el-coworking-mas-apropiado-para-mi-negocio/ /blog/;
-    /como-elijo-el-coworking-mas-apropiado-para-mi-negocio /blog/;
+    /como-elijo-el-coworking-mas-apropiado-para-mi-negocio/ /coworking/;
+    /como-elijo-el-coworking-mas-apropiado-para-mi-negocio /coworking/;
     /como-evitar-los-conflictos-laborales/ /blog/;
     /como-evitar-los-conflictos-laborales /blog/;
     /como-evitar-que-roben-tus-datos-al-pagar-con-el-movil/ /blog/;
     /como-evitar-que-roben-tus-datos-al-pagar-con-el-movil /blog/;
-    /como-funciona-un-coworking/ /blog/;
-    /como-funciona-un-coworking /blog/;
+    /como-funciona-un-coworking/ /coworking/;
+    /como-funciona-un-coworking /coworking/;
     /como-google-puede-ayudar-a-tu-negocio-sin-coste-para-ti/ /blog/;
     /como-google-puede-ayudar-a-tu-negocio-sin-coste-para-ti /blog/;
     /como-hacer-que-tu-equipo-de-trabajo-este-siempre-motivado/ /blog/;
@@ -759,8 +759,8 @@ map $uri $oya_redirect {
     /como-hacer-que-tu-pequeno-negocio-parezca-una-gran-empresa-caso-practico /blog/;
     /como-mejorar-tu-economia/ /blog/;
     /como-mejorar-tu-economia /blog/;
-    /como-reducir-gastos-de-oficina-sin-perder-calidad-oficina-tradicional-vs-coworking/ /blog/;
-    /como-reducir-gastos-de-oficina-sin-perder-calidad-oficina-tradicional-vs-coworking /blog/;
+    /como-reducir-gastos-de-oficina-sin-perder-calidad-oficina-tradicional-vs-coworking/ /coworking/;
+    /como-reducir-gastos-de-oficina-sin-perder-calidad-oficina-tradicional-vs-coworking /coworking/;
     /como-responder-a-las-objeciones-mas-comunes-de-los-clientes/ /blog/;
     /como-responder-a-las-objeciones-mas-comunes-de-los-clientes /blog/;
     /como-sacar-partido-al-tiempo/ /blog/;
@@ -771,8 +771,8 @@ map $uri $oya_redirect {
     /como-superar-el-miedo-a-hablar-en-publico /blog/;
     /como-tener-exito-en-el-trabajo/ /blog/;
     /como-tener-exito-en-el-trabajo /blog/;
-    /como-un-coworking-hace-crecer-tu-negocio-caso-real/ /blog/;
-    /como-un-coworking-hace-crecer-tu-negocio-caso-real /blog/;
+    /como-un-coworking-hace-crecer-tu-negocio-caso-real/ /coworking/;
+    /como-un-coworking-hace-crecer-tu-negocio-caso-real /coworking/;
     /conciliacion-la-gran-odisea-del-autonomo/ /blog/;
     /conciliacion-la-gran-odisea-del-autonomo /blog/;
     /conectar-mejor-con-tus-clientes-mediante-un-buen-relato/ /blog/;
@@ -787,38 +787,38 @@ map $uri $oya_redirect {
     /consejos-para-ser-un-buen-lider /blog/;
     /cosas-deberias-saber-abrir-negocio/ /blog/;
     /cosas-deberias-saber-abrir-negocio /blog/;
-    /coworking-como-solucion-al-estres/ /blog/;
-    /coworking-como-solucion-al-estres /blog/;
-    /coworking-para-abogados-privacidad-y-profesionalidad/ /blog/;
-    /coworking-para-abogados-privacidad-y-profesionalidad /blog/;
-    /coworking-y-networking-conceptos-clave-para-todo-emprendedor/ /blog/;
-    /coworking-y-networking-conceptos-clave-para-todo-emprendedor /blog/;
-    /coworking-y-networking-contactos-laborales-de-calidad/ /blog/;
-    /coworking-y-networking-contactos-laborales-de-calidad /blog/;
-    /coworkings-espacios-de-trabajo-que-unen-vida-social-y-laboral/ /blog/;
-    /coworkings-espacios-de-trabajo-que-unen-vida-social-y-laboral /blog/;
+    /coworking-como-solucion-al-estres/ /coworking/;
+    /coworking-como-solucion-al-estres /coworking/;
+    /coworking-para-abogados-privacidad-y-profesionalidad/ /coworking/;
+    /coworking-para-abogados-privacidad-y-profesionalidad /coworking/;
+    /coworking-y-networking-conceptos-clave-para-todo-emprendedor/ /claves-para-mejorar-tu-networking/;
+    /coworking-y-networking-conceptos-clave-para-todo-emprendedor /claves-para-mejorar-tu-networking/;
+    /coworking-y-networking-contactos-laborales-de-calidad/ /claves-para-mejorar-tu-networking/;
+    /coworking-y-networking-contactos-laborales-de-calidad /claves-para-mejorar-tu-networking/;
+    /coworkings-espacios-de-trabajo-que-unen-vida-social-y-laboral/ /coworking/;
+    /coworkings-espacios-de-trabajo-que-unen-vida-social-y-laboral /coworking/;
     /creditos-ico-paso-a-paso/ /blog/;
     /creditos-ico-paso-a-paso /blog/;
-    /de-la-oficina-tradicional-al-coworking/ /blog/;
-    /de-la-oficina-tradicional-al-coworking /blog/;
-    /descubre-estos-trucos-para-disparar-tu-productividad/ /blog/;
-    /descubre-estos-trucos-para-disparar-tu-productividad /blog/;
+    /de-la-oficina-tradicional-al-coworking/ /coworking/;
+    /de-la-oficina-tradicional-al-coworking /coworking/;
+    /descubre-estos-trucos-para-disparar-tu-productividad/ /te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/;
+    /descubre-estos-trucos-para-disparar-tu-productividad /te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/;
     /destacar-curriculum-la-competencia/ /blog/;
     /destacar-curriculum-la-competencia /blog/;
     /diez-tips-para-una-oratoria-insuperable/ /blog/;
     /diez-tips-para-una-oratoria-insuperable /blog/;
-    /diferencias-entre-coworking-oficina-compartida-y-centro-de-negocios-con-coworking/ /blog/;
-    /diferencias-entre-coworking-oficina-compartida-y-centro-de-negocios-con-coworking /blog/;
-    /digital-logic-system-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /digital-logic-system-nos-cuenta-su-experiencia-en-un-coworking /blog/;
+    /diferencias-entre-coworking-oficina-compartida-y-centro-de-negocios-con-coworking/ /coworking/;
+    /diferencias-entre-coworking-oficina-compartida-y-centro-de-negocios-con-coworking /coworking/;
+    /digital-logic-system-nos-cuenta-su-experiencia-en-un-coworking/ /#testimonials;
+    /digital-logic-system-nos-cuenta-su-experiencia-en-un-coworking /#testimonials;
     /digitalizacion-analisis-y-estrategia/ /blog/;
     /digitalizacion-analisis-y-estrategia /blog/;
-    /el-coworking-se-impone-en-el-sector-de-las-oficinas/ /blog/;
-    /el-coworking-se-impone-en-el-sector-de-las-oficinas /blog/;
-    /el-coworking-se-transforma-en-oficina-de-contingencia/ /blog/;
-    /el-coworking-se-transforma-en-oficina-de-contingencia /blog/;
-    /el-coworking-y-la-mujer-emprendedora/ /blog/;
-    /el-coworking-y-la-mujer-emprendedora /blog/;
+    /el-coworking-se-impone-en-el-sector-de-las-oficinas/ /coworking/;
+    /el-coworking-se-impone-en-el-sector-de-las-oficinas /coworking/;
+    /el-coworking-se-transforma-en-oficina-de-contingencia/ /coworking/;
+    /el-coworking-se-transforma-en-oficina-de-contingencia /coworking/;
+    /el-coworking-y-la-mujer-emprendedora/ /coworking/;
+    /el-coworking-y-la-mujer-emprendedora /coworking/;
     /el-creador-de-chatgpt-revela-sus-consejos-para-emprendedores/ /blog/;
     /el-creador-de-chatgpt-revela-sus-consejos-para-emprendedores /blog/;
     /el-enriquecimiento-personal-y-laboral-las-nuevas-prioridades/ /blog/;
@@ -827,22 +827,22 @@ map $uri $oya_redirect {
     /el-gobierno-actualiza-el-calendario-de-ayudas-para-autonomos /blog/;
     /el-gobierno-anuncia-el-nuevo-kit-consulting-para-pymes/ /blog/;
     /el-gobierno-anuncia-el-nuevo-kit-consulting-para-pymes /blog/;
-    /el-nuevo-coworking-post-covid/ /blog/;
-    /el-nuevo-coworking-post-covid /blog/;
+    /el-nuevo-coworking-post-covid/ /coworking/;
+    /el-nuevo-coworking-post-covid /coworking/;
     /el-optimismo-concepto-clave-para-el-mundo-laboral/ /blog/;
     /el-optimismo-concepto-clave-para-el-mundo-laboral /blog/;
     /el-precio-de-la-gasolina-y-el-diesel-se-ha-disparado-en-2024-y-estas-son-las-razones/ /blog/;
     /el-precio-de-la-gasolina-y-el-diesel-se-ha-disparado-en-2024-y-estas-son-las-razones /blog/;
-    /el-teletrabajo-ha-llegado-a-su-fin/ /blog/;
-    /el-teletrabajo-ha-llegado-a-su-fin /blog/;
-    /el-teletrabajo-reduce-la-productividad-laboral/ /blog/;
-    /el-teletrabajo-reduce-la-productividad-laboral /blog/;
-    /el-trabajo-100-remoto-no-arraiga-en-espana/ /blog/;
-    /el-trabajo-100-remoto-no-arraiga-en-espana /blog/;
+    /el-teletrabajo-ha-llegado-a-su-fin/ /rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/;
+    /el-teletrabajo-ha-llegado-a-su-fin /rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/;
+    /el-teletrabajo-reduce-la-productividad-laboral/ /rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/;
+    /el-teletrabajo-reduce-la-productividad-laboral /rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/;
+    /el-trabajo-100-remoto-no-arraiga-en-espana/ /rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/;
+    /el-trabajo-100-remoto-no-arraiga-en-espana /rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/;
     /eleva-tu-economia-de-nivel-con-estos-consejos/ /blog/;
     /eleva-tu-economia-de-nivel-con-estos-consejos /blog/;
-    /elige-coworking-y-gana-la-partida/ /blog/;
-    /elige-coworking-y-gana-la-partida /blog/;
+    /elige-coworking-y-gana-la-partida/ /coworking/;
+    /elige-coworking-y-gana-la-partida /coworking/;
     /emprendedor-aumenta-tus-probabilidades-de-exito/ /blog/;
     /emprendedor-aumenta-tus-probabilidades-de-exito /blog/;
     /emprender-con-exito-2021/ /blog/;
@@ -861,8 +861,8 @@ map $uri $oya_redirect {
     /esta-tu-empresa-preparada-para-afrontar-el-coronavirus /blog/;
     /estas-son-las-cadenas-de-gasolineras-mas-baratas-segun-la-ocu/ /blog/;
     /estas-son-las-cadenas-de-gasolineras-mas-baratas-segun-la-ocu /blog/;
-    /estas-son-las-mejores-apps-para-aprovechar-el-certificado-digital-en-tu-movil/ /blog/;
-    /estas-son-las-mejores-apps-para-aprovechar-el-certificado-digital-en-tu-movil /blog/;
+    /estas-son-las-mejores-apps-para-aprovechar-el-certificado-digital-en-tu-movil/ /cita-previa-ya-tiene-app-adios-a-pelearse-con-las-webs-de-la-administracion/;
+    /estas-son-las-mejores-apps-para-aprovechar-el-certificado-digital-en-tu-movil /cita-previa-ya-tiene-app-adios-a-pelearse-con-las-webs-de-la-administracion/;
     /estas-son-las-novedades-en-el-impuesto-de-sociedades-de-2024/ /blog/;
     /estas-son-las-novedades-en-el-impuesto-de-sociedades-de-2024 /blog/;
     /estos-son-los-nuevos-tramos-para-pagar-la-cuota-minima-de-autonomos-en-2024/ /blog/;
@@ -871,16 +871,16 @@ map $uri $oya_redirect {
     /estres-laboral-por-el-covid-deshazte-de-el /blog/;
     /eventos-que-no-te-puedes-perder-siendo-emprendedor/ /blog/;
     /eventos-que-no-te-puedes-perder-siendo-emprendedor /blog/;
-    /experiencia-en-coworking/ /blog/;
-    /experiencia-en-coworking /blog/;
-    /fgr-asesoria-energetica-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /fgr-asesoria-energetica-nos-cuenta-su-experiencia-en-un-coworking /blog/;
+    /experiencia-en-coworking/ /coworking/;
+    /experiencia-en-coworking /coworking/;
+    /fgr-asesoria-energetica-nos-cuenta-su-experiencia-en-un-coworking/ /#testimonials;
+    /fgr-asesoria-energetica-nos-cuenta-su-experiencia-en-un-coworking /#testimonials;
     /franquicias-ventajas-y-desventajas/ /blog/;
     /franquicias-ventajas-y-desventajas /blog/;
-    /freshrules-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /freshrules-nos-cuenta-su-experiencia-en-un-coworking /blog/;
-    /gabinete-de-psicologia-sian-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /gabinete-de-psicologia-sian-nos-cuenta-su-experiencia-en-un-coworking /blog/;
+    /freshrules-nos-cuenta-su-experiencia-en-un-coworking/ /comunidad/#miembros;
+    /freshrules-nos-cuenta-su-experiencia-en-un-coworking /comunidad/#miembros;
+    /gabinete-de-psicologia-sian-nos-cuenta-su-experiencia-en-un-coworking/ /comunidad/#miembros;
+    /gabinete-de-psicologia-sian-nos-cuenta-su-experiencia-en-un-coworking /comunidad/#miembros;
     /gana-velocidad-en-tu-ordenador/ /blog/;
     /gana-velocidad-en-tu-ordenador /blog/;
     /genera-ideas-de-negocio-con-este-truco/ /blog/;
@@ -889,8 +889,8 @@ map $uri $oya_redirect {
     /google-tendra-un-nuevo-servicio-gratuito-ya-no-habra-que-pagar-por-su-vpn /blog/;
     /guia-para-irte-de-vacaciones-en-una-camper-este-verano/ /blog/;
     /guia-para-irte-de-vacaciones-en-una-camper-este-verano /blog/;
-    /habitos-comunes-de-las-personas-super-productivas/ /blog/;
-    /habitos-comunes-de-las-personas-super-productivas /blog/;
+    /habitos-comunes-de-las-personas-super-productivas/ /te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/;
+    /habitos-comunes-de-las-personas-super-productivas /te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/;
     /hacienda-simplifica-las-rectificaciones-en-las-declaraciones-de-los-autonomos/ /blog/;
     /hacienda-simplifica-las-rectificaciones-en-las-declaraciones-de-los-autonomos /blog/;
     /hay-menos-oficinas-vacias-en-alquiler-en-el-centro-de-madrid-que-en-londres/ /blog/;
@@ -899,8 +899,8 @@ map $uri $oya_redirect {
     /herramientas-para-trabajar-desde-casa /blog/;
     /hola-conoces-a-luzia/ /blog/;
     /hola-conoces-a-luzia /blog/;
-    /hr-consultores-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /hr-consultores-nos-cuenta-su-experiencia-en-un-coworking /blog/;
+    /hr-consultores-nos-cuenta-su-experiencia-en-un-coworking/ /comunidad/#miembros;
+    /hr-consultores-nos-cuenta-su-experiencia-en-un-coworking /comunidad/#miembros;
     /inteligencia-artificial-en-pymes-innovacion-y-competitividad-en-el-mercado/ /blog/;
     /inteligencia-artificial-en-pymes-innovacion-y-competitividad-en-el-mercado /blog/;
     /la-estafa-que-te-hara-leer-tu-correo-con-mucha-atencion/ /blog/;
@@ -909,10 +909,10 @@ map $uri $oya_redirect {
     /la-importancia-de-escuchar-a-tus-clientes /blog/;
     /la-loteria-de-navidad-la-veis-hacienda-y-tu/ /blog/;
     /la-loteria-de-navidad-la-veis-hacienda-y-tu /blog/;
-    /la-oficina-flexible-la-forma-de-trabajo-mas-demandada/ /blog/;
-    /la-oficina-flexible-la-forma-de-trabajo-mas-demandada /blog/;
-    /la-oficina-flexible-la-solucion-favorita-de-startups-pymes-y-emprendedores/ /blog/;
-    /la-oficina-flexible-la-solucion-favorita-de-startups-pymes-y-emprendedores /blog/;
+    /la-oficina-flexible-la-forma-de-trabajo-mas-demandada/ /alquiler-de-despachos/;
+    /la-oficina-flexible-la-forma-de-trabajo-mas-demandada /alquiler-de-despachos/;
+    /la-oficina-flexible-la-solucion-favorita-de-startups-pymes-y-emprendedores/ /alquiler-de-despachos/;
+    /la-oficina-flexible-la-solucion-favorita-de-startups-pymes-y-emprendedores /alquiler-de-despachos/;
     /la-semana-laboral-de-4-dias-al-estilo-aleman/ /blog/;
     /la-semana-laboral-de-4-dias-al-estilo-aleman /blog/;
     /las-5-mejores-tecnicas-para-cerrar-una-venta/ /blog/;
@@ -927,30 +927,30 @@ map $uri $oya_redirect {
     /llega-la-cabalgata-de-reyes-a-madrid-fechas-horarios-y-recorridos /blog/;
     /los-12-pasos-de-una-presentacion-perfecta/ /blog/;
     /los-12-pasos-de-una-presentacion-perfecta /blog/;
-    /los-3-problemas-mas-comunes-de-un-emprendedor-y-sus-soluciones/ /blog/;
-    /los-3-problemas-mas-comunes-de-un-emprendedor-y-sus-soluciones /blog/;
+    /los-3-problemas-mas-comunes-de-un-emprendedor-y-sus-soluciones/ /cometes-alguno-de-estos-8-errores-en-tu-pyme/;
+    /los-3-problemas-mas-comunes-de-un-emprendedor-y-sus-soluciones /cometes-alguno-de-estos-8-errores-en-tu-pyme/;
     /los-6-mejores-programas-erp-de-software-libre-o-no/ /blog/;
     /los-6-mejores-programas-erp-de-software-libre-o-no /blog/;
     /los-autonomos-ya-pueden-consultar-sus-datos-en-hacienda-para-la-renta/ /blog/;
     /los-autonomos-ya-pueden-consultar-sus-datos-en-hacienda-para-la-renta /blog/;
     /los-coworkings-de-oficinas-ya-continuan-operativos-pese-a-la-gran-nevada/ /blog/;
     /los-coworkings-de-oficinas-ya-continuan-operativos-pese-a-la-gran-nevada /blog/;
-    /los-coworkings-mantienen-activo-tu-negocio-durante-tus-vacaciones/ /blog/;
-    /los-coworkings-mantienen-activo-tu-negocio-durante-tus-vacaciones /blog/;
+    /los-coworkings-mantienen-activo-tu-negocio-durante-tus-vacaciones/ /coworking/;
+    /los-coworkings-mantienen-activo-tu-negocio-durante-tus-vacaciones /coworking/;
     /los-destinos-turisticos-con-mas-sol-del-mundo/ /blog/;
     /los-destinos-turisticos-con-mas-sol-del-mundo /blog/;
     /los-mejores-descuentos-encontraras-este-black-friday/ /blog/;
     /los-mejores-descuentos-encontraras-este-black-friday /blog/;
     /marca-personal-todo-lo-que-necesitas-saber/ /blog/;
     /marca-personal-todo-lo-que-necesitas-saber /blog/;
-    /mas-del-65-de-abogados-tiene-una-oficina-virtual/ /blog/;
-    /mas-del-65-de-abogados-tiene-una-oficina-virtual /blog/;
-    /mas-productivo-trabajo/ /blog/;
-    /mas-productivo-trabajo /blog/;
-    /mergetix-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /mergetix-nos-cuenta-su-experiencia-en-un-coworking /blog/;
-    /mi-dia-en-un-coworking/ /blog/;
-    /mi-dia-en-un-coworking /blog/;
+    /mas-del-65-de-abogados-tiene-una-oficina-virtual/ /oficina-virtual/;
+    /mas-del-65-de-abogados-tiene-una-oficina-virtual /oficina-virtual/;
+    /mas-productivo-trabajo/ /te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/;
+    /mas-productivo-trabajo /te-traemos-22-trucos-de-productividad-para-dominar-el-dia-a-dia-i/;
+    /mergetix-nos-cuenta-su-experiencia-en-un-coworking/ /comunidad/#miembros;
+    /mergetix-nos-cuenta-su-experiencia-en-un-coworking /comunidad/#miembros;
+    /mi-dia-en-un-coworking/ /coworking/;
+    /mi-dia-en-un-coworking /coworking/;
     /montar-un-negocio/ /blog/;
     /montar-un-negocio /blog/;
     /motivos-por-los-que-los-autonomos-pueden-perder-la-tarifa-plana-en-2024/ /blog/;
@@ -959,18 +959,18 @@ map $uri $oya_redirect {
     /multas-de-hasta-10-000-euros-a-los-autonomos-que-no-reduzcan-la-jornada-a-385-horas /blog/;
     /negocio-online-claves-negocio-sea-exito/ /blog/;
     /negocio-online-claves-negocio-sea-exito /blog/;
-    /networking-como-ser-el-crack-de-los-contactos/ /blog/;
-    /networking-como-ser-el-crack-de-los-contactos /blog/;
+    /networking-como-ser-el-crack-de-los-contactos/ /claves-para-mejorar-tu-networking/;
+    /networking-como-ser-el-crack-de-los-contactos /claves-para-mejorar-tu-networking/;
     /neuromarketing-estrategias-y-claves/ /blog/;
     /neuromarketing-estrategias-y-claves /blog/;
     /no-dejes-pasar-estos-gastos-desgravables-en-la-renta-2023-2024/ /blog/;
     /no-dejes-pasar-estos-gastos-desgravables-en-la-renta-2023-2024 /blog/;
-    /oficina-barata-en-madrid-si-existe/ /blog/;
-    /oficina-barata-en-madrid-si-existe /blog/;
-    /oficina-virtual-la-solucion-negocio/ /blog/;
-    /oficina-virtual-la-solucion-negocio /blog/;
-    /oficina-vs-teletrabajo-and-the-real-winner-is/ /blog/;
-    /oficina-vs-teletrabajo-and-the-real-winner-is /blog/;
+    /oficina-barata-en-madrid-si-existe/ /oficinas-en-madrid/;
+    /oficina-barata-en-madrid-si-existe /oficinas-en-madrid/;
+    /oficina-virtual-la-solucion-negocio/ /oficina-virtual/;
+    /oficina-virtual-la-solucion-negocio /oficina-virtual/;
+    /oficina-vs-teletrabajo-and-the-real-winner-is/ /rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/;
+    /oficina-vs-teletrabajo-and-the-real-winner-is /rechazar-el-trabajo-presencial-nos-trae-soledad-y-depresion-segun-expertos/;
     /oficinas-con-corazon-clave-en-el-enriquecimiento-personal-y-laboral/ /blog/;
     /oficinas-con-corazon-clave-en-el-enriquecimiento-personal-y-laboral /blog/;
     /oficinas-nuevos-cambios-se-avecinan/ /blog/;
@@ -981,8 +981,8 @@ map $uri $oya_redirect {
     /oficinas-post-covid-nuevas-necesidades-de-los-trabajadores /blog/;
     /oficinas-ya-abrira-un-nuevo-coworking-en-el-amazonas/ /blog/;
     /oficinas-ya-abrira-un-nuevo-coworking-en-el-amazonas /blog/;
-    /oficinas-ya-el-coworking-seguro-frente-al-covid-19/ /blog/;
-    /oficinas-ya-el-coworking-seguro-frente-al-covid-19 /blog/;
+    /oficinas-ya-el-coworking-seguro-frente-al-covid-19/ /coworking/;
+    /oficinas-ya-el-coworking-seguro-frente-al-covid-19 /coworking/;
     /oficinas-ya-inaugura-su-nuevo-centro-sensorial/ /blog/;
     /oficinas-ya-inaugura-su-nuevo-centro-sensorial /blog/;
     /pinta-vida-naranja/ /blog/;
@@ -1005,12 +1005,12 @@ map $uri $oya_redirect {
     /puedes-circular-con-tu-vehiculo-en-las-zbe /blog/;
     /que-cualidades-debe-tener-el-cofundador-ideal/ /blog/;
     /que-cualidades-debe-tener-el-cofundador-ideal /blog/;
-    /que-es-una-oficina-virtual/ /blog/;
-    /que-es-una-oficina-virtual /blog/;
+    /que-es-una-oficina-virtual/ /oficina-virtual/;
+    /que-es-una-oficina-virtual /oficina-virtual/;
     /que-gastos-puedes-deducirte-en-la-renta-si-eres-trabajador-por-cuenta-ajena/ /blog/;
     /que-gastos-puedes-deducirte-en-la-renta-si-eres-trabajador-por-cuenta-ajena /blog/;
-    /que-requisitos-debe-cumplir-un-coworking-en-tiempos-de-covid/ /blog/;
-    /que-requisitos-debe-cumplir-un-coworking-en-tiempos-de-covid /blog/;
+    /que-requisitos-debe-cumplir-un-coworking-en-tiempos-de-covid/ /coworking/;
+    /que-requisitos-debe-cumplir-un-coworking-en-tiempos-de-covid /coworking/;
     /que-va-a-preocupar-a-las-pyme-en-2024/ /blog/;
     /que-va-a-preocupar-a-las-pyme-en-2024 /blog/;
     /rastreadores-privados-en-los-coworkings-de-oficinas-ya/ /blog/;
@@ -1031,8 +1031,8 @@ map $uri $oya_redirect {
     /si-teletrabajas-haz-clic-aqui /blog/;
     /si-usas-bizum-tienes-que-declararte-ante-hacienda/ /blog/;
     /si-usas-bizum-tienes-que-declararte-ante-hacienda /blog/;
-    /silbana-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /silbana-nos-cuenta-su-experiencia-en-un-coworking /blog/;
+    /silbana-nos-cuenta-su-experiencia-en-un-coworking/ /#testimonials;
+    /silbana-nos-cuenta-su-experiencia-en-un-coworking /#testimonials;
     /storytellin-iii-los/ /blog/;
     /storytellin-iii-los /blog/;
     /storytelling-ii-vender-con-cuentos/ /blog/;
@@ -1047,20 +1047,20 @@ map $uri $oya_redirect {
     /tesoros-que-podrias-tener-olvidados-en-el-trasero /blog/;
     /tienes-dudas-sobre-la-factura-electronica-sigue-leyendo/ /blog/;
     /tienes-dudas-sobre-la-factura-electronica-sigue-leyendo /blog/;
-    /tips-para-triunfar-en-el-networking/ /blog/;
-    /tips-para-triunfar-en-el-networking /blog/;
+    /tips-para-triunfar-en-el-networking/ /claves-para-mejorar-tu-networking/;
+    /tips-para-triunfar-en-el-networking /claves-para-mejorar-tu-networking/;
     /todo-lo-que-necesitas-para-convertirte-en-un-experto-en-ia/ /blog/;
     /todo-lo-que-necesitas-para-convertirte-en-un-experto-en-ia /blog/;
     /todo-lo-que-necesitas-saber-sobre-la-nueva-ley-de-teletrabajo/ /blog/;
     /todo-lo-que-necesitas-saber-sobre-la-nueva-ley-de-teletrabajo /blog/;
     /todo-lo-que-requieres-saber-sobre-el-pago-con-criptomonedas/ /blog/;
     /todo-lo-que-requieres-saber-sobre-el-pago-con-criptomonedas /blog/;
-    /toni-bassols-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /toni-bassols-nos-cuenta-su-experiencia-en-un-coworking /blog/;
-    /traslado-masivo-de-pequenas-y-medianas-empresas-a-business-centers/ /blog/;
-    /traslado-masivo-de-pequenas-y-medianas-empresas-a-business-centers /blog/;
-    /traslot-102-nos-cuenta-su-experiencia-en-un-coworking/ /blog/;
-    /traslot-102-nos-cuenta-su-experiencia-en-un-coworking /blog/;
+    /toni-bassols-nos-cuenta-su-experiencia-en-un-coworking/ /comunidad/#miembros;
+    /toni-bassols-nos-cuenta-su-experiencia-en-un-coworking /comunidad/#miembros;
+    /traslado-masivo-de-pequenas-y-medianas-empresas-a-business-centers/ /alquiler-de-despachos/;
+    /traslado-masivo-de-pequenas-y-medianas-empresas-a-business-centers /alquiler-de-despachos/;
+    /traslot-102-nos-cuenta-su-experiencia-en-un-coworking/ /comunidad/#miembros;
+    /traslot-102-nos-cuenta-su-experiencia-en-un-coworking /comunidad/#miembros;
     /trucos-para-vencer-el-sueno-en-el-trabajo/ /blog/;
     /trucos-para-vencer-el-sueno-en-el-trabajo /blog/;
     /tu-compania-esta-a-la-ultima-en-medios-tecnologicos/ /blog/;
@@ -1069,10 +1069,10 @@ map $uri $oya_redirect {
     /ultima-oportunidad-para-ajustar-la-cuota-de-autonomos /blog/;
     /un-metodo-poco-conocido-por-los-autonomos-les-permite-hacer-la-renta-de-forma-casi-automatica/ /blog/;
     /un-metodo-poco-conocido-por-los-autonomos-les-permite-hacer-la-renta-de-forma-casi-automatica /blog/;
-    /ventajas-de-los-business-centers-frente-a-las-oficinas-tradicionales/ /blog/;
-    /ventajas-de-los-business-centers-frente-a-las-oficinas-tradicionales /blog/;
-    /ventajas-del-networking/ /blog/;
-    /ventajas-del-networking /blog/;
+    /ventajas-de-los-business-centers-frente-a-las-oficinas-tradicionales/ /alquiler-de-despachos/;
+    /ventajas-de-los-business-centers-frente-a-las-oficinas-tradicionales /alquiler-de-despachos/;
+    /ventajas-del-networking/ /claves-para-mejorar-tu-networking/;
+    /ventajas-del-networking /claves-para-mejorar-tu-networking/;
     /waze-o-google-maps-que-navegador-es-mas-completo/ /blog/;
     /waze-o-google-maps-que-navegador-es-mas-completo /blog/;
     /y-si-te-dijesen-que-nunca-va-a-haber-vacuna-para-el-covid/ /blog/;
