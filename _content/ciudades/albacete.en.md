@@ -6,7 +6,7 @@ layout: ciudad
 # Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
 hero_foto: /assets/img/cabeceras/albacete.jpg
 hero_alt: "Small room with a table for four at the OficinasYA! Calle Mayor 22 centre, Albacete"
-hero_caption: "Small room · Calle Mayor 22, Albacete"
+hero_caption: ["Small room", "Calle Mayor 22, Albacete"]
 og_image: /assets/img/og/albacete.jpg
 og_image_alt: "Small room with a table for four at the OficinasYA! Calle Mayor 22 centre, Albacete"
 ciudad: Albacete

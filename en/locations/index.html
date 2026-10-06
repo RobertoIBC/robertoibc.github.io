@@ -150,7 +150,8 @@
     .footer-col ul a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem; transition: color .3s; display: inline-block; padding: 14px 0; line-height: 1.2; }   /* 44 px de alto tactil */
     .footer-col ul a:hover { color: var(--orange); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: .85rem; }
-    .footer-bottom-links { display: flex; gap: 8px; align-items: center; }
+    .footer-bottom-links { display: flex; gap: 22px; align-items: center; }   /* sin separadores: el espacio separa */
+    .footer-copy { display: inline-flex; flex-wrap: wrap; justify-content: center; column-gap: 14px; }
     .footer-bottom-links a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .3s; display: inline-block; padding: 12px 4px; }
     .footer-bottom-links a:hover { color: var(--orange); }
     .socials { display: flex; gap: 10px; }
@@ -317,7 +318,7 @@
     }
     .map-tooltip.on { opacity: 1; transform: translate(-50%, -20px); }
     .map-tooltip .mt-city { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: .92rem; color: var(--dark); }
-    .map-tooltip .mt-count { color: var(--orange); font-weight: 700; }
+    .map-tooltip .mt-count { color: var(--orange); font-weight: 700; margin-left: 8px; }
     .map-tooltip .mt-cta { color: var(--gray-400); font-weight: 600; font-size: .72rem; margin-top: 2px; display: block; }
     .tenerife-inset { position: absolute; bottom: 24px; left: 24px; background: rgba(245,146,26,.1); border: 1px solid rgba(245,146,26,.25); border-radius: 10px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; transition: background .25s, border-color .25s, transform .25s; }
     .tenerife-inset:hover { background: rgba(245,146,26,.2); border-color: rgba(245,146,26,.5); transform: translateY(-2px); }
@@ -357,6 +358,8 @@
     .madrid-card-body { padding: 22px 20px 20px; flex: 1; display: flex; flex-direction: column; }
     .madrid-card-name { font-family: 'Barlow', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--dark); margin-bottom: 3px; }
     .madrid-card-zone { font-size: .75rem; color: var(--gray-400); font-weight: 600; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 14px; }
+    .madrid-card-zone .mcz-zona { display: block; font-size: .68rem; letter-spacing: 1.2px; color: var(--orange); font-weight: 700; margin-bottom: 3px; }   /* zona arriba, direccion debajo */
+    .madrid-card-zone .mcz-dir { display: block; }
     .madrid-card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; flex: 1; }
     .madrid-tag { font-size: .7rem; font-weight: 600; padding: 4px 10px; border-radius: 50px; background: var(--orange-pale); color: var(--orange); }
     .madrid-metro { display: flex; align-items: center; gap: 8px; font-size: .75rem; color: var(--gray-600); padding-top: 12px; border-top: 1px solid var(--gray-100); }
@@ -855,7 +858,7 @@
         <a class="map-tooltip" id="mapTooltip" href="#espana"><span class="mt-city"></span> <span class="mt-count"></span><span class="mt-cta">See centres →</span></a>
       </div>
       <div class="map-legend">
-        <div class="legend-item"><div class="legend-dot"></div> OficinasYA! centre · the number beside the name shows how many there are</div>
+        <div class="legend-item"><div class="legend-dot"></div> OficinasYA! centre (the number beside the name shows how many there are)</div>
       </div>
     </div>
     <div class="net-stats rv">
@@ -887,7 +890,7 @@
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Velázquez</div>
-          <div class="madrid-card-zone">Salamanca district · Calle Velázquez 86B</div>
+          <div class="madrid-card-zone"><span class="mcz-zona">Salamanca district</span> <span class="mcz-dir">Calle Velázquez 86B</span></div>
           <div class="madrid-card-tags">
             <div class="madrid-tag">Private offices</div>
             <div class="madrid-tag">Meeting rooms</div>
@@ -905,7 +908,7 @@
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Gasset</div>
-          <div class="madrid-card-zone">Salamanca district · Calle José Ortega y Gasset 25</div>
+          <div class="madrid-card-zone"><span class="mcz-zona">Salamanca district</span> <span class="mcz-dir">Calle José Ortega y Gasset 25</span></div>
           <div class="madrid-card-tags">
             <div class="madrid-tag">Private offices</div>
             <div class="madrid-tag">Meeting rooms</div>
@@ -923,7 +926,7 @@
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Serrano</div>
-          <div class="madrid-card-zone">Salamanca district · Calle Serrano 93</div>
+          <div class="madrid-card-zone"><span class="mcz-zona">Salamanca district</span> <span class="mcz-dir">Calle Serrano 93</span></div>
           <div class="madrid-card-tags">
             <div class="madrid-tag">Private offices</div>
             <div class="madrid-tag">Meeting rooms</div>
@@ -941,7 +944,7 @@
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Capitán Haya</div>
-          <div class="madrid-card-zone">Castellana and Plaza de Castilla · Calle Poeta Joan Maragall 60</div>
+          <div class="madrid-card-zone"><span class="mcz-zona">Castellana and Plaza de Castilla</span> <span class="mcz-dir">Calle Poeta Joan Maragall 60</span></div>
           <div class="madrid-card-tags">
             <div class="madrid-tag">Private offices</div>
             <div class="madrid-tag">Meeting rooms</div>
@@ -959,7 +962,7 @@
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Las Tablas</div>
-          <div class="madrid-card-zone">North Madrid · Calle Isabel Colbrand 6</div>
+          <div class="madrid-card-zone"><span class="mcz-zona">North Madrid</span> <span class="mcz-dir">Calle Isabel Colbrand 6</span></div>
           <div class="madrid-card-tags">
             <div class="madrid-tag">Private offices</div>
             <div class="madrid-tag">Meeting rooms</div>
@@ -977,7 +980,7 @@
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Manoteras (Sanchinarro)</div>
-          <div class="madrid-card-zone">North Madrid · Avenida de Manoteras 22</div>
+          <div class="madrid-card-zone"><span class="mcz-zona">North Madrid</span> <span class="mcz-dir">Avenida de Manoteras 22</span></div>
           <div class="madrid-card-tags">
             <div class="madrid-tag">Private offices</div>
             <div class="madrid-tag">Meeting rooms</div>
@@ -996,7 +999,7 @@
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">La Florida (Pozuelo)</div>
-          <div class="madrid-card-zone">Pozuelo de Alarcón · Calle Gobelas 17</div>
+          <div class="madrid-card-zone"><span class="mcz-zona">Pozuelo de Alarcón</span> <span class="mcz-dir">Calle Gobelas 17</span></div>
           <div class="madrid-card-tags">
             <div class="madrid-tag">Private offices</div>
             <div class="madrid-tag">Meeting rooms</div>
@@ -1014,7 +1017,7 @@
         </div>
         <div class="madrid-card-body">
           <div class="madrid-card-name">Sanse (San Sebastián de los Reyes)</div>
-          <div class="madrid-card-zone">San Sebastián de los Reyes · Calle Fuerteventura 4</div>
+          <div class="madrid-card-zone"><span class="mcz-zona">San Sebastián de los Reyes</span> <span class="mcz-dir">Calle Fuerteventura 4</span></div>
           <div class="madrid-card-tags">
             <div class="madrid-tag">Private offices</div>
             <div class="madrid-tag">Meeting rooms</div>
@@ -1325,8 +1328,8 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 OficinasYA! · All rights reserved</span>
-    <div class="footer-bottom-links"><a href="/en/legal-notice/">Legal notice</a>·<a href="/en/privacy-policy/">Privacy</a>·<a href="/en/cookie-policy/">Cookies</a></div>
+    <span class="footer-copy"><span>© 2026 OficinasYA!</span> <span>All rights reserved</span></span>
+    <div class="footer-bottom-links"><a href="/en/legal-notice/">Legal notice</a> <a href="/en/privacy-policy/">Privacy</a> <a href="/en/cookie-policy/">Cookies</a></div>
   </div>
 </footer>
 
@@ -1398,7 +1401,7 @@
     // .href es un SVGAnimatedString, no un string (navegar con el daba /ubicaciones/[object SVGAnimatedString]).
     tooltip.setAttribute('href', link.getAttribute('href'));
     tooltip.querySelector('.mt-city').textContent = city;
-    tooltip.querySelector('.mt-count').textContent = '· ' + count;
+    tooltip.querySelector('.mt-count').textContent = count;
     const elRect = el.getBoundingClientRect();
     const wrapRect = mapContainer.getBoundingClientRect();
     tooltip.style.left = (elRect.left + elRect.width / 2 - wrapRect.left) + 'px';

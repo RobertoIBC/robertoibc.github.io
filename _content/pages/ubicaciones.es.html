@@ -173,7 +173,7 @@ nav_active: ubicaciones
         <a class="map-tooltip" id="mapTooltip" href="#espana"><span class="mt-city"></span> <span class="mt-count"></span><span class="mt-cta">Ver centros →</span></a>
       </div>
       <div class="map-legend">
-        <div class="legend-item"><div class="legend-dot"></div> Centro OficinasYA! · el número junto al nombre indica cuántos hay</div>
+        <div class="legend-item"><div class="legend-dot"></div> Centro OficinasYA! (el número junto al nombre indica cuántos hay)</div>
       </div>
     </div>
     <div class="net-stats rv">
@@ -210,7 +210,7 @@ nav_active: ubicaciones
 {%- endif %}
         <div class="madrid-card-body">
           <div class="madrid-card-name">{{ c.centro }}</div>
-          <div class="madrid-card-zone">{{ c.zona }} · {{ c.address.streetAddress.split(',')[0] }}</div>
+          <div class="madrid-card-zone"><span class="mcz-zona">{{ c.zona }}</span> <span class="mcz-dir">{{ c.address.streetAddress.split(',')[0] }}</span></div>
           <div class="madrid-card-tags">
 {%- for tg in c.tag_labels %}
             <div class="madrid-tag">{{ tg }}</div>

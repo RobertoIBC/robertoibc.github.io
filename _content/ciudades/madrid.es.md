@@ -6,7 +6,7 @@ layout: ciudad
 # Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
 hero_foto: /assets/img/cabeceras/madrid.jpg
 hero_alt: "Despacho amplio con varios puestos en el centro OficinasYA! de Capitán Haya, Madrid"
-hero_caption: "Despacho · Capitán Haya, Madrid"
+hero_caption: ["Despacho", "Capitán Haya, Madrid"]
 og_image: /assets/img/og/madrid.jpg
 og_image_alt: "Despacho amplio con varios puestos en el centro OficinasYA! de Capitán Haya, Madrid"
 ciudad: Madrid

@@ -169,7 +169,7 @@
     </div>
     <figure class="hero-photo">
       <img src="{{ page.hero_foto }}" alt="{{ page.hero_alt }}" width="1400" height="800" decoding="async" fetchpriority="high" />
-      <figcaption>{{ page.hero_caption }}</figcaption>
+      <figcaption>{%- if page.hero_caption is string %}{{ page.hero_caption }}{% else %}<span class="cap-1">{{ page.hero_caption[0] }}</span> <span class="cap-2">{{ page.hero_caption[1] }}</span>{% endif -%}</figcaption>
     </figure>
     </div>
 {%- endif %}

@@ -6,7 +6,7 @@ layout: ciudad
 # Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
 hero_foto: /assets/img/cabeceras/tenerife.jpg
 hero_alt: "Office with city views at the OficinasYA! Santa Rosalía centre, Santa Cruz de Tenerife"
-hero_caption: "Office · Santa Rosalía, Tenerife"
+hero_caption: ["Office", "Santa Rosalía, Tenerife"]
 og_image: /assets/img/og/tenerife.jpg
 og_image_alt: "Office with city views at the OficinasYA! Santa Rosalía centre, Santa Cruz de Tenerife"
 ciudad: Tenerife

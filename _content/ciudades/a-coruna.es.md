@@ -6,7 +6,7 @@ layout: ciudad
 # Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
 hero_foto: /assets/img/cabeceras/a-coruna.jpg
 hero_alt: "Despacho con mesa de cristal y sillas blancas en el centro OficinasYA! de Juan de la Cierva 5, A Coruña"
-hero_caption: "Despacho · Juan de la Cierva 5, A Coruña"
+hero_caption: ["Despacho", "Juan de la Cierva 5, A Coruña"]
 og_image: /assets/img/og/a-coruna.jpg
 og_image_alt: "Despacho con mesa de cristal y sillas blancas en el centro OficinasYA! de Juan de la Cierva 5, A Coruña"
 ciudad: A Coruña

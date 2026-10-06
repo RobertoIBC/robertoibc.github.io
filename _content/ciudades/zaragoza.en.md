@@ -6,7 +6,7 @@ layout: ciudad
 # Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
 hero_foto: /assets/img/cabeceras/zaragoza.jpg
 hero_alt: "Office with street-facing windows at the OficinasYA! Paseo de la Independencia centre, Zaragoza"
-hero_caption: "Office · Independencia, Zaragoza"
+hero_caption: ["Office", "Independencia, Zaragoza"]
 og_image: /assets/img/og/zaragoza.jpg
 og_image_alt: "Office with street-facing windows at the OficinasYA! Paseo de la Independencia centre, Zaragoza"
 ciudad: Zaragoza

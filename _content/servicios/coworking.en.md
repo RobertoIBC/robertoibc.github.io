@@ -11,7 +11,7 @@ subtitle: Workstations by the month at three centres in the network, in Barcelon
 hero_foto: /assets/img/cabeceras/salamanca.jpg
 hero_pos: "82% 50%"   # el mapa y la mesa al centro: el recorte 4:3 de escritorio quita la pizarra de la izquierda
 hero_alt: "Meeting room with a world map on the wall at Edificio Openhouse, Salamanca"
-hero_caption: "Meeting room · Edificio Openhouse, Salamanca"
+hero_caption: ["Meeting room", "Edificio Openhouse, Salamanca"]
 eyebrow: Coworking
 service_type: Coworking and shared workstations
 csv_key: coworking

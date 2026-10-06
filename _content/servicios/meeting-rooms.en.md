@@ -10,7 +10,7 @@ h1: Meeting room hire
 subtitle: Rooms for 2 to 275 people, from one hour, any day of the year. Equipped, with visitor reception and catering on request. In {{ g.ciudades }} cities.
 hero_foto: /assets/img/cabeceras/sevilla.jpg
 hero_alt: "U-shaped boardroom with large windows at Edificio Galia Puerto, Seville"
-hero_caption: "Boardroom · Edificio Galia Puerto, Seville"
+hero_caption: ["Boardroom", "Edificio Galia Puerto, Seville"]
 eyebrow: Meeting rooms
 service_type: Meeting room hire
 csv_key: salas de reuniones

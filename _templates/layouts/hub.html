@@ -68,7 +68,7 @@
     }
     .map-tooltip.on { opacity: 1; transform: translate(-50%, -20px); }
     .map-tooltip .mt-city { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: .92rem; color: var(--dark); }
-    .map-tooltip .mt-count { color: var(--orange); font-weight: 700; }
+    .map-tooltip .mt-count { color: var(--orange); font-weight: 700; margin-left: 8px; }
     .map-tooltip .mt-cta { color: var(--gray-400); font-weight: 600; font-size: .72rem; margin-top: 2px; display: block; }
     .tenerife-inset { position: absolute; bottom: 24px; left: 24px; background: rgba(245,146,26,.1); border: 1px solid rgba(245,146,26,.25); border-radius: 10px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; transition: background .25s, border-color .25s, transform .25s; }
     .tenerife-inset:hover { background: rgba(245,146,26,.2); border-color: rgba(245,146,26,.5); transform: translateY(-2px); }
@@ -108,6 +108,8 @@
     .madrid-card-body { padding: 22px 20px 20px; flex: 1; display: flex; flex-direction: column; }
     .madrid-card-name { font-family: 'Barlow', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--dark); margin-bottom: 3px; }
     .madrid-card-zone { font-size: .75rem; color: var(--gray-400); font-weight: 600; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 14px; }
+    .madrid-card-zone .mcz-zona { display: block; font-size: .68rem; letter-spacing: 1.2px; color: var(--orange); font-weight: 700; margin-bottom: 3px; }   /* zona arriba, direccion debajo */
+    .madrid-card-zone .mcz-dir { display: block; }
     .madrid-card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; flex: 1; }
     .madrid-tag { font-size: .7rem; font-weight: 600; padding: 4px 10px; border-radius: 50px; background: var(--orange-pale); color: var(--orange); }
     .madrid-metro { display: flex; align-items: center; gap: 8px; font-size: .75rem; color: var(--gray-600); padding-top: 12px; border-top: 1px solid var(--gray-100); }
@@ -257,7 +259,7 @@
     // .href es un SVGAnimatedString, no un string (navegar con el daba /ubicaciones/[object SVGAnimatedString]).
     tooltip.setAttribute('href', link.getAttribute('href'));
     tooltip.querySelector('.mt-city').textContent = city;
-    tooltip.querySelector('.mt-count').textContent = '· ' + count;
+    tooltip.querySelector('.mt-count').textContent = count;
     const elRect = el.getBoundingClientRect();
     const wrapRect = mapContainer.getBoundingClientRect();
     tooltip.style.left = (elRect.left + elRect.width / 2 - wrapRect.left) + 'px';

@@ -6,7 +6,7 @@ layout: ciudad
 # Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
 hero_foto: /assets/img/cabeceras/salamanca.jpg
 hero_alt: "Sala de reuniones con mapa del mundo en la pared en el Edificio Openhouse, Salamanca"
-hero_caption: "Sala de reuniones · Edificio Openhouse, Salamanca"
+hero_caption: ["Sala de reuniones", "Edificio Openhouse, Salamanca"]
 og_image: /assets/img/og/salamanca.jpg
 og_image_alt: "Sala de reuniones con mapa del mundo en la pared en el Edificio Openhouse, Salamanca"
 ciudad: Salamanca

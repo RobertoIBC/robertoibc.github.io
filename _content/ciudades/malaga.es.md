@@ -6,7 +6,7 @@ layout: ciudad
 # Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
 hero_foto: /assets/img/cabeceras/malaga.jpg
 hero_alt: "Sala de reuniones con mesa larga y balcones en el centro OficinasYA! de Calle Larios, Málaga"
-hero_caption: "Sala de reuniones · Calle Larios, Málaga"
+hero_caption: ["Sala de reuniones", "Calle Larios, Málaga"]
 og_image: /assets/img/og/malaga.jpg
 og_image_alt: "Sala de reuniones con mesa larga y balcones en el centro OficinasYA! de Calle Larios, Málaga"
 ciudad: Málaga

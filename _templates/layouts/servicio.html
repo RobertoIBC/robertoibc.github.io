@@ -23,7 +23,7 @@
     .precio-unidad { font-size: .9rem; font-weight: 600; margin-left: 2px; }
     .precio-iva { font-size: .74rem; font-weight: 600; margin-left: 8px; white-space: nowrap; }
     /* cabecera oscura */
-    .hero-price-line { margin: 0 0 32px; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 14px; row-gap: 6px; color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.4;
+    .hero-price-line { margin: 0 0 32px; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 30px; row-gap: 6px; color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.4;
       --precio-sec: rgba(255,255,255,.62); --precio-color: var(--orange); --precio-size: 2.1rem; }
     .hero-price-line.sin-cifra .hp-modo { font-weight: 700; color: var(--white); font-size: 1.05rem; }
     .hero-price-line.sin-cifra .hp-nota { color: rgba(255,255,255,.62); }
@@ -34,7 +34,7 @@
     .srv-callout-n:has(.precio) { flex: 0 0 auto; }   /* que no se encoja: "desde" junto a la cifra */
     .srv-callout .precio-iva { flex-basis: 100%; margin: 4px 0 0; }
     .srv-callout-detalle { margin: 0 0 6px !important; font-weight: 600; color: var(--dark) !important; }
-    @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } .hero-price-line .hp-sep { display: none; } }
+    @media (max-width: 600px) { .hero-price-line { column-gap: 20px; } }
     .srv-option-detail { font-size: .86rem; color: var(--gray-600); line-height: 1.6; margin-top: 16px; }   /* aire entre el precio y la frase */
     .srv-layout { max-width: 1200px; margin: 0 auto; padding: 80px 6% 40px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start; }
     .srv-table-wrap { overflow-x: auto; }
@@ -189,14 +189,14 @@
     {#- Precio en una linea: el dato que busca quien llega de Google; las cajas completas bajan a "Dos formas" -#}
     <p class="hero-price-line">
 {%- for o in page.ofertas %}
-      {{ precio(p[o.precio], o.unidad, iva=loop.last) }}{% if not loop.last %} <span class="hp-sep" aria-hidden="true">·</span>{% endif %}
+      {{ precio(p[o.precio], o.unidad, iva=loop.last) }}
 {%- endfor %}
     </p>
 {%- elif page.get('precio_linea_texto') %}
     {#- Sin precio publicado: la misma linea, con la forma de pago y a quien preguntar (solo el telefono destaca) -#}
     <p class="hero-price-line sin-cifra">
-      <span class="hp-modo">{{ page.precio_linea_texto.modo }}</span> <span class="hp-sep" aria-hidden="true">·</span>
-      <span class="hp-nota">{{ page.precio_linea_texto.nota }}</span> <span class="hp-sep" aria-hidden="true">·</span>
+      <span class="hp-modo">{{ page.precio_linea_texto.modo }}</span>
+      <span class="hp-nota">{{ page.precio_linea_texto.nota }}</span>
       <a class="hp-tel" href="tel:{{ g.tel_link }}">{{ g.telefono }}</a>
     </p>
 {%- elif page.ofertas %}
@@ -214,7 +214,7 @@
     </div>
     <figure class="hero-photo">
       <img src="{{ page.hero_foto }}" alt="{{ page.hero_alt }}" width="1200" height="900" decoding="async" fetchpriority="high"{% if page.get('hero_pos') %} style="object-position: {{ page.hero_pos }}"{% endif %} />
-      <figcaption>{{ page.hero_caption }}</figcaption>
+      <figcaption>{%- if page.hero_caption is string %}{{ page.hero_caption }}{% else %}<span class="cap-1">{{ page.hero_caption[0] }}</span> <span class="cap-2">{{ page.hero_caption[1] }}</span>{% endif -%}</figcaption>
     </figure>
     </div>
 {%- endif %}

@@ -6,7 +6,7 @@ layout: ciudad
 # Cabecera con foto real (distinta de la de su ficha). Sin estas tres lineas la pagina va sin foto.
 hero_foto: /assets/img/cabeceras/sevilla.jpg
 hero_alt: "U-shaped boardroom with large windows at Edificio Galia Puerto, Seville"
-hero_caption: "Boardroom · Edificio Galia Puerto, Seville"
+hero_caption: ["Boardroom", "Edificio Galia Puerto, Seville"]
 og_image: /assets/img/og/sevilla.jpg
 og_image_alt: "U-shaped boardroom with large windows at Edificio Galia Puerto, Seville"
 ciudad: Sevilla
