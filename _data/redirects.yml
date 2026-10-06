@@ -42,36 +42,36 @@ migracion:
   #
   # Paginas de centro de la web viva -> pagina de su ciudad (se crean en la
   # fase 4). Son las URLs con mas antiguedad del dominio.
-  - { from: /madrid-salamanca-velazquez-alquiler-despachos-oficinas-velazquez/,        to: /oficinas-en-madrid/ }
-  - { from: /madrid-salamanca-gasset-alquiler-despachos-oficinas-gasset/,              to: /oficinas-en-madrid/ }
-  - { from: /madrid-salamanca-serrano-alquiler-despachos-oficinas-serrano/,            to: /oficinas-en-madrid/ }
-  - { from: /madrid-castellana-capitan-haya-alquiler-despachos-oficinas-plaza-castilla/, to: /oficinas-en-madrid/ }
-  - { from: /madrid-norte-las-tablas-alquiler-despachos-oficinas-las-tablas/,          to: /oficinas-en-madrid/ }
-  - { from: /madrid-san-sebastian-los-reyes-alquiler-despachos-oficinas-san-sebastian-los-reyes/, to: /oficinas-en-madrid/ }
-  - { from: /madrid-pozuelo-la-florida-alquiler-despachos-oficinas-la-florida/,        to: /oficinas-en-madrid/ }
+  - { from: /madrid-salamanca-velazquez-alquiler-despachos-oficinas-velazquez/,        to: "/oficinas-en-madrid/#velazquez" }
+  - { from: /madrid-salamanca-gasset-alquiler-despachos-oficinas-gasset/,              to: "/oficinas-en-madrid/#gasset" }
+  - { from: /madrid-salamanca-serrano-alquiler-despachos-oficinas-serrano/,            to: "/oficinas-en-madrid/#serrano" }
+  - { from: /madrid-castellana-capitan-haya-alquiler-despachos-oficinas-plaza-castilla/, to: "/oficinas-en-madrid/#capitan-haya" }
+  - { from: /madrid-norte-las-tablas-alquiler-despachos-oficinas-las-tablas/,          to: "/oficinas-en-madrid/#las-tablas" }
+  - { from: /madrid-san-sebastian-los-reyes-alquiler-despachos-oficinas-san-sebastian-los-reyes/, to: "/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes" }
+  - { from: /madrid-pozuelo-la-florida-alquiler-despachos-oficinas-la-florida/,        to: "/oficinas-en-madrid/#la-florida-pozuelo" }
   - { from: /albacete-alquiler-de-despachos-y-oficinas-en-albacete/,                   to: /oficinas-en-albacete/ }
   - { from: /alicante-alquiler-despachos-oficinas-alicante/,                           to: /oficinas-en-alicante/ }
-  - { from: /barcelona-alquiler-de-despachos-y-oficinas-en-barcelona-ii/,              to: /oficinas-en-barcelona/ }
+  - { from: /barcelona-alquiler-de-despachos-y-oficinas-en-barcelona-ii/,              to: "/oficinas-en-barcelona/#mitre-126" }
   - { from: /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona/,                 to: /oficinas-en-barcelona/ }
-  - { from: /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-sant-gervasi/,    to: /oficinas-en-barcelona/ }
-  - { from: /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-plaza-urquinaona/, to: /oficinas-en-barcelona/ }
-  - { from: /bilbao-maximo-aguirre-alquiler-de-despachos-y-oficinas-en-bilbao/,        to: /oficinas-en-bilbao/ }
-  - { from: /bilbao-albia-alquiler-de-despachos-y-oficinas-en-bilbao/,                 to: /oficinas-en-bilbao/ }
+  - { from: /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-sant-gervasi/,    to: "/oficinas-en-barcelona/#raset-29" }
+  - { from: /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-plaza-urquinaona/, to: "/oficinas-en-barcelona/#plaza-urquinaona" }
+  - { from: /bilbao-maximo-aguirre-alquiler-de-despachos-y-oficinas-en-bilbao/,        to: "/oficinas-en-bilbao/#maximo-aguirre" }
+  - { from: /bilbao-albia-alquiler-de-despachos-y-oficinas-en-bilbao/,                 to: "/oficinas-en-bilbao/#edificio-albia" }
   - { from: /castellon-alquiler-despachos-oficinas-castellon/,                         to: /oficinas-en-castellon/ }
   - { from: /a-coruna-alquiler-de-despachos-y-oficinas-en-a-coruna/,                   to: /oficinas-en-a-coruna/ }
   - { from: /malaga-alquiler-de-oficinas-y-despachos-en-malaga/,                       to: /oficinas-en-malaga/ }
   - { from: /merida-alquiler-de-oficinas-y-despachos-en-merida/,                       to: /oficinas-en-merida/ }
   - { from: /murcia-alquiler-de-despachos-y-oficinas-en-murcia/,                       to: /oficinas-en-murcia/ }
-  - { from: /murcia-alquiler-de-despachos-y-oficinas-en-murcia-poligono-industrial-oeste/, to: /oficinas-en-murcia/ }
-  - { from: /coliving-murcia-vive-y-trabaja-en-un-lugar-diferente/,                    to: /oficinas-en-murcia/ }
+  - { from: /murcia-alquiler-de-despachos-y-oficinas-en-murcia-poligono-industrial-oeste/, to: "/oficinas-en-murcia/#edificio-magalia-alcantarilla" }
+  - { from: /coliving-murcia-vive-y-trabaja-en-un-lugar-diferente/,                    to: "/oficinas-en-murcia/#coliving-condado-de-alhama" }
   - { from: /coworking-salamanca-alquiler-de-despachos-y-oficinas-en-salamanca/,       to: /oficinas-en-salamanca/ }
-  - { from: /segovia-alquiler-de-despachos-y-oficinas-en-avenida-padre-claret/,        to: /oficinas-en-segovia/ }
-  - { from: /segovia-alquiler-de-despachos-y-oficinas-en-paseo-ezequiel-gonzalez/,     to: /oficinas-en-segovia/ }
-  - { from: /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/,                     to: /oficinas-en-sevilla/ }
-  - { from: /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla-galia/,               to: /oficinas-en-sevilla/ }
-  - { from: /sevilla-nervion-alquiler-de-oficinas-y-despachos-en-sevilla/,             to: /oficinas-en-sevilla/ }
-  - { from: /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife/,                   to: /oficinas-en-tenerife/ }
-  - { from: /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife-2/,                 to: /oficinas-en-tenerife/ }
+  - { from: /segovia-alquiler-de-despachos-y-oficinas-en-avenida-padre-claret/,        to: "/oficinas-en-segovia/#padre-claret" }
+  - { from: /segovia-alquiler-de-despachos-y-oficinas-en-paseo-ezequiel-gonzalez/,     to: "/oficinas-en-segovia/#ezequiel-gonzalez" }
+  - { from: /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/,                     to: "/oficinas-en-sevilla/#larana" }
+  - { from: /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla-galia/,               to: "/oficinas-en-sevilla/#edificio-galia-puerto" }
+  - { from: /sevilla-nervion-alquiler-de-oficinas-y-despachos-en-sevilla/,             to: "/oficinas-en-sevilla/#edificio-nervion" }
+  - { from: /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife/,                   to: "/oficinas-en-tenerife/#santa-rosalia" }
+  - { from: /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife-2/,                 to: "/oficinas-en-tenerife/#costa-y-grijalba" }
   - { from: /valencia-alquiler-de-despachos-y-oficinas-en-valencia/,                   to: /oficinas-en-valencia/ }
   - { from: /vigo-alquiler-de-oficinas-y-despachos-en-galicia/,                        to: /oficinas-en-vigo/ }
   - { from: /zaragoza-alquiler-de-despachos-y-oficinas-en-zaragoza/,                   to: /oficinas-en-zaragoza/ }
@@ -122,7 +122,7 @@ migracion:
   - { from: /oficinas/plaza-de-castilla-alquiler-de-despachos-y-oficinas-en-plaza-de-castilla/, to: "/oficinas-en-madrid/#capitan-haya" }
   - { from: /oficinas/san-sebastian-de-los-reyes/, to: "/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes" }
   - { from: /oficinas/serrano/, to: "/oficinas-en-madrid/#serrano" }
-  - { from: /oficinas/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/, to: "/oficinas-en-sevilla/" }
+  - { from: /oficinas/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/, to: "/oficinas-en-sevilla/#larana" }
   - { from: /oficinas/valencia-alquiler-de-despachos-y-oficinas-en-valencia/, to: "/oficinas-en-valencia/" }
   - { from: /oficinas/velazquez/, to: "/oficinas-en-madrid/#velazquez" }
   - { from: /oficinas/vigo-alquiler-oficinas-despachos-galicia/, to: "/oficinas-en-vigo/" }

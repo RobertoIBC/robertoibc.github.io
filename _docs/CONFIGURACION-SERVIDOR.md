@@ -92,36 +92,36 @@ RewriteRule ^salas/?$ https://www.oficinasya.es/salas-de-reuniones/ [R=301,L,NE]
 RewriteRule ^oficinas\-virtuales/?$ https://www.oficinasya.es/oficina-virtual/ [R=301,L,NE]
 RewriteRule ^centros\-de\-negocio/?$ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
 RewriteRule ^mapa\-general/?$ https://www.oficinasya.es/ubicaciones/ [R=301,L,NE]
-RewriteRule ^madrid\-salamanca\-velazquez\-alquiler\-despachos\-oficinas\-velazquez/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
-RewriteRule ^madrid\-salamanca\-gasset\-alquiler\-despachos\-oficinas\-gasset/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
-RewriteRule ^madrid\-salamanca\-serrano\-alquiler\-despachos\-oficinas\-serrano/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
-RewriteRule ^madrid\-castellana\-capitan\-haya\-alquiler\-despachos\-oficinas\-plaza\-castilla/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
-RewriteRule ^madrid\-norte\-las\-tablas\-alquiler\-despachos\-oficinas\-las\-tablas/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
-RewriteRule ^madrid\-san\-sebastian\-los\-reyes\-alquiler\-despachos\-oficinas\-san\-sebastian\-los\-reyes/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
-RewriteRule ^madrid\-pozuelo\-la\-florida\-alquiler\-despachos\-oficinas\-la\-florida/?$ https://www.oficinasya.es/oficinas-en-madrid/ [R=301,L,NE]
+RewriteRule ^madrid\-salamanca\-velazquez\-alquiler\-despachos\-oficinas\-velazquez/?$ https://www.oficinasya.es/oficinas-en-madrid/#velazquez [R=301,L,NE]
+RewriteRule ^madrid\-salamanca\-gasset\-alquiler\-despachos\-oficinas\-gasset/?$ https://www.oficinasya.es/oficinas-en-madrid/#gasset [R=301,L,NE]
+RewriteRule ^madrid\-salamanca\-serrano\-alquiler\-despachos\-oficinas\-serrano/?$ https://www.oficinasya.es/oficinas-en-madrid/#serrano [R=301,L,NE]
+RewriteRule ^madrid\-castellana\-capitan\-haya\-alquiler\-despachos\-oficinas\-plaza\-castilla/?$ https://www.oficinasya.es/oficinas-en-madrid/#capitan-haya [R=301,L,NE]
+RewriteRule ^madrid\-norte\-las\-tablas\-alquiler\-despachos\-oficinas\-las\-tablas/?$ https://www.oficinasya.es/oficinas-en-madrid/#las-tablas [R=301,L,NE]
+RewriteRule ^madrid\-san\-sebastian\-los\-reyes\-alquiler\-despachos\-oficinas\-san\-sebastian\-los\-reyes/?$ https://www.oficinasya.es/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes [R=301,L,NE]
+RewriteRule ^madrid\-pozuelo\-la\-florida\-alquiler\-despachos\-oficinas\-la\-florida/?$ https://www.oficinasya.es/oficinas-en-madrid/#la-florida-pozuelo [R=301,L,NE]
 RewriteRule ^albacete\-alquiler\-de\-despachos\-y\-oficinas\-en\-albacete/?$ https://www.oficinasya.es/oficinas-en-albacete/ [R=301,L,NE]
 RewriteRule ^alicante\-alquiler\-despachos\-oficinas\-alicante/?$ https://www.oficinasya.es/oficinas-en-alicante/ [R=301,L,NE]
-RewriteRule ^barcelona\-alquiler\-de\-despachos\-y\-oficinas\-en\-barcelona\-ii/?$ https://www.oficinasya.es/oficinas-en-barcelona/ [R=301,L,NE]
+RewriteRule ^barcelona\-alquiler\-de\-despachos\-y\-oficinas\-en\-barcelona\-ii/?$ https://www.oficinasya.es/oficinas-en-barcelona/#mitre-126 [R=301,L,NE]
 RewriteRule ^barcelona\-alquiler\-de\-oficinas\-y\-despachos\-en\-barcelona/?$ https://www.oficinasya.es/oficinas-en-barcelona/ [R=301,L,NE]
-RewriteRule ^barcelona\-alquiler\-de\-oficinas\-y\-despachos\-en\-barcelona\-sant\-gervasi/?$ https://www.oficinasya.es/oficinas-en-barcelona/ [R=301,L,NE]
-RewriteRule ^barcelona\-alquiler\-de\-oficinas\-y\-despachos\-en\-barcelona\-plaza\-urquinaona/?$ https://www.oficinasya.es/oficinas-en-barcelona/ [R=301,L,NE]
-RewriteRule ^bilbao\-maximo\-aguirre\-alquiler\-de\-despachos\-y\-oficinas\-en\-bilbao/?$ https://www.oficinasya.es/oficinas-en-bilbao/ [R=301,L,NE]
-RewriteRule ^bilbao\-albia\-alquiler\-de\-despachos\-y\-oficinas\-en\-bilbao/?$ https://www.oficinasya.es/oficinas-en-bilbao/ [R=301,L,NE]
+RewriteRule ^barcelona\-alquiler\-de\-oficinas\-y\-despachos\-en\-barcelona\-sant\-gervasi/?$ https://www.oficinasya.es/oficinas-en-barcelona/#raset-29 [R=301,L,NE]
+RewriteRule ^barcelona\-alquiler\-de\-oficinas\-y\-despachos\-en\-barcelona\-plaza\-urquinaona/?$ https://www.oficinasya.es/oficinas-en-barcelona/#plaza-urquinaona [R=301,L,NE]
+RewriteRule ^bilbao\-maximo\-aguirre\-alquiler\-de\-despachos\-y\-oficinas\-en\-bilbao/?$ https://www.oficinasya.es/oficinas-en-bilbao/#maximo-aguirre [R=301,L,NE]
+RewriteRule ^bilbao\-albia\-alquiler\-de\-despachos\-y\-oficinas\-en\-bilbao/?$ https://www.oficinasya.es/oficinas-en-bilbao/#edificio-albia [R=301,L,NE]
 RewriteRule ^castellon\-alquiler\-despachos\-oficinas\-castellon/?$ https://www.oficinasya.es/oficinas-en-castellon/ [R=301,L,NE]
 RewriteRule ^a\-coruna\-alquiler\-de\-despachos\-y\-oficinas\-en\-a\-coruna/?$ https://www.oficinasya.es/oficinas-en-a-coruna/ [R=301,L,NE]
 RewriteRule ^malaga\-alquiler\-de\-oficinas\-y\-despachos\-en\-malaga/?$ https://www.oficinasya.es/oficinas-en-malaga/ [R=301,L,NE]
 RewriteRule ^merida\-alquiler\-de\-oficinas\-y\-despachos\-en\-merida/?$ https://www.oficinasya.es/oficinas-en-merida/ [R=301,L,NE]
 RewriteRule ^murcia\-alquiler\-de\-despachos\-y\-oficinas\-en\-murcia/?$ https://www.oficinasya.es/oficinas-en-murcia/ [R=301,L,NE]
-RewriteRule ^murcia\-alquiler\-de\-despachos\-y\-oficinas\-en\-murcia\-poligono\-industrial\-oeste/?$ https://www.oficinasya.es/oficinas-en-murcia/ [R=301,L,NE]
-RewriteRule ^coliving\-murcia\-vive\-y\-trabaja\-en\-un\-lugar\-diferente/?$ https://www.oficinasya.es/oficinas-en-murcia/ [R=301,L,NE]
+RewriteRule ^murcia\-alquiler\-de\-despachos\-y\-oficinas\-en\-murcia\-poligono\-industrial\-oeste/?$ https://www.oficinasya.es/oficinas-en-murcia/#edificio-magalia-alcantarilla [R=301,L,NE]
+RewriteRule ^coliving\-murcia\-vive\-y\-trabaja\-en\-un\-lugar\-diferente/?$ https://www.oficinasya.es/oficinas-en-murcia/#coliving-condado-de-alhama [R=301,L,NE]
 RewriteRule ^coworking\-salamanca\-alquiler\-de\-despachos\-y\-oficinas\-en\-salamanca/?$ https://www.oficinasya.es/oficinas-en-salamanca/ [R=301,L,NE]
-RewriteRule ^segovia\-alquiler\-de\-despachos\-y\-oficinas\-en\-avenida\-padre\-claret/?$ https://www.oficinasya.es/oficinas-en-segovia/ [R=301,L,NE]
-RewriteRule ^segovia\-alquiler\-de\-despachos\-y\-oficinas\-en\-paseo\-ezequiel\-gonzalez/?$ https://www.oficinasya.es/oficinas-en-segovia/ [R=301,L,NE]
-RewriteRule ^sevilla\-alquiler\-de\-oficinas\-y\-despachos\-en\-sevilla/?$ https://www.oficinasya.es/oficinas-en-sevilla/ [R=301,L,NE]
-RewriteRule ^sevilla\-alquiler\-de\-oficinas\-y\-despachos\-en\-sevilla\-galia/?$ https://www.oficinasya.es/oficinas-en-sevilla/ [R=301,L,NE]
-RewriteRule ^sevilla\-nervion\-alquiler\-de\-oficinas\-y\-despachos\-en\-sevilla/?$ https://www.oficinasya.es/oficinas-en-sevilla/ [R=301,L,NE]
-RewriteRule ^tenerife\-alquiler\-de\-despachos\-y\-oficinas\-en\-tenerife/?$ https://www.oficinasya.es/oficinas-en-tenerife/ [R=301,L,NE]
-RewriteRule ^tenerife\-alquiler\-de\-despachos\-y\-oficinas\-en\-tenerife\-2/?$ https://www.oficinasya.es/oficinas-en-tenerife/ [R=301,L,NE]
+RewriteRule ^segovia\-alquiler\-de\-despachos\-y\-oficinas\-en\-avenida\-padre\-claret/?$ https://www.oficinasya.es/oficinas-en-segovia/#padre-claret [R=301,L,NE]
+RewriteRule ^segovia\-alquiler\-de\-despachos\-y\-oficinas\-en\-paseo\-ezequiel\-gonzalez/?$ https://www.oficinasya.es/oficinas-en-segovia/#ezequiel-gonzalez [R=301,L,NE]
+RewriteRule ^sevilla\-alquiler\-de\-oficinas\-y\-despachos\-en\-sevilla/?$ https://www.oficinasya.es/oficinas-en-sevilla/#larana [R=301,L,NE]
+RewriteRule ^sevilla\-alquiler\-de\-oficinas\-y\-despachos\-en\-sevilla\-galia/?$ https://www.oficinasya.es/oficinas-en-sevilla/#edificio-galia-puerto [R=301,L,NE]
+RewriteRule ^sevilla\-nervion\-alquiler\-de\-oficinas\-y\-despachos\-en\-sevilla/?$ https://www.oficinasya.es/oficinas-en-sevilla/#edificio-nervion [R=301,L,NE]
+RewriteRule ^tenerife\-alquiler\-de\-despachos\-y\-oficinas\-en\-tenerife/?$ https://www.oficinasya.es/oficinas-en-tenerife/#santa-rosalia [R=301,L,NE]
+RewriteRule ^tenerife\-alquiler\-de\-despachos\-y\-oficinas\-en\-tenerife\-2/?$ https://www.oficinasya.es/oficinas-en-tenerife/#costa-y-grijalba [R=301,L,NE]
 RewriteRule ^valencia\-alquiler\-de\-despachos\-y\-oficinas\-en\-valencia/?$ https://www.oficinasya.es/oficinas-en-valencia/ [R=301,L,NE]
 RewriteRule ^vigo\-alquiler\-de\-oficinas\-y\-despachos\-en\-galicia/?$ https://www.oficinasya.es/oficinas-en-vigo/ [R=301,L,NE]
 RewriteRule ^zaragoza\-alquiler\-de\-despachos\-y\-oficinas\-en\-zaragoza/?$ https://www.oficinasya.es/oficinas-en-zaragoza/ [R=301,L,NE]
@@ -168,7 +168,7 @@ RewriteRule ^oficinas/murcia\-alquiler\-de\-despachos\-y\-oficinas\-en\-murcia/?
 RewriteRule ^oficinas/plaza\-de\-castilla\-alquiler\-de\-despachos\-y\-oficinas\-en\-plaza\-de\-castilla/?$ https://www.oficinasya.es/oficinas-en-madrid/#capitan-haya [R=301,L,NE]
 RewriteRule ^oficinas/san\-sebastian\-de\-los\-reyes/?$ https://www.oficinasya.es/oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes [R=301,L,NE]
 RewriteRule ^oficinas/serrano/?$ https://www.oficinasya.es/oficinas-en-madrid/#serrano [R=301,L,NE]
-RewriteRule ^oficinas/sevilla\-alquiler\-de\-oficinas\-y\-despachos\-en\-sevilla/?$ https://www.oficinasya.es/oficinas-en-sevilla/ [R=301,L,NE]
+RewriteRule ^oficinas/sevilla\-alquiler\-de\-oficinas\-y\-despachos\-en\-sevilla/?$ https://www.oficinasya.es/oficinas-en-sevilla/#larana [R=301,L,NE]
 RewriteRule ^oficinas/valencia\-alquiler\-de\-despachos\-y\-oficinas\-en\-valencia/?$ https://www.oficinasya.es/oficinas-en-valencia/ [R=301,L,NE]
 RewriteRule ^oficinas/velazquez/?$ https://www.oficinasya.es/oficinas-en-madrid/#velazquez [R=301,L,NE]
 RewriteRule ^oficinas/vigo\-alquiler\-oficinas\-despachos\-galicia/?$ https://www.oficinasya.es/oficinas-en-vigo/ [R=301,L,NE]
@@ -469,36 +469,36 @@ map $uri $oya_redirect {
     /centros-de-negocio /ubicaciones/;
     /mapa-general/ /ubicaciones/;
     /mapa-general /ubicaciones/;
-    /madrid-salamanca-velazquez-alquiler-despachos-oficinas-velazquez/ /oficinas-en-madrid/;
-    /madrid-salamanca-velazquez-alquiler-despachos-oficinas-velazquez /oficinas-en-madrid/;
-    /madrid-salamanca-gasset-alquiler-despachos-oficinas-gasset/ /oficinas-en-madrid/;
-    /madrid-salamanca-gasset-alquiler-despachos-oficinas-gasset /oficinas-en-madrid/;
-    /madrid-salamanca-serrano-alquiler-despachos-oficinas-serrano/ /oficinas-en-madrid/;
-    /madrid-salamanca-serrano-alquiler-despachos-oficinas-serrano /oficinas-en-madrid/;
-    /madrid-castellana-capitan-haya-alquiler-despachos-oficinas-plaza-castilla/ /oficinas-en-madrid/;
-    /madrid-castellana-capitan-haya-alquiler-despachos-oficinas-plaza-castilla /oficinas-en-madrid/;
-    /madrid-norte-las-tablas-alquiler-despachos-oficinas-las-tablas/ /oficinas-en-madrid/;
-    /madrid-norte-las-tablas-alquiler-despachos-oficinas-las-tablas /oficinas-en-madrid/;
-    /madrid-san-sebastian-los-reyes-alquiler-despachos-oficinas-san-sebastian-los-reyes/ /oficinas-en-madrid/;
-    /madrid-san-sebastian-los-reyes-alquiler-despachos-oficinas-san-sebastian-los-reyes /oficinas-en-madrid/;
-    /madrid-pozuelo-la-florida-alquiler-despachos-oficinas-la-florida/ /oficinas-en-madrid/;
-    /madrid-pozuelo-la-florida-alquiler-despachos-oficinas-la-florida /oficinas-en-madrid/;
+    /madrid-salamanca-velazquez-alquiler-despachos-oficinas-velazquez/ /oficinas-en-madrid/#velazquez;
+    /madrid-salamanca-velazquez-alquiler-despachos-oficinas-velazquez /oficinas-en-madrid/#velazquez;
+    /madrid-salamanca-gasset-alquiler-despachos-oficinas-gasset/ /oficinas-en-madrid/#gasset;
+    /madrid-salamanca-gasset-alquiler-despachos-oficinas-gasset /oficinas-en-madrid/#gasset;
+    /madrid-salamanca-serrano-alquiler-despachos-oficinas-serrano/ /oficinas-en-madrid/#serrano;
+    /madrid-salamanca-serrano-alquiler-despachos-oficinas-serrano /oficinas-en-madrid/#serrano;
+    /madrid-castellana-capitan-haya-alquiler-despachos-oficinas-plaza-castilla/ /oficinas-en-madrid/#capitan-haya;
+    /madrid-castellana-capitan-haya-alquiler-despachos-oficinas-plaza-castilla /oficinas-en-madrid/#capitan-haya;
+    /madrid-norte-las-tablas-alquiler-despachos-oficinas-las-tablas/ /oficinas-en-madrid/#las-tablas;
+    /madrid-norte-las-tablas-alquiler-despachos-oficinas-las-tablas /oficinas-en-madrid/#las-tablas;
+    /madrid-san-sebastian-los-reyes-alquiler-despachos-oficinas-san-sebastian-los-reyes/ /oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes;
+    /madrid-san-sebastian-los-reyes-alquiler-despachos-oficinas-san-sebastian-los-reyes /oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes;
+    /madrid-pozuelo-la-florida-alquiler-despachos-oficinas-la-florida/ /oficinas-en-madrid/#la-florida-pozuelo;
+    /madrid-pozuelo-la-florida-alquiler-despachos-oficinas-la-florida /oficinas-en-madrid/#la-florida-pozuelo;
     /albacete-alquiler-de-despachos-y-oficinas-en-albacete/ /oficinas-en-albacete/;
     /albacete-alquiler-de-despachos-y-oficinas-en-albacete /oficinas-en-albacete/;
     /alicante-alquiler-despachos-oficinas-alicante/ /oficinas-en-alicante/;
     /alicante-alquiler-despachos-oficinas-alicante /oficinas-en-alicante/;
-    /barcelona-alquiler-de-despachos-y-oficinas-en-barcelona-ii/ /oficinas-en-barcelona/;
-    /barcelona-alquiler-de-despachos-y-oficinas-en-barcelona-ii /oficinas-en-barcelona/;
+    /barcelona-alquiler-de-despachos-y-oficinas-en-barcelona-ii/ /oficinas-en-barcelona/#mitre-126;
+    /barcelona-alquiler-de-despachos-y-oficinas-en-barcelona-ii /oficinas-en-barcelona/#mitre-126;
     /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona/ /oficinas-en-barcelona/;
     /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona /oficinas-en-barcelona/;
-    /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-sant-gervasi/ /oficinas-en-barcelona/;
-    /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-sant-gervasi /oficinas-en-barcelona/;
-    /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-plaza-urquinaona/ /oficinas-en-barcelona/;
-    /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-plaza-urquinaona /oficinas-en-barcelona/;
-    /bilbao-maximo-aguirre-alquiler-de-despachos-y-oficinas-en-bilbao/ /oficinas-en-bilbao/;
-    /bilbao-maximo-aguirre-alquiler-de-despachos-y-oficinas-en-bilbao /oficinas-en-bilbao/;
-    /bilbao-albia-alquiler-de-despachos-y-oficinas-en-bilbao/ /oficinas-en-bilbao/;
-    /bilbao-albia-alquiler-de-despachos-y-oficinas-en-bilbao /oficinas-en-bilbao/;
+    /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-sant-gervasi/ /oficinas-en-barcelona/#raset-29;
+    /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-sant-gervasi /oficinas-en-barcelona/#raset-29;
+    /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-plaza-urquinaona/ /oficinas-en-barcelona/#plaza-urquinaona;
+    /barcelona-alquiler-de-oficinas-y-despachos-en-barcelona-plaza-urquinaona /oficinas-en-barcelona/#plaza-urquinaona;
+    /bilbao-maximo-aguirre-alquiler-de-despachos-y-oficinas-en-bilbao/ /oficinas-en-bilbao/#maximo-aguirre;
+    /bilbao-maximo-aguirre-alquiler-de-despachos-y-oficinas-en-bilbao /oficinas-en-bilbao/#maximo-aguirre;
+    /bilbao-albia-alquiler-de-despachos-y-oficinas-en-bilbao/ /oficinas-en-bilbao/#edificio-albia;
+    /bilbao-albia-alquiler-de-despachos-y-oficinas-en-bilbao /oficinas-en-bilbao/#edificio-albia;
     /castellon-alquiler-despachos-oficinas-castellon/ /oficinas-en-castellon/;
     /castellon-alquiler-despachos-oficinas-castellon /oficinas-en-castellon/;
     /a-coruna-alquiler-de-despachos-y-oficinas-en-a-coruna/ /oficinas-en-a-coruna/;
@@ -509,26 +509,26 @@ map $uri $oya_redirect {
     /merida-alquiler-de-oficinas-y-despachos-en-merida /oficinas-en-merida/;
     /murcia-alquiler-de-despachos-y-oficinas-en-murcia/ /oficinas-en-murcia/;
     /murcia-alquiler-de-despachos-y-oficinas-en-murcia /oficinas-en-murcia/;
-    /murcia-alquiler-de-despachos-y-oficinas-en-murcia-poligono-industrial-oeste/ /oficinas-en-murcia/;
-    /murcia-alquiler-de-despachos-y-oficinas-en-murcia-poligono-industrial-oeste /oficinas-en-murcia/;
-    /coliving-murcia-vive-y-trabaja-en-un-lugar-diferente/ /oficinas-en-murcia/;
-    /coliving-murcia-vive-y-trabaja-en-un-lugar-diferente /oficinas-en-murcia/;
+    /murcia-alquiler-de-despachos-y-oficinas-en-murcia-poligono-industrial-oeste/ /oficinas-en-murcia/#edificio-magalia-alcantarilla;
+    /murcia-alquiler-de-despachos-y-oficinas-en-murcia-poligono-industrial-oeste /oficinas-en-murcia/#edificio-magalia-alcantarilla;
+    /coliving-murcia-vive-y-trabaja-en-un-lugar-diferente/ /oficinas-en-murcia/#coliving-condado-de-alhama;
+    /coliving-murcia-vive-y-trabaja-en-un-lugar-diferente /oficinas-en-murcia/#coliving-condado-de-alhama;
     /coworking-salamanca-alquiler-de-despachos-y-oficinas-en-salamanca/ /oficinas-en-salamanca/;
     /coworking-salamanca-alquiler-de-despachos-y-oficinas-en-salamanca /oficinas-en-salamanca/;
-    /segovia-alquiler-de-despachos-y-oficinas-en-avenida-padre-claret/ /oficinas-en-segovia/;
-    /segovia-alquiler-de-despachos-y-oficinas-en-avenida-padre-claret /oficinas-en-segovia/;
-    /segovia-alquiler-de-despachos-y-oficinas-en-paseo-ezequiel-gonzalez/ /oficinas-en-segovia/;
-    /segovia-alquiler-de-despachos-y-oficinas-en-paseo-ezequiel-gonzalez /oficinas-en-segovia/;
-    /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/ /oficinas-en-sevilla/;
-    /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla /oficinas-en-sevilla/;
-    /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla-galia/ /oficinas-en-sevilla/;
-    /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla-galia /oficinas-en-sevilla/;
-    /sevilla-nervion-alquiler-de-oficinas-y-despachos-en-sevilla/ /oficinas-en-sevilla/;
-    /sevilla-nervion-alquiler-de-oficinas-y-despachos-en-sevilla /oficinas-en-sevilla/;
-    /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife/ /oficinas-en-tenerife/;
-    /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife /oficinas-en-tenerife/;
-    /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife-2/ /oficinas-en-tenerife/;
-    /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife-2 /oficinas-en-tenerife/;
+    /segovia-alquiler-de-despachos-y-oficinas-en-avenida-padre-claret/ /oficinas-en-segovia/#padre-claret;
+    /segovia-alquiler-de-despachos-y-oficinas-en-avenida-padre-claret /oficinas-en-segovia/#padre-claret;
+    /segovia-alquiler-de-despachos-y-oficinas-en-paseo-ezequiel-gonzalez/ /oficinas-en-segovia/#ezequiel-gonzalez;
+    /segovia-alquiler-de-despachos-y-oficinas-en-paseo-ezequiel-gonzalez /oficinas-en-segovia/#ezequiel-gonzalez;
+    /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/ /oficinas-en-sevilla/#larana;
+    /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla /oficinas-en-sevilla/#larana;
+    /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla-galia/ /oficinas-en-sevilla/#edificio-galia-puerto;
+    /sevilla-alquiler-de-oficinas-y-despachos-en-sevilla-galia /oficinas-en-sevilla/#edificio-galia-puerto;
+    /sevilla-nervion-alquiler-de-oficinas-y-despachos-en-sevilla/ /oficinas-en-sevilla/#edificio-nervion;
+    /sevilla-nervion-alquiler-de-oficinas-y-despachos-en-sevilla /oficinas-en-sevilla/#edificio-nervion;
+    /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife/ /oficinas-en-tenerife/#santa-rosalia;
+    /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife /oficinas-en-tenerife/#santa-rosalia;
+    /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife-2/ /oficinas-en-tenerife/#costa-y-grijalba;
+    /tenerife-alquiler-de-despachos-y-oficinas-en-tenerife-2 /oficinas-en-tenerife/#costa-y-grijalba;
     /valencia-alquiler-de-despachos-y-oficinas-en-valencia/ /oficinas-en-valencia/;
     /valencia-alquiler-de-despachos-y-oficinas-en-valencia /oficinas-en-valencia/;
     /vigo-alquiler-de-oficinas-y-despachos-en-galicia/ /oficinas-en-vigo/;
@@ -621,8 +621,8 @@ map $uri $oya_redirect {
     /oficinas/san-sebastian-de-los-reyes /oficinas-en-madrid/#sanse-san-sebastian-de-los-reyes;
     /oficinas/serrano/ /oficinas-en-madrid/#serrano;
     /oficinas/serrano /oficinas-en-madrid/#serrano;
-    /oficinas/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/ /oficinas-en-sevilla/;
-    /oficinas/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla /oficinas-en-sevilla/;
+    /oficinas/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla/ /oficinas-en-sevilla/#larana;
+    /oficinas/sevilla-alquiler-de-oficinas-y-despachos-en-sevilla /oficinas-en-sevilla/#larana;
     /oficinas/valencia-alquiler-de-despachos-y-oficinas-en-valencia/ /oficinas-en-valencia/;
     /oficinas/valencia-alquiler-de-despachos-y-oficinas-en-valencia /oficinas-en-valencia/;
     /oficinas/velazquez/ /oficinas-en-madrid/#velazquez;

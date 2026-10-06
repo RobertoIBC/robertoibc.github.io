@@ -137,6 +137,15 @@ for p in pages:
         foot = {a or b for a, b in re.findall(r'class="soc"[^>]*href="([^"]+)"|href="([^"]+)" class="soc"', h)}
         if same and not foot: errors.append(f'{url}: hay sameAs pero no encuentro las redes del pie (class="soc")')
         elif same and same != foot: errors.append(f'{url}: sameAs del JSON-LD != redes del pie: {sorted(same ^ foot)}')
+# las redirecciones con ancla (/oficinas-en-madrid/#serrano) llevan a un id que existe en su destino
+_red = _y.safe_load((ROOT / '_data' / 'redirects.yml').read_text(encoding='utf-8'))
+for _sec in ('prototipo', 'migracion', 'migracion_blog', 'patrones'):
+    for _r in _red.get(_sec) or []:
+        if '#' not in _r['to']: continue
+        _p, _a = _r['to'].split('#', 1)
+        _f = ROOT / _p.strip('/') / 'index.html' if _p.strip('/') else ROOT / 'index.html'
+        if not _f.exists() or f'id="{_a}"' not in _f.read_text(encoding='utf-8'):
+            errors.append(f'redirects.yml: {_r.get("from") or _r.get("match")} -> {_r["to"]}: ese ancla no existe en la pagina')
 # la configuracion del servidor copiada en _docs/CONFIGURACION-SERVIDOR.md es la que genera _build.py
 # (si se cambia redirects.yml y no se regenera el documento, el tecnico pegaria reglas viejas)
 import subprocess
