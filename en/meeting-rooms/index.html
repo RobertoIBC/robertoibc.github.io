@@ -408,10 +408,13 @@
     .srv-mini { background: var(--white); border: var(--card-border); border-radius: var(--radius); padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
     .srv-mini-n { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; background: var(--orange-pale); color: var(--orange-dark); font-family: 'Barlow', sans-serif; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; }
     .srv-mini p { margin: 0; font-size: .96rem; line-height: 1.6; color: var(--dark-mid); }
-    .srv-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 28px; }
-    .srv-stat { background: var(--dark); color: var(--white); border-radius: var(--radius); padding: 20px 22px; }
-    .srv-stat-n { font-family: 'Barlow', sans-serif; font-size: 2.1rem; font-weight: 900; color: var(--orange); line-height: 1; }
-    .srv-stat-l { font-size: .85rem; color: rgba(255,255,255,.72); margin-top: 6px; line-height: 1.4; }
+    /* Cifras: sin caja, para que el unico bloque negro de la pantalla sea la tarjeta "Hablamos?" de la columna.
+       Se leen como un bloque: una raya naranja continua encima de las tres y separadores finos entre ellas. */
+    .srv-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 4px 0 32px; border-top: 3px solid var(--orange); padding-top: 18px; }
+    .srv-stat { color: var(--dark); padding: 0 20px; border-left: 1px solid var(--gray-200); }
+    .srv-stat:first-child { padding-left: 0; border-left: 0; }
+    .srv-stat-n { font-family: 'Barlow', sans-serif; font-size: 2.1rem; font-weight: 900; color: var(--orange-dark); line-height: 1; }
+    .srv-stat-l { font-size: .85rem; color: var(--gray-600); margin-top: 6px; line-height: 1.4; }
     .srv-cards-2.srv-formas { grid-template-columns: 1fr; }   /* una forma por fila: precio a la izquierda, texto a la derecha */
     .srv-option { background: var(--white); border: var(--card-border); border-radius: var(--radius); padding: 22px 26px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 24px; align-items: start; }
     .srv-option-hd { border-right: 1px solid var(--gray-200); padding-right: 20px; align-self: stretch; }
@@ -488,6 +491,8 @@
     }
     @media (max-width: 600px) {
       .srv-cards-2, .srv-cards-3, .srv-cards-4, .srv-stats { grid-template-columns: 1fr; }
+      .srv-stat { padding: 12px 0; border-left: 0; border-top: 1px solid var(--gray-200); }
+      .srv-stat:first-child { padding-top: 0; border-top: 0; }
       .srv-callout { padding: 20px 22px; }
       .srv-option { grid-template-columns: 1fr; gap: 14px; }
       .srv-option-hd { border-right: none; border-bottom: 1px solid var(--gray-200); padding: 0 0 14px; }
